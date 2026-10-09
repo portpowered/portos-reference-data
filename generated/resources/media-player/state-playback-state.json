@@ -5,11 +5,11 @@
       "type": "string",
       "description": "The current playback state",
       "enum": [
-        "playing",
-        "paused",
-        "stopped",
-        "loading",
-        "error"
+        "PLAYING",
+        "PAUSED",
+        "STOPPED",
+        "LOADING",
+        "ERROR"
       ]
     }
   },

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A color in HSB (Hue, Saturation, Brightness) color space",
+  "properties": {
+    "hue": {
+      "type": "number"
+    },
+    "saturation": {
+      "type": "number"
+    },
+    "brightness": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "hue",
+    "saturation",
+    "brightness"
+  ]
+}

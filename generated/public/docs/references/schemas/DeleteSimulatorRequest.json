@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The principal-scoped simulator identifier, or a retained legacy simulator identifier.",
+      "pattern": "^(port1/principals/[^/]+/endpoint-simulators/[^/]+|port1\\.simulator\\..+)$"
+    }
+  }
+}

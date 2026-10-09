@@ -41,7 +41,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/Message'
+          $ref: /docs/references/schemas/Message.json
         example:
           body: {}
   responses:
@@ -58,4 +58,8 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Message.json](/docs/references/schemas/Message.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/BasePlugin.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "computationId",
+        "oauth2ConnectionData"
+      ],
+      "properties": {
+        "computationId": {
+          "type": "string",
+          "description": "The ID of the hosted computation"
+        },
+        "oauth2ConnectionData": {
+          "$ref": "/docs/references/schemas/OAuth2ConnectionData.json",
+          "description": "OAuth2 connection data for the hosted compute plugin"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "token",
+    "expires_at"
+  ],
+  "description": "Response when a token is created. The raw JWT (token) is returned only once; store it securely. Use id for list/delete and in the DELETE URL.\n",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Token identifier (same as JWT jti). Use for list/delete and in the DELETE URL."
+    },
+    "token": {
+      "type": "string",
+      "description": "The raw JWT. Returned only once at creation; cannot be retrieved again."
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the token expires (ISO 8601)."
+    }
+  }
+}

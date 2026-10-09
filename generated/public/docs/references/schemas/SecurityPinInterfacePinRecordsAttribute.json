@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "pin-records",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Bounded endpoint-scoped PIN record page containing no credentials. Permanent records omit validity bounds; temporary records include both. Provisioning status is separate from observation freshness.",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "$ref": "/docs/references/schemas/SecurityPinRecord.json"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque continuation bound to endpoint, caller and query; omitted on the final page."
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

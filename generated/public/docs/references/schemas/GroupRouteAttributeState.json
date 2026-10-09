@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "One attribute value reported for one group route of an endpoint group. A group's state is the set of its group routes' values; values from different providers are never aggregated, so each entry names the group route and the provider that reported it.\n",
+  "required": [
+    "groupRouteId",
+    "pluginId",
+    "provider",
+    "namespace",
+    "name",
+    "version",
+    "value"
+  ],
+  "properties": {
+    "groupRouteId": {
+      "type": "string",
+      "description": "The typed ID of the group route the value was reported for.",
+      "example": "port1/principals/123/endpoint-group-routes/789"
+    },
+    "pluginId": {
+      "type": "string",
+      "description": "The plugin that owns the group route and reported the value."
+    },
+    "provider": {
+      "type": "string",
+      "description": "The display name of that plugin.",
+      "example": "Roborock"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The capability interface namespace for this attribute",
+      "example": "port1/systems/zero/capability-interfaces/spatial"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the attribute within the namespace",
+      "example": "active"
+    },
+    "version": {
+      "type": "string",
+      "description": "The capability interface version the value conforms to.",
+      "example": "1.0"
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "The attribute value payload, structure depends on the attribute schema"
+    },
+    "sampledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the provider observed the value. Omitted when the provider did not say."
+    }
+  }
+}

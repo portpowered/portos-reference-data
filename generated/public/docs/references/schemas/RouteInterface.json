@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the interface"
+    },
+    "version": {
+      "type": "string",
+      "description": "the version of the interface"
+    },
+    "messages": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "minItems": 1,
+      "description": "Supported inbound message subset for the declared interface version. Omission or null retains the interface's full message contract; a supplied array must be nonempty and contain distinct canonical names for implemented messages.",
+      "items": {
+        "$ref": "/docs/references/schemas/ApplicationInterfaceMessage.json"
+      }
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ApplicationInterfaceAttribute.json"
+      },
+      "description": "Supported attribute subset. An omitted or empty list retains catalog-default behavior."
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "The configuration of the interface"
+    }
+  }
+}

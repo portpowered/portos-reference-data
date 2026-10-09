@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FilesystemProviderInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/filesystem-provider",
+  "x-name": "filesystem-provider",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "List, download, upload and delete provider files, including photo libraries. Advertise only implemented messages.",
+  "type": "object",
+  "additionalProperties": false
+}

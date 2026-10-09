@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "The client-supplied fields of a new endpoint group. Members are added afterwards with `add-members` or created together through `/endpoint-groups-manage` `CREATE_GROUP`. A user group name is `{\"type\": \"PLAIN\", \"value\": ...}` whose value is non-blank UTF-8 text of at most 256 bytes with no control characters; anything else is rejected with BAD_REQUEST.\n",
+  "additionalProperties": false,
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The display name of the new endpoint group."
+    }
+  }
+}

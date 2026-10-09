@@ -54,7 +54,7 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          $ref: '#/components/schemas/DeviceAuthorizationRequest'
+          $ref: /docs/references/schemas/DeviceAuthorizationRequest.json
         example:
           client_id: dcr_example
   responses:
@@ -63,7 +63,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/DeviceAuthorizationResponse'
+            $ref: /docs/references/schemas/DeviceAuthorizationResponse.json
           example:
             device_code: port1/principals/example
             user_code: port1/principals/example
@@ -75,7 +75,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -84,7 +84,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -92,4 +92,10 @@ post:
   x-portos-resource-permission: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [DeviceAuthorizationRequest.json](/docs/references/schemas/DeviceAuthorizationRequest.json)
+- [DeviceAuthorizationResponse.json](/docs/references/schemas/DeviceAuthorizationResponse.json)
+- [OAuthErrorResponse.json](/docs/references/schemas/OAuthErrorResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

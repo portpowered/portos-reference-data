@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/embedding-generation",
+  "x-name": "embedding-uri",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "required": [
+    "uri"
+  ],
+  "properties": {
+    "uri": {
+      "type": "string",
+      "description": "URL of the generated embedding resource"
+    },
+    "format": {
+      "type": "string",
+      "description": "Format of the embedding (e.g., safetensors, onnx)"
+    },
+    "mimeType": {
+      "type": "string",
+      "description": "MIME type of the embedding resource"
+    }
+  },
+  "additionalProperties": false
+}

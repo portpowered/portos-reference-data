@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "media-player",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Configure media playback, media selection and audio playback. Advertise only the messages implemented by this endpoint.",
+  "type": "object",
+  "properties": {
+    "supportedPlaybackStates": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PlaybackState.json"
+      },
+      "description": "Supported playback states"
+    },
+    "supportedPlaybackSpeeds": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Supported playback speeds (e.g., 0.5, 1.0, 1.5, 2.0)"
+    },
+    "seekRange": {
+      "$ref": "/docs/references/schemas/MeasurementRange.json",
+      "description": "Seek range in seconds"
+    },
+    "supportedMediaTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "AUDIO",
+          "VIDEO",
+          "IMAGE",
+          "PLAYLIST"
+        ],
+        "x-enum-varnames": [
+          "MediaPlayerInterfaceConfigurationSupportedMediaTypesAudio",
+          "MediaPlayerInterfaceConfigurationSupportedMediaTypesVideo",
+          "MediaPlayerInterfaceConfigurationSupportedMediaTypesImage",
+          "MediaPlayerInterfaceConfigurationSupportedMediaTypesPlaylist"
+        ]
+      },
+      "description": "List of supported media types"
+    },
+    "supportedFormats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "MP3",
+          "WAV",
+          "FLAC",
+          "AAC",
+          "OGG",
+          "MP4",
+          "AVI",
+          "MKV",
+          "JPG",
+          "PNG",
+          "GIF"
+        ],
+        "x-enum-varnames": [
+          "MediaPlayerInterfaceConfigurationSupportedFormatsMp3",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsWav",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsFlac",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsAac",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsOgg",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsMp4",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsAvi",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsMkv",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsJpg",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsPng",
+          "MediaPlayerInterfaceConfigurationSupportedFormatsGif"
+        ]
+      },
+      "description": "List of supported media formats"
+    },
+    "maxPlaylistSize": {
+      "type": "integer",
+      "description": "Maximum number of items in a playlist",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "defaultQuality": {
+      "type": "string",
+      "description": "Default quality setting for media playback",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "LOSSLESS"
+      ],
+      "x-enum-varnames": [
+        "MediaPlayerInterfaceConfigurationDefaultQualityLow",
+        "MediaPlayerInterfaceConfigurationDefaultQualityMedium",
+        "MediaPlayerInterfaceConfigurationDefaultQualityHigh",
+        "MediaPlayerInterfaceConfigurationDefaultQualityLossless"
+      ]
+    },
+    "supportsPlayURI": {
+      "type": "boolean",
+      "description": "Whether the endpoint can play an audio URI."
+    },
+    "supportedAudioMimeTypes": {
+      "type": "array",
+      "description": "Audio MIME types accepted by play-audio. Advertise play-audio only when audio output is supported.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "title": "MediaPlayerInterfaceConfiguration"
+}

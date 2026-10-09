@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "type": "string",
+      "description": "OAuth2 client ID"
+    },
+    "clientSecret": {
+      "type": "string",
+      "description": "OAuth2 client secret. Only included when the caller explicitly requests expand=oauth.clientSecret and only for direct-variant plugins (never exposed for backend-proxy variants). Used by the website to complete PKCE token exchanges client-side."
+    },
+    "authorizeUrl": {
+      "type": "string",
+      "description": "OAuth2 authorization URL"
+    },
+    "tokenUrl": {
+      "type": "string",
+      "description": "OAuth2 token URL"
+    },
+    "scope": {
+      "type": "string",
+      "description": "OAuth2 scope"
+    },
+    "requiresCodeVerifier": {
+      "type": "boolean",
+      "description": "Whether PKCE code verifier is required"
+    },
+    "additionalAuthorizeParams": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Additional query parameters that the website appends to the OAuth2 authorization URL when redirecting the user to the provider's consent screen (e.g., access_type=offline, prompt=consent)."
+    },
+    "oauthVariant": {
+      "type": "string",
+      "enum": [
+        "DIRECT",
+        "BACKEND_PROXY"
+      ],
+      "x-enum-varnames": [
+        "OAuthVariantDirect",
+        "OAuthVariantBackendProxy"
+      ],
+      "description": "OAuth flow variant. \"DIRECT\" means the website performs the full PKCE token exchange client-side. \"BACKEND_PROXY\" means the website sends the authorization code to the Port OS backend, which exchanges it for tokens on behalf of the user."
+    }
+  }
+}

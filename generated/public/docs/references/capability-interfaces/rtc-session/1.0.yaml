@@ -20,7 +20,7 @@ messages:
             format:
               type: string
               enum:
-                - sdp
+                - SDP
             value:
               type: object
               properties:
@@ -85,7 +85,7 @@ messages:
             format:
               type: string
               enum:
-                - sdp
+                - SDP
             value:
               type: string
               description: The SDP offer session contents

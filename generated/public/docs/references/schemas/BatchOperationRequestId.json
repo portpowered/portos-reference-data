@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Client-chosen identifier for one operation in a batch request. It must be unique within the request and is echoed in the matching result or error so items are correlated by ID, never by position.\n",
+  "minLength": 1,
+  "maxLength": 64,
+  "example": "merge-kitchen"
+}

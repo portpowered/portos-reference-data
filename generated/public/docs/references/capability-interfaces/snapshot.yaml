@@ -2,8 +2,8 @@ name: snapshot
 namespace: port1/systems/zero/capability-interfaces/snapshot
 version: '1.0'
 description: >-
-  Snapshots request a captured view and return a snapshot response. Use them
-  when an integration needs a single capture rather than a continuous live view.
+  Snapshots request a captured view and return a snapshot response. Use them when an integration
+  needs a single capture rather than a continuous live view.
 messages:
   - name: get-snapshot
     description: null

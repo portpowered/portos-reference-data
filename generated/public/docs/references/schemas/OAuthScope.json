@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "x-enum-exempt": "OAuth scope tokens carried in issued access tokens",
+  "enum": [
+    "endpoint:read",
+    "endpoint:write",
+    "message:read",
+    "message:send",
+    "secret:read",
+    "secret:write",
+    "flow:read",
+    "flow:write",
+    "flow:trigger",
+    "principal:read",
+    "principal:write",
+    "subscription:read",
+    "subscription:write",
+    "access-control-rule:read",
+    "access-control-rule:write",
+    "group:read",
+    "group:manage"
+  ],
+  "description": "OAuth 2.0 scope values that can be requested by clients. Delegated REST scopes bound operations before the owning service evaluates resource policy. A scope is an upper bound, not a resource permission or an automatic Cedar grant. Each scope follows the pattern \"resource:action\" where resource indicates the resource type and action indicates the permitted operation (read, write, send, trigger).\n"
+}

@@ -86,7 +86,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/QueryFlowsResponse'
+            $ref: /docs/references/schemas/QueryFlowsResponse.json
           example:
             results: []
             paginationContext:
@@ -96,21 +96,28 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '403':
       description: Forbidden — insufficient permissions.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Insufficient permissions
-            type: FORBIDDEN
+            code: FORBIDDEN
+            family: FORBIDDEN
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [QueryFlowsResponse.json](/docs/references/schemas/QueryFlowsResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

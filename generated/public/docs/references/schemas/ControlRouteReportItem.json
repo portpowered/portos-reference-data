@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A control route report item with cookies and attributes",
+  "properties": {
+    "associatedPluginRouteId": {
+      "type": "string"
+    },
+    "cookies": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AttributeSchema.json"
+      }
+    }
+  },
+  "required": [
+    "associatedPluginRouteId",
+    "attributes"
+  ]
+}

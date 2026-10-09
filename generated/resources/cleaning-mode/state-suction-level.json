@@ -1,17 +1,18 @@
 {
-  "description": "Current suction level. Omitted when the robot is in a native mode with no equivalent value.",
+  "description": "Current suction level. CUSTOM when the robot uses a native mode with no equivalent value.",
   "type": "object",
   "properties": {
     "value": {
       "type": "string",
-      "description": "Vacuum suction level, ordered from off to strongest",
+      "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
       "enum": [
         "OFF",
         "QUIET",
         "BALANCED",
         "TURBO",
         "MAX",
-        "MAX_PLUS"
+        "MAX_PLUS",
+        "CUSTOM"
       ]
     }
   },

@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/control-routes-provider",
+  "x-name": "acknowledged",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, but not necessarily that it did anything.  Consider this to happen on any infrared based device (TV remotes), where no ack is feasible.",
+  "type": "object",
+  "additionalProperties": false
+}

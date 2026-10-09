@@ -52,7 +52,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/VerifyDeviceResponse'
+            $ref: /docs/references/schemas/VerifyDeviceResponse.json
           example:
             deviceauth_id: da_1234567890abcdef
             client_name: My OAuth Application
@@ -63,7 +63,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -72,7 +72,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -80,4 +80,9 @@ get:
   x-portos-resource-permission: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [OAuthErrorResponse.json](/docs/references/schemas/OAuthErrorResponse.json)
+- [VerifyDeviceResponse.json](/docs/references/schemas/VerifyDeviceResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

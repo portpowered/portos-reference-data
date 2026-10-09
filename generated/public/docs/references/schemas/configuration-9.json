@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TextCapabilityInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/text",
+  "x-name": "text",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "The text interface takes no configuration; routes declare it with an empty configuration.",
+  "type": "object",
+  "additionalProperties": false
+}

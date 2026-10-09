@@ -2,8 +2,8 @@ name: ph-sensor
 namespace: port1/systems/zero/capability-interfaces/ph-sensor
 version: '1.0'
 description: >-
-  pH measurements report the reading supplied by a connected sensor. Use it when
-  monitoring the conditions of a liquid or growing system.
+  pH measurements report the reading supplied by a connected sensor. Use it when monitoring the
+  conditions of a liquid or growing system.
 messages: []
 attributes:
   - name: measured-value

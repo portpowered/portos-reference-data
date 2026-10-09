@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "x-enum-exempt": "identifier URL path segments",
+  "enum": [
+    "zero",
+    "flows",
+    "auth"
+  ],
+  "description": "Well-known system identifiers within Port OS",
+  "example": "zero"
+}

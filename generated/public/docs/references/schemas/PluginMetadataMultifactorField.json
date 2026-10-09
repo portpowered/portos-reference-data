@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "key",
+    "label",
+    "type"
+  ],
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Field key identifier"
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label for the field"
+    },
+    "type": {
+      "type": "string",
+      "description": "Field input type"
+    }
+  }
+}

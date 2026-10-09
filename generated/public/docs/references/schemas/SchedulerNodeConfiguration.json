@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/scheduler",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "recurrenceRule": {
+      "type": "string",
+      "description": "RRULE string defining a supported recurrence pattern. RRULE schedules use the scheduler node timezone field for wall-clock interpretation in local-cron and google-cloud-scheduler modes, defaulting to UTC when timezone is omitted; unsupported RRULE shapes are rejected for cross-mode parity. Supported RRULEs are HOURLY, DAILY, and WEEKLY only and must include the explicit BYMINUTE/BYHOUR wall-clock fields required by the scheduler contract.",
+      "pattern": "^RRULE:.*",
+      "example": "RRULE:FREQ=DAILY;BYHOUR=9;BYMINUTE=0"
+    },
+    "cron": {
+      "type": "string",
+      "description": "Cron expression for scheduling (e.g. '0 9 * * *'). Use either recurrenceRule or cron, not both. Cron schedules use the timezone field for wall-clock interpretation and default to UTC when timezone is omitted.",
+      "example": "0 9 * * *"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone name used to interpret cron and supported RRULE schedules in both local-cron and google-cloud-scheduler modes. Defaults to UTC when omitted.",
+      "default": "UTC"
+    },
+    "startTime": {
+      "type": "string",
+      "description": "Start time for the schedule (ISO 8601 format)",
+      "format": "date-time"
+    },
+    "endTime": {
+      "type": "string",
+      "description": "End time for the schedule (ISO 8601 format)",
+      "format": "date-time"
+    }
+  }
+}

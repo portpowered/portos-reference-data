@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RtspSessionInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/rtsp-session",
+  "x-name": "rtsp-session",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Establish and close an RTSP stream session independently of RTC offer/answer negotiation.",
+  "type": "object",
+  "additionalProperties": false
+}

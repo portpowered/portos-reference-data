@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Capability-interface applicability of a relationship, for example the robotic-vacuum-cleaner messages a `CAN_CONTROL` edge supports on a room.\n",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "version"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The capability interface namespace.",
+      "example": "port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The capability interface version.",
+      "example": "1.0"
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Message names of the interface the relationship applies to. Omitted means every message of the interface.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "example": [
+        "clean-room"
+      ]
+    }
+  }
+}

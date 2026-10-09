@@ -8,10 +8,10 @@ properties:
     type: string
     description: Reason for pausing
     enum:
-      - user_request
-      - resource_limit
-      - waiting
-      - maintenance
+      - USER_REQUEST
+      - RESOURCE_LIMIT
+      - WAITING
+      - MAINTENANCE
   checkpoint:
     type: boolean
     description: Whether to create a checkpoint before pausing

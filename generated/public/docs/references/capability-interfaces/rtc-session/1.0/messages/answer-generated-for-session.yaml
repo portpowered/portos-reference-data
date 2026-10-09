@@ -9,7 +9,7 @@ properties:
       format:
         type: string
         enum:
-          - sdp
+          - SDP
       value:
         type: object
         properties:

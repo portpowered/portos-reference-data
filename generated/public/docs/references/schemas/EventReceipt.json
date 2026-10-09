@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Retained source receipt and delivery summaries limited to subscriptions the reader may inspect. Missing retained detail is explicitly unavailable, not an inferred zero count. No receipt proves execution of a ChatGPT task.",
+  "required": [
+    "id",
+    "receiptId",
+    "eventId",
+    "endpointId",
+    "status",
+    "acceptedAt",
+    "observedAt",
+    "eventIds",
+    "deliveryDetail",
+    "deliveries"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Canonical resource identity, equal to receiptId."
+    },
+    "receiptId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "endpointId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACCEPTED",
+        "PROCESSING",
+        "COMPLETED",
+        "DEAD",
+        "DROPPED"
+      ],
+      "x-enum-varnames": [
+        "EventReceiptStatusAccepted",
+        "EventReceiptStatusProcessing",
+        "EventReceiptStatusCompleted",
+        "EventReceiptStatusDead",
+        "EventReceiptStatusDropped"
+      ]
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "acceptedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "eventIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deliveryDetail": {
+      "type": "string",
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE"
+      ],
+      "x-enum-varnames": [
+        "EventDeliveryDetailAvailable",
+        "EventDeliveryDetailUnavailable"
+      ]
+    },
+    "deliveries": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/EventDeliverySummary.json"
+      }
+    },
+    "deliveryCounts": {
+      "$ref": "/docs/references/schemas/EventReceiptDeliveryCounts.json"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "One endpoint group management operation, discriminated by `operation`. Unknown operations are rejected with 400.",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsCreateGroupOperation.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsDeleteGroupOperation.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsSetNameOperation.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsAddMembersOperation.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsRemoveMembersOperation.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsMergeIntoOperation.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointGroupsSetEnablementOperation.json"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "operation",
+    "mapping": {
+      "CREATE_GROUP": "/docs/references/schemas/EndpointGroupsCreateGroupOperation.json",
+      "DELETE_GROUP": "/docs/references/schemas/EndpointGroupsDeleteGroupOperation.json",
+      "SET_NAME": "/docs/references/schemas/EndpointGroupsSetNameOperation.json",
+      "ADD_MEMBERS": "/docs/references/schemas/EndpointGroupsAddMembersOperation.json",
+      "REMOVE_MEMBERS": "/docs/references/schemas/EndpointGroupsRemoveMembersOperation.json",
+      "MERGE_INTO": "/docs/references/schemas/EndpointGroupsMergeIntoOperation.json",
+      "SET_ENABLEMENT": "/docs/references/schemas/EndpointGroupsSetEnablementOperation.json"
+    }
+  }
+}

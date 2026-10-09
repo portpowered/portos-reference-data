@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "error",
+    "error_description"
+  ],
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "Stable OAuth protocol error identifier."
+    },
+    "error_description": {
+      "type": "string",
+      "description": "Human-readable recovery guidance."
+    }
+  }
+}

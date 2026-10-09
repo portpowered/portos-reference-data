@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A radio diagnostic measurement",
+  "properties": {
+    "radioType": {
+      "type": "string"
+    },
+    "rssi": {
+      "type": "number"
+    },
+    "snr": {
+      "type": "number"
+    }
+  }
+}

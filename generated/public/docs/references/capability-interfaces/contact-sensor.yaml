@@ -2,9 +2,8 @@ name: contact-sensor
 namespace: port1/systems/zero/capability-interfaces/contact-sensor
 version: '1.0'
 description: >-
-  Contact sensors tell you whether a door, window, or gate is open or closed.
-  Use their reported state to check an entryway or trigger an automation when
-  something is left open.
+  Contact sensors tell you whether a door, window, or gate is open or closed. Use their reported
+  state to check an entryway or trigger an automation when something is left open.
 messages: []
 attributes:
   - name: detection-state

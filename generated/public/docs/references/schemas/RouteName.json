@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A route name value",
+  "required": [
+    "type",
+    "value"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type identifier of the name value, defined as plain when not defined"
+    },
+    "value": {
+      "type": "string",
+      "description": "The raw value of a plain name or localizable asset reference"
+    }
+  }
+}

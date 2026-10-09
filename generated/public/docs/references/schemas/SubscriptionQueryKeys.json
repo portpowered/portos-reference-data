@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Enumeration of field keys that can be used to filter subscription queries.",
+  "x-enum-exempt": "message field paths",
+  "enum": [
+    "id",
+    "owner",
+    "endpoint.id",
+    "header.namespace",
+    "header.name",
+    "body.value",
+    "body.scale",
+    "header.version"
+  ],
+  "x-enum-varnames": [
+    "SubscriptionQueryKeyId",
+    "SubscriptionQueryKeyOwner",
+    "SubscriptionQueryKeyEndpointId",
+    "SubscriptionQueryKeyHeaderNamespace",
+    "SubscriptionQueryKeyHeaderName",
+    "SubscriptionQueryKeyBodyValue",
+    "SubscriptionQueryKeyBodyScale",
+    "SubscriptionQueryKeyHeaderVersion"
+  ]
+}

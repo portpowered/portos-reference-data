@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/cleaning-mode",
+  "x-name": "water-flow",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Current water flow. CUSTOM when the robot uses a native mode with no equivalent value.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "$ref": "/docs/references/schemas/WaterFlow.json"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

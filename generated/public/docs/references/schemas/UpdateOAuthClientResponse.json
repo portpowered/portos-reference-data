@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Response returned after successfully updating an OAuth client.",
+  "required": [
+    "clientId"
+  ],
+  "properties": {
+    "clientId": {
+      "type": "string",
+      "description": "The updated OAuth client ID"
+    }
+  }
+}

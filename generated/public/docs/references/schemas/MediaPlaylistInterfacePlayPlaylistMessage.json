@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
+  "x-name": "play-playlist",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "playlistId": {
+      "type": "string",
+      "description": "ID of the playlist to play",
+      "minLength": 1
+    },
+    "endpointId": {
+      "type": "string",
+      "description": "Optional target endpoint to play the playlist on"
+    }
+  },
+  "required": [
+    "playlistId"
+  ],
+  "additionalProperties": false
+}

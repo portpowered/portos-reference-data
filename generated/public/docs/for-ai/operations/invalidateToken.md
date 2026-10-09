@@ -72,7 +72,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/InvalidateTokenResponse'
+            $ref: /docs/references/schemas/InvalidateTokenResponse.json
           example:
             message: The request could not be completed. Check the supplied parameters and try again.
     '401':
@@ -90,4 +90,8 @@ delete:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [InvalidateTokenResponse.json](/docs/references/schemas/InvalidateTokenResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

@@ -21,7 +21,7 @@
         "format": {
           "type": "string",
           "enum": [
-            "sdp"
+            "SDP"
           ]
         },
         "value": {

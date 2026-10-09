@@ -2,9 +2,8 @@ name: camera
 namespace: port1/systems/zero/capability-interfaces/camera
 version: '1.0'
 description: >-
-  Cameras provide streaming, event images, and camera controls. Start a stream,
-  adjust pan and tilt when supported, or configure motion detection for the view
-  you need.
+  Cameras provide streaming, event images, and camera controls. Start a stream, adjust pan and tilt
+  when supported, or configure motion detection for the view you need.
 messages:
   - name: get-event-image
     description: null
@@ -120,9 +119,8 @@ configuration:
       default: false
   additionalProperties: false
   description: >-
-    Cameras provide streaming, event images, and camera controls. Start a
-    stream, adjust pan and tilt when supported, or configure motion detection
-    for the view you need.
+    Cameras provide streaming, event images, and camera controls. Start a stream, adjust pan and
+    tilt when supported, or configure motion detection for the view you need.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

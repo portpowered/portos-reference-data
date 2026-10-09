@@ -71,7 +71,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EnumerateTokensResponse'
+            $ref: /docs/references/schemas/EnumerateTokensResponse.json
           example:
             results: []
             paginationContext:
@@ -81,45 +81,41 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Bad request
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: bad-request
     '401':
       description: Unauthorized
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Unauthorized
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
             family: AUTHENTICATION
-            code: unauthorized
     '403':
       description: Forbidden - not allowed to list tokens
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Forbidden - not allowed to list tokens
-            type: INSUFFICIENT_PERMISSIONS
+            code: INSUFFICIENT_PERMISSIONS
             family: PERMISSION
-            code: forbidden
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
   x-portos-delegated: false
   x-portos-resource-permission: true
   security:
@@ -127,4 +123,9 @@ get:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [EnumerateTokensResponse.json](/docs/references/schemas/EnumerateTokensResponse.json)
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

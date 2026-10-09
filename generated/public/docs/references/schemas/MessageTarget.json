@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "/docs/references/schemas/MessageTargetType.json"
+    },
+    "id": {
+      "type": "string"
+    },
+    "cookie": {
+      "description": "Abstract blob of contextual information necessary to dispatch a message to an endpoint.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "groupRoutes": {
+      "description": "Group routes Port OS selected for this dispatch, in the order the message requested them (for example the rooms of a clean-room message). Only Port OS sets this field; a value supplied by an API client is discarded.",
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/MessageTargetGroupRoute.json"
+      }
+    }
+  }
+}

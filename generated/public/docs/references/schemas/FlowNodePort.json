@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "label"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the flow node port"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "label": {
+      "type": "string",
+      "description": "The label of the flow node port"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the flow node port"
+    },
+    "directionality": {
+      "type": "string",
+      "description": "The direction of events to the port. Whether it takes in events, sends events, or both, or none."
+    },
+    "portId": {
+      "type": "string",
+      "description": "The identifier of the flow port as defined by the node that it is attached to."
+    }
+  }
+}

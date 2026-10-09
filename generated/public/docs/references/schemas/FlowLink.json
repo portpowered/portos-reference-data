@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the flow link"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "source": {
+      "$ref": "/docs/references/schemas/FlowLinkVertex.json",
+      "description": "The source of the link"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/FlowLinkVertex.json",
+      "description": "The target of the link"
+    }
+  }
+}

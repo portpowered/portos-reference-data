@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AlarmInterfaceRingAlarmMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/alarm",
+  "x-name": "ring-alarm",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Sound the endpoint alarm. Requires an endpoint with an alarm actuator.",
+  "type": "object",
+  "additionalProperties": false
+}

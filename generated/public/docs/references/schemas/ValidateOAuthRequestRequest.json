@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "client_id",
+    "redirect_uri"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "OAuth client identifier",
+      "example": "port1/principals/user123/oauth-clients/my-client"
+    },
+    "redirect_uri": {
+      "type": "string",
+      "description": "Redirect URI to validate",
+      "example": "https://myapp.com/callback"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/OAuthScope.json"
+      },
+      "description": "Requested scopes to validate"
+    },
+    "code_challenge": {
+      "type": "string",
+      "description": "PKCE code challenge (required if client requires PKCE)",
+      "example": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
+    },
+    "code_challenge_method": {
+      "type": "string",
+      "x-enum-exempt": "PKCE code challenge methods (RFC 7636)",
+      "enum": [
+        "S256",
+        "plain"
+      ],
+      "description": "PKCE code challenge method (S256 or plain)",
+      "example": "S256"
+    }
+  }
+}

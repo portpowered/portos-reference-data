@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "operation",
+    "resource",
+    "identity",
+    "effect",
+    "owner"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the access control rule",
+      "example": "port1/account/john/access-control-rule/123"
+    },
+    "effect": {
+      "$ref": "/docs/references/schemas/AccessControlRuleEffect.json"
+    },
+    "operation": {
+      "type": "string",
+      "description": "The operation that the identity is granted to perform on a resource. A Universal resource identifier namespaced under port1/endpoint/read",
+      "example": "port1/endpoint/read"
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource permissions are granted to",
+      "example": "port1/user/alice/endpoint/thermostat-zero"
+    },
+    "identity": {
+      "type": "string",
+      "description": "The identity permissions are granted to",
+      "example": "port1/account/john/user/alice"
+    },
+    "owner": {
+      "type": "string",
+      "description": "The owner of the access control rule",
+      "example": "port1/account/john"
+    }
+  }
+}

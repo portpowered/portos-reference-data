@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/pm2-5-concentration-sensor",
+  "x-name": "measured-value",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "type": "object",
+  "properties": {
+    "value": {
+      "$ref": "/docs/references/schemas/MeasurementValue.json"
+    },
+    "unit": {
+      "$ref": "/docs/references/schemas/MeasurementUnit.json"
+    }
+  },
+  "required": [
+    "value",
+    "unit"
+  ],
+  "additionalProperties": false
+}

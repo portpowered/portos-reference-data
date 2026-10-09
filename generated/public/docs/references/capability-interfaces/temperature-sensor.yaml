@@ -2,8 +2,8 @@ name: temperature-sensor
 namespace: port1/systems/zero/capability-interfaces/temperature-sensor
 version: '1.0'
 description: >-
-  Temperature sensors report temperature and operation mode. Use the reading to
-  display conditions or give a heating and cooling flow a measured input.
+  Temperature sensors report temperature and operation mode. Use the reading to display conditions
+  or give a heating and cooling flow a measured input.
 messages: []
 attributes:
   - name: operation-mode

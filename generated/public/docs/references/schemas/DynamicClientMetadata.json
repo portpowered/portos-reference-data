@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "redirect_uris",
+    "token_endpoint_auth_method"
+  ],
+  "properties": {
+    "client_name": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Unverified display name."
+    },
+    "redirect_uris": {
+      "type": "array",
+      "description": "Exact callbacks must form either an entirely localhost/loopback set or an entirely remote HTTPS set. HTTP is allowed only for localhost or literal loopback IPs. Local and remote callbacks cannot be mixed; user information and fragments are forbidden.",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "maxLength": 2048
+      }
+    },
+    "token_endpoint_auth_method": {
+      "type": "string",
+      "enum": [
+        "none"
+      ],
+      "x-enum-exempt": "RFC 7591 defines case-sensitive OAuth token endpoint authentication method identifiers."
+    },
+    "grant_types": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "string",
+        "enum": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "x-enum-exempt": "RFC 6749 and RFC 7591 define case-sensitive OAuth grant type identifiers."
+      }
+    },
+    "response_types": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "code"
+        ],
+        "x-enum-exempt": "RFC 6749 and RFC 7591 define case-sensitive OAuth response type identifiers."
+      }
+    },
+    "scope": {
+      "type": "string",
+      "default": "endpoint:read",
+      "description": "Space-separated subset of endpoint:read endpoint:write message:read message:send group:read group:manage subscription:read subscription:write."
+    },
+    "client_uri": {
+      "type": "string",
+      "maxLength": 2048,
+      "description": "Unverified descriptive URL; never fetched as evidence."
+    },
+    "software_id": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Unverified software claim."
+    },
+    "software_version": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "software_statement": {
+      "type": "string",
+      "description": "Unsupported; rejected if supplied."
+    }
+  }
+}

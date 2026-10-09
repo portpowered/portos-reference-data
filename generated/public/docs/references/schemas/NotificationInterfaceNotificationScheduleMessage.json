@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/notification",
+  "x-name": "notification-schedule",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "scheduleId": {
+      "type": "string",
+      "description": "Unique identifier for this schedule",
+      "minLength": 1
+    },
+    "notification": {
+      "$ref": "/docs/references/schemas/NotificationPayload.json"
+    },
+    "schedule": {
+      "$ref": "/docs/references/schemas/NotificationSchedule.json"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the schedule is enabled",
+      "default": true
+    }
+  },
+  "required": [
+    "scheduleId",
+    "notification",
+    "schedule"
+  ],
+  "additionalProperties": false
+}

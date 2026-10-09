@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/application-launcher",
+  "x-name": "application-launcher",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "catalogVendorId": {
+      "type": "integer",
+      "description": "Catalog vendor ID",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

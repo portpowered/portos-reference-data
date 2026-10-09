@@ -2,8 +2,8 @@ name: percentage
 namespace: port1/systems/zero/capability-interfaces/percentage
 version: '1.0'
 description: >-
-  Percentage controls set or adjust a percentage and report the current value.
-  Use them for connected controls expressed as a proportional level.
+  Percentage controls set or adjust a percentage and report the current value. Use them for
+  connected controls expressed as a proportional level.
 messages:
   - name: adjust-percentage
     description: null

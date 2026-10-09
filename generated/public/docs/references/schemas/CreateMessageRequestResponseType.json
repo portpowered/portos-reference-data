@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "enum": [
+    "SYNC",
+    "FIRE_FORGET"
+  ],
+  "description": "How to handle the request, default is asynchronous",
+  "x-enum-varnames": [
+    "SyncResponseType",
+    "FireForgetResponseType"
+  ]
+}

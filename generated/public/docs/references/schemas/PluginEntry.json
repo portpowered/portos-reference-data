@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "name",
+    "region",
+    "uri",
+    "type",
+    "interfaces",
+    "authorization"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the plugin entry"
+    },
+    "region": {
+      "type": "string",
+      "description": "The region of the plugin entry"
+    },
+    "uri": {
+      "type": "string",
+      "description": "The URI endpoint for the plugin"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the plugin entry"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ApplicationInterface.json"
+      },
+      "description": "List of interfaces supported by the plugin"
+    },
+    "authorization": {
+      "$ref": "/docs/references/schemas/PluginAuthorization.json"
+    }
+  }
+}

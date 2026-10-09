@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/endpoint-dispatch",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "required": [
+    "endpointId"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "endpointId": {
+      "type": "string",
+      "description": "The ID of the endpoint to dispatch messages to",
+      "minLength": 1
+    },
+    "message": {
+      "$ref": "/docs/references/schemas/Message.json"
+    }
+  }
+}

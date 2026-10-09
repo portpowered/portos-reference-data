@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "x",
+    "y",
+    "w",
+    "h",
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of the position"
+    },
+    "targetWidgetId": {
+      "type": "string",
+      "description": "The ID of the widget that this position is for"
+    },
+    "x": {
+      "type": "integer",
+      "description": "The x coordinate of the widget position in the grid",
+      "minimum": 0
+    },
+    "y": {
+      "type": "integer",
+      "description": "The y coordinate of the widget position in the grid",
+      "minimum": 0
+    },
+    "w": {
+      "type": "integer",
+      "description": "The width of the widget in grid units",
+      "minimum": 1
+    },
+    "h": {
+      "type": "integer",
+      "description": "The height of the widget in grid units",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}

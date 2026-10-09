@@ -1,0 +1,4367 @@
+{
+  "dialect": "http://json-schema.org/draft-07/schema#",
+  "components": [
+    {
+      "kind": "schemas",
+      "name": "AccessControlEntity",
+      "path": "/docs/references/schemas/AccessControlEntity.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlEntity"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlOperation",
+      "path": "/docs/references/schemas/AccessControlOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlRequesterContext",
+      "path": "/docs/references/schemas/AccessControlRequesterContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRequesterContext"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlResourceContext",
+      "path": "/docs/references/schemas/AccessControlResourceContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlResourceContext"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlRule",
+      "path": "/docs/references/schemas/AccessControlRule.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRule"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlRuleEffect",
+      "path": "/docs/references/schemas/AccessControlRuleEffect.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRuleEffect"
+    },
+    {
+      "kind": "schemas",
+      "name": "AddEndpointGroupMembersRequest",
+      "path": "/docs/references/schemas/AddEndpointGroupMembersRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AddEndpointGroupMembersRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "AirQualitySensorInterfaceAirQualityIndexAttribute",
+      "path": "/docs/references/schemas/AirQualitySensorInterfaceAirQualityIndexAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AirQualitySensorInterfaceAirQualityIndexAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "AirQualitySensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/AirQualitySensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AirQualitySensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "AirQualitySensorInterfaceGetAirQualityMessage",
+      "path": "/docs/references/schemas/AirQualitySensorInterfaceGetAirQualityMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AirQualitySensorInterfaceGetAirQualityMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AirQualityStandard",
+      "path": "/docs/references/schemas/AirQualityStandard.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AirQualityStandard"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceAlarmStateAttribute",
+      "path": "/docs/references/schemas/AlarmInterfaceAlarmStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceAlarmStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceConfiguration",
+      "path": "/docs/references/schemas/AlarmInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceRingAlarmMessage",
+      "path": "/docs/references/schemas/AlarmInterfaceRingAlarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceRingAlarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceSilenceAlarmMessage",
+      "path": "/docs/references/schemas/AlarmInterfaceSilenceAlarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceSilenceAlarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceTestAlarmMessage",
+      "path": "/docs/references/schemas/AlarmInterfaceTestAlarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceTestAlarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmState",
+      "path": "/docs/references/schemas/AlarmState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmState"
+    },
+    {
+      "kind": "schemas",
+      "name": "Album",
+      "path": "/docs/references/schemas/Album.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Album"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApiKeySecret",
+      "path": "/docs/references/schemas/ApiKeySecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApiKeySecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplePushNotificationAuthTokenSecret",
+      "path": "/docs/references/schemas/ApplePushNotificationAuthTokenSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplePushNotificationAuthTokenSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplePushNotificationPlugin",
+      "path": "/docs/references/schemas/ApplePushNotificationPlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplePushNotificationPlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationInfo",
+      "path": "/docs/references/schemas/ApplicationInfo.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationInfo"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationInterface",
+      "path": "/docs/references/schemas/ApplicationInterface.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationInterface"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationInterfaceAttribute",
+      "path": "/docs/references/schemas/ApplicationInterfaceAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationInterfaceAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationInterfaceMessage",
+      "path": "/docs/references/schemas/ApplicationInterfaceMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationInterfaceMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceApplicationListAttribute",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceApplicationListAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceApplicationListAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceConfiguration",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceCurrentApplicationAttribute",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceCurrentApplicationAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceCurrentApplicationAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceLaunchApplicationMessage",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceLaunchApplicationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceLaunchApplicationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceStopApplicationMessage",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceStopApplicationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceStopApplicationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Artist",
+      "path": "/docs/references/schemas/Artist.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Artist"
+    },
+    {
+      "kind": "schemas",
+      "name": "AttributeSchema",
+      "path": "/docs/references/schemas/AttributeSchema.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AttributeSchema"
+    },
+    {
+      "kind": "schemas",
+      "name": "AttributeState",
+      "path": "/docs/references/schemas/AttributeState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AttributeState"
+    },
+    {
+      "kind": "schemas",
+      "name": "AudioConvertNodeConfiguration",
+      "path": "/docs/references/schemas/AudioConvertNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AudioConvertNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthDataType",
+      "path": "/docs/references/schemas/AuthDataType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthDataType"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLink",
+      "path": "/docs/references/schemas/AuthLink.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLink"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinkSecret",
+      "path": "/docs/references/schemas/AuthLinkSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinksList",
+      "path": "/docs/references/schemas/AuthLinksList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinksList"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceAuthorizationEstablishedMessage",
+      "path": "/docs/references/schemas/AuthorizationInterfaceAuthorizationEstablishedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceAuthorizationEstablishedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceAuthorizationUpdateReportMessage",
+      "path": "/docs/references/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceConfiguration",
+      "path": "/docs/references/schemas/AuthorizationInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceRefreshTokensMessage",
+      "path": "/docs/references/schemas/AuthorizationInterfaceRefreshTokensMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceRefreshTokensMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizeDeviceRequest",
+      "path": "/docs/references/schemas/AuthorizeDeviceRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizeDeviceRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizeDeviceResponse",
+      "path": "/docs/references/schemas/AuthorizeDeviceResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizeDeviceResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthResourceType",
+      "path": "/docs/references/schemas/AuthResourceType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthResourceType"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceBarrierPositionAttribute",
+      "path": "/docs/references/schemas/BarrierControlInterfaceBarrierPositionAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceBarrierPositionAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceBarrierStateAttribute",
+      "path": "/docs/references/schemas/BarrierControlInterfaceBarrierStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceBarrierStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceCloseMessage",
+      "path": "/docs/references/schemas/BarrierControlInterfaceCloseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceCloseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceConfiguration",
+      "path": "/docs/references/schemas/BarrierControlInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceGoToPositionMessage",
+      "path": "/docs/references/schemas/BarrierControlInterfaceGoToPositionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceGoToPositionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceOpenMessage",
+      "path": "/docs/references/schemas/BarrierControlInterfaceOpenMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceOpenMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BasePlugin",
+      "path": "/docs/references/schemas/BasePlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BasePlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "BaseSecret",
+      "path": "/docs/references/schemas/BaseSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BaseSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "BatchItemError",
+      "path": "/docs/references/schemas/BatchItemError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatchItemError"
+    },
+    {
+      "kind": "schemas",
+      "name": "BatchMessageItem",
+      "path": "/docs/references/schemas/BatchMessageItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatchMessageItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "BatchOperationRequestId",
+      "path": "/docs/references/schemas/BatchOperationRequestId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatchOperationRequestId"
+    },
+    {
+      "kind": "schemas",
+      "name": "BatchResponseStatus",
+      "path": "/docs/references/schemas/BatchResponseStatus.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatchResponseStatus"
+    },
+    {
+      "kind": "schemas",
+      "name": "BatteryInterfaceBatteryAttribute",
+      "path": "/docs/references/schemas/BatteryInterfaceBatteryAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatteryInterfaceBatteryAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "BatteryInterfaceConfiguration",
+      "path": "/docs/references/schemas/BatteryInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatteryInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrandingInformation",
+      "path": "/docs/references/schemas/BrandingInformation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrandingInformation"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceBrightnessAttribute",
+      "path": "/docs/references/schemas/BrightnessInterfaceBrightnessAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceBrightnessAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceConfiguration",
+      "path": "/docs/references/schemas/BrightnessInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceSetBrightnessMessage",
+      "path": "/docs/references/schemas/BrightnessInterfaceSetBrightnessMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceSetBrightnessMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarEvent",
+      "path": "/docs/references/schemas/CalendarEvent.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarEvent"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/CalendarProviderCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderInterfaceListEventsMessage",
+      "path": "/docs/references/schemas/CalendarProviderInterfaceListEventsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderInterfaceListEventsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderInterfaceListEventsResponseMessage",
+      "path": "/docs/references/schemas/CalendarProviderInterfaceListEventsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderInterfaceListEventsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceConfiguration",
+      "path": "/docs/references/schemas/CameraInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceGetEventImageMessage",
+      "path": "/docs/references/schemas/CameraInterfaceGetEventImageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceGetEventImageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceMotionDetectionEnabledAttribute",
+      "path": "/docs/references/schemas/CameraInterfaceMotionDetectionEnabledAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceMotionDetectionEnabledAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfacePtzControlMessage",
+      "path": "/docs/references/schemas/CameraInterfacePtzControlMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfacePtzControlMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceSetMotionDetectionMessage",
+      "path": "/docs/references/schemas/CameraInterfaceSetMotionDetectionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceSetMotionDetectionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceStartStreamingMessage",
+      "path": "/docs/references/schemas/CameraInterfaceStartStreamingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceStartStreamingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceStopStreamingMessage",
+      "path": "/docs/references/schemas/CameraInterfaceStopStreamingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceStopStreamingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonDioxideConcentrationSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/CarbonDioxideConcentrationSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonDioxideConcentrationSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonDioxideConcentrationSensorInterfaceMaxMeasuredValueAttribute",
+      "path": "/docs/references/schemas/CarbonDioxideConcentrationSensorInterfaceMaxMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonDioxideConcentrationSensorInterfaceMaxMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonDioxideConcentrationSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/CarbonDioxideConcentrationSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonDioxideConcentrationSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonDioxideConcentrationSensorInterfaceMinMeasuredValueAttribute",
+      "path": "/docs/references/schemas/CarbonDioxideConcentrationSensorInterfaceMinMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonDioxideConcentrationSensorInterfaceMinMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonMonoxideConcentrationSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/CarbonMonoxideConcentrationSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonMonoxideConcentrationSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonMonoxideConcentrationSensorInterfaceMaxMeasuredValueAttribute",
+      "path": "/docs/references/schemas/CarbonMonoxideConcentrationSensorInterfaceMaxMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonMonoxideConcentrationSensorInterfaceMaxMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonMonoxideConcentrationSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/CarbonMonoxideConcentrationSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonMonoxideConcentrationSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CarbonMonoxideConcentrationSensorInterfaceMinMeasuredValueAttribute",
+      "path": "/docs/references/schemas/CarbonMonoxideConcentrationSensorInterfaceMinMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CarbonMonoxideConcentrationSensorInterfaceMinMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInfo",
+      "path": "/docs/references/schemas/ChannelInfo.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInfo"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceChangeChannelMessage",
+      "path": "/docs/references/schemas/ChannelInterfaceChangeChannelMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceChangeChannelMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceChannelAttribute",
+      "path": "/docs/references/schemas/ChannelInterfaceChannelAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceChannelAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceConfiguration",
+      "path": "/docs/references/schemas/ChannelInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceSkipChannelsMessage",
+      "path": "/docs/references/schemas/ChannelInterfaceSkipChannelsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceSkipChannelsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningMode",
+      "path": "/docs/references/schemas/CleaningMode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningMode"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceCleaningModeAttribute",
+      "path": "/docs/references/schemas/CleaningModeInterfaceCleaningModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceCleaningModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceConfiguration",
+      "path": "/docs/references/schemas/CleaningModeInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceSetCleaningModeMessage",
+      "path": "/docs/references/schemas/CleaningModeInterfaceSetCleaningModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceSetCleaningModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceSuctionLevelAttribute",
+      "path": "/docs/references/schemas/CleaningModeInterfaceSuctionLevelAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceSuctionLevelAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceWaterFlowAttribute",
+      "path": "/docs/references/schemas/CleaningModeInterfaceWaterFlowAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceWaterFlowAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningType",
+      "path": "/docs/references/schemas/CleaningType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningType"
+    },
+    {
+      "kind": "schemas",
+      "name": "ClientIdentity",
+      "path": "/docs/references/schemas/ClientIdentity.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ClientIdentity"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorInterfaceColorAttribute",
+      "path": "/docs/references/schemas/ColorInterfaceColorAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorInterfaceColorAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorInterfaceConfiguration",
+      "path": "/docs/references/schemas/ColorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorInterfaceSetColorMessage",
+      "path": "/docs/references/schemas/ColorInterfaceSetColorMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorInterfaceSetColorMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceColorTemperatureInKelvinAttribute",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceColorTemperatureInKelvinAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceColorTemperatureInKelvinAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceConfiguration",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceDecreaseColorTemperatureMessage",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceIncreaseColorTemperatureMessage",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceSetColorTemperatureMessage",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceSetColorTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceSetColorTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ConductivityInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/ConductivityInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ConductivityInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration",
+      "path": "/docs/references/schemas/configuration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-2",
+      "path": "/docs/references/schemas/configuration-2.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-2"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-3",
+      "path": "/docs/references/schemas/configuration-3.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-3"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-4",
+      "path": "/docs/references/schemas/configuration-4.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-4"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-5",
+      "path": "/docs/references/schemas/configuration-5.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-5"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-6",
+      "path": "/docs/references/schemas/configuration-6.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-6"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-7",
+      "path": "/docs/references/schemas/configuration-7.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-7"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-8",
+      "path": "/docs/references/schemas/configuration-8.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-8"
+    },
+    {
+      "kind": "schemas",
+      "name": "configuration-9",
+      "path": "/docs/references/schemas/configuration-9.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/configuration-9"
+    },
+    {
+      "kind": "schemas",
+      "name": "ConnectivityInterfaceConfiguration",
+      "path": "/docs/references/schemas/ConnectivityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ConnectivityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ConnectivityInterfaceNetworkThroughputAttribute",
+      "path": "/docs/references/schemas/ConnectivityInterfaceNetworkThroughputAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ConnectivityInterfaceNetworkThroughputAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ConnectivityInterfaceRadioDiagnosticsAttribute",
+      "path": "/docs/references/schemas/ConnectivityInterfaceRadioDiagnosticsAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ConnectivityInterfaceRadioDiagnosticsAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ConnectivityInterfaceReachabilityAttribute",
+      "path": "/docs/references/schemas/ConnectivityInterfaceReachabilityAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ConnectivityInterfaceReachabilityAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "Contact",
+      "path": "/docs/references/schemas/Contact.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Contact"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/ContactSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactSensorInterfaceDetectionStateAttribute",
+      "path": "/docs/references/schemas/ContactSensorInterfaceDetectionStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactSensorInterfaceDetectionStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/ContactsProviderCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderInterfaceListContactsMessage",
+      "path": "/docs/references/schemas/ContactsProviderInterfaceListContactsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderInterfaceListContactsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderInterfaceListContactsResponseMessage",
+      "path": "/docs/references/schemas/ContactsProviderInterfaceListContactsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderInterfaceListContactsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceConfiguration",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceLaunchContentMessage",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceLaunchContentMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceLaunchContentMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceLaunchUrlMessage",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceLaunchUrlMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceLaunchUrlMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentSearch",
+      "path": "/docs/references/schemas/ContentSearch.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentSearch"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentSearchParameter",
+      "path": "/docs/references/schemas/ContentSearchParameter.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentSearchParameter"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderInterfaceCreateGroupMessage",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderInterfaceDeleteGroupMessage",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteItem",
+      "path": "/docs/references/schemas/ControlRouteItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteReportItem",
+      "path": "/docs/references/schemas/ControlRouteReportItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteReportItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/ControlRoutesProviderCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceAcknowledgedMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceAcknowledgedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceAcknowledgedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceAttributeReportMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceAttributeReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceAttributeReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceBatchMessageDispatchMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceDeferredResponseMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceDeferredResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceDeferredResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceErrorDispatchMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceErrorDispatchMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceErrorDispatchMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceReportAttributesMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceReportAttributesMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceReportAttributesMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceSuccessfulDispatchMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CooktopInterfaceConfiguration",
+      "path": "/docs/references/schemas/CooktopInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CooktopInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "CooktopInterfaceOperationalStateAttribute",
+      "path": "/docs/references/schemas/CooktopInterfaceOperationalStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CooktopInterfaceOperationalStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateEndpointGroupItem",
+      "path": "/docs/references/schemas/CreateEndpointGroupItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateEndpointGroupItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateEndpointGroupRequest",
+      "path": "/docs/references/schemas/CreateEndpointGroupRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateEndpointGroupRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateEndpointGroupResponse",
+      "path": "/docs/references/schemas/CreateEndpointGroupResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateEndpointGroupResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateMessageRequest",
+      "path": "/docs/references/schemas/CreateMessageRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateMessageRequestResponseType",
+      "path": "/docs/references/schemas/CreateMessageRequestResponseType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageRequestResponseType"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateMessageResponse",
+      "path": "/docs/references/schemas/CreateMessageResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateMessageTarget",
+      "path": "/docs/references/schemas/CreateMessageTarget.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageTarget"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateMessageTargetType",
+      "path": "/docs/references/schemas/CreateMessageTargetType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageTargetType"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateOAuthClientResponse",
+      "path": "/docs/references/schemas/CreateOAuthClientResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateOAuthClientResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateTokenRequest",
+      "path": "/docs/references/schemas/CreateTokenRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateTokenRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateTokenResponse",
+      "path": "/docs/references/schemas/CreateTokenResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateTokenResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "CustomPluginSecret",
+      "path": "/docs/references/schemas/CustomPluginSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CustomPluginSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "DataType",
+      "path": "/docs/references/schemas/DataType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DataType"
+    },
+    {
+      "kind": "schemas",
+      "name": "DebugNodeConfiguration",
+      "path": "/docs/references/schemas/DebugNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DebugNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeduplicateNodeConfiguration",
+      "path": "/docs/references/schemas/DeduplicateNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeduplicateNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeleteAuthLinkRequest",
+      "path": "/docs/references/schemas/DeleteAuthLinkRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeleteAuthLinkRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeleteEndpointRequest",
+      "path": "/docs/references/schemas/DeleteEndpointRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeleteEndpointRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeletePluginRequest",
+      "path": "/docs/references/schemas/DeletePluginRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeletePluginRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeleteRouteRequest",
+      "path": "/docs/references/schemas/DeleteRouteRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeleteRouteRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeleteSimulatorRequest",
+      "path": "/docs/references/schemas/DeleteSimulatorRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeleteSimulatorRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeviceAuthorizationRequest",
+      "path": "/docs/references/schemas/DeviceAuthorizationRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeviceAuthorizationRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeviceAuthorizationResponse",
+      "path": "/docs/references/schemas/DeviceAuthorizationResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeviceAuthorizationResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "DeviceInterface",
+      "path": "/docs/references/schemas/DeviceInterface.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DeviceInterface"
+    },
+    {
+      "kind": "schemas",
+      "name": "DiscoveredRoute",
+      "path": "/docs/references/schemas/DiscoveredRoute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DiscoveredRoute"
+    },
+    {
+      "kind": "schemas",
+      "name": "DishwasherInterfaceConfiguration",
+      "path": "/docs/references/schemas/DishwasherInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DishwasherInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "DishwasherInterfaceOperationalStateAttribute",
+      "path": "/docs/references/schemas/DishwasherInterfaceOperationalStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DishwasherInterfaceOperationalStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "DispatchError",
+      "path": "/docs/references/schemas/DispatchError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DispatchError"
+    },
+    {
+      "kind": "schemas",
+      "name": "DoorbellInterfaceChimeMessage",
+      "path": "/docs/references/schemas/DoorbellInterfaceChimeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DoorbellInterfaceChimeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "DoorbellInterfaceConfiguration",
+      "path": "/docs/references/schemas/DoorbellInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DoorbellInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "DynamicClientMetadata",
+      "path": "/docs/references/schemas/DynamicClientMetadata.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DynamicClientMetadata"
+    },
+    {
+      "kind": "schemas",
+      "name": "ElectricalConductivitySensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/ElectricalConductivitySensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ElectricalConductivitySensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceConfiguration",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceEmbeddingUriMessage",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceGenerateEmbeddingMessage",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Enablement",
+      "path": "/docs/references/schemas/Enablement.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Enablement"
+    },
+    {
+      "kind": "schemas",
+      "name": "Endpoint",
+      "path": "/docs/references/schemas/Endpoint.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Endpoint"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointDispatchNodeConfiguration",
+      "path": "/docs/references/schemas/EndpointDispatchNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointDispatchNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroup",
+      "path": "/docs/references/schemas/EndpointGroup.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroup"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupController",
+      "path": "/docs/references/schemas/EndpointGroupController.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupController"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupEtagReference",
+      "path": "/docs/references/schemas/EndpointGroupEtagReference.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupEtagReference"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupRedirect",
+      "path": "/docs/references/schemas/EndpointGroupRedirect.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupRedirect"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupRoute",
+      "path": "/docs/references/schemas/EndpointGroupRoute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupRoute"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsAddMembersOperation",
+      "path": "/docs/references/schemas/EndpointGroupsAddMembersOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsAddMembersOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsCreateGroupOperation",
+      "path": "/docs/references/schemas/EndpointGroupsCreateGroupOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsCreateGroupOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsDeleteGroupOperation",
+      "path": "/docs/references/schemas/EndpointGroupsDeleteGroupOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsDeleteGroupOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsList",
+      "path": "/docs/references/schemas/EndpointGroupsList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsManageOperation",
+      "path": "/docs/references/schemas/EndpointGroupsManageOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsManageOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsManageOperationType",
+      "path": "/docs/references/schemas/EndpointGroupsManageOperationType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsManageOperationType"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsManageRequest",
+      "path": "/docs/references/schemas/EndpointGroupsManageRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsManageRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsManageResponse",
+      "path": "/docs/references/schemas/EndpointGroupsManageResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsManageResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsManageResult",
+      "path": "/docs/references/schemas/EndpointGroupsManageResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsManageResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsMergeIntoOperation",
+      "path": "/docs/references/schemas/EndpointGroupsMergeIntoOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsMergeIntoOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsRemoveMembersOperation",
+      "path": "/docs/references/schemas/EndpointGroupsRemoveMembersOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsRemoveMembersOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsSetEnablementOperation",
+      "path": "/docs/references/schemas/EndpointGroupsSetEnablementOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsSetEnablementOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointGroupsSetNameOperation",
+      "path": "/docs/references/schemas/EndpointGroupsSetNameOperation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointGroupsSetNameOperation"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointQueryRequest",
+      "path": "/docs/references/schemas/EndpointQueryRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointQueryRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointQueryResponse",
+      "path": "/docs/references/schemas/EndpointQueryResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointQueryResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointQueryResponseError",
+      "path": "/docs/references/schemas/EndpointQueryResponseError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointQueryResponseError"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointRegistryInterfaceConfiguration",
+      "path": "/docs/references/schemas/EndpointRegistryInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointRegistryInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointRegistryInterfaceEndpointUpdatedMessage",
+      "path": "/docs/references/schemas/EndpointRegistryInterfaceEndpointUpdatedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointRegistryInterfaceEndpointUpdatedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointsList",
+      "path": "/docs/references/schemas/EndpointsList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateAuthLinksResponse",
+      "path": "/docs/references/schemas/EnumerateAuthLinksResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateAuthLinksResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateEndpointGroupsResponse",
+      "path": "/docs/references/schemas/EnumerateEndpointGroupsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateEndpointGroupsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateFlowNodeSpecificationsResponse",
+      "path": "/docs/references/schemas/EnumerateFlowNodeSpecificationsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateFlowNodeSpecificationsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateGroupRelationshipsResponse",
+      "path": "/docs/references/schemas/EnumerateGroupRelationshipsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateGroupRelationshipsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateGroupRoutesResponse",
+      "path": "/docs/references/schemas/EnumerateGroupRoutesResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateGroupRoutesResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateOAuthClientsResponse",
+      "path": "/docs/references/schemas/EnumerateOAuthClientsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateOAuthClientsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumeratePluginsResponse",
+      "path": "/docs/references/schemas/EnumeratePluginsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumeratePluginsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumeratePrincipalsResponse",
+      "path": "/docs/references/schemas/EnumeratePrincipalsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumeratePrincipalsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateRoutesResponse",
+      "path": "/docs/references/schemas/EnumerateRoutesResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateRoutesResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateSecretsResponse",
+      "path": "/docs/references/schemas/EnumerateSecretsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateSecretsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateSubscriptionsResponse",
+      "path": "/docs/references/schemas/EnumerateSubscriptionsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateSubscriptionsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateTokensResponse",
+      "path": "/docs/references/schemas/EnumerateTokensResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateTokensResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateViewsResponse",
+      "path": "/docs/references/schemas/EnumerateViewsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateViewsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerBand",
+      "path": "/docs/references/schemas/EqualizerBand.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerBand"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerBandDelta",
+      "path": "/docs/references/schemas/EqualizerBandDelta.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerBandDelta"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceAdjustBandsMessage",
+      "path": "/docs/references/schemas/EqualizerInterfaceAdjustBandsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceAdjustBandsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceBandsAttribute",
+      "path": "/docs/references/schemas/EqualizerInterfaceBandsAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceBandsAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceConfiguration",
+      "path": "/docs/references/schemas/EqualizerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceModeAttribute",
+      "path": "/docs/references/schemas/EqualizerInterfaceModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceSetBandsMessage",
+      "path": "/docs/references/schemas/EqualizerInterfaceSetBandsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceSetBandsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/EqualizerInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Error",
+      "path": "/docs/references/schemas/Error.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Error"
+    },
+    {
+      "kind": "schemas",
+      "name": "ErrorCode",
+      "path": "/docs/references/schemas/ErrorCode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ErrorCode"
+    },
+    {
+      "kind": "schemas",
+      "name": "ErrorDetails",
+      "path": "/docs/references/schemas/ErrorDetails.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ErrorDetails"
+    },
+    {
+      "kind": "schemas",
+      "name": "ErrorFamily",
+      "path": "/docs/references/schemas/ErrorFamily.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ErrorFamily"
+    },
+    {
+      "kind": "schemas",
+      "name": "ErrorFieldError",
+      "path": "/docs/references/schemas/ErrorFieldError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ErrorFieldError"
+    },
+    {
+      "kind": "schemas",
+      "name": "EstablishAuthLinkRequest",
+      "path": "/docs/references/schemas/EstablishAuthLinkRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EstablishAuthLinkRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "EstablishAuthLinkResponse",
+      "path": "/docs/references/schemas/EstablishAuthLinkResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EstablishAuthLinkResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EstablishPluginRequest",
+      "path": "/docs/references/schemas/EstablishPluginRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EstablishPluginRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "EstablishPluginResponse",
+      "path": "/docs/references/schemas/EstablishPluginResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EstablishPluginResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EvaluateAccessControlRuleRequest",
+      "path": "/docs/references/schemas/EvaluateAccessControlRuleRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EvaluateAccessControlRuleRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "EvaluateAccessControlRuleResponse",
+      "path": "/docs/references/schemas/EvaluateAccessControlRuleResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EvaluateAccessControlRuleResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EvaluateAccessControlRuleResult",
+      "path": "/docs/references/schemas/EvaluateAccessControlRuleResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EvaluateAccessControlRuleResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDeadLetter",
+      "path": "/docs/references/schemas/EventDeadLetter.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDeadLetter"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDeadLetterQueryResponse",
+      "path": "/docs/references/schemas/EventDeadLetterQueryResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDeadLetterQueryResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDeliverySummary",
+      "path": "/docs/references/schemas/EventDeliverySummary.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDeliverySummary"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDetectionSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/EventDetectionSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDetectionSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDetectionSensorInterfaceHumanPresenceDetectionStateAttribute",
+      "path": "/docs/references/schemas/EventDetectionSensorInterfaceHumanPresenceDetectionStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDetectionSensorInterfaceHumanPresenceDetectionStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDetectionSensorInterfacePersonDetectedMessage",
+      "path": "/docs/references/schemas/EventDetectionSensorInterfacePersonDetectedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDetectionSensorInterfacePersonDetectedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventHeader",
+      "path": "/docs/references/schemas/EventHeader.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventHeader"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventReceipt",
+      "path": "/docs/references/schemas/EventReceipt.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventReceipt"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventReceiptDeliveryCounts",
+      "path": "/docs/references/schemas/EventReceiptDeliveryCounts.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventReceiptDeliveryCounts"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventRedriveResult",
+      "path": "/docs/references/schemas/EventRedriveResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventRedriveResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventTarget",
+      "path": "/docs/references/schemas/EventTarget.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventTarget"
+    },
+    {
+      "kind": "schemas",
+      "name": "ExtractorHoodInterfaceConfiguration",
+      "path": "/docs/references/schemas/ExtractorHoodInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ExtractorHoodInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ExtractorHoodInterfaceFanSpeedAttribute",
+      "path": "/docs/references/schemas/ExtractorHoodInterfaceFanSpeedAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ExtractorHoodInterfaceFanSpeedAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceConfiguration",
+      "path": "/docs/references/schemas/FanControlInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceFanModeAttribute",
+      "path": "/docs/references/schemas/FanControlInterfaceFanModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceFanModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceFanSpeedAttribute",
+      "path": "/docs/references/schemas/FanControlInterfaceFanSpeedAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceFanSpeedAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/FanControlInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceSetSpeedMessage",
+      "path": "/docs/references/schemas/FanControlInterfaceSetSpeedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceSetSpeedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanMode",
+      "path": "/docs/references/schemas/FanMode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanMode"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceConfiguration",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDeleteFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDeleteFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDeleteFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDeleteFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDownloadFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDownloadFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDownloadFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDownloadFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListAlbumsMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListAlbumsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListAlbumsResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListAlbumsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListFolderMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListFolderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListFolderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListFolderResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListFolderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListFolderResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceUploadFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceUploadFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceUploadFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceUploadFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FileUriToAudioPlayUriNodeConfiguration",
+      "path": "/docs/references/schemas/FileUriToAudioPlayUriNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FileUriToAudioPlayUriNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "Flow",
+      "path": "/docs/references/schemas/Flow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Flow"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowDataType",
+      "path": "/docs/references/schemas/FlowDataType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowDataType"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowLink",
+      "path": "/docs/references/schemas/FlowLink.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowLink"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowLinkVertex",
+      "path": "/docs/references/schemas/FlowLinkVertex.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowLinkVertex"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowNode",
+      "path": "/docs/references/schemas/FlowNode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowNode"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowNodePort",
+      "path": "/docs/references/schemas/FlowNodePort.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowNodePort"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowNodeSpecification",
+      "path": "/docs/references/schemas/FlowNodeSpecification.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowNodeSpecification"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowRun",
+      "path": "/docs/references/schemas/FlowRun.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowRun"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowRunMessageTarget",
+      "path": "/docs/references/schemas/FlowRunMessageTarget.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowRunMessageTarget"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowRunMessageTargetType",
+      "path": "/docs/references/schemas/FlowRunMessageTargetType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowRunMessageTargetType"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowRunStatus",
+      "path": "/docs/references/schemas/FlowRunStatus.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowRunStatus"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/FlowSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/FlowSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceCompleteMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceCompleteMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceCompleteMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceInitiateMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceInitiateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceInitiateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceMessageAckMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceMessageAckMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceMessageAckMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceMessageUnackMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceMessageUnackMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceMessageUnackMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceNodeCompleteMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceNodeCompleteMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceNodeCompleteMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfacePauseMessage",
+      "path": "/docs/references/schemas/FlowsInterfacePauseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfacePauseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceResumeMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceResumeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceResumeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceTerminateMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceTerminateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceTerminateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowSupportedReasons",
+      "path": "/docs/references/schemas/FlowSupportedReasons.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowSupportedReasons"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowSupportedStatuses",
+      "path": "/docs/references/schemas/FlowSupportedStatuses.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowSupportedStatuses"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowTrigger",
+      "path": "/docs/references/schemas/FlowTrigger.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowTrigger"
+    },
+    {
+      "kind": "schemas",
+      "name": "FormaldehydeConcMeasInterfaceConfiguration",
+      "path": "/docs/references/schemas/FormaldehydeConcMeasInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FormaldehydeConcMeasInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "FormaldehydeConcMeasInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/FormaldehydeConcMeasInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FormaldehydeConcMeasInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "GenerateOAuthCodeRequest",
+      "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthCodeRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "GenerateOAuthCodeResponse",
+      "path": "/docs/references/schemas/GenerateOAuthCodeResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthCodeResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "GenerateTokenRequest",
+      "path": "/docs/references/schemas/GenerateTokenRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateTokenRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "GenerateTokenResponse",
+      "path": "/docs/references/schemas/GenerateTokenResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateTokenResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "GeoAccuracy",
+      "path": "/docs/references/schemas/GeoAccuracy.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GeoAccuracy"
+    },
+    {
+      "kind": "schemas",
+      "name": "GeoCoordinate",
+      "path": "/docs/references/schemas/GeoCoordinate.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GeoCoordinate"
+    },
+    {
+      "kind": "schemas",
+      "name": "GetAccessControlRulesResponse",
+      "path": "/docs/references/schemas/GetAccessControlRulesResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GetAccessControlRulesResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "GridPosition",
+      "path": "/docs/references/schemas/GridPosition.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GridPosition"
+    },
+    {
+      "kind": "schemas",
+      "name": "GroupRelationship",
+      "path": "/docs/references/schemas/GroupRelationship.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRelationship"
+    },
+    {
+      "kind": "schemas",
+      "name": "GroupRelationshipVertex",
+      "path": "/docs/references/schemas/GroupRelationshipVertex.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRelationshipVertex"
+    },
+    {
+      "kind": "schemas",
+      "name": "GroupRoute",
+      "path": "/docs/references/schemas/GroupRoute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRoute"
+    },
+    {
+      "kind": "schemas",
+      "name": "GroupRouteAttributeState",
+      "path": "/docs/references/schemas/GroupRouteAttributeState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRouteAttributeState"
+    },
+    {
+      "kind": "schemas",
+      "name": "GroupRoutesList",
+      "path": "/docs/references/schemas/GroupRoutesList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRoutesList"
+    },
+    {
+      "kind": "schemas",
+      "name": "HostedComputePlugin",
+      "path": "/docs/references/schemas/HostedComputePlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/HostedComputePlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "HsbColor",
+      "path": "/docs/references/schemas/HsbColor.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/HsbColor"
+    },
+    {
+      "kind": "schemas",
+      "name": "HttpPlugin",
+      "path": "/docs/references/schemas/HttpPlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/HttpPlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "HumiditySensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/HumiditySensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/HumiditySensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "HumiditySensorInterfaceRelativeHumidityAttribute",
+      "path": "/docs/references/schemas/HumiditySensorInterfaceRelativeHumidityAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/HumiditySensorInterfaceRelativeHumidityAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "InferenceNodeConfiguration",
+      "path": "/docs/references/schemas/InferenceNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InferenceNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceConfiguration",
+      "path": "/docs/references/schemas/InputInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceInputAttribute",
+      "path": "/docs/references/schemas/InputInterfaceInputAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceInputAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceNavigateInputMessage",
+      "path": "/docs/references/schemas/InputInterfaceNavigateInputMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceNavigateInputMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceSelectInputMessage",
+      "path": "/docs/references/schemas/InputInterfaceSelectInputMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceSelectInputMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "IntegrationRequest",
+      "path": "/docs/references/schemas/IntegrationRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/IntegrationRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "InvalidateTokenResponse",
+      "path": "/docs/references/schemas/InvalidateTokenResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InvalidateTokenResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "KeypadInputInterfaceConfiguration",
+      "path": "/docs/references/schemas/KeypadInputInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/KeypadInputInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "KeypadInputInterfaceSendKeyMessage",
+      "path": "/docs/references/schemas/KeypadInputInterfaceSendKeyMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/KeypadInputInterfaceSendKeyMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "LaundryDryerInterfaceConfiguration",
+      "path": "/docs/references/schemas/LaundryDryerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LaundryDryerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LaundryDryerInterfaceOperationalStateAttribute",
+      "path": "/docs/references/schemas/LaundryDryerInterfaceOperationalStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LaundryDryerInterfaceOperationalStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LaundryWasherInterfaceConfiguration",
+      "path": "/docs/references/schemas/LaundryWasherInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LaundryWasherInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LaundryWasherInterfaceOperationalStateAttribute",
+      "path": "/docs/references/schemas/LaundryWasherInterfaceOperationalStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LaundryWasherInterfaceOperationalStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LeafWetnessSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/LeafWetnessSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LeafWetnessSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LeafWetnessSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/LeafWetnessSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LeafWetnessSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LightSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/LightSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LightSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LightSensorInterfaceIlluminanceAttribute",
+      "path": "/docs/references/schemas/LightSensorInterfaceIlluminanceAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LightSensorInterfaceIlluminanceAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocalPlugin",
+      "path": "/docs/references/schemas/LocalPlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocalPlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocationInterfaceConfiguration",
+      "path": "/docs/references/schemas/LocationInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocationInterfaceGeolocationAttribute",
+      "path": "/docs/references/schemas/LocationInterfaceGeolocationAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationInterfaceGeolocationAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocationTrackerInterfaceConfiguration",
+      "path": "/docs/references/schemas/LocationTrackerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationTrackerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocationTrackerInterfaceLocatorSignalAttribute",
+      "path": "/docs/references/schemas/LocationTrackerInterfaceLocatorSignalAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationTrackerInterfaceLocatorSignalAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocationTrackerInterfaceStartLocatorMessage",
+      "path": "/docs/references/schemas/LocationTrackerInterfaceStartLocatorMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationTrackerInterfaceStartLocatorMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceConfiguration",
+      "path": "/docs/references/schemas/LockInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceLockMessage",
+      "path": "/docs/references/schemas/LockInterfaceLockMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceLockMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceLockStateAttribute",
+      "path": "/docs/references/schemas/LockInterfaceLockStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceLockStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceUnlockMessage",
+      "path": "/docs/references/schemas/LockInterfaceUnlockMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceUnlockMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MeasurementRange",
+      "path": "/docs/references/schemas/MeasurementRange.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MeasurementRange"
+    },
+    {
+      "kind": "schemas",
+      "name": "MeasurementUnit",
+      "path": "/docs/references/schemas/MeasurementUnit.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MeasurementUnit"
+    },
+    {
+      "kind": "schemas",
+      "name": "MeasurementValue",
+      "path": "/docs/references/schemas/MeasurementValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MeasurementValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaId",
+      "path": "/docs/references/schemas/MediaId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaId"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceAudioMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceAudioMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceAudioMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceAudioStreamMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceAudioStreamMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceAudioStreamMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceConfiguration",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceNextMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceNextMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceNextMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePauseMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePauseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePauseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayAudioMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayAudioMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayAudioMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlaybackSpeedAttribute",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlaybackSpeedAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlaybackSpeedAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlaybackStateAttribute",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlaybackStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlaybackStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayMediaMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayMediaMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayMediaMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayUriMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayUriMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayUriMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePreviousMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePreviousMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePreviousMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceRewindMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceRewindMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceRewindMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSearchAndPlayMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSearchAndPlayMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSearchAndPlayMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSeekMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSeekMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSeekMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSkipBackwardMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSkipBackwardMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSkipBackwardMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSkipForwardMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSkipForwardMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSkipForwardMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceStartOverMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceStartOverMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceStartOverMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceStopMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceStopMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceStopMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceAddToPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceAddToPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceConfiguration",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceCreatePlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceCreatePlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceGetPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceGetPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlayPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlayPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlayPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceRemoveFromPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceShufflePlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceShufflePlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceShufflePlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/MediaSearchCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceAudioMediaResultsMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceAudioMediaResultsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceSearchMediaMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceSearchMediaMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Message",
+      "path": "/docs/references/schemas/Message.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Message"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageAuthorizationContext",
+      "path": "/docs/references/schemas/MessageAuthorizationContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageAuthorizationContext"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageContext",
+      "path": "/docs/references/schemas/MessageContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageContext"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageEndpoint",
+      "path": "/docs/references/schemas/MessageEndpoint.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageEndpoint"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageHeader",
+      "path": "/docs/references/schemas/MessageHeader.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageHeader"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageInterfaceConfiguration",
+      "path": "/docs/references/schemas/MessageInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageSourceNodeConfiguration",
+      "path": "/docs/references/schemas/MessageSourceNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageSourceNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageTarget",
+      "path": "/docs/references/schemas/MessageTarget.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageTarget"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageTargetGroupRoute",
+      "path": "/docs/references/schemas/MessageTargetGroupRoute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageTargetGroupRoute"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageTargetGroupRouteReference",
+      "path": "/docs/references/schemas/MessageTargetGroupRouteReference.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageTargetGroupRouteReference"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageTargetType",
+      "path": "/docs/references/schemas/MessageTargetType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageTargetType"
+    },
+    {
+      "kind": "schemas",
+      "name": "MessageType",
+      "path": "/docs/references/schemas/MessageType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MessageType"
+    },
+    {
+      "kind": "schemas",
+      "name": "MicrowaveOvenInterfaceConfiguration",
+      "path": "/docs/references/schemas/MicrowaveOvenInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MicrowaveOvenInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MicrowaveOvenInterfaceOperationalStateAttribute",
+      "path": "/docs/references/schemas/MicrowaveOvenInterfaceOperationalStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MicrowaveOvenInterfaceOperationalStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ModifyEndpointRequest",
+      "path": "/docs/references/schemas/ModifyEndpointRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ModifyEndpointRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "MotionSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/MotionSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MotionSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "MotionSensorInterfaceDetectionStateAttribute",
+      "path": "/docs/references/schemas/MotionSensorInterfaceDetectionStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MotionSensorInterfaceDetectionStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "MotionSensorInterfaceMotionDetectedMessage",
+      "path": "/docs/references/schemas/MotionSensorInterfaceMotionDetectedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MotionSensorInterfaceMotionDetectedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MovementInstruction",
+      "path": "/docs/references/schemas/MovementInstruction.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MovementInstruction"
+    },
+    {
+      "kind": "schemas",
+      "name": "NO2ConcMeasInterfaceConfiguration",
+      "path": "/docs/references/schemas/NO2ConcMeasInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NO2ConcMeasInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "NO2ConcMeasInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/NO2ConcMeasInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NO2ConcMeasInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/NotificationCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationConditions",
+      "path": "/docs/references/schemas/NotificationConditions.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationConditions"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationMessage",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationScheduleMessage",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationScheduleMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationScheduleMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationTriggerMessage",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationTriggerMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationTriggerMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterval",
+      "path": "/docs/references/schemas/NotificationInterval.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterval"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationPayload",
+      "path": "/docs/references/schemas/NotificationPayload.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationPayload"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationSchedule",
+      "path": "/docs/references/schemas/NotificationSchedule.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationSchedule"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationTimeWindow",
+      "path": "/docs/references/schemas/NotificationTimeWindow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationTimeWindow"
+    },
+    {
+      "kind": "schemas",
+      "name": "O3ConcMeasInterfaceConfiguration",
+      "path": "/docs/references/schemas/O3ConcMeasInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/O3ConcMeasInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "O3ConcMeasInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/O3ConcMeasInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/O3ConcMeasInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuth2ConnectionData",
+      "path": "/docs/references/schemas/OAuth2ConnectionData.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuth2ConnectionData"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthClient",
+      "path": "/docs/references/schemas/OAuthClient.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthClient"
+    },
+    {
+      "kind": "schemas",
+      "name": "OauthClientCredentialSecret",
+      "path": "/docs/references/schemas/OauthClientCredentialSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OauthClientCredentialSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthClientRegistrationRequest",
+      "path": "/docs/references/schemas/OAuthClientRegistrationRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthClientRegistrationRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthClientsList",
+      "path": "/docs/references/schemas/OAuthClientsList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthClientsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthClientUpdateRequest",
+      "path": "/docs/references/schemas/OAuthClientUpdateRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthClientUpdateRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthErrorResponse",
+      "path": "/docs/references/schemas/OAuthErrorResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthErrorResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthProtocolError",
+      "path": "/docs/references/schemas/OAuthProtocolError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthProtocolError"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthScope",
+      "path": "/docs/references/schemas/OAuthScope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthScope"
+    },
+    {
+      "kind": "schemas",
+      "name": "OauthTokenSecret",
+      "path": "/docs/references/schemas/OauthTokenSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OauthTokenSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "OntologicalType",
+      "path": "/docs/references/schemas/OntologicalType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OntologicalType"
+    },
+    {
+      "kind": "schemas",
+      "name": "OperationalState",
+      "path": "/docs/references/schemas/OperationalState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OperationalState"
+    },
+    {
+      "kind": "schemas",
+      "name": "OvenInterfaceConfiguration",
+      "path": "/docs/references/schemas/OvenInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OvenInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "OvenInterfaceTemperatureAttribute",
+      "path": "/docs/references/schemas/OvenInterfaceTemperatureAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OvenInterfaceTemperatureAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PaginationContext",
+      "path": "/docs/references/schemas/PaginationContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PaginationContext"
+    },
+    {
+      "kind": "schemas",
+      "name": "PatchSubscriptionRequest",
+      "path": "/docs/references/schemas/PatchSubscriptionRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PatchSubscriptionRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfaceAdjustPercentageMessage",
+      "path": "/docs/references/schemas/PercentageInterfaceAdjustPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceAdjustPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfaceConfiguration",
+      "path": "/docs/references/schemas/PercentageInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfacePercentageAttribute",
+      "path": "/docs/references/schemas/PercentageInterfacePercentageAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfacePercentageAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfaceSetPercentageMessage",
+      "path": "/docs/references/schemas/PercentageInterfaceSetPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceSetPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Permission",
+      "path": "/docs/references/schemas/Permission.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Permission"
+    },
+    {
+      "kind": "schemas",
+      "name": "PersonalAccessTokenSecret",
+      "path": "/docs/references/schemas/PersonalAccessTokenSecret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PersonalAccessTokenSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "PetFeederInterfaceConfiguration",
+      "path": "/docs/references/schemas/PetFeederInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PetFeederInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PetFeederInterfaceTriggerFeedMessage",
+      "path": "/docs/references/schemas/PetFeederInterfaceTriggerFeedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PetFeederInterfaceTriggerFeedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PhotoAlbum",
+      "path": "/docs/references/schemas/PhotoAlbum.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PhotoAlbum"
+    },
+    {
+      "kind": "schemas",
+      "name": "PhSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/PhSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PhSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PhSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/PhSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PhSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PlayableAudio",
+      "path": "/docs/references/schemas/PlayableAudio.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PlayableAudio"
+    },
+    {
+      "kind": "schemas",
+      "name": "PlaybackState",
+      "path": "/docs/references/schemas/PlaybackState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PlaybackState"
+    },
+    {
+      "kind": "schemas",
+      "name": "Playlist",
+      "path": "/docs/references/schemas/Playlist.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Playlist"
+    },
+    {
+      "kind": "schemas",
+      "name": "Plugin",
+      "path": "/docs/references/schemas/Plugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Plugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAttributePayload",
+      "path": "/docs/references/schemas/PluginAttributePayload.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAttributePayload"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAttributeReportRequestEvent",
+      "path": "/docs/references/schemas/PluginAttributeReportRequestEvent.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAttributeReportRequestEvent"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAttributeReportResponseEvent",
+      "path": "/docs/references/schemas/PluginAttributeReportResponseEvent.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAttributeReportResponseEvent"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAttributeValue",
+      "path": "/docs/references/schemas/PluginAttributeValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAttributeValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAuthCodeExchangeRequest",
+      "path": "/docs/references/schemas/PluginAuthCodeExchangeRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthCodeExchangeRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAuthCodeLinkRequest",
+      "path": "/docs/references/schemas/PluginAuthCodeLinkRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthCodeLinkRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAuthCodeLinkResponse",
+      "path": "/docs/references/schemas/PluginAuthCodeLinkResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthCodeLinkResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAuthentication",
+      "path": "/docs/references/schemas/PluginAuthentication.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthentication"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAuthMultifactorExchangeRequest",
+      "path": "/docs/references/schemas/PluginAuthMultifactorExchangeRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthMultifactorExchangeRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginAuthorization",
+      "path": "/docs/references/schemas/PluginAuthorization.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthorization"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginCapabilityInterface",
+      "path": "/docs/references/schemas/PluginCapabilityInterface.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginCapabilityInterface"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginDataType",
+      "path": "/docs/references/schemas/PluginDataType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginDataType"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginDiscoveryRelationship",
+      "path": "/docs/references/schemas/PluginDiscoveryRelationship.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginDiscoveryRelationship"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginDiscoveryRelationshipVertex",
+      "path": "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginDiscoveryRelationshipVertex"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginDispatchError",
+      "path": "/docs/references/schemas/PluginDispatchError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginDispatchError"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginDispatchErrorFamily",
+      "path": "/docs/references/schemas/PluginDispatchErrorFamily.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginDispatchErrorFamily"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginDispatchErrorType",
+      "path": "/docs/references/schemas/PluginDispatchErrorType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginDispatchErrorType"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginEntry",
+      "path": "/docs/references/schemas/PluginEntry.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginEntry"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginMetadataMultifactor",
+      "path": "/docs/references/schemas/PluginMetadataMultifactor.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginMetadataMultifactor"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginMetadataMultifactorField",
+      "path": "/docs/references/schemas/PluginMetadataMultifactorField.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginMetadataMultifactorField"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginMetadataOAuth",
+      "path": "/docs/references/schemas/PluginMetadataOAuth.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginMetadataOAuth"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginsList",
+      "path": "/docs/references/schemas/PluginsList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginType",
+      "path": "/docs/references/schemas/PluginType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginType"
+    },
+    {
+      "kind": "schemas",
+      "name": "PM10ConcentrationMeasurementInterfaceConfiguration",
+      "path": "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PM10ConcentrationMeasurementInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PM10ConcentrationMeasurementInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PM10ConcentrationMeasurementInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PM25ConcentrationMeasurementInterfaceConfiguration",
+      "path": "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PM25ConcentrationMeasurementInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "Position",
+      "path": "/docs/references/schemas/Position.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Position"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceConfiguration",
+      "path": "/docs/references/schemas/PowerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfacePowerAttribute",
+      "path": "/docs/references/schemas/PowerInterfacePowerAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfacePowerAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceRebootMessage",
+      "path": "/docs/references/schemas/PowerInterfaceRebootMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceRebootMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceTurnOffMessage",
+      "path": "/docs/references/schemas/PowerInterfaceTurnOffMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceTurnOffMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceTurnOnMessage",
+      "path": "/docs/references/schemas/PowerInterfaceTurnOnMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceTurnOnMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceAdjustPowerLevelMessage",
+      "path": "/docs/references/schemas/PowerLevelInterfaceAdjustPowerLevelMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceAdjustPowerLevelMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceConfiguration",
+      "path": "/docs/references/schemas/PowerLevelInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfacePowerLevelAttribute",
+      "path": "/docs/references/schemas/PowerLevelInterfacePowerLevelAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfacePowerLevelAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceSetPowerLevelMessage",
+      "path": "/docs/references/schemas/PowerLevelInterfaceSetPowerLevelMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceSetPowerLevelMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerState",
+      "path": "/docs/references/schemas/PowerState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerState"
+    },
+    {
+      "kind": "schemas",
+      "name": "PressureSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/PressureSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PressureSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PressureSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/PressureSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PressureSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "Principal",
+      "path": "/docs/references/schemas/Principal.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Principal"
+    },
+    {
+      "kind": "schemas",
+      "name": "PrincipalsList",
+      "path": "/docs/references/schemas/PrincipalsList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PrincipalsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceCapacityAttribute",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceCapacityAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceCapacityAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceConfiguration",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfacePumpModeAttribute",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfacePumpModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfacePumpModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfacePumpStatusAttribute",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfacePumpStatusAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfacePumpStatusAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceSetSpeedMessage",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Query",
+      "path": "/docs/references/schemas/Query.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Query"
+    },
+    {
+      "kind": "schemas",
+      "name": "QueryComparator",
+      "path": "/docs/references/schemas/QueryComparator.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/QueryComparator"
+    },
+    {
+      "kind": "schemas",
+      "name": "QueryFlowRunsResponse",
+      "path": "/docs/references/schemas/QueryFlowRunsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/QueryFlowRunsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "QueryFlowsResponse",
+      "path": "/docs/references/schemas/QueryFlowsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/QueryFlowsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "RadioDiagnosticValue",
+      "path": "/docs/references/schemas/RadioDiagnosticValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RadioDiagnosticValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "Recording",
+      "path": "/docs/references/schemas/Recording.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Recording"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceConfiguration",
+      "path": "/docs/references/schemas/RecordingsInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDeleteRecordingMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDeleteRecordingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDeleteRecordingResponseMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDeleteRecordingResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDownloadRecordingMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDownloadRecordingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDownloadRecordingResponseMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDownloadRecordingResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceListRecordingsMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceListRecordingsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceListRecordingsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceListRecordingsResponseMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceListRecordingsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceListRecordingsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RefrigeratorInterfaceConfiguration",
+      "path": "/docs/references/schemas/RefrigeratorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RefrigeratorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RefrigeratorInterfaceTemperatureAttribute",
+      "path": "/docs/references/schemas/RefrigeratorInterfaceTemperatureAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RefrigeratorInterfaceTemperatureAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "RelationshipInterface",
+      "path": "/docs/references/schemas/RelationshipInterface.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RelationshipInterface"
+    },
+    {
+      "kind": "schemas",
+      "name": "RelationshipType",
+      "path": "/docs/references/schemas/RelationshipType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RelationshipType"
+    },
+    {
+      "kind": "schemas",
+      "name": "ReminderList",
+      "path": "/docs/references/schemas/ReminderList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ReminderList"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/RemindersProviderCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceListRemindersMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceListRemindersResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceConfiguration",
+      "path": "/docs/references/schemas/RemoteControlInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceEndSessionMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceEndSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceEndSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceMoveMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceMoveMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceMoveMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceStartSessionMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceStartSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceStartSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceStopSessionMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceStopSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceStopSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceUnaryMoveMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceUnaryMoveMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceUnaryMoveMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoveEndpointGroupMembersRequest",
+      "path": "/docs/references/schemas/RemoveEndpointGroupMembersRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoveEndpointGroupMembersRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "ResourceGroup",
+      "path": "/docs/references/schemas/ResourceGroup.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ResourceGroup"
+    },
+    {
+      "kind": "schemas",
+      "name": "ResourceGroupMember",
+      "path": "/docs/references/schemas/ResourceGroupMember.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ResourceGroupMember"
+    },
+    {
+      "kind": "schemas",
+      "name": "ResourceGroupMemberType",
+      "path": "/docs/references/schemas/ResourceGroupMemberType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ResourceGroupMemberType"
+    },
+    {
+      "kind": "schemas",
+      "name": "ResourceGroupResource",
+      "path": "/docs/references/schemas/ResourceGroupResource.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ResourceGroupResource"
+    },
+    {
+      "kind": "schemas",
+      "name": "ResourceGroupResourceType",
+      "path": "/docs/references/schemas/ResourceGroupResourceType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ResourceGroupResourceType"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceCleaningModeAttribute",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleaningModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceCleaningModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceCleanRoomMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceConfiguration",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceOperationalStateAttribute",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceOperationalStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceOperationalStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfacePauseMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfacePauseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfacePauseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceReturnToDockMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceSetCleaningModeMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceStartMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStartMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceStartMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceStopMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStopMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceStopMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "Route",
+      "path": "/docs/references/schemas/Route.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Route"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryConfiguration",
+      "path": "/docs/references/schemas/RouteDiscoveryConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceAddGroupRouteMembersMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceDiscoverRoutesMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceRouteDiscoveryReportMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceSetGroupRouteNameMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteInterface",
+      "path": "/docs/references/schemas/RouteInterface.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteInterface"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteInterfaceRef",
+      "path": "/docs/references/schemas/RouteInterfaceRef.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteInterfaceRef"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteName",
+      "path": "/docs/references/schemas/RouteName.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteName"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoutesList",
+      "path": "/docs/references/schemas/RoutesList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoutesList"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcAnswer",
+      "path": "/docs/references/schemas/RtcAnswer.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcAnswer"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcAnswerValue",
+      "path": "/docs/references/schemas/RtcAnswerValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcAnswerValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcDataChannel",
+      "path": "/docs/references/schemas/RtcDataChannel.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcDataChannel"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcIceServer",
+      "path": "/docs/references/schemas/RtcIceServer.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcIceServer"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcOffer",
+      "path": "/docs/references/schemas/RtcOffer.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcOffer"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionAuthorization",
+      "path": "/docs/references/schemas/RtcSessionAuthorization.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionAuthorization"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionAuthorizationRequirement",
+      "path": "/docs/references/schemas/RtcSessionAuthorizationRequirement.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionAuthorizationRequirement"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceAnswerGeneratedForSessionMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceConfiguration",
+      "path": "/docs/references/schemas/RtcSessionInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceDisconnectSessionMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceDisconnectSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceDisconnectSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceInitiateSessionWithOfferMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceSessionDisconnectedMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceSessionDisconnectedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceSessionDisconnectedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionMessageAuthorizationRequirement",
+      "path": "/docs/references/schemas/RtcSessionMessageAuthorizationRequirement.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionMessageAuthorizationRequirement"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionRoborockPinAuthorization",
+      "path": "/docs/references/schemas/RtcSessionRoborockPinAuthorization.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionRoborockPinAuthorization"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionSupportedStream",
+      "path": "/docs/references/schemas/RtcSessionSupportedStream.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionSupportedStream"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcStunUrl",
+      "path": "/docs/references/schemas/RtcStunUrl.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcStunUrl"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceConfiguration",
+      "path": "/docs/references/schemas/RtspSessionInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStartSessionMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStartSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStartSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStartSessionResponseMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStartSessionResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStartSessionResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStopSessionMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStopSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStopSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStopSessionResponseMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStopSessionResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStopSessionResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceActivateMessage",
+      "path": "/docs/references/schemas/SceneInterfaceActivateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceActivateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceConfiguration",
+      "path": "/docs/references/schemas/SceneInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceDeactivateMessage",
+      "path": "/docs/references/schemas/SceneInterfaceDeactivateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceDeactivateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SchedulerNodeConfiguration",
+      "path": "/docs/references/schemas/SchedulerNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SchedulerNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "Secret",
+      "path": "/docs/references/schemas/Secret.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Secret"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecretsList",
+      "path": "/docs/references/schemas/SecretsList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecretsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityAlert",
+      "path": "/docs/references/schemas/SecurityAlert.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityAlert"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityArmState",
+      "path": "/docs/references/schemas/SecurityArmState.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityArmState"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityAuthorizationType",
+      "path": "/docs/references/schemas/SecurityAuthorizationType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityAuthorizationType"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceArmMessage",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceArmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceArmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceArmStateAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceArmStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceArmStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceBurglaryAlarmAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceBurglaryAlarmAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceBurglaryAlarmAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceCarbonMonoxideAlarmAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceCarbonMonoxideAlarmAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceCarbonMonoxideAlarmAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceConfiguration",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceDelayStateAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceDelayStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceDelayStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceDisarmMessage",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceDisarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceDisarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceFireAlarmAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceFireAlarmAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceFireAlarmAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceSirenStateAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceSirenStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceSirenStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceWaterAlarmAttribute",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceWaterAlarmAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceWaterAlarmAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceConfiguration",
+      "path": "/docs/references/schemas/SecurityPinInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceCreatePinMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceCreatePinMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceCreatePinMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceDeletePinMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceDeletePinMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceDeletePinMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinOperationResultMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinOperationResultMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinOperationResultMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinRecordsAttribute",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinRecordsAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinRecordsAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinRecordsReportMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinRecordsReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinRecordsReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinSupportAttribute",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinSupportAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinSupportAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceQueryOperationMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceQueryOperationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceQueryOperationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceQueryPinsMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceQueryPinsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceQueryPinsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceUpdatePinMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceUpdatePinMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceUpdatePinMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinRecord",
+      "path": "/docs/references/schemas/SecurityPinRecord.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinRecord"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPlaylist",
+      "path": "/docs/references/schemas/SecurityPlaylist.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPlaylist"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPlayOrderItem",
+      "path": "/docs/references/schemas/SecurityPlayOrderItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPlayOrderItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "SetEndpointGroupNameRequest",
+      "path": "/docs/references/schemas/SetEndpointGroupNameRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SetEndpointGroupNameRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "SetFlowRunStatusRequest",
+      "path": "/docs/references/schemas/SetFlowRunStatusRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SetFlowRunStatusRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "Simulator",
+      "path": "/docs/references/schemas/Simulator.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Simulator"
+    },
+    {
+      "kind": "schemas",
+      "name": "SimulatorConfiguration",
+      "path": "/docs/references/schemas/SimulatorConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SimulatorQueryResponse",
+      "path": "/docs/references/schemas/SimulatorQueryResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorQueryResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "SimulatorQueryResponseV2",
+      "path": "/docs/references/schemas/SimulatorQueryResponseV2.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorQueryResponseV2"
+    },
+    {
+      "kind": "schemas",
+      "name": "SimulatorRecordFields",
+      "path": "/docs/references/schemas/SimulatorRecordFields.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorRecordFields"
+    },
+    {
+      "kind": "schemas",
+      "name": "SimulatorSharedFields",
+      "path": "/docs/references/schemas/SimulatorSharedFields.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorSharedFields"
+    },
+    {
+      "kind": "schemas",
+      "name": "SimulatorV2",
+      "path": "/docs/references/schemas/SimulatorV2.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorV2"
+    },
+    {
+      "kind": "schemas",
+      "name": "SleepNodeConfiguration",
+      "path": "/docs/references/schemas/SleepNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SleepNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SmokeCoAlarmInterfaceAlarmStateAttribute",
+      "path": "/docs/references/schemas/SmokeCoAlarmInterfaceAlarmStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SmokeCoAlarmInterfaceAlarmStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SmokeCoAlarmInterfaceConfiguration",
+      "path": "/docs/references/schemas/SmokeCoAlarmInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SmokeCoAlarmInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotInterfaceConfiguration",
+      "path": "/docs/references/schemas/SnapshotInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotInterfaceGetSnapshotMessage",
+      "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceGetSnapshotMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotInterfaceGetSnapshotResponseMessage",
+      "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceGetSnapshotResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotValue",
+      "path": "/docs/references/schemas/SnapshotValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "SoilMoistureSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/SoilMoistureSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SoilMoistureSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SoilMoistureSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/SoilMoistureSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SoilMoistureSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialAxisDirection",
+      "path": "/docs/references/schemas/SpatialAxisDirection.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialAxisDirection"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialCoordinate",
+      "path": "/docs/references/schemas/SpatialCoordinate.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialCoordinate"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialCoordinateSystem",
+      "path": "/docs/references/schemas/SpatialCoordinateSystem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialCoordinateSystem"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialInterfaceActiveAttribute",
+      "path": "/docs/references/schemas/SpatialInterfaceActiveAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialInterfaceActiveAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialInterfaceConfiguration",
+      "path": "/docs/references/schemas/SpatialInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialInterfaceGeometryAttribute",
+      "path": "/docs/references/schemas/SpatialInterfaceGeometryAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialInterfaceGeometryAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialInterfacePositionAttribute",
+      "path": "/docs/references/schemas/SpatialInterfacePositionAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialInterfacePositionAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialLinearRing",
+      "path": "/docs/references/schemas/SpatialLinearRing.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialLinearRing"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialMultiPolygon",
+      "path": "/docs/references/schemas/SpatialMultiPolygon.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialMultiPolygon"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialPoint",
+      "path": "/docs/references/schemas/SpatialPoint.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialPoint"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialPolygon",
+      "path": "/docs/references/schemas/SpatialPolygon.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialPolygon"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialRole",
+      "path": "/docs/references/schemas/SpatialRole.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialRole"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpatialShape",
+      "path": "/docs/references/schemas/SpatialShape.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpatialShape"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceAdjustVolumeMessage",
+      "path": "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceAdjustVolumeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceConfiguration",
+      "path": "/docs/references/schemas/SpeakerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceMutedAttribute",
+      "path": "/docs/references/schemas/SpeakerInterfaceMutedAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceMutedAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceSetMuteMessage",
+      "path": "/docs/references/schemas/SpeakerInterfaceSetMuteMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceSetMuteMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceSetVolumeMessage",
+      "path": "/docs/references/schemas/SpeakerInterfaceSetVolumeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceSetVolumeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceVolumeAttribute",
+      "path": "/docs/references/schemas/SpeakerInterfaceVolumeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceVolumeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceAudioUriMessage",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceConfiguration",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceGenerateSpeechMessage",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechInput",
+      "path": "/docs/references/schemas/SpeechInput.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechInput"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechSynthesizerInterfaceConfiguration",
+      "path": "/docs/references/schemas/SpeechSynthesizerInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechSynthesizerInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechSynthesizerInterfaceSpeakMessage",
+      "path": "/docs/references/schemas/SpeechSynthesizerInterfaceSpeakMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechSynthesizerInterfaceSpeakMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechToTextNodeConfiguration",
+      "path": "/docs/references/schemas/SpeechToTextNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechToTextNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "StorageItem",
+      "path": "/docs/references/schemas/StorageItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/StorageItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "Subscription",
+      "path": "/docs/references/schemas/Subscription.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Subscription"
+    },
+    {
+      "kind": "schemas",
+      "name": "SubscriptionQueryKeys",
+      "path": "/docs/references/schemas/SubscriptionQueryKeys.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SubscriptionQueryKeys"
+    },
+    {
+      "kind": "schemas",
+      "name": "SuctionLevel",
+      "path": "/docs/references/schemas/SuctionLevel.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SuctionLevel"
+    },
+    {
+      "kind": "schemas",
+      "name": "SupportedEvent",
+      "path": "/docs/references/schemas/SupportedEvent.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SupportedEvent"
+    },
+    {
+      "kind": "schemas",
+      "name": "SupportedInput",
+      "path": "/docs/references/schemas/SupportedInput.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SupportedInput"
+    },
+    {
+      "kind": "schemas",
+      "name": "SynchronizationItemError",
+      "path": "/docs/references/schemas/SynchronizationItemError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SynchronizationItemError"
+    },
+    {
+      "kind": "schemas",
+      "name": "SynchronizationRequest",
+      "path": "/docs/references/schemas/SynchronizationRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SynchronizationRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "SyntheticEventAccepted",
+      "path": "/docs/references/schemas/SyntheticEventAccepted.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SyntheticEventAccepted"
+    },
+    {
+      "kind": "schemas",
+      "name": "SyntheticEventEndpoint",
+      "path": "/docs/references/schemas/SyntheticEventEndpoint.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SyntheticEventEndpoint"
+    },
+    {
+      "kind": "schemas",
+      "name": "SyntheticEventHeader",
+      "path": "/docs/references/schemas/SyntheticEventHeader.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SyntheticEventHeader"
+    },
+    {
+      "kind": "schemas",
+      "name": "SyntheticEventRequest",
+      "path": "/docs/references/schemas/SyntheticEventRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SyntheticEventRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "SystemId",
+      "path": "/docs/references/schemas/SystemId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SystemId"
+    },
+    {
+      "kind": "schemas",
+      "name": "TemperatureSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/TemperatureSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TemperatureSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "TemperatureSensorInterfaceOperationModeAttribute",
+      "path": "/docs/references/schemas/TemperatureSensorInterfaceOperationModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TemperatureSensorInterfaceOperationModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "TemperatureSensorInterfaceTemperatureAttribute",
+      "path": "/docs/references/schemas/TemperatureSensorInterfaceTemperatureAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TemperatureSensorInterfaceTemperatureAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "TemperatureSetpoint",
+      "path": "/docs/references/schemas/TemperatureSetpoint.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TemperatureSetpoint"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextCapabilityInterfaceConfiguration",
+      "path": "/docs/references/schemas/TextCapabilityInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextCapabilityInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextInterfaceTextMessage",
+      "path": "/docs/references/schemas/TextInterfaceTextMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextInterfaceTextMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextMessageInterface",
+      "path": "/docs/references/schemas/TextMessageInterface.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextMessageInterface"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextOutNodeConfiguration",
+      "path": "/docs/references/schemas/TextOutNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextOutNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextStreamInterfaceTextStreamMessage",
+      "path": "/docs/references/schemas/TextStreamInterfaceTextStreamMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextStreamInterfaceTextStreamMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextToSpeechNodeConfiguration",
+      "path": "/docs/references/schemas/TextToSpeechNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextToSpeechNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceAdjustTargetTemperatureMessage",
+      "path": "/docs/references/schemas/ThermostatInterfaceAdjustTargetTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceAdjustTargetTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceConfiguration",
+      "path": "/docs/references/schemas/ThermostatInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceLowerSetpointAttribute",
+      "path": "/docs/references/schemas/ThermostatInterfaceLowerSetpointAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceLowerSetpointAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceSetTargetTemperatureMessage",
+      "path": "/docs/references/schemas/ThermostatInterfaceSetTargetTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceSetTargetTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceSetThermostatModeMessage",
+      "path": "/docs/references/schemas/ThermostatInterfaceSetThermostatModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceSetThermostatModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceTargetSetpointAttribute",
+      "path": "/docs/references/schemas/ThermostatInterfaceTargetSetpointAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceTargetSetpointAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceThermostatModeAttribute",
+      "path": "/docs/references/schemas/ThermostatInterfaceThermostatModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceThermostatModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceUpperSetpointAttribute",
+      "path": "/docs/references/schemas/ThermostatInterfaceUpperSetpointAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceUpperSetpointAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "TokenList",
+      "path": "/docs/references/schemas/TokenList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TokenList"
+    },
+    {
+      "kind": "schemas",
+      "name": "TokenListItem",
+      "path": "/docs/references/schemas/TokenListItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TokenListItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "Track",
+      "path": "/docs/references/schemas/Track.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Track"
+    },
+    {
+      "kind": "schemas",
+      "name": "TriggerFlowRequest",
+      "path": "/docs/references/schemas/TriggerFlowRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TriggerFlowRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "TriggerFlowResponse",
+      "path": "/docs/references/schemas/TriggerFlowResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TriggerFlowResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "TriggerFlowResult",
+      "path": "/docs/references/schemas/TriggerFlowResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TriggerFlowResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "TypeValue",
+      "path": "/docs/references/schemas/TypeValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TypeValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpdateOAuthClientResponse",
+      "path": "/docs/references/schemas/UpdateOAuthClientResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpdateOAuthClientResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertAccessControlRuleRequest",
+      "path": "/docs/references/schemas/UpsertAccessControlRuleRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertAccessControlRuleRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertAccessControlRuleResponse",
+      "path": "/docs/references/schemas/UpsertAccessControlRuleResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertAccessControlRuleResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertAuthLinkRequest",
+      "path": "/docs/references/schemas/UpsertAuthLinkRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertAuthLinkRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertAuthLinkResponse",
+      "path": "/docs/references/schemas/UpsertAuthLinkResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertAuthLinkResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertEndpointRequest",
+      "path": "/docs/references/schemas/UpsertEndpointRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertEndpointRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRequest",
+      "path": "/docs/references/schemas/UpsertFlowRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowResponse",
+      "path": "/docs/references/schemas/UpsertFlowResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowResult",
+      "path": "/docs/references/schemas/UpsertFlowResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRunMessageRequest",
+      "path": "/docs/references/schemas/UpsertFlowRunMessageRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRunMessageRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRunMessageResponse",
+      "path": "/docs/references/schemas/UpsertFlowRunMessageResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRunMessageResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRunMessageResult",
+      "path": "/docs/references/schemas/UpsertFlowRunMessageResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRunMessageResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRunRequest",
+      "path": "/docs/references/schemas/UpsertFlowRunRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRunRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRunResponse",
+      "path": "/docs/references/schemas/UpsertFlowRunResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRunResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertFlowRunResult",
+      "path": "/docs/references/schemas/UpsertFlowRunResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertFlowRunResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertPluginRequest",
+      "path": "/docs/references/schemas/UpsertPluginRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertPluginRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertPluginResponse",
+      "path": "/docs/references/schemas/UpsertPluginResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertPluginResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertPrincipalRequest",
+      "path": "/docs/references/schemas/UpsertPrincipalRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertPrincipalRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertPrincipalResponse",
+      "path": "/docs/references/schemas/UpsertPrincipalResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertPrincipalResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertRouteRequest",
+      "path": "/docs/references/schemas/UpsertRouteRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertRouteRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSecretRequest",
+      "path": "/docs/references/schemas/UpsertSecretRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSecretRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSecretResponse",
+      "path": "/docs/references/schemas/UpsertSecretResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSecretResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSimulatorRequest",
+      "path": "/docs/references/schemas/UpsertSimulatorRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSimulatorRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSimulatorRequestV2",
+      "path": "/docs/references/schemas/UpsertSimulatorRequestV2.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSimulatorRequestV2"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSubscriptionRequest",
+      "path": "/docs/references/schemas/UpsertSubscriptionRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSubscriptionRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSubscriptionResponse",
+      "path": "/docs/references/schemas/UpsertSubscriptionResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSubscriptionResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertSubscriptionResult",
+      "path": "/docs/references/schemas/UpsertSubscriptionResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSubscriptionResult"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertViewRequest",
+      "path": "/docs/references/schemas/UpsertViewRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertViewRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpsertViewResponse",
+      "path": "/docs/references/schemas/UpsertViewResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertViewResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "ValidateOAuthRequestRequest",
+      "path": "/docs/references/schemas/ValidateOAuthRequestRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ValidateOAuthRequestRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "ValidateOAuthRequestResponse",
+      "path": "/docs/references/schemas/ValidateOAuthRequestResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ValidateOAuthRequestResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "VerifyDeviceResponse",
+      "path": "/docs/references/schemas/VerifyDeviceResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/VerifyDeviceResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "View",
+      "path": "/docs/references/schemas/View.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/View"
+    },
+    {
+      "kind": "schemas",
+      "name": "ViewSchemaVersion",
+      "path": "/docs/references/schemas/ViewSchemaVersion.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ViewSchemaVersion"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterFlow",
+      "path": "/docs/references/schemas/WaterFlow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterFlow"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceConfiguration",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceModeAttribute",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceModeAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceModeAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceSetTemperatureMessage",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceSetTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceSetTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceTemperatureSetpointAttribute",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceTemperatureSetpointAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceTemperatureSetpointAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "WebhookDispatchNodeConfiguration",
+      "path": "/docs/references/schemas/WebhookDispatchNodeConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WebhookDispatchNodeConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "WebservicePlugin",
+      "path": "/docs/references/schemas/WebservicePlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WebservicePlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "WebsocketPlugin",
+      "path": "/docs/references/schemas/WebsocketPlugin.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WebsocketPlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "Widget",
+      "path": "/docs/references/schemas/Widget.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Widget"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceConfiguration",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceGoToLiftPercentageMessage",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceGoToLiftPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceGoToLiftPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceGoToTiltPercentageMessage",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceGoToTiltPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceGoToTiltPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfacePositionAttribute",
+      "path": "/docs/references/schemas/WindowCoveringInterfacePositionAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfacePositionAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowInterfaceConfiguration",
+      "path": "/docs/references/schemas/WindowInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowInterfaceLockStateAttribute",
+      "path": "/docs/references/schemas/WindowInterfaceLockStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowInterfaceLockStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowInterfaceWindowStateAttribute",
+      "path": "/docs/references/schemas/WindowInterfaceWindowStateAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowInterfaceWindowStateAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindSpeedSensorInterfaceConfiguration",
+      "path": "/docs/references/schemas/WindSpeedSensorInterfaceConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindSpeedSensorInterfaceConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindSpeedSensorInterfaceMeasuredValueAttribute",
+      "path": "/docs/references/schemas/WindSpeedSensorInterfaceMeasuredValueAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindSpeedSensorInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "parameters",
+      "name": "IdempotencyKey",
+      "path": "/docs/references/parameters/IdempotencyKey.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/IdempotencyKey"
+    },
+    {
+      "kind": "parameters",
+      "name": "IfMatch",
+      "path": "/docs/references/parameters/IfMatch.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/IfMatch"
+    },
+    {
+      "kind": "headers",
+      "name": "ETag",
+      "path": "/docs/references/headers/ETag.json",
+      "source": "/docs/references/openapi.yaml#/components/headers/ETag"
+    }
+  ]
+}

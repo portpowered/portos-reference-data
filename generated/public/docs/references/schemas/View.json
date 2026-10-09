@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the view"
+    },
+    "title": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The title of the view"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "description": "The schema version of the view"
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of the view schema that this view has been updated to"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the owner of the view"
+    },
+    "widgets": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Widget.json"
+      },
+      "description": "The list of widgets in the view"
+    },
+    "positions": {
+      "type": "array",
+      "description": "Optional array of position objects for widgets",
+      "items": {
+        "$ref": "/docs/references/schemas/Position.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

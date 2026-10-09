@@ -2,8 +2,8 @@ name: window
 namespace: port1/systems/zero/capability-interfaces/window
 version: '1.0'
 description: >-
-  Windows report their window state and lock state. Use those reports to check
-  the status supplied by a connected window.
+  Windows report their window state and lock state. Use those reports to check the status supplied
+  by a connected window.
 messages: []
 attributes:
   - name: lock-state

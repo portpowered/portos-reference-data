@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A discovered route",
+  "properties": {
+    "pluginRouteId": {
+      "type": "string",
+      "description": "The external ID of the route"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the route"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the route"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the route that has been discovered"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RouteInterfaceRef.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

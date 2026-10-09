@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Paginated response containing a list of endpoint group routes.",
+  "required": [
+    "results"
+  ],
+  "properties": {
+    "results": {
+      "$ref": "/docs/references/schemas/GroupRoutesList.json"
+    },
+    "paginationContext": {
+      "$ref": "/docs/references/schemas/PaginationContext.json"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Partial query errors collected while returning available results.",
+      "items": {
+        "$ref": "/docs/references/schemas/Error.json"
+      }
+    }
+  }
+}

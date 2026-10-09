@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Audited reprocessing of the original identity and deadline. Does not reset TTLs or bypass outbox uniqueness.",
+  "required": [
+    "deadLetterId",
+    "status",
+    "redriveCount"
+  ],
+  "properties": {
+    "deadLetterId": {
+      "type": "string"
+    },
+    "receiptId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "eventId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACCEPTED"
+      ],
+      "x-enum-varnames": [
+        "EventRedriveStatusAccepted"
+      ]
+    },
+    "redriveCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    }
+  }
+}

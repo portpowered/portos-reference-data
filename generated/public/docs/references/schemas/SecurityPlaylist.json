@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A security panel audio playlist",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "playOrder": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/SecurityPlayOrderItem.json"
+      }
+    }
+  }
+}

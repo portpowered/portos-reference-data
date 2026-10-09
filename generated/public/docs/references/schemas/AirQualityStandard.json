@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Air quality standard",
+  "enum": [
+    "AIR_QUALITY_INDEX",
+    "PARTS_PER_MILLION_2_5",
+    "PARTS_PER_MILLION_10"
+  ],
+  "x-enum-varnames": [
+    "AirQualityStandardAqi",
+    "AirQualityStandardPm25",
+    "AirQualityStandardPm10"
+  ]
+}

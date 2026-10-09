@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "One rejected discovery item of a `SynchronizationRequest`, keyed by the plugin-owned identity of the rejected item: `pluginRouteId` for a route or group route, or `relationshipExternalId` for a relationship. Exactly one of the two is set. It shares the `code`, `family`, `status` and `message` fields of `BatchItemError`; discovery items are keyed by plugin-owned identity because they carry no `requestId`. A request with any rejected item is rejected as a whole and lists every rejected item.\n",
+  "additionalProperties": false,
+  "required": [
+    "code",
+    "family",
+    "status",
+    "message"
+  ],
+  "properties": {
+    "pluginRouteId": {
+      "type": "string",
+      "description": "Plugin-owned identifier of the rejected route or group route. Set unless the item is a relationship."
+    },
+    "relationshipExternalId": {
+      "type": "string",
+      "description": "Plugin-owned `externalId` of the rejected relationship. Set only for relationship items."
+    },
+    "interface": {
+      "type": "string",
+      "description": "Canonical capability interface name the failure applies to, when the failure is interface-specific."
+    },
+    "version": {
+      "type": "string",
+      "description": "Declared capability interface version the failure applies to, when the failure is interface-specific."
+    },
+    "code": {
+      "$ref": "/docs/references/schemas/ErrorCode.json"
+    },
+    "family": {
+      "$ref": "/docs/references/schemas/ErrorFamily.json"
+    },
+    "status": {
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599,
+      "description": "HTTP-equivalent status code of the item failure."
+    },
+    "message": {
+      "type": "string",
+      "description": "Plain-language description of the failure and the suggested fix."
+    }
+  }
+}

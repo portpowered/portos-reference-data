@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "pluginId"
+  ],
+  "properties": {
+    "authLinkId": {
+      "type": "string",
+      "description": "Identifier for the auth link"
+    },
+    "pluginId": {
+      "type": "string",
+      "description": "The plugin to associate with this auth link"
+    },
+    "applePushNotificationDeviceToken": {
+      "type": "string",
+      "description": "Device token for Apple Push Notification Service"
+    },
+    "oauthTokens": {
+      "type": "object",
+      "description": "OAuth token credentials",
+      "properties": {
+        "accessToken": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "expiresIn": {
+          "type": "integer"
+        }
+      }
+    },
+    "usernamePassword": {
+      "type": "object",
+      "description": "Username and password credentials",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "apiKey": {
+      "type": "string",
+      "description": "API key for service authentication (e.g. OpenRouter)"
+    }
+  }
+}

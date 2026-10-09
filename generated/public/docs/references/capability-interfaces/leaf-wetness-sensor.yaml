@@ -2,8 +2,8 @@ name: leaf-wetness-sensor
 namespace: port1/systems/zero/capability-interfaces/leaf-wetness-sensor
 version: '1.0'
 description: >-
-  Leaf wetness measurements report readings from a connected sensor. Use them as
-  input when monitoring plants and growing conditions.
+  Leaf wetness measurements report readings from a connected sensor. Use them as input when
+  monitoring plants and growing conditions.
 messages: []
 attributes:
   - name: measured-value

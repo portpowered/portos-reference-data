@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/route-discovery",
+  "x-name": "route-discovery-report",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Report of discovered routes, group routes and their relationships. Decodes to the same model as SynchronizationRequest.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/DiscoveredRoute.json"
+      }
+    },
+    "groupRoutes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/GroupRoute.json"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PluginDiscoveryRelationship.json"
+      }
+    }
+  }
+}

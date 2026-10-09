@@ -2,9 +2,8 @@ name: air-quality-sensor
 namespace: port1/systems/zero/capability-interfaces/air-quality-sensor
 version: '1.0'
 description: >-
-  Air quality reports the air-quality index measured by a device. Use the
-  reading to understand conditions in a room and decide when to run ventilation
-  or another automation.
+  Air quality reports the air-quality index measured by a device. Use the reading to understand
+  conditions in a room and decide when to run ventilation or another automation.
 messages:
   - name: get-air-quality
     description: null
@@ -26,9 +25,9 @@ attributes:
           type: string
           description: Air quality standard
           enum:
-            - AirQualityIndex
-            - PartsPerMillion2_5
-            - PartsPerMillion10
+            - AIR_QUALITY_INDEX
+            - PARTS_PER_MILLION_2_5
+            - PARTS_PER_MILLION_10
       required:
         - value
         - standard
@@ -42,15 +41,14 @@ configuration:
         type: string
         description: Air quality standard
         enum:
-          - AirQualityIndex
-          - PartsPerMillion2_5
-          - PartsPerMillion10
+          - AIR_QUALITY_INDEX
+          - PARTS_PER_MILLION_2_5
+          - PARTS_PER_MILLION_10
       description: Supported air quality standards
   additionalProperties: false
   description: >-
-    Air quality reports the air-quality index measured by a device. Use the
-    reading to understand conditions in a room and decide when to run
-    ventilation or another automation.
+    Air quality reports the air-quality index measured by a device. Use the reading to understand
+    conditions in a room and decide when to run ventilation or another automation.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

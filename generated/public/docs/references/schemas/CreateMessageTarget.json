@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "type",
+    "id"
+  ],
+  "properties": {
+    "type": {
+      "$ref": "/docs/references/schemas/CreateMessageTargetType.json"
+    },
+    "id": {
+      "type": "string",
+      "description": "The ID of the target"
+    }
+  }
+}

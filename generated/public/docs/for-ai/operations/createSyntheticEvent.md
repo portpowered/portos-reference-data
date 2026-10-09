@@ -46,7 +46,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/SyntheticEventRequest'
+          $ref: /docs/references/schemas/SyntheticEventRequest.json
         example:
           requestId: camera-motion-demo-1
           endpoint:
@@ -63,124 +63,120 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/SyntheticEventAccepted'
+            $ref: /docs/references/schemas/SyntheticEventAccepted.json
           example:
             receiptId: receipt-demo-1
             eventId: event-demo-1
             endpointId: port1.endpoint.camera-demo
-            status: accepted
+            status: ACCEPTED
     '400':
       description: Invalid request; stable code identifies the validation failure.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request; stable code identifies the validation failure.
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: event_request_failed
     '401':
       description: Authentication required.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required.
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
             family: UNAUTHORIZED
-            code: event_request_failed
     '403':
       description: Resource authorization denied.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource authorization denied.
-            type: FORBIDDEN
+            code: FORBIDDEN
             family: FORBIDDEN
-            code: event_request_failed
     '404':
       description: Resource inaccessible, missing or past retention.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource inaccessible, missing or past retention.
-            type: NOT_FOUND
+            code: NOT_FOUND
             family: NOT_FOUND
-            code: event_request_failed
     '409':
       description: Idempotency conflict or lifecycle/generation conflict.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Idempotency conflict or lifecycle/generation conflict.
-            type: CONCURRENT_MODIFICATION
+            code: CONCURRENT_MODIFICATION
             family: CONFLICT
-            code: event_request_failed
     '413':
       description: Encoded admission exceeds the 64 KiB limit.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Encoded admission exceeds the 64 KiB limit.
-            type: FILE_TOO_LARGE
+            code: FILE_TOO_LARGE
             family: PAYLOAD_TOO_LARGE
-            code: event_request_failed
     '415':
       description: Unsupported request media type.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Unsupported request media type.
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: event_request_failed
     '429':
       description: Source or tenant rate/quota exceeded; no unpersisted input is acknowledged.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Source or tenant rate/quota exceeded; no unpersisted input is acknowledged.
-            type: RATE_LIMIT_EXCEEDED
+            code: RATE_LIMIT_EXCEEDED
             family: TOO_MANY_REQUESTS
-            code: event_request_failed
     '500':
       description: Internal failure.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal failure.
-            type: INTERNAL
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: event_request_failed
     '503':
       description: Retryable storage/admission failure; input not durably accepted.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Retryable storage/admission failure; input not durably accepted.
-            type: STORAGE_UNAVAILABLE
+            code: STORAGE_UNAVAILABLE
             family: SERVICE_UNAVAILABLE
-            code: event_request_failed
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [SyntheticEventAccepted.json](/docs/references/schemas/SyntheticEventAccepted.json)
+- [SyntheticEventRequest.json](/docs/references/schemas/SyntheticEventRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

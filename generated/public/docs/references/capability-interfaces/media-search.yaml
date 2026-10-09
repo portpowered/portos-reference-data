@@ -2,8 +2,8 @@ name: media-search
 namespace: port1/systems/zero/capability-interfaces/media-search
 version: '1.0'
 description: >-
-  Media search requests content matching a search and returns audio media
-  results. Use it to find an item before asking a player to play it.
+  Media search requests content matching a search and returns audio media results. Use it to find an
+  item before asking a player to play it.
 messages:
   - name: audio-media-results
     description: null
@@ -127,19 +127,15 @@ messages:
           default: track
         album:
           type: string
-          description: >-
-            Search by album name, can only be used when searching albums, and
-            tracks
+          description: Search by album name, can only be used when searching albums, and tracks
         artist:
           type: string
-          description: >-
-            Search by artist name, can only be used when searching artists,
-            albums and tracks
+          description: Search by artist name, can only be used when searching artists, albums and tracks
         year:
           type: string
           description: >-
-            Search by year, can only be used when searching albums, years, and
-            tracks. You can pass a range like 1990-2000
+            Search by year, can only be used when searching albums, years, and tracks. You can pass
+            a range like 1990-2000
       required:
         - query
       additionalProperties: false

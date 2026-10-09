@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Whether Port OS uses an endpoint or group. A disabled one is hidden from collections by default and cannot be sent device messages or targeted by them; exact authorized reads still return it. Rediscovery never changes it, so disabling is how a user hides a discovered device or room for good.\n",
+  "enum": [
+    "ENABLED",
+    "DISABLED"
+  ],
+  "x-enum-varnames": [
+    "EnablementENABLED",
+    "EnablementDISABLED"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/audio-convert",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "codec": {
+      "type": "string",
+      "description": "Target audio codec (e.g. libmp3lame)",
+      "example": "libmp3lame"
+    },
+    "bitrate": {
+      "type": "string",
+      "description": "Target audio bitrate (e.g. 48k)",
+      "example": "48k"
+    },
+    "sampleRate": {
+      "type": "integer",
+      "description": "Target sample rate in Hz (e.g. 22050)",
+      "example": 22050
+    },
+    "channels": {
+      "type": "integer",
+      "description": "Number of output audio channels (e.g. 1 for mono)",
+      "example": 1
+    }
+  }
+}

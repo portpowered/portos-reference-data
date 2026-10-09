@@ -2,9 +2,8 @@ name: rtc-session
 namespace: port1/systems/zero/capability-interfaces/rtc-session
 version: '1.0'
 description: >-
-  RTC sessions initiate a connection using an offer and return an answer for the
-  session. Follow disconnection events and close the session when the connection
-  is no longer needed.
+  RTC sessions initiate a connection using an offer and return an answer for the session. Follow
+  disconnection events and close the session when the connection is no longer needed.
 messages:
   - name: answer-generated-for-session
     description: null
@@ -21,7 +20,7 @@ messages:
             format:
               type: string
               enum:
-                - sdp
+                - SDP
             value:
               type: object
               properties:
@@ -58,17 +57,16 @@ messages:
       additionalProperties: false
   - name: initiate-session-with-offer
     description: >-
-      The initiate session with offer message is used to initiate an RTC session
-      between the client and an endpoint.  The offer is expected to be a
-      standard RTC SDP (standard description protocol) offer. The offer must
-      contain all ICE candidates for the session to be established.
+      The initiate session with offer message is used to initiate an RTC session between the client
+      and an endpoint.  The offer is expected to be a standard RTC SDP (standard description
+      protocol) offer. The offer must contain all ICE candidates for the session to be established.
     directionality: in
     schema:
       description: >-
-        The initiate session with offer message is used to initiate an RTC
-        session between the client and an endpoint.  The offer is expected to be
-        a standard RTC SDP (standard description protocol) offer. The offer must
-        contain all ICE candidates for the session to be established.
+        The initiate session with offer message is used to initiate an RTC session between the
+        client and an endpoint.  The offer is expected to be a standard RTC SDP (standard
+        description protocol) offer. The offer must contain all ICE candidates for the session to be
+        established.
       type: object
       required:
         - sessionId
@@ -87,22 +85,20 @@ messages:
             format:
               type: string
               enum:
-                - sdp
+                - SDP
             value:
               type: string
               description: The SDP offer session contents
           title: RtcOffer
         authorization:
           type: array
-          description: >-
-            Message-specific session authorization entries required by the
-            target endpoint.
+          description: Message-specific session authorization entries required by the target endpoint.
           items:
             oneOf:
               - type: object
                 description: >-
-                  A Roborock session authorization entry carrying the PIN
-                  required to initiate a camera stream.
+                  A Roborock session authorization entry carrying the PIN required to initiate a
+                  camera stream.
                 additionalProperties: false
                 required:
                   - type
@@ -124,10 +120,9 @@ messages:
         sessionDuration:
           type: integer
           description: >-
-            The duration of the session in seconds. If not provided, the default
-            is 60 seconds. If provided, the session will be terminated after the
-            duration has elapsed. To reestablish the session, the client must
-            initiate a new session with a new offer.
+            The duration of the session in seconds. If not provided, the default is 60 seconds. If
+            provided, the session will be terminated after the duration has elapsed. To reestablish
+            the session, the client must initiate a new session with a new offer.
           minimum: 1
           maximum: 3600
           default: 60
@@ -151,16 +146,14 @@ configuration:
       type: array
       maxItems: 8
       description: >-
-        Optional public STUN configuration passed to the browser's standard
-        RTCIceServer interface. Omitted or empty means no ICE servers. Gathering
-        starts only when a caller deliberately initiates a session. TURN and
-        credentials are excluded.
+        Optional public STUN configuration passed to the browser's standard RTCIceServer interface.
+        Omitted or empty means no ICE servers. Gathering starts only when a caller deliberately
+        initiates a session. TURN and credentials are excluded.
       items:
         type: object
         description: >-
-          The credential-free public STUN subset of the standard WebRTC
-          RTCIceServer dictionary. URLs are discoverable configuration, never
-          session credentials.
+          The credential-free public STUN subset of the standard WebRTC RTCIceServer dictionary.
+          URLs are discoverable configuration, never session credentials.
         required:
           - urls
         properties:
@@ -168,10 +161,9 @@ configuration:
             oneOf:
               - type: string
                 description: >-
-                  Public, credential-free STUN URI using the RFC 7064
-                  stun:host[:port] form. This version supports DNS names and
-                  IPv4 hosts, with ports 1 through 65535. IPv6 literals, secure
-                  STUN, TURN, paths, queries and fragments are not supported by
+                  Public, credential-free STUN URI using the RFC 7064 stun:host[:port] form. This
+                  version supports DNS names and IPv4 hosts, with ports 1 through 65535. IPv6
+                  literals, secure STUN, TURN, paths, queries and fragments are not supported by
                   this configuration subset.
                 minLength: 6
                 maxLength: 256
@@ -189,9 +181,8 @@ configuration:
     supportedStreams:
       type: array
       description: >-
-        Discoverable media streams in SDP offer order. Directions describe the
-        endpoint; the browser reverses SENDONLY and RECVONLY. Omitted means a
-        legacy video SENDONLY stream.
+        Discoverable media streams in SDP offer order. Directions describe the endpoint; the browser
+        reverses SENDONLY and RECVONLY. Omitted means a legacy video SENDONLY stream.
       items:
         type: object
         description: A discoverable RTC media stream supported by an endpoint.
@@ -211,9 +202,7 @@ configuration:
               - VIDEO
           direction:
             type: string
-            description: >-
-              Direction from the endpoint perspective; browser SENDONLY and
-              RECVONLY are reversed.
+            description: Direction from the endpoint perspective; browser SENDONLY and RECVONLY are reversed.
             enum:
               - SENDRECV
               - SENDONLY
@@ -225,8 +214,8 @@ configuration:
             maxItems: 16
             uniqueItems: true
             description: >-
-              Ordered permitted RTP codec MIME types, such as audio/opus or
-              video/H264. Omitted uses browser defaults.
+              Ordered permitted RTP codec MIME types, such as audio/opus or video/H264. Omitted uses
+              browser defaults.
             items:
               type: string
               pattern: ^(audio|video)/[A-Za-z0-9.+-]+$
@@ -236,13 +225,13 @@ configuration:
       type: array
       maxItems: 8
       description: >-
-        Data channels the browser creates after media transceivers, using the
-        standard RTCDataChannelInit options. Omitted means no data channels.
+        Data channels the browser creates after media transceivers, using the standard
+        RTCDataChannelInit options. Omitted means no data channels.
       items:
         type: object
         description: >-
-          Standard WebRTC RTCDataChannelInit options plus the required label
-          passed to createDataChannel. Channels are bidirectional.
+          Standard WebRTC RTCDataChannelInit options plus the required label passed to
+          createDataChannel. Channels are bidirectional.
         additionalProperties: false
         required:
           - label
@@ -286,9 +275,7 @@ configuration:
         title: RtcDataChannel
     iceMode:
       type: string
-      description: >-
-        Whether the endpoint expects a full offer up front or supports trickle
-        ICE.
+      description: Whether the endpoint expects a full offer up front or supports trickle ICE.
       enum:
         - FULL_OFFER
         - TRICKLE
@@ -323,9 +310,8 @@ configuration:
         title: RtcSessionMessageAuthorizationRequirement
   additionalProperties: false
   description: >-
-    RTC sessions initiate a connection using an offer and return an answer for
-    the session. Follow disconnection events and close the session when the
-    connection is no longer needed.
+    RTC sessions initiate a connection using an offer and return an answer for the session. Follow
+    disconnection events and close the session when the connection is no longer needed.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

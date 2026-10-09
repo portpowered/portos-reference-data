@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/BasePlugin.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "bundleId",
+        "environment",
+        "teamId",
+        "keyId",
+        "topic"
+      ],
+      "properties": {
+        "bundleId": {
+          "type": "string",
+          "description": "The bundle ID of the application receiving notifications"
+        },
+        "environment": {
+          "type": "string",
+          "enum": [
+            "DEVELOPMENT",
+            "PRODUCTION"
+          ],
+          "x-enum-varnames": [
+            "ApplePushEnvironmentDevelopment",
+            "ApplePushEnvironmentProduction"
+          ],
+          "description": "The environment to push against"
+        },
+        "teamId": {
+          "type": "string",
+          "description": "The team ID of the application receiving notifications"
+        },
+        "keyId": {
+          "type": "string",
+          "description": "The key ID of the application receiving notifications"
+        },
+        "topic": {
+          "type": "string",
+          "description": "The topic for the notification (usually the app's bundle ID)"
+        }
+      }
+    }
+  ]
+}

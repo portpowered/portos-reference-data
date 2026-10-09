@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "authorization": {
+      "$ref": "/docs/references/schemas/MessageAuthorizationContext.json",
+      "description": "Authorization context for the message"
+    },
+    "inputPlugin": {
+      "$ref": "/docs/references/schemas/PluginType.json"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Request payload for creating a user endpoint group. The server assigns the ID, owner, etag and every derived field.",
+  "additionalProperties": false,
+  "required": [
+    "item"
+  ],
+  "properties": {
+    "item": {
+      "$ref": "/docs/references/schemas/CreateEndpointGroupItem.json"
+    }
+  }
+}

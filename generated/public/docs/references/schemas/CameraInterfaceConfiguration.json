@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/camera",
+  "x-name": "camera",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportedStreamingProtocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RTSP",
+          "HLS",
+          "DASH",
+          "WEBRTC",
+          "OTHER"
+        ]
+      },
+      "description": "Supported streaming protocols"
+    },
+    "supportsPTZ": {
+      "type": "boolean",
+      "description": "Whether the camera supports pan-tilt-zoom controls",
+      "default": false
+    },
+    "supportsMotionDetection": {
+      "type": "boolean",
+      "description": "Whether the camera supports motion detection",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

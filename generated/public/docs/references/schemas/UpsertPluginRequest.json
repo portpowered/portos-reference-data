@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "plugin": {
+      "$ref": "/docs/references/schemas/Plugin.json"
+    },
+    "applePushNotificationSecret": {
+      "type": "object",
+      "description": "APNS authentication token secret (required when creating an APPLE_PUSH_NOTIFICATION plugin with new credentials)",
+      "properties": {
+        "keyId": {
+          "type": "string",
+          "description": "The Apple Push Notification key ID"
+        },
+        "authKey": {
+          "type": "string",
+          "description": "The Apple Push Notification private key (P8 file contents)"
+        }
+      }
+    },
+    "secretReferenceId": {
+      "type": "string",
+      "description": "Reference to an existing secret in the secret store (use instead of inline credentials when the secret already exists)"
+    }
+  }
+}

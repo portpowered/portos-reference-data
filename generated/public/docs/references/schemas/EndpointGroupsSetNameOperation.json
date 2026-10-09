@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Renames a group. The name is a user override that survives rediscovery. A user group name is `{\"type\": \"PLAIN\", \"value\": ...}` whose value is non-blank UTF-8 text of at most 256 bytes with no control characters; anything else is rejected with BAD_REQUEST.\n",
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "operation",
+    "groupId",
+    "etag",
+    "name"
+  ],
+  "properties": {
+    "requestId": {
+      "$ref": "/docs/references/schemas/BatchOperationRequestId.json"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "SET_NAME"
+      ],
+      "x-enum-varnames": [
+        "SetName"
+      ],
+      "description": "Operation discriminator."
+    },
+    "groupId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The endpoint group to modify."
+    },
+    "etag": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one, and one that changes nothing keeps it.\n"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    }
+  }
+}

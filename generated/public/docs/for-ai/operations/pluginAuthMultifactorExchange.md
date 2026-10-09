@@ -43,7 +43,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/PluginAuthMultifactorExchangeRequest'
+          $ref: /docs/references/schemas/PluginAuthMultifactorExchangeRequest.json
         example:
           pluginId: port1/principals/example
           principalId: port1/principals/example
@@ -62,4 +62,8 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [PluginAuthMultifactorExchangeRequest.json](/docs/references/schemas/PluginAuthMultifactorExchangeRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

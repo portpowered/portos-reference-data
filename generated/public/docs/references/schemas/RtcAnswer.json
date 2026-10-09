@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "An RTC session answer",
+  "properties": {
+    "format": {
+      "type": "string",
+      "enum": [
+        "SDP"
+      ],
+      "x-enum-varnames": [
+        "RtcAnswerFormatSdp"
+      ]
+    },
+    "value": {
+      "$ref": "/docs/references/schemas/RtcAnswerValue.json"
+    }
+  }
+}

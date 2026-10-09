@@ -43,7 +43,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpsertAccessControlRuleRequest'
+          $ref: /docs/references/schemas/UpsertAccessControlRuleRequest.json
         example:
           operation: port1/principals/example
           resource: port1/users/alice/endpoints/thermostat-zero
@@ -55,7 +55,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UpsertAccessControlRuleResponse'
+            $ref: /docs/references/schemas/UpsertAccessControlRuleResponse.json
           example:
             id: port1/principals/user123/resources/abc-123
     '400':
@@ -65,12 +65,11 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
   x-portos-delegated: false
   x-portos-resource-permission: true
   security:
@@ -78,4 +77,10 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [UpsertAccessControlRuleRequest.json](/docs/references/schemas/UpsertAccessControlRuleRequest.json)
+- [UpsertAccessControlRuleResponse.json](/docs/references/schemas/UpsertAccessControlRuleResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

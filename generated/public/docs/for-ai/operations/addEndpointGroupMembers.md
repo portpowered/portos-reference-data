@@ -62,13 +62,13 @@ post:
       schema:
         type: string
       description: The ID of the endpoint group
-    - $ref: '#/components/parameters/IfMatch'
+    - $ref: /docs/references/parameters/IfMatch.json
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/AddEndpointGroupMembersRequest'
+          $ref: /docs/references/schemas/AddEndpointGroupMembersRequest.json
         example:
           memberEndpointIds: []
   responses:
@@ -76,74 +76,86 @@ post:
       description: Members addition accepted
       headers:
         ETag:
-          $ref: '#/components/headers/ETag'
+          $ref: /docs/references/headers/ETag.json
     '400':
       description: Invalid request payload
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '401':
       description: Unauthorized - invalid or missing authentication token
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '403':
       description: Forbidden - insufficient permissions
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Insufficient permissions
-            type: FORBIDDEN
+            code: FORBIDDEN
+            family: FORBIDDEN
     '404':
       description: Endpoint group not found
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource not found
-            type: NOT_FOUND
+            code: NOT_FOUND
+            family: NOT_FOUND
     '412':
       description: The If-Match etag does not match the current group version; re-read the group and retry
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: group etag does not match; re-read the group and retry
-            type: PRECONDITION_FAILED
+            code: PRECONDITION_FAILED
             family: PRECONDITION_FAILED
     '428':
       description: The If-Match header is missing
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: If-Match header is required; send the group's etag
-            type: PRECONDITION_REQUIRED
+            code: PRECONDITION_REQUIRED
             family: PRECONDITION_REQUIRED
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL
+            code: INTERNAL
+            family: INTERNAL_SERVER_ERROR
   x-portos-delegated: true
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [ETag.json](/docs/references/headers/ETag.json)
+- [IfMatch.json](/docs/references/parameters/IfMatch.json)
+- [AddEndpointGroupMembersRequest.json](/docs/references/schemas/AddEndpointGroupMembersRequest.json)
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

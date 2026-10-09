@@ -46,7 +46,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpsertFlowRequest'
+          $ref: /docs/references/schemas/UpsertFlowRequest.json
         example:
           name:
             type: PLAIN
@@ -57,7 +57,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/FlowNode'
+            $ref: /docs/references/schemas/FlowNode.json
           example:
             id: port1/principals/example
     '400':
@@ -65,39 +65,49 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '401':
       description: Unauthorized — invalid or missing authentication token.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '403':
       description: Forbidden — insufficient permissions.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Insufficient permissions
-            type: FORBIDDEN
+            code: FORBIDDEN
+            family: FORBIDDEN
     '500':
       description: Internal server error.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL
+            code: INTERNAL
+            family: INTERNAL_SERVER_ERROR
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [FlowNode.json](/docs/references/schemas/FlowNode.json)
+- [UpsertFlowRequest.json](/docs/references/schemas/UpsertFlowRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

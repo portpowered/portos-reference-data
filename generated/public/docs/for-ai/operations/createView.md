@@ -43,7 +43,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpsertViewRequest'
+          $ref: /docs/references/schemas/UpsertViewRequest.json
         example:
           title:
             type: LIGHT
@@ -56,7 +56,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UpsertViewResponse'
+            $ref: /docs/references/schemas/UpsertViewResponse.json
           example:
             id: port1/principals/user123/resources/abc-123
     '400':
@@ -64,19 +64,21 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL
+            code: INTERNAL
+            family: INTERNAL_SERVER_ERROR
   x-portos-delegated: false
   x-portos-resource-permission: true
   security:
@@ -84,4 +86,10 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [UpsertViewRequest.json](/docs/references/schemas/UpsertViewRequest.json)
+- [UpsertViewResponse.json](/docs/references/schemas/UpsertViewResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

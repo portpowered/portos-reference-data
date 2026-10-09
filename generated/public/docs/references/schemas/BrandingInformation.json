@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Content provider branding information",
+  "properties": {
+    "providerName": {
+      "type": "string",
+      "description": "Provider name"
+    },
+    "background": {
+      "type": "string",
+      "format": "uri",
+      "description": "Background image URL"
+    },
+    "logo": {
+      "type": "string",
+      "format": "uri",
+      "description": "Logo image URL"
+    }
+  },
+  "additionalProperties": false
+}

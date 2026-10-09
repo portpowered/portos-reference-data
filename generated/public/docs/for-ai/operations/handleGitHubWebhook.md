@@ -82,21 +82,27 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '401':
       description: Invalid HMAC signature
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
   x-portos-delegated: false
   x-portos-resource-permission: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of an endpoint associated with the message"
+    },
+    "customMetadata": {
+      "type": "object",
+      "description": "Route custom metadata available to plugins during message dispatch.",
+      "additionalProperties": true
+    }
+  }
+}

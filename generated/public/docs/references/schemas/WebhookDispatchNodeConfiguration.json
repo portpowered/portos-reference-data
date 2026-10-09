@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/webhook-dispatch",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "required": [
+    "webhookUrl"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "webhookUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Webhook target URL. HTTPS URLs are accepted by default. HTTP URLs are accepted only for localhost or loopback targets when a local functional-test or manual-QA allowance is explicitly enabled.",
+      "minLength": 1
+    },
+    "authorization": {
+      "type": "string",
+      "description": "Optional value to send in the HTTP Authorization header during webhook delivery.",
+      "minLength": 1
+    },
+    "message": {
+      "$ref": "/docs/references/schemas/Message.json"
+    }
+  }
+}

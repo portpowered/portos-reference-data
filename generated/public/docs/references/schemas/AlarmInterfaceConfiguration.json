@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AlarmInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/alarm",
+  "x-name": "alarm",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Controls an audible alarm on cameras, sirens and smoke/CO alarms. Advertise only implemented operations.",
+  "type": "object",
+  "additionalProperties": false
+}

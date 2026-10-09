@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "clientName",
+    "scopes"
+  ],
+  "description": "Response from the /oauth/validate-request endpoint. Contains client information relevant for displaying on the authorization page.\n",
+  "properties": {
+    "clientName": {
+      "type": "string",
+      "description": "Client name to display on the authorization page",
+      "example": "My OAuth Application"
+    },
+    "tosUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Terms of Service URI (optional)",
+      "example": "https://myapp.com/terms"
+    },
+    "policyUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Privacy Policy URI (optional)",
+      "example": "https://myapp.com/privacy"
+    },
+    "logoUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Logo URI for the client (optional)",
+      "example": "https://myapp.com/logo.png"
+    },
+    "clientUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Client URI (optional)",
+      "example": "https://myapp.com"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/OAuthScope.json"
+      },
+      "description": "Validated scopes that will be granted if the user consents"
+    }
+  }
+}

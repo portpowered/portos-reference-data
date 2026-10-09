@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/pet-feeder",
+  "x-name": "trigger-feed",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "feedAmount": {
+      "type": "integer",
+      "description": "Amount of food to feed the pet",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of food to feed the pet",
+      "enum": [
+        "CUPS",
+        "GRAMS",
+        "POUNDS",
+        "OUNCES"
+      ],
+      "x-enum-varnames": [
+        "Cups",
+        "Grams",
+        "Pounds",
+        "Ounces"
+      ],
+      "default": "CUPS"
+    }
+  },
+  "additionalProperties": false
+}

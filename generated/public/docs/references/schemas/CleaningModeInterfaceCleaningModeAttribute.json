@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/cleaning-mode",
+  "x-name": "cleaning-mode",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Current cleaning type. CUSTOM when the robot uses a native mode with no equivalent value.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "$ref": "/docs/references/schemas/CleaningType.json"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

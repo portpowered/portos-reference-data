@@ -35,7 +35,7 @@ delete:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/DeleteRouteRequest'
+          $ref: /docs/references/schemas/DeleteRouteRequest.json
         example:
           id: port1/principals/example/routes/light-route
   responses:
@@ -53,4 +53,8 @@ delete:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [DeleteRouteRequest.json](/docs/references/schemas/DeleteRouteRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

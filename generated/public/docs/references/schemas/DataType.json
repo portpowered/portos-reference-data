@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "x-enum-exempt": "identifier URL path segments",
+  "enum": [
+    "flows",
+    "flownodes",
+    "flowports",
+    "flowlinks",
+    "flow-runs",
+    "principals",
+    "systems",
+    "accounts",
+    "access-control-rules",
+    "secrets",
+    "auth-links",
+    "plugins",
+    "endpoints",
+    "routes",
+    "capability-interfaces",
+    "messages"
+  ],
+  "description": "Core data types within Port OS",
+  "example": "flows"
+}

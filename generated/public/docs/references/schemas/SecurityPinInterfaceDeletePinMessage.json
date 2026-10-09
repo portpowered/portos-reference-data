@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "delete-pin",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Delete a record within the authorized endpoint. Emit a correlated terminal result even when enumeration no longer includes the record.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque record ID; never the PIN value."
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false
+}

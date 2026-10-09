@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "result": {
+      "$ref": "/docs/references/schemas/EvaluateAccessControlRuleResult.json"
+    },
+    "error": {
+      "$ref": "/docs/references/schemas/Error.json"
+    }
+  }
+}

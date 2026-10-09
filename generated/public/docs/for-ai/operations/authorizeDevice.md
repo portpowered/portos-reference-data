@@ -51,7 +51,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/AuthorizeDeviceRequest'
+          $ref: /docs/references/schemas/AuthorizeDeviceRequest.json
         example:
           user_code: ABCD-EFGH
           scopes:
@@ -63,7 +63,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/AuthorizeDeviceResponse'
+            $ref: /docs/references/schemas/AuthorizeDeviceResponse.json
           example:
             success: true
     '400':
@@ -71,7 +71,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -80,7 +80,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -89,7 +89,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -100,4 +100,10 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [AuthorizeDeviceRequest.json](/docs/references/schemas/AuthorizeDeviceRequest.json)
+- [AuthorizeDeviceResponse.json](/docs/references/schemas/AuthorizeDeviceResponse.json)
+- [OAuthErrorResponse.json](/docs/references/schemas/OAuthErrorResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

@@ -88,7 +88,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/GetAccessControlRulesResponse'
+            $ref: /docs/references/schemas/GetAccessControlRulesResponse.json
           example:
             results: []
     '500':
@@ -96,12 +96,11 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
   x-portos-delegated: false
   x-portos-resource-permission: true
   security:
@@ -109,4 +108,9 @@ get:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [GetAccessControlRulesResponse.json](/docs/references/schemas/GetAccessControlRulesResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

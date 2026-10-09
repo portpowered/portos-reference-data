@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/fan-control",
+  "x-name": "fan-control",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportedFanModes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/FanMode.json"
+      },
+      "description": "Supported fan modes"
+    },
+    "supportedFanSpeeds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "description": "Supported fan speeds (0-100)"
+    }
+  },
+  "additionalProperties": false
+}

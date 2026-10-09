@@ -2,8 +2,8 @@ name: power-level
 namespace: port1/systems/zero/capability-interfaces/power-level
 version: '1.0'
 description: >-
-  Power level sets or adjusts a device's output level and reports the current
-  setting. Use it when a device supports more than a simple on/off control.
+  Power level sets or adjusts a device's output level and reports the current setting. Use it when a
+  device supports more than a simple on/off control.
 messages:
   - name: adjust-power-level
     description: null

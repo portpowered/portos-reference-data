@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "target"
+  ],
+  "properties": {
+    "targetId": {
+      "type": "string",
+      "description": "The ID of the resource that the trigger is supposed to submit to."
+    },
+    "message": {
+      "description": "The message that the resource is supposed to receive.",
+      "$ref": "/docs/references/schemas/Message.json"
+    }
+  }
+}

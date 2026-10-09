@@ -2,8 +2,8 @@ name: embedding-generation
 namespace: port1/systems/zero/capability-interfaces/embedding-generation
 version: '1.0'
 description: >-
-  Embedding generation turns an input into an embedding and returns its URI. Use
-  the result in integrations that work with vector representations of content.
+  Embedding generation turns an input into an embedding and returns its URI. Use the result in
+  integrations that work with vector representations of content.
 messages:
   - name: embedding-uri
     description: null

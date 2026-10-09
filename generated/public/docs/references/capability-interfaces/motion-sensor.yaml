@@ -2,9 +2,8 @@ name: motion-sensor
 namespace: port1/systems/zero/capability-interfaces/motion-sensor
 version: '1.0'
 description: >-
-  Motion sensors report detection state and emit motion-detected events. Use
-  them to trigger a light, a notification, or another automation when movement
-  is detected.
+  Motion sensors report detection state and emit motion-detected events. Use them to trigger a
+  light, a notification, or another automation when movement is detected.
 messages:
   - name: motion-detected
     description: A distinct motion occurrence, independent of cached detection state.

@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the flow node"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "label": {
+      "type": "string",
+      "description": "The label of the flow node"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the flow node"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The namespace identifier for the flow node type (e.g., \"port1/systems/zero/flow-nodes/agent\")"
+    },
+    "nodePorts": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/FlowNodePort.json"
+      },
+      "description": "List of ports used by the flow node"
+    },
+    "interfaceFlags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SOURCE",
+          "SINK",
+          "TRIGGER",
+          "PROCESSOR"
+        ],
+        "x-enum-varnames": [
+          "Source",
+          "Sink",
+          "Trigger",
+          "Processor"
+        ]
+      },
+      "description": "List of interface flags indicating the capabilities of the flow node"
+    },
+    "configurationSchema": {
+      "type": "object",
+      "description": "JSON schema defining the structure and validation rules for the flow node's configuration properties",
+      "additionalProperties": true
+    }
+  }
+}

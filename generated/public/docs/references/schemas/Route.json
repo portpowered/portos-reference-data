@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "associatedPluginId",
+    "associatedPluginRouteId",
+    "externalId",
+    "associatedAuthLinkId",
+    "associatedEndpointId",
+    "interfaces",
+    "ontologicalTypes"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The persisted Port OS route identifier. Synchronized routes can receive a backend-generated, owner-scoped value here even when the discovery payload supplied an explicit route `id`; do not use this field as the stable plugin-owned route identity unless the synchronizing implementation explicitly documents preservation.\n",
+      "pattern": "^port1/[^/]+/[^/]+/routes/[^/]+$"
+    },
+    "associatedPluginId": {
+      "type": "string",
+      "description": "The ID of the associated plugin"
+    },
+    "associatedPluginRouteId": {
+      "type": "string",
+      "description": "The stable plugin-owned route identifier associated with this Port OS route. For synchronized plugin capability contracts and fixture parity checks, use this field to match a route from enumeration back to the discovery payload.\n"
+    },
+    "externalId": {
+      "type": "string",
+      "description": "The external ID of the route given by the reporting system"
+    },
+    "associatedAuthLinkId": {
+      "type": "string",
+      "description": "The ID of the associated auth link"
+    },
+    "associatedEndpointId": {
+      "type": "string",
+      "description": "The ID of the associated endpoint"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The name of the route as a human readable string or a localizable asset. This is either a raw string or a localizable asset reference. "
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RouteInterface.json"
+      },
+      "description": "List of interfaces supported by the route. These denote what the route is capable of performing such as turning off/on, etc."
+    },
+    "ontologicalTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of ontological types for the route. These are used mostly for customers to know what an endpoint is, like if its a lightbulb, or a speaker, etc."
+    },
+    "pluginCustomMetadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "A set of custom metadata that the plugin uses and attaches to the route, this is meant specifically for the plugin to use."
+    },
+    "description": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The description of the route as a human readable string or a localizable asset."
+    },
+    "manufacturer": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The manufacturer of the route as a human readable string or a localizable asset."
+    },
+    "model": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The model of the route as a human readable string or a localizable asset."
+    },
+    "serialNumber": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The serial number of the route as a human readable string or a localizable asset."
+    }
+  }
+}

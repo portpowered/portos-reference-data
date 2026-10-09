@@ -41,7 +41,7 @@ delete:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/DeleteAuthLinkRequest'
+          $ref: /docs/references/schemas/DeleteAuthLinkRequest.json
         example:
           id: port1/principals/user123/resources/abc-123
   responses:
@@ -58,4 +58,8 @@ delete:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [DeleteAuthLinkRequest.json](/docs/references/schemas/DeleteAuthLinkRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

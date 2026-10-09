@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Direction in which an axis increases, relative to the provider's map as presented to the user",
+  "enum": [
+    "RIGHT",
+    "LEFT",
+    "UP",
+    "DOWN"
+  ],
+  "x-enum-varnames": [
+    "SpatialAxisDirectionRight",
+    "SpatialAxisDirectionLeft",
+    "SpatialAxisDirectionUp",
+    "SpatialAxisDirectionDown"
+  ]
+}

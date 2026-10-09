@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner",
+  "x-name": "set-cleaning-mode",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "$ref": "/docs/references/schemas/CleaningMode.json"
+    }
+  },
+  "required": [
+    "mode"
+  ],
+  "additionalProperties": false
+}

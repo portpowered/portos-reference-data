@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "enum": [
+    "ENDPOINT",
+    "SYSTEM",
+    "PLUGIN",
+    "GROUP"
+  ],
+  "description": "The type of target. `GROUP` addresses an endpoint group and carries only group-route-native capabilities (for example media playback on a speaker group); spatial cleaning is always sent to the robot endpoint.",
+  "x-enum-varnames": [
+    "EndpointTarget",
+    "SystemTarget",
+    "PluginTarget",
+    "GroupTarget"
+  ]
+}

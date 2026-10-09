@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Error for one operation of an atomic batch, correlated by the operation's `requestId`. `status` is the HTTP status the operation would have returned on its own.\n",
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "code",
+    "family",
+    "status",
+    "message"
+  ],
+  "properties": {
+    "requestId": {
+      "$ref": "/docs/references/schemas/BatchOperationRequestId.json"
+    },
+    "code": {
+      "$ref": "/docs/references/schemas/ErrorCode.json"
+    },
+    "family": {
+      "$ref": "/docs/references/schemas/ErrorFamily.json"
+    },
+    "status": {
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599,
+      "description": "HTTP-equivalent status code of the item failure."
+    },
+    "message": {
+      "type": "string",
+      "description": "Plain-language description of the failure and the suggested next action."
+    },
+    "resourceId": {
+      "type": "string",
+      "description": "The resource the failure applies to, when it is not the operation's primary target."
+    }
+  }
+}

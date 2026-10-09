@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Unit of measurement",
+  "enum": [
+    "LUX",
+    "PPM",
+    "PPB",
+    "PERCENT",
+    "PASCAL",
+    "LITERS_PER_MINUTE",
+    "PERCENT_VOLUME",
+    "PH",
+    "SIEMENS_PER_METER",
+    "METERS_PER_SECOND",
+    "DEGREES_CELSIUS",
+    "DEGREES_FAHRENHEIT"
+  ],
+  "x-enum-varnames": [
+    "MeasurementUnitLux",
+    "MeasurementUnitPpm",
+    "MeasurementUnitPpb",
+    "MeasurementUnitPercent",
+    "MeasurementUnitPascal",
+    "MeasurementUnitLitersPerMinute",
+    "MeasurementUnitPercentVolume",
+    "MeasurementUnitPh",
+    "MeasurementUnitSiemensPerMeter",
+    "MeasurementUnitMetersPerSecond",
+    "MeasurementUnitDegreesCelsius",
+    "MeasurementUnitDegreesFahrenheit"
+  ]
+}

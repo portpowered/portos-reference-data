@@ -2,8 +2,8 @@ name: dishwasher
 namespace: port1/systems/zero/capability-interfaces/dishwasher
 version: '1.0'
 description: >-
-  Dishwashers report their operational state. Use it to keep an appliance
-  dashboard up to date or react when a reported state changes.
+  Dishwashers report their operational state. Use it to keep an appliance dashboard up to date or
+  react when a reported state changes.
 messages: []
 attributes:
   - name: operational-state
@@ -14,9 +14,10 @@ attributes:
         value:
           type: string
           description: >-
-            Operational state of a device. RETURNING_TO_DOCK means a robot is
-            driving back to its dock; DOCKED means it is on the dock and not
-            charging.
+            Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its
+            dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on
+            the dock while the dock services it (emptying the dust bin, washing or drying the mop),
+            and it does not start cleaning until that finishes.
           enum:
             - STOPPED
             - RUNNING
@@ -25,6 +26,7 @@ attributes:
             - CHARGING
             - DOCKED
             - RETURNING_TO_DOCK
+            - DOCK_MAINTENANCE
       required:
         - value
       additionalProperties: false

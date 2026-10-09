@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "/docs/references/schemas/FlowRunMessageTargetType.json"
+    },
+    "label": {
+      "type": "string",
+      "description": "The label of the resource in question as defined in the flow definition"
+    },
+    "nodeLabel": {
+      "type": "string",
+      "description": "The label of the node in question as defined in the flow definition. This constrains the label to be within the node.  For example you want to target the \"ingress\" port of the \"text-submit-gate\" node,  you would set the nodeLabel to \"text-submit-gate\" and the label to \"ingress\".  \n"
+    }
+  }
+}

@@ -2,8 +2,8 @@ name: input
 namespace: port1/systems/zero/capability-interfaces/input
 version: '1.0'
 description: >-
-  Input controls select or navigate between the inputs on a connected device.
-  Read the current input to show which source is selected.
+  Input controls select or navigate between the inputs on a connected device. Read the current input
+  to show which source is selected.
 messages:
   - name: navigate-input
     description: null
@@ -85,8 +85,8 @@ configuration:
         title: SupportedInput
   additionalProperties: false
   description: >-
-    Input controls select or navigate between the inputs on a connected device.
-    Read the current input to show which source is selected.
+    Input controls select or navigate between the inputs on a connected device. Read the current
+    input to show which source is selected.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

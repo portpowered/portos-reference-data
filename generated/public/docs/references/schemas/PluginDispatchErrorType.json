@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Canonical machine-readable plugin dispatch error type. Plugins use these values when a third-party service, bridge, or device cannot complete a message dispatch.\n",
+  "enum": [
+    "ENDPOINT_UNREACHABLE",
+    "BRIDGE_UNREACHABLE",
+    "CLOUD_CONTROL_DISABLED",
+    "ENDPOINT_BUSY",
+    "ENDPOINT_LOW_POWER",
+    "AUTHORIZATION_CREDENTIAL_INVALID",
+    "AUTHORIZATION_CREDENTIAL_EXPIRED",
+    "INSUFFICIENT_PERMISSIONS",
+    "INVALID_DIRECTIVE",
+    "INVALID_VALUE",
+    "VALUE_OUT_OF_RANGE",
+    "NOT_SUPPORTED_IN_CURRENT_MODE",
+    "MAP_NOT_ACTIVE",
+    "RATE_LIMIT_EXCEEDED",
+    "PROVIDER_SERVICE_UNAVAILABLE",
+    "PROVIDER_TIMEOUT",
+    "PROVIDER_INTERNAL_ERROR"
+  ]
+}

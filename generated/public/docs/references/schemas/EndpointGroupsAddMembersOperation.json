@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Adds endpoint members to a group. Each added member must be the ID of an existing endpoint the caller can read; a malformed ID is BAD_REQUEST, and a missing or unreadable endpoint is NOT_FOUND.\n",
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "operation",
+    "groupId",
+    "etag",
+    "memberEndpointIds"
+  ],
+  "properties": {
+    "requestId": {
+      "$ref": "/docs/references/schemas/BatchOperationRequestId.json"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "ADD_MEMBERS"
+      ],
+      "x-enum-varnames": [
+        "AddMembers"
+      ],
+      "description": "Operation discriminator."
+    },
+    "groupId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The endpoint group to modify."
+    },
+    "etag": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one, and one that changes nothing keeps it.\n"
+    },
+    "memberEndpointIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Endpoint IDs."
+    }
+  }
+}

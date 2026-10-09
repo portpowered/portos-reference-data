@@ -1,0 +1,23 @@
+description: >-
+  Security PINs create, update, query, and delete PIN records. Follow operation results and PIN
+  reports when managing the records supported by a device.
+type: object
+properties:
+  supportedKinds:
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+      enum:
+        - PERMANENT
+        - TEMPORARY
+  minLength:
+    type: integer
+    minimum: 0
+  maxLength:
+    type: integer
+    minimum: 0
+  pattern:
+    type: string
+    description: Explicit device PIN regular expression; absent means no character restriction.
+additionalProperties: false

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+  "x-name": "list-reminders-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Response containing a list of reminder lists from a reminders provider",
+  "type": "object",
+  "properties": {
+    "reminderLists": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ReminderList.json"
+      }
+    }
+  },
+  "required": [
+    "reminderLists"
+  ],
+  "additionalProperties": false
+}

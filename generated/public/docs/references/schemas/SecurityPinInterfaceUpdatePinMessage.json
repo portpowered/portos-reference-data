@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "update-pin",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Update an endpoint-scoped record. Require at least one change. Kind is immutable; validity changes require both timestamps and an authoritative TEMPORARY record.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque record ID, resolved only within the authorized endpoint."
+    },
+    "name": {
+      "type": "string"
+    },
+    "pin": {
+      "type": "string",
+      "writeOnly": true,
+      "description": "Credential preserved as a string. Redact from diagnostics and persisted history."
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validUntil": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false
+}

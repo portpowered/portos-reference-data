@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "device_code",
+    "user_code",
+    "verification_uri",
+    "expires_in",
+    "interval"
+  ],
+  "properties": {
+    "device_code": {
+      "type": "string",
+      "description": "The device verification code used to poll the token endpoint"
+    },
+    "user_code": {
+      "type": "string",
+      "description": "The user verification code displayed to the user"
+    },
+    "verification_uri": {
+      "type": "string",
+      "description": "The URI where the user should enter the user code",
+      "example": "https://portpowered.com/oauth/device/verify"
+    },
+    "verification_uri_complete": {
+      "type": "string",
+      "description": "The complete URI including the user code (optional, for convenience)",
+      "example": "https://portpowered.com/oauth/device/verify?user_code=ABC123"
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "The lifetime in seconds of the device_code and user_code",
+      "example": 1800
+    },
+    "interval": {
+      "type": "integer",
+      "description": "The minimum amount of time in seconds that the client should wait between polling requests",
+      "example": 5
+    }
+  }
+}

@@ -8,14 +8,19 @@ properties:
     type: string
     description: >-
       What a cleaning robot does: vacuum only, mop only, or vacuum and mop
-      together
+      together. CUSTOM is a vendor-specific setting with no Port OS name (for
+      example per-room settings); devices report it but do not accept it.
     enum:
       - VACUUM
       - MOP
       - VACUUM_AND_MOP
+      - CUSTOM
   suctionLevel:
     type: string
-    description: Vacuum suction level, ordered from off to strongest
+    description: >-
+      Vacuum suction level, ordered from off to strongest. CUSTOM is a
+      vendor-specific setting with no Port OS name (for example per-room
+      settings); devices report it but do not accept it.
     enum:
       - 'OFF'
       - QUIET
@@ -23,15 +28,20 @@ properties:
       - TURBO
       - MAX
       - MAX_PLUS
+      - CUSTOM
   waterFlow:
     type: string
-    description: Mop water flow level, ordered from off to highest
+    description: >-
+      Mop water flow level, ordered from off to highest. CUSTOM is a
+      vendor-specific setting with no Port OS name (for example per-room
+      settings); devices report it but do not accept it.
     enum:
       - 'OFF'
       - LOW
       - MEDIUM
       - HIGH
       - EXTREME
+      - CUSTOM
 required:
   - mode
 additionalProperties: false

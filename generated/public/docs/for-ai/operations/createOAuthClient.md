@@ -51,7 +51,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/OAuthClientRegistrationRequest'
+          $ref: /docs/references/schemas/OAuthClientRegistrationRequest.json
         example:
           clientName: port1/principals/example
   responses:
@@ -60,7 +60,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CreateOAuthClientResponse'
+            $ref: /docs/references/schemas/CreateOAuthClientResponse.json
           example:
             clientId: port1/principals/example
             clientSecret: port1/principals/example
@@ -77,4 +77,9 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [CreateOAuthClientResponse.json](/docs/references/schemas/CreateOAuthClientResponse.json)
+- [OAuthClientRegistrationRequest.json](/docs/references/schemas/OAuthClientRegistrationRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

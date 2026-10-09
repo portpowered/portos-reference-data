@@ -57,6 +57,7 @@ get:
       required: true
       schema:
         type: string
+        x-enum-exempt: OAuth 2.0 response_type is the externally defined case-sensitive value code (RFC 6749).
         enum:
           - code
     - in: query
@@ -101,4 +102,8 @@ get:
   x-portos-delegated: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+This operation uses inline schemas.
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

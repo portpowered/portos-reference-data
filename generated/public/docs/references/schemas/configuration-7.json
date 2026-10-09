@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NotificationCapabilityInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/notification",
+  "x-name": "notification",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Configuration schema for the notification capability interface. This interface handles push notification infrastructure: scheduling (notification-schedule), triggering (notification-trigger), and delivery (notification) of notifications to users.",
+  "type": "object",
+  "properties": {
+    "maxTitleLength": {
+      "type": "integer",
+      "description": "Maximum length of notification titles",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 200
+    },
+    "maxBodyLength": {
+      "type": "integer",
+      "description": "Maximum length of notification body text",
+      "minimum": 1,
+      "maximum": 2000,
+      "default": 2000
+    },
+    "supportedChannels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "PUSH",
+          "EMAIL",
+          "SMS",
+          "IN_APP",
+          "WEBHOOK"
+        ],
+        "x-enum-varnames": [
+          "Push",
+          "Email",
+          "Sms",
+          "InApp",
+          "Webhook"
+        ]
+      },
+      "description": "Supported notification channels"
+    },
+    "defaultPriority": {
+      "type": "string",
+      "description": "Default priority for notifications",
+      "enum": [
+        "LOW",
+        "NORMAL",
+        "HIGH",
+        "URGENT"
+      ],
+      "x-enum-varnames": [
+        "Configuration7DefaultPriorityLow",
+        "Configuration7DefaultPriorityNormal",
+        "Configuration7DefaultPriorityHigh",
+        "Configuration7DefaultPriorityUrgent"
+      ],
+      "default": "NORMAL"
+    }
+  },
+  "required": [
+    "maxTitleLength",
+    "maxBodyLength",
+    "supportedChannels",
+    "defaultPriority"
+  ],
+  "additionalProperties": false
+}

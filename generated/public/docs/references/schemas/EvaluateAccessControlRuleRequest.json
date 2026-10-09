@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Evaluate whether or not a request is allowed to be performed.",
+  "required": [
+    "requests"
+  ],
+  "properties": {
+    "requesterContext": {
+      "$ref": "/docs/references/schemas/AccessControlRequesterContext.json"
+    },
+    "resourceContext": {
+      "$ref": "/docs/references/schemas/AccessControlResourceContext.json"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AccessControlEntity.json"
+      }
+    },
+    "operation": {
+      "type": "string"
+    }
+  }
+}

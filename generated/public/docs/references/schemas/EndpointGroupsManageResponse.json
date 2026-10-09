@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Atomic batch envelope. `errors` is empty if and only if the batch committed. On failure `results` is empty and `errors` lists every failing operation; nothing is written and no events are emitted. Items correlate by `requestId`, never by position.\n",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "results",
+    "errors"
+  ],
+  "properties": {
+    "status": {
+      "$ref": "/docs/references/schemas/BatchResponseStatus.json"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/EndpointGroupsManageResult.json"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/BatchItemError.json"
+      }
+    }
+  }
+}

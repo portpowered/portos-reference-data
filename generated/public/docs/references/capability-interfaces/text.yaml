@@ -2,8 +2,8 @@ name: text
 namespace: port1/systems/zero/capability-interfaces/text
 version: '1.0'
 description: >-
-  Text sends a text message to a connected component. Use it to pass written
-  input between integrations.
+  Text sends a text message to a connected component. Use it to pass written input between
+  integrations.
 messages:
   - name: text
     description: null

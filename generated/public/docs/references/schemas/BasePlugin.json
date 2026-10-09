@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the plugin"
+    },
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "description": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "owner": {
+      "$ref": "/docs/references/schemas/Principal.json"
+    },
+    "resourceGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ResourceGroup.json"
+      },
+      "description": "List of associated resource groups"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PluginEntry.json"
+      },
+      "description": "List of plugin entries"
+    },
+    "supportsEventSubscription": {
+      "type": "boolean",
+      "description": "Whether the plugin supports event subscription"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/DeviceInterface.json"
+      },
+      "description": "List of capabilities supported by the plugin"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable display name from plugin metadata (populated when expand=metadata)"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon identifier from plugin metadata (populated when expand=metadata)"
+    },
+    "authType": {
+      "type": "string",
+      "enum": [
+        "OAUTH2",
+        "TWO_FACTOR",
+        "API_KEY",
+        "API_KEY_ENDPOINT",
+        "USERNAME_PASSWORD",
+        "QR_CODE",
+        "CODE_LINK",
+        "NONE"
+      ],
+      "x-enum-varnames": [
+        "Oauth2",
+        "TwoFactor",
+        "ApiKey",
+        "ApiKeyEndpoint",
+        "UsernamePassword",
+        "QrCode",
+        "CodeLink",
+        "None"
+      ],
+      "description": "Authentication type from plugin metadata (populated when expand=metadata). \"API_KEY\" accepts a single API key; \"API_KEY_ENDPOINT\" accepts both an API key and a custom endpoint URL (used for OpenAI-compatible providers where users bring their own base URL); \"QR_CODE\" uses an access-code + QR code scanning flow (e.g., Tuya Smart app)."
+    },
+    "oauth": {
+      "$ref": "/docs/references/schemas/PluginMetadataOAuth.json"
+    },
+    "multifactor": {
+      "$ref": "/docs/references/schemas/PluginMetadataMultifactor.json"
+    },
+    "capabilityInterfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PluginCapabilityInterface.json"
+      },
+      "description": "Capability interfaces from plugin metadata (populated when expand=metadata)"
+    }
+  }
+}

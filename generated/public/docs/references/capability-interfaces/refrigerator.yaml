@@ -2,8 +2,8 @@ name: refrigerator
 namespace: port1/systems/zero/capability-interfaces/refrigerator
 version: '1.0'
 description: >-
-  Refrigerators report their temperature. Use the reading to show the conditions
-  supplied by the appliance.
+  Refrigerators report their temperature. Use the reading to show the conditions supplied by the
+  appliance.
 messages: []
 attributes:
   - name: temperature

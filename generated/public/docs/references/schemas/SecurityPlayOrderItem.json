@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A play order item for security panel audio playback",
+  "properties": {
+    "assetId": {
+      "type": "string"
+    },
+    "loopCount": {
+      "type": "integer"
+    },
+    "loopPauseInMilliseconds": {
+      "type": "integer"
+    }
+  }
+}

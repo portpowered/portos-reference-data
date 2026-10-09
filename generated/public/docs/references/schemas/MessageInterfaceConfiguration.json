@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/flows",
+  "x-name": "flows",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "maxFlowIdLength": {
+      "type": "integer",
+      "description": "Maximum length for flow IDs",
+      "default": 100
+    },
+    "maxNodeIdLength": {
+      "type": "integer",
+      "description": "Maximum length for node IDs",
+      "default": 100
+    },
+    "supportedStatuses": {
+      "$ref": "/docs/references/schemas/FlowSupportedStatuses.json"
+    },
+    "supportedReasons": {
+      "$ref": "/docs/references/schemas/FlowSupportedReasons.json"
+    },
+    "supportedPriorities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "LOW",
+          "NORMAL",
+          "HIGH",
+          "URGENT"
+        ],
+        "x-enum-varnames": [
+          "MessageInterfaceConfigurationSupportedPrioritiesLow",
+          "MessageInterfaceConfigurationSupportedPrioritiesNormal",
+          "MessageInterfaceConfigurationSupportedPrioritiesHigh",
+          "MessageInterfaceConfigurationSupportedPrioritiesUrgent"
+        ]
+      },
+      "description": "Supported flow priorities"
+    },
+    "defaultTimeout": {
+      "type": "integer",
+      "description": "Default flow timeout in milliseconds",
+      "default": 300000
+    },
+    "maxTimeout": {
+      "type": "integer",
+      "description": "Maximum flow timeout in milliseconds",
+      "default": 86400000
+    },
+    "checkpointEnabled": {
+      "type": "boolean",
+      "description": "Whether checkpoints are enabled",
+      "default": true
+    }
+  },
+  "required": [
+    "maxFlowIdLength",
+    "maxNodeIdLength",
+    "supportedStatuses",
+    "supportedReasons",
+    "supportedPriorities",
+    "defaultTimeout",
+    "maxTimeout",
+    "checkpointEnabled"
+  ],
+  "additionalProperties": false
+}

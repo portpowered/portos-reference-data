@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the flow node"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "label": {
+      "type": "string",
+      "description": "The label of the flow node"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the flow node"
+    },
+    "nodePorts": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/FlowNodePort.json"
+      },
+      "description": "List of ports used by the flow node"
+    },
+    "properties": {
+      "type": "object",
+      "description": "properties that are defined bespoke to the flow node.",
+      "additionalProperties": true
+    }
+  }
+}

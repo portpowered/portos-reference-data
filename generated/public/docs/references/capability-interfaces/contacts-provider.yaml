@@ -2,9 +2,8 @@ name: contacts-provider
 namespace: port1/systems/zero/capability-interfaces/contacts-provider
 version: '1.0'
 description: >-
-  Contacts providers list contacts from a connected account. Use the returned
-  records to give an assistant the contact information available to your
-  integration.
+  Contacts providers list contacts from a connected account. Use the returned records to give an
+  assistant the contact information available to your integration.
 messages:
   - name: list-contacts
     description: Request to list contacts from a contacts provider

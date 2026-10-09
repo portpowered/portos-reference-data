@@ -99,10 +99,12 @@ get:
               - S256
             token_endpoint_auth_methods_supported:
               - none
-              - client_secret_post
-              - client_secret_basic
             client_id_metadata_document_supported: true
             authorization_response_iss_parameter_supported: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+This operation uses inline schemas.
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

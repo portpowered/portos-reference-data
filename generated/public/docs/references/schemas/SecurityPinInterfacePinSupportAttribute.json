@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "pin-support",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Verified optional restrictions from endpoint configuration. Omit unknown restrictions; absence does not guarantee vendor acceptance.",
+  "type": "object",
+  "properties": {
+    "supportedKinds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "PERMANENT",
+          "TEMPORARY"
+        ]
+      }
+    },
+    "minLength": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "maxLength": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pattern": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -47,7 +47,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/EstablishAuthLinkRequest'
+          $ref: /docs/references/schemas/EstablishAuthLinkRequest.json
         example:
           pluginId: port1/principals/example
   responses:
@@ -56,7 +56,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EstablishAuthLinkResponse'
+            $ref: /docs/references/schemas/EstablishAuthLinkResponse.json
           example:
             id: port1/principals/user123/resources/abc-123
     '400':
@@ -64,39 +64,49 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '401':
       description: Missing or invalid authentication
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '403':
       description: Insufficient permissions
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Insufficient permissions
-            type: FORBIDDEN
+            code: FORBIDDEN
+            family: FORBIDDEN
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL
+            code: INTERNAL
+            family: INTERNAL_SERVER_ERROR
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [EstablishAuthLinkRequest.json](/docs/references/schemas/EstablishAuthLinkRequest.json)
+- [EstablishAuthLinkResponse.json](/docs/references/schemas/EstablishAuthLinkResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

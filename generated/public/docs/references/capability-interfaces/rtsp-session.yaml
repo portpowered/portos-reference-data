@@ -2,8 +2,8 @@ name: rtsp-session
 namespace: port1/systems/zero/capability-interfaces/rtsp-session
 version: '1.0'
 description: >-
-  RTSP sessions open a camera connection and return its RTSP URI and optional
-  SDP description. Close the session when the connection is no longer needed.
+  RTSP sessions open a camera connection and return its RTSP URI and optional SDP description. Close
+  the session when the connection is no longer needed.
 messages:
   - name: start-session
     description: Start session.

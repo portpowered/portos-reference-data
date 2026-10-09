@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Response event returned after processing an attribute report request.",
+  "required": [
+    "header",
+    "authentication",
+    "target",
+    "payload"
+  ],
+  "properties": {
+    "header": {
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/EventHeader.json"
+        },
+        {
+          "type": "object",
+          "required": [
+            "namespace",
+            "name",
+            "version"
+          ],
+          "properties": {
+            "namespace": {
+              "type": "string",
+              "x-enum-exempt": "plugin event header protocol identifiers",
+              "enum": [
+                "portos.attributeStore"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "x-enum-exempt": "plugin event header protocol identifiers",
+              "enum": [
+                "attributesReport"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "x-enum-exempt": "plugin event header protocol identifiers",
+              "enum": [
+                "1.0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "authentication": {
+      "$ref": "/docs/references/schemas/PluginAuthentication.json"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/EventTarget.json"
+    },
+    "payload": {
+      "$ref": "/docs/references/schemas/PluginAttributePayload.json"
+    }
+  }
+}

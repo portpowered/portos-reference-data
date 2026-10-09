@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "description": "A position as [x, y] or [x, y, z] in the frame's coordinate system",
+  "minItems": 2,
+  "maxItems": 3,
+  "items": {
+    "type": "number"
+  }
+}

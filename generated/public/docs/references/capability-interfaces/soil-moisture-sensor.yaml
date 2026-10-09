@@ -2,8 +2,8 @@ name: soil-moisture-sensor
 namespace: port1/systems/zero/capability-interfaces/soil-moisture-sensor
 version: '1.0'
 description: >-
-  Soil moisture measurements report the reading supplied by a connected sensor.
-  Use the value as input when monitoring growing conditions.
+  Soil moisture measurements report the reading supplied by a connected sensor. Use the value as
+  input when monitoring growing conditions.
 messages: []
 attributes:
   - name: measured-value

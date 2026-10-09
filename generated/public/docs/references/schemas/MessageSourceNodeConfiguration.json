@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/message-source",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "query": {
+      "$ref": "/docs/references/schemas/Query.json"
+    },
+    "triggerType": {
+      "type": "string",
+      "description": "Semantic source trigger type for compatibility with consolidated message trigger nodes",
+      "enum": [
+        "MESSAGE_TRIGGER",
+        "MESSAGE_RECEIVE",
+        "TEXT_IN",
+        "TEXT_REQUEST",
+        "TEXT_SUBMIT_GATE",
+        "INITIATOR"
+      ],
+      "x-enum-varnames": [
+        "MessageTrigger",
+        "MessageReceive",
+        "TextIn",
+        "TextRequest",
+        "TextSubmitGate",
+        "Initiator"
+      ]
+    }
+  }
+}

@@ -2,9 +2,8 @@ name: application-launcher
 namespace: port1/systems/zero/capability-interfaces/application-launcher
 version: '1.0'
 description: >-
-  Application launchers start and stop applications on a connected device. Check
-  the available applications and the current selection before choosing what to
-  launch.
+  Application launchers start and stop applications on a connected device. Check the available
+  applications and the current selection before choosing what to launch.
 messages:
   - name: launch-application
     description: null
@@ -90,9 +89,8 @@ configuration:
       minimum: 0
   additionalProperties: false
   description: >-
-    Application launchers start and stop applications on a connected device.
-    Check the available applications and the current selection before choosing
-    what to launch.
+    Application launchers start and stop applications on a connected device. Check the available
+    applications and the current selection before choosing what to launch.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

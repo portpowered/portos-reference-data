@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/text-out",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "outputFormat": {
+      "type": "string",
+      "description": "Format for text output",
+      "enum": [
+        "PLAIN",
+        "MARKDOWN",
+        "HTML"
+      ],
+      "x-enum-varnames": [
+        "TextOutNodeConfigurationOutputFormatPlain",
+        "TextOutNodeConfigurationOutputFormatMarkdown",
+        "TextOutNodeConfigurationOutputFormatHtml"
+      ],
+      "default": "PLAIN"
+    },
+    "maxLength": {
+      "type": "integer",
+      "description": "Maximum length of text output",
+      "minimum": 1,
+      "maximum": 10000,
+      "default": 1000
+    },
+    "encoding": {
+      "type": "string",
+      "description": "Text encoding for output",
+      "x-enum-exempt": "IANA character set names",
+      "enum": [
+        "utf-8",
+        "ascii"
+      ],
+      "default": "utf-8"
+    }
+  }
+}

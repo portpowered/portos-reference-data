@@ -2,8 +2,8 @@ name: oven
 namespace: port1/systems/zero/capability-interfaces/oven
 version: '1.0'
 description: >-
-  Ovens report their temperature. Use the reading to show the temperature
-  supplied by a connected appliance.
+  Ovens report their temperature. Use the reading to show the temperature supplied by a connected
+  appliance.
 messages: []
 attributes:
   - name: temperature

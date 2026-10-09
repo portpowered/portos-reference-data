@@ -16,9 +16,9 @@ properties:
     type: string
     description: Acknowledgment status
     enum:
-      - received
-      - processed
-      - failed
+      - RECEIVED
+      - PROCESSED
+      - FAILED
   timestamp:
     type: string
     format: date-time

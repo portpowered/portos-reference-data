@@ -41,14 +41,14 @@ post:
           pluginId: port1/systems/zero/plugins/715b7b85-311f-4851-8430-88bbac6dd3e7
           consent: true
         schema:
-          $ref: '#/components/schemas/IntegrationRequest'
+          $ref: /docs/references/schemas/IntegrationRequest.json
   responses:
     '201':
       description: Request saved
       content:
         application/json:
           example:
-            status: requested
+            status: REQUESTED
           schema:
             type: object
             required:
@@ -57,39 +57,46 @@ post:
               status:
                 type: string
                 enum:
-                  - requested
+                  - REQUESTED
+                x-enum-varnames:
+                  - Requested
     '400':
       description: Invalid email, consent, or future plugin identifier
       content:
         application/json:
           example:
             message: Invalid email, consent, or future plugin identifier
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
     '429':
       description: Too many requests; retry after the Retry-After interval
       content:
         application/json:
           example:
             message: Too many requests; retry after the Retry-After interval
-            type: TOO_MANY_REQUESTS
+            code: TOO_MANY_REQUESTS
             family: TOO_MANY_REQUESTS
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
     '500':
       description: Waitlist temporarily unavailable; the client may retry
       content:
         application/json:
           example:
             message: Waitlist temporarily unavailable; the client may retry
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
   x-portos-delegated: false
   x-portos-resource-permission: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [IntegrationRequest.json](/docs/references/schemas/IntegrationRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

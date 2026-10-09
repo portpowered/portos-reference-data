@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/speech-audio-generation",
+  "x-name": "audio-uri",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "required": [
+    "uri"
+  ],
+  "properties": {
+    "uri": {
+      "type": "string",
+      "description": "URL of the generated audio resource"
+    },
+    "mimeType": {
+      "type": "string",
+      "description": "MIME type of the audio resource (e.g., audio/mpeg)"
+    },
+    "durationMs": {
+      "type": "integer",
+      "description": "Duration of the generated audio in milliseconds"
+    }
+  },
+  "additionalProperties": false
+}

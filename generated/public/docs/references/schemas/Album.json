@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Album information",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the album",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Album name",
+      "minLength": 1
+    },
+    "artists": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Artist.json"
+      },
+      "description": "Album artists"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "artists"
+  ],
+  "additionalProperties": false
+}

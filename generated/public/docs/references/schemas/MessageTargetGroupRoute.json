@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A group route selected for this dispatch, for example a room the robot can clean, with its IS_PART_OF parent (for example the room's map) when it has one.",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/MessageTargetGroupRouteReference.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "parent": {
+          "$ref": "/docs/references/schemas/MessageTargetGroupRouteReference.json"
+        }
+      }
+    }
+  ]
+}

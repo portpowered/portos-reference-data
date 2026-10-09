@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The key to match on"
+    },
+    "value": {
+      "type": "string",
+      "description": "The value to match on"
+    }
+  }
+}

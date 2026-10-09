@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Request payload for renaming an endpoint group. A user group name is `{\"type\": \"PLAIN\", \"value\": ...}` whose value is non-blank UTF-8 text of at most 256 bytes with no control characters; anything else is rejected with BAD_REQUEST.\n",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The new name for the endpoint group as a human readable string or a localizable asset"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "One end of a discovered relationship, addressed by plugin-owned identity within the reporting plugin and auth link. Exactly one of `pluginRouteId` (a route) or `groupPluginRouteId` (a group route) must be set.\n",
+  "additionalProperties": false,
+  "minProperties": 1,
+  "maxProperties": 1,
+  "properties": {
+    "pluginRouteId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The plugin route ID of a route reported in the same or an earlier synchronization."
+    },
+    "groupPluginRouteId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The plugin route ID of a group route reported in the same or an earlier synchronization."
+    }
+  }
+}

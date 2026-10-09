@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
+  "enum": [
+    "OFF",
+    "QUIET",
+    "BALANCED",
+    "TURBO",
+    "MAX",
+    "MAX_PLUS",
+    "CUSTOM"
+  ],
+  "x-enum-varnames": [
+    "SuctionLevelOff",
+    "SuctionLevelQuiet",
+    "SuctionLevelBalanced",
+    "SuctionLevelTurbo",
+    "SuctionLevelMax",
+    "SuctionLevelMaxPlus",
+    "SuctionLevelCustom"
+  ]
+}

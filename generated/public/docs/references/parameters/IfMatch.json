@@ -1,0 +1,11 @@
+{
+  "name": "If-Match",
+  "in": "header",
+  "required": true,
+  "description": "The quoted strong entity tag of the resource the client last read (its `etag` field or `ETag` response header). The mutation is applied only when it still matches: a stale value returns 412 PRECONDITION_FAILED and a missing header returns 428 PRECONDITION_REQUIRED. `*` matches any current version of an existing group (RFC 9110), for a deliberate last-writer-wins change.\n",
+  "schema": {
+    "type": "string",
+    "minLength": 1
+  },
+  "example": "\"12\""
+}

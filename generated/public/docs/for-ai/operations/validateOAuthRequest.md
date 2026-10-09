@@ -45,7 +45,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/ValidateOAuthRequestRequest'
+          $ref: /docs/references/schemas/ValidateOAuthRequestRequest.json
         example:
           client_id: port1/principals/user123/oauth-clients/my-client
           redirect_uri: https://myapp.com/callback
@@ -55,7 +55,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ValidateOAuthRequestResponse'
+            $ref: /docs/references/schemas/ValidateOAuthRequestResponse.json
           example:
             clientName: My OAuth Application
             scopes: []
@@ -67,4 +67,9 @@ post:
   x-portos-resource-permission: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [ValidateOAuthRequestRequest.json](/docs/references/schemas/ValidateOAuthRequestRequest.json)
+- [ValidateOAuthRequestResponse.json](/docs/references/schemas/ValidateOAuthRequestResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "clientId",
+    "clientSecret",
+    "redirectUri"
+  ],
+  "properties": {
+    "clientId": {
+      "type": "string",
+      "description": "The OAuth2 client ID"
+    },
+    "clientSecret": {
+      "type": "string",
+      "description": "The OAuth2 client secret"
+    },
+    "redirectUri": {
+      "type": "string",
+      "description": "The OAuth2 redirect URI"
+    },
+    "tokenUrl": {
+      "type": "string",
+      "description": "The OAuth2 token endpoint URL used for token exchange and refresh"
+    }
+  }
+}

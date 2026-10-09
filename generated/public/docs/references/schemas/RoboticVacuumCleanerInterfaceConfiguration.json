@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner",
+  "x-name": "robotic-vacuum-cleaner",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportedCleaningModes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/CleaningMode.json"
+      },
+      "description": "Supported cleaning modes"
+    },
+    "supportsScheduling": {
+      "type": "boolean",
+      "description": "Whether the vacuum supports scheduling",
+      "default": false
+    },
+    "supportsRoomCleaning": {
+      "type": "boolean",
+      "description": "Whether the vacuum accepts clean-room for rooms it declares CAN_CONTROL on. Vacuums that omit it do not advertise clean-room.",
+      "default": false
+    },
+    "supportsMultiRoomCleaning": {
+      "type": "boolean",
+      "description": "Whether clean-room accepts more than one room in one request. When false, more than one groupId is rejected with MULTI_ROOM_UNSUPPORTED before dispatch.",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

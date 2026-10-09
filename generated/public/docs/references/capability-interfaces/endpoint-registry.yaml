@@ -4,14 +4,10 @@ version: '1.0'
 description: Configuration for Port OS endpoint registry lifecycle notifications
 messages:
   - name: endpoint-updated
-    description: >-
-      Port OS emitted a durable endpoint metadata or enablement change. Delivery
-      is best effort.
+    description: Port OS emitted a durable endpoint metadata or enablement change. Delivery is best effort.
     directionality: out
     schema:
-      description: >-
-        Port OS emitted a durable endpoint metadata or enablement change.
-        Delivery is best effort.
+      description: Port OS emitted a durable endpoint metadata or enablement change. Delivery is best effort.
       type: object
       properties:
         endpointId:

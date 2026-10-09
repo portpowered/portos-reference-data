@@ -2,8 +2,8 @@ name: electrical-conductivity-sensor
 namespace: port1/systems/zero/capability-interfaces/electrical-conductivity-sensor
 version: '1.0'
 description: >-
-  Electrical conductivity measurements report a sensor reading. Use the value
-  and its declared units when displaying or comparing measurements.
+  Electrical conductivity measurements report a sensor reading. Use the value and its declared units
+  when displaying or comparing measurements.
 messages: []
 attributes:
   - name: measured-value

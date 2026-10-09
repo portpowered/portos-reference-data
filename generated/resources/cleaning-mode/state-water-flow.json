@@ -1,16 +1,17 @@
 {
-  "description": "Current water flow. Omitted when the robot is in a native mode with no equivalent value.",
+  "description": "Current water flow. CUSTOM when the robot uses a native mode with no equivalent value.",
   "type": "object",
   "properties": {
     "value": {
       "type": "string",
-      "description": "Mop water flow level, ordered from off to highest",
+      "description": "Mop water flow level, ordered from off to highest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
       "enum": [
         "OFF",
         "LOW",
         "MEDIUM",
         "HIGH",
-        "EXTREME"
+        "EXTREME",
+        "CUSTOM"
       ]
     }
   },

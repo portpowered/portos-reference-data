@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Edit display label only. Must be nonempty PLAIN value of at most 256 characters. Query, target, original host arguments and lifecycle are immutable through this operation.",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    }
+  }
+}

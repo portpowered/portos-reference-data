@@ -1,14 +1,15 @@
 {
-  "description": "Current cleaning type. Omitted when the robot is in a native mode with no equivalent value.",
+  "description": "Current cleaning type. CUSTOM when the robot uses a native mode with no equivalent value.",
   "type": "object",
   "properties": {
     "value": {
       "type": "string",
-      "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+      "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
       "enum": [
         "VACUUM",
         "MOP",
-        "VACUUM_AND_MOP"
+        "VACUUM_AND_MOP",
+        "CUSTOM"
       ]
     }
   },

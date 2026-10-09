@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the flow run"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The owner ID of the flow run"
+    },
+    "flowId": {
+      "type": "string",
+      "description": "The ID of the flow"
+    },
+    "status": {
+      "$ref": "/docs/references/schemas/FlowRunStatus.json",
+      "description": "The status of the flow run"
+    }
+  }
+}

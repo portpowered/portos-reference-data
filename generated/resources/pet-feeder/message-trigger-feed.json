@@ -11,12 +11,12 @@
       "type": "string",
       "description": "Unit of food to feed the pet",
       "enum": [
-        "cups",
-        "grams",
-        "pounds",
-        "ounces"
+        "CUPS",
+        "GRAMS",
+        "POUNDS",
+        "OUNCES"
       ],
-      "default": "cups"
+      "default": "CUPS"
     }
   },
   "additionalProperties": false

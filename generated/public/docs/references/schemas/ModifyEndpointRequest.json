@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Endpoint to modify; merge source when mergeInto is provided."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-zA-Z0-9 \\-_]+$"
+    },
+    "type": {
+      "type": "string",
+      "description": "A supported endpoint ontological type, such as light or plug."
+    },
+    "enablement": {
+      "$ref": "/docs/references/schemas/Enablement.json"
+    },
+    "mergeInto": {
+      "type": "string",
+      "description": "Same-owner surviving endpoint. Routes and supported dependencies transfer atomically; the source remains disabled. Other supplied fields modify the survivor. No redirect from the source ID is created."
+    }
+  }
+}

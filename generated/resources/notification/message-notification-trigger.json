@@ -10,10 +10,10 @@
       "type": "string",
       "description": "Type of trigger",
       "enum": [
-        "immediate",
-        "scheduled",
-        "event-based",
-        "condition-based"
+        "IMMEDIATE",
+        "SCHEDULED",
+        "EVENT_BASED",
+        "CONDITION_BASED"
       ]
     },
     "notification": {
@@ -36,10 +36,10 @@
           "type": "string",
           "description": "Notification priority level",
           "enum": [
-            "low",
-            "normal",
-            "high",
-            "urgent"
+            "LOW",
+            "NORMAL",
+            "HIGH",
+            "URGENT"
           ]
         },
         "channels": {
@@ -47,11 +47,11 @@
           "items": {
             "type": "string",
             "enum": [
-              "push",
-              "email",
-              "sms",
-              "in-app",
-              "webhook"
+              "PUSH",
+              "EMAIL",
+              "SMS",
+              "IN_APP",
+              "WEBHOOK"
             ]
           },
           "description": "Channels to send the notification through"
@@ -147,12 +147,12 @@
               "type": "string",
               "description": "Interval unit",
               "enum": [
-                "seconds",
-                "minutes",
-                "hours",
-                "days",
-                "weeks",
-                "months"
+                "SECONDS",
+                "MINUTES",
+                "HOURS",
+                "DAYS",
+                "WEEKS",
+                "MONTHS"
               ]
             }
           },

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/equalizer",
+  "x-name": "equalizer",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportedBands": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BASS",
+          "MIDRANGE",
+          "TREBLE"
+        ]
+      }
+    },
+    "supportedModes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

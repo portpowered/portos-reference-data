@@ -2,20 +2,19 @@ name: security-pin
 namespace: port1/systems/zero/capability-interfaces/security-pin
 version: '1.0'
 description: >-
-  Security PINs create, update, query, and delete PIN records. Follow operation
-  results and PIN reports when managing the records supported by a device.
+  Security PINs create, update, query, and delete PIN records. Follow operation results and PIN
+  reports when managing the records supported by a device.
 messages:
   - name: create-pin
     description: >-
-      Create an endpoint-scoped PIN. TEMPORARY requires both validity
-      timestamps; PERMANENT forbids them. Validate increasing, nonexpired
-      instants and declared restrictions before dispatch.
+      Create an endpoint-scoped PIN. TEMPORARY requires both validity timestamps; PERMANENT forbids
+      them. Validate increasing, nonexpired instants and declared restrictions before dispatch.
     directionality: in
     schema:
       description: >-
-        Create an endpoint-scoped PIN. TEMPORARY requires both validity
-        timestamps; PERMANENT forbids them. Validate increasing, nonexpired
-        instants and declared restrictions before dispatch.
+        Create an endpoint-scoped PIN. TEMPORARY requires both validity timestamps; PERMANENT
+        forbids them. Validate increasing, nonexpired instants and declared restrictions before
+        dispatch.
       type: object
       properties:
         name:
@@ -23,9 +22,7 @@ messages:
         pin:
           type: string
           writeOnly: true
-          description: >-
-            Credential preserved as a string. Redact from diagnostics and
-            persisted history.
+          description: Credential preserved as a string. Redact from diagnostics and persisted history.
         kind:
           type: string
           enum:
@@ -44,13 +41,13 @@ messages:
       additionalProperties: false
   - name: delete-pin
     description: >-
-      Delete a record within the authorized endpoint. Emit a correlated terminal
-      result even when enumeration no longer includes the record.
+      Delete a record within the authorized endpoint. Emit a correlated terminal result even when
+      enumeration no longer includes the record.
     directionality: in
     schema:
       description: >-
-        Delete a record within the authorized endpoint. Emit a correlated
-        terminal result even when enumeration no longer includes the record.
+        Delete a record within the authorized endpoint. Emit a correlated terminal result even when
+        enumeration no longer includes the record.
       type: object
       properties:
         id:
@@ -62,18 +59,16 @@ messages:
       additionalProperties: false
   - name: pin-operation-result
     description: >-
-      Correlated safe PIN provisioning result. APPLIED requires vendor-confirmed
-      completion, not dispatch acceptance. CREATE supplies recordId once
-      assigned; UPDATE and DELETE retain the requested ID. FAILED requires a
-      safe code; other statuses forbid code. Never include credentials or raw
-      vendor errors.
+      Correlated safe PIN provisioning result. APPLIED requires vendor-confirmed completion, not
+      dispatch acceptance. CREATE supplies recordId once assigned; UPDATE and DELETE retain the
+      requested ID. FAILED requires a safe code; other statuses forbid code. Never include
+      credentials or raw vendor errors.
     directionality: out
     schema:
       description: >-
-        Correlated safe PIN provisioning result. APPLIED requires
-        vendor-confirmed completion, not dispatch acceptance. CREATE supplies
-        recordId once assigned; UPDATE and DELETE retain the requested ID.
-        FAILED requires a safe code; other statuses forbid code. Never include
+        Correlated safe PIN provisioning result. APPLIED requires vendor-confirmed completion, not
+        dispatch acceptance. CREATE supplies recordId once assigned; UPDATE and DELETE retain the
+        requested ID. FAILED requires a safe code; other statuses forbid code. Never include
         credentials or raw vendor errors.
       type: object
       properties:
@@ -99,8 +94,8 @@ messages:
           type: string
           minLength: 1
           description: >-
-            Stable safe structured failure code. Never raw vendor text,
-            credentials or response bodies.
+            Stable safe structured failure code. Never raw vendor text, credentials or response
+            bodies.
       required:
         - correlationToken
         - operation
@@ -108,13 +103,13 @@ messages:
       additionalProperties: false
   - name: pin-records-report
     description: >-
-      Bounded credential-free record page aligned with the pin-records
-      attribute. Echo the query correlation token in the message header.
+      Bounded credential-free record page aligned with the pin-records attribute. Echo the query
+      correlation token in the message header.
     directionality: out
     schema:
       description: >-
-        Bounded credential-free record page aligned with the pin-records
-        attribute. Echo the query correlation token in the message header.
+        Bounded credential-free record page aligned with the pin-records attribute. Echo the query
+        correlation token in the message header.
       type: object
       properties:
         items:
@@ -122,9 +117,9 @@ messages:
           maxItems: 100
           items:
             description: >-
-              Endpoint-scoped PIN metadata without credentials. TEMPORARY
-              requires both validity timestamps; PERMANENT forbids them.
-              Provisioning status is distinct from observation freshness.
+              Endpoint-scoped PIN metadata without credentials. TEMPORARY requires both validity
+              timestamps; PERMANENT forbids them. Provisioning status is distinct from observation
+              freshness.
             type: object
             properties:
               id:
@@ -159,26 +154,22 @@ messages:
         nextToken:
           type: string
           minLength: 1
-          description: >-
-            Opaque continuation bound to endpoint, caller and query; omitted on
-            the final page.
+          description: Opaque continuation bound to endpoint, caller and query; omitted on the final page.
       required:
         - items
       additionalProperties: false
   - name: query-operation
     description: >-
-      Retrieve an endpoint-scoped PIN operation result by its original
-      correlation token. Enforce caller and endpoint ownership. Return
-      pin-operation-result, preserving the original operation correlation token
-      in its payload and using this query's correlation token in the response
+      Retrieve an endpoint-scoped PIN operation result by its original correlation token. Enforce
+      caller and endpoint ownership. Return pin-operation-result, preserving the original operation
+      correlation token in its payload and using this query's correlation token in the response
       header.
     directionality: in
     schema:
       description: >-
-        Retrieve an endpoint-scoped PIN operation result by its original
-        correlation token. Enforce caller and endpoint ownership. Return
-        pin-operation-result, preserving the original operation correlation
-        token in its payload and using this query's correlation token in the
+        Retrieve an endpoint-scoped PIN operation result by its original correlation token. Enforce
+        caller and endpoint ownership. Return pin-operation-result, preserving the original
+        operation correlation token in its payload and using this query's correlation token in the
         response header.
       type: object
       properties:
@@ -190,15 +181,15 @@ messages:
       additionalProperties: false
   - name: query-pins
     description: >-
-      Query a bounded endpoint-scoped PIN record page. Requires message-send
-      permission. Continuations bind caller, endpoint and page size; return
-      pin-records-report with the request correlation token in its header.
+      Query a bounded endpoint-scoped PIN record page. Requires message-send permission.
+      Continuations bind caller, endpoint and page size; return pin-records-report with the request
+      correlation token in its header.
     directionality: in
     schema:
       description: >-
-        Query a bounded endpoint-scoped PIN record page. Requires message-send
-        permission. Continuations bind caller, endpoint and page size; return
-        pin-records-report with the request correlation token in its header.
+        Query a bounded endpoint-scoped PIN record page. Requires message-send permission.
+        Continuations bind caller, endpoint and page size; return pin-records-report with the
+        request correlation token in its header.
       type: object
       properties:
         maxResults:
@@ -212,15 +203,13 @@ messages:
       additionalProperties: false
   - name: update-pin
     description: >-
-      Update an endpoint-scoped record. Require at least one change. Kind is
-      immutable; validity changes require both timestamps and an authoritative
-      TEMPORARY record.
+      Update an endpoint-scoped record. Require at least one change. Kind is immutable; validity
+      changes require both timestamps and an authoritative TEMPORARY record.
     directionality: in
     schema:
       description: >-
-        Update an endpoint-scoped record. Require at least one change. Kind is
-        immutable; validity changes require both timestamps and an authoritative
-        TEMPORARY record.
+        Update an endpoint-scoped record. Require at least one change. Kind is immutable; validity
+        changes require both timestamps and an authoritative TEMPORARY record.
       type: object
       properties:
         id:
@@ -232,9 +221,7 @@ messages:
         pin:
           type: string
           writeOnly: true
-          description: >-
-            Credential preserved as a string. Redact from diagnostics and
-            persisted history.
+          description: Credential preserved as a string. Redact from diagnostics and persisted history.
         validFrom:
           type: string
           format: date-time
@@ -247,14 +234,14 @@ messages:
 attributes:
   - name: pin-records
     description: >-
-      Bounded endpoint-scoped PIN record page containing no credentials.
-      Permanent records omit validity bounds; temporary records include both.
-      Provisioning status is separate from observation freshness.
+      Bounded endpoint-scoped PIN record page containing no credentials. Permanent records omit
+      validity bounds; temporary records include both. Provisioning status is separate from
+      observation freshness.
     schema:
       description: >-
-        Bounded endpoint-scoped PIN record page containing no credentials.
-        Permanent records omit validity bounds; temporary records include both.
-        Provisioning status is separate from observation freshness.
+        Bounded endpoint-scoped PIN record page containing no credentials. Permanent records omit
+        validity bounds; temporary records include both. Provisioning status is separate from
+        observation freshness.
       type: object
       properties:
         items:
@@ -262,9 +249,9 @@ attributes:
           maxItems: 100
           items:
             description: >-
-              Endpoint-scoped PIN metadata without credentials. TEMPORARY
-              requires both validity timestamps; PERMANENT forbids them.
-              Provisioning status is distinct from observation freshness.
+              Endpoint-scoped PIN metadata without credentials. TEMPORARY requires both validity
+              timestamps; PERMANENT forbids them. Provisioning status is distinct from observation
+              freshness.
             type: object
             properties:
               id:
@@ -299,20 +286,18 @@ attributes:
         nextToken:
           type: string
           minLength: 1
-          description: >-
-            Opaque continuation bound to endpoint, caller and query; omitted on
-            the final page.
+          description: Opaque continuation bound to endpoint, caller and query; omitted on the final page.
       required:
         - items
       additionalProperties: false
   - name: pin-support
     description: >-
-      Verified optional restrictions from endpoint configuration. Omit unknown
-      restrictions; absence does not guarantee vendor acceptance.
+      Verified optional restrictions from endpoint configuration. Omit unknown restrictions; absence
+      does not guarantee vendor acceptance.
     schema:
       description: >-
-        Verified optional restrictions from endpoint configuration. Omit unknown
-        restrictions; absence does not guarantee vendor acceptance.
+        Verified optional restrictions from endpoint configuration. Omit unknown restrictions;
+        absence does not guarantee vendor acceptance.
       type: object
       properties:
         supportedKinds:
@@ -334,9 +319,8 @@ attributes:
       additionalProperties: false
 configuration:
   description: >-
-    Security PINs create, update, query, and delete PIN records. Follow
-    operation results and PIN reports when managing the records supported by a
-    device.
+    Security PINs create, update, query, and delete PIN records. Follow operation results and PIN
+    reports when managing the records supported by a device.
   type: object
   properties:
     supportedKinds:
@@ -355,9 +339,7 @@ configuration:
       minimum: 0
     pattern:
       type: string
-      description: >-
-        Explicit device PIN regular expression; absent means no character
-        restriction.
+      description: Explicit device PIN regular expression; absent means no character restriction.
   additionalProperties: false
 authorization:
   configuration: endpoint:read

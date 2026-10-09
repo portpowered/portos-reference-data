@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Typed relationship between provider routes and group routes. `IS_PART_OF`: a group route is contained in a parent group route (spatial hierarchy, acyclic). `CAN_CONTROL`: an endpoint route can act on a group route with the listed interface messages; it never grants authorization. `LOCATED_IN`: an endpoint route is currently observed inside a group route; it is an observation, not membership.\n",
+  "enum": [
+    "IS_PART_OF",
+    "CAN_CONTROL",
+    "LOCATED_IN"
+  ],
+  "x-enum-varnames": [
+    "RelationshipTypeIsPartOf",
+    "RelationshipTypeCanControl",
+    "RelationshipTypeLocatedIn"
+  ]
+}

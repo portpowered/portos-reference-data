@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/spatial",
+  "x-name": "position",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Anchor point of the group route in its reference frame. It is a label anchor, not a navigation target.",
+  "type": "object",
+  "required": [
+    "point",
+    "observedAt"
+  ],
+  "properties": {
+    "point": {
+      "$ref": "/docs/references/schemas/SpatialPoint.json"
+    },
+    "relativeToGroupId": {
+      "type": "string",
+      "description": "Canonical endpoint group whose frame the coordinates use"
+    },
+    "relativeToGroupRouteId": {
+      "type": "string",
+      "description": "Provider group route whose coordinate system the coordinates use"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the provider observed this position"
+    }
+  },
+  "additionalProperties": false
+}

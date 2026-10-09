@@ -2,8 +2,8 @@ name: location-tracker
 namespace: port1/systems/zero/capability-interfaces/location-tracker
 version: '1.0'
 description: >-
-  Location trackers start a locator and report its signal. Use them when helping
-  a customer locate a connected item.
+  Location trackers start a locator and report its signal. Use them when helping a customer locate a
+  connected item.
 messages:
   - name: start-locator
     description: null

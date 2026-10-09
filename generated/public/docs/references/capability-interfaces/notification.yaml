@@ -2,8 +2,8 @@ name: notification
 namespace: port1/systems/zero/capability-interfaces/notification
 version: '1.0'
 description: >-
-  Notifications can be triggered immediately or scheduled. Follow notification
-  events to connect the delivery flow to the rest of an integration.
+  Notifications can be triggered immediately or scheduled. Follow notification events to connect the
+  delivery flow to the rest of an integration.
 messages:
   - name: notification
     description: null
@@ -29,20 +29,20 @@ messages:
           type: string
           description: Notification priority level
           enum:
-            - low
-            - normal
-            - high
-            - urgent
+            - LOW
+            - NORMAL
+            - HIGH
+            - URGENT
         channels:
           type: array
           items:
             type: string
             enum:
-              - push
-              - email
-              - sms
-              - in-app
-              - webhook
+              - PUSH
+              - EMAIL
+              - SMS
+              - IN_APP
+              - WEBHOOK
           description: Channels to send the notification through
         targetUsers:
           type: array
@@ -85,20 +85,20 @@ messages:
               type: string
               description: Notification priority level
               enum:
-                - low
-                - normal
-                - high
-                - urgent
+                - LOW
+                - NORMAL
+                - HIGH
+                - URGENT
             channels:
               type: array
               items:
                 type: string
                 enum:
-                  - push
-                  - email
-                  - sms
-                  - in-app
-                  - webhook
+                  - PUSH
+                  - EMAIL
+                  - SMS
+                  - IN_APP
+                  - WEBHOOK
               description: Channels to send the notification through
             targetUsers:
               type: array
@@ -148,12 +148,12 @@ messages:
                   type: string
                   description: Interval unit
                   enum:
-                    - seconds
-                    - minutes
-                    - hours
-                    - days
-                    - weeks
-                    - months
+                    - SECONDS
+                    - MINUTES
+                    - HOURS
+                    - DAYS
+                    - WEEKS
+                    - MONTHS
               required:
                 - value
                 - unit
@@ -186,10 +186,10 @@ messages:
           type: string
           description: Type of trigger
           enum:
-            - immediate
-            - scheduled
-            - event-based
-            - condition-based
+            - IMMEDIATE
+            - SCHEDULED
+            - EVENT_BASED
+            - CONDITION_BASED
         notification:
           type: object
           description: Notification payload information
@@ -208,20 +208,20 @@ messages:
               type: string
               description: Notification priority level
               enum:
-                - low
-                - normal
-                - high
-                - urgent
+                - LOW
+                - NORMAL
+                - HIGH
+                - URGENT
             channels:
               type: array
               items:
                 type: string
                 enum:
-                  - push
-                  - email
-                  - sms
-                  - in-app
-                  - webhook
+                  - PUSH
+                  - EMAIL
+                  - SMS
+                  - IN_APP
+                  - WEBHOOK
               description: Channels to send the notification through
             targetUsers:
               type: array
@@ -295,12 +295,12 @@ messages:
                   type: string
                   description: Interval unit
                   enum:
-                    - seconds
-                    - minutes
-                    - hours
-                    - days
-                    - weeks
-                    - months
+                    - SECONDS
+                    - MINUTES
+                    - HOURS
+                    - DAYS
+                    - WEEKS
+                    - MONTHS
               required:
                 - value
                 - unit

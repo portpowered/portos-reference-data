@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pluginId",
+    "principalId"
+  ],
+  "properties": {
+    "pluginId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical ID of a plugin declaring code-link authentication."
+    },
+    "principalId": {
+      "type": "string",
+      "x-enum-exempt": "principal identifier alias",
+      "enum": [
+        "~self"
+      ],
+      "description": "Start linking for the authenticated Port OS principal."
+    }
+  }
+}

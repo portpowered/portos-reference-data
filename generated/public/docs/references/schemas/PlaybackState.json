@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "The current playback state",
+  "enum": [
+    "PLAYING",
+    "PAUSED",
+    "STOPPED",
+    "LOADING",
+    "ERROR"
+  ],
+  "x-enum-varnames": [
+    "PlaybackStatePlaying",
+    "PlaybackStatePaused",
+    "PlaybackStateStopped",
+    "PlaybackStateLoading",
+    "PlaybackStateError"
+  ]
+}

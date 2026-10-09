@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Standard WebRTC RTCDataChannelInit options plus the required label passed to createDataChannel. Channels are bidirectional.",
+  "additionalProperties": false,
+  "required": [
+    "label"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "ordered": {
+      "type": "boolean"
+    },
+    "protocol": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "maxPacketLifeTime": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "maxRetransmits": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "negotiated": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65534
+    }
+  },
+  "not": {
+    "required": [
+      "maxPacketLifeTime",
+      "maxRetransmits"
+    ]
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "negotiated": {
+            "const": true
+          }
+        },
+        "required": [
+          "negotiated"
+        ]
+      },
+      "then": {
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

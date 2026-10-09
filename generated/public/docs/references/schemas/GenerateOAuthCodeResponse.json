@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "code",
+    "expiryInSeconds"
+  ],
+  "description": "Response from the /oauth/generate-code endpoint.  This endpoint is used by the website to generate an authorization code for the client to exchange for an access token.  When the customer receives the code, they are expected to call the port OS /auth/token OAUTH API to exchange the code for an access token. ",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "Authorization code that can be exchanged for an access token via the /auth/token endpoint. ",
+      "example": "abc123def456ghi789"
+    },
+    "expiryInSeconds": {
+      "type": "integer",
+      "description": "Expiry time in seconds (typically 600 seconds / 10 minutes)",
+      "example": 600
+    }
+  }
+}

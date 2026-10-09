@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Supported flow reason categories",
+  "properties": {
+    "termination": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "USER_REQUEST",
+          "ERROR",
+          "TIMEOUT",
+          "COMPLETION",
+          "CANCELLATION"
+        ],
+        "x-enum-varnames": [
+          "FlowSupportedReasonsTerminationUserRequest",
+          "FlowSupportedReasonsTerminationError",
+          "FlowSupportedReasonsTerminationTimeout",
+          "FlowSupportedReasonsTerminationCompletion",
+          "FlowSupportedReasonsTerminationCancellation"
+        ]
+      },
+      "description": "Supported termination reasons"
+    },
+    "pause": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "USER_REQUEST",
+          "RESOURCE_LIMIT",
+          "WAITING",
+          "MAINTENANCE"
+        ],
+        "x-enum-varnames": [
+          "FlowSupportedReasonsPauseUserRequest",
+          "FlowSupportedReasonsPauseResourceLimit",
+          "FlowSupportedReasonsPauseWaiting",
+          "FlowSupportedReasonsPauseMaintenance"
+        ]
+      },
+      "description": "Supported pause reasons"
+    },
+    "unack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "TIMEOUT",
+          "ERROR",
+          "REJECTED",
+          "DUPLICATE"
+        ],
+        "x-enum-varnames": [
+          "FlowSupportedReasonsUnackTimeout",
+          "FlowSupportedReasonsUnackError",
+          "FlowSupportedReasonsUnackRejected",
+          "FlowSupportedReasonsUnackDuplicate"
+        ]
+      },
+      "description": "Supported unacknowledgment reasons"
+    }
+  },
+  "required": [
+    "termination",
+    "pause",
+    "unack"
+  ],
+  "additionalProperties": false
+}

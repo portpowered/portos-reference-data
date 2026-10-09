@@ -2,9 +2,8 @@ name: remote-control
 namespace: port1/systems/zero/capability-interfaces/remote-control
 version: '1.0'
 description: >-
-  Remote control starts and ends control sessions and sends movement
-  instructions. Use velocity, turning, and duration fields to request movement
-  from a connected device.
+  Remote control starts and ends control sessions and sends movement instructions. Use velocity,
+  turning, and duration fields to request movement from a connected device.
 messages:
   - name: end-session
     description: null

@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MediaSearchCapabilityInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
+  "x-name": "media-search",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Configuration schema for media search capability interface",
+  "type": "object",
+  "properties": {
+    "supportedSearchTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "TRACK",
+          "ALBUM",
+          "ARTIST",
+          "PLAYLIST",
+          "GENRE",
+          "YEAR"
+        ],
+        "x-enum-varnames": [
+          "Configuration6SupportedSearchTypesTrack",
+          "Configuration6SupportedSearchTypesAlbum",
+          "Configuration6SupportedSearchTypesArtist",
+          "Configuration6SupportedSearchTypesPlaylist",
+          "Configuration6SupportedSearchTypesGenre",
+          "Configuration6SupportedSearchTypesYear"
+        ]
+      },
+      "description": "List of supported search types"
+    },
+    "maxResults": {
+      "type": "integer",
+      "description": "Maximum number of search results to return",
+      "minimum": 1,
+      "maximum": 1000,
+      "default": 50
+    },
+    "supportedProviders": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SPOTIFY",
+          "YOUTUBE",
+          "APPLE_MUSIC",
+          "LOCAL",
+          "ALL"
+        ],
+        "x-enum-varnames": [
+          "Spotify",
+          "Youtube",
+          "AppleMusic",
+          "Local",
+          "All"
+        ]
+      },
+      "description": "List of supported media providers"
+    },
+    "searchTimeoutMs": {
+      "type": "integer",
+      "description": "Timeout for search operations in milliseconds",
+      "minimum": 1000,
+      "maximum": 30000,
+      "default": 10000
+    }
+  },
+  "required": [
+    "supportedSearchTypes",
+    "maxResults",
+    "supportedProviders",
+    "searchTimeoutMs"
+  ],
+  "additionalProperties": false
+}

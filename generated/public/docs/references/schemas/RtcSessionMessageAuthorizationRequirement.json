@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Authorization requirements for a specific RTC session message.",
+  "additionalProperties": false,
+  "required": [
+    "messageName",
+    "authorization"
+  ],
+  "properties": {
+    "messageName": {
+      "type": "string"
+    },
+    "authorization": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RtcSessionAuthorizationRequirement.json"
+      }
+    }
+  }
+}

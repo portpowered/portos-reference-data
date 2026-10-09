@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A token in a list response (no raw JWT).",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Token identifier (same as JWT jti)."
+    },
+    "subject": {
+      "type": "string",
+      "description": "Principal path that is the subject of the token."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the token was created (ISO 8601)."
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the token expires (ISO 8601)."
+    },
+    "client_id": {
+      "type": "string",
+      "description": "OAuth client ID for the token (e.g. custom-access-token client)."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated scopes, if any."
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label, if set."
+    }
+  }
+}

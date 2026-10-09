@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/air-quality-sensor",
+  "x-name": "air-quality-index",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "description": "Air quality index value",
+      "minimum": 0
+    },
+    "standard": {
+      "$ref": "/docs/references/schemas/AirQualityStandard.json"
+    }
+  },
+  "required": [
+    "value",
+    "standard"
+  ],
+  "additionalProperties": false
+}

@@ -2,8 +2,8 @@ name: water-heater
 namespace: port1/systems/zero/capability-interfaces/water-heater
 version: '1.0'
 description: >-
-  Water heaters set a temperature and operating mode. Read the temperature
-  setpoint and mode to show the settings supplied by a connected heater.
+  Water heaters set a temperature and operating mode. Read the temperature setpoint and mode to show
+  the settings supplied by a connected heater.
 messages:
   - name: set-mode
     description: null
@@ -82,8 +82,8 @@ configuration:
       description: Supported water heater modes
   additionalProperties: false
   description: >-
-    Water heaters set a temperature and operating mode. Read the temperature
-    setpoint and mode to show the settings supplied by a connected heater.
+    Water heaters set a temperature and operating mode. Read the temperature setpoint and mode to
+    show the settings supplied by a connected heater.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

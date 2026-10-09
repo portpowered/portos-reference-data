@@ -1,0 +1,16 @@
+type: object
+properties:
+  supportedStandards:
+    type: array
+    items:
+      type: string
+      description: Air quality standard
+      enum:
+        - AIR_QUALITY_INDEX
+        - PARTS_PER_MILLION_2_5
+        - PARTS_PER_MILLION_10
+    description: Supported air quality standards
+additionalProperties: false
+description: >-
+  Air quality reports the air-quality index measured by a device. Use the reading to understand
+  conditions in a room and decide when to run ventilation or another automation.

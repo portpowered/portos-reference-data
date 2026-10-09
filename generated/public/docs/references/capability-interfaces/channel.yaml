@@ -2,9 +2,8 @@ name: channel
 namespace: port1/systems/zero/capability-interfaces/channel
 version: '1.0'
 description: >-
-  Channel controls select a channel or skip between channels on a connected
-  device. Read the current channel to keep the interface in step with what is
-  playing.
+  Channel controls select a channel or skip between channels on a connected device. Read the current
+  channel to keep the interface in step with what is playing.
 messages:
   - name: change-channel
     description: null

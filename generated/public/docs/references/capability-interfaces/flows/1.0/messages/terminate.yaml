@@ -8,11 +8,11 @@ properties:
     type: string
     description: Reason for termination
     enum:
-      - user_request
-      - error
-      - timeout
-      - completion
-      - cancellation
+      - USER_REQUEST
+      - ERROR
+      - TIMEOUT
+      - COMPLETION
+      - CANCELLATION
   graceful:
     type: boolean
     description: Whether to perform graceful termination

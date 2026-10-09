@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContactsProviderCapabilityInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/contacts-provider",
+  "x-name": "contacts-provider",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Configuration schema for contacts provider capability interface",
+  "type": "object",
+  "additionalProperties": false
+}

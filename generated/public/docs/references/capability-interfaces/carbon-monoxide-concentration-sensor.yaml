@@ -2,9 +2,8 @@ name: carbon-monoxide-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/carbon-monoxide-concentration-sensor
 version: '1.0'
 description: >-
-  Carbon monoxide measurements report the concentration observed by a sensor,
-  including its minimum and maximum readings. Use the reported values as input
-  to monitoring and notification flows.
+  Carbon monoxide measurements report the concentration observed by a sensor, including its minimum
+  and maximum readings. Use the reported values as input to monitoring and notification flows.
 messages: []
 attributes:
   - name: max-measured-value

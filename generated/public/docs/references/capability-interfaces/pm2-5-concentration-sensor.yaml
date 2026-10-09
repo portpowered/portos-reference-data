@@ -2,8 +2,8 @@ name: pm2-5-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/pm2-5-concentration-sensor
 version: '1.0'
 description: >-
-  PM2.5 measurements report the concentration observed by a particulate sensor.
-  Use the reading to follow changes in measured air conditions.
+  PM2.5 measurements report the concentration observed by a particulate sensor. Use the reading to
+  follow changes in measured air conditions.
 messages: []
 attributes:
   - name: measured-value

@@ -1,0 +1,125 @@
+type: object
+properties:
+  maxFlowIdLength:
+    type: integer
+    description: Maximum length for flow IDs
+    default: 100
+  maxNodeIdLength:
+    type: integer
+    description: Maximum length for node IDs
+    default: 100
+  supportedStatuses:
+    type: object
+    description: Supported flow status categories
+    properties:
+      flow:
+        type: array
+        items:
+          type: string
+          enum:
+            - SUCCESS
+            - FAILURE
+            - CANCELLED
+            - TIMEOUT
+        description: Supported flow statuses
+      node:
+        type: array
+        items:
+          type: string
+          enum:
+            - SUCCESS
+            - FAILURE
+            - SKIPPED
+            - TIMEOUT
+        description: Supported node statuses
+      ack:
+        type: array
+        items:
+          type: string
+          enum:
+            - RECEIVED
+            - PROCESSED
+            - FAILED
+        description: Supported acknowledgment statuses
+    required:
+      - flow
+      - node
+      - ack
+    additionalProperties: false
+    title: FlowSupportedStatuses
+  supportedReasons:
+    type: object
+    description: Supported flow reason categories
+    properties:
+      termination:
+        type: array
+        items:
+          type: string
+          enum:
+            - USER_REQUEST
+            - ERROR
+            - TIMEOUT
+            - COMPLETION
+            - CANCELLATION
+        description: Supported termination reasons
+      pause:
+        type: array
+        items:
+          type: string
+          enum:
+            - USER_REQUEST
+            - RESOURCE_LIMIT
+            - WAITING
+            - MAINTENANCE
+        description: Supported pause reasons
+      unack:
+        type: array
+        items:
+          type: string
+          enum:
+            - TIMEOUT
+            - ERROR
+            - REJECTED
+            - DUPLICATE
+        description: Supported unacknowledgment reasons
+    required:
+      - termination
+      - pause
+      - unack
+    additionalProperties: false
+    title: FlowSupportedReasons
+  supportedPriorities:
+    type: array
+    items:
+      type: string
+      enum:
+        - LOW
+        - NORMAL
+        - HIGH
+        - URGENT
+    description: Supported flow priorities
+  defaultTimeout:
+    type: integer
+    description: Default flow timeout in milliseconds
+    default: 300000
+  maxTimeout:
+    type: integer
+    description: Maximum flow timeout in milliseconds
+    default: 86400000
+  checkpointEnabled:
+    type: boolean
+    description: Whether checkpoints are enabled
+    default: true
+required:
+  - maxFlowIdLength
+  - maxNodeIdLength
+  - supportedStatuses
+  - supportedReasons
+  - supportedPriorities
+  - defaultTimeout
+  - maxTimeout
+  - checkpointEnabled
+additionalProperties: false
+description: >-
+  Flows run automations that can be initiated, paused, resumed, or terminated. Follow completion and
+  acknowledgement events to understand the progress of a run.

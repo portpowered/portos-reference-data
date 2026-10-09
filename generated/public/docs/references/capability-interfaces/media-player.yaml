@@ -2,9 +2,8 @@ name: media-player
 namespace: port1/systems/zero/capability-interfaces/media-player
 version: '1.0'
 description: >-
-  Media players select media by its Port OS media ID, play supplied audio or a
-  URI, and control playback. Read playback state and use only the commands
-  supported by the connected player.
+  Media players select media by its Port OS media ID, play supplied audio or a URI, and control
+  playback. Read playback state and use only the commands supported by the connected player.
 messages:
   - name: audio
     description: null
@@ -89,13 +88,13 @@ messages:
       additionalProperties: false
   - name: play-audio
     description: >-
-      Play a base64 encoded audio object on the endpoint. Requires audio output
-      support; RTSP or SDP alone does not establish playback support.
+      Play a base64 encoded audio object on the endpoint. Requires audio output support; RTSP or SDP
+      alone does not establish playback support.
     directionality: in
     schema:
       description: >-
-        Play a base64 encoded audio object on the endpoint. Requires audio
-        output support; RTSP or SDP alone does not establish playback support.
+        Play a base64 encoded audio object on the endpoint. Requires audio output support; RTSP or
+        SDP alone does not establish playback support.
       type: object
       properties:
         audio:
@@ -135,10 +134,9 @@ messages:
           type: string
           minLength: 1
           description: >-
-            Media IDs are a standardized identifier that Port OS uses to
-            represent media across YouTube, Spotify, and other media providers.
-            See https://portpowered.com/docs/media for the current media
-            identifiers documentation.
+            Media IDs are a standardized identifier that Port OS uses to represent media across
+            YouTube, Spotify, and other media providers. See https://portpowered.com/docs/media for
+            the current media identifiers documentation.
       required:
         - mediaId
       additionalProperties: false
@@ -265,19 +263,18 @@ attributes:
           type: string
           description: The current playback state
           enum:
-            - playing
-            - paused
-            - stopped
-            - loading
-            - error
+            - PLAYING
+            - PAUSED
+            - STOPPED
+            - LOADING
+            - ERROR
       required:
         - value
       additionalProperties: false
 configuration:
   description: >-
-    Media players select media by its Port OS media ID, play supplied audio or a
-    URI, and control playback. Read playback state and use only the commands
-    supported by the connected player.
+    Media players select media by its Port OS media ID, play supplied audio or a URI, and control
+    playback. Read playback state and use only the commands supported by the connected player.
   type: object
   properties:
     supportedPlaybackStates:
@@ -286,11 +283,11 @@ configuration:
         type: string
         description: The current playback state
         enum:
-          - playing
-          - paused
-          - stopped
-          - loading
-          - error
+          - PLAYING
+          - PAUSED
+          - STOPPED
+          - LOADING
+          - ERROR
       description: Supported playback states
     supportedPlaybackSpeeds:
       type: array
@@ -317,27 +314,27 @@ configuration:
       items:
         type: string
         enum:
-          - audio
-          - video
-          - image
-          - playlist
+          - AUDIO
+          - VIDEO
+          - IMAGE
+          - PLAYLIST
       description: List of supported media types
     supportedFormats:
       type: array
       items:
         type: string
         enum:
-          - mp3
-          - wav
-          - flac
-          - aac
-          - ogg
-          - mp4
-          - avi
-          - mkv
-          - jpg
-          - png
-          - gif
+          - MP3
+          - WAV
+          - FLAC
+          - AAC
+          - OGG
+          - MP4
+          - AVI
+          - MKV
+          - JPG
+          - PNG
+          - GIF
       description: List of supported media formats
     maxPlaylistSize:
       type: integer
@@ -348,18 +345,18 @@ configuration:
       type: string
       description: Default quality setting for media playback
       enum:
-        - low
-        - medium
-        - high
-        - lossless
+        - LOW
+        - MEDIUM
+        - HIGH
+        - LOSSLESS
     supportsPlayURI:
       type: boolean
       description: Whether the endpoint can play an audio URI.
     supportedAudioMimeTypes:
       type: array
       description: >-
-        Audio MIME types accepted by play-audio. Advertise play-audio only when
-        audio output is supported.
+        Audio MIME types accepted by play-audio. Advertise play-audio only when audio output is
+        supported.
       items:
         type: string
   additionalProperties: false

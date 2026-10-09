@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/BasePlugin.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "routingIdentifier",
+        "oauthConnectionData"
+      ],
+      "properties": {
+        "routingIdentifier": {
+          "type": "string",
+          "description": "The web URI where requests should be dispatched to"
+        },
+        "oauthConnectionData": {
+          "$ref": "/docs/references/schemas/OAuth2ConnectionData.json",
+          "description": "OAuth2 connection data for the webservice plugin"
+        }
+      }
+    }
+  ]
+}

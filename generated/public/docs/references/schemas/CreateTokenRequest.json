@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Request body for creating a token (JWT) for token exchange.",
+  "properties": {
+    "subject": {
+      "type": "string",
+      "description": "Identity for the token. Use ~self for the current user (resolved to the authenticated principal at create time). May be another principal path if policy allows.\n"
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "Lifetime of the token in seconds. Optional; defaults to 3600 (1 hour)."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated scopes. Optional; default no scopes. See scopes documentation for allowed values and semantics.\n"
+    },
+    "label": {
+      "type": "string",
+      "description": "Optional human-readable label for the token (e.g. \"CLI token\")."
+    }
+  }
+}

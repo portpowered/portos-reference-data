@@ -2,9 +2,8 @@ name: barrier-control
 namespace: port1/systems/zero/capability-interfaces/barrier-control
 version: '1.0'
 description: >-
-  Barrier control opens, closes, or positions a connected barrier. Read its
-  position and state to check a garage door or gate before sending the next
-  command.
+  Barrier control opens, closes, or positions a connected barrier. Read its position and state to
+  check a garage door or gate before sending the next command.
 messages:
   - name: close
     description: null

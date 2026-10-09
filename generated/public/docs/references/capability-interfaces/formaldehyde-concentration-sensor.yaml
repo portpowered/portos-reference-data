@@ -2,8 +2,8 @@ name: formaldehyde-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/formaldehyde-concentration-sensor
 version: '1.0'
 description: >-
-  Formaldehyde measurements report the concentration observed by a sensor. Use
-  the reading and its declared unit when presenting environmental measurements.
+  Formaldehyde measurements report the concentration observed by a sensor. Use the reading and its
+  declared unit when presenting environmental measurements.
 messages: []
 attributes:
   - name: measured-value

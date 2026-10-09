@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "pluginId",
+    "principalId",
+    "pluginAuthenticationData"
+  ],
+  "properties": {
+    "pluginId": {
+      "type": "string",
+      "description": "The ID of the plugin for which we are attempting to exchange the code for an access token for."
+    },
+    "principalId": {
+      "type": "string",
+      "description": "The ID of the principal to exchange the code for an access token for, or alternatively ~self, when the target is the current user principal."
+    },
+    "pluginAuthenticationData": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "The data to exchange the code with. This is opaque data that is bespoke to the plugin and the plugin's authentication flow."
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A route within an endpoint group linking a plugin route to a group with interface metadata.",
+  "required": [
+    "id",
+    "associatedGroupId",
+    "associatedPluginId",
+    "associatedPluginRouteId",
+    "associatedAuthLinkId",
+    "ownerId",
+    "interfaces"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the group route",
+      "pattern": "^port1/[^/]+/[^/]+/endpoint-group-routes/[^/]+$",
+      "example": "port1/principals/example/endpoint-group-routes/living-room"
+    },
+    "associatedGroupId": {
+      "type": "string",
+      "description": "The ID of the associated endpoint group",
+      "pattern": "^port1/[^/]+/[^/]+/endpoint-groups/[^/]+$"
+    },
+    "associatedPluginId": {
+      "type": "string",
+      "description": "The ID of the associated plugin"
+    },
+    "associatedPluginRouteId": {
+      "type": "string",
+      "description": "The stable plugin-owned route identifier associated with this group route. Use this value, not the Port OS group route `id`, when matching group route membership back to synchronized plugin or fixture route identities.\n"
+    },
+    "associatedAuthLinkId": {
+      "type": "string",
+      "description": "The ID of the associated auth link"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the owner of the group route"
+    },
+    "memberPluginRouteIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of member plugin route IDs of the group route"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RouteInterface.json"
+      },
+      "description": "List of interfaces supported by the group route"
+    },
+    "pluginCustomMetadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "A set of custom metadata that the plugin uses and attaches to the group route, this is meant specifically for the plugin to use."
+    }
+  }
+}

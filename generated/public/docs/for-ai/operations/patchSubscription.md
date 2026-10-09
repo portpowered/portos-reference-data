@@ -65,7 +65,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Subscription'
+            $ref: /docs/references/schemas/Subscription.json
           example:
             id: port1.subscription.camera-demo
             query:
@@ -78,51 +78,47 @@ patch:
             name:
               type: PLAIN
               value: Front door camera
-            status: active
+            status: ACTIVE
     '400':
       description: Invalid request; stable code identifies the validation failure.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request; stable code identifies the validation failure.
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: event_request_failed
     '401':
       description: Authentication required.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required.
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
             family: UNAUTHORIZED
-            code: event_request_failed
     '403':
       description: Resource authorization denied.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource authorization denied.
-            type: FORBIDDEN
+            code: FORBIDDEN
             family: FORBIDDEN
-            code: event_request_failed
     '404':
       description: Resource inaccessible, missing or past retention.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource inaccessible, missing or past retention.
-            type: NOT_FOUND
+            code: NOT_FOUND
             family: NOT_FOUND
-            code: event_request_failed
     '409':
       description: >-
         subscription_identity_immutable: request attempts to change monitoring identity. Existing
@@ -130,31 +126,29 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: >-
               subscription_identity_immutable: request attempts to change monitoring identity.
               Existing binding and queued jobs are untouched.
-            type: CONCURRENT_MODIFICATION
+            code: CONCURRENT_MODIFICATION
             family: CONFLICT
-            code: event_request_failed
     '500':
       description: Internal failure.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal failure.
-            type: INTERNAL
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: event_request_failed
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/PatchSubscriptionRequest'
+          $ref: /docs/references/schemas/PatchSubscriptionRequest.json
         example:
           name:
             type: PLAIN
@@ -166,4 +160,10 @@ patch:
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [PatchSubscriptionRequest.json](/docs/references/schemas/PatchSubscriptionRequest.json)
+- [Subscription.json](/docs/references/schemas/Subscription.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

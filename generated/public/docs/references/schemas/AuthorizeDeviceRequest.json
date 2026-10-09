@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "user_code",
+    "scopes"
+  ],
+  "description": "Request body for the /oauth/authorize-device endpoint. Used by authenticated users to grant consent for device authorization.\n",
+  "properties": {
+    "user_code": {
+      "type": "string",
+      "description": "User code displayed to the user for device authorization",
+      "example": "ABCD-EFGH"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/OAuthScope.json"
+      },
+      "description": "Scopes that the user is granting consent for",
+      "example": [
+        "endpoint:read",
+        "endpoint:write"
+      ]
+    }
+  }
+}

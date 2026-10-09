@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Shared Port OS query AST modeled as a recursive JSON graph supporting match, comparison, pattern, freeform, and boolean operators.",
+  "properties": {
+    "match": {
+      "description": "Match data between fields",
+      "$ref": "/docs/references/schemas/QueryComparator.json"
+    },
+    "lessThan": {
+      "description": "Less than comparison",
+      "$ref": "/docs/references/schemas/QueryComparator.json"
+    },
+    "greaterThan": {
+      "description": "Greater than comparison",
+      "$ref": "/docs/references/schemas/QueryComparator.json"
+    },
+    "and": {
+      "type": "array",
+      "description": "match all fields in the array",
+      "items": {
+        "$ref": "/docs/references/schemas/Query.json"
+      }
+    },
+    "or": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Query.json"
+      }
+    },
+    "patternMatch": {
+      "type": "string",
+      "description": "Pattern for REGEX queries (e.g., \"*.json\")",
+      "example": "*.json"
+    },
+    "freeformMatch": {
+      "type": "string",
+      "description": "Freeform query string for natural language searches",
+      "example": "notes about meeting yesterday"
+    },
+    "not": {
+      "description": "Negate the inner query (NOT wraps a single child query)",
+      "$ref": "/docs/references/schemas/Query.json"
+    }
+  }
+}

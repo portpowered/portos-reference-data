@@ -11,11 +11,12 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+        "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
         "enum": [
           "VACUUM",
           "MOP",
-          "VACUUM_AND_MOP"
+          "VACUUM_AND_MOP",
+          "CUSTOM"
         ]
       },
       "description": "Supported cleaning types"
@@ -25,14 +26,15 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "description": "Vacuum suction level, ordered from off to strongest",
+        "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
         "enum": [
           "OFF",
           "QUIET",
           "BALANCED",
           "TURBO",
           "MAX",
-          "MAX_PLUS"
+          "MAX_PLUS",
+          "CUSTOM"
         ]
       },
       "description": "Supported suction levels"
@@ -42,13 +44,14 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "description": "Mop water flow level, ordered from off to highest",
+        "description": "Mop water flow level, ordered from off to highest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
         "enum": [
           "OFF",
           "LOW",
           "MEDIUM",
           "HIGH",
-          "EXTREME"
+          "EXTREME",
+          "CUSTOM"
         ]
       },
       "description": "Supported water flows"

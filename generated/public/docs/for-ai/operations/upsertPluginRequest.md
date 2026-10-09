@@ -41,7 +41,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpsertPluginRequest'
+          $ref: /docs/references/schemas/UpsertPluginRequest.json
         example:
           name:
             type: PLAIN
@@ -52,7 +52,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UpsertPluginResponse'
+            $ref: /docs/references/schemas/UpsertPluginResponse.json
           example:
             id: port1/principals/example/plugins/example
     '400':
@@ -66,4 +66,9 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [UpsertPluginRequest.json](/docs/references/schemas/UpsertPluginRequest.json)
+- [UpsertPluginResponse.json](/docs/references/schemas/UpsertPluginResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

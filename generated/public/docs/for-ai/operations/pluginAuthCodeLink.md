@@ -42,7 +42,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/PluginAuthCodeLinkRequest'
+          $ref: /docs/references/schemas/PluginAuthCodeLinkRequest.json
         example:
           pluginId: port1/systems/zero/plugins/b220efd5-d59e-44cb-8ecd-57a98d4df48b
           principalId: ~self
@@ -52,7 +52,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PluginAuthCodeLinkResponse'
+            $ref: /docs/references/schemas/PluginAuthCodeLinkResponse.json
           example:
             sessionId: example-session
             userCode: ABCD
@@ -73,4 +73,9 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [PluginAuthCodeLinkRequest.json](/docs/references/schemas/PluginAuthCodeLinkRequest.json)
+- [PluginAuthCodeLinkResponse.json](/docs/references/schemas/PluginAuthCodeLinkResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

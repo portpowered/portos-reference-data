@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "results"
+  ],
+  "properties": {
+    "results": {
+      "$ref": "/docs/references/schemas/EndpointsList.json"
+    },
+    "paginationContext": {
+      "$ref": "/docs/references/schemas/PaginationContext.json"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Partial deep-query failures collected while building expanded endpoint state. This field is present only when endpoint enumeration succeeded but one or more live attribute refresh items failed; request-level failures still use HTTP error responses.",
+      "items": {
+        "$ref": "/docs/references/schemas/EndpointQueryResponseError.json"
+      }
+    }
+  }
+}

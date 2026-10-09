@@ -2,8 +2,8 @@ name: cooktop
 namespace: port1/systems/zero/capability-interfaces/cooktop
 version: '1.0'
 description: >-
-  Cooktops report their operational state. Use that state to show what the
-  appliance is doing or supply context to an automation.
+  Cooktops report their operational state. Use that state to show what the appliance is doing or
+  supply context to an automation.
 messages: []
 attributes:
   - name: operational-state
@@ -14,9 +14,10 @@ attributes:
         value:
           type: string
           description: >-
-            Operational state of a device. RETURNING_TO_DOCK means a robot is
-            driving back to its dock; DOCKED means it is on the dock and not
-            charging.
+            Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its
+            dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on
+            the dock while the dock services it (emptying the dust bin, washing or drying the mop),
+            and it does not start cleaning until that finishes.
           enum:
             - STOPPED
             - RUNNING
@@ -25,6 +26,7 @@ attributes:
             - CHARGING
             - DOCKED
             - RETURNING_TO_DOCK
+            - DOCK_MAINTENANCE
       required:
         - value
       additionalProperties: false

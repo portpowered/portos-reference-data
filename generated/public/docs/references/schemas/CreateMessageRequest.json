@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "target",
+    "message"
+  ],
+  "properties": {
+    "target": {
+      "$ref": "/docs/references/schemas/CreateMessageTarget.json",
+      "description": "The target of the message"
+    },
+    "message": {
+      "$ref": "/docs/references/schemas/Message.json",
+      "description": "The message to send"
+    },
+    "responseType": {
+      "$ref": "/docs/references/schemas/CreateMessageRequestResponseType.json"
+    }
+  }
+}

@@ -2,8 +2,8 @@ name: doorbell
 namespace: port1/systems/zero/capability-interfaces/doorbell
 version: '1.0'
 description: >-
-  Doorbells emit a chime event. Use that event to start a notification or
-  another flow when someone rings the bell.
+  Doorbells emit a chime event. Use that event to start a notification or another flow when someone
+  rings the bell.
 messages:
   - name: chime
     description: A distinct doorbell press. A chime does not imply a door was opened.

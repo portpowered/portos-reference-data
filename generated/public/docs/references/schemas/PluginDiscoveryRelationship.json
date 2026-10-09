@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A provider-reported relationship between routes and group routes. Identity is `externalId` within the reporting plugin and auth link; resubmitting the same `externalId` updates the relationship. Omission from a later synchronization is not a deletion instruction.\n",
+  "additionalProperties": false,
+  "required": [
+    "externalId",
+    "type",
+    "source",
+    "target"
+  ],
+  "properties": {
+    "externalId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Plugin-owned stable identifier of the relationship."
+    },
+    "type": {
+      "$ref": "/docs/references/schemas/RelationshipType.json"
+    },
+    "source": {
+      "$ref": "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json"
+    },
+    "interfaces": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Optional interface applicability; used by `CAN_CONTROL` to declare which messages the source supports on the target.",
+      "items": {
+        "$ref": "/docs/references/schemas/RelationshipInterface.json"
+      }
+    }
+  }
+}

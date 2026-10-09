@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "x-enum-exempt": "identifier URL path segments",
+  "enum": [
+    "plugins",
+    "endpoints",
+    "routes",
+    "capability-interfaces",
+    "messages"
+  ],
+  "description": "Data types related to plugins and endpoints",
+  "example": "endpoints"
+}

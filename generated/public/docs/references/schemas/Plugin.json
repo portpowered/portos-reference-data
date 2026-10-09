@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/WebsocketPlugin.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/HttpPlugin.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/WebservicePlugin.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ApplePushNotificationPlugin.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/HostedComputePlugin.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/LocalPlugin.json"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "WEBSOCKET": "/docs/references/schemas/WebsocketPlugin.json",
+      "HTTP": "/docs/references/schemas/HttpPlugin.json",
+      "WEBSERVICE": "/docs/references/schemas/WebservicePlugin.json",
+      "APPLE_PUSH_NOTIFICATION": "/docs/references/schemas/ApplePushNotificationPlugin.json",
+      "HOSTED_COMPUTE": "/docs/references/schemas/HostedComputePlugin.json",
+      "LOCAL": "/docs/references/schemas/LocalPlugin.json"
+    }
+  }
+}

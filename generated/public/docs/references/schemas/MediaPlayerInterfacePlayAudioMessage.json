@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MediaPlayerInterfacePlayAudioMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "play-audio",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Play a base64 encoded audio object on the endpoint. Requires audio output support; RTSP or SDP alone does not establish playback support.",
+  "type": "object",
+  "properties": {
+    "audio": {
+      "$ref": "/docs/references/schemas/PlayableAudio.json"
+    }
+  },
+  "required": [
+    "audio"
+  ],
+  "additionalProperties": false
+}

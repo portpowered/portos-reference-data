@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A subscription is a way to listen to events",
+  "required": [
+    "id",
+    "query",
+    "target"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the subscription"
+    },
+    "owner": {
+      "type": "string",
+      "description": "The owner of the subscription"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json"
+    },
+    "query": {
+      "$ref": "/docs/references/schemas/Query.json"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/MessageTarget.json"
+    },
+    "context": {
+      "type": "object",
+      "description": "Structured filter criteria for granular device event matching. Keys are dot-notation paths into the message (e.g., \"header.namespace\", \"header.name\"). Values are the expected values to match. All context entries must match for the subscription to fire. Omitting context matches all events.\n",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "PAUSED",
+        "SUSPENDED",
+        "EXPIRED",
+        "STOPPED"
+      ],
+      "x-enum-varnames": [
+        "SubscriptionLifecycleActive",
+        "SubscriptionLifecyclePaused",
+        "SubscriptionLifecycleSuspended",
+        "SubscriptionLifecycleExpired",
+        "SubscriptionLifecycleStopped"
+      ],
+      "description": "Event monitor lifecycle. Legacy subscriptions may omit this field."
+    },
+    "reasonCode": {
+      "type": "string",
+      "description": "Redacted stable lifecycle reason, when applicable."
+    },
+    "expiresAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Finite expiration; null means indefinite."
+    },
+    "eventQueryProfile": {
+      "type": "string",
+      "description": "Supported typed event query validation profile, when this is an event monitor."
+    }
+  }
+}

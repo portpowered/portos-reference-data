@@ -20,10 +20,10 @@
           "items": {
             "type": "string",
             "enum": [
-              "success",
-              "failure",
-              "cancelled",
-              "timeout"
+              "SUCCESS",
+              "FAILURE",
+              "CANCELLED",
+              "TIMEOUT"
             ]
           },
           "description": "Supported flow statuses"
@@ -33,10 +33,10 @@
           "items": {
             "type": "string",
             "enum": [
-              "success",
-              "failure",
-              "skipped",
-              "timeout"
+              "SUCCESS",
+              "FAILURE",
+              "SKIPPED",
+              "TIMEOUT"
             ]
           },
           "description": "Supported node statuses"
@@ -46,9 +46,9 @@
           "items": {
             "type": "string",
             "enum": [
-              "received",
-              "processed",
-              "failed"
+              "RECEIVED",
+              "PROCESSED",
+              "FAILED"
             ]
           },
           "description": "Supported acknowledgment statuses"
@@ -71,11 +71,11 @@
           "items": {
             "type": "string",
             "enum": [
-              "user_request",
-              "error",
-              "timeout",
-              "completion",
-              "cancellation"
+              "USER_REQUEST",
+              "ERROR",
+              "TIMEOUT",
+              "COMPLETION",
+              "CANCELLATION"
             ]
           },
           "description": "Supported termination reasons"
@@ -85,10 +85,10 @@
           "items": {
             "type": "string",
             "enum": [
-              "user_request",
-              "resource_limit",
-              "waiting",
-              "maintenance"
+              "USER_REQUEST",
+              "RESOURCE_LIMIT",
+              "WAITING",
+              "MAINTENANCE"
             ]
           },
           "description": "Supported pause reasons"
@@ -98,10 +98,10 @@
           "items": {
             "type": "string",
             "enum": [
-              "timeout",
-              "error",
-              "rejected",
-              "duplicate"
+              "TIMEOUT",
+              "ERROR",
+              "REJECTED",
+              "DUPLICATE"
             ]
           },
           "description": "Supported unacknowledgment reasons"
@@ -120,10 +120,10 @@
       "items": {
         "type": "string",
         "enum": [
-          "low",
-          "normal",
-          "high",
-          "urgent"
+          "LOW",
+          "NORMAL",
+          "HIGH",
+          "URGENT"
         ]
       },
       "description": "Supported flow priorities"

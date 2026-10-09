@@ -70,7 +70,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/OAuthClientUpdateRequest'
+          $ref: /docs/references/schemas/OAuthClientUpdateRequest.json
         example:
           name:
             type: PLAIN
@@ -81,7 +81,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UpdateOAuthClientResponse'
+            $ref: /docs/references/schemas/UpdateOAuthClientResponse.json
           example:
             clientId: port1/principals/example
     '400':
@@ -99,4 +99,9 @@ put:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [OAuthClientUpdateRequest.json](/docs/references/schemas/OAuthClientUpdateRequest.json)
+- [UpdateOAuthClientResponse.json](/docs/references/schemas/UpdateOAuthClientResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

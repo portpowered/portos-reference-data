@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "The credential-free public STUN subset of the standard WebRTC RTCIceServer dictionary. URLs are discoverable configuration, never session credentials.",
+  "required": [
+    "urls"
+  ],
+  "properties": {
+    "urls": {
+      "oneOf": [
+        {
+          "$ref": "/docs/references/schemas/RtcStunUrl.json"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "$ref": "/docs/references/schemas/RtcStunUrl.json"
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A group route Port OS resolved for this dispatch. The plugin addresses it by its own pluginRouteId and cookie (the group route's pluginCustomMetadata).",
+  "required": [
+    "id",
+    "groupId",
+    "pluginRouteId"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Typed group-route ID (…/endpoint-group-routes/…)."
+    },
+    "groupId": {
+      "type": "string",
+      "description": "Canonical endpoint group the group route belongs to, after merge redirects."
+    },
+    "pluginRouteId": {
+      "type": "string",
+      "description": "The plugin's own identifier for the group route, as reported in discovery."
+    },
+    "cookie": {
+      "type": "object",
+      "description": "The group route's pluginCustomMetadata, as reported in discovery.",
+      "additionalProperties": true
+    }
+  }
+}

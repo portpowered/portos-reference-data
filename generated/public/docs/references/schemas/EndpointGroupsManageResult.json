@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Result of one committed operation, correlated by `requestId`. `CREATE_GROUP`, `SET_NAME`, `ADD_MEMBERS` and `REMOVE_MEMBERS` return `group` with its new etag; `DELETE_GROUP` returns `deletedGroupId`; `MERGE_INTO` returns `target` with its new etag and `redirects`.\n",
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "operation"
+  ],
+  "properties": {
+    "requestId": {
+      "$ref": "/docs/references/schemas/BatchOperationRequestId.json"
+    },
+    "operation": {
+      "$ref": "/docs/references/schemas/EndpointGroupsManageOperationType.json"
+    },
+    "group": {
+      "$ref": "/docs/references/schemas/EndpointGroupEtagReference.json"
+    },
+    "deletedGroupId": {
+      "type": "string",
+      "description": "The deleted group ID (`DELETE_GROUP`)."
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/EndpointGroupEtagReference.json"
+    },
+    "redirects": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/EndpointGroupRedirect.json"
+      },
+      "description": "Redirects written by `MERGE_INTO`."
+    }
+  }
+}

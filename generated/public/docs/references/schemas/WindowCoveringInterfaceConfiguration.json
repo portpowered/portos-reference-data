@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/window-covering",
+  "x-name": "window-covering",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportsLift": {
+      "type": "boolean",
+      "description": "Whether the window covering supports lift control",
+      "default": true
+    },
+    "supportsTilt": {
+      "type": "boolean",
+      "description": "Whether the window covering supports tilt control",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

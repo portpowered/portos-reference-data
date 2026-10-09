@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the auth link",
+      "pattern": "^port1/[^/]+/[^/]+/auth-links/[^/]+$"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The owner ID of the auth link"
+    },
+    "associatedPrincipalId": {
+      "type": "string",
+      "description": "The ID of the associated principal that the auth link is established against"
+    },
+    "associatedSecrets": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AuthLinkSecret.json"
+      },
+      "description": "List of associated secrets that are relevant to the auth link"
+    },
+    "associatedPluginId": {
+      "type": "string",
+      "description": "The ID of the associated plugin"
+    },
+    "owner": {
+      "$ref": "/docs/references/schemas/Principal.json"
+    }
+  }
+}

@@ -2,8 +2,8 @@ name: reminders-provider
 namespace: port1/systems/zero/capability-interfaces/reminders-provider
 version: '1.0'
 description: >-
-  Reminder providers list reminders from a connected account. Use the returned
-  items to give an assistant task context or display an existing reminder list.
+  Reminder providers list reminders from a connected account. Use the returned items to give an
+  assistant task context or display an existing reminder list.
 messages:
   - name: list-reminders
     description: Request to list reminders from a reminders provider

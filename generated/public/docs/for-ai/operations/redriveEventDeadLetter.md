@@ -4,7 +4,7 @@ POST `/event-dead-letters/{id}/redrives`
 
 Create an audited redrive of the original event
 
-At most three redrives. Revalidates current source mapping, schema, query, destination, subscription generation and permissions. Retains occurrence identity, immutable delivery bytes, original acceptedAt/cutoff and deadline. Stale, revoked, deleted or expired records cannot be reopened; missing retained original context yields 410 receipt_context_expired.
+At most three redrives. Revalidates current source mapping, schema, query, destination, subscription generation and permissions. Retains occurrence identity, immutable delivery bytes, original acceptedAt/cutoff and deadline. Stale, revoked, deleted or expired records cannot be reopened; missing retained original context yields 410 RECEIPT_CONTEXT_EXPIRED.
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
 
@@ -42,7 +42,7 @@ post:
     At most three redrives. Revalidates current source mapping, schema, query, destination,
     subscription generation and permissions. Retains occurrence identity, immutable delivery bytes,
     original acceptedAt/cutoff and deadline. Stale, revoked, deleted or expired records cannot be
-    reopened; missing retained original context yields 410 receipt_context_expired.
+    reopened; missing retained original context yields 410 RECEIPT_CONTEXT_EXPIRED.
 
 
     Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
@@ -53,106 +53,103 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EventRedriveResult'
+            $ref: /docs/references/schemas/EventRedriveResult.json
           example:
             deadLetterId: dead-letter-demo-1
             receiptId: receipt-demo-1
-            status: accepted
+            status: ACCEPTED
             redriveCount: 1
     '400':
       description: Invalid request; stable code identifies the validation failure.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request; stable code identifies the validation failure.
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: event_request_failed
     '401':
       description: Authentication required.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required.
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
             family: UNAUTHORIZED
-            code: event_request_failed
     '403':
       description: Resource authorization denied.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource authorization denied.
-            type: FORBIDDEN
+            code: FORBIDDEN
             family: FORBIDDEN
-            code: event_request_failed
     '404':
       description: Resource inaccessible, missing or past retention.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Resource inaccessible, missing or past retention.
-            type: NOT_FOUND
+            code: NOT_FOUND
             family: NOT_FOUND
-            code: event_request_failed
     '409':
       description: Idempotency conflict or lifecycle/generation conflict.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Idempotency conflict or lifecycle/generation conflict.
-            type: CONCURRENT_MODIFICATION
+            code: CONCURRENT_MODIFICATION
             family: CONFLICT
-            code: event_request_failed
     '410':
       description: >-
-        Payload or original receipt context expired; receipt_context_expired prevents reconstruction
+        Payload or original receipt context expired; RECEIPT_CONTEXT_EXPIRED prevents reconstruction
         with a new cutoff.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: >-
-              Payload or original receipt context expired; receipt_context_expired prevents
+              Payload or original receipt context expired; RECEIPT_CONTEXT_EXPIRED prevents
               reconstruction with a new cutoff.
-            type: NOT_FOUND
+            code: NOT_FOUND
             family: NOT_FOUND
-            code: event_request_failed
     '429':
       description: Source or tenant rate/quota exceeded; no unpersisted input is acknowledged.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Source or tenant rate/quota exceeded; no unpersisted input is acknowledged.
-            type: RATE_LIMIT_EXCEEDED
+            code: RATE_LIMIT_EXCEEDED
             family: TOO_MANY_REQUESTS
-            code: event_request_failed
     '500':
       description: Internal failure.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal failure.
-            type: INTERNAL
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: event_request_failed
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [EventRedriveResult.json](/docs/references/schemas/EventRedriveResult.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

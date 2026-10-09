@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "namespace",
+    "name",
+    "version"
+  ],
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "description": "The namespace of the message"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the message"
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of the message"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the message"
+    },
+    "correlationToken": {
+      "type": "string",
+      "description": "Token used for correlating related messages"
+    }
+  }
+}

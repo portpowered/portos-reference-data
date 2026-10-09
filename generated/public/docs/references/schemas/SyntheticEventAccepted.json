@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "202 is returned only after durable admission. Semantic duplicates return the same IDs. Acceptance does not prove delivery or ChatGPT task execution.",
+  "required": [
+    "receiptId",
+    "eventId",
+    "endpointId",
+    "status"
+  ],
+  "properties": {
+    "receiptId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "endpointId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACCEPTED"
+      ],
+      "x-enum-varnames": [
+        "SyntheticAdmissionAccepted"
+      ]
+    }
+  }
+}

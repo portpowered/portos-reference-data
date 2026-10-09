@@ -108,7 +108,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/QueryFlowRunsResponse'
+            $ref: /docs/references/schemas/QueryFlowRunsResponse.json
           example:
             results: []
             paginationContext:
@@ -118,30 +118,38 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '401':
       description: Unauthorized — invalid or missing authentication token.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '403':
       description: Forbidden — insufficient permissions.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Insufficient permissions
-            type: FORBIDDEN
+            code: FORBIDDEN
+            family: FORBIDDEN
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [QueryFlowRunsResponse.json](/docs/references/schemas/QueryFlowRunsResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

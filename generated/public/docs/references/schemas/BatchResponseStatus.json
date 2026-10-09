@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Outcome of an atomic batch. `COMMITTED` means every operation was applied (or, for a validate-only request, would be applied); `FAILED` means nothing was written and `errors` lists every failing operation.\n",
+  "enum": [
+    "COMMITTED",
+    "FAILED"
+  ],
+  "x-enum-varnames": [
+    "BatchResponseStatusCommitted",
+    "BatchResponseStatusFailed"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Compact delivery totals for this receipt, limited to subscriptions the reader can currently inspect. May remain available when per-job details exceed the response bound or are pruned only if retained authorization evidence proves the included monitor set. Never copy unfiltered tenant-wide dedup counters. Omit deliveryCounts when ownership or current authorization cannot be resolved; omission does not mean zero. Acknowledged counts host HTTP acceptance and never proves a ChatGPT response or task execution.",
+  "required": [
+    "matched",
+    "acknowledged",
+    "pending",
+    "failed"
+  ],
+  "properties": {
+    "matched": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Matching delivery jobs in the authorized monitor set."
+    },
+    "acknowledged": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Jobs accepted through host HTTP acknowledgement; not proof of task execution."
+    },
+    "pending": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Nonterminal jobs, including pending and sending."
+    },
+    "failed": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Terminal unacknowledged jobs, including dead, dropped and cancelled."
+    }
+  }
+}

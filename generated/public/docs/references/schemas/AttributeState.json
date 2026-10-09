@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "namespace",
+    "name",
+    "value"
+  ],
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "description": "The capability interface namespace for this attribute",
+      "example": "port1/systems/zero/capability-interfaces/power"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the attribute within the namespace",
+      "example": "power-state"
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "The attribute value payload, structure depends on the attribute schema"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the capability attribute schema used for this value.",
+      "example": "1.0"
+    },
+    "sampledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Device or provider reported sample time in UTC. Omitted when the source did not report a sample time; fetching the value does not make an unknown or old sample fresh."
+    }
+  }
+}

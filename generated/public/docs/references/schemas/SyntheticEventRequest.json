@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Authenticated synthetic admission on enabled simulator endpoints only. Server derives tenant, active source binding, event ID and occurrence time. Maximum encoded request size is 64 KiB, enforced by the service; per-source rate limit is 10 requests per second with tenant quotas.",
+  "required": [
+    "requestId",
+    "endpoint",
+    "header",
+    "body"
+  ],
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "description": "Idempotency key scoped to authenticated tenant and resolved simulator binding. Reuse with different semantic input fails 409."
+    },
+    "endpoint": {
+      "$ref": "/docs/references/schemas/SyntheticEventEndpoint.json"
+    },
+    "header": {
+      "$ref": "/docs/references/schemas/SyntheticEventHeader.json"
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Validated against the selected canonical capability schema and enabled simulator profile. Unsupported fields are rejected."
+    }
+  }
+}

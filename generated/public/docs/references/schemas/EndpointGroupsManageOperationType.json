@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Discriminator of an endpoint group management operation.",
+  "enum": [
+    "CREATE_GROUP",
+    "DELETE_GROUP",
+    "SET_NAME",
+    "ADD_MEMBERS",
+    "REMOVE_MEMBERS",
+    "MERGE_INTO",
+    "SET_ENABLEMENT"
+  ],
+  "x-enum-varnames": [
+    "EndpointGroupsManageOperationTypeCreateGroup",
+    "EndpointGroupsManageOperationTypeDeleteGroup",
+    "EndpointGroupsManageOperationTypeSetName",
+    "EndpointGroupsManageOperationTypeAddMembers",
+    "EndpointGroupsManageOperationTypeRemoveMembers",
+    "EndpointGroupsManageOperationTypeMergeInto",
+    "EndpointGroupsManageOperationTypeSetEnablement"
+  ]
+}

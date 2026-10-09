@@ -2,8 +2,8 @@ name: text-stream
 namespace: port1/systems/zero/capability-interfaces/text-stream
 version: '1.0'
 description: >-
-  Text streams emit text as a stream of messages. Use the stream to consume
-  output as it becomes available.
+  Text streams emit text as a stream of messages. Use the stream to consume output as it becomes
+  available.
 messages:
   - name: text-stream
     description: null
@@ -73,8 +73,8 @@ configuration:
     - chunkTimeout
   additionalProperties: false
   description: >-
-    Text streams emit text as a stream of messages. Use the stream to consume
-    output as it becomes available.
+    Text streams emit text as a stream of messages. Use the stream to consume output as it becomes
+    available.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

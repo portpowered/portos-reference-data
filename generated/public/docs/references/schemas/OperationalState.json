@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
+  "enum": [
+    "STOPPED",
+    "RUNNING",
+    "PAUSED",
+    "ERROR",
+    "CHARGING",
+    "DOCKED",
+    "RETURNING_TO_DOCK",
+    "DOCK_MAINTENANCE"
+  ],
+  "x-enum-varnames": [
+    "OperationalStateStopped",
+    "OperationalStateRunning",
+    "OperationalStatePaused",
+    "OperationalStateError",
+    "OperationalStateCharging",
+    "OperationalStateDocked",
+    "OperationalStateReturningToDock",
+    "OperationalStateDockMaintenance"
+  ]
+}

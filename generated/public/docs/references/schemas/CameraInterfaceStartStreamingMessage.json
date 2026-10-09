@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/camera",
+  "x-name": "start-streaming",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "streamingProtocol": {
+      "type": "string",
+      "enum": [
+        "RTSP",
+        "HLS",
+        "DASH",
+        "WEBRTC",
+        "OTHER"
+      ],
+      "description": "Streaming protocol to use"
+    },
+    "streamingUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for streaming (if applicable)"
+    }
+  },
+  "required": [
+    "streamingProtocol"
+  ],
+  "additionalProperties": false
+}

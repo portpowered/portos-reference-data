@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A provider-reported group route (for example a vacuum map or room, a lighting room or a speaker group) as carried by discovery. It is shared by the route-discovery report message and `SynchronizationRequest.groupRoutes` so both decode to the same model.\n",
+  "required": [
+    "pluginRouteId",
+    "name"
+  ],
+  "properties": {
+    "pluginRouteId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Plugin-owned stable identifier of the group route. Must be unique across routes and group routes within one plugin and auth link.\n"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the associated group route"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RouteInterface.json"
+      }
+    },
+    "memberPluginRouteIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      },
+      "description": "List of plugin route IDs that are members of this group route"
+    },
+    "pluginCustomMetadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Private plugin metadata (native map, segment or cloud room addressing) returned to the plugin on dispatch; never exposed as application data.\n"
+    }
+  },
+  "additionalProperties": false
+}

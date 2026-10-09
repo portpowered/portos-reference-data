@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "type",
+    "interfaces",
+    "ownerId",
+    "enablement"
+  ],
+  "properties": {
+    "enablement": {
+      "$ref": "/docs/references/schemas/Enablement.json"
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the endpoint",
+      "pattern": "^port1/[^/]+/[^/]+/endpoints/[^/]+$",
+      "example": "port1/principals/example/endpoints/light-1"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The name of the endpoint"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of endpoint"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ApplicationInterface.json"
+      },
+      "description": "List of interfaces supported by the endpoint"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the owner of the endpoint"
+    },
+    "description": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The description of the route as a human readable string or a localizable asset."
+    },
+    "manufacturer": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The manufacturer of the route as a human readable string or a localizable asset."
+    },
+    "model": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The model of the route as a human readable string or a localizable asset."
+    },
+    "serialNumber": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The serial number of the route as a human readable string or a localizable asset."
+    },
+    "resourceGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ResourceGroup.json"
+      },
+      "description": "List of associated resource groups"
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Route.json"
+      },
+      "description": "List of associated routes"
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AttributeState.json"
+      },
+      "description": "Device state attributes for this endpoint. Query responses populate this array when `GET /endpoints` is called with `expand=interfaces.attributes`; otherwise it remains the default shallow shape."
+    }
+  }
+}

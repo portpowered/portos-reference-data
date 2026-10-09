@@ -64,7 +64,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/DynamicClientMetadata'
+          $ref: /docs/references/schemas/DynamicClientMetadata.json
         example:
           client_name: My agent
           redirect_uris:
@@ -81,7 +81,7 @@ post:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/schemas/DynamicClientMetadata'
+              - $ref: /docs/references/schemas/DynamicClientMetadata.json
               - type: object
                 required:
                   - client_id
@@ -103,7 +103,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthProtocolError'
+            $ref: /docs/references/schemas/OAuthProtocolError.json
           example:
             error: invalid_client_metadata
             error_description: Use HTTPS callbacks or an entirely local callback set.
@@ -119,4 +119,9 @@ post:
       description: Registration storage unavailable.
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [DynamicClientMetadata.json](/docs/references/schemas/DynamicClientMetadata.json)
+- [OAuthProtocolError.json](/docs/references/schemas/OAuthProtocolError.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

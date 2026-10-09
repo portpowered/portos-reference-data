@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "security-pin",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Verified optional device PIN restrictions. Missing restrictions impose no additional Port OS policy.",
+  "type": "object",
+  "properties": {
+    "supportedKinds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "PERMANENT",
+          "TEMPORARY"
+        ]
+      }
+    },
+    "minLength": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "maxLength": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pattern": {
+      "type": "string",
+      "description": "Explicit device PIN regular expression; absent means no character restriction."
+    }
+  },
+  "additionalProperties": false
+}

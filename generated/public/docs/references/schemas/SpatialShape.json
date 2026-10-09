@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Area covered by a group route, as a polygon or multi-polygon",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/SpatialPolygon.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpatialMultiPolygon.json"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "Polygon": "/docs/references/schemas/SpatialPolygon.json",
+      "MultiPolygon": "/docs/references/schemas/SpatialMultiPolygon.json"
+    }
+  }
+}

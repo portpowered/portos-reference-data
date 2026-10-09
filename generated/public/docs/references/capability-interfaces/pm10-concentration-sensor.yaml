@@ -2,8 +2,8 @@ name: pm10-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/pm10-concentration-sensor
 version: '1.0'
 description: >-
-  PM10 measurements report the concentration observed by a particulate sensor.
-  Use the reported value and unit when displaying air measurements.
+  PM10 measurements report the concentration observed by a particulate sensor. Use the reported
+  value and unit when displaying air measurements.
 messages: []
 attributes:
   - name: measured-value

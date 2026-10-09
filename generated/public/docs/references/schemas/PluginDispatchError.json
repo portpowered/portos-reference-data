@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Canonical Port OS plugin dispatch error. This contract is used when a plugin reports a third-party service, bridge, or device failure during message dispatch. It is inspired by Alexa-style error responses, but the type and family values are Port OS-specific.\n",
+  "required": [
+    "type",
+    "family",
+    "code",
+    "message"
+  ],
+  "properties": {
+    "type": {
+      "$ref": "/docs/references/schemas/PluginDispatchErrorType.json"
+    },
+    "family": {
+      "$ref": "/docs/references/schemas/PluginDispatchErrorFamily.json"
+    },
+    "code": {
+      "type": "string",
+      "description": "Opaque plugin or provider debug code suitable for support.",
+      "example": "hue-bridge-timeout"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable explanation of the plugin dispatch failure.",
+      "example": "The living room bridge is offline."
+    },
+    "details": {
+      "$ref": "/docs/references/schemas/ErrorDetails.json"
+    }
+  },
+  "example": {
+    "type": "ENDPOINT_UNREACHABLE",
+    "family": "ENDPOINT_UNAVAILABLE",
+    "code": "device-offline",
+    "message": "The device is not reachable.",
+    "details": {
+      "endpointId": "port1:principal:example:endpoints/lamp-1",
+      "pluginId": "port1.plugin.hue",
+      "pluginRouteId": "hue-device-42"
+    }
+  }
+}

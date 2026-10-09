@@ -35,7 +35,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpsertRouteRequest'
+          $ref: /docs/references/schemas/UpsertRouteRequest.json
         example:
           id: port1/principals/example/routes/light-route
           endpointId: port1/principals/example/endpoints/light-1
@@ -55,4 +55,8 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [UpsertRouteRequest.json](/docs/references/schemas/UpsertRouteRequest.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

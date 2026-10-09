@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/carbon-monoxide-concentration-sensor",
+  "x-name": "min-measured-value",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Minimum measured value"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

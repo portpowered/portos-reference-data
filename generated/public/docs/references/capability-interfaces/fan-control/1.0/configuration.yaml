@@ -1,0 +1,27 @@
+type: object
+properties:
+  supportedFanModes:
+    type: array
+    items:
+      type: string
+      description: Fan mode
+      enum:
+        - 'OFF'
+        - LOW
+        - MEDIUM
+        - HIGH
+        - 'ON'
+        - AUTO
+        - SMART
+    description: Supported fan modes
+  supportedFanSpeeds:
+    type: array
+    items:
+      type: integer
+      minimum: 0
+      maximum: 100
+    description: Supported fan speeds (0-100)
+additionalProperties: false
+description: >-
+  Fan control selects a fan mode and speed. Read the reported settings to check how a fan is running
+  before changing them.

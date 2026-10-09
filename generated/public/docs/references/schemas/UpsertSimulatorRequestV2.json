@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Vendor v2 name-value projection.",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/SimulatorSharedFields.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the simulator (optional; if provided, performs an update/upsert)",
+          "pattern": "^port1\\.simulator\\..*"
+        }
+      }
+    }
+  ]
+}

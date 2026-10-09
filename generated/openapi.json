@@ -143,7 +143,7 @@
             "content": {
               "application/json": {
                 "example": {
-                  "status": "requested"
+                  "status": "REQUESTED"
                 },
                 "schema": {
                   "type": "object",
@@ -154,7 +154,10 @@
                     "status": {
                       "type": "string",
                       "enum": [
-                        "requested"
+                        "REQUESTED"
+                      ],
+                      "x-enum-varnames": [
+                        "Requested"
                       ]
                     }
                   }
@@ -168,7 +171,7 @@
               "application/json": {
                 "example": {
                   "message": "Invalid email, consent, or future plugin identifier",
-                  "type": "BAD_REQUEST",
+                  "code": "BAD_REQUEST",
                   "family": "BAD_REQUEST"
                 },
                 "schema": {
@@ -183,7 +186,7 @@
               "application/json": {
                 "example": {
                   "message": "Too many requests; retry after the Retry-After interval",
-                  "type": "TOO_MANY_REQUESTS",
+                  "code": "TOO_MANY_REQUESTS",
                   "family": "TOO_MANY_REQUESTS"
                 },
                 "schema": {
@@ -198,7 +201,7 @@
               "application/json": {
                 "example": {
                   "message": "Waitlist temporarily unavailable; the client may retry",
-                  "type": "INTERNAL_SERVER_ERROR",
+                  "code": "INTERNAL",
                   "family": "INTERNAL_SERVER_ERROR"
                 },
                 "schema": {
@@ -452,9 +455,7 @@
                     "S256"
                   ],
                   "token_endpoint_auth_methods_supported": [
-                    "none",
-                    "client_secret_post",
-                    "client_secret_basic"
+                    "none"
                   ],
                   "client_id_metadata_document_supported": true,
                   "authorization_response_iss_parameter_supported": true
@@ -814,21 +815,55 @@
                 "schema": {
                   "$ref": "#/components/schemas/EndpointQueryResponse"
                 },
-                "examples": {},
-                "example": {
-                  "results": [
-                    {
-                      "id": "port1/principals/example/endpoints/light-1",
-                      "name": {
-                        "type": "PLAIN",
-                        "value": "Office light"
-                      },
-                      "type": "LIGHT",
-                      "interfaces": [],
-                      "ownerId": "port1/principals/example",
-                      "enablement": "ENABLED"
+                "examples": {
+                  "partial-deep-query-failure": {
+                    "value": {
+                      "results": [
+                        {
+                          "id": "port1/principals/user123/endpoints/robot-1",
+                          "name": {
+                            "type": "plain",
+                            "value": "Downstairs Vacuum"
+                          },
+                          "type": "robotic-vacuum-cleaner",
+                          "interfaces": [
+                            {
+                              "name": "port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner"
+                            }
+                          ],
+                          "attributes": [],
+                          "ownerId": "port1/principals/user123",
+                          "enablement": "ENABLED"
+                        }
+                      ],
+                      "paginationContext": {},
+                      "errors": [
+                        {
+                          "location": "endpoints/port1/principals/user123/endpoints/robot-1/routes/port1/principals/user123/routes/route-1",
+                          "code": "DEEP_QUERY_FAILED",
+                          "family": "INTERNAL_SERVER_ERROR",
+                          "message": "failed to rebuild stateless metadata for route"
+                        }
+                      ]
                     }
-                  ]
+                  },
+                  "empty": {
+                    "value": {
+                      "results": [
+                        {
+                          "id": "port1/principals/example/endpoints/light-1",
+                          "name": {
+                            "type": "PLAIN",
+                            "value": "Office light"
+                          },
+                          "type": "LIGHT",
+                          "interfaces": [],
+                          "ownerId": "port1/principals/example",
+                          "enablement": "ENABLED"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -842,9 +877,8 @@
                 },
                 "example": {
                   "message": "Bad request - missing required parameters",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "bad-request"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -858,9 +892,8 @@
                 },
                 "example": {
                   "message": "Unauthorized - invalid or missing authentication token",
-                  "type": "UNAUTHORIZED",
-                  "family": "AUTHENTICATION",
-                  "code": "unauthorized"
+                  "code": "UNAUTHORIZED",
+                  "family": "AUTHENTICATION"
                 }
               }
             }
@@ -874,9 +907,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1099,9 +1131,8 @@
                 },
                 "example": {
                   "message": "Bad request - missing required parameters",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "bad-request"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1115,9 +1146,8 @@
                 },
                 "example": {
                   "message": "Unauthorized - invalid or missing authentication token",
-                  "type": "UNAUTHORIZED",
-                  "family": "AUTHENTICATION",
-                  "code": "unauthorized"
+                  "code": "UNAUTHORIZED",
+                  "family": "AUTHENTICATION"
                 }
               }
             }
@@ -1131,9 +1161,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1202,7 +1231,7 @@
                   "receiptId": "receipt-demo-1",
                   "eventId": "event-demo-1",
                   "endpointId": "port1.endpoint.camera-demo",
-                  "status": "accepted"
+                  "status": "ACCEPTED"
                 }
               }
             }
@@ -1216,9 +1245,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1232,9 +1260,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -1248,9 +1275,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -1264,9 +1290,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -1280,9 +1305,8 @@
                 },
                 "example": {
                   "message": "Idempotency conflict or lifecycle/generation conflict.",
-                  "type": "CONCURRENT_MODIFICATION",
-                  "family": "CONFLICT",
-                  "code": "event_request_failed"
+                  "code": "CONCURRENT_MODIFICATION",
+                  "family": "CONFLICT"
                 }
               }
             }
@@ -1296,9 +1320,8 @@
                 },
                 "example": {
                   "message": "Encoded admission exceeds the 64 KiB limit.",
-                  "type": "FILE_TOO_LARGE",
-                  "family": "PAYLOAD_TOO_LARGE",
-                  "code": "event_request_failed"
+                  "code": "FILE_TOO_LARGE",
+                  "family": "PAYLOAD_TOO_LARGE"
                 }
               }
             }
@@ -1312,9 +1335,8 @@
                 },
                 "example": {
                   "message": "Unsupported request media type.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1328,9 +1350,8 @@
                 },
                 "example": {
                   "message": "Source or tenant rate/quota exceeded; no unpersisted input is acknowledged.",
-                  "type": "RATE_LIMIT_EXCEEDED",
-                  "family": "TOO_MANY_REQUESTS",
-                  "code": "event_request_failed"
+                  "code": "RATE_LIMIT_EXCEEDED",
+                  "family": "TOO_MANY_REQUESTS"
                 }
               }
             }
@@ -1344,9 +1365,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1360,9 +1380,8 @@
                 },
                 "example": {
                   "message": "Retryable storage/admission failure; input not durably accepted.",
-                  "type": "STORAGE_UNAVAILABLE",
-                  "family": "SERVICE_UNAVAILABLE",
-                  "code": "event_request_failed"
+                  "code": "STORAGE_UNAVAILABLE",
+                  "family": "SERVICE_UNAVAILABLE"
                 }
               }
             }
@@ -1424,13 +1443,13 @@
                   "receiptId": "receipt-demo-1",
                   "eventId": "event-demo-1",
                   "endpointId": "port1.endpoint.camera-demo",
-                  "status": "completed",
+                  "status": "COMPLETED",
                   "acceptedAt": "2026-10-05T12:00:00Z",
                   "observedAt": "2026-10-05T12:00:00Z",
                   "eventIds": [
                     "event-demo-1"
                   ],
-                  "deliveryDetail": "available",
+                  "deliveryDetail": "AVAILABLE",
                   "deliveries": []
                 }
               }
@@ -1445,9 +1464,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1461,9 +1479,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -1477,9 +1494,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -1493,9 +1509,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -1509,9 +1524,8 @@
                 },
                 "example": {
                   "message": "Authorized receipt context has expired.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -1525,9 +1539,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1541,9 +1554,8 @@
                 },
                 "example": {
                   "message": "Retryable receipt storage failure.",
-                  "type": "STORAGE_UNAVAILABLE",
-                  "family": "SERVICE_UNAVAILABLE",
-                  "code": "event_request_failed"
+                  "code": "STORAGE_UNAVAILABLE",
+                  "family": "SERVICE_UNAVAILABLE"
                 }
               }
             }
@@ -1639,9 +1651,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1655,9 +1666,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -1671,9 +1681,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -1687,9 +1696,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -1703,9 +1711,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1763,7 +1770,7 @@
                 },
                 "example": {
                   "id": "dead-letter-demo-1",
-                  "stage": "delivery",
+                  "stage": "DELIVERY",
                   "reasonCode": "callback_unavailable",
                   "createdAt": "2026-10-05T12:00:00Z",
                   "expiresAt": "2026-10-06T12:00:00Z",
@@ -1783,9 +1790,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1799,9 +1805,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -1815,9 +1820,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -1831,9 +1835,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -1847,9 +1850,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1894,9 +1896,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -1910,9 +1911,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -1926,9 +1926,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -1942,9 +1941,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -1958,9 +1956,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -1992,7 +1989,7 @@
             }
           }
         ],
-        "description": "At most three redrives. Revalidates current source mapping, schema, query, destination, subscription generation and permissions. Retains occurrence identity, immutable delivery bytes, original acceptedAt/cutoff and deadline. Stale, revoked, deleted or expired records cannot be reopened; missing retained original context yields 410 receipt_context_expired.\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
+        "description": "At most three redrives. Revalidates current source mapping, schema, query, destination, subscription generation and permissions. Retains occurrence identity, immutable delivery bytes, original acceptedAt/cutoff and deadline. Stale, revoked, deleted or expired records cannot be reopened; missing retained original context yields 410 RECEIPT_CONTEXT_EXPIRED.\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
         "responses": {
           "202": {
             "description": "Create an audited redrive of the original event",
@@ -2004,7 +2001,7 @@
                 "example": {
                   "deadLetterId": "dead-letter-demo-1",
                   "receiptId": "receipt-demo-1",
-                  "status": "accepted",
+                  "status": "ACCEPTED",
                   "redriveCount": 1
                 }
               }
@@ -2019,9 +2016,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2035,9 +2031,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -2051,9 +2046,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -2067,9 +2061,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -2083,25 +2076,23 @@
                 },
                 "example": {
                   "message": "Idempotency conflict or lifecycle/generation conflict.",
-                  "type": "CONCURRENT_MODIFICATION",
-                  "family": "CONFLICT",
-                  "code": "event_request_failed"
+                  "code": "CONCURRENT_MODIFICATION",
+                  "family": "CONFLICT"
                 }
               }
             }
           },
           "410": {
-            "description": "Payload or original receipt context expired; receipt_context_expired prevents reconstruction with a new cutoff.",
+            "description": "Payload or original receipt context expired; RECEIPT_CONTEXT_EXPIRED prevents reconstruction with a new cutoff.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "message": "Payload or original receipt context expired; receipt_context_expired prevents reconstruction with a new cutoff.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "message": "Payload or original receipt context expired; RECEIPT_CONTEXT_EXPIRED prevents reconstruction with a new cutoff.",
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -2115,9 +2106,8 @@
                 },
                 "example": {
                   "message": "Source or tenant rate/quota exceeded; no unpersisted input is acknowledged.",
-                  "type": "RATE_LIMIT_EXCEEDED",
-                  "family": "TOO_MANY_REQUESTS",
-                  "code": "event_request_failed"
+                  "code": "RATE_LIMIT_EXCEEDED",
+                  "family": "TOO_MANY_REQUESTS"
                 }
               }
             }
@@ -2131,9 +2121,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -2165,9 +2154,9 @@
               },
               "example": {
                 "name": "Demo front door",
-                "device_type": "camera",
+                "device_type": "CAMERA",
                 "configuration": {
-                  "eventProfile": "doorbell"
+                  "eventProfile": "DOORBELL"
                 }
               }
             },
@@ -2180,9 +2169,9 @@
                   "type": "PLAIN",
                   "value": "Demo front door"
                 },
-                "device_type": "camera",
+                "device_type": "CAMERA",
                 "configuration": {
-                  "eventProfile": "doorbell"
+                  "eventProfile": "DOORBELL"
                 }
               }
             }
@@ -2197,7 +2186,7 @@
                   "$ref": "#/components/schemas/Simulator"
                 },
                 "example": {
-                  "device_type": "light",
+                  "device_type": "LIGHT",
                   "id": "port1.simulator.example",
                   "name": "Example device"
                 }
@@ -2212,9 +2201,9 @@
                     "type": "PLAIN",
                     "value": "Front door camera"
                   },
-                  "device_type": "camera",
+                  "device_type": "CAMERA",
                   "configuration": {
-                    "eventProfile": "doorbell"
+                    "eventProfile": "DOORBELL"
                   }
                 }
               }
@@ -2238,7 +2227,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2252,7 +2242,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -2266,7 +2257,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -2280,9 +2272,8 @@
                 },
                 "example": {
                   "message": "Unsupported explicitly requested representation.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2296,9 +2287,8 @@
                 },
                 "example": {
                   "message": "Unsupported request media type.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2312,7 +2302,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -2359,7 +2350,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2373,7 +2365,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -2387,7 +2380,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -2401,7 +2395,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -2415,7 +2410,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -2525,9 +2521,9 @@
                         "type": "PLAIN",
                         "value": "Front door camera"
                       },
-                      "device_type": "camera",
+                      "device_type": "CAMERA",
                       "configuration": {
-                        "eventProfile": "doorbell"
+                        "eventProfile": "DOORBELL"
                       }
                     }
                   ],
@@ -2554,7 +2550,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2568,7 +2565,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -2582,7 +2580,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -2596,9 +2595,8 @@
                 },
                 "example": {
                   "message": "Unsupported explicitly requested representation.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -2612,7 +2610,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -2656,9 +2655,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -2856,7 +2854,7 @@
                 },
                 "example": {
                   "message": "discovery rejected: 1 route does not conform to the capability-interface library; nothing was synchronized",
-                  "type": "BAD_REQUEST",
+                  "code": "BAD_REQUEST",
                   "family": "BAD_REQUEST",
                   "errors": [
                     {
@@ -2882,7 +2880,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -2896,7 +2895,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -2910,7 +2910,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -3006,9 +3007,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -3172,7 +3172,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -3186,7 +3187,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -3229,9 +3231,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -3449,7 +3450,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -3463,7 +3465,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -3477,7 +3480,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -3491,7 +3495,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -3724,6 +3729,19 @@
         ],
         "parameters": [
           {
+            "name": "enablement",
+            "in": "query",
+            "description": "Collection visibility. Defaults to ENABLED. Use '*' to include all authorized groups, or DISABLED to list hidden groups. Exact id reads ignore this filter; disabled groups still cannot be targeted by messages.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ENABLED",
+                "DISABLED",
+                "*"
+              ]
+            }
+          },
+          {
             "name": "owner",
             "in": "query",
             "description": "The owner of the endpoint groups to get. Use '~caller' to get endpoint groups for the authenticated user",
@@ -3835,7 +3853,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -3849,7 +3868,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -3863,7 +3883,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -3877,7 +3898,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -3949,7 +3971,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -3963,7 +3986,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -3977,7 +4001,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -3991,7 +4016,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -4008,7 +4034,7 @@
           "Endpoint Groups"
         ],
         "summary": "Manage endpoint groups atomically",
-        "description": "Applies a bounded list (max 20) of static endpoint group management operations (`create_group`, `delete_group`, `set_name`, `add_members`, `remove_members`, `merge_into`) atomically in one transaction. Every operation that modifies an existing group carries the group's `etag`, which is compared inside the transaction. Item outcomes are returned with HTTP 200 in a `status`/`results`/`errors` envelope correlated by `requestId`; non-200 statuses are reserved for request-level failures. `Idempotency-Key` is required unless `validateOnly` is true; a committed response is replayed for 24 hours for the same principal, key and payload. Physical control is never part of this request; use `POST /messages`.\n",
+        "description": "Applies a bounded list (max 20) of static endpoint group management operations (`CREATE_GROUP`, `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`, `REMOVE_MEMBERS`, `MERGE_INTO`) atomically in one transaction. Every operation that modifies an existing group carries the group's `etag`, which is compared inside the transaction. Item outcomes are returned with HTTP 200 in a `status`/`results`/`errors` envelope correlated by `requestId`; non-200 statuses are reserved for request-level failures. `Idempotency-Key` is required unless `validateOnly` is true; a committed response is replayed for 24 hours for the same principal, key and payload. Physical control is never part of this request; use `POST /messages`.\n",
         "security": [
           {
             "oauth2": [
@@ -4036,7 +4062,7 @@
                 "operations": [
                   {
                     "requestId": "merge-kitchen",
-                    "operation": "merge_into",
+                    "operation": "MERGE_INTO",
                     "sources": [
                       {
                         "groupId": "port1/principals/user123/endpoint-groups/roborock-kitchen",
@@ -4059,18 +4085,18 @@
         },
         "responses": {
           "200": {
-            "description": "Batch evaluated. `status` is `committed` when every operation was applied (or would be, for `validateOnly`), otherwise `failed` with every failing operation in `errors` and nothing written.\n",
+            "description": "Batch evaluated. `status` is `COMMITTED` when every operation was applied (or would be, for `validateOnly`), otherwise `FAILED` with every failing operation in `errors` and nothing written.\n",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EndpointGroupsManageResponse"
                 },
                 "example": {
-                  "status": "committed",
+                  "status": "COMMITTED",
                   "results": [
                     {
                       "requestId": "merge-kitchen",
-                      "operation": "merge_into",
+                      "operation": "MERGE_INTO",
                       "target": {
                         "groupId": "port1/principals/user123/endpoint-groups/kitchen",
                         "etag": "\"9\""
@@ -4101,7 +4127,7 @@
                 },
                 "example": {
                   "message": "Idempotency-Key header is required; resend the request with a unique key",
-                  "type": "IDEMPOTENCY_KEY_REQUIRED",
+                  "code": "IDEMPOTENCY_KEY_REQUIRED",
                   "family": "REQUEST_INVALID"
                 }
               }
@@ -4116,7 +4142,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -4130,7 +4157,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -4144,7 +4172,7 @@
                 },
                 "example": {
                   "message": "A request with this Idempotency-Key is still being processed; retry after it completes",
-                  "type": "IDEMPOTENCY_KEY_IN_FLIGHT",
+                  "code": "IDEMPOTENCY_KEY_IN_FLIGHT",
                   "family": "CONFLICT"
                 }
               }
@@ -4159,7 +4187,7 @@
                 },
                 "example": {
                   "message": "This Idempotency-Key was used with a different request body; use a new key",
-                  "type": "IDEMPOTENCY_KEY_REUSED",
+                  "code": "IDEMPOTENCY_KEY_REUSED",
                   "family": "UNPROCESSABLE_ENTITY"
                 }
               }
@@ -4174,7 +4202,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -4358,7 +4387,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -4372,7 +4402,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -4386,7 +4417,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -4400,7 +4432,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -4503,7 +4536,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -4517,7 +4551,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -4531,7 +4566,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -4545,7 +4581,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -4559,7 +4596,7 @@
                 },
                 "example": {
                   "message": "group etag does not match; re-read the group and retry",
-                  "type": "PRECONDITION_FAILED",
+                  "code": "PRECONDITION_FAILED",
                   "family": "PRECONDITION_FAILED"
                 }
               }
@@ -4574,7 +4611,7 @@
                 },
                 "example": {
                   "message": "If-Match header is required; send the group's etag",
-                  "type": "PRECONDITION_REQUIRED",
+                  "code": "PRECONDITION_REQUIRED",
                   "family": "PRECONDITION_REQUIRED"
                 }
               }
@@ -4589,7 +4626,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -4716,7 +4754,8 @@
                   },
                   "ownerId": "port1/principals/example",
                   "interfaces": [],
-                  "etag": "\"12\""
+                  "etag": "\"12\"",
+                  "enablement": "ENABLED"
                 }
               }
             }
@@ -4730,7 +4769,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -4744,7 +4784,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -4758,7 +4799,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -4772,7 +4814,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -4786,7 +4829,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -4866,7 +4910,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -4880,7 +4925,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -4894,7 +4940,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -4908,7 +4955,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -4922,7 +4970,7 @@
                 },
                 "example": {
                   "message": "group etag does not match; re-read the group and retry",
-                  "type": "PRECONDITION_FAILED",
+                  "code": "PRECONDITION_FAILED",
                   "family": "PRECONDITION_FAILED"
                 }
               }
@@ -4937,7 +4985,7 @@
                 },
                 "example": {
                   "message": "If-Match header is required; send the group's etag",
-                  "type": "PRECONDITION_REQUIRED",
+                  "code": "PRECONDITION_REQUIRED",
                   "family": "PRECONDITION_REQUIRED"
                 }
               }
@@ -4952,7 +5000,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -5052,7 +5101,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -5066,7 +5116,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -5080,7 +5131,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -5094,7 +5146,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -5108,7 +5161,7 @@
                 },
                 "example": {
                   "message": "group etag does not match; re-read the group and retry",
-                  "type": "PRECONDITION_FAILED",
+                  "code": "PRECONDITION_FAILED",
                   "family": "PRECONDITION_FAILED"
                 }
               }
@@ -5123,7 +5176,7 @@
                 },
                 "example": {
                   "message": "If-Match header is required; send the group's etag",
-                  "type": "PRECONDITION_REQUIRED",
+                  "code": "PRECONDITION_REQUIRED",
                   "family": "PRECONDITION_REQUIRED"
                 }
               }
@@ -5138,7 +5191,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -5238,7 +5292,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -5252,7 +5307,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -5266,7 +5322,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -5280,7 +5337,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -5294,7 +5352,7 @@
                 },
                 "example": {
                   "message": "group etag does not match; re-read the group and retry",
-                  "type": "PRECONDITION_FAILED",
+                  "code": "PRECONDITION_FAILED",
                   "family": "PRECONDITION_FAILED"
                 }
               }
@@ -5309,7 +5367,7 @@
                 },
                 "example": {
                   "message": "If-Match header is required; send the group's etag",
-                  "type": "PRECONDITION_REQUIRED",
+                  "code": "PRECONDITION_REQUIRED",
                   "family": "PRECONDITION_REQUIRED"
                 }
               }
@@ -5324,7 +5382,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -5446,7 +5505,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -5460,7 +5520,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -5474,7 +5535,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -5488,7 +5550,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -5567,7 +5630,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -5581,7 +5645,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -5595,7 +5660,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -5609,7 +5675,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -5623,7 +5690,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -5682,9 +5750,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -5798,9 +5865,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -6031,9 +6097,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -6199,9 +6264,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -6557,9 +6621,8 @@
                 },
                 "example": {
                   "message": "Bad request",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "bad-request"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -6573,9 +6636,8 @@
                 },
                 "example": {
                   "message": "Unauthorized",
-                  "type": "UNAUTHORIZED",
-                  "family": "AUTHENTICATION",
-                  "code": "unauthorized"
+                  "code": "UNAUTHORIZED",
+                  "family": "AUTHENTICATION"
                 }
               }
             }
@@ -6589,9 +6651,8 @@
                 },
                 "example": {
                   "message": "Forbidden - not allowed to list tokens",
-                  "type": "INSUFFICIENT_PERMISSIONS",
-                  "family": "PERMISSION",
-                  "code": "forbidden"
+                  "code": "INSUFFICIENT_PERMISSIONS",
+                  "family": "PERMISSION"
                 }
               }
             }
@@ -6605,9 +6666,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -7101,9 +7161,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "bad-request"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -7117,9 +7176,8 @@
                 },
                 "example": {
                   "message": "Unauthorized - invalid or missing authentication token",
-                  "type": "UNAUTHORIZED",
-                  "family": "AUTHENTICATION",
-                  "code": "unauthorized"
+                  "code": "UNAUTHORIZED",
+                  "family": "AUTHENTICATION"
                 }
               }
             }
@@ -7133,9 +7191,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -7289,9 +7346,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "bad-request"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -7305,9 +7361,8 @@
                 },
                 "example": {
                   "message": "Unauthorized - invalid or missing authentication token",
-                  "type": "UNAUTHORIZED",
-                  "family": "AUTHENTICATION",
-                  "code": "unauthorized"
+                  "code": "UNAUTHORIZED",
+                  "family": "AUTHENTICATION"
                 }
               }
             }
@@ -7321,9 +7376,8 @@
                 },
                 "example": {
                   "message": "OAuth client not found",
-                  "type": "INVALID_VALUE",
-                  "family": "NOT_FOUND",
-                  "code": "oauth-client-not-found"
+                  "code": "INVALID_VALUE",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -7337,9 +7391,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -7707,6 +7760,7 @@
             "required": true,
             "schema": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 response_type is the externally defined case-sensitive value code (RFC 6749).",
               "enum": [
                 "code"
               ]
@@ -8202,7 +8256,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -8216,7 +8271,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8230,7 +8286,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8336,7 +8393,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8350,7 +8408,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8415,7 +8474,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -8429,7 +8489,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8443,7 +8504,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8457,7 +8519,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -8516,7 +8579,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -8530,7 +8594,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8544,7 +8609,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8685,7 +8751,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -8699,7 +8766,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8713,7 +8781,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8811,7 +8880,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -8825,7 +8895,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8839,7 +8910,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8913,7 +8985,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -8927,7 +9000,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -8941,7 +9015,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -8955,7 +9030,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -9064,7 +9140,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -9078,7 +9155,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -9092,7 +9170,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -9188,7 +9267,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -9202,7 +9282,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -9216,7 +9297,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -9280,7 +9362,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -9294,7 +9377,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -9308,7 +9392,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -9419,7 +9504,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -9433,7 +9519,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -9447,7 +9534,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -9461,7 +9549,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -9517,7 +9606,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -9531,7 +9621,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -9545,7 +9636,8 @@
                 },
                 "example": {
                   "message": "Insufficient permissions",
-                  "type": "FORBIDDEN"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -9559,7 +9651,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -9659,9 +9752,8 @@
                 },
                 "example": {
                   "message": "Bad request - missing required parameters",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "bad-request"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -9675,9 +9767,8 @@
                 },
                 "example": {
                   "message": "Unauthorized - invalid or missing authentication token",
-                  "type": "UNAUTHORIZED",
-                  "family": "AUTHENTICATION",
-                  "code": "unauthorized"
+                  "code": "UNAUTHORIZED",
+                  "family": "AUTHENTICATION"
                 }
               }
             }
@@ -9691,9 +9782,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -9756,11 +9846,11 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "INVALID_VALUE",
+                  "code": "INVALID_VALUE",
                   "family": "REQUEST_INVALID",
-                  "code": "provider-invalid-speed",
                   "message": "Fan speed must be one of the supported values.",
                   "details": {
+                    "providerCode": "provider-invalid-speed",
                     "parameter": "speed",
                     "actual": "storm"
                   }
@@ -9776,10 +9866,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "AUTHORIZATION_CREDENTIAL_EXPIRED",
+                  "code": "AUTHORIZATION_CREDENTIAL_EXPIRED",
                   "family": "AUTHENTICATION",
-                  "code": "provider-token-expired",
-                  "message": "The provider authorization has expired. Re-link the plugin."
+                  "message": "The provider authorization has expired. Re-link the plugin.",
+                  "details": {
+                    "providerCode": "provider-token-expired"
+                  }
                 }
               }
             }
@@ -9792,10 +9884,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "INSUFFICIENT_PERMISSIONS",
+                  "code": "INSUFFICIENT_PERMISSIONS",
                   "family": "PERMISSION",
-                  "code": "provider-scope-missing",
-                  "message": "The linked account does not grant permission for this device."
+                  "message": "The linked account does not grant permission for this device.",
+                  "details": {
+                    "providerCode": "provider-scope-missing"
+                  }
                 }
               }
             }
@@ -9808,9 +9902,8 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "NOT_FOUND",
+                  "code": "NOT_FOUND",
                   "family": "NOT_FOUND",
-                  "code": "message-not-found",
                   "message": "The linked account does not grant permission for this device."
                 }
               }
@@ -9824,11 +9917,11 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "NOT_SUPPORTED_IN_CURRENT_MODE",
+                  "code": "NOT_SUPPORTED_IN_CURRENT_MODE",
                   "family": "ENDPOINT_STATE_CONFLICT",
-                  "code": "device-mode-conflict",
                   "message": "The command is not supported while the endpoint is in eco mode.",
                   "details": {
+                    "providerCode": "device-mode-conflict",
                     "currentMode": "eco"
                   }
                 }
@@ -9843,11 +9936,11 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "VALUE_OUT_OF_RANGE",
+                  "code": "VALUE_OUT_OF_RANGE",
                   "family": "REQUEST_INVALID",
-                  "code": "brightness-out-of-range",
                   "message": "Brightness must be between 1 and 100.",
                   "details": {
+                    "providerCode": "brightness-out-of-range",
                     "parameter": "brightness",
                     "minimum": 1,
                     "maximum": 100,
@@ -9865,11 +9958,11 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "ENDPOINT_UNREACHABLE",
+                  "code": "ENDPOINT_UNREACHABLE",
                   "family": "ENDPOINT_UNAVAILABLE",
-                  "code": "device-offline",
                   "message": "The device is not reachable.",
                   "details": {
+                    "providerCode": "device-offline",
                     "pluginId": "port1.plugin.hue",
                     "pluginRouteId": "hue-device-42"
                   }
@@ -9885,11 +9978,11 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "RATE_LIMIT_EXCEEDED",
+                  "code": "RATE_LIMIT_EXCEEDED",
                   "family": "RATE_LIMIT",
-                  "code": "provider-rate-limit",
                   "message": "The provider rate limit was exceeded.",
                   "details": {
+                    "providerCode": "provider-rate-limit",
                     "retryAfterSeconds": 60
                   }
                 }
@@ -9904,9 +9997,8 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "INTERNAL_SERVER_ERROR",
+                  "code": "INTERNAL",
                   "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error",
                   "message": "The server failed"
                 }
               }
@@ -9920,10 +10012,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "PROVIDER_INTERNAL_ERROR",
+                  "code": "PROVIDER_INTERNAL_ERROR",
                   "family": "PROVIDER_BAD_RESPONSE",
-                  "code": "provider-internal-error",
-                  "message": "The provider failed while handling the command."
+                  "message": "The provider failed while handling the command.",
+                  "details": {
+                    "providerCode": "provider-internal-error"
+                  }
                 }
               }
             }
@@ -9936,10 +10030,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "PROVIDER_SERVICE_UNAVAILABLE",
+                  "code": "PROVIDER_SERVICE_UNAVAILABLE",
                   "family": "PROVIDER_UNAVAILABLE",
-                  "code": "vendor-outage",
-                  "message": "The provider service is temporarily unavailable."
+                  "message": "The provider service is temporarily unavailable.",
+                  "details": {
+                    "providerCode": "vendor-outage"
+                  }
                 }
               }
             }
@@ -9952,10 +10048,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "PROVIDER_TIMEOUT",
+                  "code": "PROVIDER_TIMEOUT",
                   "family": "PROVIDER_TIMEOUT",
-                  "code": "provider-timeout",
-                  "message": "The provider did not respond before the timeout."
+                  "message": "The provider did not respond before the timeout.",
+                  "details": {
+                    "providerCode": "provider-timeout"
+                  }
                 }
               }
             }
@@ -10028,13 +10126,13 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "INVALID_VALUE",
                   "family": "REQUEST_INVALID",
-                  "code": "provider-invalid-speed",
+                  "code": "INVALID_VALUE",
                   "message": "Fan speed must be one of the supported values.",
                   "details": {
                     "parameter": "speed",
-                    "actual": "storm"
+                    "actual": "storm",
+                    "providerCode": "provider-invalid-speed"
                   }
                 }
               }
@@ -10048,10 +10146,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "AUTHORIZATION_CREDENTIAL_EXPIRED",
                   "family": "AUTHENTICATION",
-                  "code": "provider-token-expired",
-                  "message": "The provider authorization has expired. Re-link the plugin."
+                  "code": "AUTHORIZATION_CREDENTIAL_EXPIRED",
+                  "message": "The provider authorization has expired. Re-link the plugin.",
+                  "details": {
+                    "providerCode": "provider-token-expired"
+                  }
                 }
               }
             }
@@ -10064,10 +10164,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "INSUFFICIENT_PERMISSIONS",
                   "family": "PERMISSION",
-                  "code": "provider-scope-missing",
-                  "message": "The linked account does not grant permission for this device."
+                  "code": "INSUFFICIENT_PERMISSIONS",
+                  "message": "The linked account does not grant permission for this device.",
+                  "details": {
+                    "providerCode": "provider-scope-missing"
+                  }
                 }
               }
             }
@@ -10080,10 +10182,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "NOT_FOUND",
                   "family": "NOT_FOUND",
-                  "code": "message-not-found",
-                  "message": "The linked account does not grant permission for this device."
+                  "code": "NOT_FOUND",
+                  "message": "The linked account does not grant permission for this device.",
+                  "details": {
+                    "providerCode": "message-not-found"
+                  }
                 }
               }
             }
@@ -10096,12 +10200,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "NOT_SUPPORTED_IN_CURRENT_MODE",
                   "family": "ENDPOINT_STATE_CONFLICT",
-                  "code": "device-mode-conflict",
+                  "code": "NOT_SUPPORTED_IN_CURRENT_MODE",
                   "message": "The command is not supported while the endpoint is in eco mode.",
                   "details": {
-                    "currentMode": "eco"
+                    "currentMode": "eco",
+                    "providerCode": "device-mode-conflict"
                   }
                 }
               }
@@ -10115,15 +10219,15 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "VALUE_OUT_OF_RANGE",
                   "family": "REQUEST_INVALID",
-                  "code": "brightness-out-of-range",
+                  "code": "VALUE_OUT_OF_RANGE",
                   "message": "Brightness must be between 1 and 100.",
                   "details": {
                     "parameter": "brightness",
                     "minimum": 1,
                     "maximum": 100,
-                    "actual": "150"
+                    "actual": "150",
+                    "providerCode": "brightness-out-of-range"
                   }
                 }
               }
@@ -10137,13 +10241,13 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "ENDPOINT_UNREACHABLE",
                   "family": "ENDPOINT_UNAVAILABLE",
-                  "code": "device-offline",
+                  "code": "ENDPOINT_UNREACHABLE",
                   "message": "The device is not reachable.",
                   "details": {
                     "pluginId": "port1.plugin.hue",
-                    "pluginRouteId": "hue-device-42"
+                    "pluginRouteId": "hue-device-42",
+                    "providerCode": "device-offline"
                   }
                 }
               }
@@ -10157,12 +10261,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "RATE_LIMIT_EXCEEDED",
                   "family": "RATE_LIMIT",
-                  "code": "provider-rate-limit",
+                  "code": "RATE_LIMIT_EXCEEDED",
                   "message": "The provider rate limit was exceeded.",
                   "details": {
-                    "retryAfterSeconds": 60
+                    "retryAfterSeconds": 60,
+                    "providerCode": "provider-rate-limit"
                   }
                 }
               }
@@ -10176,10 +10280,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "INTERNAL_SERVER_ERROR",
                   "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error",
-                  "message": "The server failed"
+                  "code": "INTERNAL",
+                  "message": "The server failed",
+                  "details": {
+                    "providerCode": "internal-server-error"
+                  }
                 }
               }
             }
@@ -10192,10 +10298,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "PROVIDER_INTERNAL_ERROR",
                   "family": "PROVIDER_BAD_RESPONSE",
-                  "code": "provider-internal-error",
-                  "message": "The provider failed while handling the command."
+                  "code": "PROVIDER_INTERNAL_ERROR",
+                  "message": "The provider failed while handling the command.",
+                  "details": {
+                    "providerCode": "provider-internal-error"
+                  }
                 }
               }
             }
@@ -10208,10 +10316,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "PROVIDER_SERVICE_UNAVAILABLE",
                   "family": "PROVIDER_UNAVAILABLE",
-                  "code": "vendor-outage",
-                  "message": "The provider service is temporarily unavailable."
+                  "code": "PROVIDER_SERVICE_UNAVAILABLE",
+                  "message": "The provider service is temporarily unavailable.",
+                  "details": {
+                    "providerCode": "vendor-outage"
+                  }
                 }
               }
             }
@@ -10224,10 +10334,12 @@
                   "$ref": "#/components/schemas/Error"
                 },
                 "example": {
-                  "type": "PROVIDER_TIMEOUT",
                   "family": "PROVIDER_TIMEOUT",
-                  "code": "provider-timeout",
-                  "message": "The provider did not respond before the timeout."
+                  "code": "PROVIDER_TIMEOUT",
+                  "message": "The provider did not respond before the timeout.",
+                  "details": {
+                    "providerCode": "provider-timeout"
+                  }
                 }
               }
             }
@@ -10323,9 +10435,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL_SERVER_ERROR",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "internal-server-error"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -10615,7 +10726,7 @@
                     "type": "PLAIN",
                     "value": "Front door camera"
                   },
-                  "status": "active"
+                  "status": "ACTIVE"
                 }
               }
             }
@@ -10629,9 +10740,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -10645,9 +10755,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -10661,9 +10770,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -10677,9 +10785,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -10693,9 +10800,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -10783,7 +10889,7 @@
                     "type": "PLAIN",
                     "value": "Front door camera"
                   },
-                  "status": "active"
+                  "status": "ACTIVE"
                 }
               }
             }
@@ -10797,9 +10903,8 @@
                 },
                 "example": {
                   "message": "Invalid request; stable code identifies the validation failure.",
-                  "type": "BAD_REQUEST",
-                  "family": "BAD_REQUEST",
-                  "code": "event_request_failed"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -10813,9 +10918,8 @@
                 },
                 "example": {
                   "message": "Authentication required.",
-                  "type": "UNAUTHORIZED",
-                  "family": "UNAUTHORIZED",
-                  "code": "event_request_failed"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -10829,9 +10933,8 @@
                 },
                 "example": {
                   "message": "Resource authorization denied.",
-                  "type": "FORBIDDEN",
-                  "family": "FORBIDDEN",
-                  "code": "event_request_failed"
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
                 }
               }
             }
@@ -10845,9 +10948,8 @@
                 },
                 "example": {
                   "message": "Resource inaccessible, missing or past retention.",
-                  "type": "NOT_FOUND",
-                  "family": "NOT_FOUND",
-                  "code": "event_request_failed"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -10861,9 +10963,8 @@
                 },
                 "example": {
                   "message": "subscription_identity_immutable: request attempts to change monitoring identity. Existing binding and queued jobs are untouched.",
-                  "type": "CONCURRENT_MODIFICATION",
-                  "family": "CONFLICT",
-                  "code": "event_request_failed"
+                  "code": "CONCURRENT_MODIFICATION",
+                  "family": "CONFLICT"
                 }
               }
             }
@@ -10877,9 +10978,8 @@
                 },
                 "example": {
                   "message": "Internal failure.",
-                  "type": "INTERNAL",
-                  "family": "INTERNAL_SERVER_ERROR",
-                  "code": "event_request_failed"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -10992,7 +11092,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11006,7 +11107,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -11070,7 +11172,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11084,7 +11187,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -11191,7 +11295,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11205,7 +11310,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -11219,7 +11325,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -11311,7 +11418,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11325,7 +11433,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -11339,7 +11448,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -11413,7 +11523,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11427,7 +11538,8 @@
                 },
                 "example": {
                   "message": "Resource not found",
-                  "type": "NOT_FOUND"
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
                 }
               }
             }
@@ -11441,7 +11553,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -11557,7 +11670,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11571,7 +11685,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -11635,7 +11750,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11649,7 +11765,8 @@
                 },
                 "example": {
                   "message": "Authentication required",
-                  "type": "UNAUTHORIZED"
+                  "code": "UNAUTHORIZED",
+                  "family": "UNAUTHORIZED"
                 }
               }
             }
@@ -11737,7 +11854,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11751,7 +11869,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -11865,7 +11984,8 @@
                 },
                 "example": {
                   "message": "Invalid request payload",
-                  "type": "BAD_REQUEST"
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
                 }
               }
             }
@@ -11879,7 +11999,8 @@
                 },
                 "example": {
                   "message": "Internal server error",
-                  "type": "INTERNAL"
+                  "code": "INTERNAL",
+                  "family": "INTERNAL_SERVER_ERROR"
                 }
               }
             }
@@ -12030,6 +12151,7 @@
           },
           "pluginId": {
             "type": "string",
+            "x-enum-exempt": "plugin identifiers",
             "enum": [
               "port1/systems/zero/plugins/715b7b85-311f-4851-8430-88bbac6dd3e7",
               "port1/systems/zero/plugins/f9a10d98-abf9-40ed-8400-a2ab0210fdfd",
@@ -12041,7 +12163,8 @@
               "openclaw",
               "hermes",
               "codex",
-              "cline"
+              "cline",
+              "slack"
             ]
           },
           "consent": {
@@ -12147,7 +12270,7 @@
           "status": {
             "type": "string",
             "enum": [
-              "accepted"
+              "ACCEPTED"
             ],
             "x-enum-varnames": [
               "SyntheticAdmissionAccepted"
@@ -12175,12 +12298,12 @@
           "status": {
             "type": "string",
             "enum": [
-              "pending",
-              "sending",
-              "acknowledged",
-              "dead",
-              "dropped",
-              "cancelled"
+              "PENDING",
+              "SENDING",
+              "ACKNOWLEDGED",
+              "DEAD",
+              "DROPPED",
+              "CANCELLED"
             ],
             "x-enum-varnames": [
               "EventDeliveryStatusPending",
@@ -12271,11 +12394,11 @@
           "status": {
             "type": "string",
             "enum": [
-              "accepted",
-              "processing",
-              "completed",
-              "dead",
-              "dropped"
+              "ACCEPTED",
+              "PROCESSING",
+              "COMPLETED",
+              "DEAD",
+              "DROPPED"
             ],
             "x-enum-varnames": [
               "EventReceiptStatusAccepted",
@@ -12305,8 +12428,8 @@
           "deliveryDetail": {
             "type": "string",
             "enum": [
-              "available",
-              "unavailable"
+              "AVAILABLE",
+              "UNAVAILABLE"
             ],
             "x-enum-varnames": [
               "EventDeliveryDetailAvailable",
@@ -12357,10 +12480,10 @@
           "stage": {
             "type": "string",
             "enum": [
-              "ingress",
-              "processing",
-              "delivery",
-              "management"
+              "INGRESS",
+              "PROCESSING",
+              "DELIVERY",
+              "MANAGEMENT"
             ],
             "x-enum-varnames": [
               "EventDeadLetterStageIngress",
@@ -12443,7 +12566,7 @@
           "status": {
             "type": "string",
             "enum": [
-              "accepted"
+              "ACCEPTED"
             ],
             "x-enum-varnames": [
               "EventRedriveStatusAccepted"
@@ -12478,9 +12601,9 @@
           "eventProfile": {
             "type": "string",
             "enum": [
-              "camera",
-              "doorbell",
-              "thermostat"
+              "CAMERA",
+              "DOORBELL",
+              "THERMOSTAT"
             ],
             "x-enum-varnames": [
               "SimulatorEventProfileCamera",
@@ -12503,44 +12626,84 @@
                 "type": "string",
                 "description": "The type of device being simulated",
                 "enum": [
-                  "light",
-                  "lock",
-                  "sensor",
-                  "thermostat",
-                  "tv",
-                  "camera",
-                  "vacuum",
-                  "colored_light",
-                  "switch",
-                  "plug",
-                  "fan",
-                  "closure",
-                  "window_covering",
-                  "contact_sensor",
-                  "humidity_sensor",
-                  "light_sensor",
-                  "standalone_temperature_sensor",
-                  "air_quality_sensor",
-                  "co_sensor",
-                  "cooktop",
-                  "dishwasher",
-                  "microwave_oven",
-                  "oven",
-                  "refrigerator",
-                  "extractor_hood",
-                  "laundry_washer",
-                  "laundry_dryer",
-                  "audio_player",
-                  "media_player",
-                  "media_provider",
-                  "speaker",
-                  "text_message_receiver",
-                  "calendar_provider",
-                  "keypad",
-                  "location_tracker",
-                  "smoke_alarm",
-                  "security_panel",
-                  "pet_feeder"
+                  "LIGHT",
+                  "LOCK",
+                  "SENSOR",
+                  "THERMOSTAT",
+                  "TV",
+                  "CAMERA",
+                  "VACUUM",
+                  "COLORED_LIGHT",
+                  "SWITCH",
+                  "PLUG",
+                  "FAN",
+                  "CLOSURE",
+                  "WINDOW_COVERING",
+                  "CONTACT_SENSOR",
+                  "HUMIDITY_SENSOR",
+                  "LIGHT_SENSOR",
+                  "STANDALONE_TEMPERATURE_SENSOR",
+                  "AIR_QUALITY_SENSOR",
+                  "CO_SENSOR",
+                  "COOKTOP",
+                  "DISHWASHER",
+                  "MICROWAVE_OVEN",
+                  "OVEN",
+                  "REFRIGERATOR",
+                  "EXTRACTOR_HOOD",
+                  "LAUNDRY_WASHER",
+                  "LAUNDRY_DRYER",
+                  "AUDIO_PLAYER",
+                  "MEDIA_PLAYER",
+                  "MEDIA_PROVIDER",
+                  "SPEAKER",
+                  "TEXT_MESSAGE_RECEIVER",
+                  "CALENDAR_PROVIDER",
+                  "KEYPAD",
+                  "LOCATION_TRACKER",
+                  "SMOKE_ALARM",
+                  "SECURITY_PANEL",
+                  "PET_FEEDER"
+                ],
+                "x-enum-varnames": [
+                  "Light",
+                  "Lock",
+                  "Sensor",
+                  "Thermostat",
+                  "Tv",
+                  "Camera",
+                  "Vacuum",
+                  "ColoredLight",
+                  "Switch",
+                  "Plug",
+                  "Fan",
+                  "Closure",
+                  "WindowCovering",
+                  "ContactSensor",
+                  "HumiditySensor",
+                  "LightSensor",
+                  "StandaloneTemperatureSensor",
+                  "AirQualitySensor",
+                  "CoSensor",
+                  "Cooktop",
+                  "Dishwasher",
+                  "MicrowaveOven",
+                  "Oven",
+                  "Refrigerator",
+                  "ExtractorHood",
+                  "LaundryWasher",
+                  "LaundryDryer",
+                  "AudioPlayer",
+                  "MediaPlayer",
+                  "MediaProvider",
+                  "Speaker",
+                  "TextMessageReceiver",
+                  "CalendarProvider",
+                  "Keypad",
+                  "LocationTracker",
+                  "SmokeAlarm",
+                  "SecurityPanel",
+                  "PetFeeder"
                 ]
               },
               "state": {
@@ -12707,12 +12870,12 @@
             "type": "string",
             "description": "Debug logging level",
             "enum": [
-              "debug",
-              "info",
-              "warn",
-              "error"
+              "DEBUG",
+              "INFO",
+              "WARN",
+              "ERROR"
             ],
-            "default": "info",
+            "default": "INFO",
             "x-enum-varnames": [
               "DebugFlowNodeConfigurationLogLevel",
               "InfoFlowNodeConfigurationLogLevel",
@@ -12729,11 +12892,16 @@
             "type": "string",
             "description": "Debug output format",
             "enum": [
-              "json",
-              "text",
-              "pretty"
+              "JSON",
+              "TEXT",
+              "PRETTY"
             ],
-            "default": "json"
+            "x-enum-varnames": [
+              "Json",
+              "Text",
+              "Pretty"
+            ],
+            "default": "JSON"
           }
         }
       },
@@ -12820,12 +12988,20 @@
             "type": "string",
             "description": "Semantic source trigger type for compatibility with consolidated message trigger nodes",
             "enum": [
-              "message-trigger",
-              "message-receive",
-              "text-in",
-              "text-request",
-              "text-submit-gate",
-              "initiator"
+              "MESSAGE_TRIGGER",
+              "MESSAGE_RECEIVE",
+              "TEXT_IN",
+              "TEXT_REQUEST",
+              "TEXT_SUBMIT_GATE",
+              "INITIATOR"
+            ],
+            "x-enum-varnames": [
+              "MessageTrigger",
+              "MessageReceive",
+              "TextIn",
+              "TextRequest",
+              "TextSubmitGate",
+              "Initiator"
             ]
           }
         }
@@ -12900,11 +13076,16 @@
             "type": "string",
             "description": "Format for text output",
             "enum": [
-              "plain",
-              "markdown",
-              "html"
+              "PLAIN",
+              "MARKDOWN",
+              "HTML"
             ],
-            "default": "plain"
+            "x-enum-varnames": [
+              "TextOutNodeConfigurationOutputFormatPlain",
+              "TextOutNodeConfigurationOutputFormatMarkdown",
+              "TextOutNodeConfigurationOutputFormatHtml"
+            ],
+            "default": "PLAIN"
           },
           "maxLength": {
             "type": "integer",
@@ -12916,6 +13097,7 @@
           "encoding": {
             "type": "string",
             "description": "Text encoding for output",
+            "x-enum-exempt": "IANA character set names",
             "enum": [
               "utf-8",
               "ascii"
@@ -12935,10 +13117,14 @@
             "type": "string",
             "description": "TTS provider backend",
             "enum": [
-              "default",
-              "fal"
+              "DEFAULT",
+              "FAL"
             ],
-            "default": "default"
+            "x-enum-varnames": [
+              "Default",
+              "Fal"
+            ],
+            "default": "DEFAULT"
           },
           "voice": {
             "type": "string",
@@ -12968,12 +13154,18 @@
             "type": "string",
             "description": "Output audio format",
             "enum": [
-              "mp3",
-              "wav",
-              "ogg",
-              "aac"
+              "MP3",
+              "WAV",
+              "OGG",
+              "AAC"
             ],
-            "default": "mp3"
+            "x-enum-varnames": [
+              "TextToSpeechNodeConfigurationAudioFormatMp3",
+              "TextToSpeechNodeConfigurationAudioFormatWav",
+              "TextToSpeechNodeConfigurationAudioFormatOgg",
+              "TextToSpeechNodeConfigurationAudioFormatAac"
+            ],
+            "default": "MP3"
           },
           "sampleRate": {
             "type": "integer",
@@ -13318,10 +13510,16 @@
             "type": "string",
             "description": "Completion status",
             "enum": [
-              "success",
-              "failure",
-              "cancelled",
-              "timeout"
+              "SUCCESS",
+              "FAILURE",
+              "CANCELLED",
+              "TIMEOUT"
+            ],
+            "x-enum-varnames": [
+              "FlowsInterfaceCompleteMessageStatusSuccess",
+              "FlowsInterfaceCompleteMessageStatusFailure",
+              "FlowsInterfaceCompleteMessageStatusCancelled",
+              "FlowsInterfaceCompleteMessageStatusTimeout"
             ]
           },
           "result": {
@@ -13374,12 +13572,18 @@
             "type": "string",
             "description": "Flow execution priority",
             "enum": [
-              "low",
-              "normal",
-              "high",
-              "urgent"
+              "LOW",
+              "NORMAL",
+              "HIGH",
+              "URGENT"
             ],
-            "default": "normal"
+            "x-enum-varnames": [
+              "FlowsInterfaceInitiateMessagePriorityLow",
+              "FlowsInterfaceInitiateMessagePriorityNormal",
+              "FlowsInterfaceInitiateMessagePriorityHigh",
+              "FlowsInterfaceInitiateMessagePriorityUrgent"
+            ],
+            "default": "NORMAL"
           },
           "timeout": {
             "type": "integer",
@@ -13427,9 +13631,9 @@
             "type": "string",
             "description": "Acknowledgment status",
             "enum": [
-              "received",
-              "processed",
-              "failed"
+              "RECEIVED",
+              "PROCESSED",
+              "FAILED"
             ],
             "x-enum-varnames": [
               "FlowsInterfaceMessageAckMessageStatusReceived",
@@ -13484,10 +13688,16 @@
             "type": "string",
             "description": "Reason for unacknowledgment",
             "enum": [
-              "timeout",
-              "error",
-              "rejected",
-              "duplicate"
+              "TIMEOUT",
+              "ERROR",
+              "REJECTED",
+              "DUPLICATE"
+            ],
+            "x-enum-varnames": [
+              "FlowsInterfaceMessageUnackMessageReasonTimeout",
+              "FlowsInterfaceMessageUnackMessageReasonError",
+              "FlowsInterfaceMessageUnackMessageReasonRejected",
+              "FlowsInterfaceMessageUnackMessageReasonDuplicate"
             ]
           },
           "timestamp": {
@@ -13532,10 +13742,16 @@
             "type": "string",
             "description": "Node completion status",
             "enum": [
-              "success",
-              "failure",
-              "skipped",
-              "timeout"
+              "SUCCESS",
+              "FAILURE",
+              "SKIPPED",
+              "TIMEOUT"
+            ],
+            "x-enum-varnames": [
+              "FlowsInterfaceNodeCompleteMessageStatusSuccess",
+              "FlowsInterfaceNodeCompleteMessageStatusFailure",
+              "FlowsInterfaceNodeCompleteMessageStatusSkipped",
+              "FlowsInterfaceNodeCompleteMessageStatusTimeout"
             ]
           },
           "result": {
@@ -13586,10 +13802,16 @@
             "type": "string",
             "description": "Reason for pausing",
             "enum": [
-              "user_request",
-              "resource_limit",
-              "waiting",
-              "maintenance"
+              "USER_REQUEST",
+              "RESOURCE_LIMIT",
+              "WAITING",
+              "MAINTENANCE"
+            ],
+            "x-enum-varnames": [
+              "FlowsInterfacePauseMessageReasonUserRequest",
+              "FlowsInterfacePauseMessageReasonResourceLimit",
+              "FlowsInterfacePauseMessageReasonWaiting",
+              "FlowsInterfacePauseMessageReasonMaintenance"
             ]
           },
           "checkpoint": {
@@ -13654,11 +13876,18 @@
             "type": "string",
             "description": "Reason for termination",
             "enum": [
-              "user_request",
-              "error",
-              "timeout",
-              "completion",
-              "cancellation"
+              "USER_REQUEST",
+              "ERROR",
+              "TIMEOUT",
+              "COMPLETION",
+              "CANCELLATION"
+            ],
+            "x-enum-varnames": [
+              "FlowsInterfaceTerminateMessageReasonUserRequest",
+              "FlowsInterfaceTerminateMessageReasonError",
+              "FlowsInterfaceTerminateMessageReasonTimeout",
+              "FlowsInterfaceTerminateMessageReasonCompletion",
+              "FlowsInterfaceTerminateMessageReasonCancellation"
             ]
           },
           "graceful": {
@@ -13712,10 +13941,16 @@
             "type": "string",
             "description": "Notification priority level",
             "enum": [
-              "low",
-              "normal",
-              "high",
-              "urgent"
+              "LOW",
+              "NORMAL",
+              "HIGH",
+              "URGENT"
+            ],
+            "x-enum-varnames": [
+              "NotificationInterfaceNotificationMessagePriorityLow",
+              "NotificationInterfaceNotificationMessagePriorityNormal",
+              "NotificationInterfaceNotificationMessagePriorityHigh",
+              "NotificationInterfaceNotificationMessagePriorityUrgent"
             ]
           },
           "channels": {
@@ -13723,11 +13958,18 @@
             "items": {
               "type": "string",
               "enum": [
-                "push",
-                "email",
-                "sms",
-                "in-app",
-                "webhook"
+                "PUSH",
+                "EMAIL",
+                "SMS",
+                "IN_APP",
+                "WEBHOOK"
+              ],
+              "x-enum-varnames": [
+                "NotificationInterfaceNotificationMessageChannelsPush",
+                "NotificationInterfaceNotificationMessageChannelsEmail",
+                "NotificationInterfaceNotificationMessageChannelsSms",
+                "NotificationInterfaceNotificationMessageChannelsInApp",
+                "NotificationInterfaceNotificationMessageChannelsWebhook"
               ]
             },
             "description": "Channels to send the notification through"
@@ -13800,10 +14042,16 @@
             "type": "string",
             "description": "Type of trigger",
             "enum": [
-              "immediate",
-              "scheduled",
-              "event-based",
-              "condition-based"
+              "IMMEDIATE",
+              "SCHEDULED",
+              "EVENT_BASED",
+              "CONDITION_BASED"
+            ],
+            "x-enum-varnames": [
+              "Immediate",
+              "Scheduled",
+              "EventBased",
+              "ConditionBased"
             ]
           },
           "notification": {
@@ -13897,12 +14145,18 @@
             "type": "string",
             "description": "Unit of food to feed the pet",
             "enum": [
-              "cups",
-              "grams",
-              "pounds",
-              "ounces"
+              "CUPS",
+              "GRAMS",
+              "POUNDS",
+              "OUNCES"
             ],
-            "default": "cups"
+            "x-enum-varnames": [
+              "Cups",
+              "Grams",
+              "Pounds",
+              "Ounces"
+            ],
+            "default": "CUPS"
           }
         },
         "additionalProperties": false
@@ -14254,6 +14508,7 @@
         "properties": {
           "keyCode": {
             "type": "string",
+            "x-enum-exempt": "keypad key labels",
             "enum": [
               "0",
               "1",
@@ -17963,7 +18218,7 @@
         "x-name": "cleaning-mode",
         "x-version": "1.0",
         "x-type": "attribute-definition",
-        "description": "Current cleaning type. Omitted when the robot is in a native mode with no equivalent value.",
+        "description": "Current cleaning type. CUSTOM when the robot uses a native mode with no equivalent value.",
         "type": "object",
         "properties": {
           "value": {
@@ -17980,7 +18235,7 @@
         "x-name": "suction-level",
         "x-version": "1.0",
         "x-type": "attribute-definition",
-        "description": "Current suction level. Omitted when the robot is in a native mode with no equivalent value.",
+        "description": "Current suction level. CUSTOM when the robot uses a native mode with no equivalent value.",
         "type": "object",
         "properties": {
           "value": {
@@ -17997,7 +18252,7 @@
         "x-name": "water-flow",
         "x-version": "1.0",
         "x-type": "attribute-definition",
-        "description": "Current water flow. Omitted when the robot is in a native mode with no equivalent value.",
+        "description": "Current water flow. CUSTOM when the robot uses a native mode with no equivalent value.",
         "type": "object",
         "properties": {
           "value": {
@@ -18011,28 +18266,31 @@
       },
       "CleaningType": {
         "type": "string",
-        "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+        "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
         "enum": [
           "VACUUM",
           "MOP",
-          "VACUUM_AND_MOP"
+          "VACUUM_AND_MOP",
+          "CUSTOM"
         ],
         "x-enum-varnames": [
           "CleaningTypeVacuum",
           "CleaningTypeMop",
-          "CleaningTypeVacuumAndMop"
+          "CleaningTypeVacuumAndMop",
+          "CleaningTypeCustom"
         ]
       },
       "SuctionLevel": {
         "type": "string",
-        "description": "Vacuum suction level, ordered from off to strongest",
+        "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
         "enum": [
           "OFF",
           "QUIET",
           "BALANCED",
           "TURBO",
           "MAX",
-          "MAX_PLUS"
+          "MAX_PLUS",
+          "CUSTOM"
         ],
         "x-enum-varnames": [
           "SuctionLevelOff",
@@ -18040,25 +18298,28 @@
           "SuctionLevelBalanced",
           "SuctionLevelTurbo",
           "SuctionLevelMax",
-          "SuctionLevelMaxPlus"
+          "SuctionLevelMaxPlus",
+          "SuctionLevelCustom"
         ]
       },
       "WaterFlow": {
         "type": "string",
-        "description": "Mop water flow level, ordered from off to highest",
+        "description": "Mop water flow level, ordered from off to highest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
         "enum": [
           "OFF",
           "LOW",
           "MEDIUM",
           "HIGH",
-          "EXTREME"
+          "EXTREME",
+          "CUSTOM"
         ],
         "x-enum-varnames": [
           "WaterFlowOff",
           "WaterFlowLow",
           "WaterFlowMedium",
           "WaterFlowHigh",
-          "WaterFlowExtreme"
+          "WaterFlowExtreme",
+          "WaterFlowCustom"
         ]
       },
       "SpatialInterfaceConfiguration": {
@@ -18251,6 +18512,7 @@
         "properties": {
           "type": {
             "type": "string",
+            "x-enum-exempt": "GeoJSON geometry type (RFC 7946)",
             "enum": [
               "Polygon"
             ]
@@ -18275,6 +18537,7 @@
         "properties": {
           "type": {
             "type": "string",
+            "x-enum-exempt": "GeoJSON geometry type (RFC 7946)",
             "enum": [
               "MultiPolygon"
             ]
@@ -18321,6 +18584,7 @@
         "properties": {
           "type": {
             "type": "string",
+            "x-enum-exempt": "GeoJSON geometry type (RFC 7946)",
             "enum": [
               "Point"
             ]
@@ -18529,11 +18793,11 @@
           "status": {
             "type": "string",
             "enum": [
-              "active",
-              "paused",
-              "suspended",
-              "expired",
-              "stopped"
+              "ACTIVE",
+              "PAUSED",
+              "SUSPENDED",
+              "EXPIRED",
+              "STOPPED"
             ],
             "x-enum-varnames": [
               "SubscriptionLifecycleActive",
@@ -18782,18 +19046,21 @@
                 "properties": {
                   "namespace": {
                     "type": "string",
+                    "x-enum-exempt": "plugin event header protocol identifiers",
                     "enum": [
                       "portos.attributeStore"
                     ]
                   },
                   "name": {
                     "type": "string",
+                    "x-enum-exempt": "plugin event header protocol identifiers",
                     "enum": [
                       "reportAttributes"
                     ]
                   },
                   "version": {
                     "type": "string",
+                    "x-enum-exempt": "plugin event header protocol identifiers",
                     "enum": [
                       "1.0"
                     ]
@@ -18839,18 +19106,21 @@
                 "properties": {
                   "namespace": {
                     "type": "string",
+                    "x-enum-exempt": "plugin event header protocol identifiers",
                     "enum": [
                       "portos.attributeStore"
                     ]
                   },
                   "name": {
                     "type": "string",
+                    "x-enum-exempt": "plugin event header protocol identifiers",
                     "enum": [
                       "attributesReport"
                     ]
                   },
                   "version": {
                     "type": "string",
+                    "x-enum-exempt": "plugin event header protocol identifiers",
                     "enum": [
                       "1.0"
                     ]
@@ -18897,7 +19167,7 @@
             "example": "The living room bridge is offline."
           },
           "details": {
-            "$ref": "#/components/schemas/PluginDispatchErrorDetails"
+            "$ref": "#/components/schemas/ErrorDetails"
           }
         },
         "example": {
@@ -18912,9 +19182,9 @@
           }
         }
       },
-      "PluginDispatchErrorDetails": {
+      "ErrorDetails": {
         "type": "object",
-        "description": "Optional typed context for a plugin dispatch error. Fields are additive and only populated when the error type can safely expose that context to API clients.\n",
+        "description": "Optional typed context for an error. Fields are additive and only populated when the error can safely expose that context to API clients.\n",
         "properties": {
           "endpointId": {
             "type": "string",
@@ -18942,11 +19212,11 @@
           },
           "minimum": {
             "type": "number",
-            "description": "Minimum accepted value when `type` is `VALUE_OUT_OF_RANGE`."
+            "description": "Minimum accepted value when `code` is `VALUE_OUT_OF_RANGE`."
           },
           "maximum": {
             "type": "number",
-            "description": "Maximum accepted value when `type` is `VALUE_OUT_OF_RANGE`."
+            "description": "Maximum accepted value when `code` is `VALUE_OUT_OF_RANGE`."
           },
           "actual": {
             "type": "string",
@@ -18954,7 +19224,7 @@
           },
           "currentMode": {
             "type": "string",
-            "description": "Current endpoint mode when `type` is `NOT_SUPPORTED_IN_CURRENT_MODE`."
+            "description": "Current endpoint mode when `code` is `NOT_SUPPORTED_IN_CURRENT_MODE`."
           },
           "retryAfterSeconds": {
             "type": "integer",
@@ -18964,9 +19234,43 @@
           "correlationId": {
             "type": "string",
             "description": "Provider or plugin correlation ID useful for support."
+          },
+          "providerCode": {
+            "type": "string",
+            "description": "The third-party provider's own error code, for support. It is opaque and provider-specific; branch on `code` and `family` instead."
+          },
+          "correlationToken": {
+            "type": "string",
+            "description": "Token that correlates an outcome-unknown dispatch with its eventual result."
+          },
+          "fieldErrors": {
+            "type": "array",
+            "description": "The request fields that were rejected, when the error is about the request's content.",
+            "items": {
+              "$ref": "#/components/schemas/ErrorFieldError"
+            }
           }
         },
         "additionalProperties": false
+      },
+      "ErrorFieldError": {
+        "type": "object",
+        "description": "One rejected request field of an error.",
+        "additionalProperties": false,
+        "required": [
+          "field",
+          "reason"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Name or JSON path of the rejected field."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why the field was rejected and what an accepted value looks like."
+          }
+        }
       },
       "PluginDispatchErrorFamily": {
         "type": "string",
@@ -19007,12 +19311,162 @@
           "PROVIDER_INTERNAL_ERROR"
         ]
       },
-      "InternalError": {
-        "$ref": "#/components/schemas/Error"
+      "Error": {
+        "type": "object",
+        "description": "The one Port OS error shape, returned by every REST error response and every MCP tool error. `code` names the specific failure and `family` its broad class; both are closed enums, so clients branch on them and show `message`, which says what failed and what to do next.",
+        "additionalProperties": false,
+        "required": [
+          "family",
+          "code",
+          "message"
+        ],
+        "properties": {
+          "family": {
+            "$ref": "#/components/schemas/ErrorFamily"
+          },
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Plain-language description of the failure and the suggested next action."
+          },
+          "details": {
+            "$ref": "#/components/schemas/ErrorDetails"
+          },
+          "errors": {
+            "type": "array",
+            "description": "Every rejected item when a request that is validated item by item and applied atomically fails, such as a discovery `SynchronizationRequest` whose routes, group routes or relationships are rejected. Omitted for single-item failures.\n",
+            "items": {
+              "$ref": "#/components/schemas/SynchronizationItemError"
+            }
+          }
+        }
+      },
+      "ErrorCode": {
+        "type": "string",
+        "description": "The specific error, one of a closed set of Port OS codes. Every REST error body, MCP tool error, batch item error and discovery item error uses this enum; each code belongs to an `ErrorFamily` that decides its HTTP status. Provider-specific codes are never codes: they travel in `details.providerCode`. New failure kinds are added here, never as free strings.",
+        "enum": [
+          "BAD_REQUEST",
+          "UNAUTHORIZED",
+          "FORBIDDEN",
+          "INSUFFICIENT_SCOPE",
+          "NOT_FOUND",
+          "CONFLICT",
+          "UNPROCESSABLE_ENTITY",
+          "UNSUPPORTED_OPERATION",
+          "TOO_MANY_REQUESTS",
+          "SERVICE_UNAVAILABLE",
+          "NOT_IMPLEMENTED",
+          "INTERNAL",
+          "CHECKSUM_MISMATCH",
+          "FILE_TOO_LARGE",
+          "STORAGE_UNAVAILABLE",
+          "INSUFFICIENT_PERMISSIONS",
+          "INVALID_FILE_TYPE",
+          "QUOTA_EXCEEDED",
+          "CONCURRENT_MODIFICATION",
+          "ENDPOINT_UNREACHABLE",
+          "BRIDGE_UNREACHABLE",
+          "CLOUD_CONTROL_DISABLED",
+          "ENDPOINT_BUSY",
+          "ENDPOINT_LOW_POWER",
+          "AUTHORIZATION_CREDENTIAL_INVALID",
+          "AUTHORIZATION_CREDENTIAL_EXPIRED",
+          "INVALID_DIRECTIVE",
+          "INVALID_VALUE",
+          "VALUE_OUT_OF_RANGE",
+          "NOT_SUPPORTED_IN_CURRENT_MODE",
+          "RATE_LIMIT_EXCEEDED",
+          "PROVIDER_SERVICE_UNAVAILABLE",
+          "PROVIDER_TIMEOUT",
+          "PROVIDER_INTERNAL_ERROR",
+          "INVALID_PROVIDER_RESPONSE",
+          "OUTCOME_UNKNOWN",
+          "PRECONDITION_FAILED",
+          "PRECONDITION_REQUIRED",
+          "IDEMPOTENCY_KEY_REQUIRED",
+          "IDEMPOTENCY_KEY_REUSED",
+          "IDEMPOTENCY_KEY_IN_FLIGHT",
+          "IDEMPOTENCY_KEY_INVALID",
+          "GROUP_MERGED",
+          "MULTI_ROOM_UNSUPPORTED",
+          "MAP_NOT_ACTIVE",
+          "TARGET_UNSUPPORTED",
+          "TARGET_AMBIGUOUS",
+          "TARGET_GROUP_NOT_FOUND",
+          "TARGET_GROUP_DISABLED",
+          "DUPLICATE_TARGET_GROUP",
+          "MESSAGE_UNSUPPORTED",
+          "MESSAGE_AMBIGUOUS",
+          "ENDPOINT_DISABLED",
+          "ENDPOINT_ROUTE_CHANGED",
+          "ENDPOINT_HAS_DEPENDENCIES",
+          "ENDPOINT_EVENT_SUBSCRIPTIONS_ACTIVE",
+          "ENDPOINT_COMMITTED_CLEANUP_PENDING",
+          "DEEP_QUERY_FAILED",
+          "EVENT_MANAGEMENT_DISABLED",
+          "SUBSCRIPTION_IDENTITY_IMMUTABLE",
+          "UNSUPPORTED_MEDIA_TYPE",
+          "EVENT_PAYLOAD_TOO_LARGE",
+          "EVENT_IDENTITY_CONFLICT",
+          "EVENT_INGRESS_QUOTA_EXCEEDED",
+          "EVENT_RECEIPT_EXPIRED",
+          "EVENT_STORAGE_UNAVAILABLE",
+          "EVENT_DEAD_LETTER_NOT_FOUND",
+          "EVENT_REDRIVE_CONFLICT",
+          "EVENT_REDRIVE_EXPIRED",
+          "RECEIPT_CONTEXT_EXPIRED",
+          "EVENT_MAINTENANCE_INCOMPLETE",
+          "UNKNOWN_INTERFACE",
+          "INVALID_CONFIGURATION",
+          "INVALID_ATTRIBUTE",
+          "PLUGIN_ROUTE_ID_CONFLICT",
+          "UNRESOLVED_REFERENCE",
+          "INVALID_RELATIONSHIP",
+          "RELATIONSHIP_CYCLE",
+          "MULTIPLE_PARENTS",
+          "FLOW_VALIDATION_FAILED"
+        ]
+      },
+      "ErrorFamily": {
+        "type": "string",
+        "enum": [
+          "NOT_FOUND",
+          "BAD_REQUEST",
+          "UNAUTHORIZED",
+          "FORBIDDEN",
+          "CONFLICT",
+          "GONE",
+          "PRECONDITION_FAILED",
+          "PRECONDITION_REQUIRED",
+          "PAYLOAD_TOO_LARGE",
+          "UNSUPPORTED_MEDIA_TYPE",
+          "UNPROCESSABLE_ENTITY",
+          "LOCKED",
+          "TOO_MANY_REQUESTS",
+          "BAD_GATEWAY",
+          "SERVICE_UNAVAILABLE",
+          "GATEWAY_TIMEOUT",
+          "NOT_IMPLEMENTED",
+          "INTERNAL_SERVER_ERROR",
+          "REQUEST_INVALID",
+          "AUTHENTICATION",
+          "PERMISSION",
+          "ENDPOINT_NOT_FOUND",
+          "ENDPOINT_STATE_CONFLICT",
+          "ENDPOINT_UNAVAILABLE",
+          "RATE_LIMIT",
+          "PROVIDER_BAD_RESPONSE",
+          "PROVIDER_UNAVAILABLE",
+          "PROVIDER_TIMEOUT"
+        ],
+        "description": "The broad class of an error. The family decides the HTTP status of a REST error, so clients can handle every code of a family alike."
       },
       "SubscriptionQueryKeys": {
         "type": "string",
         "description": "Enumeration of field keys that can be used to filter subscription queries.",
+        "x-enum-exempt": "message field paths",
         "enum": [
           "id",
           "owner",
@@ -19036,6 +19490,7 @@
       },
       "AccessControlOperation": {
         "type": "string",
+        "x-enum-exempt": "operation identifiers",
         "enum": [
           "port1/systems/zero/operations/flow-read",
           "port1/systems/zero/operations/flow-write",
@@ -19098,6 +19553,7 @@
       "AuthResourceType": {
         "type": "string",
         "description": "Port OS resource types that can be used for permission evaluation, scoped authorization, OAuth grants, and access-control resources.",
+        "x-enum-exempt": "identifier URL path segments",
         "enum": [
           "flows",
           "flownodes",
@@ -19181,7 +19637,8 @@
           "name",
           "ownerId",
           "interfaces",
-          "etag"
+          "etag",
+          "enablement"
         ],
         "properties": {
           "id": {
@@ -19197,6 +19654,9 @@
           "ownerId": {
             "type": "string",
             "description": "The ID of the owner of the endpoint group"
+          },
+          "enablement": {
+            "$ref": "#/components/schemas/Enablement"
           },
           "memberEndpointIds": {
             "type": "array",
@@ -19519,12 +19979,13 @@
         "type": "string",
         "description": "Discriminator of an endpoint group management operation.",
         "enum": [
-          "create_group",
-          "delete_group",
-          "set_name",
-          "add_members",
-          "remove_members",
-          "merge_into"
+          "CREATE_GROUP",
+          "DELETE_GROUP",
+          "SET_NAME",
+          "ADD_MEMBERS",
+          "REMOVE_MEMBERS",
+          "MERGE_INTO",
+          "SET_ENABLEMENT"
         ],
         "x-enum-varnames": [
           "EndpointGroupsManageOperationTypeCreateGroup",
@@ -19532,7 +19993,8 @@
           "EndpointGroupsManageOperationTypeSetName",
           "EndpointGroupsManageOperationTypeAddMembers",
           "EndpointGroupsManageOperationTypeRemoveMembers",
-          "EndpointGroupsManageOperationTypeMergeInto"
+          "EndpointGroupsManageOperationTypeMergeInto",
+          "EndpointGroupsManageOperationTypeSetEnablement"
         ]
       },
       "EndpointGroupsCreateGroupOperation": {
@@ -19551,7 +20013,10 @@
           "operation": {
             "type": "string",
             "enum": [
-              "create_group"
+              "CREATE_GROUP"
+            ],
+            "x-enum-varnames": [
+              "CreateGroup"
             ],
             "description": "Operation discriminator."
           },
@@ -19588,7 +20053,10 @@
           "operation": {
             "type": "string",
             "enum": [
-              "delete_group"
+              "DELETE_GROUP"
+            ],
+            "x-enum-varnames": [
+              "DeleteGroup"
             ],
             "description": "Operation discriminator."
           },
@@ -19600,7 +20068,7 @@
           "etag": {
             "type": "string",
             "minLength": 1,
-            "description": "The group etag the client last read. When an earlier operation in the same request writes this group, send the etag that operation reports instead: every operation advances the group etag by one.\n"
+            "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one, and one that changes nothing keeps it.\n"
           }
         }
       },
@@ -19622,7 +20090,10 @@
           "operation": {
             "type": "string",
             "enum": [
-              "set_name"
+              "SET_NAME"
+            ],
+            "x-enum-varnames": [
+              "SetName"
             ],
             "description": "Operation discriminator."
           },
@@ -19634,7 +20105,7 @@
           "etag": {
             "type": "string",
             "minLength": 1,
-            "description": "The group etag the client last read. When an earlier operation in the same request writes this group, send the etag that operation reports instead: every operation advances the group etag by one.\n"
+            "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one, and one that changes nothing keeps it.\n"
           },
           "name": {
             "$ref": "#/components/schemas/TypeValue"
@@ -19659,7 +20130,10 @@
           "operation": {
             "type": "string",
             "enum": [
-              "add_members"
+              "ADD_MEMBERS"
+            ],
+            "x-enum-varnames": [
+              "AddMembers"
             ],
             "description": "Operation discriminator."
           },
@@ -19671,7 +20145,7 @@
           "etag": {
             "type": "string",
             "minLength": 1,
-            "description": "The group etag the client last read. When an earlier operation in the same request writes this group, send the etag that operation reports instead: every operation advances the group etag by one.\n"
+            "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one, and one that changes nothing keeps it.\n"
           },
           "memberEndpointIds": {
             "type": "array",
@@ -19704,7 +20178,10 @@
           "operation": {
             "type": "string",
             "enum": [
-              "remove_members"
+              "REMOVE_MEMBERS"
+            ],
+            "x-enum-varnames": [
+              "RemoveMembers"
             ],
             "description": "Operation discriminator."
           },
@@ -19716,7 +20193,7 @@
           "etag": {
             "type": "string",
             "minLength": 1,
-            "description": "The group etag the client last read. When an earlier operation in the same request writes this group, send the etag that operation reports instead: every operation advances the group etag by one.\n"
+            "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one, and one that changes nothing keeps it.\n"
           },
           "memberEndpointIds": {
             "type": "array",
@@ -19748,7 +20225,10 @@
           "operation": {
             "type": "string",
             "enum": [
-              "merge_into"
+              "MERGE_INTO"
+            ],
+            "x-enum-varnames": [
+              "MergeInto"
             ],
             "description": "Operation discriminator."
           },
@@ -19786,17 +20266,21 @@
           },
           {
             "$ref": "#/components/schemas/EndpointGroupsMergeIntoOperation"
+          },
+          {
+            "$ref": "#/components/schemas/EndpointGroupsSetEnablementOperation"
           }
         ],
         "discriminator": {
           "propertyName": "operation",
           "mapping": {
-            "create_group": "#/components/schemas/EndpointGroupsCreateGroupOperation",
-            "delete_group": "#/components/schemas/EndpointGroupsDeleteGroupOperation",
-            "set_name": "#/components/schemas/EndpointGroupsSetNameOperation",
-            "add_members": "#/components/schemas/EndpointGroupsAddMembersOperation",
-            "remove_members": "#/components/schemas/EndpointGroupsRemoveMembersOperation",
-            "merge_into": "#/components/schemas/EndpointGroupsMergeIntoOperation"
+            "CREATE_GROUP": "#/components/schemas/EndpointGroupsCreateGroupOperation",
+            "DELETE_GROUP": "#/components/schemas/EndpointGroupsDeleteGroupOperation",
+            "SET_NAME": "#/components/schemas/EndpointGroupsSetNameOperation",
+            "ADD_MEMBERS": "#/components/schemas/EndpointGroupsAddMembersOperation",
+            "REMOVE_MEMBERS": "#/components/schemas/EndpointGroupsRemoveMembersOperation",
+            "MERGE_INTO": "#/components/schemas/EndpointGroupsMergeIntoOperation",
+            "SET_ENABLEMENT": "#/components/schemas/EndpointGroupsSetEnablementOperation"
           }
         }
       },
@@ -19825,7 +20309,7 @@
       },
       "EndpointGroupsManageResult": {
         "type": "object",
-        "description": "Result of one committed operation, correlated by `requestId`. `create_group`, `set_name`, `add_members` and `remove_members` return `group` with its new etag; `delete_group` returns `deletedGroupId`; `merge_into` returns `target` with its new etag and `redirects`.\n",
+        "description": "Result of one committed operation, correlated by `requestId`. `CREATE_GROUP`, `SET_NAME`, `ADD_MEMBERS` and `REMOVE_MEMBERS` return `group` with its new etag; `DELETE_GROUP` returns `deletedGroupId`; `MERGE_INTO` returns `target` with its new etag and `redirects`.\n",
         "additionalProperties": false,
         "required": [
           "requestId",
@@ -19843,7 +20327,7 @@
           },
           "deletedGroupId": {
             "type": "string",
-            "description": "The deleted group ID (`delete_group`)."
+            "description": "The deleted group ID (`DELETE_GROUP`)."
           },
           "target": {
             "$ref": "#/components/schemas/EndpointGroupEtagReference"
@@ -19853,7 +20337,7 @@
             "items": {
               "$ref": "#/components/schemas/EndpointGroupRedirect"
             },
-            "description": "Redirects written by `merge_into`."
+            "description": "Redirects written by `MERGE_INTO`."
           }
         }
       },
@@ -19983,10 +20467,10 @@
       },
       "BatchResponseStatus": {
         "type": "string",
-        "description": "Outcome of an atomic batch. `committed` means every operation was applied (or, for a validate-only request, would be applied); `failed` means nothing was written and `errors` lists every failing operation.\n",
+        "description": "Outcome of an atomic batch. `COMMITTED` means every operation was applied (or, for a validate-only request, would be applied); `FAILED` means nothing was written and `errors` lists every failing operation.\n",
         "enum": [
-          "committed",
-          "failed"
+          "COMMITTED",
+          "FAILED"
         ],
         "x-enum-varnames": [
           "BatchResponseStatusCommitted",
@@ -20009,7 +20493,7 @@
             "$ref": "#/components/schemas/BatchOperationRequestId"
           },
           "code": {
-            "$ref": "#/components/schemas/ErrorType"
+            "$ref": "#/components/schemas/ErrorCode"
           },
           "family": {
             "$ref": "#/components/schemas/ErrorFamily"
@@ -20058,7 +20542,7 @@
             "description": "Declared capability interface version the failure applies to, when the failure is interface-specific."
           },
           "code": {
-            "$ref": "#/components/schemas/ErrorType"
+            "$ref": "#/components/schemas/ErrorCode"
           },
           "family": {
             "$ref": "#/components/schemas/ErrorFamily"
@@ -20077,6 +20561,7 @@
       },
       "DataType": {
         "type": "string",
+        "x-enum-exempt": "identifier URL path segments",
         "enum": [
           "flows",
           "flownodes",
@@ -20257,6 +20742,7 @@
       },
       "SystemId": {
         "type": "string",
+        "x-enum-exempt": "identifier URL path segments",
         "enum": [
           "zero",
           "flows",
@@ -20267,6 +20753,7 @@
       },
       "FlowDataType": {
         "type": "string",
+        "x-enum-exempt": "identifier URL path segments",
         "enum": [
           "flows",
           "flownodes",
@@ -20279,6 +20766,7 @@
       },
       "AuthDataType": {
         "type": "string",
+        "x-enum-exempt": "identifier URL path segments",
         "enum": [
           "principals",
           "systems",
@@ -20292,6 +20780,7 @@
       },
       "PluginDataType": {
         "type": "string",
+        "x-enum-exempt": "identifier URL path segments",
         "enum": [
           "plugins",
           "endpoints",
@@ -20354,6 +20843,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
               "enum": [
                 "authorization_code",
                 "client_credentials",
@@ -20368,6 +20858,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
               "enum": [
                 "code",
                 "token",
@@ -20378,6 +20869,7 @@
           },
           "tokenEndpointAuthMethod": {
             "type": "string",
+            "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
             "enum": [
               "client_secret_post",
               "client_secret_basic",
@@ -20544,6 +21036,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
               "enum": [
                 "authorization_code",
                 "client_credentials",
@@ -20561,6 +21054,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
               "enum": [
                 "code",
                 "token",
@@ -20571,6 +21065,7 @@
           },
           "tokenEndpointAuthMethod": {
             "type": "string",
+            "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
             "enum": [
               "client_secret_post",
               "client_secret_basic",
@@ -20709,6 +21204,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
               "enum": [
                 "authorization_code",
                 "client_credentials",
@@ -20723,6 +21219,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
               "enum": [
                 "code",
                 "token",
@@ -20733,6 +21230,7 @@
           },
           "tokenEndpointAuthMethod": {
             "type": "string",
+            "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
             "enum": [
               "client_secret_post",
               "client_secret_basic",
@@ -21476,10 +21974,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "low",
-                "normal",
-                "high",
-                "urgent"
+                "LOW",
+                "NORMAL",
+                "HIGH",
+                "URGENT"
+              ],
+              "x-enum-varnames": [
+                "MessageInterfaceConfigurationSupportedPrioritiesLow",
+                "MessageInterfaceConfigurationSupportedPrioritiesNormal",
+                "MessageInterfaceConfigurationSupportedPrioritiesHigh",
+                "MessageInterfaceConfigurationSupportedPrioritiesUrgent"
               ]
             },
             "description": "Supported flow priorities"
@@ -21555,6 +22059,7 @@
             "type": "array",
             "items": {
               "type": "string",
+              "x-enum-exempt": "keypad key labels",
               "enum": [
                 "0",
                 "1",
@@ -21690,10 +22195,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "audio",
-                "video",
-                "image",
-                "playlist"
+                "AUDIO",
+                "VIDEO",
+                "IMAGE",
+                "PLAYLIST"
+              ],
+              "x-enum-varnames": [
+                "MediaPlayerInterfaceConfigurationSupportedMediaTypesAudio",
+                "MediaPlayerInterfaceConfigurationSupportedMediaTypesVideo",
+                "MediaPlayerInterfaceConfigurationSupportedMediaTypesImage",
+                "MediaPlayerInterfaceConfigurationSupportedMediaTypesPlaylist"
               ]
             },
             "description": "List of supported media types"
@@ -21703,17 +22214,30 @@
             "items": {
               "type": "string",
               "enum": [
-                "mp3",
-                "wav",
-                "flac",
-                "aac",
-                "ogg",
-                "mp4",
-                "avi",
-                "mkv",
-                "jpg",
-                "png",
-                "gif"
+                "MP3",
+                "WAV",
+                "FLAC",
+                "AAC",
+                "OGG",
+                "MP4",
+                "AVI",
+                "MKV",
+                "JPG",
+                "PNG",
+                "GIF"
+              ],
+              "x-enum-varnames": [
+                "MediaPlayerInterfaceConfigurationSupportedFormatsMp3",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsWav",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsFlac",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsAac",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsOgg",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsMp4",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsAvi",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsMkv",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsJpg",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsPng",
+                "MediaPlayerInterfaceConfigurationSupportedFormatsGif"
               ]
             },
             "description": "List of supported media formats"
@@ -21728,10 +22252,16 @@
             "type": "string",
             "description": "Default quality setting for media playback",
             "enum": [
-              "low",
-              "medium",
-              "high",
-              "lossless"
+              "LOW",
+              "MEDIUM",
+              "HIGH",
+              "LOSSLESS"
+            ],
+            "x-enum-varnames": [
+              "MediaPlayerInterfaceConfigurationDefaultQualityLow",
+              "MediaPlayerInterfaceConfigurationDefaultQualityMedium",
+              "MediaPlayerInterfaceConfigurationDefaultQualityHigh",
+              "MediaPlayerInterfaceConfigurationDefaultQualityLossless"
             ]
           },
           "supportsPlayURI": {
@@ -22499,124 +23029,17 @@
         ],
         "additionalProperties": false
       },
-      "ErrorType": {
+      "Enablement": {
         "type": "string",
+        "description": "Whether Port OS uses an endpoint or group. A disabled one is hidden from collections by default and cannot be sent device messages or targeted by them; exact authorized reads still return it. Rediscovery never changes it, so disabling is how a user hides a discovered device or room for good.\n",
         "enum": [
-          "BAD_REQUEST",
-          "BAD_REQUEST_PAYLOAD",
-          "UNAUTHORIZED",
-          "FORBIDDEN",
-          "NOT_FOUND",
-          "CONFLICT",
-          "TOO_MANY_REQUESTS",
-          "SERVICE_UNAVAILABLE",
-          "INTERNAL",
-          "INTERNAL_SERVER_ERROR",
-          "CHECKSUM_MISMATCH",
-          "FILE_TOO_LARGE",
-          "STORAGE_UNAVAILABLE",
-          "INSUFFICIENT_PERMISSIONS",
-          "INVALID_FILE_TYPE",
-          "QUOTA_EXCEEDED",
-          "CONCURRENT_MODIFICATION",
-          "ENDPOINT_UNREACHABLE",
-          "BRIDGE_UNREACHABLE",
-          "CLOUD_CONTROL_DISABLED",
-          "ENDPOINT_BUSY",
-          "ENDPOINT_LOW_POWER",
-          "AUTHORIZATION_CREDENTIAL_INVALID",
-          "AUTHORIZATION_CREDENTIAL_EXPIRED",
-          "INVALID_DIRECTIVE",
-          "INVALID_VALUE",
-          "VALUE_OUT_OF_RANGE",
-          "NOT_SUPPORTED_IN_CURRENT_MODE",
-          "RATE_LIMIT_EXCEEDED",
-          "PROVIDER_SERVICE_UNAVAILABLE",
-          "PROVIDER_TIMEOUT",
-          "PROVIDER_INTERNAL_ERROR",
-          "PRECONDITION_FAILED",
-          "PRECONDITION_REQUIRED",
-          "IDEMPOTENCY_KEY_REQUIRED",
-          "IDEMPOTENCY_KEY_REUSED",
-          "IDEMPOTENCY_KEY_IN_FLIGHT",
-          "IDEMPOTENCY_KEY_INVALID",
-          "GROUP_MERGED",
-          "MULTI_ROOM_UNSUPPORTED",
-          "MAP_NOT_ACTIVE",
-          "TARGET_UNSUPPORTED",
-          "TARGET_AMBIGUOUS",
-          "MESSAGE_UNSUPPORTED",
-          "UNKNOWN_INTERFACE",
-          "INVALID_CONFIGURATION",
-          "INVALID_ATTRIBUTE",
-          "PLUGIN_ROUTE_ID_CONFLICT",
-          "UNRESOLVED_REFERENCE",
-          "INVALID_RELATIONSHIP",
-          "RELATIONSHIP_CYCLE",
-          "MULTIPLE_PARENTS"
+          "ENABLED",
+          "DISABLED"
         ],
-        "description": "The error type, which is a specific type of error that belongs to a family of errors.  For example, a INVALID_TEMPERATURE_RANGE error is a specific type of error that belongs to the BAD_REQUEST family of errors."
-      },
-      "ErrorFamily": {
-        "type": "string",
-        "enum": [
-          "NOT_FOUND",
-          "BAD_REQUEST",
-          "UNAUTHORIZED",
-          "FORBIDDEN",
-          "CONFLICT",
-          "PRECONDITION_FAILED",
-          "PRECONDITION_REQUIRED",
-          "PAYLOAD_TOO_LARGE",
-          "UNPROCESSABLE_ENTITY",
-          "LOCKED",
-          "TOO_MANY_REQUESTS",
-          "BAD_GATEWAY",
-          "SERVICE_UNAVAILABLE",
-          "GATEWAY_TIMEOUT",
-          "INTERNAL_SERVER_ERROR",
-          "REQUEST_INVALID",
-          "AUTHENTICATION",
-          "PERMISSION",
-          "ENDPOINT_NOT_FOUND",
-          "ENDPOINT_STATE_CONFLICT",
-          "ENDPOINT_UNAVAILABLE",
-          "RATE_LIMIT",
-          "PROVIDER_BAD_RESPONSE",
-          "PROVIDER_UNAVAILABLE",
-          "PROVIDER_TIMEOUT"
-        ],
-        "description": "The error family"
-      },
-      "Error": {
-        "type": "object",
-        "description": "Standard error response containing a message, error type, error family, and optional debug code.",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "The error message"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ErrorType"
-          },
-          "family": {
-            "$ref": "#/components/schemas/ErrorFamily"
-          },
-          "code": {
-            "type": "string",
-            "description": "An opaque error code that can be given for debugging purposes."
-          },
-          "details": {
-            "$ref": "#/components/schemas/PluginDispatchErrorDetails"
-          },
-          "errors": {
-            "type": "array",
-            "description": "Every rejected item when a request that is validated item by item and applied atomically fails, such as a discovery `SynchronizationRequest` whose routes, group routes or relationships are rejected. Omitted for single-item failures.\n",
-            "items": {
-              "$ref": "#/components/schemas/SynchronizationItemError"
-            }
-          }
-        }
+        "x-enum-varnames": [
+          "EnablementENABLED",
+          "EnablementDISABLED"
+        ]
       },
       "TypeValue": {
         "type": "object",
@@ -23024,13 +23447,7 @@
         ],
         "properties": {
           "enablement": {
-            "type": "string",
-            "enum": [
-              "ENABLED",
-              "DISABLED"
-            ],
-            "default": "ENABLED",
-            "description": "Disabled endpoints are hidden from collections by default and cannot send or receive device messages. Exact authorized metadata reads remain available."
+            "$ref": "#/components/schemas/Enablement"
           },
           "id": {
             "type": "string",
@@ -23120,7 +23537,7 @@
         "description": "Response-level error describing a partial deep endpoint-state query failure. These errors report deep-query item failures after endpoint enumeration has succeeded; they do not replace HTTP error responses for request-level failures.",
         "required": [
           "location",
-          "type",
+          "code",
           "family",
           "message"
         ],
@@ -23130,15 +23547,11 @@
             "description": "Approximate response location affected by the partial deep-query failure.",
             "example": "endpoints/port1/principals/user123/endpoints/robot-1/routes/port1/principals/user123/routes/route-1"
           },
-          "type": {
-            "type": "string",
-            "description": "Stable machine-readable error type for client grouping and filtering.",
-            "example": "DEEP_QUERY_ERROR"
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
           },
           "family": {
-            "type": "string",
-            "description": "Stable machine-readable error family for broader client grouping.",
-            "example": "ENDPOINT_STATE_QUERY"
+            "$ref": "#/components/schemas/ErrorFamily"
           },
           "message": {
             "type": "string",
@@ -23221,11 +23634,7 @@
             "description": "A supported endpoint ontological type, such as light or plug."
           },
           "enablement": {
-            "type": "string",
-            "enum": [
-              "ENABLED",
-              "DISABLED"
-            ]
+            "$ref": "#/components/schemas/Enablement"
           },
           "mergeInto": {
             "type": "string",
@@ -23557,10 +23966,14 @@
           "oauthVariant": {
             "type": "string",
             "enum": [
-              "direct",
-              "backend-proxy"
+              "DIRECT",
+              "BACKEND_PROXY"
             ],
-            "description": "OAuth flow variant. \"direct\" means the website performs the full PKCE token exchange client-side. \"backend-proxy\" means the website sends the authorization code to the Port OS backend, which exchanges it for tokens on behalf of the user."
+            "x-enum-varnames": [
+              "OAuthVariantDirect",
+              "OAuthVariantBackendProxy"
+            ],
+            "description": "OAuth flow variant. \"DIRECT\" means the website performs the full PKCE token exchange client-side. \"BACKEND_PROXY\" means the website sends the authorization code to the Port OS backend, which exchanges it for tokens on behalf of the user."
           }
         }
       },
@@ -23674,16 +24087,26 @@
           "authType": {
             "type": "string",
             "enum": [
-              "oauth2",
-              "2fa",
-              "api-key",
-              "api-key-endpoint",
-              "username-password",
-              "qr-code",
-              "code-link",
-              "none"
+              "OAUTH2",
+              "TWO_FACTOR",
+              "API_KEY",
+              "API_KEY_ENDPOINT",
+              "USERNAME_PASSWORD",
+              "QR_CODE",
+              "CODE_LINK",
+              "NONE"
             ],
-            "description": "Authentication type from plugin metadata (populated when expand=metadata). \"api-key\" accepts a single API key; \"api-key-endpoint\" accepts both an API key and a custom endpoint URL (used for OpenAI-compatible providers where users bring their own base URL); \"qr-code\" uses an access-code + QR code scanning flow (e.g., Tuya Smart app)."
+            "x-enum-varnames": [
+              "Oauth2",
+              "TwoFactor",
+              "ApiKey",
+              "ApiKeyEndpoint",
+              "UsernamePassword",
+              "QrCode",
+              "CodeLink",
+              "None"
+            ],
+            "description": "Authentication type from plugin metadata (populated when expand=metadata). \"API_KEY\" accepts a single API key; \"API_KEY_ENDPOINT\" accepts both an API key and a custom endpoint URL (used for OpenAI-compatible providers where users bring their own base URL); \"QR_CODE\" uses an access-code + QR code scanning flow (e.g., Tuya Smart app)."
           },
           "oauth": {
             "$ref": "#/components/schemas/PluginMetadataOAuth"
@@ -23815,8 +24238,12 @@
               "environment": {
                 "type": "string",
                 "enum": [
-                  "development",
-                  "production"
+                  "DEVELOPMENT",
+                  "PRODUCTION"
+                ],
+                "x-enum-varnames": [
+                  "ApplePushEnvironmentDevelopment",
+                  "ApplePushEnvironmentProduction"
                 ],
                 "description": "The environment to push against"
               },
@@ -24284,6 +24711,7 @@
           },
           "principalId": {
             "type": "string",
+            "x-enum-exempt": "principal identifier alias",
             "enum": [
               "~self"
             ],
@@ -24329,7 +24757,7 @@
       },
       "CreateEndpointGroupItem": {
         "type": "object",
-        "description": "The client-supplied fields of a new endpoint group. Members are added afterwards with `add-members` or created together through `/endpoint-groups-manage` `create_group`. A user group name is `{\"type\": \"PLAIN\", \"value\": ...}` whose value is non-blank UTF-8 text of at most 256 bytes with no control characters; anything else is rejected with BAD_REQUEST.\n",
+        "description": "The client-supplied fields of a new endpoint group. Members are added afterwards with `add-members` or created together through `/endpoint-groups-manage` `CREATE_GROUP`. A user group name is `{\"type\": \"PLAIN\", \"value\": ...}` whose value is non-blank UTF-8 text of at most 256 bytes with no control characters; anything else is rejected with BAD_REQUEST.\n",
         "additionalProperties": false,
         "required": [
           "name"
@@ -24368,6 +24796,46 @@
                 "value": "port1/systems/zero/endpoint-groups/123"
               }
             }
+          }
+        }
+      },
+      "EndpointGroupsSetEnablementOperation": {
+        "type": "object",
+        "description": "Enables or disables a group. A disabled group is hidden from group lists by default and cannot be targeted by messages such as clean-room. Rediscovery never re-enables it, so disabling (not deleting) is how a user hides a discovered group, such as a robot's room, for good.\n",
+        "additionalProperties": false,
+        "required": [
+          "requestId",
+          "operation",
+          "groupId",
+          "etag",
+          "enablement"
+        ],
+        "properties": {
+          "requestId": {
+            "$ref": "#/components/schemas/BatchOperationRequestId"
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "SET_ENABLEMENT"
+            ],
+            "x-enum-varnames": [
+              "SetEnablement"
+            ],
+            "description": "Operation discriminator."
+          },
+          "groupId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The endpoint group to modify."
+          },
+          "etag": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one.\n"
+          },
+          "enablement": {
+            "$ref": "#/components/schemas/Enablement"
           }
         }
       },
@@ -25101,6 +25569,7 @@
           "error": {
             "type": "string",
             "description": "OAuth error code",
+            "x-enum-exempt": "OAuth 2.0 error codes (RFC 6749)",
             "enum": [
               "invalid_request",
               "invalid_client",
@@ -25176,6 +25645,7 @@
       },
       "OAuthScope": {
         "type": "string",
+        "x-enum-exempt": "OAuth scope tokens carried in issued access tokens",
         "enum": [
           "endpoint:read",
           "endpoint:write",
@@ -25227,6 +25697,7 @@
           },
           "code_challenge_method": {
             "type": "string",
+            "x-enum-exempt": "PKCE code challenge methods (RFC 7636)",
             "enum": [
               "S256",
               "plain"
@@ -25288,7 +25759,8 @@
             "type": "string",
             "enum": [
               "none"
-            ]
+            ],
+            "x-enum-exempt": "RFC 7591 defines case-sensitive OAuth token endpoint authentication method identifiers."
           },
           "grant_types": {
             "type": "array",
@@ -25298,7 +25770,8 @@
               "enum": [
                 "authorization_code",
                 "refresh_token"
-              ]
+              ],
+              "x-enum-exempt": "RFC 6749 and RFC 7591 define case-sensitive OAuth grant type identifiers."
             }
           },
           "response_types": {
@@ -25309,7 +25782,8 @@
               "type": "string",
               "enum": [
                 "code"
-              ]
+              ],
+              "x-enum-exempt": "RFC 6749 and RFC 7591 define case-sensitive OAuth response type identifiers."
             }
           },
           "scope": {
@@ -25385,6 +25859,7 @@
           },
           "code_challenge_method": {
             "type": "string",
+            "x-enum-exempt": "PKCE code challenge methods (RFC 7636)",
             "enum": [
               "S256",
               "plain"
@@ -25990,11 +26465,18 @@
       "FlowRunStatus": {
         "type": "string",
         "enum": [
-          "initialized",
-          "running",
-          "completed",
-          "failed",
-          "paused"
+          "INITIALIZED",
+          "RUNNING",
+          "COMPLETED",
+          "FAILED",
+          "PAUSED"
+        ],
+        "x-enum-varnames": [
+          "FlowRunStatusInitialized",
+          "FlowRunStatusRunning",
+          "FlowRunStatusCompleted",
+          "FlowRunStatusFailed",
+          "FlowRunStatusPaused"
         ]
       },
       "FlowRun": {
@@ -26163,10 +26645,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "source",
-                "sink",
-                "trigger",
-                "processor"
+                "SOURCE",
+                "SINK",
+                "TRIGGER",
+                "PROCESSOR"
+              ],
+              "x-enum-varnames": [
+                "Source",
+                "Sink",
+                "Trigger",
+                "Processor"
               ]
             },
             "description": "List of interface flags indicating the capabilities of the flow node"
@@ -26483,6 +26971,7 @@
       "ViewSchemaVersion": {
         "type": "string",
         "description": "The schema version of the view",
+        "x-enum-exempt": "schema version identifiers",
         "enum": [
           "1.0"
         ]
@@ -26552,10 +27041,16 @@
             "type": "string",
             "description": "Notification priority level",
             "enum": [
-              "low",
-              "normal",
-              "high",
-              "urgent"
+              "LOW",
+              "NORMAL",
+              "HIGH",
+              "URGENT"
+            ],
+            "x-enum-varnames": [
+              "NotificationPayloadPriorityLow",
+              "NotificationPayloadPriorityNormal",
+              "NotificationPayloadPriorityHigh",
+              "NotificationPayloadPriorityUrgent"
             ]
           },
           "channels": {
@@ -26563,11 +27058,18 @@
             "items": {
               "type": "string",
               "enum": [
-                "push",
-                "email",
-                "sms",
-                "in-app",
-                "webhook"
+                "PUSH",
+                "EMAIL",
+                "SMS",
+                "IN_APP",
+                "WEBHOOK"
+              ],
+              "x-enum-varnames": [
+                "NotificationPayloadChannelsPush",
+                "NotificationPayloadChannelsEmail",
+                "NotificationPayloadChannelsSms",
+                "NotificationPayloadChannelsInApp",
+                "NotificationPayloadChannelsWebhook"
               ]
             },
             "description": "Channels to send the notification through"
@@ -26602,12 +27104,20 @@
             "type": "string",
             "description": "Interval unit",
             "enum": [
-              "seconds",
-              "minutes",
-              "hours",
-              "days",
-              "weeks",
-              "months"
+              "SECONDS",
+              "MINUTES",
+              "HOURS",
+              "DAYS",
+              "WEEKS",
+              "MONTHS"
+            ],
+            "x-enum-varnames": [
+              "Seconds",
+              "Minutes",
+              "Hours",
+              "Days",
+              "Weeks",
+              "Months"
             ]
           }
         },
@@ -27052,7 +27562,10 @@
           "format": {
             "type": "string",
             "enum": [
-              "sdp"
+              "SDP"
+            ],
+            "x-enum-varnames": [
+              "RtcOfferFormatSdp"
             ]
           },
           "value": {
@@ -27131,7 +27644,10 @@
           "format": {
             "type": "string",
             "enum": [
-              "sdp"
+              "SDP"
+            ],
+            "x-enum-varnames": [
+              "RtcAnswerFormatSdp"
             ]
           },
           "value": {
@@ -27450,9 +27966,9 @@
         "type": "string",
         "description": "Air quality standard",
         "enum": [
-          "AirQualityIndex",
-          "PartsPerMillion2_5",
-          "PartsPerMillion10"
+          "AIR_QUALITY_INDEX",
+          "PARTS_PER_MILLION_2_5",
+          "PARTS_PER_MILLION_10"
         ],
         "x-enum-varnames": [
           "AirQualityStandardAqi",
@@ -27582,7 +28098,7 @@
       },
       "OperationalState": {
         "type": "string",
-        "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+        "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
         "enum": [
           "STOPPED",
           "RUNNING",
@@ -27590,7 +28106,8 @@
           "ERROR",
           "CHARGING",
           "DOCKED",
-          "RETURNING_TO_DOCK"
+          "RETURNING_TO_DOCK",
+          "DOCK_MAINTENANCE"
         ],
         "x-enum-varnames": [
           "OperationalStateStopped",
@@ -27599,18 +28116,19 @@
           "OperationalStateError",
           "OperationalStateCharging",
           "OperationalStateDocked",
-          "OperationalStateReturningToDock"
+          "OperationalStateReturningToDock",
+          "OperationalStateDockMaintenance"
         ]
       },
       "PlaybackState": {
         "type": "string",
         "description": "The current playback state",
         "enum": [
-          "playing",
-          "paused",
-          "stopped",
-          "loading",
-          "error"
+          "PLAYING",
+          "PAUSED",
+          "STOPPED",
+          "LOADING",
+          "ERROR"
         ],
         "x-enum-varnames": [
           "PlaybackStatePlaying",
@@ -27834,10 +28352,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "success",
-                "failure",
-                "cancelled",
-                "timeout"
+                "SUCCESS",
+                "FAILURE",
+                "CANCELLED",
+                "TIMEOUT"
+              ],
+              "x-enum-varnames": [
+                "FlowSupportedStatusesFlowSuccess",
+                "FlowSupportedStatusesFlowFailure",
+                "FlowSupportedStatusesFlowCancelled",
+                "FlowSupportedStatusesFlowTimeout"
               ]
             },
             "description": "Supported flow statuses"
@@ -27847,10 +28371,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "success",
-                "failure",
-                "skipped",
-                "timeout"
+                "SUCCESS",
+                "FAILURE",
+                "SKIPPED",
+                "TIMEOUT"
+              ],
+              "x-enum-varnames": [
+                "FlowSupportedStatusesNodeSuccess",
+                "FlowSupportedStatusesNodeFailure",
+                "FlowSupportedStatusesNodeSkipped",
+                "FlowSupportedStatusesNodeTimeout"
               ]
             },
             "description": "Supported node statuses"
@@ -27860,9 +28390,14 @@
             "items": {
               "type": "string",
               "enum": [
-                "received",
-                "processed",
-                "failed"
+                "RECEIVED",
+                "PROCESSED",
+                "FAILED"
+              ],
+              "x-enum-varnames": [
+                "Received",
+                "Processed",
+                "Failed"
               ]
             },
             "description": "Supported acknowledgment statuses"
@@ -27884,11 +28419,18 @@
             "items": {
               "type": "string",
               "enum": [
-                "user_request",
-                "error",
-                "timeout",
-                "completion",
-                "cancellation"
+                "USER_REQUEST",
+                "ERROR",
+                "TIMEOUT",
+                "COMPLETION",
+                "CANCELLATION"
+              ],
+              "x-enum-varnames": [
+                "FlowSupportedReasonsTerminationUserRequest",
+                "FlowSupportedReasonsTerminationError",
+                "FlowSupportedReasonsTerminationTimeout",
+                "FlowSupportedReasonsTerminationCompletion",
+                "FlowSupportedReasonsTerminationCancellation"
               ]
             },
             "description": "Supported termination reasons"
@@ -27898,10 +28440,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "user_request",
-                "resource_limit",
-                "waiting",
-                "maintenance"
+                "USER_REQUEST",
+                "RESOURCE_LIMIT",
+                "WAITING",
+                "MAINTENANCE"
+              ],
+              "x-enum-varnames": [
+                "FlowSupportedReasonsPauseUserRequest",
+                "FlowSupportedReasonsPauseResourceLimit",
+                "FlowSupportedReasonsPauseWaiting",
+                "FlowSupportedReasonsPauseMaintenance"
               ]
             },
             "description": "Supported pause reasons"
@@ -27911,10 +28459,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "timeout",
-                "error",
-                "rejected",
-                "duplicate"
+                "TIMEOUT",
+                "ERROR",
+                "REJECTED",
+                "DUPLICATE"
+              ],
+              "x-enum-varnames": [
+                "FlowSupportedReasonsUnackTimeout",
+                "FlowSupportedReasonsUnackError",
+                "FlowSupportedReasonsUnackRejected",
+                "FlowSupportedReasonsUnackDuplicate"
               ]
             },
             "description": "Supported unacknowledgment reasons"
@@ -27995,12 +28549,20 @@
             "items": {
               "type": "string",
               "enum": [
-                "track",
-                "album",
-                "artist",
-                "playlist",
-                "genre",
-                "year"
+                "TRACK",
+                "ALBUM",
+                "ARTIST",
+                "PLAYLIST",
+                "GENRE",
+                "YEAR"
+              ],
+              "x-enum-varnames": [
+                "Configuration6SupportedSearchTypesTrack",
+                "Configuration6SupportedSearchTypesAlbum",
+                "Configuration6SupportedSearchTypesArtist",
+                "Configuration6SupportedSearchTypesPlaylist",
+                "Configuration6SupportedSearchTypesGenre",
+                "Configuration6SupportedSearchTypesYear"
               ]
             },
             "description": "List of supported search types"
@@ -28017,11 +28579,18 @@
             "items": {
               "type": "string",
               "enum": [
-                "spotify",
-                "youtube",
-                "apple-music",
-                "local",
-                "all"
+                "SPOTIFY",
+                "YOUTUBE",
+                "APPLE_MUSIC",
+                "LOCAL",
+                "ALL"
+              ],
+              "x-enum-varnames": [
+                "Spotify",
+                "Youtube",
+                "AppleMusic",
+                "Local",
+                "All"
               ]
             },
             "description": "List of supported media providers"
@@ -28070,11 +28639,18 @@
             "items": {
               "type": "string",
               "enum": [
-                "push",
-                "email",
-                "sms",
-                "in-app",
-                "webhook"
+                "PUSH",
+                "EMAIL",
+                "SMS",
+                "IN_APP",
+                "WEBHOOK"
+              ],
+              "x-enum-varnames": [
+                "Push",
+                "Email",
+                "Sms",
+                "InApp",
+                "Webhook"
               ]
             },
             "description": "Supported notification channels"
@@ -28083,12 +28659,18 @@
             "type": "string",
             "description": "Default priority for notifications",
             "enum": [
-              "low",
-              "normal",
-              "high",
-              "urgent"
+              "LOW",
+              "NORMAL",
+              "HIGH",
+              "URGENT"
             ],
-            "default": "normal"
+            "x-enum-varnames": [
+              "Configuration7DefaultPriorityLow",
+              "Configuration7DefaultPriorityNormal",
+              "Configuration7DefaultPriorityHigh",
+              "Configuration7DefaultPriorityUrgent"
+            ],
+            "default": "NORMAL"
           }
         },
         "required": [

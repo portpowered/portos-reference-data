@@ -38,7 +38,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EnumerateSubscriptionsResponse'
+            $ref: /docs/references/schemas/EnumerateSubscriptionsResponse.json
           example:
             results: []
             paginationContext:
@@ -48,12 +48,11 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
   parameters:
     - name: expand
       in: query
@@ -95,4 +94,9 @@ get:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [EnumerateSubscriptionsResponse.json](/docs/references/schemas/EnumerateSubscriptionsResponse.json)
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

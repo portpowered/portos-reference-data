@@ -48,7 +48,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/EstablishPluginRequest'
+          $ref: /docs/references/schemas/EstablishPluginRequest.json
         example:
           plugin:
             type: LIGHT
@@ -58,7 +58,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EstablishPluginResponse'
+            $ref: /docs/references/schemas/EstablishPluginResponse.json
           example:
             pluginId: port1/principals/example
     '400':
@@ -66,21 +66,29 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL
+            code: INTERNAL
+            family: INTERNAL_SERVER_ERROR
   x-portos-delegated: false
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [EstablishPluginRequest.json](/docs/references/schemas/EstablishPluginRequest.json)
+- [EstablishPluginResponse.json](/docs/references/schemas/EstablishPluginResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

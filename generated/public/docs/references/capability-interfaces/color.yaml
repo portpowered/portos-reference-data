@@ -2,8 +2,8 @@ name: color
 namespace: port1/systems/zero/capability-interfaces/color
 version: '1.0'
 description: >-
-  Color sets and reports the color of a connected device. Use it to coordinate
-  lighting for a scene or let an assistant choose a new color.
+  Color sets and reports the color of a connected device. Use it to coordinate lighting for a scene
+  or let an assistant choose a new color.
 messages:
   - name: set-color
     description: null

@@ -2,8 +2,8 @@ name: flow-sensor
 namespace: port1/systems/zero/capability-interfaces/flow-sensor
 version: '1.0'
 description: >-
-  Flow measurements report the flow observed by a sensor. Use the reading and
-  its declared units to monitor changes in a connected system.
+  Flow measurements report the flow observed by a sensor. Use the reading and its declared units to
+  monitor changes in a connected system.
 messages: []
 attributes:
   - name: measured-value

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "deviceauth_id",
+    "client_name",
+    "client_id",
+    "status"
+  ],
+  "description": "Response from the /oauth/verify-device endpoint. Contains device and client information for display on the authorization page.\n",
+  "properties": {
+    "deviceauth_id": {
+      "type": "string",
+      "description": "Unique identifier for the device authentication entry",
+      "example": "da_1234567890abcdef"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Display name of the OAuth client requesting authorization",
+      "example": "My OAuth Application"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "OAuth client identifier",
+      "example": "port1/principals/user123/oauth-clients/my-client"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the device authentication (e.g., \"pending\", \"authorized\", \"expired\")",
+      "example": "pending"
+    },
+    "logo_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Logo URI for the client (optional)",
+      "example": "https://myapp.com/logo.png"
+    },
+    "client_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Client URI (optional)",
+      "example": "https://myapp.com"
+    },
+    "tos_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Terms of Service URI (optional)",
+      "example": "https://myapp.com/terms"
+    },
+    "policy_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Privacy Policy URI (optional)",
+      "example": "https://myapp.com/privacy"
+    }
+  }
+}

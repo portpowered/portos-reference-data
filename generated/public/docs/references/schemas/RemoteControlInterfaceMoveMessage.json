@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/remote-control",
+  "x-name": "move",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "velocity": {
+      "type": "number",
+      "description": "Forward/backward speed"
+    },
+    "omega": {
+      "type": "number",
+      "description": "Angular velocity for turning"
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Duration in milliseconds"
+    },
+    "seqNum": {
+      "type": "integer",
+      "description": "Sequence number for ordering move commands"
+    }
+  },
+  "required": [
+    "velocity",
+    "omega",
+    "duration",
+    "seqNum"
+  ],
+  "additionalProperties": false
+}

@@ -10,10 +10,10 @@
       "type": "string",
       "description": "Completion status",
       "enum": [
-        "success",
-        "failure",
-        "cancelled",
-        "timeout"
+        "SUCCESS",
+        "FAILURE",
+        "CANCELLED",
+        "TIMEOUT"
       ]
     },
     "result": {

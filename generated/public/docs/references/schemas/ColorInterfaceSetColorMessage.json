@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/color",
+  "x-name": "set-color",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "required": [
+    "color"
+  ],
+  "properties": {
+    "color": {
+      "$ref": "/docs/references/schemas/HsbColor.json"
+    }
+  },
+  "additionalProperties": false
+}

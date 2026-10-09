@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/RtcSessionRoborockPinAuthorization.json"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "ROBOROCK_PIN": "/docs/references/schemas/RtcSessionRoborockPinAuthorization.json"
+    }
+  }
+}

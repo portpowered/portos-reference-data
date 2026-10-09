@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/BasePlugin.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "connectionId",
+        "active"
+      ],
+      "properties": {
+        "connectionId": {
+          "type": "string",
+          "description": "Unique identifier provided for a websocket by the websocket gateway"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Whether the websocket connection is active"
+        }
+      }
+    }
+  ]
+}

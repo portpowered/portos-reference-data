@@ -2,8 +2,8 @@ name: nitrogen-dioxide-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/nitrogen-dioxide-concentration-sensor
 version: '1.0'
 description: >-
-  Nitrogen dioxide measurements report the concentration observed by a sensor.
-  Use the value and its declared units in environmental monitoring.
+  Nitrogen dioxide measurements report the concentration observed by a sensor. Use the value and its
+  declared units in environmental monitoring.
 messages: []
 attributes:
   - name: measured-value

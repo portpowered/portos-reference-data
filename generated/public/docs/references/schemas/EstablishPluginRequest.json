@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "plugin"
+  ],
+  "properties": {
+    "plugin": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The plugin type (e.g. local, webservice, applePushNotification)\n"
+        },
+        "applePushNotificationPlugin": {
+          "type": "object",
+          "description": "Configuration for Apple Push Notification plugins"
+        },
+        "webservicePlugin": {
+          "type": "object",
+          "description": "Configuration for HTTP-based remote plugins"
+        },
+        "localPlugin": {
+          "type": "object",
+          "description": "Configuration for plugins running on the server instance"
+        },
+        "clientCredentials": {
+          "type": "object",
+          "description": "OAuth client credentials for webservice plugins",
+          "properties": {
+            "clientId": {
+              "type": "string"
+            },
+            "clientSecret": {
+              "type": "string"
+            },
+            "tokenEndpoint": {
+              "type": "string"
+            }
+          }
+        },
+        "secretReferenceId": {
+          "type": "string",
+          "description": "Reference to an existing secret in the secret store"
+        },
+        "applePushNotificationSecret": {
+          "type": "object",
+          "description": "APNS authentication token secret"
+        }
+      }
+    }
+  }
+}

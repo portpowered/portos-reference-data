@@ -1,0 +1,10 @@
+type: object
+properties:
+  catalogVendorId:
+    type: integer
+    description: Catalog vendor ID
+    minimum: 0
+additionalProperties: false
+description: >-
+  Application launchers start and stop applications on a connected device. Check the available
+  applications and the current selection before choosing what to launch.

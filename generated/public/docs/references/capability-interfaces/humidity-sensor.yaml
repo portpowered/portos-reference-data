@@ -2,8 +2,8 @@ name: humidity-sensor
 namespace: port1/systems/zero/capability-interfaces/humidity-sensor
 version: '1.0'
 description: >-
-  Humidity sensors report relative humidity. Use the reading to display room
-  conditions or provide input to a ventilation or humidifier flow.
+  Humidity sensors report relative humidity. Use the reading to display room conditions or provide
+  input to a ventilation or humidifier flow.
 messages: []
 attributes:
   - name: relative-humidity

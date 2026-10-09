@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Legacy string-name application/json projection; default representation remains unchanged.",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/SimulatorSharedFields.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name; legacy application/json projection of the canonical PLAIN name."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the simulator (optional; if provided, performs an update/upsert)",
+          "pattern": "^port1\\.simulator\\..*"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "audio-stream",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "properties": {
+    "streamId": {
+      "type": "string",
+      "description": "Unique identifier for this audio stream",
+      "minLength": 1
+    },
+    "sequenceId": {
+      "type": "integer",
+      "description": "Sequence ID for this audio stream",
+      "minimum": 0
+    },
+    "isFinal": {
+      "type": "boolean",
+      "description": "Whether this is the final chunk in the stream",
+      "default": false
+    },
+    "audioData": {
+      "type": "string",
+      "description": "Base64 encoded audio data",
+      "format": "base64"
+    },
+    "rawBytes": {
+      "type": "string",
+      "description": "Audio raw bytes",
+      "format": "binary",
+      "x-go-json-ignore": true,
+      "x-go-type": "[]byte"
+    }
+  },
+  "required": [
+    "streamId",
+    "sequenceId",
+    "isFinal"
+  ],
+  "additionalProperties": false
+}

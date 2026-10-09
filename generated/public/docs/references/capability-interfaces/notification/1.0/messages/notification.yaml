@@ -18,20 +18,20 @@ properties:
     type: string
     description: Notification priority level
     enum:
-      - low
-      - normal
-      - high
-      - urgent
+      - LOW
+      - NORMAL
+      - HIGH
+      - URGENT
   channels:
     type: array
     items:
       type: string
       enum:
-        - push
-        - email
-        - sms
-        - in-app
-        - webhook
+        - PUSH
+        - EMAIL
+        - SMS
+        - IN_APP
+        - WEBHOOK
     description: Channels to send the notification through
   targetUsers:
     type: array

@@ -2,9 +2,8 @@ name: carbon-dioxide-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/carbon-dioxide-concentration-sensor
 version: '1.0'
 description: >-
-  Carbon dioxide measurements report the concentration observed by a sensor,
-  including its minimum and maximum readings. Use them to track changes in
-  indoor conditions over time.
+  Carbon dioxide measurements report the concentration observed by a sensor, including its minimum
+  and maximum readings. Use them to track changes in indoor conditions over time.
 messages: []
 attributes:
   - name: max-measured-value

@@ -2,9 +2,8 @@ name: connectivity
 namespace: port1/systems/zero/capability-interfaces/connectivity
 version: '1.0'
 description: >-
-  Connectivity tells you whether a connected device is reachable. Use its
-  reported state to explain an unavailable device or decide when to retry an
-  action.
+  Connectivity tells you whether a connected device is reachable. Use its reported state to explain
+  an unavailable device or decide when to retry an action.
 messages: []
 attributes:
   - name: network-throughput

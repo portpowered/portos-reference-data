@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the principal",
+      "pattern": "^port1/[^/]+/[^/]+$"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The owner ID of the principal"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the principal"
+    },
+    "googleEmail": {
+      "type": "string",
+      "description": "The Google email associated with the principal"
+    },
+    "googleIdentity": {
+      "type": "string",
+      "description": "The Google identity associated with the principal"
+    },
+    "appleEmail": {
+      "type": "string",
+      "description": "The Apple email associated with the principal"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "requesterId"
+  ],
+  "properties": {
+    "requesterId": {
+      "type": "string",
+      "description": "The ID of the requester"
+    }
+  }
+}

@@ -2,24 +2,21 @@ name: robotic-vacuum-cleaner
 namespace: port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
 version: '1.0'
 description: >-
-  Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a
-  cleaning mode and read the reported mode and operational state to follow a
-  cleaning session.
+  Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a cleaning mode and read
+  the reported mode and operational state to follow a cleaning session.
 messages:
   - name: clean-room
     description: >-
-      Clean one or more rooms, in the requested order. Each entry is a canonical
-      endpoint group the robot can control through a CAN_CONTROL relationship.
-      More than one room requires the configuration to declare
-      supportsMultiRoomCleaning; otherwise the request is rejected with
+      Clean one or more rooms, in the requested order. Each entry is a canonical endpoint group the
+      robot can control through a CAN_CONTROL relationship. More than one room requires the
+      configuration to declare supportsMultiRoomCleaning; otherwise the request is rejected with
       MULTI_ROOM_UNSUPPORTED.
     directionality: in
     schema:
       description: >-
-        Clean one or more rooms, in the requested order. Each entry is a
-        canonical endpoint group the robot can control through a CAN_CONTROL
-        relationship. More than one room requires the configuration to declare
-        supportsMultiRoomCleaning; otherwise the request is rejected with
+        Clean one or more rooms, in the requested order. Each entry is a canonical endpoint group
+        the robot can control through a CAN_CONTROL relationship. More than one room requires the
+        configuration to declare supportsMultiRoomCleaning; otherwise the request is rejected with
         MULTI_ROOM_UNSUPPORTED.
       type: object
       properties:
@@ -108,9 +105,10 @@ attributes:
         value:
           type: string
           description: >-
-            Operational state of a device. RETURNING_TO_DOCK means a robot is
-            driving back to its dock; DOCKED means it is on the dock and not
-            charging.
+            Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its
+            dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on
+            the dock while the dock services it (emptying the dust bin, washing or drying the mop),
+            and it does not start cleaning until that finishes.
           enum:
             - STOPPED
             - RUNNING
@@ -119,6 +117,7 @@ attributes:
             - CHARGING
             - DOCKED
             - RETURNING_TO_DOCK
+            - DOCK_MAINTENANCE
       required:
         - value
       additionalProperties: false
@@ -144,21 +143,19 @@ configuration:
     supportsRoomCleaning:
       type: boolean
       description: >-
-        Whether the vacuum accepts clean-room for rooms it declares CAN_CONTROL
-        on. Vacuums that omit it do not advertise clean-room.
+        Whether the vacuum accepts clean-room for rooms it declares CAN_CONTROL on. Vacuums that
+        omit it do not advertise clean-room.
       default: false
     supportsMultiRoomCleaning:
       type: boolean
       description: >-
-        Whether clean-room accepts more than one room in one request. When
-        false, more than one groupId is rejected with MULTI_ROOM_UNSUPPORTED
-        before dispatch.
+        Whether clean-room accepts more than one room in one request. When false, more than one
+        groupId is rejected with MULTI_ROOM_UNSUPPORTED before dispatch.
       default: false
   additionalProperties: false
   description: >-
-    Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a
-    cleaning mode and read the reported mode and operational state to follow a
-    cleaning session.
+    Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a cleaning mode and
+    read the reported mode and operational state to follow a cleaning session.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

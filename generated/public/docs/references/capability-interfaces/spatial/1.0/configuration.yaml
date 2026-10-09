@@ -1,0 +1,51 @@
+description: >-
+  Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial
+  interface declares no control messages; cleaning is sent to the robot endpoint.
+type: object
+required:
+  - role
+properties:
+  role:
+    type: string
+    description: 'Spatial role of a group route: a whole home, a floor or map, a room, or a zone within a room'
+    enum:
+      - HOME
+      - FLOOR
+      - ROOM
+      - ZONE
+  coordinateSystem:
+    type: object
+    description: >-
+      Coordinate system of a provider frame. Declared only where the provider's units and axes are
+      proven.
+    required:
+      - unit
+      - dimensions
+      - xAxis
+      - yAxis
+    properties:
+      unit:
+        type: string
+        enum:
+          - METER
+        description: Length unit of coordinates in this frame
+      dimensions:
+        type: integer
+        minimum: 2
+        maximum: 3
+        description: Number of coordinate dimensions
+      xAxis:
+        type: string
+        description: >-
+          Direction in which an axis increases, relative to the provider's map as presented to the
+          user
+        enum:
+          - RIGHT
+          - LEFT
+          - UP
+          - DOWN
+      yAxis:
+        $ref: '#/properties/coordinateSystem/properties/xAxis'
+    additionalProperties: false
+    title: SpatialCoordinateSystem
+additionalProperties: false

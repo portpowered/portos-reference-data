@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A merged-away group ID and the group it now redirects to. Reads and control follow redirects; mutations fail with GROUP_MERGED.",
+  "additionalProperties": false,
+  "required": [
+    "from",
+    "to"
+  ],
+  "properties": {
+    "from": {
+      "type": "string",
+      "description": "The merged-away group ID."
+    },
+    "to": {
+      "type": "string",
+      "description": "The group it redirects to."
+    }
+  }
+}

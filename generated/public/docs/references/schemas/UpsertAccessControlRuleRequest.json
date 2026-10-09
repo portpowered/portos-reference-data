@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "operation",
+    "resource",
+    "identity",
+    "effect"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the access control rule to upsert on.\n",
+      "example": "port1/systems/zero/access-control-rules/123"
+    },
+    "effect": {
+      "$ref": "/docs/references/schemas/AccessControlRuleEffect.json"
+    },
+    "operation": {
+      "type": "string",
+      "description": "The operation to grant access to.  This could be a read, write, delete, etc.  Please see the access controls list specification for all operations and their descriptions. \n",
+      "example": [
+        "port1/systems/zero/operations/flow-read",
+        "port1/systems/zero/operations/endpoint-name-update",
+        "port1/systems/zero/operations/endpoint-delete"
+      ]
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource to grant access to.  This could be an endpoint, a flow, a secret, etc.  You can define this as either a class of resources, or a specific resource. \nExamples: - port1/users/alice/endpoints/thermostat-zero grants access to that thermostat - port1/users/alice/flows/* grants access to all flows owned by alice\n",
+      "example": "port1/users/alice/endpoints/thermostat-zero"
+    },
+    "identity": {
+      "type": "string",
+      "description": "The identity to grant access to. This could be a user, a role, a group, etc. You can define this as either a class of identities, or a specific identity.\nExamples: - port1/account/john/users/alice grants access to alice - port1/account/john/users/* grants access to all users owned by john - * just grants access to all identities\n",
+      "example": "port1/account/john/users/alice"
+    }
+  }
+}

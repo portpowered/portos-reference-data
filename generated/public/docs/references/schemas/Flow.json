@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "name"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the flow",
+      "pattern": "^.*\\\\.*\\\\.*\\\\flows\\\\..*",
+      "x-order": 1
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "x-order": 2
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The owner ID of the flow",
+      "x-order": 3
+    },
+    "assumePrincipalId": {
+      "type": "string",
+      "description": "The ID of the principal to assume for the flow. If this is set to ~caller, then the flow assume the requester's identity for the duration of the flow run.  If this is set to ~owner, then the flow assumes the owner's identity for the duration of the flow run.\n",
+      "x-order": 4
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/FlowNode.json"
+      },
+      "description": "List of nodes used by the flow",
+      "x-order": 5
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/FlowLink.json"
+      },
+      "description": "List of links between nodes in the flow",
+      "x-order": 6
+    }
+  }
+}

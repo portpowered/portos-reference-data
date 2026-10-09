@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/spatial",
+  "x-name": "geometry",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Observed area of the group route in the coordinate system of its reference frame",
+  "type": "object",
+  "required": [
+    "shape",
+    "observedAt"
+  ],
+  "properties": {
+    "shape": {
+      "$ref": "/docs/references/schemas/SpatialShape.json"
+    },
+    "relativeToGroupId": {
+      "type": "string",
+      "description": "Canonical endpoint group whose frame the coordinates use"
+    },
+    "relativeToGroupRouteId": {
+      "type": "string",
+      "description": "Provider group route whose coordinate system the coordinates use"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the provider observed this geometry"
+    }
+  },
+  "additionalProperties": false
+}

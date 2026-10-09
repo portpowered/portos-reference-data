@@ -2,8 +2,8 @@ name: speaker
 namespace: port1/systems/zero/capability-interfaces/speaker
 version: '1.0'
 description: >-
-  Speakers set or adjust volume and change mute state. Read the current volume
-  and mute state to keep playback controls in step with the device.
+  Speakers set or adjust volume and change mute state. Read the current volume and mute state to
+  keep playback controls in step with the device.
 messages:
   - name: adjust-volume
     description: null

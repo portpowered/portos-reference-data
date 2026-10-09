@@ -42,7 +42,7 @@ jobs:
           cache: false
       - name: Verify package version and identical public assets
         run: |
-          node --input-type=module -e 'import fs from "node:fs"; const p=JSON.parse(fs.readFileSync("package.json")); const m=JSON.parse(fs.readFileSync("generated/public/docs/references/manifest.json")); if(p.name!=="@portpowered/reference-data" || `v${p.version}`!==process.env.RELEASE_TAG || m.version!==p.version) throw new Error("Release identity mismatch");'
+          node --input-type=module -e 'import fs from "node:fs"; const p=JSON.parse(fs.readFileSync("package.json")); const m=JSON.parse(fs.readFileSync("generated/public/docs/references/manifest.json")); if(p.name!=="@portpowered/reference-data" || `v${p.version}`!==process.env.RELEASE_TAG || m.version!==p.version || m.sourceInputState!=="committed") throw new Error("Release identity or committed input provenance mismatch");'
           npm run check
           go test ./...
       - name: Publish through npm trusted publishing

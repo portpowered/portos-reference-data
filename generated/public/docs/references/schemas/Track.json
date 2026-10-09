@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Track information",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the track",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Track name",
+      "minLength": 1
+    },
+    "artists": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Artist.json"
+      },
+      "description": "Track artists"
+    },
+    "album": {
+      "$ref": "/docs/references/schemas/Album.json",
+      "description": "Track album"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "artists",
+    "album"
+  ],
+  "additionalProperties": false
+}

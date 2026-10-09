@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "owner",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the entity"
+    },
+    "type": {
+      "$ref": "/docs/references/schemas/AuthResourceType.json",
+      "description": "The type of the entity"
+    },
+    "owner": {
+      "type": "string",
+      "description": "The owner of the entity"
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional context for the entity"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/text-stream",
+  "x-name": "text-stream",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "properties": {
+    "streamId": {
+      "type": "string",
+      "description": "Unique identifier for this text stream",
+      "minLength": 1
+    },
+    "sequenceId": {
+      "type": "integer",
+      "description": "Sequence ID for this text stream",
+      "minimum": 0
+    },
+    "isFinal": {
+      "type": "boolean",
+      "description": "Whether this is the final chunk in the stream",
+      "default": false
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "streamId",
+    "text",
+    "sequenceId",
+    "isFinal"
+  ],
+  "additionalProperties": false
+}

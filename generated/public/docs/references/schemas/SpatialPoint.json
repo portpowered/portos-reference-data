@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "GeoJSON-like point",
+  "required": [
+    "type",
+    "coordinates"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "x-enum-exempt": "GeoJSON geometry type (RFC 7946)",
+      "enum": [
+        "Point"
+      ]
+    },
+    "coordinates": {
+      "$ref": "/docs/references/schemas/SpatialCoordinate.json"
+    }
+  },
+  "additionalProperties": false
+}

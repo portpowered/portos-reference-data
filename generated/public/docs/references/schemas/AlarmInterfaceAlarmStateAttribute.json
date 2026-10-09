@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AlarmInterfaceAlarmStateAttribute",
+  "x-namespace": "port1/systems/zero/capability-interfaces/alarm",
+  "x-name": "alarm-state",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Alarm state.",
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "description": "Whether the audible alarm is currently sounding."
+    }
+  },
+  "required": [
+    "active"
+  ],
+  "additionalProperties": false
+}

@@ -10,10 +10,10 @@
       "type": "string",
       "description": "Reason for pausing",
       "enum": [
-        "user_request",
-        "resource_limit",
-        "waiting",
-        "maintenance"
+        "USER_REQUEST",
+        "RESOURCE_LIMIT",
+        "WAITING",
+        "MAINTENANCE"
       ]
     },
     "checkpoint": {

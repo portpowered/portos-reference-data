@@ -2,8 +2,8 @@ name: thermostat
 namespace: port1/systems/zero/capability-interfaces/thermostat
 version: '1.0'
 description: >-
-  Thermostats set a target temperature and select a heating or cooling mode.
-  Read the reported setpoints and operating mode to show the current settings.
+  Thermostats set a target temperature and select a heating or cooling mode. Read the reported
+  setpoints and operating mode to show the current settings.
 messages:
   - name: adjust-target-temperature
     description: null
@@ -150,8 +150,8 @@ configuration:
         type: string
   additionalProperties: false
   description: >-
-    Thermostats set a target temperature and select a heating or cooling mode.
-    Read the reported setpoints and operating mode to show the current settings.
+    Thermostats set a target temperature and select a heating or cooling mode. Read the reported
+    setpoints and operating mode to show the current settings.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

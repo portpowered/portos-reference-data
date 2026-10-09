@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/flows",
+  "x-name": "message-unack",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow",
+      "minLength": 1
+    },
+    "messageId": {
+      "type": "string",
+      "description": "Unique identifier for the unacknowledged message",
+      "minLength": 1
+    },
+    "unackId": {
+      "type": "string",
+      "description": "Unique identifier for this unacknowledgment",
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for unacknowledgment",
+      "enum": [
+        "TIMEOUT",
+        "ERROR",
+        "REJECTED",
+        "DUPLICATE"
+      ],
+      "x-enum-varnames": [
+        "FlowsInterfaceMessageUnackMessageReasonTimeout",
+        "FlowsInterfaceMessageUnackMessageReasonError",
+        "FlowsInterfaceMessageUnackMessageReasonRejected",
+        "FlowsInterfaceMessageUnackMessageReasonDuplicate"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Unacknowledgment timestamp"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the unacknowledgment",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId",
+    "messageId",
+    "unackId",
+    "reason",
+    "timestamp"
+  ],
+  "additionalProperties": false
+}

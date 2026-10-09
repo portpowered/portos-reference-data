@@ -2,8 +2,8 @@ name: ozone-concentration-sensor
 namespace: port1/systems/zero/capability-interfaces/ozone-concentration-sensor
 version: '1.0'
 description: >-
-  Ozone measurements report the concentration observed by a sensor. Use the
-  reading and its declared unit when displaying environmental conditions.
+  Ozone measurements report the concentration observed by a sensor. Use the reading and its declared
+  unit when displaying environmental conditions.
 messages: []
 attributes:
   - name: measured-value

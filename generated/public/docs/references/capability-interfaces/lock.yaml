@@ -2,8 +2,8 @@ name: lock
 namespace: port1/systems/zero/capability-interfaces/lock
 version: '1.0'
 description: >-
-  Locks accept lock and unlock commands and report their lock state. Use the
-  reported state to check an entryway before requesting a change.
+  Locks accept lock and unlock commands and report their lock state. Use the reported state to check
+  an entryway before requesting a change.
 messages:
   - name: lock
     description: null

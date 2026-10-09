@@ -263,11 +263,11 @@ attributes:
           type: string
           description: The current playback state
           enum:
-            - playing
-            - paused
-            - stopped
-            - loading
-            - error
+            - PLAYING
+            - PAUSED
+            - STOPPED
+            - LOADING
+            - ERROR
       required:
         - value
       additionalProperties: false
@@ -283,11 +283,11 @@ configuration:
         type: string
         description: The current playback state
         enum:
-          - playing
-          - paused
-          - stopped
-          - loading
-          - error
+          - PLAYING
+          - PAUSED
+          - STOPPED
+          - LOADING
+          - ERROR
       description: Supported playback states
     supportedPlaybackSpeeds:
       type: array
@@ -314,27 +314,27 @@ configuration:
       items:
         type: string
         enum:
-          - audio
-          - video
-          - image
-          - playlist
+          - AUDIO
+          - VIDEO
+          - IMAGE
+          - PLAYLIST
       description: List of supported media types
     supportedFormats:
       type: array
       items:
         type: string
         enum:
-          - mp3
-          - wav
-          - flac
-          - aac
-          - ogg
-          - mp4
-          - avi
-          - mkv
-          - jpg
-          - png
-          - gif
+          - MP3
+          - WAV
+          - FLAC
+          - AAC
+          - OGG
+          - MP4
+          - AVI
+          - MKV
+          - JPG
+          - PNG
+          - GIF
       description: List of supported media formats
     maxPlaylistSize:
       type: integer
@@ -345,10 +345,10 @@ configuration:
       type: string
       description: Default quality setting for media playback
       enum:
-        - low
-        - medium
-        - high
-        - lossless
+        - LOW
+        - MEDIUM
+        - HIGH
+        - LOSSLESS
     supportsPlayURI:
       type: boolean
       description: Whether the endpoint can play an audio URI.

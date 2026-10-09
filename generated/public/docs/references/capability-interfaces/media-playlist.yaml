@@ -2,8 +2,8 @@ name: media-playlist
 namespace: port1/systems/zero/capability-interfaces/media-playlist
 version: '1.0'
 description: >-
-  Media playlists create and manage a collection of items to play. Add or remove
-  items, retrieve a playlist, shuffle it, or ask the device to play it.
+  Media playlists create and manage a collection of items to play. Add or remove items, retrieve a
+  playlist, shuffle it, or ask the device to play it.
 messages:
   - name: add-to-playlist
     description: null

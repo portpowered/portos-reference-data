@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Request payload for synchronizing plugin routes, group routes and their relationships with the system. When a route in this payload includes `id`, that value is advisory for synchronization and is not the stable identifier to assert after enumeration unless a specific implementation documents preservation. Newly persisted synchronized routes can receive backend-generated, owner-scoped Port OS route IDs; use each route's `associatedPluginRouteId` to match the stable plugin-owned or fixture route identity. Omitted group routes and relationships are not deletion instructions. Every reference must resolve to committed data or to an item in the same request.\n",
+  "required": [
+    "routes"
+  ],
+  "properties": {
+    "pluginIdentity": {
+      "$ref": "/docs/references/schemas/ClientIdentity.json"
+    },
+    "authLinkIdentity": {
+      "type": "string",
+      "description": "The ID of the auth link"
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Route.json"
+      },
+      "description": "List of routes to synchronize. Route `id` values supplied here are not the stable plugin capability lookup surface after synchronization; match enumerated routes by `associatedPluginRouteId`.\n"
+    },
+    "groupRoutes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/GroupRoute.json"
+      },
+      "description": "Group routes (maps, rooms, provider groups) to create or update, keyed by `pluginRouteId` within the plugin and auth link.\n"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PluginDiscoveryRelationship.json"
+      },
+      "description": "Typed relationships between the reported routes and group routes."
+    }
+  }
+}

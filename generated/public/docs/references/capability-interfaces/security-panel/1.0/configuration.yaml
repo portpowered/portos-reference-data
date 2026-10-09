@@ -1,0 +1,71 @@
+type: object
+properties:
+  supportedAuthorizationTypes:
+    type: array
+    items:
+      type: object
+      description: A supported security authorization type
+      properties:
+        type:
+          type: string
+          enum:
+            - FOUR_DIGIT_PIN
+      title: SecurityAuthorizationType
+  supportedArmStates:
+    type: array
+    items:
+      type: object
+      description: A supported security arm state
+      properties:
+        value:
+          type: string
+          enum:
+            - ARMED_AWAY
+            - ARMED_STAY
+            - ARMED_NIGHT
+            - DISARMED
+      title: SecurityArmState
+  alerts:
+    type: array
+    items:
+      type: object
+      description: A security alert type
+      properties:
+        type:
+          type: string
+          enum:
+            - CHIME
+            - SIREN
+            - ENTRY_DELAY
+            - EXIT_DELAY
+      title: SecurityAlert
+  assets:
+    type: array
+    items:
+      type: object
+  playlists:
+    type: array
+    items:
+      type: object
+      description: A security panel audio playlist
+      properties:
+        id:
+          type: string
+        playOrder:
+          type: array
+          items:
+            type: object
+            description: A play order item for security panel audio playback
+            properties:
+              assetId:
+                type: string
+              loopCount:
+                type: integer
+              loopPauseInMilliseconds:
+                type: integer
+            title: SecurityPlayOrderItem
+      title: SecurityPlaylist
+additionalProperties: false
+description: >-
+  Security panels accept arm and disarm commands and report alarm and arming states. Use those
+  reports to show the status supplied by a connected panel.

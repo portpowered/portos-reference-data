@@ -16,10 +16,10 @@ properties:
     type: string
     description: Reason for unacknowledgment
     enum:
-      - timeout
-      - error
-      - rejected
-      - duplicate
+      - TIMEOUT
+      - ERROR
+      - REJECTED
+      - DUPLICATE
   timestamp:
     type: string
     format: date-time

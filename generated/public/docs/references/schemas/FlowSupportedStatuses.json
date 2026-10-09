@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Supported flow status categories",
+  "properties": {
+    "flow": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SUCCESS",
+          "FAILURE",
+          "CANCELLED",
+          "TIMEOUT"
+        ],
+        "x-enum-varnames": [
+          "FlowSupportedStatusesFlowSuccess",
+          "FlowSupportedStatusesFlowFailure",
+          "FlowSupportedStatusesFlowCancelled",
+          "FlowSupportedStatusesFlowTimeout"
+        ]
+      },
+      "description": "Supported flow statuses"
+    },
+    "node": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SUCCESS",
+          "FAILURE",
+          "SKIPPED",
+          "TIMEOUT"
+        ],
+        "x-enum-varnames": [
+          "FlowSupportedStatusesNodeSuccess",
+          "FlowSupportedStatusesNodeFailure",
+          "FlowSupportedStatusesNodeSkipped",
+          "FlowSupportedStatusesNodeTimeout"
+        ]
+      },
+      "description": "Supported node statuses"
+    },
+    "ack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RECEIVED",
+          "PROCESSED",
+          "FAILED"
+        ],
+        "x-enum-varnames": [
+          "Received",
+          "Processed",
+          "Failed"
+        ]
+      },
+      "description": "Supported acknowledgment statuses"
+    }
+  },
+  "required": [
+    "flow",
+    "node",
+    "ack"
+  ],
+  "additionalProperties": false
+}

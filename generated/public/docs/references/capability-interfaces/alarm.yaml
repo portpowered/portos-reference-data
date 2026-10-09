@@ -2,8 +2,8 @@ name: alarm
 namespace: port1/systems/zero/capability-interfaces/alarm
 version: '1.0'
 description: >-
-  Alarms ring, silence, or test a device's siren when supported. Read the alarm
-  state to see whether the siren is active.
+  Alarms ring, silence, or test a device's siren when supported. Read the alarm state to see whether
+  the siren is active.
 messages:
   - name: ring-alarm
     description: Sound the endpoint alarm. Requires an endpoint with an alarm actuator.

@@ -2,19 +2,18 @@ name: authorization
 namespace: port1/systems/zero/capability-interfaces/authorization
 version: '1.0'
 description: >-
-  Authorization connects an integration to an account and keeps its credentials
-  up to date. Use token refresh and authorization reports to follow the
-  connection as it changes.
+  Authorization connects an integration to an account and keeps its credentials up to date. Use
+  token refresh and authorization reports to follow the connection as it changes.
 messages:
   - name: authorization-established
     description: >-
-      The authorization established message is sent to a plugin to indicate that
-      the plugin has been installed and authorized for a principal
+      The authorization established message is sent to a plugin to indicate that the plugin has been
+      installed and authorized for a principal
     directionality: out
     schema:
       description: >-
-        The authorization established message is sent to a plugin to indicate
-        that the plugin has been installed and authorized for a principal
+        The authorization established message is sent to a plugin to indicate that the plugin has
+        been installed and authorized for a principal
       type: object
       additionalProperties: false
       properties:
@@ -24,13 +23,13 @@ messages:
         portosAccessToken:
           type: string
           description: >-
-            The access token of the authorization link representing the
-            principala as understood by port OS
+            The access token of the authorization link representing the principala as understood by
+            port OS
         pluginAccessToken:
           type: string
           description: >-
-            The access token of the authorization link representing the
-            principal as understood by the plugin
+            The access token of the authorization link representing the principal as understood by
+            the plugin
       required:
         - portosAccessToken
         - authlinkId

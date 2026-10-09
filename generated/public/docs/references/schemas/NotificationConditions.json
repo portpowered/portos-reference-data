@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Conditions for triggering a notification",
+  "properties": {
+    "eventType": {
+      "type": "string",
+      "description": "Type of event that triggers the notification"
+    },
+    "eventData": {
+      "type": "object",
+      "description": "Data that must match for the event to trigger"
+    },
+    "timeWindow": {
+      "$ref": "/docs/references/schemas/NotificationTimeWindow.json"
+    }
+  },
+  "additionalProperties": false
+}

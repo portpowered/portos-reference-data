@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/flow-nodes/text-to-speech",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "TTS provider backend",
+      "enum": [
+        "DEFAULT",
+        "FAL"
+      ],
+      "x-enum-varnames": [
+        "Default",
+        "Fal"
+      ],
+      "default": "DEFAULT"
+    },
+    "voice": {
+      "type": "string",
+      "description": "Voice identifier for the selected TTS provider"
+    },
+    "language": {
+      "type": "string",
+      "description": "The language code for text-to-speech conversion",
+      "pattern": "^[a-z]{2}-[A-Z]{2}$",
+      "example": "en-US"
+    },
+    "speed": {
+      "type": "number",
+      "description": "Speech rate multiplier (0.5 = half speed, 2.0 = double speed)",
+      "minimum": 0.1,
+      "maximum": 5,
+      "default": 1
+    },
+    "volume": {
+      "type": "number",
+      "description": "Volume level (0.0 = silent, 1.0 = maximum)",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 1
+    },
+    "audioFormat": {
+      "type": "string",
+      "description": "Output audio format",
+      "enum": [
+        "MP3",
+        "WAV",
+        "OGG",
+        "AAC"
+      ],
+      "x-enum-varnames": [
+        "TextToSpeechNodeConfigurationAudioFormatMp3",
+        "TextToSpeechNodeConfigurationAudioFormatWav",
+        "TextToSpeechNodeConfigurationAudioFormatOgg",
+        "TextToSpeechNodeConfigurationAudioFormatAac"
+      ],
+      "default": "MP3"
+    },
+    "sampleRate": {
+      "type": "integer",
+      "description": "Audio sample rate in Hz",
+      "enum": [
+        8000,
+        16000,
+        22050,
+        44100,
+        48000
+      ],
+      "default": 44100
+    }
+  }
+}

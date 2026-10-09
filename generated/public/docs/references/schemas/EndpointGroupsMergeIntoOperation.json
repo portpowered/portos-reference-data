@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Merges source groups into a target group. Source group routes are rehomed to the target, memberships are unioned, and each source ID becomes a redirect to the target. Identity decision that requires explicit user confirmation.",
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "operation",
+    "sources",
+    "target"
+  ],
+  "properties": {
+    "requestId": {
+      "$ref": "/docs/references/schemas/BatchOperationRequestId.json"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "MERGE_INTO"
+      ],
+      "x-enum-varnames": [
+        "MergeInto"
+      ],
+      "description": "Operation discriminator."
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "$ref": "/docs/references/schemas/EndpointGroupEtagReference.json"
+      },
+      "description": "Groups merged into the target; each must be distinct from the target and from each other."
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/EndpointGroupEtagReference.json"
+    }
+  }
+}

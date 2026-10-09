@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Request payload for adding endpoint members to an endpoint group. Each added member must be the ID of an existing endpoint the caller can read; a malformed ID is BAD_REQUEST, and a missing or unreadable endpoint is NOT_FOUND.\n",
+  "required": [
+    "memberEndpointIds"
+  ],
+  "properties": {
+    "memberEndpointIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of member IDs to add to the group"
+    }
+  }
+}

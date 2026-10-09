@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Enables or disables a group. A disabled group is hidden from group lists by default and cannot be targeted by messages such as clean-room. Rediscovery never re-enables it, so disabling (not deleting) is how a user hides a discovered group, such as a robot's room, for good.\n",
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "operation",
+    "groupId",
+    "etag",
+    "enablement"
+  ],
+  "properties": {
+    "requestId": {
+      "$ref": "/docs/references/schemas/BatchOperationRequestId.json"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "SET_ENABLEMENT"
+      ],
+      "x-enum-varnames": [
+        "SetEnablement"
+      ],
+      "description": "Operation discriminator."
+    },
+    "groupId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The endpoint group to modify."
+    },
+    "etag": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The group etag the client last read. When an earlier operation in the same request changes this group, send the etag that operation reports instead: every operation that changes the group advances its etag by one.\n"
+    },
+    "enablement": {
+      "$ref": "/docs/references/schemas/Enablement.json"
+    }
+  }
+}

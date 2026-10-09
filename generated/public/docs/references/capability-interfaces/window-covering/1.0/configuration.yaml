@@ -1,0 +1,14 @@
+type: object
+properties:
+  supportsLift:
+    type: boolean
+    description: Whether the window covering supports lift control
+    default: true
+  supportsTilt:
+    type: boolean
+    description: Whether the window covering supports tilt control
+    default: false
+additionalProperties: false
+description: >-
+  Window coverings move to a requested lift or tilt percentage. Read their reported position to keep
+  a shade or blind control in step with the device.

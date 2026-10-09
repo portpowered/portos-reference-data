@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "results"
+  ],
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Simulator.json"
+      },
+      "description": "List of simulators"
+    },
+    "paginationContext": {
+      "$ref": "/docs/references/schemas/PaginationContext.json"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Partial query errors collected while returning available results.",
+      "items": {
+        "$ref": "/docs/references/schemas/Error.json"
+      }
+    }
+  }
+}

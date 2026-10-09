@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "One end of a relationship in application terms. A route vertex carries `routeId` and its `endpointId`; a group-route vertex carries `groupRouteId` and its canonical `groupId` (after following merges).\n",
+  "additionalProperties": false,
+  "properties": {
+    "routeId": {
+      "type": "string",
+      "description": "The Port OS route ID, for a route vertex."
+    },
+    "endpointId": {
+      "type": "string",
+      "description": "The endpoint the route belongs to, for a route vertex."
+    },
+    "groupRouteId": {
+      "type": "string",
+      "description": "The Port OS group route ID, for a group-route vertex."
+    },
+    "groupId": {
+      "type": "string",
+      "description": "The canonical endpoint group the group route belongs to, for a group-route vertex."
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Shared simulator fields. Existing device_type wire spelling is retained for compatibility in both media projections.",
+  "allOf": [
+    {
+      "type": "object",
+      "required": [
+        "device_type"
+      ],
+      "properties": {
+        "device_type": {
+          "type": "string",
+          "description": "The type of device being simulated",
+          "enum": [
+            "LIGHT",
+            "LOCK",
+            "SENSOR",
+            "THERMOSTAT",
+            "TV",
+            "CAMERA",
+            "VACUUM",
+            "COLORED_LIGHT",
+            "SWITCH",
+            "PLUG",
+            "FAN",
+            "CLOSURE",
+            "WINDOW_COVERING",
+            "CONTACT_SENSOR",
+            "HUMIDITY_SENSOR",
+            "LIGHT_SENSOR",
+            "STANDALONE_TEMPERATURE_SENSOR",
+            "AIR_QUALITY_SENSOR",
+            "CO_SENSOR",
+            "COOKTOP",
+            "DISHWASHER",
+            "MICROWAVE_OVEN",
+            "OVEN",
+            "REFRIGERATOR",
+            "EXTRACTOR_HOOD",
+            "LAUNDRY_WASHER",
+            "LAUNDRY_DRYER",
+            "AUDIO_PLAYER",
+            "MEDIA_PLAYER",
+            "MEDIA_PROVIDER",
+            "SPEAKER",
+            "TEXT_MESSAGE_RECEIVER",
+            "CALENDAR_PROVIDER",
+            "KEYPAD",
+            "LOCATION_TRACKER",
+            "SMOKE_ALARM",
+            "SECURITY_PANEL",
+            "PET_FEEDER"
+          ],
+          "x-enum-varnames": [
+            "Light",
+            "Lock",
+            "Sensor",
+            "Thermostat",
+            "Tv",
+            "Camera",
+            "Vacuum",
+            "ColoredLight",
+            "Switch",
+            "Plug",
+            "Fan",
+            "Closure",
+            "WindowCovering",
+            "ContactSensor",
+            "HumiditySensor",
+            "LightSensor",
+            "StandaloneTemperatureSensor",
+            "AirQualitySensor",
+            "CoSensor",
+            "Cooktop",
+            "Dishwasher",
+            "MicrowaveOven",
+            "Oven",
+            "Refrigerator",
+            "ExtractorHood",
+            "LaundryWasher",
+            "LaundryDryer",
+            "AudioPlayer",
+            "MediaPlayer",
+            "MediaProvider",
+            "Speaker",
+            "TextMessageReceiver",
+            "CalendarProvider",
+            "Keypad",
+            "LocationTracker",
+            "SmokeAlarm",
+            "SecurityPanel",
+            "PetFeeder"
+          ]
+        },
+        "state": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Initial or replacement simulated device state. Omit to preserve state on update; an empty object resets observations. Fixture state does not control physical devices."
+        },
+        "configuration": {
+          "$ref": "/docs/references/schemas/SimulatorConfiguration.json"
+        }
+      }
+    }
+  ]
+}

@@ -12,10 +12,10 @@ properties:
     type: string
     description: Node completion status
     enum:
-      - success
-      - failure
-      - skipped
-      - timeout
+      - SUCCESS
+      - FAILURE
+      - SKIPPED
+      - TIMEOUT
   result:
     type: object
     description: Node execution result

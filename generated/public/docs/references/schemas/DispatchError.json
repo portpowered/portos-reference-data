@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "An error from a dispatch operation",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of the error, an enum which denotes a specific type of error that belongs to a family of errors."
+    },
+    "family": {
+      "type": "string",
+      "description": "The family of the error, an enum which denotes a general set of issues similar to the http error set. Some examples are BAD_REQUEST, SYSTEM_ERROR, etc."
+    },
+    "code": {
+      "type": "string",
+      "description": "The code of the error, an opaque error code that can be given for debugging purposes."
+    },
+    "message": {
+      "type": "string",
+      "description": "The message of the error, a human readable message that describes the error."
+    }
+  }
+}

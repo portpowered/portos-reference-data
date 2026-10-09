@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/content-launcher",
+  "x-name": "content-launcher",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "acceptHeader": {
+      "type": "string",
+      "description": "Accept header for content requests"
+    },
+    "supportedStreamingProtocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "DASH",
+          "HLS",
+          "SMOOTH_STREAMING",
+          "OTHER"
+        ]
+      },
+      "description": "Supported streaming protocols"
+    }
+  },
+  "additionalProperties": false
+}

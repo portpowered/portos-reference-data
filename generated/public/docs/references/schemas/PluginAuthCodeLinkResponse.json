@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sessionId",
+    "userCode",
+    "verificationUri",
+    "expiresIn"
+  ],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "Opaque, principal-bound session ID used for plugin-auth-code-exchange. Not a vendor private code."
+    },
+    "userCode": {
+      "type": "string",
+      "description": "Public code the user enters on the vendor's verification page."
+    },
+    "verificationUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Vendor verification page where the user signs in and approves linking."
+    },
+    "expiresIn": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Session lifetime in seconds. Expired sessions require starting again."
+    }
+  }
+}

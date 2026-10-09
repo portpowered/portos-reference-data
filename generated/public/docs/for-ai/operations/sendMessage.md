@@ -101,7 +101,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/CreateMessageRequest'
+          $ref: /docs/references/schemas/CreateMessageRequest.json
         example:
           target:
             type: ENDPOINT
@@ -118,7 +118,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CreateMessageResponse'
+            $ref: /docs/references/schemas/CreateMessageResponse.json
           example:
             messageId: example-dispatch-id
     '400':
@@ -126,13 +126,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: INVALID_VALUE
+            code: INVALID_VALUE
             family: REQUEST_INVALID
-            code: provider-invalid-speed
             message: Fan speed must be one of the supported values.
             details:
+              providerCode: provider-invalid-speed
               parameter: speed
               actual: storm
     '401':
@@ -140,59 +140,60 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: AUTHORIZATION_CREDENTIAL_EXPIRED
+            code: AUTHORIZATION_CREDENTIAL_EXPIRED
             family: AUTHENTICATION
-            code: provider-token-expired
             message: The provider authorization has expired. Re-link the plugin.
+            details:
+              providerCode: provider-token-expired
     '403':
       description: Plugin provider denied the requested operation
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: INSUFFICIENT_PERMISSIONS
+            code: INSUFFICIENT_PERMISSIONS
             family: PERMISSION
-            code: provider-scope-missing
             message: The linked account does not grant permission for this device.
+            details:
+              providerCode: provider-scope-missing
     '404':
       description: Target endpoint or plugin route was not found
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: NOT_FOUND
+            code: NOT_FOUND
             family: NOT_FOUND
-            code: message-not-found
             message: The linked account does not grant permission for this device.
     '409':
       description: Endpoint state conflicts with the requested message
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: NOT_SUPPORTED_IN_CURRENT_MODE
+            code: NOT_SUPPORTED_IN_CURRENT_MODE
             family: ENDPOINT_STATE_CONFLICT
-            code: device-mode-conflict
             message: The command is not supported while the endpoint is in eco mode.
             details:
+              providerCode: device-mode-conflict
               currentMode: eco
     '422':
       description: Plugin rejected a semantically invalid message value
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: VALUE_OUT_OF_RANGE
+            code: VALUE_OUT_OF_RANGE
             family: REQUEST_INVALID
-            code: brightness-out-of-range
             message: Brightness must be between 1 and 100.
             details:
+              providerCode: brightness-out-of-range
               parameter: brightness
               minimum: 1
               maximum: 100
@@ -202,13 +203,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: ENDPOINT_UNREACHABLE
+            code: ENDPOINT_UNREACHABLE
             family: ENDPOINT_UNAVAILABLE
-            code: device-offline
             message: The device is not reachable.
             details:
+              providerCode: device-offline
               pluginId: port1.plugin.hue
               pluginRouteId: hue-device-42
     '429':
@@ -216,58 +217,60 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: RATE_LIMIT_EXCEEDED
+            code: RATE_LIMIT_EXCEEDED
             family: RATE_LIMIT
-            code: provider-rate-limit
             message: The provider rate limit was exceeded.
             details:
+              providerCode: provider-rate-limit
               retryAfterSeconds: 60
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
             message: The server failed
     '502':
       description: Plugin provider returned an invalid or internal error response
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: PROVIDER_INTERNAL_ERROR
+            code: PROVIDER_INTERNAL_ERROR
             family: PROVIDER_BAD_RESPONSE
-            code: provider-internal-error
             message: The provider failed while handling the command.
+            details:
+              providerCode: provider-internal-error
     '503':
       description: Plugin provider or bridge is unavailable
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: PROVIDER_SERVICE_UNAVAILABLE
+            code: PROVIDER_SERVICE_UNAVAILABLE
             family: PROVIDER_UNAVAILABLE
-            code: vendor-outage
             message: The provider service is temporarily unavailable.
+            details:
+              providerCode: vendor-outage
     '504':
       description: Plugin provider timed out
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
-            type: PROVIDER_TIMEOUT
+            code: PROVIDER_TIMEOUT
             family: PROVIDER_TIMEOUT
-            code: provider-timeout
             message: The provider did not respond before the timeout.
+            details:
+              providerCode: provider-timeout
   x-portos-delegated: true
   x-portos-resource-permission: true
   security:
@@ -276,4 +279,10 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [CreateMessageRequest.json](/docs/references/schemas/CreateMessageRequest.json)
+- [CreateMessageResponse.json](/docs/references/schemas/CreateMessageResponse.json)
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

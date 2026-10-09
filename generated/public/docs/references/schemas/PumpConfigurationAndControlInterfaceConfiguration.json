@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/pump-configuration-and-control",
+  "x-name": "pump-configuration-and-control",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportedPumpModes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "STANDARD",
+          "CONSTANT_SPEED",
+          "CONSTANT_PRESSURE",
+          "PROPORTIONAL_PRESSURE",
+          "CONSTANT_FLOW",
+          "PROPORTIONAL_FLOW",
+          "CONSTANT_TEMPERATURE",
+          "AUTOMATIC"
+        ]
+      },
+      "description": "Supported pump modes"
+    }
+  },
+  "additionalProperties": false
+}

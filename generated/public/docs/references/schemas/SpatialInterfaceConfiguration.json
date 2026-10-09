@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/spatial",
+  "x-name": "spatial",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial interface declares no control messages; cleaning is sent to the robot endpoint.",
+  "type": "object",
+  "required": [
+    "role"
+  ],
+  "properties": {
+    "role": {
+      "$ref": "/docs/references/schemas/SpatialRole.json"
+    },
+    "coordinateSystem": {
+      "$ref": "/docs/references/schemas/SpatialCoordinateSystem.json"
+    }
+  },
+  "additionalProperties": false
+}

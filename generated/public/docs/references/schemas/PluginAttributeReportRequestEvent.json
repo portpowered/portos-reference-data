@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Event sent by a plugin to report attribute values to the attribute store.",
+  "required": [
+    "header",
+    "authentication",
+    "target",
+    "payload"
+  ],
+  "properties": {
+    "header": {
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/EventHeader.json"
+        },
+        {
+          "type": "object",
+          "required": [
+            "namespace",
+            "name",
+            "version"
+          ],
+          "properties": {
+            "namespace": {
+              "type": "string",
+              "x-enum-exempt": "plugin event header protocol identifiers",
+              "enum": [
+                "portos.attributeStore"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "x-enum-exempt": "plugin event header protocol identifiers",
+              "enum": [
+                "reportAttributes"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "x-enum-exempt": "plugin event header protocol identifiers",
+              "enum": [
+                "1.0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "authentication": {
+      "$ref": "/docs/references/schemas/PluginAuthentication.json"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/EventTarget.json"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

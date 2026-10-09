@@ -75,7 +75,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthClient'
+            $ref: /docs/references/schemas/OAuthClient.json
           example:
             clientId: port1/systems/zero/oauth-clients/1234567890
             clientName: port1/principals/example
@@ -84,45 +84,41 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: bad-request
     '401':
       description: Unauthorized - invalid or missing authentication token
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Unauthorized - invalid or missing authentication token
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
             family: AUTHENTICATION
-            code: unauthorized
     '404':
       description: OAuth client not found
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: OAuth client not found
-            type: INVALID_VALUE
+            code: INVALID_VALUE
             family: NOT_FOUND
-            code: oauth-client-not-found
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
   x-portos-delegated: false
   x-portos-resource-permission: true
   security:
@@ -130,4 +126,9 @@ get:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [Error.json](/docs/references/schemas/Error.json)
+- [OAuthClient.json](/docs/references/schemas/OAuthClient.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

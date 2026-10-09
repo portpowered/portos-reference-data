@@ -65,7 +65,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/GenerateTokenResponse'
+            $ref: /docs/references/schemas/GenerateTokenResponse.json
           example:
             access_token: port1/principals/example
             token_type: port1/principals/example
@@ -75,7 +75,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -84,7 +84,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -93,7 +93,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/OAuthErrorResponse'
+            $ref: /docs/references/schemas/OAuthErrorResponse.json
           example:
             error: invalid_request
             error_description: user_code is required
@@ -101,4 +101,9 @@ post:
   x-portos-resource-permission: false
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [GenerateTokenResponse.json](/docs/references/schemas/GenerateTokenResponse.json)
+- [OAuthErrorResponse.json](/docs/references/schemas/OAuthErrorResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

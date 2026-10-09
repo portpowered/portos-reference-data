@@ -1,0 +1,7 @@
+{
+  "description": "Opaque strong entity tag of the returned resource version. Send it back in `If-Match` on the next mutation of the same resource.\n",
+  "schema": {
+    "type": "string",
+    "example": "\"12\""
+  }
+}

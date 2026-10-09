@@ -36,6 +36,18 @@ get:
         - group:read
     - bearerAuth: []
   parameters:
+    - name: enablement
+      in: query
+      description: >-
+        Collection visibility. Defaults to ENABLED. Use '*' to include all authorized groups, or
+        DISABLED to list hidden groups. Exact id reads ignore this filter; disabled groups still
+        cannot be targeted by messages.
+      schema:
+        type: string
+        enum:
+          - ENABLED
+          - DISABLED
+          - '*'
     - name: owner
       in: query
       description: >-
@@ -105,7 +117,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EnumerateEndpointGroupsResponse'
+            $ref: /docs/references/schemas/EnumerateEndpointGroupsResponse.json
           example:
             results: []
             paginationContext:
@@ -115,39 +127,48 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Invalid request payload
-            type: BAD_REQUEST
+            code: BAD_REQUEST
+            family: BAD_REQUEST
     '401':
       description: Unauthorized - invalid or missing authentication token
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Authentication required
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '403':
       description: Forbidden - insufficient permissions
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Insufficient permissions
-            type: FORBIDDEN
+            code: FORBIDDEN
+            family: FORBIDDEN
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL
+            code: INTERNAL
+            family: INTERNAL_SERVER_ERROR
   x-portos-delegated: true
   x-portos-resource-permission: true
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [EnumerateEndpointGroupsResponse.json](/docs/references/schemas/EnumerateEndpointGroupsResponse.json)
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

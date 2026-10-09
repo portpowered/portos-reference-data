@@ -2,8 +2,8 @@ name: location
 namespace: port1/systems/zero/capability-interfaces/location
 version: '1.0'
 description: >-
-  Location reports a connected resource's geolocation. Use it to show the
-  position supplied by that resource.
+  Location reports a connected resource's geolocation. Use it to show the position supplied by that
+  resource.
 messages: []
 attributes:
   - name: geolocation

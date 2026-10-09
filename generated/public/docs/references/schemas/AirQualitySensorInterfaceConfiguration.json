@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/air-quality-sensor",
+  "x-name": "air-quality-sensor",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "supportedStandards": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AirQualityStandard.json"
+      },
+      "description": "Supported air quality standards"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Optional typed context for an error. Fields are additive and only populated when the error can safely expose that context to API clients.\n",
+  "properties": {
+    "endpointId": {
+      "type": "string",
+      "description": "Port OS endpoint ID involved in the failed dispatch."
+    },
+    "pluginId": {
+      "type": "string",
+      "description": "Port OS plugin ID that reported the failure."
+    },
+    "pluginRouteId": {
+      "type": "string",
+      "description": "Plugin-owned route identifier involved in the failed dispatch."
+    },
+    "provider": {
+      "type": "string",
+      "description": "Third-party provider or bridge name that reported the failure."
+    },
+    "directive": {
+      "type": "string",
+      "description": "Message namespace and name or provider directive that failed."
+    },
+    "parameter": {
+      "type": "string",
+      "description": "Request parameter or capability value that caused the failure."
+    },
+    "minimum": {
+      "type": "number",
+      "description": "Minimum accepted value when `code` is `VALUE_OUT_OF_RANGE`."
+    },
+    "maximum": {
+      "type": "number",
+      "description": "Maximum accepted value when `code` is `VALUE_OUT_OF_RANGE`."
+    },
+    "actual": {
+      "type": "string",
+      "description": "String representation of the submitted value when the plugin can safely report it."
+    },
+    "currentMode": {
+      "type": "string",
+      "description": "Current endpoint mode when `code` is `NOT_SUPPORTED_IN_CURRENT_MODE`."
+    },
+    "retryAfterSeconds": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Suggested retry delay for rate-limit or provider-unavailable failures."
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "Provider or plugin correlation ID useful for support."
+    },
+    "providerCode": {
+      "type": "string",
+      "description": "The third-party provider's own error code, for support. It is opaque and provider-specific; branch on `code` and `family` instead."
+    },
+    "correlationToken": {
+      "type": "string",
+      "description": "Token that correlates an outcome-unknown dispatch with its eventual result."
+    },
+    "fieldErrors": {
+      "type": "array",
+      "description": "The request fields that were rejected, when the error is about the request's content.",
+      "items": {
+        "$ref": "/docs/references/schemas/ErrorFieldError.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

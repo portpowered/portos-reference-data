@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Response-level error describing a partial deep endpoint-state query failure. These errors report deep-query item failures after endpoint enumeration has succeeded; they do not replace HTTP error responses for request-level failures.",
+  "required": [
+    "location",
+    "code",
+    "family",
+    "message"
+  ],
+  "properties": {
+    "location": {
+      "type": "string",
+      "description": "Approximate response location affected by the partial deep-query failure.",
+      "example": "endpoints/port1/principals/user123/endpoints/robot-1/routes/port1/principals/user123/routes/route-1"
+    },
+    "code": {
+      "$ref": "/docs/references/schemas/ErrorCode.json"
+    },
+    "family": {
+      "$ref": "/docs/references/schemas/ErrorFamily.json"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable failure message.",
+      "example": "failed to rebuild stateless metadata for route"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "success"
+  ],
+  "description": "Response from the /oauth/authorize-device endpoint. Indicates whether the device authorization was successful.\n",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Indicates if the device authorization was successful",
+      "example": true
+    }
+  }
+}

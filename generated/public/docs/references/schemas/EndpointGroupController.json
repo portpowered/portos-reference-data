@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "An endpoint able to act on a group through a `CAN_CONTROL` relationship, with the interface messages it supports there. Being a controller does not grant authorization.\n",
+  "additionalProperties": false,
+  "required": [
+    "endpointId",
+    "interfaces"
+  ],
+  "properties": {
+    "endpointId": {
+      "type": "string",
+      "description": "The controlling endpoint."
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RelationshipInterface.json"
+      },
+      "description": "Interfaces and messages the endpoint supports on the group."
+    }
+  }
+}

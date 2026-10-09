@@ -2,8 +2,8 @@ name: content-launcher
 namespace: port1/systems/zero/capability-interfaces/content-launcher
 version: '1.0'
 description: >-
-  Content launchers open content or a URL on a connected device. Use them to
-  send a selected item to a screen or start the content a customer asked for.
+  Content launchers open content or a URL on a connected device. Use them to send a selected item to
+  a screen or start the content a customer asked for.
 messages:
   - name: launch-content
     description: null
@@ -94,8 +94,8 @@ configuration:
       description: Supported streaming protocols
   additionalProperties: false
   description: >-
-    Content launchers open content or a URL on a connected device. Use them to
-    send a selected item to a screen or start the content a customer asked for.
+    Content launchers open content or a URL on a connected device. Use them to send a selected item
+    to a screen or start the content a customer asked for.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

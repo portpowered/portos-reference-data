@@ -16,11 +16,11 @@ properties:
     type: string
     description: Flow execution priority
     enum:
-      - low
-      - normal
-      - high
-      - urgent
-    default: normal
+      - LOW
+      - NORMAL
+      - HIGH
+      - URGENT
+    default: NORMAL
   timeout:
     type: integer
     description: Flow timeout in milliseconds

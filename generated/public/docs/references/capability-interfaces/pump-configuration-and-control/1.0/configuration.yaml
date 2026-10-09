@@ -1,0 +1,20 @@
+type: object
+properties:
+  supportedPumpModes:
+    type: array
+    items:
+      type: string
+      enum:
+        - STANDARD
+        - CONSTANT_SPEED
+        - CONSTANT_PRESSURE
+        - PROPORTIONAL_PRESSURE
+        - CONSTANT_FLOW
+        - PROPORTIONAL_FLOW
+        - CONSTANT_TEMPERATURE
+        - AUTOMATIC
+    description: Supported pump modes
+additionalProperties: false
+description: >-
+  Pump controls set a pump mode and speed. Read its capacity, mode, and status to keep a control
+  interface in step with the pump.

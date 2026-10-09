@@ -2,8 +2,8 @@ name: speech-synthesizer
 namespace: port1/systems/zero/capability-interfaces/speech-synthesizer
 version: '1.0'
 description: >-
-  Speech synthesizers accept a request to speak. Use them to send spoken output
-  to a connected device or integration.
+  Speech synthesizers accept a request to speak. Use them to send spoken output to a connected
+  device or integration.
 messages:
   - name: speak
     description: null

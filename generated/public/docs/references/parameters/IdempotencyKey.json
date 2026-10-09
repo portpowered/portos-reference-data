@@ -1,0 +1,12 @@
+{
+  "name": "Idempotency-Key",
+  "in": "header",
+  "required": true,
+  "description": "Client-chosen key that makes a non-idempotent request retry-safe, following draft-ietf-httpapi-idempotency-key-header. A committed response is stored for 24 hours and replayed for the same principal, operation, key and payload. Missing key returns 400 IDEMPOTENCY_KEY_REQUIRED, a key longer than 255 characters returns 400 IDEMPOTENCY_KEY_INVALID, the same key with a different payload returns 422, and the same key while the first request is still in flight returns 409. Failed (rolled-back) requests do not consume the key.\n",
+  "schema": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 255
+  },
+  "example": "6f1c3b0e-5a52-4b1f-9a0e-2f7c6d8e9a10"
+}

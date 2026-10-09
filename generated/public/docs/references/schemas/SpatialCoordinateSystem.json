@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Coordinate system of a provider frame. Declared only where the provider's units and axes are proven.",
+  "required": [
+    "unit",
+    "dimensions",
+    "xAxis",
+    "yAxis"
+  ],
+  "properties": {
+    "unit": {
+      "type": "string",
+      "enum": [
+        "METER"
+      ],
+      "description": "Length unit of coordinates in this frame"
+    },
+    "dimensions": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 3,
+      "description": "Number of coordinate dimensions"
+    },
+    "xAxis": {
+      "$ref": "/docs/references/schemas/SpatialAxisDirection.json"
+    },
+    "yAxis": {
+      "$ref": "/docs/references/schemas/SpatialAxisDirection.json"
+    }
+  },
+  "additionalProperties": false
+}

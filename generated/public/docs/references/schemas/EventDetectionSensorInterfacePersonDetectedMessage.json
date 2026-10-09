@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/event-detection-sensor",
+  "x-name": "person-detected",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "x-event": true,
+  "x-event-name": "camera.person_detected",
+  "description": "A distinct person detection occurrence, independent of cached presence state.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "DETECTED"
+      ],
+      "x-enum-varnames": [
+        "PersonOccurrenceDetected"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -2,9 +2,8 @@ name: filesystem-provider
 namespace: port1/systems/zero/capability-interfaces/filesystem-provider
 version: '1.0'
 description: >-
-  Filesystem providers list folders and photo albums and expose file download,
-  upload, and deletion. Check the provider's supported commands before
-  requesting an operation.
+  Filesystem providers list folders and photo albums and expose file download, upload, and deletion.
+  Check the provider's supported commands before requesting an operation.
 messages:
   - name: delete-file
     description: Delete file.
@@ -73,9 +72,7 @@ messages:
       properties:
         cursor:
           type: string
-          description: >-
-            Opaque cursor for the next page; omitted when there are no further
-            results.
+          description: Opaque cursor for the next page; omitted when there are no further results.
         maxResults:
           type: integer
           minimum: 1
@@ -105,9 +102,7 @@ messages:
             title: PhotoAlbum
         nextCursor:
           type: string
-          description: >-
-            Opaque cursor for the next page; omitted when there are no further
-            results.
+          description: Opaque cursor for the next page; omitted when there are no further results.
       required:
         - albums
       additionalProperties: false
@@ -123,9 +118,7 @@ messages:
           description: Optional folder ID to list contents of. Defaults to root if omitted.
         cursor:
           type: string
-          description: >-
-            Opaque cursor for the next page; omitted when there are no further
-            results.
+          description: Opaque cursor for the next page; omitted when there are no further results.
         maxResults:
           type: integer
           minimum: 1
@@ -136,9 +129,7 @@ messages:
     description: Response containing a list of files and folders from a filesystem provider
     directionality: out
     schema:
-      description: >-
-        Response containing a list of files and folders from a filesystem
-        provider
+      description: Response containing a list of files and folders from a filesystem provider
       type: object
       properties:
         items:
@@ -166,9 +157,7 @@ messages:
             title: StorageItem
         nextCursor:
           type: string
-          description: >-
-            Opaque cursor for the next page; omitted when there are no further
-            results.
+          description: Opaque cursor for the next page; omitted when there are no further results.
       required:
         - items
       additionalProperties: false

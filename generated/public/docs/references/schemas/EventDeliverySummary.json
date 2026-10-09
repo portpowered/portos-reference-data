@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "Authorized subscription delivery metadata. Acknowledged means host HTTP acceptance only. Callback URL, credentials and event body are never exposed.",
+  "required": [
+    "subscriptionId",
+    "eventId",
+    "status",
+    "attemptCount"
+  ],
+  "properties": {
+    "subscriptionId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "SENDING",
+        "ACKNOWLEDGED",
+        "DEAD",
+        "DROPPED",
+        "CANCELLED"
+      ],
+      "x-enum-varnames": [
+        "EventDeliveryStatusPending",
+        "EventDeliveryStatusSending",
+        "EventDeliveryStatusAcknowledged",
+        "EventDeliveryStatusDead",
+        "EventDeliveryStatusDropped",
+        "EventDeliveryStatusCancelled"
+      ]
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "attemptCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lastAttemptAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

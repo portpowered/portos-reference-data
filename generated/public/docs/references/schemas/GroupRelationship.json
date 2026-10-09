@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A typed relationship between routes and group routes, as reported by a provider through discovery. Read-only through the REST API.\n",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "ownerId",
+    "type",
+    "source",
+    "target"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Port OS relationship ID."
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The owner of the relationship."
+    },
+    "associatedPluginId": {
+      "type": "string",
+      "description": "The plugin that reported the relationship."
+    },
+    "type": {
+      "$ref": "/docs/references/schemas/RelationshipType.json"
+    },
+    "source": {
+      "$ref": "/docs/references/schemas/GroupRelationshipVertex.json"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/GroupRelationshipVertex.json"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/RelationshipInterface.json"
+      },
+      "description": "Interface applicability, when declared."
+    }
+  }
+}

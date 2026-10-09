@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Spatial role of a group route: a whole home, a floor or map, a room, or a zone within a room",
+  "enum": [
+    "HOME",
+    "FLOOR",
+    "ROOM",
+    "ZONE"
+  ],
+  "x-enum-varnames": [
+    "SpatialRoleHome",
+    "SpatialRoleFloor",
+    "SpatialRoleRoom",
+    "SpatialRoleZone"
+  ]
+}

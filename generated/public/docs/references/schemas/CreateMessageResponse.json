@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "messageId"
+  ],
+  "properties": {
+    "messageId": {
+      "type": "string",
+      "description": "The ID of the created message"
+    },
+    "message": {
+      "$ref": "/docs/references/schemas/Message.json",
+      "description": "The message that was responded with if there was a unary message response. If the response is SYNC, this may be non empty. Sometimes, the response may be empty, if the downstream didn't send any message back and just ACKED the message. "
+    }
+  }
+}

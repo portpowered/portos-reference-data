@@ -2,8 +2,8 @@ name: equalizer
 namespace: port1/systems/zero/capability-interfaces/equalizer
 version: '1.0'
 description: >-
-  Equalizers adjust audio bands and select an equalizer mode. Read the current
-  bands and mode to keep an audio control in step with the device.
+  Equalizers adjust audio bands and select an equalizer mode. Read the current bands and mode to
+  keep an audio control in step with the device.
 messages:
   - name: adjust-bands
     description: null
@@ -124,8 +124,8 @@ configuration:
         type: string
   additionalProperties: false
   description: >-
-    Equalizers adjust audio bands and select an equalizer mode. Read the current
-    bands and mode to keep an audio control in step with the device.
+    Equalizers adjust audio bands and select an equalizer mode. Read the current bands and mode to
+    keep an audio control in step with the device.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

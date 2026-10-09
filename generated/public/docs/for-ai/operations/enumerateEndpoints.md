@@ -143,51 +143,69 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EndpointQueryResponse'
-          examples: {}
-          example:
-            results:
-              - id: port1/principals/example/endpoints/light-1
-                name:
-                  type: PLAIN
-                  value: Office light
-                type: LIGHT
-                interfaces: []
-                ownerId: port1/principals/example
-                enablement: ENABLED
+            $ref: /docs/references/schemas/EndpointQueryResponse.json
+          examples:
+            partial-deep-query-failure:
+              value:
+                results:
+                  - id: port1/principals/user123/endpoints/robot-1
+                    name:
+                      type: plain
+                      value: Downstairs Vacuum
+                    type: robotic-vacuum-cleaner
+                    interfaces:
+                      - name: port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
+                    attributes: []
+                    ownerId: port1/principals/user123
+                    enablement: ENABLED
+                paginationContext: {}
+                errors:
+                  - location: >-
+                      endpoints/port1/principals/user123/endpoints/robot-1/routes/port1/principals/user123/routes/route-1
+                    code: DEEP_QUERY_FAILED
+                    family: INTERNAL_SERVER_ERROR
+                    message: failed to rebuild stateless metadata for route
+            empty:
+              value:
+                results:
+                  - id: port1/principals/example/endpoints/light-1
+                    name:
+                      type: PLAIN
+                      value: Office light
+                    type: LIGHT
+                    interfaces: []
+                    ownerId: port1/principals/example
+                    enablement: ENABLED
     '400':
       description: Bad request - missing required parameters
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Bad request - missing required parameters
-            type: BAD_REQUEST
+            code: BAD_REQUEST
             family: BAD_REQUEST
-            code: bad-request
     '401':
       description: Unauthorized - invalid or missing authentication token
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Unauthorized - invalid or missing authentication token
-            type: UNAUTHORIZED
+            code: UNAUTHORIZED
             family: AUTHENTICATION
-            code: unauthorized
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: /docs/references/schemas/Error.json
           example:
             message: Internal server error
-            type: INTERNAL_SERVER_ERROR
+            code: INTERNAL
             family: INTERNAL_SERVER_ERROR
-            code: internal-server-error
   x-portos-delegated: true
   x-portos-resource-permission: true
   security:
@@ -196,4 +214,9 @@ get:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [EndpointQueryResponse.json](/docs/references/schemas/EndpointQueryResponse.json)
+- [Error.json](/docs/references/schemas/Error.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

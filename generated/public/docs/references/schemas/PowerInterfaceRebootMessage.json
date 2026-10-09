@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PowerInterfaceRebootMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/power",
+  "x-name": "reboot",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Restart the endpoint. Advertise this message only when the provider supports rebooting the device.",
+  "type": "object",
+  "additionalProperties": false
+}

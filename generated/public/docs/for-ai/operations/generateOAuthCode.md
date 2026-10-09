@@ -50,7 +50,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/GenerateOAuthCodeRequest'
+          $ref: /docs/references/schemas/GenerateOAuthCodeRequest.json
         example:
           client_id: port1/principals/user123/oauth-clients/my-client
           redirect_uri: https://myapp.com/callback
@@ -60,7 +60,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/GenerateOAuthCodeResponse'
+            $ref: /docs/references/schemas/GenerateOAuthCodeResponse.json
           example:
             code: abc123def456ghi789
             expiryInSeconds: 600
@@ -77,4 +77,9 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [GenerateOAuthCodeRequest.json](/docs/references/schemas/GenerateOAuthCodeRequest.json)
+- [GenerateOAuthCodeResponse.json](/docs/references/schemas/GenerateOAuthCodeResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

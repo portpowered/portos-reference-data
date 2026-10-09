@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "client_id"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "The OAuth client identifier"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of scopes requested by the client",
+      "example": "read write"
+    }
+  }
+}

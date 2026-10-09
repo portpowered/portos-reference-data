@@ -41,7 +41,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpsertAuthLinkRequest'
+          $ref: /docs/references/schemas/UpsertAuthLinkRequest.json
         example:
           authLink:
             associatedPrincipalId: port1/principals/example
@@ -54,7 +54,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UpsertAuthLinkResponse'
+            $ref: /docs/references/schemas/UpsertAuthLinkResponse.json
           example:
             id: port1/principals/user123/resources/abc-123
     '400':
@@ -68,4 +68,9 @@ post:
     - bearerAuth: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [UpsertAuthLinkRequest.json](/docs/references/schemas/UpsertAuthLinkRequest.json)
+- [UpsertAuthLinkResponse.json](/docs/references/schemas/UpsertAuthLinkResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

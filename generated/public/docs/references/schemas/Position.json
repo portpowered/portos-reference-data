@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/GridPosition.json"
+    }
+  ],
+  "description": "A position object that can be one of several position types",
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "grid": "/docs/references/schemas/GridPosition.json"
+    }
+  }
+}

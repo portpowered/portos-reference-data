@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A discoverable RTC media stream supported by an endpoint.",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "mediaKind",
+    "direction"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier for the stream within the endpoint contract."
+    },
+    "mediaKind": {
+      "type": "string",
+      "enum": [
+        "AUDIO",
+        "VIDEO"
+      ]
+    },
+    "direction": {
+      "type": "string",
+      "description": "Direction from the endpoint perspective; browser SENDONLY and RECVONLY are reversed.",
+      "enum": [
+        "SENDRECV",
+        "SENDONLY",
+        "RECVONLY",
+        "INACTIVE"
+      ]
+    },
+    "codecs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "description": "Ordered permitted RTP codec MIME types, such as audio/opus or video/H264. Omitted uses browser defaults.",
+      "items": {
+        "type": "string",
+        "pattern": "^(audio|video)/[A-Za-z0-9.+-]+$",
+        "maxLength": 128
+      }
+    }
+  }
+}

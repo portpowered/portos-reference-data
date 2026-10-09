@@ -45,7 +45,7 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          $ref: '#/components/schemas/GenerateTokenRequest'
+          $ref: /docs/references/schemas/GenerateTokenRequest.json
         example:
           grant_type: authorization_code
           client_id: dcr_example
@@ -59,7 +59,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/GenerateTokenResponse'
+            $ref: /docs/references/schemas/GenerateTokenResponse.json
           example:
             access_token: ACCESS_TOKEN_STORE_PRIVATELY
             refresh_token: ROTATING_REFRESH_TOKEN_STORE_PRIVATELY
@@ -75,4 +75,9 @@ post:
   security: []
 ```
 
-Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).
+## Linked components
+
+- [GenerateTokenRequest.json](/docs/references/schemas/GenerateTokenRequest.json)
+- [GenerateTokenResponse.json](/docs/references/schemas/GenerateTokenResponse.json)
+
+Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

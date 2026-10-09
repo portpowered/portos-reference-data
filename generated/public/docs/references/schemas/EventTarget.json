@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "type",
+    "value"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "CONTROL_ROUTE",
+        "PROGRESS_TRACKER"
+      ]
+    },
+    "value": {
+      "type": "string",
+      "description": "The target identifier"
+    }
+  }
+}

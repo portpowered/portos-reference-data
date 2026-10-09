@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A logical grouping of endpoints that share common interfaces and ownership.",
+  "required": [
+    "id",
+    "name",
+    "ownerId",
+    "interfaces",
+    "etag",
+    "enablement"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the endpoint group",
+      "pattern": "^port1/[^/]+/[^/]+/endpoint-groups/[^/]+$",
+      "example": "port1/principals/example/endpoint-groups/living-room"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/TypeValue.json",
+      "description": "The name of the endpoint group"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the owner of the endpoint group"
+    },
+    "enablement": {
+      "$ref": "/docs/references/schemas/Enablement.json"
+    },
+    "memberEndpointIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of member endpoint IDs of the endpoint group"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ApplicationInterface.json"
+      },
+      "description": "List of interfaces supported by the endpoint group"
+    },
+    "etag": {
+      "type": "string",
+      "description": "Opaque strong entity tag of this group version, for example `\"12\"`. It changes on any committed write to the group, its group routes or its relationships. Send it as `If-Match` (or as the operation `etag` in `/endpoint-groups-manage`) when mutating the group.\n",
+      "example": "\"12\""
+    },
+    "redirectedFrom": {
+      "type": "string",
+      "description": "Set when the group was read through a merged-away ID: the ID that was requested, which now redirects to this group. Mutations must use this group's `id`.\n"
+    },
+    "parentGroupId": {
+      "type": "string",
+      "description": "The canonical parent group derived from `IS_PART_OF` relationships, when the group has one."
+    },
+    "childGroupIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Canonical child groups derived from `IS_PART_OF` relationships."
+    },
+    "controllers": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/EndpointGroupController.json"
+      },
+      "description": "Endpoints that declare `CAN_CONTROL` on one of this group's group routes, with the messages they support on it."
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/GroupRouteAttributeState.json"
+      },
+      "description": "The group's state: every attribute value stored for its group routes, one entry per group route and attribute, tagged with the group route and provider. Populated only when the read is called with `expand=interfaces.attributes`."
+    }
+  }
+}

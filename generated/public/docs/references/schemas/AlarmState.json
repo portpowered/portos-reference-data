@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Alarm state",
+  "enum": [
+    "NORMAL",
+    "SMOKE_ALARM",
+    "CO_ALARM",
+    "BOTH_ALARM",
+    "TEST_MODE",
+    "HARDWARE_FAULT",
+    "END_OF_LIFE"
+  ],
+  "x-enum-varnames": [
+    "AlarmStateNormal",
+    "AlarmStateSmokeAlarm",
+    "AlarmStateCoAlarm",
+    "AlarmStateBothAlarm",
+    "AlarmStateTestMode",
+    "AlarmStateHardwareFault",
+    "AlarmStateEndOfLife"
+  ]
+}

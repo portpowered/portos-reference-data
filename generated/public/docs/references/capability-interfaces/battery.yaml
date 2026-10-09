@@ -2,8 +2,8 @@ name: battery
 namespace: port1/systems/zero/capability-interfaces/battery
 version: '1.0'
 description: >-
-  Battery reports a connected device's charge level and battery health. Use it
-  to show when a device needs charging or a replacement battery.
+  Battery reports a connected device's charge level and battery health. Use it to show when a device
+  needs charging or a replacement battery.
 messages: []
 attributes:
   - name: battery

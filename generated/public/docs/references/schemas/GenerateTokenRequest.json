@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "grant_type",
+    "client_id"
+  ],
+  "properties": {
+    "grant_type": {
+      "type": "string",
+      "description": "The OAuth grant type. Use authorization_code for code exchange, or urn:ietf:params:oauth:grant-type:refresh_token to exchange a vended JWT (from POST /tokens) for an access token.\n"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "The client ID (e.g. port1/systems/zero/oauth-clients/custom-access-token for token vending)."
+    },
+    "client_secret": {
+      "type": "string",
+      "description": "Required for confidential clients. Public DCR/CIMD clients omit this field and use PKCE."
+    },
+    "code": {
+      "type": "string",
+      "description": "Authorization code; required when grant_type is authorization_code."
+    },
+    "refresh_token": {
+      "type": "string",
+      "description": "The vended JWT from POST /tokens; required when grant_type is urn:ietf:params:oauth:grant-type:refresh_token."
+    },
+    "redirect_uri": {
+      "type": "string",
+      "description": "Redirect URI; required when grant_type is authorization_code."
+    },
+    "code_verifier": {
+      "type": "string",
+      "description": "Original PKCE verifier; required for public-client code exchange."
+    },
+    "resource": {
+      "type": "string",
+      "format": "uri",
+      "description": "Exact resource from authorization; canonical issuer for REST or issuer/mcp for MCP. Required for DCR and CIMD."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Optional narrower subset during refresh; cannot add scopes."
+    }
+  }
+}

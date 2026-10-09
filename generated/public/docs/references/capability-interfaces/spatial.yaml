@@ -2,19 +2,14 @@ name: spatial
 namespace: port1/systems/zero/capability-interfaces/spatial
 version: '1.0'
 description: >-
-  Descriptive spatial declaration of a group route (home, floor/map, room or
-  zone). The spatial interface declares no control messages; cleaning is sent to
-  the robot endpoint.
+  Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial
+  interface declares no control messages; cleaning is sent to the robot endpoint.
 messages: []
 attributes:
   - name: active
-    description: >-
-      Whether this map or floor is the provider's currently loaded map (maps
-      only)
+    description: Whether this map or floor is the provider's currently loaded map (maps only)
     schema:
-      description: >-
-        Whether this map or floor is the provider's currently loaded map (maps
-        only)
+      description: Whether this map or floor is the provider's currently loaded map (maps only)
       type: object
       required:
         - value
@@ -23,13 +18,9 @@ attributes:
           type: boolean
       additionalProperties: false
   - name: geometry
-    description: >-
-      Observed area of the group route in the coordinate system of its reference
-      frame
+    description: Observed area of the group route in the coordinate system of its reference frame
     schema:
-      description: >-
-        Observed area of the group route in the coordinate system of its
-        reference frame
+      description: Observed area of the group route in the coordinate system of its reference frame
       type: object
       required:
         - shape
@@ -39,9 +30,7 @@ attributes:
           description: Area covered by a group route, as a polygon or multi-polygon
           oneOf:
             - type: object
-              description: >-
-                GeoJSON-like polygon: an exterior ring followed by optional
-                interior rings (holes)
+              description: 'GeoJSON-like polygon: an exterior ring followed by optional interior rings (holes)'
               required:
                 - type
                 - coordinates
@@ -56,14 +45,12 @@ attributes:
                   items:
                     type: array
                     description: >-
-                      A closed ring of positions; the first and last positions
-                      are equal (GeoJSON linear ring)
+                      A closed ring of positions; the first and last positions are equal (GeoJSON
+                      linear ring)
                     minItems: 4
                     items:
                       type: array
-                      description: >-
-                        A position as [x, y] or [x, y, z] in the frame's
-                        coordinate system
+                      description: A position as [x, y] or [x, y, z] in the frame's coordinate system
                       minItems: 2
                       maxItems: 3
                       items:
@@ -71,9 +58,7 @@ attributes:
               additionalProperties: false
               title: SpatialPolygon
             - type: object
-              description: >-
-                GeoJSON-like multi-polygon: a list of polygons, each a list of
-                rings
+              description: 'GeoJSON-like multi-polygon: a list of polygons, each a list of rings'
               required:
                 - type
                 - coordinates
@@ -110,12 +95,12 @@ attributes:
       additionalProperties: false
   - name: position
     description: >-
-      Anchor point of the group route in its reference frame. It is a label
-      anchor, not a navigation target.
+      Anchor point of the group route in its reference frame. It is a label anchor, not a navigation
+      target.
     schema:
       description: >-
-        Anchor point of the group route in its reference frame. It is a label
-        anchor, not a navigation target.
+        Anchor point of the group route in its reference frame. It is a label anchor, not a
+        navigation target.
       type: object
       required:
         - point
@@ -134,9 +119,7 @@ attributes:
                 - Point
             coordinates:
               type: array
-              description: >-
-                A position as [x, y] or [x, y, z] in the frame's coordinate
-                system
+              description: A position as [x, y] or [x, y, z] in the frame's coordinate system
               minItems: 2
               maxItems: 3
               items:
@@ -156,18 +139,15 @@ attributes:
       additionalProperties: false
 configuration:
   description: >-
-    Descriptive spatial declaration of a group route (home, floor/map, room or
-    zone). The spatial interface declares no control messages; cleaning is sent
-    to the robot endpoint.
+    Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial
+    interface declares no control messages; cleaning is sent to the robot endpoint.
   type: object
   required:
     - role
   properties:
     role:
       type: string
-      description: >-
-        Spatial role of a group route: a whole home, a floor or map, a room, or
-        a zone within a room
+      description: 'Spatial role of a group route: a whole home, a floor or map, a room, or a zone within a room'
       enum:
         - HOME
         - FLOOR
@@ -176,8 +156,8 @@ configuration:
     coordinateSystem:
       type: object
       description: >-
-        Coordinate system of a provider frame. Declared only where the
-        provider's units and axes are proven.
+        Coordinate system of a provider frame. Declared only where the provider's units and axes are
+        proven.
       required:
         - unit
         - dimensions
@@ -197,8 +177,8 @@ configuration:
         xAxis:
           type: string
           description: >-
-            Direction in which an axis increases, relative to the provider's map
-            as presented to the user
+            Direction in which an axis increases, relative to the provider's map as presented to the
+            user
           enum:
             - RIGHT
             - LEFT

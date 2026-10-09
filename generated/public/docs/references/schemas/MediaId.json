@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MediaId",
+  "type": "string",
+  "minLength": 1,
+  "description": "Media IDs are a standardized identifier that Port OS uses to represent media across YouTube, Spotify, and other media providers. See https://portpowered.com/docs/media for the current media identifiers documentation."
+}

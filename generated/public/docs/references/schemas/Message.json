@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A message is an object that can be received and sent to endpoints.",
+  "type": "object",
+  "required": [
+    "body"
+  ],
+  "properties": {
+    "context": {
+      "$ref": "/docs/references/schemas/MessageContext.json",
+      "description": "Message context including authorization and input plugin"
+    },
+    "correlationToken": {
+      "type": "string",
+      "description": "Token used for correlating related messages"
+    },
+    "type": {
+      "$ref": "/docs/references/schemas/MessageType.json"
+    },
+    "header": {
+      "$ref": "/docs/references/schemas/MessageHeader.json",
+      "description": "Message header with namespace, name, and version"
+    },
+    "target": {
+      "$ref": "/docs/references/schemas/MessageTarget.json",
+      "description": "The target of the message"
+    },
+    "endpoint": {
+      "$ref": "/docs/references/schemas/MessageEndpoint.json"
+    },
+    "auth-token": {
+      "type": "string",
+      "description": "Port OS bearer token available to plugins during dispatch when they need to call Port OS APIs."
+    },
+    "secrets": {
+      "description": "The secrets associated with the authorization link between the port OS principal and the plugin.",
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Secret.json"
+      }
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the owner of the message"
+    },
+    "body": {
+      "type": "object",
+      "description": "The message body, which can be any valid JSON object",
+      "additionalProperties": true
+    }
+  }
+}

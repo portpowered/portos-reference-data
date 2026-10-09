@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "endpointId",
+    "pluginId"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The route ID"
+    },
+    "endpointId": {
+      "type": "string",
+      "description": "The endpoint ID"
+    },
+    "pluginId": {
+      "type": "string",
+      "description": "The plugin ID"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/ApplicationInterface.json"
+      },
+      "description": "List of interfaces to support"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the route",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the route"
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "The manufacturer of the device"
+        },
+        "model": {
+          "type": "string",
+          "description": "The model of the device"
+        }
+      }
+    }
+  }
+}

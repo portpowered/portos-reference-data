@@ -2,8 +2,8 @@ name: keypad-input
 namespace: port1/systems/zero/capability-interfaces/keypad-input
 version: '1.0'
 description: >-
-  Keypad input sends a key to a connected device. Use it to build remote
-  controls that send individual button presses.
+  Keypad input sends a key to a connected device. Use it to build remote controls that send
+  individual button presses.
 messages:
   - name: send-key
     description: null
@@ -110,8 +110,8 @@ configuration:
       description: List of supported keys
   additionalProperties: false
   description: >-
-    Keypad input sends a key to a connected device. Use it to build remote
-    controls that send individual button presses.
+    Keypad input sends a key to a connected device. Use it to build remote controls that send
+    individual button presses.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

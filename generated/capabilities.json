@@ -32,9 +32,9 @@
                 "type": "string",
                 "description": "Air quality standard",
                 "enum": [
-                  "AirQualityIndex",
-                  "PartsPerMillion2_5",
-                  "PartsPerMillion10"
+                  "AIR_QUALITY_INDEX",
+                  "PARTS_PER_MILLION_2_5",
+                  "PARTS_PER_MILLION_10"
                 ]
               }
             },
@@ -55,9 +55,9 @@
               "type": "string",
               "description": "Air quality standard",
               "enum": [
-                "AirQualityIndex",
-                "PartsPerMillion2_5",
-                "PartsPerMillion10"
+                "AIR_QUALITY_INDEX",
+                "PARTS_PER_MILLION_2_5",
+                "PARTS_PER_MILLION_10"
               ]
             },
             "description": "Supported air quality standards"
@@ -1047,34 +1047,37 @@
             "properties": {
               "mode": {
                 "type": "string",
-                "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+                "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
                 "enum": [
                   "VACUUM",
                   "MOP",
-                  "VACUUM_AND_MOP"
+                  "VACUUM_AND_MOP",
+                  "CUSTOM"
                 ]
               },
               "suctionLevel": {
                 "type": "string",
-                "description": "Vacuum suction level, ordered from off to strongest",
+                "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
                 "enum": [
                   "OFF",
                   "QUIET",
                   "BALANCED",
                   "TURBO",
                   "MAX",
-                  "MAX_PLUS"
+                  "MAX_PLUS",
+                  "CUSTOM"
                 ]
               },
               "waterFlow": {
                 "type": "string",
-                "description": "Mop water flow level, ordered from off to highest",
+                "description": "Mop water flow level, ordered from off to highest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
                 "enum": [
                   "OFF",
                   "LOW",
                   "MEDIUM",
                   "HIGH",
-                  "EXTREME"
+                  "EXTREME",
+                  "CUSTOM"
                 ]
               }
             },
@@ -1088,18 +1091,19 @@
       "attributes": [
         {
           "name": "cleaning-mode",
-          "description": "Current cleaning type. Omitted when the robot is in a native mode with no equivalent value.",
+          "description": "Current cleaning type. CUSTOM when the robot uses a native mode with no equivalent value.",
           "schema": {
-            "description": "Current cleaning type. Omitted when the robot is in a native mode with no equivalent value.",
+            "description": "Current cleaning type. CUSTOM when the robot uses a native mode with no equivalent value.",
             "type": "object",
             "properties": {
               "value": {
                 "type": "string",
-                "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+                "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
                 "enum": [
                   "VACUUM",
                   "MOP",
-                  "VACUUM_AND_MOP"
+                  "VACUUM_AND_MOP",
+                  "CUSTOM"
                 ]
               }
             },
@@ -1111,21 +1115,22 @@
         },
         {
           "name": "suction-level",
-          "description": "Current suction level. Omitted when the robot is in a native mode with no equivalent value.",
+          "description": "Current suction level. CUSTOM when the robot uses a native mode with no equivalent value.",
           "schema": {
-            "description": "Current suction level. Omitted when the robot is in a native mode with no equivalent value.",
+            "description": "Current suction level. CUSTOM when the robot uses a native mode with no equivalent value.",
             "type": "object",
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Vacuum suction level, ordered from off to strongest",
+                "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
                 "enum": [
                   "OFF",
                   "QUIET",
                   "BALANCED",
                   "TURBO",
                   "MAX",
-                  "MAX_PLUS"
+                  "MAX_PLUS",
+                  "CUSTOM"
                 ]
               }
             },
@@ -1137,20 +1142,21 @@
         },
         {
           "name": "water-flow",
-          "description": "Current water flow. Omitted when the robot is in a native mode with no equivalent value.",
+          "description": "Current water flow. CUSTOM when the robot uses a native mode with no equivalent value.",
           "schema": {
-            "description": "Current water flow. Omitted when the robot is in a native mode with no equivalent value.",
+            "description": "Current water flow. CUSTOM when the robot uses a native mode with no equivalent value.",
             "type": "object",
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Mop water flow level, ordered from off to highest",
+                "description": "Mop water flow level, ordered from off to highest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
                 "enum": [
                   "OFF",
                   "LOW",
                   "MEDIUM",
                   "HIGH",
-                  "EXTREME"
+                  "EXTREME",
+                  "CUSTOM"
                 ]
               }
             },
@@ -1174,11 +1180,12 @@
             "uniqueItems": true,
             "items": {
               "type": "string",
-              "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+              "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
               "enum": [
                 "VACUUM",
                 "MOP",
-                "VACUUM_AND_MOP"
+                "VACUUM_AND_MOP",
+                "CUSTOM"
               ]
             },
             "description": "Supported cleaning types"
@@ -1188,14 +1195,15 @@
             "uniqueItems": true,
             "items": {
               "type": "string",
-              "description": "Vacuum suction level, ordered from off to strongest",
+              "description": "Vacuum suction level, ordered from off to strongest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
               "enum": [
                 "OFF",
                 "QUIET",
                 "BALANCED",
                 "TURBO",
                 "MAX",
-                "MAX_PLUS"
+                "MAX_PLUS",
+                "CUSTOM"
               ]
             },
             "description": "Supported suction levels"
@@ -1205,13 +1213,14 @@
             "uniqueItems": true,
             "items": {
               "type": "string",
-              "description": "Mop water flow level, ordered from off to highest",
+              "description": "Mop water flow level, ordered from off to highest. CUSTOM is a vendor-specific setting with no Port OS name (for example per-room settings); devices report it but do not accept it.",
               "enum": [
                 "OFF",
                 "LOW",
                 "MEDIUM",
                 "HIGH",
-                "EXTREME"
+                "EXTREME",
+                "CUSTOM"
               ]
             },
             "description": "Supported water flows"
@@ -1968,7 +1977,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -1976,7 +1985,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -2004,7 +2014,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -2012,7 +2022,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -3043,10 +3054,10 @@
                 "type": "string",
                 "description": "Completion status",
                 "enum": [
-                  "success",
-                  "failure",
-                  "cancelled",
-                  "timeout"
+                  "SUCCESS",
+                  "FAILURE",
+                  "CANCELLED",
+                  "TIMEOUT"
                 ]
               },
               "result": {
@@ -3099,12 +3110,12 @@
                 "type": "string",
                 "description": "Flow execution priority",
                 "enum": [
-                  "low",
-                  "normal",
-                  "high",
-                  "urgent"
+                  "LOW",
+                  "NORMAL",
+                  "HIGH",
+                  "URGENT"
                 ],
-                "default": "normal"
+                "default": "NORMAL"
               },
               "timeout": {
                 "type": "integer",
@@ -3152,9 +3163,9 @@
                 "type": "string",
                 "description": "Acknowledgment status",
                 "enum": [
-                  "received",
-                  "processed",
-                  "failed"
+                  "RECEIVED",
+                  "PROCESSED",
+                  "FAILED"
                 ]
               },
               "timestamp": {
@@ -3204,10 +3215,10 @@
                 "type": "string",
                 "description": "Reason for unacknowledgment",
                 "enum": [
-                  "timeout",
-                  "error",
-                  "rejected",
-                  "duplicate"
+                  "TIMEOUT",
+                  "ERROR",
+                  "REJECTED",
+                  "DUPLICATE"
                 ]
               },
               "timestamp": {
@@ -3252,10 +3263,10 @@
                 "type": "string",
                 "description": "Node completion status",
                 "enum": [
-                  "success",
-                  "failure",
-                  "skipped",
-                  "timeout"
+                  "SUCCESS",
+                  "FAILURE",
+                  "SKIPPED",
+                  "TIMEOUT"
                 ]
               },
               "result": {
@@ -3306,10 +3317,10 @@
                 "type": "string",
                 "description": "Reason for pausing",
                 "enum": [
-                  "user_request",
-                  "resource_limit",
-                  "waiting",
-                  "maintenance"
+                  "USER_REQUEST",
+                  "RESOURCE_LIMIT",
+                  "WAITING",
+                  "MAINTENANCE"
                 ]
               },
               "checkpoint": {
@@ -3374,11 +3385,11 @@
                 "type": "string",
                 "description": "Reason for termination",
                 "enum": [
-                  "user_request",
-                  "error",
-                  "timeout",
-                  "completion",
-                  "cancellation"
+                  "USER_REQUEST",
+                  "ERROR",
+                  "TIMEOUT",
+                  "COMPLETION",
+                  "CANCELLATION"
                 ]
               },
               "graceful": {
@@ -3428,10 +3439,10 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "success",
-                    "failure",
-                    "cancelled",
-                    "timeout"
+                    "SUCCESS",
+                    "FAILURE",
+                    "CANCELLED",
+                    "TIMEOUT"
                   ]
                 },
                 "description": "Supported flow statuses"
@@ -3441,10 +3452,10 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "success",
-                    "failure",
-                    "skipped",
-                    "timeout"
+                    "SUCCESS",
+                    "FAILURE",
+                    "SKIPPED",
+                    "TIMEOUT"
                   ]
                 },
                 "description": "Supported node statuses"
@@ -3454,9 +3465,9 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "received",
-                    "processed",
-                    "failed"
+                    "RECEIVED",
+                    "PROCESSED",
+                    "FAILED"
                   ]
                 },
                 "description": "Supported acknowledgment statuses"
@@ -3479,11 +3490,11 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "user_request",
-                    "error",
-                    "timeout",
-                    "completion",
-                    "cancellation"
+                    "USER_REQUEST",
+                    "ERROR",
+                    "TIMEOUT",
+                    "COMPLETION",
+                    "CANCELLATION"
                   ]
                 },
                 "description": "Supported termination reasons"
@@ -3493,10 +3504,10 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "user_request",
-                    "resource_limit",
-                    "waiting",
-                    "maintenance"
+                    "USER_REQUEST",
+                    "RESOURCE_LIMIT",
+                    "WAITING",
+                    "MAINTENANCE"
                   ]
                 },
                 "description": "Supported pause reasons"
@@ -3506,10 +3517,10 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "timeout",
-                    "error",
-                    "rejected",
-                    "duplicate"
+                    "TIMEOUT",
+                    "ERROR",
+                    "REJECTED",
+                    "DUPLICATE"
                   ]
                 },
                 "description": "Supported unacknowledgment reasons"
@@ -3528,10 +3539,10 @@
             "items": {
               "type": "string",
               "enum": [
-                "low",
-                "normal",
-                "high",
-                "urgent"
+                "LOW",
+                "NORMAL",
+                "HIGH",
+                "URGENT"
               ]
             },
             "description": "Supported flow priorities"
@@ -3914,7 +3925,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -3922,7 +3933,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -3950,7 +3962,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -3958,7 +3970,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -4561,11 +4574,11 @@
                 "type": "string",
                 "description": "The current playback state",
                 "enum": [
-                  "playing",
-                  "paused",
-                  "stopped",
-                  "loading",
-                  "error"
+                  "PLAYING",
+                  "PAUSED",
+                  "STOPPED",
+                  "LOADING",
+                  "ERROR"
                 ]
               }
             },
@@ -4586,11 +4599,11 @@
               "type": "string",
               "description": "The current playback state",
               "enum": [
-                "playing",
-                "paused",
-                "stopped",
-                "loading",
-                "error"
+                "PLAYING",
+                "PAUSED",
+                "STOPPED",
+                "LOADING",
+                "ERROR"
               ]
             },
             "description": "Supported playback states"
@@ -4627,10 +4640,10 @@
             "items": {
               "type": "string",
               "enum": [
-                "audio",
-                "video",
-                "image",
-                "playlist"
+                "AUDIO",
+                "VIDEO",
+                "IMAGE",
+                "PLAYLIST"
               ]
             },
             "description": "List of supported media types"
@@ -4640,17 +4653,17 @@
             "items": {
               "type": "string",
               "enum": [
-                "mp3",
-                "wav",
-                "flac",
-                "aac",
-                "ogg",
-                "mp4",
-                "avi",
-                "mkv",
-                "jpg",
-                "png",
-                "gif"
+                "MP3",
+                "WAV",
+                "FLAC",
+                "AAC",
+                "OGG",
+                "MP4",
+                "AVI",
+                "MKV",
+                "JPG",
+                "PNG",
+                "GIF"
               ]
             },
             "description": "List of supported media formats"
@@ -4665,10 +4678,10 @@
             "type": "string",
             "description": "Default quality setting for media playback",
             "enum": [
-              "low",
-              "medium",
-              "high",
-              "lossless"
+              "LOW",
+              "MEDIUM",
+              "HIGH",
+              "LOSSLESS"
             ]
           },
           "supportsPlayURI": {
@@ -5041,7 +5054,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -5049,7 +5062,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -5211,10 +5225,10 @@
                 "type": "string",
                 "description": "Notification priority level",
                 "enum": [
-                  "low",
-                  "normal",
-                  "high",
-                  "urgent"
+                  "LOW",
+                  "NORMAL",
+                  "HIGH",
+                  "URGENT"
                 ]
               },
               "channels": {
@@ -5222,11 +5236,11 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "push",
-                    "email",
-                    "sms",
-                    "in-app",
-                    "webhook"
+                    "PUSH",
+                    "EMAIL",
+                    "SMS",
+                    "IN_APP",
+                    "WEBHOOK"
                   ]
                 },
                 "description": "Channels to send the notification through"
@@ -5283,10 +5297,10 @@
                     "type": "string",
                     "description": "Notification priority level",
                     "enum": [
-                      "low",
-                      "normal",
-                      "high",
-                      "urgent"
+                      "LOW",
+                      "NORMAL",
+                      "HIGH",
+                      "URGENT"
                     ]
                   },
                   "channels": {
@@ -5294,11 +5308,11 @@
                     "items": {
                       "type": "string",
                       "enum": [
-                        "push",
-                        "email",
-                        "sms",
-                        "in-app",
-                        "webhook"
+                        "PUSH",
+                        "EMAIL",
+                        "SMS",
+                        "IN_APP",
+                        "WEBHOOK"
                       ]
                     },
                     "description": "Channels to send the notification through"
@@ -5362,12 +5376,12 @@
                         "type": "string",
                         "description": "Interval unit",
                         "enum": [
-                          "seconds",
-                          "minutes",
-                          "hours",
-                          "days",
-                          "weeks",
-                          "months"
+                          "SECONDS",
+                          "MINUTES",
+                          "HOURS",
+                          "DAYS",
+                          "WEEKS",
+                          "MONTHS"
                         ]
                       }
                     },
@@ -5415,10 +5429,10 @@
                 "type": "string",
                 "description": "Type of trigger",
                 "enum": [
-                  "immediate",
-                  "scheduled",
-                  "event-based",
-                  "condition-based"
+                  "IMMEDIATE",
+                  "SCHEDULED",
+                  "EVENT_BASED",
+                  "CONDITION_BASED"
                 ]
               },
               "notification": {
@@ -5441,10 +5455,10 @@
                     "type": "string",
                     "description": "Notification priority level",
                     "enum": [
-                      "low",
-                      "normal",
-                      "high",
-                      "urgent"
+                      "LOW",
+                      "NORMAL",
+                      "HIGH",
+                      "URGENT"
                     ]
                   },
                   "channels": {
@@ -5452,11 +5466,11 @@
                     "items": {
                       "type": "string",
                       "enum": [
-                        "push",
-                        "email",
-                        "sms",
-                        "in-app",
-                        "webhook"
+                        "PUSH",
+                        "EMAIL",
+                        "SMS",
+                        "IN_APP",
+                        "WEBHOOK"
                       ]
                     },
                     "description": "Channels to send the notification through"
@@ -5552,12 +5566,12 @@
                         "type": "string",
                         "description": "Interval unit",
                         "enum": [
-                          "seconds",
-                          "minutes",
-                          "hours",
-                          "days",
-                          "weeks",
-                          "months"
+                          "SECONDS",
+                          "MINUTES",
+                          "HOURS",
+                          "DAYS",
+                          "WEEKS",
+                          "MONTHS"
                         ]
                       }
                     },
@@ -5764,12 +5778,12 @@
                 "type": "string",
                 "description": "Unit of food to feed the pet",
                 "enum": [
-                  "cups",
-                  "grams",
-                  "pounds",
-                  "ounces"
+                  "CUPS",
+                  "GRAMS",
+                  "POUNDS",
+                  "OUNCES"
                 ],
-                "default": "cups"
+                "default": "CUPS"
               }
             },
             "additionalProperties": false
@@ -6260,7 +6274,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -6268,7 +6282,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -6805,7 +6820,7 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging.",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
                 "enum": [
                   "STOPPED",
                   "RUNNING",
@@ -6813,7 +6828,8 @@
                   "ERROR",
                   "CHARGING",
                   "DOCKED",
-                  "RETURNING_TO_DOCK"
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
                 ]
               }
             },
@@ -7254,7 +7270,7 @@
                   "format": {
                     "type": "string",
                     "enum": [
-                      "sdp"
+                      "SDP"
                     ]
                   },
                   "value": {
@@ -7336,7 +7352,7 @@
                   "format": {
                     "type": "string",
                     "enum": [
-                      "sdp"
+                      "SDP"
                     ]
                   },
                   "value": {

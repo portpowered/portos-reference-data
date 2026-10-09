@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A temperature setpoint with value and scale",
+  "properties": {
+    "value": {
+      "type": "number"
+    },
+    "scale": {
+      "type": "string",
+      "enum": [
+        "CELSIUS",
+        "FAHRENHEIT"
+      ]
+    }
+  },
+  "required": [
+    "value",
+    "scale"
+  ]
+}

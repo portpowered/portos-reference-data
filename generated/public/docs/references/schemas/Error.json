@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "The one Port OS error shape, returned by every REST error response and every MCP tool error. `code` names the specific failure and `family` its broad class; both are closed enums, so clients branch on them and show `message`, which says what failed and what to do next.",
+  "additionalProperties": false,
+  "required": [
+    "family",
+    "code",
+    "message"
+  ],
+  "properties": {
+    "family": {
+      "$ref": "/docs/references/schemas/ErrorFamily.json"
+    },
+    "code": {
+      "$ref": "/docs/references/schemas/ErrorCode.json"
+    },
+    "message": {
+      "type": "string",
+      "description": "Plain-language description of the failure and the suggested next action."
+    },
+    "details": {
+      "$ref": "/docs/references/schemas/ErrorDetails.json"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Every rejected item when a request that is validated item by item and applied atomically fails, such as a discovery `SynchronizationRequest` whose routes, group routes or relationships are rejected. Omitted for single-item failures.\n",
+      "items": {
+        "$ref": "/docs/references/schemas/SynchronizationItemError.json"
+      }
+    }
+  }
+}

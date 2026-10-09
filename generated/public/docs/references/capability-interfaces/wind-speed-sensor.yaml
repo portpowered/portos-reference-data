@@ -2,8 +2,8 @@ name: wind-speed-sensor
 namespace: port1/systems/zero/capability-interfaces/wind-speed-sensor
 version: '1.0'
 description: >-
-  Wind speed measurements report the reading supplied by a connected sensor. Use
-  the value and its declared unit when displaying measured wind conditions.
+  Wind speed measurements report the reading supplied by a connected sensor. Use the value and its
+  declared unit when displaying measured wind conditions.
 messages: []
 attributes:
   - name: measured-value

@@ -2,8 +2,8 @@ name: window-covering
 namespace: port1/systems/zero/capability-interfaces/window-covering
 version: '1.0'
 description: >-
-  Window coverings move to a requested lift or tilt percentage. Read their
-  reported position to keep a shade or blind control in step with the device.
+  Window coverings move to a requested lift or tilt percentage. Read their reported position to keep
+  a shade or blind control in step with the device.
 messages:
   - name: go-to-lift-percentage
     description: null
@@ -65,8 +65,8 @@ configuration:
       default: false
   additionalProperties: false
   description: >-
-    Window coverings move to a requested lift or tilt percentage. Read their
-    reported position to keep a shade or blind control in step with the device.
+    Window coverings move to a requested lift or tilt percentage. Read their reported position to
+    keep a shade or blind control in step with the device.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read

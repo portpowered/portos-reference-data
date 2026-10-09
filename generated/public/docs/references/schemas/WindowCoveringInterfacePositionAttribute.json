@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/window-covering",
+  "x-name": "position",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "type": "object",
+  "properties": {
+    "liftPosition": {
+      "type": "integer",
+      "description": "Lift position percentage (0-100)",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "tiltPosition": {
+      "type": "integer",
+      "description": "Tilt position percentage (0-100)",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "liftPosition"
+  ],
+  "additionalProperties": false
+}

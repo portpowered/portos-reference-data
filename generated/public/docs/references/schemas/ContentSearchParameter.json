@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A content search parameter",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "VIDEO",
+        "AUDIO",
+        "IMAGE",
+        "OTHER"
+      ]
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "value"
+  ],
+  "additionalProperties": false
+}

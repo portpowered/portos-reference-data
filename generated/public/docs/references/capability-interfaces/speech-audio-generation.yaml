@@ -2,9 +2,8 @@ name: speech-audio-generation
 namespace: port1/systems/zero/capability-interfaces/speech-audio-generation
 version: '1.0'
 description: >-
-  Speech audio generation turns an input into speech audio and returns its URI.
-  Use the result when an integration needs an audio file it can pass to a
-  player.
+  Speech audio generation turns an input into speech audio and returns its URI. Use the result when
+  an integration needs an audio file it can pass to a player.
 messages:
   - name: audio-uri
     description: null
@@ -37,9 +36,7 @@ messages:
           description: The text content to synthesize into speech audio
         speakerEmbeddingUrl:
           type: string
-          description: >-
-            URL or base64 data URI of the speaker embedding for voice
-            characteristics
+          description: URL or base64 data URI of the speaker embedding for voice characteristics
       additionalProperties: false
 attributes: []
 configuration: null

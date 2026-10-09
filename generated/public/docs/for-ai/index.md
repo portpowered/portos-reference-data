@@ -7,6 +7,7 @@ Read [authentication and DCR](/docs/for-ai/guides/authentication-and-dcr.md), th
 - [All task guides](/docs/for-ai/guides/index.md)
 - [Scopes and permission evaluation](/docs/for-ai/guides/authorization-rules.md)
 - [REST operation directory](/docs/for-ai/operations/index.md)
+- [Small REST schema files](/docs/for-ai/schemas.md)
 - [Capability directory](/docs/for-ai/capability-interfaces.md)
 - [OpenAPI YAML](/docs/references/openapi.yaml)
 - [Capability YAML index](/docs/references/capability-interfaces.yaml)

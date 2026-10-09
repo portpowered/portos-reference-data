@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/rtc-session",
+  "x-name": "rtc-session",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "type": "object",
+  "properties": {
+    "iceServers": {
+      "type": "array",
+      "maxItems": 8,
+      "description": "Optional public STUN configuration passed to the browser's standard RTCIceServer interface. Omitted or empty means no ICE servers. Gathering starts only when a caller deliberately initiates a session. TURN and credentials are excluded.",
+      "items": {
+        "$ref": "/docs/references/schemas/RtcIceServer.json"
+      }
+    },
+    "supportedStreams": {
+      "type": "array",
+      "description": "Discoverable media streams in SDP offer order. Directions describe the endpoint; the browser reverses SENDONLY and RECVONLY. Omitted means a legacy video SENDONLY stream.",
+      "items": {
+        "$ref": "/docs/references/schemas/RtcSessionSupportedStream.json"
+      }
+    },
+    "dataChannels": {
+      "type": "array",
+      "maxItems": 8,
+      "description": "Data channels the browser creates after media transceivers, using the standard RTCDataChannelInit options. Omitted means no data channels.",
+      "items": {
+        "$ref": "/docs/references/schemas/RtcDataChannel.json"
+      }
+    },
+    "iceMode": {
+      "type": "string",
+      "description": "Whether the endpoint expects a full offer up front or supports trickle ICE.",
+      "enum": [
+        "FULL_OFFER",
+        "TRICKLE"
+      ]
+    },
+    "messageAuthorizationRequirements": {
+      "type": "array",
+      "description": "Per-message authorization requirements for RTC session messages.",
+      "items": {
+        "$ref": "/docs/references/schemas/RtcSessionMessageAuthorizationRequirement.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

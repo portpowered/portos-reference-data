@@ -2,8 +2,8 @@ name: scene
 namespace: port1/systems/zero/capability-interfaces/scene
 version: '1.0'
 description: >-
-  Scenes activate or deactivate a predefined device scene. Use them to request a
-  saved combination of settings from a connected integration.
+  Scenes activate or deactivate a predefined device scene. Use them to request a saved combination
+  of settings from a connected integration.
 messages:
   - name: activate
     description: null

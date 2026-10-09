@@ -20,12 +20,12 @@
       "type": "string",
       "description": "Flow execution priority",
       "enum": [
-        "low",
-        "normal",
-        "high",
-        "urgent"
+        "LOW",
+        "NORMAL",
+        "HIGH",
+        "URGENT"
       ],
-      "default": "normal"
+      "default": "NORMAL"
     },
     "timeout": {
       "type": "integer",

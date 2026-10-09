@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "An OAuth 2.0 client registration conforming to RFC 7591 with Port OS extensions.",
+  "required": [
+    "clientId",
+    "clientName"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable query result identifier for the OAuth client. Mirrors clientId."
+    },
+    "clientId": {
+      "type": "string",
+      "description": "The unique identifier for the OAuth client",
+      "example": "port1/systems/zero/oauth-clients/1234567890"
+    },
+    "clientName": {
+      "type": "string",
+      "description": "A human-readable string name of the client to be presented to the end-user during authorization. If omitted, the authorization server may display the raw \"client_id\" value to the end-user instead. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "clientUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL string of a web page providing information about the client. If present, the server should display this URL to the end-user in a clickable fashion. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n",
+      "example": "https://google.com/oauth-clients/1234567890"
+    },
+    "logoUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL string that references a logo for the client. If present, the server should display this image to the end-user during approval. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "redirectUris": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "An array of redirection URI strings for use in redirect-based flows such as the authorization code and implicit flows. Clients using these flows must register their redirection URI values. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "allowedOrigins": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "An array of authorized JavaScript origin strings. When set, the server validates the Origin header on token requests against this list. Origins are scheme + host (+ optional port), with no path.\n"
+    },
+    "grantTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
+        "enum": [
+          "authorization_code",
+          "client_credentials",
+          "refresh_token",
+          "implicit",
+          "password"
+        ]
+      },
+      "description": "An array of OAuth 2.0 grant type strings that the client can use at the token endpoint. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "responseTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
+        "enum": [
+          "code",
+          "token",
+          "id_token"
+        ]
+      },
+      "description": "An array of OAuth 2.0 response type strings that the client can use at the authorization endpoint. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "tokenEndpointAuthMethod": {
+      "type": "string",
+      "x-enum-exempt": "OAuth 2.0 Dynamic Client Registration values (RFC 7591)",
+      "enum": [
+        "client_secret_post",
+        "client_secret_basic",
+        "client_secret_jwt",
+        "private_key_jwt",
+        "none"
+      ],
+      "description": "A string indicating the requested authentication method for the token endpoint. Values defined by this specification are \"client_secret_post\", \"client_secret_basic\", \"client_secret_jwt\", \"private_key_jwt\", and \"none\". See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "tokenEndpointAuthSigningAlg": {
+      "type": "string",
+      "description": "A string containing a JWS signing algorithm (alg value) that MUST be used for signing the JWT used to authenticate the client at the token endpoint for the \"private_key_jwt\" and \"client_secret_jwt\" authentication methods. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "scope": {
+      "type": "string",
+      "description": "A string containing a space-separated list of scope values that the client can use when requesting access tokens. Valid scopes are: endpoint:read, endpoint:write, message:read, message:send, secret:read, secret:write, flow:read, flow:write, flow:trigger, principal:read, principal:write, subscription:read, subscription:write, access-control-rule:read, access-control-rule:write. Scopes are mapped to Cedar permissions (e.g., \"endpoint:read\" maps to \"endpoint.read\"). See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n",
+      "example": "endpoint:read endpoint:write message:read"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/OAuthScope.json"
+      },
+      "description": "List of OAuth scopes that this client can request (array representation of scope). This is a convenience field that represents the space-separated scope string as an array. Scopes are mapped to Cedar permissions (e.g., \"endpoint:read\" maps to \"endpoint.read\").\n",
+      "example": [
+        "endpoint:read",
+        "endpoint:write",
+        "message:read"
+      ]
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "email"
+      },
+      "description": "An array of strings representing ways to contact people responsible for this client, typically email addresses. The authorization server may make these contact addresses available to end-users for support requests for the client. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "tosUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL string that points to a human-readable terms of service document for the client that describes a contractual relationship between the end-user and the client that the end-user accepts when authorizing the client. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "tosUriLocalized": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Localized versions of the terms of service URI using language tags as keys (BCP 47 format). The keys are language tags and values are the localized terms of service URIs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2.2\n"
+    },
+    "policyUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL string that points to a human-readable privacy policy document that describes how the deployment organization collects, uses, retains, and discloses personal data. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "policyUriLocalized": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Localized versions of the privacy policy URI using language tags as keys (BCP 47 format). The keys are language tags and values are the localized privacy policy URIs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2.2\n"
+    },
+    "clientSecret": {
+      "type": "string",
+      "description": "The client secret string known only to the client and the authorization server. This secret is used for authenticating the client to the authorization server. This field is typically only returned during client registration and should not be included in GET responses for security reasons. See https://datatracker.ietf.org/doc/html/rfc7591#section-2.2\n"
+    },
+    "clientSecretExpiresAt": {
+      "type": "integer",
+      "description": "An integer indicating the expiration time of the client secret, represented as the number of seconds since the Unix epoch (1970-01-01T00:00:00Z). A value of 0 indicates that the secret does not expire. See https://datatracker.ietf.org/doc/html/rfc7591#section-2.2\n"
+    },
+    "jwksUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL string referencing the client's JSON Web Key (JWK) Set document, which contains the client's public keys. These keys can be used by higher-level protocols that use signing or encryption. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "jwks": {
+      "type": "object",
+      "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "softwareId": {
+      "type": "string",
+      "description": "A unique identifier string assigned by the client developer or software publisher used by registration endpoints to identify the client software to be dynamically registered. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "softwareVersion": {
+      "type": "string",
+      "description": "A version identifier string for the client software identified by \"software_id\". The value of the \"software_version\" should change on any update to the client software identified by the same \"software_id\". See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The owner ID of the OAuth client (Port OS specific field)"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp when the OAuth client was created (Port OS specific field)"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp when the OAuth client was last updated (Port OS specific field)"
+    }
+  }
+}

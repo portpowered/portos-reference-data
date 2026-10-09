@@ -2,8 +2,8 @@ name: recordings
 namespace: port1/systems/zero/capability-interfaces/recordings
 version: '1.0'
 description: >-
-  Recordings list saved captures and expose recording download and deletion. Use
-  pagination to browse the recordings supplied by a connected provider.
+  Recordings list saved captures and expose recording download and deletion. Use pagination to
+  browse the recordings supplied by a connected provider.
 messages:
   - name: delete-recording
     description: Delete recording.
@@ -67,9 +67,7 @@ messages:
       properties:
         cursor:
           type: string
-          description: >-
-            Opaque cursor for the next page; omitted when there are no further
-            results.
+          description: Opaque cursor for the next page; omitted when there are no further results.
         maxResults:
           type: integer
           minimum: 1
@@ -107,10 +105,10 @@ messages:
                 type: string
                 minLength: 1
                 description: >-
-                  Media IDs are a standardized identifier that Port OS uses to
-                  represent media across YouTube, Spotify, and other media
-                  providers. See https://portpowered.com/docs/media for the
-                  current media identifiers documentation.
+                  Media IDs are a standardized identifier that Port OS uses to represent media
+                  across YouTube, Spotify, and other media providers. See
+                  https://portpowered.com/docs/media for the current media identifiers
+                  documentation.
               startedAt:
                 type: string
                 format: date-time
@@ -126,9 +124,7 @@ messages:
           description: Recordings in this page.
         nextCursor:
           type: string
-          description: >-
-            Opaque cursor for the next page; omitted when there are no further
-            results.
+          description: Opaque cursor for the next page; omitted when there are no further results.
       required:
         - items
       additionalProperties: false

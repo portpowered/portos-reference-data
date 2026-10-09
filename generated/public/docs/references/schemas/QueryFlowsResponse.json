@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Flow.json"
+      }
+    },
+    "paginationContext": {
+      "$ref": "/docs/references/schemas/PaginationContext.json"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Partial query errors collected while returning available results.",
+      "items": {
+        "$ref": "/docs/references/schemas/Error.json"
+      }
+    }
+  },
+  "required": [
+    "results"
+  ]
+}

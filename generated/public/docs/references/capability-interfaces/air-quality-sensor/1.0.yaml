@@ -25,9 +25,9 @@ attributes:
           type: string
           description: Air quality standard
           enum:
-            - AirQualityIndex
-            - PartsPerMillion2_5
-            - PartsPerMillion10
+            - AIR_QUALITY_INDEX
+            - PARTS_PER_MILLION_2_5
+            - PARTS_PER_MILLION_10
       required:
         - value
         - standard
@@ -41,9 +41,9 @@ configuration:
         type: string
         description: Air quality standard
         enum:
-          - AirQualityIndex
-          - PartsPerMillion2_5
-          - PartsPerMillion10
+          - AIR_QUALITY_INDEX
+          - PARTS_PER_MILLION_2_5
+          - PARTS_PER_MILLION_10
       description: Supported air quality standards
   additionalProperties: false
   description: >-

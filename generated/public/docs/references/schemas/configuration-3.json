@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ControlRouteGroupsProviderCapabilityInterfaceConfiguration",
+  "x-namespace": "port1/systems/zero/capability-interfaces/control-route-groups-provider",
+  "x-name": "control-route-groups-provider",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Configuration schema for control route groups provider capability interface",
+  "type": "object",
+  "additionalProperties": false
+}

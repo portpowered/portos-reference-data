@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "enum": [
+    "ENDPOINT",
+    "PLUGIN",
+    "FLOW",
+    "QUERY_STREAM"
+  ],
+  "description": "The type of resource",
+  "x-enum-varnames": [
+    "ResourceGroupResourceEndpoint",
+    "ResourceGroupResourcePlugin",
+    "ResourceGroupResourceFlow",
+    "ResourceGroupResourceQueryStream"
+  ]
+}

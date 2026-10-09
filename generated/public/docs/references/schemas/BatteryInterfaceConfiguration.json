@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/battery",
+  "x-name": "battery",
+  "x-version": "1.0",
+  "x-type": "configuration",
+  "description": "Battery level and health reported by a connected device.",
+  "type": "object",
+  "additionalProperties": false
+}

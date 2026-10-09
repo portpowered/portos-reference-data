@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-panel",
+  "x-name": "siren-state",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string",
+      "enum": [
+        "ON",
+        "OFF"
+      ]
+    },
+    "playlistId": {
+      "type": "string"
+    },
+    "playOrder": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/SecurityPlayOrderItem.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

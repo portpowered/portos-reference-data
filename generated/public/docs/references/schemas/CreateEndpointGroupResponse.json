@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The created endpoint group ID",
+      "examples": [
+        "port1/systems/zero/endpoint-groups/123"
+      ]
+    }
+  }
+}

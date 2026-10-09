@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "error",
+    "error_description"
+  ],
+  "description": "Standard OAuth 2.0 error response format. Used for error responses in OAuth-related endpoints.\n",
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "OAuth error code",
+      "x-enum-exempt": "OAuth 2.0 error codes (RFC 6749)",
+      "enum": [
+        "invalid_request",
+        "invalid_client",
+        "invalid_scope",
+        "invalid_grant",
+        "server_error"
+      ],
+      "example": "invalid_request"
+    },
+    "error_description": {
+      "type": "string",
+      "description": "Human-readable description of the error",
+      "example": "user_code is required"
+    }
+  }
+}

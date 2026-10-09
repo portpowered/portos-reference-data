@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+  "x-name": "list-reminders",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Request to list reminders from a reminders provider",
+  "type": "object",
+  "additionalProperties": false
+}
