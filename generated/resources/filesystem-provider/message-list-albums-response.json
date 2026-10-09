@@ -1,0 +1,36 @@
+{
+  "description": "Response containing a list of photo albums from a filesystem provider",
+  "type": "object",
+  "properties": {
+    "albums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "A photo album",
+        "properties": {
+          "albumId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "photoCount": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "albumId"
+        ],
+        "title": "PhotoAlbum"
+      }
+    },
+    "nextCursor": {
+      "type": "string",
+      "description": "Opaque cursor for the next page; omitted when there are no further results."
+    }
+  },
+  "required": [
+    "albums"
+  ],
+  "additionalProperties": false
+}

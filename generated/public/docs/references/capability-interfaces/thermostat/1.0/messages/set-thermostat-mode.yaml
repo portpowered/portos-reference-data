@@ -1,0 +1,13 @@
+type: object
+required:
+  - mode
+properties:
+  mode:
+    type: string
+    enum:
+      - HEAT
+      - COOL
+      - AUTO
+      - ECO
+      - 'OFF'
+additionalProperties: false

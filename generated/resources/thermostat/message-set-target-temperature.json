@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "targetSetpoint": {
+      "$ref": "#/properties/lowerSetpoint"
+    },
+    "lowerSetpoint": {
+      "type": "object",
+      "description": "A temperature setpoint with value and scale",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "scale": {
+          "type": "string",
+          "enum": [
+            "CELSIUS",
+            "FAHRENHEIT"
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "scale"
+      ],
+      "title": "TemperatureSetpoint"
+    },
+    "upperSetpoint": {
+      "$ref": "#/properties/lowerSetpoint"
+    }
+  },
+  "additionalProperties": false
+}

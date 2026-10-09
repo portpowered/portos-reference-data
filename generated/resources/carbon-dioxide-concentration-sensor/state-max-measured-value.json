@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Maximum measured value"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

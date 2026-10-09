@@ -1,0 +1,85 @@
+name: rtsp-session
+namespace: port1/systems/zero/capability-interfaces/rtsp-session
+version: '1.0'
+description: >-
+  RTSP sessions open a camera connection and return its RTSP URI and optional
+  SDP description. Close the session when the connection is no longer needed.
+messages:
+  - name: start-session
+    description: Start session.
+    directionality: in
+    schema:
+      description: Start session.
+      type: object
+      properties:
+        sessionId:
+          type: string
+          minLength: 1
+          description: Caller supplied session identifier.
+      required:
+        - sessionId
+      additionalProperties: false
+      title: RtspSessionInterfaceStartSessionMessage
+  - name: start-session-response
+    description: Start session response.
+    directionality: out
+    schema:
+      description: Start session response.
+      type: object
+      properties:
+        sessionId:
+          type: string
+          minLength: 1
+          description: Session identifier.
+        uri:
+          type: string
+          format: uri
+          pattern: ^rtsps?://
+          description: RTSP stream URI.
+          example: rtsp://camera.example/live
+        sdp:
+          type: string
+          minLength: 1
+          description: Optional SDP describing the stream.
+      required:
+        - sessionId
+        - uri
+      additionalProperties: false
+      title: RtspSessionInterfaceStartSessionResponseMessage
+  - name: stop-session
+    description: Stop session.
+    directionality: in
+    schema:
+      description: Stop session.
+      type: object
+      properties:
+        sessionId:
+          type: string
+          minLength: 1
+          description: Session identifier to close.
+      required:
+        - sessionId
+      additionalProperties: false
+      title: RtspSessionInterfaceStopSessionMessage
+  - name: stop-session-response
+    description: Stop session response.
+    directionality: out
+    schema:
+      description: Stop session response.
+      type: object
+      properties:
+        sessionId:
+          type: string
+          minLength: 1
+          description: Closed session identifier.
+      required:
+        - sessionId
+      additionalProperties: false
+      title: RtspSessionInterfaceStopSessionResponseMessage
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

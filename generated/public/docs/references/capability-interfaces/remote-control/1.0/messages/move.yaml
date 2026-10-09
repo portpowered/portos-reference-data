@@ -1,0 +1,20 @@
+type: object
+properties:
+  velocity:
+    type: number
+    description: Forward/backward speed
+  omega:
+    type: number
+    description: Angular velocity for turning
+  duration:
+    type: integer
+    description: Duration in milliseconds
+  seqNum:
+    type: integer
+    description: Sequence number for ordering move commands
+required:
+  - velocity
+  - omega
+  - duration
+  - seqNum
+additionalProperties: false

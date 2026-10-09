@@ -1,0 +1,49 @@
+name: contacts-provider
+namespace: port1/systems/zero/capability-interfaces/contacts-provider
+version: '1.0'
+description: >-
+  Contacts providers list contacts from a connected account. Use the returned
+  records to give an assistant the contact information available to your
+  integration.
+messages:
+  - name: list-contacts
+    description: Request to list contacts from a contacts provider
+    directionality: in
+    schema:
+      description: Request to list contacts from a contacts provider
+      type: object
+      additionalProperties: false
+  - name: list-contacts-response
+    description: Response containing a list of contacts from a contacts provider
+    directionality: out
+    schema:
+      description: Response containing a list of contacts from a contacts provider
+      type: object
+      properties:
+        contacts:
+          type: array
+          items:
+            type: object
+            description: A contact entry
+            properties:
+              contactId:
+                type: string
+              firstName:
+                type: string
+              lastName:
+                type: string
+              companyName:
+                type: string
+            required:
+              - contactId
+            title: Contact
+      required:
+        - contacts
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

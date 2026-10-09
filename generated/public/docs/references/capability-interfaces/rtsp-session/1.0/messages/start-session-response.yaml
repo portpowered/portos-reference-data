@@ -1,0 +1,22 @@
+description: Start session response.
+type: object
+properties:
+  sessionId:
+    type: string
+    minLength: 1
+    description: Session identifier.
+  uri:
+    type: string
+    format: uri
+    pattern: ^rtsps?://
+    description: RTSP stream URI.
+    example: rtsp://camera.example/live
+  sdp:
+    type: string
+    minLength: 1
+    description: Optional SDP describing the stream.
+required:
+  - sessionId
+  - uri
+additionalProperties: false
+title: RtspSessionInterfaceStartSessionResponseMessage

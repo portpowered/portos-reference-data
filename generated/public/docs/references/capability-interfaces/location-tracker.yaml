@@ -1,0 +1,33 @@
+name: location-tracker
+namespace: port1/systems/zero/capability-interfaces/location-tracker
+version: '1.0'
+description: >-
+  Location trackers start a locator and report its signal. Use them when helping
+  a customer locate a connected item.
+messages:
+  - name: start-locator
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: locator-signal
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - 'ON'
+            - 'OFF'
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

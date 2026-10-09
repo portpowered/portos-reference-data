@@ -1,0 +1,8 @@
+description: Whether this map or floor is the provider's currently loaded map (maps only)
+type: object
+required:
+  - value
+properties:
+  value:
+    type: boolean
+additionalProperties: false

@@ -1,0 +1,16 @@
+{
+  "description": "Delete recording.",
+  "type": "object",
+  "properties": {
+    "recordingId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Provider recording identifier."
+    }
+  },
+  "required": [
+    "recordingId"
+  ],
+  "additionalProperties": false,
+  "title": "RecordingsInterfaceDeleteRecordingMessage"
+}

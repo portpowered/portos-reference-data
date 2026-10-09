@@ -1,0 +1,5 @@
+{
+  "description": "Request to discover routes",
+  "type": "object",
+  "additionalProperties": false
+}

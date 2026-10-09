@@ -1,0 +1,10 @@
+description: Alarm state.
+type: object
+properties:
+  active:
+    type: boolean
+    description: Whether the audible alarm is currently sounding.
+required:
+  - active
+additionalProperties: false
+title: AlarmInterfaceAlarmStateAttribute

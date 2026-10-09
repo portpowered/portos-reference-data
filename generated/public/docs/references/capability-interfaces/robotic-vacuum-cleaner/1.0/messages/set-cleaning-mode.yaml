@@ -1,0 +1,14 @@
+type: object
+properties:
+  mode:
+    type: string
+    description: Robot vacuum cleaning mode
+    enum:
+      - AUTO
+      - SPOT
+      - EDGE
+      - SINGLE_ROOM
+      - CUSTOM
+required:
+  - mode
+additionalProperties: false

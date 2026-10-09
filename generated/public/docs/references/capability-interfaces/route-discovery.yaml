@@ -1,0 +1,333 @@
+name: route-discovery
+namespace: port1/systems/zero/capability-interfaces/route-discovery
+version: '1.0'
+description: >-
+  Route discovery reports the control routes available to an integration. Use
+  its group commands to name a group or update the routes that belong to it.
+messages:
+  - name: add-group-route-members
+    description: Request to add members to a group route
+    directionality: in
+    schema:
+      description: Request to add members to a group route
+      type: object
+      additionalProperties: false
+      required:
+        - groupRouteId
+        - memberPluginRouteIds
+      properties:
+        groupRouteId:
+          type: string
+          description: The ID of the group route to add members to
+        memberPluginRouteIds:
+          type: array
+          items:
+            type: string
+          description: List of plugin route IDs to add as members to the group route
+  - name: discover-routes
+    description: Request to discover routes
+    directionality: out
+    schema:
+      description: Request to discover routes
+      type: object
+      additionalProperties: false
+  - name: remove-group-route-members
+    description: Request to remove members from a group route
+    directionality: in
+    schema:
+      description: Request to remove members from a group route
+      type: object
+      additionalProperties: false
+      required:
+        - groupRouteId
+        - memberPluginRouteIds
+      properties:
+        groupRouteId:
+          type: string
+          description: The ID of the group route to remove members from
+        memberPluginRouteIds:
+          type: array
+          items:
+            type: string
+          description: List of plugin route IDs to remove as members from the group route
+  - name: route-discovery-report
+    description: >-
+      Report of discovered routes, group routes and their relationships. Decodes
+      to the same model as SynchronizationRequest.
+    directionality: out
+    schema:
+      description: >-
+        Report of discovered routes, group routes and their relationships.
+        Decodes to the same model as SynchronizationRequest.
+      type: object
+      additionalProperties: false
+      properties:
+        routes:
+          type: array
+          items:
+            type: object
+            description: A discovered route
+            properties:
+              pluginRouteId:
+                type: string
+                description: The external ID of the route
+              name:
+                type: string
+                description: The name of the route
+              description:
+                type: string
+                description: The description of the route
+              type:
+                type: string
+                description: The type of the route that has been discovered
+              interfaces:
+                type: array
+                items:
+                  type: object
+                  description: A reference to a route interface
+                  properties:
+                    namespace:
+                      type: string
+                      description: The name of the interface
+                    version:
+                      type: string
+                      description: The version of the interface
+                  title: RouteInterfaceRef
+            additionalProperties: false
+            title: DiscoveredRoute
+        groupRoutes:
+          type: array
+          items:
+            type: object
+            description: >
+              A provider-reported group route (for example a vacuum map or room,
+              a lighting room or a speaker group) as carried by discovery. It is
+              shared by the route-discovery report message and
+              `SynchronizationRequest.groupRoutes` so both decode to the same
+              model.
+            required:
+              - pluginRouteId
+              - name
+            properties:
+              pluginRouteId:
+                type: string
+                minLength: 1
+                description: >
+                  Plugin-owned stable identifier of the group route. Must be
+                  unique across routes and group routes within one plugin and
+                  auth link.
+              name:
+                type: string
+                description: The name of the associated group route
+              interfaces:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - name
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the interface
+                    version:
+                      type: string
+                      description: the version of the interface
+                    messages:
+                      type: array
+                      nullable: true
+                      minItems: 1
+                      description: >-
+                        Supported inbound message subset for the declared
+                        interface version. Omission or null retains the
+                        interface's full message contract; a supplied array must
+                        be nonempty and contain distinct canonical names for
+                        implemented messages.
+                      items:
+                        type: object
+                        required:
+                          - name
+                        properties:
+                          name:
+                            type: string
+                            description: The name of the command
+                        title: ApplicationInterfaceMessage
+                    attributes:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                          - name
+                        properties:
+                          name:
+                            type: string
+                            description: The name of the attribute
+                          value:
+                            description: >-
+                              the value of the attribute, this is an opaque
+                              resource object, so it can be any type of struct.
+                            type: object
+                            additionalProperties: true
+                        title: ApplicationInterfaceAttribute
+                      description: >-
+                        Supported attribute subset. An omitted or empty list
+                        retains catalog-default behavior.
+                    configuration:
+                      type: object
+                      additionalProperties: true
+                      description: The configuration of the interface
+                  title: RouteInterface
+              memberPluginRouteIds:
+                type: array
+                uniqueItems: true
+                items:
+                  type: string
+                description: List of plugin route IDs that are members of this group route
+              pluginCustomMetadata:
+                type: object
+                additionalProperties: true
+                description: >
+                  Private plugin metadata (native map, segment or cloud room
+                  addressing) returned to the plugin on dispatch; never exposed
+                  as application data.
+            additionalProperties: false
+            title: GroupRoute
+        relationships:
+          type: array
+          items:
+            type: object
+            description: >
+              A provider-reported relationship between routes and group routes.
+              Identity is `externalId` within the reporting plugin and auth
+              link; resubmitting the same `externalId` updates the relationship.
+              Omission from a later synchronization is not a deletion
+              instruction.
+            additionalProperties: false
+            required:
+              - externalId
+              - type
+              - source
+              - target
+            properties:
+              externalId:
+                type: string
+                minLength: 1
+                description: Plugin-owned stable identifier of the relationship.
+              type:
+                type: string
+                description: >
+                  Typed relationship between provider routes and group routes.
+                  `IS_PART_OF`: a group route is contained in a parent group
+                  route (spatial hierarchy, acyclic). `CAN_CONTROL`: an endpoint
+                  route can act on a group route with the listed interface
+                  messages; it never grants authorization. `LOCATED_IN`: an
+                  endpoint route is currently observed inside a group route; it
+                  is an observation, not membership.
+                enum:
+                  - IS_PART_OF
+                  - CAN_CONTROL
+                  - LOCATED_IN
+              source:
+                type: object
+                description: >
+                  One end of a discovered relationship, addressed by
+                  plugin-owned identity within the reporting plugin and auth
+                  link. Exactly one of `pluginRouteId` (a route) or
+                  `groupPluginRouteId` (a group route) must be set.
+                additionalProperties: false
+                minProperties: 1
+                maxProperties: 1
+                properties:
+                  pluginRouteId:
+                    type: string
+                    minLength: 1
+                    description: >-
+                      The plugin route ID of a route reported in the same or an
+                      earlier synchronization.
+                  groupPluginRouteId:
+                    type: string
+                    minLength: 1
+                    description: >-
+                      The plugin route ID of a group route reported in the same
+                      or an earlier synchronization.
+                title: PluginDiscoveryRelationshipVertex
+              target:
+                $ref: '#/properties/relationships/items/properties/source'
+              interfaces:
+                type: array
+                minItems: 1
+                description: >-
+                  Optional interface applicability; used by `CAN_CONTROL` to
+                  declare which messages the source supports on the target.
+                items:
+                  type: object
+                  description: >
+                    Capability-interface applicability of a relationship, for
+                    example the robotic-vacuum-cleaner messages a `CAN_CONTROL`
+                    edge supports on a room.
+                  additionalProperties: false
+                  required:
+                    - name
+                    - version
+                  properties:
+                    name:
+                      type: string
+                      minLength: 1
+                      description: The capability interface namespace.
+                      example: >-
+                        port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
+                    version:
+                      type: string
+                      minLength: 1
+                      description: The capability interface version.
+                      example: '1.0'
+                    messages:
+                      type: array
+                      minItems: 1
+                      uniqueItems: true
+                      description: >-
+                        Message names of the interface the relationship applies
+                        to. Omitted means every message of the interface.
+                      items:
+                        type: string
+                        minLength: 1
+                      example:
+                        - clean-room
+                  title: RelationshipInterface
+            title: PluginDiscoveryRelationship
+  - name: set-group-route-name
+    description: Request to set the name of a group route
+    directionality: in
+    schema:
+      description: Request to set the name of a group route
+      type: object
+      additionalProperties: false
+      required:
+        - groupRouteId
+        - name
+      properties:
+        groupRouteId:
+          type: string
+          description: The ID of the group route to set the name for
+        name:
+          type: object
+          description: A route name value
+          required:
+            - type
+            - value
+          properties:
+            type:
+              type: string
+              description: >-
+                The type identifier of the name value, defined as plain when not
+                defined
+            value:
+              type: string
+              description: The raw value of a plain name or localizable asset reference
+          title: RouteName
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,33 @@
+name: smoke-co-alarm
+namespace: port1/systems/zero/capability-interfaces/smoke-co-alarm
+version: '1.0'
+description: >-
+  Smoke and carbon monoxide detectors report detection state. Devices expose alarm controls through
+  the alarm capability and charge level through the battery capability.
+messages: []
+attributes:
+  - name: alarm-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Alarm state
+          enum:
+            - NORMAL
+            - SMOKE_ALARM
+            - CO_ALARM
+            - BOTH_ALARM
+            - TEST_MODE
+            - HARDWARE_FAULT
+            - END_OF_LIFE
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

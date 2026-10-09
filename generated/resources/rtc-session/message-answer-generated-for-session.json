@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "required": [
+    "answer"
+  ],
+  "properties": {
+    "answer": {
+      "type": "object",
+      "description": "An RTC session answer",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": [
+            "sdp"
+          ]
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "sdp": {
+              "type": "string",
+              "description": "The SDP answer session contents"
+            },
+            "streamToken": {
+              "type": "string",
+              "description": "Provider token for the established stream"
+            },
+            "streamExtensionToken": {
+              "type": "string",
+              "description": "Provider token used to extend the established stream"
+            },
+            "expiresAt": {
+              "type": "string",
+              "description": "Provider-reported stream expiration"
+            },
+            "streamUrl": {
+              "type": "string",
+              "description": "Provider stream URL when the answer is not SDP"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The content of the answer",
+          "title": "RtcAnswerValue"
+        }
+      },
+      "title": "RtcAnswer"
+    }
+  },
+  "additionalProperties": false
+}

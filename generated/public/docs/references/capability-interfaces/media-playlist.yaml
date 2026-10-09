@@ -1,0 +1,114 @@
+name: media-playlist
+namespace: port1/systems/zero/capability-interfaces/media-playlist
+version: '1.0'
+description: >-
+  Media playlists create and manage a collection of items to play. Add or remove
+  items, retrieve a playlist, shuffle it, or ask the device to play it.
+messages:
+  - name: add-to-playlist
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        playlistId:
+          type: string
+          description: ID of the playlist to add tracks to
+          minLength: 1
+        tracks:
+          type: array
+          description: Track URIs to add to the playlist
+          items:
+            type: string
+          minItems: 1
+      required:
+        - playlistId
+        - tracks
+      additionalProperties: false
+  - name: create-playlist
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the playlist to create
+          minLength: 1
+        tracks:
+          type: array
+          description: Optional initial list of track URIs
+          items:
+            type: string
+      required:
+        - name
+      additionalProperties: false
+  - name: get-playlist
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        playlistId:
+          type: string
+          description: ID of the playlist to retrieve
+          minLength: 1
+      required:
+        - playlistId
+      additionalProperties: false
+  - name: play-playlist
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        playlistId:
+          type: string
+          description: ID of the playlist to play
+          minLength: 1
+        endpointId:
+          type: string
+          description: Optional target endpoint to play the playlist on
+      required:
+        - playlistId
+      additionalProperties: false
+  - name: remove-from-playlist
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        playlistId:
+          type: string
+          description: ID of the playlist to remove a track from
+          minLength: 1
+        trackIndex:
+          type: integer
+          description: Index of the track to remove (-1 to use trackUri instead)
+        trackUri:
+          type: string
+          description: URI of the track to remove (used when trackIndex is -1)
+      required:
+        - playlistId
+        - trackIndex
+      additionalProperties: false
+  - name: shuffle-playlist
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        playlistId:
+          type: string
+          description: ID of the playlist to shuffle
+          minLength: 1
+      required:
+        - playlistId
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

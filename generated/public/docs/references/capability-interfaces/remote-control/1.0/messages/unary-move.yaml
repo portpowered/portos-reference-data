@@ -1,0 +1,28 @@
+type: object
+properties:
+  instructions:
+    type: array
+    description: Ordered list of movement instructions to execute in sequence
+    items:
+      type: object
+      description: A movement instruction for remote control
+      properties:
+        velocity:
+          type: number
+          description: Forward/backward speed
+        omega:
+          type: number
+          description: Angular velocity for turning
+        duration:
+          type: integer
+          description: Duration in milliseconds
+      required:
+        - velocity
+        - omega
+        - duration
+      additionalProperties: false
+      title: MovementInstruction
+    minItems: 1
+required:
+  - instructions
+additionalProperties: false

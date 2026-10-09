@@ -1,0 +1,33 @@
+{
+  "description": "Port OS emitted a durable endpoint metadata or enablement change. Delivery is best effort.",
+  "type": "object",
+  "properties": {
+    "endpointId": {
+      "type": "string",
+      "description": "Full Port OS endpoint identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Current endpoint name."
+    },
+    "type": {
+      "type": "string",
+      "description": "Current ontological endpoint type."
+    },
+    "enablement": {
+      "type": "string",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "description": "Whether Port OS permits messages to be sent to this endpoint."
+    }
+  },
+  "required": [
+    "endpointId",
+    "name",
+    "type",
+    "enablement"
+  ],
+  "additionalProperties": false
+}

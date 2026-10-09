@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "ARMED_AWAY",
+        "ARMED_STAY",
+        "ARMED_NIGHT",
+        "DISARMED"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

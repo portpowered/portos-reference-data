@@ -1,0 +1,23 @@
+type: object
+properties:
+  state:
+    type: string
+    enum:
+      - 'ON'
+      - 'OFF'
+  playlistId:
+    type: string
+  playOrder:
+    type: array
+    items:
+      type: object
+      description: A play order item for security panel audio playback
+      properties:
+        assetId:
+          type: string
+        loopCount:
+          type: integer
+        loopPauseInMilliseconds:
+          type: integer
+      title: SecurityPlayOrderItem
+additionalProperties: false

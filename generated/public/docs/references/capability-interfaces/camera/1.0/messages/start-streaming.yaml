@@ -1,0 +1,18 @@
+type: object
+properties:
+  streamingProtocol:
+    type: string
+    enum:
+      - RTSP
+      - HLS
+      - DASH
+      - WEBRTC
+      - OTHER
+    description: Streaming protocol to use
+  streamingUrl:
+    type: string
+    format: uri
+    description: URL for streaming (if applicable)
+required:
+  - streamingProtocol
+additionalProperties: false

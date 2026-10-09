@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedStreamingProtocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RTSP",
+          "HLS",
+          "DASH",
+          "WEBRTC",
+          "OTHER"
+        ]
+      },
+      "description": "Supported streaming protocols"
+    },
+    "supportsPTZ": {
+      "type": "boolean",
+      "description": "Whether the camera supports pan-tilt-zoom controls",
+      "default": false
+    },
+    "supportsMotionDetection": {
+      "type": "boolean",
+      "description": "Whether the camera supports motion detection",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "description": "Cameras provide streaming, event images, and camera controls. Start a stream, adjust pan and tilt when supported, or configure motion detection for the view you need."
+}

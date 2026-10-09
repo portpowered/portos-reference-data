@@ -1,0 +1,624 @@
+interfaces:
+  - id: port1/systems/zero/capability-interfaces/air-quality-sensor
+    version: '1.0'
+    description: >-
+      Air quality reports the air-quality index measured by a device. Use the reading to understand
+      conditions in a room and decide when to run ventilation or another automation.
+    schema: /docs/references/capability-interfaces/air-quality-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/air-quality-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/alarm
+    version: '1.0'
+    description: >-
+      Alarms ring, silence, or test a device's siren when supported. Read the alarm state to see
+      whether the siren is active.
+    schema: /docs/references/capability-interfaces/alarm/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/alarm/1.0.md
+  - id: port1/systems/zero/capability-interfaces/application-launcher
+    version: '1.0'
+    description: >-
+      Application launchers start and stop applications on a connected device. Check the available
+      applications and the current selection before choosing what to launch.
+    schema: /docs/references/capability-interfaces/application-launcher/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/application-launcher/1.0.md
+  - id: port1/systems/zero/capability-interfaces/authorization
+    version: '1.0'
+    description: >-
+      Authorization connects an integration to an account and keeps its credentials up to date. Use
+      token refresh and authorization reports to follow the connection as it changes.
+    schema: /docs/references/capability-interfaces/authorization/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/authorization/1.0.md
+  - id: port1/systems/zero/capability-interfaces/barrier-control
+    version: '1.0'
+    description: >-
+      Barrier control opens, closes, or positions a connected barrier. Read its position and state
+      to check a garage door or gate before sending the next command.
+    schema: /docs/references/capability-interfaces/barrier-control/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/barrier-control/1.0.md
+  - id: port1/systems/zero/capability-interfaces/battery
+    version: '1.0'
+    description: >-
+      Battery reports a connected device's charge level and battery health. Use it to show when a
+      device needs charging or a replacement battery.
+    schema: /docs/references/capability-interfaces/battery/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/battery/1.0.md
+  - id: port1/systems/zero/capability-interfaces/brightness
+    version: '1.0'
+    description: >-
+      Brightness sets how bright a connected device should be and reports its current level. Use it
+      to dim a light for the evening or restore a brighter setting for work.
+    schema: /docs/references/capability-interfaces/brightness/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/brightness/1.0.md
+  - id: port1/systems/zero/capability-interfaces/calendar-provider
+    version: '1.0'
+    description: >-
+      Calendar providers list events from a connected calendar. Use the returned events to give an
+      assistant schedule context or build an automation around an upcoming appointment.
+    schema: /docs/references/capability-interfaces/calendar-provider/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/calendar-provider/1.0.md
+  - id: port1/systems/zero/capability-interfaces/camera
+    version: '1.0'
+    description: >-
+      Cameras provide streaming, event images, and camera controls. Start a stream, adjust pan and
+      tilt when supported, or configure motion detection for the view you need.
+    schema: /docs/references/capability-interfaces/camera/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/camera/1.0.md
+  - id: port1/systems/zero/capability-interfaces/carbon-dioxide-concentration-sensor
+    version: '1.0'
+    description: >-
+      Carbon dioxide measurements report the concentration observed by a sensor, including its
+      minimum and maximum readings. Use them to track changes in indoor conditions over time.
+    schema: /docs/references/capability-interfaces/carbon-dioxide-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/carbon-dioxide-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/carbon-monoxide-concentration-sensor
+    version: '1.0'
+    description: >-
+      Carbon monoxide measurements report the concentration observed by a sensor, including its
+      minimum and maximum readings. Use the reported values as input to monitoring and notification
+      flows.
+    schema: /docs/references/capability-interfaces/carbon-monoxide-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/carbon-monoxide-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/channel
+    version: '1.0'
+    description: >-
+      Channel controls select a channel or skip between channels on a connected device. Read the
+      current channel to keep the interface in step with what is playing.
+    schema: /docs/references/capability-interfaces/channel/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/channel/1.0.md
+  - id: port1/systems/zero/capability-interfaces/cleaning-mode
+    version: '1.0'
+    description: >-
+      Cleaning types, suction levels and water flows the robot supports, refreshed on every
+      discovery. set-cleaning-mode values outside these lists are rejected before dispatch.
+    schema: /docs/references/capability-interfaces/cleaning-mode/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/cleaning-mode/1.0.md
+  - id: port1/systems/zero/capability-interfaces/color
+    version: '1.0'
+    description: >-
+      Color sets and reports the color of a connected device. Use it to coordinate lighting for a
+      scene or let an assistant choose a new color.
+    schema: /docs/references/capability-interfaces/color/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/color/1.0.md
+  - id: port1/systems/zero/capability-interfaces/color-temperature
+    version: '1.0'
+    description: >-
+      Color temperature adjusts a light between warmer and cooler tones. Set a temperature directly
+      or increase and decrease it, then read the reported value in kelvin.
+    schema: /docs/references/capability-interfaces/color-temperature/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/color-temperature/1.0.md
+  - id: port1/systems/zero/capability-interfaces/connectivity
+    version: '1.0'
+    description: >-
+      Connectivity tells you whether a connected device is reachable. Use its reported state to
+      explain an unavailable device or decide when to retry an action.
+    schema: /docs/references/capability-interfaces/connectivity/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/connectivity/1.0.md
+  - id: port1/systems/zero/capability-interfaces/contact-sensor
+    version: '1.0'
+    description: >-
+      Contact sensors tell you whether a door, window, or gate is open or closed. Use their reported
+      state to check an entryway or trigger an automation when something is left open.
+    schema: /docs/references/capability-interfaces/contact-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/contact-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/contacts-provider
+    version: '1.0'
+    description: >-
+      Contacts providers list contacts from a connected account. Use the returned records to give an
+      assistant the contact information available to your integration.
+    schema: /docs/references/capability-interfaces/contacts-provider/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/contacts-provider/1.0.md
+  - id: port1/systems/zero/capability-interfaces/content-launcher
+    version: '1.0'
+    description: >-
+      Content launchers open content or a URL on a connected device. Use them to send a selected
+      item to a screen or start the content a customer asked for.
+    schema: /docs/references/capability-interfaces/content-launcher/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/content-launcher/1.0.md
+  - id: port1/systems/zero/capability-interfaces/control-route-groups-provider
+    version: '1.0'
+    description: >-
+      Control route groups organize several routes into a group. Create a group with its member
+      routes or delete a group your integration no longer needs.
+    schema: /docs/references/capability-interfaces/control-route-groups-provider/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/control-route-groups-provider/1.0.md
+  - id: port1/systems/zero/capability-interfaces/control-routes-provider
+    version: '1.0'
+    description: >-
+      Control route providers carry dispatch results and attribute reports between an integration
+      and Port OS. Use them to report acknowledgements, errors, deferred responses, and batches of
+      messages.
+    schema: /docs/references/capability-interfaces/control-routes-provider/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/control-routes-provider/1.0.md
+  - id: port1/systems/zero/capability-interfaces/cooktop
+    version: '1.0'
+    description: >-
+      Cooktops report their operational state. Use that state to show what the appliance is doing or
+      supply context to an automation.
+    schema: /docs/references/capability-interfaces/cooktop/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/cooktop/1.0.md
+  - id: port1/systems/zero/capability-interfaces/dishwasher
+    version: '1.0'
+    description: >-
+      Dishwashers report their operational state. Use it to keep an appliance dashboard up to date
+      or react when a reported state changes.
+    schema: /docs/references/capability-interfaces/dishwasher/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/dishwasher/1.0.md
+  - id: port1/systems/zero/capability-interfaces/doorbell
+    version: '1.0'
+    description: >-
+      Doorbells emit a chime event. Use that event to start a notification or another flow when
+      someone rings the bell.
+    schema: /docs/references/capability-interfaces/doorbell/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/doorbell/1.0.md
+  - id: port1/systems/zero/capability-interfaces/electrical-conductivity-sensor
+    version: '1.0'
+    description: >-
+      Electrical conductivity measurements report a sensor reading. Use the value and its declared
+      units when displaying or comparing measurements.
+    schema: /docs/references/capability-interfaces/electrical-conductivity-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/electrical-conductivity-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/embedding-generation
+    version: '1.0'
+    description: >-
+      Embedding generation turns an input into an embedding and returns its URI. Use the result in
+      integrations that work with vector representations of content.
+    schema: /docs/references/capability-interfaces/embedding-generation/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/embedding-generation/1.0.md
+  - id: port1/systems/zero/capability-interfaces/endpoint-registry
+    version: '1.0'
+    description: Configuration for Port OS endpoint registry lifecycle notifications
+    schema: /docs/references/capability-interfaces/endpoint-registry/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/endpoint-registry/1.0.md
+  - id: port1/systems/zero/capability-interfaces/equalizer
+    version: '1.0'
+    description: >-
+      Equalizers adjust audio bands and select an equalizer mode. Read the current bands and mode to
+      keep an audio control in step with the device.
+    schema: /docs/references/capability-interfaces/equalizer/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/equalizer/1.0.md
+  - id: port1/systems/zero/capability-interfaces/event-detection-sensor
+    version: '1.0'
+    description: >-
+      Event detection sensors report human presence and emit person-detected events. Use them to
+      give an automation context about activity in a monitored area.
+    schema: /docs/references/capability-interfaces/event-detection-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/event-detection-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/extractor-hood
+    version: '1.0'
+    description: >-
+      Extractor hoods report their fan speed. Use that state to show the current ventilation setting
+      alongside other kitchen appliances.
+    schema: /docs/references/capability-interfaces/extractor-hood/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/extractor-hood/1.0.md
+  - id: port1/systems/zero/capability-interfaces/fan-control
+    version: '1.0'
+    description: >-
+      Fan control selects a fan mode and speed. Read the reported settings to check how a fan is
+      running before changing them.
+    schema: /docs/references/capability-interfaces/fan-control/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/fan-control/1.0.md
+  - id: port1/systems/zero/capability-interfaces/filesystem-provider
+    version: '1.0'
+    description: >-
+      Filesystem providers list folders and photo albums and expose file download, upload, and
+      deletion. Check the provider's supported commands before requesting an operation.
+    schema: /docs/references/capability-interfaces/filesystem-provider/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/filesystem-provider/1.0.md
+  - id: port1/systems/zero/capability-interfaces/flow-sensor
+    version: '1.0'
+    description: >-
+      Flow measurements report the flow observed by a sensor. Use the reading and its declared units
+      to monitor changes in a connected system.
+    schema: /docs/references/capability-interfaces/flow-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/flow-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/flows
+    version: '1.0'
+    description: >-
+      Flows run automations that can be initiated, paused, resumed, or terminated. Follow completion
+      and acknowledgement events to understand the progress of a run.
+    schema: /docs/references/capability-interfaces/flows/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/flows/1.0.md
+  - id: port1/systems/zero/capability-interfaces/formaldehyde-concentration-sensor
+    version: '1.0'
+    description: >-
+      Formaldehyde measurements report the concentration observed by a sensor. Use the reading and
+      its declared unit when presenting environmental measurements.
+    schema: /docs/references/capability-interfaces/formaldehyde-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/formaldehyde-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/humidity-sensor
+    version: '1.0'
+    description: >-
+      Humidity sensors report relative humidity. Use the reading to display room conditions or
+      provide input to a ventilation or humidifier flow.
+    schema: /docs/references/capability-interfaces/humidity-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/humidity-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/input
+    version: '1.0'
+    description: >-
+      Input controls select or navigate between the inputs on a connected device. Read the current
+      input to show which source is selected.
+    schema: /docs/references/capability-interfaces/input/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/input/1.0.md
+  - id: port1/systems/zero/capability-interfaces/keypad-input
+    version: '1.0'
+    description: >-
+      Keypad input sends a key to a connected device. Use it to build remote controls that send
+      individual button presses.
+    schema: /docs/references/capability-interfaces/keypad-input/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/keypad-input/1.0.md
+  - id: port1/systems/zero/capability-interfaces/laundry-dryer
+    version: '1.0'
+    description: >-
+      Laundry dryers report their operational state. Use it to show the current appliance status or
+      react to a change in a flow.
+    schema: /docs/references/capability-interfaces/laundry-dryer/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/laundry-dryer/1.0.md
+  - id: port1/systems/zero/capability-interfaces/laundry-washer
+    version: '1.0'
+    description: >-
+      Laundry washers report their operational state. Use it to keep a laundry dashboard in step
+      with the appliance.
+    schema: /docs/references/capability-interfaces/laundry-washer/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/laundry-washer/1.0.md
+  - id: port1/systems/zero/capability-interfaces/leaf-wetness-sensor
+    version: '1.0'
+    description: >-
+      Leaf wetness measurements report readings from a connected sensor. Use them as input when
+      monitoring plants and growing conditions.
+    schema: /docs/references/capability-interfaces/leaf-wetness-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/leaf-wetness-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/light-sensor
+    version: '1.0'
+    description: >-
+      Light sensors report illuminance. Use the reading to understand ambient light and provide
+      input to a lighting automation.
+    schema: /docs/references/capability-interfaces/light-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/light-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/location
+    version: '1.0'
+    description: >-
+      Location reports a connected resource's geolocation. Use it to show the position supplied by
+      that resource.
+    schema: /docs/references/capability-interfaces/location/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/location/1.0.md
+  - id: port1/systems/zero/capability-interfaces/location-tracker
+    version: '1.0'
+    description: >-
+      Location trackers start a locator and report its signal. Use them when helping a customer
+      locate a connected item.
+    schema: /docs/references/capability-interfaces/location-tracker/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/location-tracker/1.0.md
+  - id: port1/systems/zero/capability-interfaces/lock
+    version: '1.0'
+    description: >-
+      Locks accept lock and unlock commands and report their lock state. Use the reported state to
+      check an entryway before requesting a change.
+    schema: /docs/references/capability-interfaces/lock/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/lock/1.0.md
+  - id: port1/systems/zero/capability-interfaces/media-player
+    version: '1.0'
+    description: >-
+      Media players select media by its Port OS media ID, play supplied audio or a URI, and control
+      playback. Read playback state and use only the commands supported by the connected player.
+    schema: /docs/references/capability-interfaces/media-player/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/media-player/1.0.md
+  - id: port1/systems/zero/capability-interfaces/media-playlist
+    version: '1.0'
+    description: >-
+      Media playlists create and manage a collection of items to play. Add or remove items, retrieve
+      a playlist, shuffle it, or ask the device to play it.
+    schema: /docs/references/capability-interfaces/media-playlist/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/media-playlist/1.0.md
+  - id: port1/systems/zero/capability-interfaces/media-search
+    version: '1.0'
+    description: >-
+      Media search requests content matching a search and returns audio media results. Use it to
+      find an item before asking a player to play it.
+    schema: /docs/references/capability-interfaces/media-search/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/media-search/1.0.md
+  - id: port1/systems/zero/capability-interfaces/microwave-oven
+    version: '1.0'
+    description: >-
+      Microwave ovens report their operational state. Use that state to show what the appliance is
+      currently doing.
+    schema: /docs/references/capability-interfaces/microwave-oven/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/microwave-oven/1.0.md
+  - id: port1/systems/zero/capability-interfaces/motion-sensor
+    version: '1.0'
+    description: >-
+      Motion sensors report detection state and emit motion-detected events. Use them to trigger a
+      light, a notification, or another automation when movement is detected.
+    schema: /docs/references/capability-interfaces/motion-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/motion-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/nitrogen-dioxide-concentration-sensor
+    version: '1.0'
+    description: >-
+      Nitrogen dioxide measurements report the concentration observed by a sensor. Use the value and
+      its declared units in environmental monitoring.
+    schema: /docs/references/capability-interfaces/nitrogen-dioxide-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/nitrogen-dioxide-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/notification
+    version: '1.0'
+    description: >-
+      Notifications can be triggered immediately or scheduled. Follow notification events to connect
+      the delivery flow to the rest of an integration.
+    schema: /docs/references/capability-interfaces/notification/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/notification/1.0.md
+  - id: port1/systems/zero/capability-interfaces/oven
+    version: '1.0'
+    description: >-
+      Ovens report their temperature. Use the reading to show the temperature supplied by a
+      connected appliance.
+    schema: /docs/references/capability-interfaces/oven/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/oven/1.0.md
+  - id: port1/systems/zero/capability-interfaces/ozone-concentration-sensor
+    version: '1.0'
+    description: >-
+      Ozone measurements report the concentration observed by a sensor. Use the reading and its
+      declared unit when displaying environmental conditions.
+    schema: /docs/references/capability-interfaces/ozone-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/ozone-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/percentage
+    version: '1.0'
+    description: >-
+      Percentage controls set or adjust a percentage and report the current value. Use them for
+      connected controls expressed as a proportional level.
+    schema: /docs/references/capability-interfaces/percentage/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/percentage/1.0.md
+  - id: port1/systems/zero/capability-interfaces/pet-feeder
+    version: '1.0'
+    description: >-
+      Pet feeders accept a command to trigger a feed. Use the command to start a feeding action from
+      an interface or automation.
+    schema: /docs/references/capability-interfaces/pet-feeder/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/pet-feeder/1.0.md
+  - id: port1/systems/zero/capability-interfaces/ph-sensor
+    version: '1.0'
+    description: >-
+      pH measurements report the reading supplied by a connected sensor. Use it when monitoring the
+      conditions of a liquid or growing system.
+    schema: /docs/references/capability-interfaces/ph-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/ph-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/pm10-concentration-sensor
+    version: '1.0'
+    description: >-
+      PM10 measurements report the concentration observed by a particulate sensor. Use the reported
+      value and unit when displaying air measurements.
+    schema: /docs/references/capability-interfaces/pm10-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/pm10-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/pm2-5-concentration-sensor
+    version: '1.0'
+    description: >-
+      PM2.5 measurements report the concentration observed by a particulate sensor. Use the reading
+      to follow changes in measured air conditions.
+    schema: /docs/references/capability-interfaces/pm2-5-concentration-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/pm2-5-concentration-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/power
+    version: '1.0'
+    description: >-
+      Power turns a device on or off, reports its power state, and restarts devices that support
+      rebooting.
+    schema: /docs/references/capability-interfaces/power/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/power/1.0.md
+  - id: port1/systems/zero/capability-interfaces/power-level
+    version: '1.0'
+    description: >-
+      Power level sets or adjusts a device's output level and reports the current setting. Use it
+      when a device supports more than a simple on/off control.
+    schema: /docs/references/capability-interfaces/power-level/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/power-level/1.0.md
+  - id: port1/systems/zero/capability-interfaces/pressure-sensor
+    version: '1.0'
+    description: >-
+      Pressure measurements report the value supplied by a connected sensor. Use the value and its
+      declared unit when monitoring pressure.
+    schema: /docs/references/capability-interfaces/pressure-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/pressure-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/pump-configuration-and-control
+    version: '1.0'
+    description: >-
+      Pump controls set a pump mode and speed. Read its capacity, mode, and status to keep a control
+      interface in step with the pump.
+    schema: /docs/references/capability-interfaces/pump-configuration-and-control/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/pump-configuration-and-control/1.0.md
+  - id: port1/systems/zero/capability-interfaces/recordings
+    version: '1.0'
+    description: >-
+      Recordings list saved captures and expose recording download and deletion. Use pagination to
+      browse the recordings supplied by a connected provider.
+    schema: /docs/references/capability-interfaces/recordings/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/recordings/1.0.md
+  - id: port1/systems/zero/capability-interfaces/refrigerator
+    version: '1.0'
+    description: >-
+      Refrigerators report their temperature. Use the reading to show the conditions supplied by the
+      appliance.
+    schema: /docs/references/capability-interfaces/refrigerator/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/refrigerator/1.0.md
+  - id: port1/systems/zero/capability-interfaces/reminders-provider
+    version: '1.0'
+    description: >-
+      Reminder providers list reminders from a connected account. Use the returned items to give an
+      assistant task context or display an existing reminder list.
+    schema: /docs/references/capability-interfaces/reminders-provider/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/reminders-provider/1.0.md
+  - id: port1/systems/zero/capability-interfaces/remote-control
+    version: '1.0'
+    description: >-
+      Remote control starts and ends control sessions and sends movement instructions. Use velocity,
+      turning, and duration fields to request movement from a connected device.
+    schema: /docs/references/capability-interfaces/remote-control/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/remote-control/1.0.md
+  - id: port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
+    version: '1.0'
+    description: >-
+      Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a cleaning mode and
+      read the reported mode and operational state to follow a cleaning session.
+    schema: /docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/robotic-vacuum-cleaner/1.0.md
+  - id: port1/systems/zero/capability-interfaces/route-discovery
+    version: '1.0'
+    description: >-
+      Route discovery reports the control routes available to an integration. Use its group commands
+      to name a group or update the routes that belong to it.
+    schema: /docs/references/capability-interfaces/route-discovery/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/route-discovery/1.0.md
+  - id: port1/systems/zero/capability-interfaces/rtc-session
+    version: '1.0'
+    description: >-
+      RTC sessions initiate a connection using an offer and return an answer for the session. Follow
+      disconnection events and close the session when the connection is no longer needed.
+    schema: /docs/references/capability-interfaces/rtc-session/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/rtc-session/1.0.md
+  - id: port1/systems/zero/capability-interfaces/rtsp-session
+    version: '1.0'
+    description: >-
+      RTSP sessions open a camera connection and return its RTSP URI and optional SDP description.
+      Close the session when the connection is no longer needed.
+    schema: /docs/references/capability-interfaces/rtsp-session/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/rtsp-session/1.0.md
+  - id: port1/systems/zero/capability-interfaces/scene
+    version: '1.0'
+    description: >-
+      Scenes activate or deactivate a predefined device scene. Use them to request a saved
+      combination of settings from a connected integration.
+    schema: /docs/references/capability-interfaces/scene/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/scene/1.0.md
+  - id: port1/systems/zero/capability-interfaces/security-panel
+    version: '1.0'
+    description: >-
+      Security panels accept arm and disarm commands and report alarm and arming states. Use those
+      reports to show the status supplied by a connected panel.
+    schema: /docs/references/capability-interfaces/security-panel/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/security-panel/1.0.md
+  - id: port1/systems/zero/capability-interfaces/security-pin
+    version: '1.0'
+    description: >-
+      Security PINs create, update, query, and delete PIN records. Follow operation results and PIN
+      reports when managing the records supported by a device.
+    schema: /docs/references/capability-interfaces/security-pin/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/security-pin/1.0.md
+  - id: port1/systems/zero/capability-interfaces/smoke-co-alarm
+    version: '1.0'
+    description: >-
+      Smoke and carbon monoxide detectors report detection state. Devices expose alarm controls
+      through the alarm capability and charge level through the battery capability.
+    schema: /docs/references/capability-interfaces/smoke-co-alarm/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/smoke-co-alarm/1.0.md
+  - id: port1/systems/zero/capability-interfaces/snapshot
+    version: '1.0'
+    description: >-
+      Snapshots request a captured view and return a snapshot response. Use them when an integration
+      needs a single capture rather than a continuous live view.
+    schema: /docs/references/capability-interfaces/snapshot/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/snapshot/1.0.md
+  - id: port1/systems/zero/capability-interfaces/soil-moisture-sensor
+    version: '1.0'
+    description: >-
+      Soil moisture measurements report the reading supplied by a connected sensor. Use the value as
+      input when monitoring growing conditions.
+    schema: /docs/references/capability-interfaces/soil-moisture-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/soil-moisture-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/spatial
+    version: '1.0'
+    description: >-
+      Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial
+      interface declares no control messages; cleaning is sent to the robot endpoint.
+    schema: /docs/references/capability-interfaces/spatial/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/spatial/1.0.md
+  - id: port1/systems/zero/capability-interfaces/speaker
+    version: '1.0'
+    description: >-
+      Speakers set or adjust volume and change mute state. Read the current volume and mute state to
+      keep playback controls in step with the device.
+    schema: /docs/references/capability-interfaces/speaker/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/speaker/1.0.md
+  - id: port1/systems/zero/capability-interfaces/speech-audio-generation
+    version: '1.0'
+    description: >-
+      Speech audio generation turns an input into speech audio and returns its URI. Use the result
+      when an integration needs an audio file it can pass to a player.
+    schema: /docs/references/capability-interfaces/speech-audio-generation/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/speech-audio-generation/1.0.md
+  - id: port1/systems/zero/capability-interfaces/speech-synthesizer
+    version: '1.0'
+    description: >-
+      Speech synthesizers accept a request to speak. Use them to send spoken output to a connected
+      device or integration.
+    schema: /docs/references/capability-interfaces/speech-synthesizer/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/speech-synthesizer/1.0.md
+  - id: port1/systems/zero/capability-interfaces/temperature-sensor
+    version: '1.0'
+    description: >-
+      Temperature sensors report temperature and operation mode. Use the reading to display
+      conditions or give a heating and cooling flow a measured input.
+    schema: /docs/references/capability-interfaces/temperature-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/temperature-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/text
+    version: '1.0'
+    description: >-
+      Text sends a text message to a connected component. Use it to pass written input between
+      integrations.
+    schema: /docs/references/capability-interfaces/text/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/text/1.0.md
+  - id: port1/systems/zero/capability-interfaces/text-stream
+    version: '1.0'
+    description: >-
+      Text streams emit text as a stream of messages. Use the stream to consume output as it becomes
+      available.
+    schema: /docs/references/capability-interfaces/text-stream/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/text-stream/1.0.md
+  - id: port1/systems/zero/capability-interfaces/thermostat
+    version: '1.0'
+    description: >-
+      Thermostats set a target temperature and select a heating or cooling mode. Read the reported
+      setpoints and operating mode to show the current settings.
+    schema: /docs/references/capability-interfaces/thermostat/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/thermostat/1.0.md
+  - id: port1/systems/zero/capability-interfaces/water-heater
+    version: '1.0'
+    description: >-
+      Water heaters set a temperature and operating mode. Read the temperature setpoint and mode to
+      show the settings supplied by a connected heater.
+    schema: /docs/references/capability-interfaces/water-heater/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/water-heater/1.0.md
+  - id: port1/systems/zero/capability-interfaces/wind-speed-sensor
+    version: '1.0'
+    description: >-
+      Wind speed measurements report the reading supplied by a connected sensor. Use the value and
+      its declared unit when displaying measured wind conditions.
+    schema: /docs/references/capability-interfaces/wind-speed-sensor/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/wind-speed-sensor/1.0.md
+  - id: port1/systems/zero/capability-interfaces/window
+    version: '1.0'
+    description: >-
+      Windows report their window state and lock state. Use those reports to check the status
+      supplied by a connected window.
+    schema: /docs/references/capability-interfaces/window/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/window/1.0.md
+  - id: port1/systems/zero/capability-interfaces/window-covering
+    version: '1.0'
+    description: >-
+      Window coverings move to a requested lift or tilt percentage. Read their reported position to
+      keep a shade or blind control in step with the device.
+    schema: /docs/references/capability-interfaces/window-covering/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/window-covering/1.0.md

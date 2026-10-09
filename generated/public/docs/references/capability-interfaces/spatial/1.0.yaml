@@ -1,0 +1,196 @@
+name: spatial
+namespace: port1/systems/zero/capability-interfaces/spatial
+version: '1.0'
+description: >-
+  Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial
+  interface declares no control messages; cleaning is sent to the robot endpoint.
+messages: []
+attributes:
+  - name: active
+    description: Whether this map or floor is the provider's currently loaded map (maps only)
+    schema:
+      description: Whether this map or floor is the provider's currently loaded map (maps only)
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: boolean
+      additionalProperties: false
+  - name: geometry
+    description: Observed area of the group route in the coordinate system of its reference frame
+    schema:
+      description: Observed area of the group route in the coordinate system of its reference frame
+      type: object
+      required:
+        - shape
+        - observedAt
+      properties:
+        shape:
+          description: Area covered by a group route, as a polygon or multi-polygon
+          oneOf:
+            - type: object
+              description: 'GeoJSON-like polygon: an exterior ring followed by optional interior rings (holes)'
+              required:
+                - type
+                - coordinates
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - Polygon
+                coordinates:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: array
+                    description: >-
+                      A closed ring of positions; the first and last positions are equal (GeoJSON
+                      linear ring)
+                    minItems: 4
+                    items:
+                      type: array
+                      description: A position as [x, y] or [x, y, z] in the frame's coordinate system
+                      minItems: 2
+                      maxItems: 3
+                      items:
+                        type: number
+              additionalProperties: false
+              title: SpatialPolygon
+            - type: object
+              description: 'GeoJSON-like multi-polygon: a list of polygons, each a list of rings'
+              required:
+                - type
+                - coordinates
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - MultiPolygon
+                coordinates:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: array
+                    minItems: 1
+                    items:
+                      $ref: '#/properties/shape/oneOf/0/properties/coordinates/items'
+              additionalProperties: false
+              title: SpatialMultiPolygon
+          discriminator:
+            propertyName: type
+            mapping:
+              Polygon: SpatialPolygon.yaml
+              MultiPolygon: SpatialMultiPolygon.yaml
+        relativeToGroupId:
+          type: string
+          description: Canonical endpoint group whose frame the coordinates use
+        relativeToGroupRouteId:
+          type: string
+          description: Provider group route whose coordinate system the coordinates use
+        observedAt:
+          type: string
+          format: date-time
+          description: When the provider observed this geometry
+      additionalProperties: false
+  - name: position
+    description: >-
+      Anchor point of the group route in its reference frame. It is a label anchor, not a navigation
+      target.
+    schema:
+      description: >-
+        Anchor point of the group route in its reference frame. It is a label anchor, not a
+        navigation target.
+      type: object
+      required:
+        - point
+        - observedAt
+      properties:
+        point:
+          type: object
+          description: GeoJSON-like point
+          required:
+            - type
+            - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+                - Point
+            coordinates:
+              type: array
+              description: A position as [x, y] or [x, y, z] in the frame's coordinate system
+              minItems: 2
+              maxItems: 3
+              items:
+                type: number
+          additionalProperties: false
+          title: SpatialPoint
+        relativeToGroupId:
+          type: string
+          description: Canonical endpoint group whose frame the coordinates use
+        relativeToGroupRouteId:
+          type: string
+          description: Provider group route whose coordinate system the coordinates use
+        observedAt:
+          type: string
+          format: date-time
+          description: When the provider observed this position
+      additionalProperties: false
+configuration:
+  description: >-
+    Descriptive spatial declaration of a group route (home, floor/map, room or zone). The spatial
+    interface declares no control messages; cleaning is sent to the robot endpoint.
+  type: object
+  required:
+    - role
+  properties:
+    role:
+      type: string
+      description: 'Spatial role of a group route: a whole home, a floor or map, a room, or a zone within a room'
+      enum:
+        - HOME
+        - FLOOR
+        - ROOM
+        - ZONE
+    coordinateSystem:
+      type: object
+      description: >-
+        Coordinate system of a provider frame. Declared only where the provider's units and axes are
+        proven.
+      required:
+        - unit
+        - dimensions
+        - xAxis
+        - yAxis
+      properties:
+        unit:
+          type: string
+          enum:
+            - METER
+          description: Length unit of coordinates in this frame
+        dimensions:
+          type: integer
+          minimum: 2
+          maximum: 3
+          description: Number of coordinate dimensions
+        xAxis:
+          type: string
+          description: >-
+            Direction in which an axis increases, relative to the provider's map as presented to the
+            user
+          enum:
+            - RIGHT
+            - LEFT
+            - UP
+            - DOWN
+        yAxis:
+          $ref: '#/properties/coordinateSystem/properties/xAxis'
+      additionalProperties: false
+      title: SpatialCoordinateSystem
+  additionalProperties: false
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

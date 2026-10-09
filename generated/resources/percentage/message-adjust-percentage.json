@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": [
+    "percentageDelta"
+  ],
+  "properties": {
+    "percentageDelta": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

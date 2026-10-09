@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "streamId": {
+      "type": "string",
+      "description": "Unique identifier for this text stream",
+      "minLength": 1
+    },
+    "sequenceId": {
+      "type": "integer",
+      "description": "Sequence ID for this text stream",
+      "minimum": 0
+    },
+    "isFinal": {
+      "type": "boolean",
+      "description": "Whether this is the final chunk in the stream",
+      "default": false
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "streamId",
+    "text",
+    "sequenceId",
+    "isFinal"
+  ],
+  "additionalProperties": false
+}

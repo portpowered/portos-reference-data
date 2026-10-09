@@ -1,0 +1,6 @@
+{
+  "description": "Sound the endpoint alarm. Requires an endpoint with an alarm actuator.",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "AlarmInterfaceRingAlarmMessage"
+}

@@ -1,0 +1,77 @@
+name: event-detection-sensor
+namespace: port1/systems/zero/capability-interfaces/event-detection-sensor
+version: '1.0'
+description: >-
+  Event detection sensors report human presence and emit person-detected events.
+  Use them to give an automation context about activity in a monitored area.
+messages:
+  - name: person-detected
+    description: >-
+      A distinct person detection occurrence, independent of cached presence
+      state.
+    directionality: out
+    schema:
+      description: >-
+        A distinct person detection occurrence, independent of cached presence
+        state.
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - DETECTED
+      required:
+        - value
+      additionalProperties: false
+attributes:
+  - name: human-presence-detection-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - DETECTED
+            - NOT_DETECTED
+        detectionMethods:
+          type: array
+          items:
+            type: string
+            enum:
+              - AUDIO
+              - VIDEO
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    detectionMethods:
+      type: array
+      items:
+        type: string
+        enum:
+          - AUDIO
+          - VIDEO
+    supportedEvents:
+      type: array
+      items:
+        type: object
+        description: A supported event detection category
+        properties:
+          category:
+            type: string
+          subType:
+            type: string
+        title: SupportedEvent
+  additionalProperties: false
+  description: >-
+    Event detection sensors report human presence and emit person-detected
+    events. Use them to give an automation context about activity in a monitored
+    area.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

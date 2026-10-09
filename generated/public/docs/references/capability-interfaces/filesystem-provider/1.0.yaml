@@ -1,0 +1,218 @@
+name: filesystem-provider
+namespace: port1/systems/zero/capability-interfaces/filesystem-provider
+version: '1.0'
+description: >-
+  Filesystem providers list folders and photo albums and expose file download, upload, and deletion.
+  Check the provider's supported commands before requesting an operation.
+messages:
+  - name: delete-file
+    description: Delete file.
+    directionality: in
+    schema:
+      description: Delete file.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+          description: Provider identifier for the file.
+      required:
+        - fileId
+      additionalProperties: false
+      title: FilesystemProviderInterfaceDeleteFileMessage
+  - name: delete-file-response
+    description: The provider confirmed deletion of the requested file.
+    directionality: out
+    schema:
+      description: The provider confirmed deletion of the requested file.
+      type: object
+      additionalProperties: false
+      title: FilesystemProviderInterfaceDeleteFileResponseMessage
+  - name: download-file
+    description: Download file.
+    directionality: in
+    schema:
+      description: Download file.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+          description: Provider identifier for the file.
+      required:
+        - fileId
+      additionalProperties: false
+      title: FilesystemProviderInterfaceDownloadFileMessage
+  - name: download-file-response
+    description: Download file response.
+    directionality: out
+    schema:
+      description: Download file response.
+      type: object
+      properties:
+        uri:
+          type: string
+          format: uri
+          description: Provider URL for downloading the file.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Expiration of the download URL, if supplied by the provider.
+      required:
+        - uri
+      additionalProperties: false
+      title: FilesystemProviderInterfaceDownloadFileResponseMessage
+  - name: list-albums
+    description: Request to list photo albums from a filesystem provider
+    directionality: in
+    schema:
+      description: Request to list photo albums from a filesystem provider
+      type: object
+      additionalProperties: false
+      properties:
+        cursor:
+          type: string
+          description: Opaque cursor for the next page; omitted when there are no further results.
+        maxResults:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          description: Maximum number of items to return.
+  - name: list-albums-response
+    description: Response containing a list of photo albums from a filesystem provider
+    directionality: out
+    schema:
+      description: Response containing a list of photo albums from a filesystem provider
+      type: object
+      properties:
+        albums:
+          type: array
+          items:
+            type: object
+            description: A photo album
+            properties:
+              albumId:
+                type: string
+              name:
+                type: string
+              photoCount:
+                type: integer
+            required:
+              - albumId
+            title: PhotoAlbum
+        nextCursor:
+          type: string
+          description: Opaque cursor for the next page; omitted when there are no further results.
+      required:
+        - albums
+      additionalProperties: false
+  - name: list-folder
+    description: Request to list files and folders from a filesystem provider
+    directionality: in
+    schema:
+      description: Request to list files and folders from a filesystem provider
+      type: object
+      properties:
+        folderId:
+          type: string
+          description: Optional folder ID to list contents of. Defaults to root if omitted.
+        cursor:
+          type: string
+          description: Opaque cursor for the next page; omitted when there are no further results.
+        maxResults:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          description: Maximum number of items to return.
+      additionalProperties: false
+  - name: list-folder-response
+    description: Response containing a list of files and folders from a filesystem provider
+    directionality: out
+    schema:
+      description: Response containing a list of files and folders from a filesystem provider
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            description: A cloud storage item (file or folder)
+            properties:
+              itemId:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+                description: 'Item type: FILE, FOLDER, or APP_LIBRARY'
+              size:
+                type: integer
+                format: int64
+                description: File size in bytes
+              extension:
+                type: string
+            required:
+              - name
+              - type
+            title: StorageItem
+        nextCursor:
+          type: string
+          description: Opaque cursor for the next page; omitted when there are no further results.
+      required:
+        - items
+      additionalProperties: false
+  - name: upload-file
+    description: Upload file.
+    directionality: in
+    schema:
+      description: Upload file.
+      type: object
+      properties:
+        folderId:
+          type: string
+          minLength: 1
+          description: Destination folder identifier.
+        name:
+          type: string
+          minLength: 1
+          description: File name.
+        mimeType:
+          type: string
+          minLength: 1
+          description: File MIME type.
+        data:
+          type: string
+          example: dGVzdA==
+          format: byte
+          maxLength: 13981016
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          description: Base64 encoded file content, at most 10 MiB decoded.
+      required:
+        - folderId
+        - name
+        - mimeType
+        - data
+      additionalProperties: false
+      title: FilesystemProviderInterfaceUploadFileMessage
+  - name: upload-file-response
+    description: Upload file response.
+    directionality: out
+    schema:
+      description: Upload file response.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+          description: Provider identifier of the uploaded file.
+      required:
+        - fileId
+      additionalProperties: false
+      title: FilesystemProviderInterfaceUploadFileResponseMessage
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,333 @@
+name: rtc-session
+namespace: port1/systems/zero/capability-interfaces/rtc-session
+version: '1.0'
+description: >-
+  RTC sessions initiate a connection using an offer and return an answer for the
+  session. Follow disconnection events and close the session when the connection
+  is no longer needed.
+messages:
+  - name: answer-generated-for-session
+    description: null
+    directionality: out
+    schema:
+      type: object
+      required:
+        - answer
+      properties:
+        answer:
+          type: object
+          description: An RTC session answer
+          properties:
+            format:
+              type: string
+              enum:
+                - sdp
+            value:
+              type: object
+              properties:
+                sdp:
+                  type: string
+                  description: The SDP answer session contents
+                streamToken:
+                  type: string
+                  description: Provider token for the established stream
+                streamExtensionToken:
+                  type: string
+                  description: Provider token used to extend the established stream
+                expiresAt:
+                  type: string
+                  description: Provider-reported stream expiration
+                streamUrl:
+                  type: string
+                  description: Provider stream URL when the answer is not SDP
+              additionalProperties: false
+              description: The content of the answer
+              title: RtcAnswerValue
+          title: RtcAnswer
+      additionalProperties: false
+  - name: disconnect-session
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - sessionId
+      properties:
+        sessionId:
+          type: string
+      additionalProperties: false
+  - name: initiate-session-with-offer
+    description: >-
+      The initiate session with offer message is used to initiate an RTC session
+      between the client and an endpoint.  The offer is expected to be a
+      standard RTC SDP (standard description protocol) offer. The offer must
+      contain all ICE candidates for the session to be established.
+    directionality: in
+    schema:
+      description: >-
+        The initiate session with offer message is used to initiate an RTC
+        session between the client and an endpoint.  The offer is expected to be
+        a standard RTC SDP (standard description protocol) offer. The offer must
+        contain all ICE candidates for the session to be established.
+      type: object
+      required:
+        - sessionId
+        - sessionDomain
+        - offer
+      properties:
+        sessionId:
+          type: string
+        sessionDomain:
+          type: string
+          description: The logical RTC session domain requested by the caller.
+        offer:
+          type: object
+          description: An RTC session offer
+          properties:
+            format:
+              type: string
+              enum:
+                - sdp
+            value:
+              type: string
+              description: The SDP offer session contents
+          title: RtcOffer
+        authorization:
+          type: array
+          description: >-
+            Message-specific session authorization entries required by the
+            target endpoint.
+          items:
+            oneOf:
+              - type: object
+                description: >-
+                  A Roborock session authorization entry carrying the PIN
+                  required to initiate a camera stream.
+                additionalProperties: false
+                required:
+                  - type
+                  - pin
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - ROBOROCK_PIN
+                  pin:
+                    type: string
+                    description: The Roborock PIN in dotted numeric format.
+                    pattern: ^[0-9]+(\.[0-9]+)*$
+                title: RtcSessionRoborockPinAuthorization
+            discriminator:
+              propertyName: type
+              mapping:
+                ROBOROCK_PIN: ./RtcSessionRoborockPinAuthorization.yaml
+        sessionDuration:
+          type: integer
+          description: >-
+            The duration of the session in seconds. If not provided, the default
+            is 60 seconds. If provided, the session will be terminated after the
+            duration has elapsed. To reestablish the session, the client must
+            initiate a new session with a new offer.
+          minimum: 1
+          maximum: 3600
+          default: 60
+          examples:
+            - value: 60
+              description: 1 minute
+        autoAnswer:
+          type: boolean
+      additionalProperties: false
+  - name: session-disconnected
+    description: null
+    directionality: out
+    schema:
+      type: object
+      additionalProperties: false
+attributes: []
+configuration:
+  type: object
+  properties:
+    iceServers:
+      type: array
+      maxItems: 8
+      description: >-
+        Optional public STUN configuration passed to the browser's standard
+        RTCIceServer interface. Omitted or empty means no ICE servers. Gathering
+        starts only when a caller deliberately initiates a session. TURN and
+        credentials are excluded.
+      items:
+        type: object
+        description: >-
+          The credential-free public STUN subset of the standard WebRTC
+          RTCIceServer dictionary. URLs are discoverable configuration, never
+          session credentials.
+        required:
+          - urls
+        properties:
+          urls:
+            oneOf:
+              - type: string
+                description: >-
+                  Public, credential-free STUN URI using the RFC 7064
+                  stun:host[:port] form. This version supports DNS names and
+                  IPv4 hosts, with ports 1 through 65535. IPv6 literals, secure
+                  STUN, TURN, paths, queries and fragments are not supported by
+                  this configuration subset.
+                minLength: 6
+                maxLength: 256
+                not:
+                  pattern: \s
+                pattern: >-
+                  ^stun:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)*(?::(?:[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))?$
+              - type: array
+                minItems: 1
+                maxItems: 8
+                items:
+                  $ref: '#/properties/iceServers/items/properties/urls/oneOf/0'
+        additionalProperties: false
+        title: RtcIceServer
+    supportedStreams:
+      type: array
+      description: >-
+        Discoverable media streams in SDP offer order. Directions describe the
+        endpoint; the browser reverses SENDONLY and RECVONLY. Omitted means a
+        legacy video SENDONLY stream.
+      items:
+        type: object
+        description: A discoverable RTC media stream supported by an endpoint.
+        additionalProperties: false
+        required:
+          - id
+          - mediaKind
+          - direction
+        properties:
+          id:
+            type: string
+            description: Stable identifier for the stream within the endpoint contract.
+          mediaKind:
+            type: string
+            enum:
+              - AUDIO
+              - VIDEO
+          direction:
+            type: string
+            description: >-
+              Direction from the endpoint perspective; browser SENDONLY and
+              RECVONLY are reversed.
+            enum:
+              - SENDRECV
+              - SENDONLY
+              - RECVONLY
+              - INACTIVE
+          codecs:
+            type: array
+            minItems: 1
+            maxItems: 16
+            uniqueItems: true
+            description: >-
+              Ordered permitted RTP codec MIME types, such as audio/opus or
+              video/H264. Omitted uses browser defaults.
+            items:
+              type: string
+              pattern: ^(audio|video)/[A-Za-z0-9.+-]+$
+              maxLength: 128
+        title: RtcSessionSupportedStream
+    dataChannels:
+      type: array
+      maxItems: 8
+      description: >-
+        Data channels the browser creates after media transceivers, using the
+        standard RTCDataChannelInit options. Omitted means no data channels.
+      items:
+        type: object
+        description: >-
+          Standard WebRTC RTCDataChannelInit options plus the required label
+          passed to createDataChannel. Channels are bidirectional.
+        additionalProperties: false
+        required:
+          - label
+        properties:
+          label:
+            type: string
+            maxLength: 256
+          ordered:
+            type: boolean
+          protocol:
+            type: string
+            maxLength: 256
+          maxPacketLifeTime:
+            type: integer
+            minimum: 0
+            maximum: 65535
+          maxRetransmits:
+            type: integer
+            minimum: 0
+            maximum: 65535
+          negotiated:
+            type: boolean
+          id:
+            type: integer
+            minimum: 0
+            maximum: 65534
+        not:
+          required:
+            - maxPacketLifeTime
+            - maxRetransmits
+        allOf:
+          - if:
+              properties:
+                negotiated:
+                  const: true
+              required:
+                - negotiated
+            then:
+              required:
+                - id
+        title: RtcDataChannel
+    iceMode:
+      type: string
+      description: >-
+        Whether the endpoint expects a full offer up front or supports trickle
+        ICE.
+      enum:
+        - FULL_OFFER
+        - TRICKLE
+    messageAuthorizationRequirements:
+      type: array
+      description: Per-message authorization requirements for RTC session messages.
+      items:
+        type: object
+        description: Authorization requirements for a specific RTC session message.
+        additionalProperties: false
+        required:
+          - messageName
+          - authorization
+        properties:
+          messageName:
+            type: string
+          authorization:
+            type: array
+            items:
+              type: object
+              description: A typed authorization requirement for an RTC session message.
+              additionalProperties: false
+              required:
+                - type
+                - required
+              properties:
+                type:
+                  type: string
+                required:
+                  type: boolean
+              title: RtcSessionAuthorizationRequirement
+        title: RtcSessionMessageAuthorizationRequirement
+  additionalProperties: false
+  description: >-
+    RTC sessions initiate a connection using an offer and return an answer for
+    the session. Follow disconnection events and close the session when the
+    connection is no longer needed.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,89 @@
+{
+  "description": "The initiate session with offer message is used to initiate an RTC session between the client and an endpoint.  The offer is expected to be a standard RTC SDP (standard description protocol) offer. The offer must contain all ICE candidates for the session to be established.",
+  "type": "object",
+  "required": [
+    "sessionId",
+    "sessionDomain",
+    "offer"
+  ],
+  "properties": {
+    "sessionId": {
+      "type": "string"
+    },
+    "sessionDomain": {
+      "type": "string",
+      "description": "The logical RTC session domain requested by the caller."
+    },
+    "offer": {
+      "type": "object",
+      "description": "An RTC session offer",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": [
+            "sdp"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "The SDP offer session contents"
+        }
+      },
+      "title": "RtcOffer"
+    },
+    "authorization": {
+      "type": "array",
+      "description": "Message-specific session authorization entries required by the target endpoint.",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "description": "A Roborock session authorization entry carrying the PIN required to initiate a camera stream.",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "pin"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "ROBOROCK_PIN"
+                ]
+              },
+              "pin": {
+                "type": "string",
+                "description": "The Roborock PIN in dotted numeric format.",
+                "pattern": "^[0-9]+(\\.[0-9]+)*$"
+              }
+            },
+            "title": "RtcSessionRoborockPinAuthorization"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ROBOROCK_PIN": "./RtcSessionRoborockPinAuthorization.yaml"
+          }
+        }
+      }
+    },
+    "sessionDuration": {
+      "type": "integer",
+      "description": "The duration of the session in seconds. If not provided, the default is 60 seconds. If provided, the session will be terminated after the duration has elapsed. To reestablish the session, the client must initiate a new session with a new offer.",
+      "minimum": 1,
+      "maximum": 3600,
+      "default": 60,
+      "examples": [
+        {
+          "value": 60,
+          "description": "1 minute"
+        }
+      ]
+    },
+    "autoAnswer": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

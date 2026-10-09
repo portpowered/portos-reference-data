@@ -1,0 +1,3357 @@
+{
+  "package": "@portos/reference-data",
+  "goModule": "github.com/portpowered/portos-reference-data",
+  "version": "0.2.0",
+  "files": [
+    {
+      "path": "/docs/for-ai/capability-interfaces.md",
+      "bytes": 20430,
+      "sha256": "e789f2a9f26b26024d54690e8b73c2f11e9590aa920d023bf960a4ae1b0236cf"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/air-quality-sensor/1.0.md",
+      "bytes": 767,
+      "sha256": "27de3f91a4d6b248c78d24b2cc94a0880d5176c8b6256a1d34cbc78ca132f43a"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/alarm/1.0.md",
+      "bytes": 927,
+      "sha256": "8903998f65ed951f88416f0743d81c18238f67f3e4f404c46b63d468cc9cb626"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/application-launcher/1.0.md",
+      "bytes": 1051,
+      "sha256": "04c6d4e5be130207e3b4a2cd1e4e0e9aa371fd9d0766b750a88fa925749d25d7"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/authorization/1.0.md",
+      "bytes": 1068,
+      "sha256": "b5c2339e7c8b7309faf53480ba611a8412b164318142b9cd5eba1c152cb3fd9e"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/barrier-control/1.0.md",
+      "bytes": 1092,
+      "sha256": "cdf6db25dfb4d27a54a02d1706fe9ea834d0e43d17071330fc642f2e10ed195b"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/battery/1.0.md",
+      "bytes": 520,
+      "sha256": "117162eb6ca7b20ee24f526a7b8f29e191dd97e0deba4e4d9d4cbfeee3ffe65c"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/brightness/1.0.md",
+      "bytes": 703,
+      "sha256": "9d0ccb2bd21747d8ffe4df2055d484de0d88932346169cc0a6263a1c3ad1f82c"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/calendar-provider/1.0.md",
+      "bytes": 846,
+      "sha256": "5352cf744de325bd11fb260a37ac058c9fe46cab34c08151c12ae3a8958207b6"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/camera/1.0.md",
+      "bytes": 1267,
+      "sha256": "a20c8daf2be995d391635984a103d42ff7c374ad16edd3587f8431fc60922146"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/carbon-dioxide-concentration-sensor/1.0.md",
+      "bytes": 959,
+      "sha256": "a2610a108eaf5fb4f6e58bb421128a3bc7d6d154390a30f920b4ca193ce62870"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/carbon-monoxide-concentration-sensor/1.0.md",
+      "bytes": 979,
+      "sha256": "7f8e0337a3d608bfe828cf2d3407ff612f44c388555795329ba0402d28f93153"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/channel/1.0.md",
+      "bytes": 811,
+      "sha256": "4f1d156a2cd822f2e040af61d85329f581673057bf16776ee2d8de62e26d7a49"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/cleaning-mode/1.0.md",
+      "bytes": 1142,
+      "sha256": "f8d0e677bad940fd7333a729b62e50b4df323e4ffe740e9f4b6e8536a117c047"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/color-temperature/1.0.md",
+      "bytes": 1126,
+      "sha256": "db0c37024e14fcd625e596df4245fe273611c06908544e3931aec6f657ff1ab2"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/color/1.0.md",
+      "bytes": 631,
+      "sha256": "19533a0ade4cbcb7e38b63543e31f4f99d9ff4d86404adb97ca883f3503efec6"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/connectivity/1.0.md",
+      "bytes": 793,
+      "sha256": "983806073288a410fa44678a9d28a34ac07e922973445c8060606c6e1b77b152"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/contact-sensor/1.0.md",
+      "bytes": 600,
+      "sha256": "e9e2a528d9faeb6629c9c1fabca7155de8c2f0cbf99961c9e48daf83c3f39133"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/contacts-provider/1.0.md",
+      "bytes": 843,
+      "sha256": "97d2fd51c5b723c1b2a2f280a9e1ce069f8987841170e1920d6bd3fff9664609"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/content-launcher/1.0.md",
+      "bytes": 754,
+      "sha256": "b4e661acf5651633a5edf5b6ecbaf9d0b5e91fd7de87d3a1f35347b037b97972"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/control-route-groups-provider/1.0.md",
+      "bytes": 855,
+      "sha256": "db9d4f6175c890673f0efc27627f7c98ba967d11c0665fc46ccc20a439675d66"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/control-routes-provider/1.0.md",
+      "bytes": 2551,
+      "sha256": "7c483ffca5e9896c770b7c1231b07329271c093070c9872b84db11b4e3be0044"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/cooktop/1.0.md",
+      "bytes": 528,
+      "sha256": "4ecd8e81bccafe3e0570bc0b03bcdbf05164c5edd847adf9a569299156a3d186"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/dishwasher/1.0.md",
+      "bytes": 545,
+      "sha256": "750c8cf5e2044d9a9a5aee1ecd33e2e45fe4a4b76b3642a1669493df1dd01c82"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/doorbell/1.0.md",
+      "bytes": 568,
+      "sha256": "b291909c5aa19cb4e12387a7187996617d4c23fe0dd376d9491a9f1f58b6d27d"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/electrical-conductivity-sensor/1.0.md",
+      "bytes": 628,
+      "sha256": "3af3323aeedcd4acadf5a23fcc29db1a64492049df4c142dde53ec985d733ec4"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/embedding-generation/1.0.md",
+      "bytes": 794,
+      "sha256": "98210b95ea3b0a62ccb47a37b3722de0f0ed9fa4b490fb300039910959bc15ee"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/endpoint-registry/1.0.md",
+      "bytes": 602,
+      "sha256": "59ae6dfa45e2c6aa332c6fd2894f08c61ac168f8a9a4b06d1c444261576b5b48"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/equalizer/1.0.md",
+      "bytes": 1001,
+      "sha256": "0391c1a4bb58c45ca2516cfdb38960c239b487c257023989d54c8008411aaa0d"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/event-detection-sensor/1.0.md",
+      "bytes": 842,
+      "sha256": "7b4a8a07afdbe17b3b67e5ef1da64716af7ea1eff76c3c4197fa1a7ba382bd3e"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/extractor-hood/1.0.md",
+      "bytes": 543,
+      "sha256": "d80098da79b072008ce4de2864fd75cafa80ca53dd28a8e6ca31db823b7003c0"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/fan-control/1.0.md",
+      "bytes": 875,
+      "sha256": "8562113ce402da4933de55da393955e5d862329d68816dfeaac3518ca03530e4"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/filesystem-provider/1.0.md",
+      "bytes": 2126,
+      "sha256": "10faa4dd46b4be045403db39965bcb5481eccb83ae4dc3e2c18c122593fd38a2"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/flow-sensor/1.0.md",
+      "bytes": 547,
+      "sha256": "602b022cc00d6a50c76fc0ba1342997fa3ee6073c73b521d4f1e537d87640332"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/flows/1.0.md",
+      "bytes": 1451,
+      "sha256": "468fee5026abae236820af929d0ebaad13b54a20ef720597a63dd05f5afdc45b"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/formaldehyde-concentration-sensor/1.0.md",
+      "bytes": 653,
+      "sha256": "666336e1ff3a25905de607b20d325efa81bc716ebfd8260647f8965067f23563"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/humidity-sensor/1.0.md",
+      "bytes": 572,
+      "sha256": "39cf5c0235e0ae819d1fba906989b1a70de7793b43e20b2c5bdea7dbc96886b8"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/input/1.0.md",
+      "bytes": 767,
+      "sha256": "42fb7495ad7b5afb8834129fd2eaa24b657f8e24212dbe01313b212a8694a7d9"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/keypad-input/1.0.md",
+      "bytes": 554,
+      "sha256": "0da785a525b993d62ff47b4b484c71c74c4e18b085ac0d39f0ba10785931b4d3"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/laundry-dryer/1.0.md",
+      "bytes": 547,
+      "sha256": "e384d37d8c817d130f293bb1e391145f1602b030a0248c168b5f883ecc3daf13"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/laundry-washer/1.0.md",
+      "bytes": 539,
+      "sha256": "1d21c08616050bdf28954a97c2dec35776e3d82c1d2780d477751103d99c120a"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/leaf-wetness-sensor/1.0.md",
+      "bytes": 574,
+      "sha256": "3a2119c21cbd15287956ac6d5d5158e02e70cfe6e5ac33c44db97cad75893c8b"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/light-sensor/1.0.md",
+      "bytes": 530,
+      "sha256": "5a208b0fa04783368cb2349b9361ad2e3221780a778d74d1f0ec3d7d0308d6eb"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/location-tracker/1.0.md",
+      "bytes": 689,
+      "sha256": "65cf5386ed2a3bf00b53672d152fd636116883dc4e5f21dfe94021715d7c6428"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/location/1.0.md",
+      "bytes": 500,
+      "sha256": "fe4fff58423f85333f62196b93255c894421a446ba2381311eaaa39364dba7c7"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/lock/1.0.md",
+      "bytes": 745,
+      "sha256": "f204b20428b501442f29fdac810a40e2f7b55af860491aa13496c20ca942d8cd"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/media-player/1.0.md",
+      "bytes": 2899,
+      "sha256": "6e07046e9b8c6bf79b3eb97cb71e99d849bf81761310d179503f8ae9f433a8c9"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/media-playlist/1.0.md",
+      "bytes": 1340,
+      "sha256": "2cd2b5c35d0969c18f794918ff72902d9002345c91b4c7f60fb6b83db6c07eff"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/media-search/1.0.md",
+      "bytes": 737,
+      "sha256": "161aea75369c2b0582a07f719f1bb299b4532bddf5f0216b406274f9bd27fef5"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/microwave-oven/1.0.md",
+      "bytes": 538,
+      "sha256": "1024d176a5a29ac46c2d4b92506b6ea854e39266b2b0cca1460c5a57191ade91"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/motion-sensor/1.0.md",
+      "bytes": 769,
+      "sha256": "ec27af1429cbf9e23d8030724c93976ddd6fa052743db2ec89cc1153d06fe66d"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/nitrogen-dioxide-concentration-sensor/1.0.md",
+      "bytes": 657,
+      "sha256": "5e1e88e2b7b903dc1a43769ba88e140fd5dd3baaabb4a36c4c6fbb7582af38f1"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/notification/1.0.md",
+      "bytes": 900,
+      "sha256": "b1ef84330b9eddbc82d85638335be8dbcf3293e7549d48d0b881766611bd8aa9"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/oven/1.0.md",
+      "bytes": 483,
+      "sha256": "5ebb04577198bcd10ace4d1ef4579857bed33fbaae8f68ddce6f7c4795abd987"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/ozone-concentration-sensor/1.0.md",
+      "bytes": 616,
+      "sha256": "3c651b4583d5bfc8440e539c079ea04ac32e31bda9221b4149d87d4d1e2e3ee6"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/percentage/1.0.md",
+      "bytes": 828,
+      "sha256": "bf3dd93847d97572ee61378c53ab1325870fb293302aabf585ebb2d5eca99a42"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/pet-feeder/1.0.md",
+      "bytes": 560,
+      "sha256": "45624be6916b5584267ba60443ebf15a91dae20e78c63929ba7500905d5bfde4"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/ph-sensor/1.0.md",
+      "bytes": 538,
+      "sha256": "4c3263ddb964a0a2f952090022d6efc2cc39a325a97098712f9e33ba96d7cdc0"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/pm10-concentration-sensor/1.0.md",
+      "bytes": 609,
+      "sha256": "101f9411fec17889bb6124865291217ee8b04f8d69c7c40978fca7e550ed4d38"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/pm2-5-concentration-sensor/1.0.md",
+      "bytes": 610,
+      "sha256": "ef068c4f6a0ba6c619a73ce42127634d4a14fb7a8244befb1f70a1f8ec235932"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/power-level/1.0.md",
+      "bytes": 846,
+      "sha256": "d7a8cc0119b3b439c03e852ce8af751a705de5c98ac05d6903f9293797620093"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/power/1.0.md",
+      "bytes": 901,
+      "sha256": "e39dad83cd886d4ea04030b516f05d18492ec074fcd1e311fc2121f94f1695bf"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/pressure-sensor/1.0.md",
+      "bytes": 559,
+      "sha256": "65738a36cdfdeb372eec33b56f02d72074cd82265120bc60f1fa9fdfd58b4f15"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/pump-configuration-and-control/1.0.md",
+      "bytes": 1134,
+      "sha256": "eb77721040d3c92ec19b842674101ecdd4783f1e86f650727bdbe1164a453e94"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/recordings/1.0.md",
+      "bytes": 1326,
+      "sha256": "4a479face13f531e5e00efbe1e94384da7de0efc09e918c64dda50d3279f2c94"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/refrigerator/1.0.md",
+      "bytes": 514,
+      "sha256": "dcb1da85260bdd78fe809a375e53f3555c8eb30bd9043e0e085aae4e6fbb2983"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/reminders-provider/1.0.md",
+      "bytes": 856,
+      "sha256": "42d24e7cba1bacd3fa2499a5cefe80d742967f05902c4884d85750cfcbdcb121"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/remote-control/1.0.md",
+      "bytes": 1162,
+      "sha256": "3d99adb9276d7da2c467a9478ba1e58366cc0a5a1cdb80bb7a740965fbe7a006"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/robotic-vacuum-cleaner/1.0.md",
+      "bytes": 1862,
+      "sha256": "99b7732ea15a5987570b3827f2ee0bf618cbde704a604e7b8eb8534d1824a694"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/route-discovery/1.0.md",
+      "bytes": 1384,
+      "sha256": "f7527884e89ebe4e2866b26f52a3c5d39b85d5211ff435fb722a3c335c1cd94f"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/rtc-session/1.0.md",
+      "bytes": 1367,
+      "sha256": "76ef3a48d42c12d2fb599b635a2fc3215be6dc67d0d9879f196ace9de6c62dfa"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/rtsp-session/1.0.md",
+      "bytes": 1005,
+      "sha256": "99610be0bc1c4ca8279db9b5d80724b1728175d58bf73c0312f4829095280b06"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/scene/1.0.md",
+      "bytes": 675,
+      "sha256": "934650b505039c9d0479cb5cecea25b5c97b9959898993d8e48ca54a1b3d99fe"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/security-panel/1.0.md",
+      "bytes": 1455,
+      "sha256": "8cfd58fff69835a284ca6d850e9878b338ea4e3745115694cff4b366fa7a610c"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/security-pin/1.0.md",
+      "bytes": 2836,
+      "sha256": "33c0934a49f4fd2dc86bb364fad254f712f60091879f5903ba7d694a38da7540"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/smoke-co-alarm/1.0.md",
+      "bytes": 584,
+      "sha256": "5a1a01fe9e9d5eec5e4d1e6b4119703631f709caeb433b0c273ac13b0533a210"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/snapshot/1.0.md",
+      "bytes": 736,
+      "sha256": "636e867937e24c61350efb569295e807863f378c5bb5dff2640341ba42b68ad6"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/soil-moisture-sensor/1.0.md",
+      "bytes": 583,
+      "sha256": "1b4e00482e83ea782670faee6fbcaadf17c177b753c8b850e0431603b350074b"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/spatial/1.0.md",
+      "bytes": 732,
+      "sha256": "f9edebc8a670f94aec116741e6176115bfcfdf5cf09664b97d363cc6e8d558f1"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/speaker/1.0.md",
+      "bytes": 994,
+      "sha256": "c866ecf311815468794fadb527f5d1368f2ba51ad00c7461561bedc9ef585ec4"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/speech-audio-generation/1.0.md",
+      "bytes": 797,
+      "sha256": "11eb177ee90c3bbca5d1188c1925e080d8275a5f99c9bf5b27adcf8a2062cb09"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/speech-synthesizer/1.0.md",
+      "bytes": 571,
+      "sha256": "42d765f15da56d8dc1adf96346ef883720f38f8422e7ba5416b1a6047ff14d11"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/temperature-sensor/1.0.md",
+      "bytes": 695,
+      "sha256": "f736582fcc921f68d63542f33d067beea2236621a7bac15d165cffa89950e27f"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/text-stream/1.0.md",
+      "bytes": 546,
+      "sha256": "2aecac12bc29569905d0d171a11e9383fd5f4e3591cf6b60ccdcf33a39181d1e"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/text/1.0.md",
+      "bytes": 500,
+      "sha256": "e9d417f9b65f523f4d3ea51b6ea481552228afcab336bf6a8b8eb343fd22ea25"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/thermostat/1.0.md",
+      "bytes": 1345,
+      "sha256": "87da3e86b0cfb336ceef7de1b175c7b24b8597cf3e8a24a43d3073ab019fd072"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/water-heater/1.0.md",
+      "bytes": 931,
+      "sha256": "84e21ef7e0e2622bb1ef0cd4a8d46863ebea666a92c17c883e44b0f02ba2be54"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/wind-speed-sensor/1.0.md",
+      "bytes": 587,
+      "sha256": "83bd003e43386d6752bcbae7a57bee47a1155118bccf3263045783ccbfca2b2c"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/window-covering/1.0.md",
+      "bytes": 881,
+      "sha256": "b48975598188d02f05530110c7219febd7a22e196b5bc8c8029a44d0f5b52d06"
+    },
+    {
+      "path": "/docs/for-ai/capability-interfaces/window/1.0.md",
+      "bytes": 599,
+      "sha256": "61b5a33bc08d6c6136740b4744efc768f4fb2eab976f5971d35fd2a08e0cf44d"
+    },
+    {
+      "path": "/docs/for-ai/guides/adding-devices.md",
+      "bytes": 881,
+      "sha256": "d7b274bf09e93f38c108309c0ff568ce055d0748acad6421eb1cc9317bab7467"
+    },
+    {
+      "path": "/docs/for-ai/guides/authentication-and-dcr.md",
+      "bytes": 3989,
+      "sha256": "62e606398aa3a53a5d8dcb83007038730491c7f5eb6fa95674c067b014fe1a5b"
+    },
+    {
+      "path": "/docs/for-ai/guides/authorization-rules.md",
+      "bytes": 2603,
+      "sha256": "4640f3a479ba2910681ec5c28d34a2e7934f834b9818668f6460486e88e609e5"
+    },
+    {
+      "path": "/docs/for-ai/guides/cameras.md",
+      "bytes": 887,
+      "sha256": "588cafd0d91b7daef28de8369fc6b54e246a513166bd43de1fa3a1525225b210"
+    },
+    {
+      "path": "/docs/for-ai/guides/connect-grok.md",
+      "bytes": 1224,
+      "sha256": "c5b521aabcba89d1dc27b65d2e3845786ed6ee1eb216fb3bc9464f034ce61df6"
+    },
+    {
+      "path": "/docs/for-ai/guides/connect-muse.md",
+      "bytes": 1224,
+      "sha256": "e5042f5d3e7265bd1a8a4277cd1d0ad182d882488886a63598486a2ca4213f99"
+    },
+    {
+      "path": "/docs/for-ai/guides/first-setup.md",
+      "bytes": 871,
+      "sha256": "f544d5aa0bcd16244c52d07ec124cee4caa6541e308d4f861882a90862b80797"
+    },
+    {
+      "path": "/docs/for-ai/guides/index.md",
+      "bytes": 1362,
+      "sha256": "09cbc8b91a1c9b57efbbdb81f4cbb0bc7bee573a58b34cef13c281b307518f56"
+    },
+    {
+      "path": "/docs/for-ai/guides/lighting.md",
+      "bytes": 1290,
+      "sha256": "f393b36c9e149709185f18d4b7f2c29a6fae457d18c2d32e34c56040efb1fb3f"
+    },
+    {
+      "path": "/docs/for-ai/guides/managing-devices.md",
+      "bytes": 768,
+      "sha256": "87f9b053e2fc62943be06c0c87445d9e5eb9592f15192dbbd543815f38fa5358"
+    },
+    {
+      "path": "/docs/for-ai/guides/managing-groups.md",
+      "bytes": 658,
+      "sha256": "7078a75febb6d0c60a17bc9eb463f65bd976dee28f3be5a724255fd193c0548d"
+    },
+    {
+      "path": "/docs/for-ai/guides/media.md",
+      "bytes": 722,
+      "sha256": "9b1d554e8f1e78df622ebe5fcb5de757aee4b21f7e24343a3a4797286c9a1f4c"
+    },
+    {
+      "path": "/docs/for-ai/guides/port-os-concepts.md",
+      "bytes": 1048,
+      "sha256": "9ca7c777bcbfbcc17c839600c688a98a54e7ed357ff180ab8a61e8890aa442f0"
+    },
+    {
+      "path": "/docs/for-ai/guides/quickstart.md",
+      "bytes": 2142,
+      "sha256": "90d69365852dd7aa523e36c7c048c9bf2f1fa4d00df733ce8292cc3c385e812e"
+    },
+    {
+      "path": "/docs/for-ai/guides/reading-the-docs.md",
+      "bytes": 1051,
+      "sha256": "8de18e61d065caa997d6a0fe58d8eb6e02397585332d47d8a360ca1522642cb5"
+    },
+    {
+      "path": "/docs/for-ai/guides/thermostats.md",
+      "bytes": 650,
+      "sha256": "3f4b3f155bf4332292010e75184215e251ed75607939ca217118ecfe33ee916a"
+    },
+    {
+      "path": "/docs/for-ai/guides/troubleshooting.md",
+      "bytes": 1516,
+      "sha256": "725a1ab07f89cb91259bdce9fa2fec385520453e4ca61b8d4d2146992cb4369b"
+    },
+    {
+      "path": "/docs/for-ai/guides/using-the-api.md",
+      "bytes": 1490,
+      "sha256": "3d54f9aadddb70cfe6630f8a72cbf50f0163467768e09fc5beece88b8538e909"
+    },
+    {
+      "path": "/docs/for-ai/guides/vacuums.md",
+      "bytes": 700,
+      "sha256": "fe620f2a41b8aa83b976b471fe369d98cedd4782ed057caf9507dd0c8f6e605c"
+    },
+    {
+      "path": "/docs/for-ai/index.md",
+      "bytes": 1132,
+      "sha256": "db1b4e653cd3eb793361cc4e31bbd72cceaf82529c8901c145ed0a898651125a"
+    },
+    {
+      "path": "/docs/for-ai/operations/addEndpointGroupMembers.md",
+      "bytes": 4157,
+      "sha256": "d8e4983610fd9378db12b6acd23eb891a3bd5fc7cdb21f4f7cc7e034ce2321e6"
+    },
+    {
+      "path": "/docs/for-ai/operations/authorize.md",
+      "bytes": 1462,
+      "sha256": "8045e065e19e703e44219de316742bd6bf547bc7f27740c1c1f8ab6668944873"
+    },
+    {
+      "path": "/docs/for-ai/operations/authorizeDevice.md",
+      "bytes": 3014,
+      "sha256": "81eb6a6aa40d274ebbc4600ad89fa65a4e181acb97346086c4d0a2355fae6b8a"
+    },
+    {
+      "path": "/docs/for-ai/operations/beginOAuthAuthorization.md",
+      "bytes": 2770,
+      "sha256": "fea8b334914c943d4f5a2ec4290c2d9c905f9422d4592b00d6e86977c76492c7"
+    },
+    {
+      "path": "/docs/for-ai/operations/completeOAuthConsent.md",
+      "bytes": 2200,
+      "sha256": "d67f83f20903b583f924e45b1e2daf7e60d9ffbfc750ad4de4b2d0bb5cbc4c59"
+    },
+    {
+      "path": "/docs/for-ai/operations/createEndpointGroup.md",
+      "bytes": 2526,
+      "sha256": "dd1730491f04da0dfb47f174bff4f9fe6134e906b9d18800582ac0651f3d13f3"
+    },
+    {
+      "path": "/docs/for-ai/operations/createFlowNode.md",
+      "bytes": 2851,
+      "sha256": "e13f398f366c8cdde5063781365a8eaa28048ae044734751700159e3b132ba19"
+    },
+    {
+      "path": "/docs/for-ai/operations/createFlowRun.md",
+      "bytes": 3235,
+      "sha256": "8f4fa2a77fc1b62309fa52c62df5bf502cddfd1371d1d92dc7adc430770650bb"
+    },
+    {
+      "path": "/docs/for-ai/operations/createOAuthClient.md",
+      "bytes": 2189,
+      "sha256": "fa3a068c98d1816e6a59409a0e5b670dd436c6779d42c38369397579352cc64c"
+    },
+    {
+      "path": "/docs/for-ai/operations/createSyntheticEvent.md",
+      "bytes": 6280,
+      "sha256": "2bc8e7dc54087685b1f24f7e192e4d61da6124a7b6c4db75ee277156a9adff04"
+    },
+    {
+      "path": "/docs/for-ai/operations/createToken.md",
+      "bytes": 2346,
+      "sha256": "672f77683022f72c90670b9805805c5babe298b22c44915da2fe7f3801963864"
+    },
+    {
+      "path": "/docs/for-ai/operations/createView.md",
+      "bytes": 1870,
+      "sha256": "2f8324420bec94f5a3a527e527a6f1fc860f33c7d3600c52b4a81b3bba4ccf04"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteAccessControlRule.md",
+      "bytes": 2083,
+      "sha256": "e94a255d6f59bd7bfbffbdbf500f8d1085e69011de9630c8ca5ed81d3a7643bb"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteAuthLink.md",
+      "bytes": 1406,
+      "sha256": "13e0ba323eaf18279546658d5b570376943ac52758b9fbd76623e27f9e57270f"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteEndpoint.md",
+      "bytes": 1126,
+      "sha256": "5385e290fdb8476e6832b44f3edae210dd4749a4c77a16e25240402c940278e9"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteEndpointGroup.md",
+      "bytes": 3807,
+      "sha256": "aa9eb71ea1fb4b8aff129655b9f61112b93ee2809b6031a0f583aa760ed78d3f"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteEventDeadLetter.md",
+      "bytes": 3187,
+      "sha256": "72f8c392020949136b6454ecf34308c72f92511b38c44d5c15828e2c875bd877"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteFlow.md",
+      "bytes": 2916,
+      "sha256": "d2c08454ca6dd3b8effa39f19703b6895ee2abe6cd5fde4236c1a3d7837c91d2"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteFlowNode.md",
+      "bytes": 2554,
+      "sha256": "35d98e489b8c2505044fb89c97c68a2c2eb5483d198e51f8345ed6aa71ac4623"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteFlowRun.md",
+      "bytes": 3272,
+      "sha256": "793988805c79cf10888751bd42eab5bd1221927118163130f42daa1e71634d13"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteGroupRoute.md",
+      "bytes": 2980,
+      "sha256": "b3804005bb6845b656118e1a59b52a1f7363cb7a08fe24e6037e84e7c390398b"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteOAuthClient.md",
+      "bytes": 2272,
+      "sha256": "cc24d90511a0e958c71440d1d48a853515a1a1acb51c887638bd961ccc517545"
+    },
+    {
+      "path": "/docs/for-ai/operations/deletePlugin.md",
+      "bytes": 1372,
+      "sha256": "24df40bdb28fef63ff879d0d9dfa4cf6af8d9fa1bff2a9c437ef9963a242aed3"
+    },
+    {
+      "path": "/docs/for-ai/operations/deletePrincipal.md",
+      "bytes": 1766,
+      "sha256": "33a457718b391bf7d2ccbfba40726048232edf100aa4cb24d19c6d7ccab51410"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteRoute.md",
+      "bytes": 1088,
+      "sha256": "77e8afbef95f7a590181eae77189032e4f26fd4fc3ed9d969b61aed178fabea3"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteSecret.md",
+      "bytes": 1835,
+      "sha256": "68ba6a3c451a66acababa48aa7db72431d27df732fbefcaa2fb106fe878dce15"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteSimulator.md",
+      "bytes": 2793,
+      "sha256": "9cff86c32748b74fde57cb6102d8de3136eea65db461619956240b81945384a6"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteSubscription.md",
+      "bytes": 1784,
+      "sha256": "84496a30ed6e46e90b34f98b845e758c1ff00a691dafcf9f62e83b30fae7e726"
+    },
+    {
+      "path": "/docs/for-ai/operations/deleteView.md",
+      "bytes": 2552,
+      "sha256": "1757bb463311f720218277f7518e737c2f0fc3bab7287e2d1ca5ef9f3b4840a9"
+    },
+    {
+      "path": "/docs/for-ai/operations/deviceAuthorize.md",
+      "bytes": 2228,
+      "sha256": "9538d350713d209095d1f7cc5b467e76e307116b7eb0238dcfdaca23b31d0ff0"
+    },
+    {
+      "path": "/docs/for-ai/operations/endpointGroupsManage.md",
+      "bytes": 6159,
+      "sha256": "ae869fb4619ebc83b5a0c454d99017ebb7d1b8fb60f77cdb152798e7a79d0578"
+    },
+    {
+      "path": "/docs/for-ai/operations/endpointQuery.md",
+      "bytes": 2365,
+      "sha256": "90bdffe664e7076a7f9a4b9673ffaf8a2dcb0337b249bbfb810aedc7266890a6"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateAuthLinks.md",
+      "bytes": 2455,
+      "sha256": "70165ef816016225d7635b16b9cab5d836145d45054b0b3dfe647314042d3117"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateEndpointGroups.md",
+      "bytes": 4097,
+      "sha256": "8714e7c0c0e6e00e8fd873557f043c7edfc578a16471db515ee81257cce4a821"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateEndpoints.md",
+      "bytes": 6285,
+      "sha256": "ff227335ccccd232bfdd975c6ee27d220b7a5abdead98f57878155dece9b0df9"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateEventDeadLetters.md",
+      "bytes": 4279,
+      "sha256": "2130a3f8692aa456e708d441be5db83a327bbbfd5eeb969e79edb470bd5809c8"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateFlowNodes.md",
+      "bytes": 3370,
+      "sha256": "39734d8ed00a2752b235a52873ff3f01b1558e220c7eba38c6ebd6d0688bfab1"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateFlowNodeSpecifications.md",
+      "bytes": 3461,
+      "sha256": "045006d452c169ae0a2d745ceef112ac27769eb415b3c6ed9276e971e6ef18c4"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateGroupRelationships.md",
+      "bytes": 5382,
+      "sha256": "f75de31a8b17352b5fefd4af39be82c475f607ff8573903c1384e03e98a4465a"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateGroupRoutes.md",
+      "bytes": 3431,
+      "sha256": "000bdad543a1190a029f9bdbe17b3130bec1c3a6893e28e1bacf8334653517cc"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateOAuthClients.md",
+      "bytes": 3115,
+      "sha256": "71adf7792d8fbca0b4ad5ed34fcea42dc4296d21ccb95a9c5985ba0bcdcf3c86"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumeratePlugins.md",
+      "bytes": 2534,
+      "sha256": "a23a25f7d222d7367c35c4d7256db6d7fcd4fe329de4764bae51a0b211c412f8"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumeratePrincipals.md",
+      "bytes": 2459,
+      "sha256": "5f390e7ea3e6dfca745222705fecfebaa09390b0cbeb597ca79cfdf4eb7e4125"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateSecrets.md",
+      "bytes": 2577,
+      "sha256": "e5b5847b702fc1d520c706058d83cb2bd1e74580f6eb9eb617999ecfbf207ec9"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateSimulators.md",
+      "bytes": 5614,
+      "sha256": "4ba937d0cd9fca5cefa3570fcd5ae7713c0f511906a8474f5d40faf91b7c6235"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateSubscriptions.md",
+      "bytes": 2258,
+      "sha256": "4a93c93b8855a6b840337a4d34675f2f987a2c79e493744ad3c6188a12ea1cf5"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateTokens.md",
+      "bytes": 3382,
+      "sha256": "a5e4bb9d233632a4325f4368f136cfb0a38c75b3168e478900bb6347e987b063"
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateViews.md",
+      "bytes": 2628,
+      "sha256": "08e708720e427c72db32beb07ac621c4d11bea4d00c66b1cdd18b372ffbb1729"
+    },
+    {
+      "path": "/docs/for-ai/operations/establishAuthLink.md",
+      "bytes": 2982,
+      "sha256": "c5d6558a961e8118d612ea16704abb20ed08ef8029eb85cff14b70909a92ea62"
+    },
+    {
+      "path": "/docs/for-ai/operations/establishPlugin.md",
+      "bytes": 2589,
+      "sha256": "2e4b5b004dd81422ee2eb9c6bea9905d89b4656d764e22146d03fa04c13b90ea"
+    },
+    {
+      "path": "/docs/for-ai/operations/evaluateAccessControlRule.md",
+      "bytes": 1706,
+      "sha256": "d9c460a9096bb31360e4fb518d5130c3b1f8b97a81f68347dfa94ae1ac848306"
+    },
+    {
+      "path": "/docs/for-ai/operations/generateOAuthCode.md",
+      "bytes": 2334,
+      "sha256": "fc8c3aa28a67fa996198a61070765eed6035271f73a92955487131b700020e3a"
+    },
+    {
+      "path": "/docs/for-ai/operations/generateToken.md",
+      "bytes": 2499,
+      "sha256": "3cd493cc3d5a6053fe0b6aaafdc842ce73828ca842cd397d8be43d69d4895be1"
+    },
+    {
+      "path": "/docs/for-ai/operations/generateTuyaQrCode.md",
+      "bytes": 2985,
+      "sha256": "1cbcb00700bb09ce656b662aeb84832e5f17e5b92236dc7fdbdaaa41bc534cd9"
+    },
+    {
+      "path": "/docs/for-ai/operations/getAccessControlRules.md",
+      "bytes": 2712,
+      "sha256": "8a166e21ce09c60839b48f2d5b97afa4a6dbc1182f01c41ca6fc1c61547ccbe2"
+    },
+    {
+      "path": "/docs/for-ai/operations/getEndpointGroup.md",
+      "bytes": 4191,
+      "sha256": "4f9ec83adabe20082ae453170ca42db9264685e823a6056e8413ab0a824f813f"
+    },
+    {
+      "path": "/docs/for-ai/operations/getEventDeadLetter.md",
+      "bytes": 4138,
+      "sha256": "20cc9f9e8d130170a962641d1853e2be21ad34cd1d2cd92ffc10a7db0844b934"
+    },
+    {
+      "path": "/docs/for-ai/operations/getEventReceipt.md",
+      "bytes": 5269,
+      "sha256": "80a5c82bc0521fe3ad02042d8a62a2a5acbfe7fee13a07f0eba2e758aee2091f"
+    },
+    {
+      "path": "/docs/for-ai/operations/getJWKS.md",
+      "bytes": 2203,
+      "sha256": "92aac1d2fd69a70390b4b30b9236857a065caddedc67432830f69204a6d15633"
+    },
+    {
+      "path": "/docs/for-ai/operations/getMCPOAuthProtectedResourceMetadata.md",
+      "bytes": 2505,
+      "sha256": "fa16fbfae8cd438368de21fc55d5aba176345647f358e10913970f3c82739896"
+    },
+    {
+      "path": "/docs/for-ai/operations/getMetrics.md",
+      "bytes": 1154,
+      "sha256": "63aa6d350b1ea288a68cba2c15821c4ad0f7601421e3d92f5520a3e6693b00d5"
+    },
+    {
+      "path": "/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md",
+      "bytes": 2896,
+      "sha256": "5cacc9698bf5dfaa9e3dcba2f3ccf619edf509744093d8ca9decf851da905d87"
+    },
+    {
+      "path": "/docs/for-ai/operations/getOAuthClient.md",
+      "bytes": 3649,
+      "sha256": "911972b02bba16c332fca52706035a30ea240e188c3f9152041d9560cd0d98eb"
+    },
+    {
+      "path": "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
+      "bytes": 2422,
+      "sha256": "902d4b94e59b81da1f95d1cef738f67f6ab4fd5aace662eff6875f33068b2e36"
+    },
+    {
+      "path": "/docs/for-ai/operations/getOpenIDConfiguration.md",
+      "bytes": 2808,
+      "sha256": "1ddea95c58539ace4e6fc610a59e5bf525e99259c6b3cf59f8c84c23f707d1d6"
+    },
+    {
+      "path": "/docs/for-ai/operations/getRoutes.md",
+      "bytes": 2695,
+      "sha256": "71e30f45aecf1565d83fa7379b5d3e6ffb6ecf413575c52077fa442119b99830"
+    },
+    {
+      "path": "/docs/for-ai/operations/getSubscription.md",
+      "bytes": 4655,
+      "sha256": "aa5031d9c820988768ae1a885929ee7be1de29526ca65516204f26baa3230423"
+    },
+    {
+      "path": "/docs/for-ai/operations/getView.md",
+      "bytes": 2989,
+      "sha256": "966f1488d38cb7593b82625a96d8d0aeff26fd67a5cd77310387bd855fb62f57"
+    },
+    {
+      "path": "/docs/for-ai/operations/handleGitHubWebhook.md",
+      "bytes": 3108,
+      "sha256": "5ede3cc3d39d31db68e67bf728106e469727bbe98c750ebbd1092266d41e47ee"
+    },
+    {
+      "path": "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
+      "bytes": 2914,
+      "sha256": "35efde196b10a24dde224f2391a8aafc2f715e9a85f989892fcd1020fe6d5637"
+    },
+    {
+      "path": "/docs/for-ai/operations/handleOAuthCallback.md",
+      "bytes": 2379,
+      "sha256": "7d36cd6ca795c7a2b4cd9c79db89fe8ac1b0a6d954c463761de3fb78c05f749f"
+    },
+    {
+      "path": "/docs/for-ai/operations/handleSmartThingsWebhook.md",
+      "bytes": 1304,
+      "sha256": "1ef65a68792e06a43bc265a23a8b64ae6a4b8cf301fef4d5e749ab45cc44a649"
+    },
+    {
+      "path": "/docs/for-ai/operations/index.md",
+      "bytes": 9461,
+      "sha256": "14bcead23f0c5622dc56985d62ea8ba79c7bcbda532bbe2791be87207c9a3375"
+    },
+    {
+      "path": "/docs/for-ai/operations/invalidateToken.md",
+      "bytes": 2763,
+      "sha256": "afb17d5fbd153d8c13841cffaab5f77ee27a3278e7fbcde37f76315a51bcc834"
+    },
+    {
+      "path": "/docs/for-ai/operations/modifyEndpoint.md",
+      "bytes": 2424,
+      "sha256": "d6dc5345b84a89f56bcc34c9880eaaf1fade1607b1465e0ee1b69a071687c711"
+    },
+    {
+      "path": "/docs/for-ai/operations/patchSubscription.md",
+      "bytes": 5220,
+      "sha256": "86a58630760b887fe38a13f7a58e1e28d130c2de3a736ab318bfbcd4c1e135ec"
+    },
+    {
+      "path": "/docs/for-ai/operations/ping.md",
+      "bytes": 911,
+      "sha256": "7e071757dd70704329f03c7aaf33b8437413ffb18b47c00541a50956e299c829"
+    },
+    {
+      "path": "/docs/for-ai/operations/pluginAuthCodeExchange.md",
+      "bytes": 1796,
+      "sha256": "ac110b0bab206f58adda0422011ebf836beed0753b500d2d5569b31e5fc2bf59"
+    },
+    {
+      "path": "/docs/for-ai/operations/pluginAuthCodeLink.md",
+      "bytes": 2312,
+      "sha256": "035ee42e967d5e589e404904c9f672eaf4fa17d75f49d70a919282f28966873f"
+    },
+    {
+      "path": "/docs/for-ai/operations/pluginAuthMultifactorExchange.md",
+      "bytes": 1896,
+      "sha256": "527a2e262f99dca5267bd53462fbb4ce5ad6820c1c859a11d04662e388e8f982"
+    },
+    {
+      "path": "/docs/for-ai/operations/pushToMessageGateway.md",
+      "bytes": 1369,
+      "sha256": "907bdcff27757b275df25770e04fd2e72bf34e2763473c2de205e5bfc28edf9e"
+    },
+    {
+      "path": "/docs/for-ai/operations/queryFlowRuns.md",
+      "bytes": 4092,
+      "sha256": "978bddb6d8efae55c9b97547ab8dd92c5884a58e67cc59e5c6e36102ddefe6bf"
+    },
+    {
+      "path": "/docs/for-ai/operations/queryFlows.md",
+      "bytes": 2872,
+      "sha256": "5cec3a398d516b092cc777e419c56930f4a97e939a349be8654e69581ad728fd"
+    },
+    {
+      "path": "/docs/for-ai/operations/raiseAnonymousPrincipal.md",
+      "bytes": 2808,
+      "sha256": "d5bc6bcd285605fce8f5a45169976bd7b34b6dce2711fe637c72b250508f7459"
+    },
+    {
+      "path": "/docs/for-ai/operations/redriveEventDeadLetter.md",
+      "bytes": 5483,
+      "sha256": "634acdffee6d346e0e9a1b8ef70552c27adab4b4db0438762e0c11e28395312f"
+    },
+    {
+      "path": "/docs/for-ai/operations/refreshAuthLinkToken.md",
+      "bytes": 2087,
+      "sha256": "c11350d685604316958b636fb98515da27af4d98e77d57cb89a04703e878b4aa"
+    },
+    {
+      "path": "/docs/for-ai/operations/registerDynamicOAuthClient.md",
+      "bytes": 3422,
+      "sha256": "8e128538220aa324bb0aec521eb6c9ef90b876f6fef4a8287e7e730513dc84d6"
+    },
+    {
+      "path": "/docs/for-ai/operations/removeEndpointGroupMembers.md",
+      "bytes": 4200,
+      "sha256": "6dfb21bcacbd0e92a0652c80bc1d371314359a853164d13f9fc3849fef2cd37e"
+    },
+    {
+      "path": "/docs/for-ai/operations/requestFutureIntegration.md",
+      "bytes": 2899,
+      "sha256": "4ce2a2ad5e4f973ed126a6987d083c91d92adc49d09d2972cf8754cf84fdc331"
+    },
+    {
+      "path": "/docs/for-ai/operations/revokeOAuthGrant.md",
+      "bytes": 1559,
+      "sha256": "a7fae032e0c31ea1f1c07f5e2a46978857ad80be5d82056c50d26c16e306f7ff"
+    },
+    {
+      "path": "/docs/for-ai/operations/sendMessage.md",
+      "bytes": 9160,
+      "sha256": "04553fd7f0bbc51a492c45b6b14302b9dee9358ff92317fa5010329ab7bf15de"
+    },
+    {
+      "path": "/docs/for-ai/operations/sendMessageLegacyAlias.md",
+      "bytes": 9293,
+      "sha256": "a1c71be7681b60b30d9a1f0430f1d6c1f64e7284c3c8885855a9b5fc55814f53"
+    },
+    {
+      "path": "/docs/for-ai/operations/setEndpointGroupName.md",
+      "bytes": 4057,
+      "sha256": "441aa780c73aaa58514e73ea143447c8a2304fa238640d4fa771221777ec6db2"
+    },
+    {
+      "path": "/docs/for-ai/operations/setFlowRunStatus.md",
+      "bytes": 3569,
+      "sha256": "c08681beeebdeb2ecff0d43298e1f4e8eea955fb571961191e6465964909b97c"
+    },
+    {
+      "path": "/docs/for-ai/operations/synchronizeRoutes.md",
+      "bytes": 7731,
+      "sha256": "c84cfe09976182cdaf842b287598c6748be2044927f7724954b5db4fd6bf57a2"
+    },
+    {
+      "path": "/docs/for-ai/operations/triggerFlow.md",
+      "bytes": 2394,
+      "sha256": "819ee14c41f66b2ec99ea50207bb1b124d23c2bfa7b3bdf2de4f995effd939f4"
+    },
+    {
+      "path": "/docs/for-ai/operations/updateOAuthClient.md",
+      "bytes": 2978,
+      "sha256": "eed3aeda22404e12d6677febd6bea35c58f61b5716dd3c2378ebbe15a833e05c"
+    },
+    {
+      "path": "/docs/for-ai/operations/updateView.md",
+      "bytes": 2687,
+      "sha256": "9e0d5800c303bd7c4a53749fba6cb17837b3ca2d2ada1bc079c0346a17b2f628"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertAccessControlRule.md",
+      "bytes": 1945,
+      "sha256": "f3283ee9b0fe0e707e3d6469cbf0935c63941ccf99388135e8fc2e98ea202d00"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertAuthLink.md",
+      "bytes": 1533,
+      "sha256": "d88fc55885ff1255c66585d3f3d44bbc091c6ef3917bc0bee843f4f0fff79974"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertEndpoint.md",
+      "bytes": 1069,
+      "sha256": "6b07af867b148ce8d40628d9cec93f48d4597517422f0461a003f8655b291806"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertFlow.md",
+      "bytes": 2553,
+      "sha256": "f33ce136f82d1bdfc5e31445b532806d786c1b40bad3d5c0c7a31ab104643c26"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertFlowRunMessage.md",
+      "bytes": 3604,
+      "sha256": "d70ba430b2baf39a0c9a2f1b6970403835ab51fe051cac720e1763510861f7c4"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertPluginRequest.md",
+      "bytes": 1530,
+      "sha256": "cf1b19a49e40e0d39fb223406236339e199e4c0bc78c97163954967d9343cfaa"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertPrincipal.md",
+      "bytes": 1538,
+      "sha256": "a58b4ee694ca2201e93f7a1323bfe2ecff676e0901acedeeb2cf22c42673aec4"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertRoute.md",
+      "bytes": 1031,
+      "sha256": "b224505d402cd7f078af76cdb4c88e3159f8f1f8165bb14a36b4b613c69a1551"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertSecret.md",
+      "bytes": 3152,
+      "sha256": "251fc1403bd8d24d1ccfb14ac41de61d34e9ef1f0038426a40330bc156413173"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertSimulator.md",
+      "bytes": 5340,
+      "sha256": "f25a490126ce34b4ae84d30c6ec327f6ef84e0307cfde52622a1e7eed6cad328"
+    },
+    {
+      "path": "/docs/for-ai/operations/upsertSubscription.md",
+      "bytes": 1512,
+      "sha256": "96ff3938741ac783e2b883e550738ffbba24eb61297f6fb13a0246611fd13e83"
+    },
+    {
+      "path": "/docs/for-ai/operations/validateOAuthRequest.md",
+      "bytes": 2134,
+      "sha256": "16e72bf9a3ed8342127a3dcd7a5544c358ec89706aa51da758e5a2083bde39d7"
+    },
+    {
+      "path": "/docs/for-ai/operations/validateTuyaLoginCode.md",
+      "bytes": 3776,
+      "sha256": "c723a4fbc07263c1d8e3c1cd6d814b031cf944d4e3a87ea79e1500e20234bc9d"
+    },
+    {
+      "path": "/docs/for-ai/operations/verifyDevice.md",
+      "bytes": 2350,
+      "sha256": "c06097d8ebde697e5a15cbb41f5792111a76dc4bc83f9175bdc38e68891397c2"
+    },
+    {
+      "path": "/docs/references/authorization.json",
+      "bytes": 38240,
+      "sha256": "e5c4e7828cb5fb67c16703fe25cd34d183b00a1c0cdaea16d34deeb29e794af3"
+    },
+    {
+      "path": "/docs/references/authorization.yaml",
+      "bytes": 28285,
+      "sha256": "e1b5c6157d39d6140e379a4156718228a208fc78ee43bc88b81b9dcf877d8616"
+    },
+    {
+      "path": "/docs/references/capability-interfaces.yaml",
+      "bytes": 35957,
+      "sha256": "88d4e24513979b32e7180ce950bd8e67f5e0a7e37b85e76333c425eb81070d7f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/air-quality-sensor.yaml",
+      "bytes": 1641,
+      "sha256": "9b1615c0a7b2dbdb6b50e41a0e1bf8794f8c5bea9a1237d3441c8925c41cf77b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/air-quality-sensor/1.0.yaml",
+      "bytes": 1635,
+      "sha256": "d134a30af08e0d5656c8b13338d7414b146547290576e470d56214670aebc1d5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/air-quality-sensor/1.0/attributes/air-quality-index.yaml",
+      "bytes": 323,
+      "sha256": "c6c2522ccc547408388319ae7697ff927622b2660c35b0d7dbe2d4fd71564d1e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/air-quality-sensor/1.0/messages/get-air-quality.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/alarm.yaml",
+      "bytes": 1363,
+      "sha256": "c69ab53b020c9b5cc490fa6184a4ba61fff7043445dcc1bfe9d3f2c2b9e8e763"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/alarm/1.0.yaml",
+      "bytes": 1363,
+      "sha256": "51e936daf9de043507f5ecf4807d8cea8cb79ebfa56016b3f354b5e51b1b8549"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/alarm/1.0/attributes/alarm-state.yaml",
+      "bytes": 235,
+      "sha256": "5df9cfe115ca8ac531da3972890da24ef3c854674a6878574f4434c728681a33"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/alarm/1.0/messages/ring-alarm.yaml",
+      "bytes": 163,
+      "sha256": "d6b19c51fa8fd36a220240018ce4cf9fae4d6d5428b0faa59b6fc467ff9ae391"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/alarm/1.0/messages/silence-alarm.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/alarm/1.0/messages/test-alarm.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/application-launcher.yaml",
+      "bytes": 2771,
+      "sha256": "70a8f16dd6ae38643cab4e5403a35ae7c0d25ef8d09c44f088f69c9ba4313309"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/application-launcher/1.0.yaml",
+      "bytes": 2765,
+      "sha256": "75af511edf78d04b57984c56c01a73d2fc555e16f721b9c37559ed895f8381d2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/application-launcher/1.0/attributes/application-list.yaml",
+      "bytes": 507,
+      "sha256": "405f50c22c7c11cf6ecb2050efda3390398c98aaa48be06407d4c556cc70c0c5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/application-launcher/1.0/attributes/current-application.yaml",
+      "bytes": 191,
+      "sha256": "906d0835a7b59b7ef6b70062d7833f52c8a061b6dadd5ba1e3b223d728cc07c1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/application-launcher/1.0/messages/launch-application.yaml",
+      "bytes": 337,
+      "sha256": "dc6c3f2c397f735f086a3470e0f94f6794345c2bb42153fc02ecd044d9b6991c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/application-launcher/1.0/messages/stop-application.yaml",
+      "bytes": 254,
+      "sha256": "5d2cb552c7b1b6d4cfad9693793935e98c42a0655d536e1db6ea0cb8233b2778"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/authorization.yaml",
+      "bytes": 2750,
+      "sha256": "fe2cb39d0576045bb27c3a6d9c794c519cfc18889cd78d5ccb4a6103d43a0689"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/authorization/1.0.yaml",
+      "bytes": 2748,
+      "sha256": "58881f501e012ba12207f3270fb9068722f37eada0767e773536c3a8b8b4c45c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/authorization/1.0/messages/authorization-established.yaml",
+      "bytes": 705,
+      "sha256": "9662d63d53eb902289954ec3324ccf7607d49bfa1a482e4346abf0a87de85bf3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/authorization/1.0/messages/authorization-update-report.yaml",
+      "bytes": 682,
+      "sha256": "46d2bee2fdfdfec4fdbacb3ec6a40a3dab89092e843933a06a8ba2f71cdb35ee"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/authorization/1.0/messages/refresh-tokens.yaml",
+      "bytes": 132,
+      "sha256": "1159166ad2eb06bfd23633f0bd46e0d95054839161e55c3e0f503815f9fb45fe"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control.yaml",
+      "bytes": 1678,
+      "sha256": "3cae680cc9a74371dba3be0a964b3e7c93c7142640313a0d4034cf2368fa5b16"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control/1.0.yaml",
+      "bytes": 1676,
+      "sha256": "28eeaa5b416a42ed3f3cf1ed55cd8e87d6e5fc4275ed5ca675e85ac252e13aa1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control/1.0/attributes/barrier-position.yaml",
+      "bytes": 185,
+      "sha256": "d7c7cca10be0b562fbe89662e213da33026fe801d18fc664b42ae1847ac52602"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control/1.0/attributes/barrier-state.yaml",
+      "bytes": 185,
+      "sha256": "57111a04b222c2856be9187bcce0381769561c64775478240741429513f4e702"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control/1.0/messages/close.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control/1.0/messages/go-to-position.yaml",
+      "bytes": 191,
+      "sha256": "5be44f1e2c96b00c94079180700e7c578f277fbea8108a97fb46f4d844ab4930"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/barrier-control/1.0/messages/open.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/battery.yaml",
+      "bytes": 836,
+      "sha256": "d0b145f5476baf656479788d6501fe96571d5ea1e18d86319e9567577d9aefe2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/battery/1.0.yaml",
+      "bytes": 836,
+      "sha256": "c6c86e63072107eab780317f3eaa2c5382de374ae3e2aea74d99a6dfad057c9b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/battery/1.0/attributes/battery.yaml",
+      "bytes": 253,
+      "sha256": "17b130948756dc188e656d09abb22e8d19f37a2fd89daef253e61a5a423099dd"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/brightness.yaml",
+      "bytes": 1094,
+      "sha256": "86b85382623772e73975c3e4b2120c54b656e9777e33226962af625659f8bf2e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/brightness/1.0.yaml",
+      "bytes": 1092,
+      "sha256": "8494999160a7ac7ef80a824fd9fc6f194e88a49b86440368d7e4c74dba7ed7e2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/brightness/1.0/attributes/brightness.yaml",
+      "bytes": 185,
+      "sha256": "48e744953418cff9ae9ebba702b18a409bc3b288cf57a49c4f77840d68c4df2a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/brightness/1.0/messages/set-brightness.yaml",
+      "bytes": 187,
+      "sha256": "30ad2dda1d907cbbad63abe6f65b111573f36bfcbbe02d5570013882b26c7609"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/calendar-provider.yaml",
+      "bytes": 1553,
+      "sha256": "2aae7d89a8dd14be4910163f12a9c2ea45009dd6ffa1c65bfd7b011ca2793da8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/calendar-provider/1.0.yaml",
+      "bytes": 1551,
+      "sha256": "48bd3779b54839f6f6916707f8f67974cd7d62d78e6228e37124d6b7f2f138b3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/calendar-provider/1.0/messages/list-events-response.yaml",
+      "bytes": 523,
+      "sha256": "71a3fdf5316ace261962404411b96eb5250fff2fd78692ec56c555140b1060ca"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/calendar-provider/1.0/messages/list-events.yaml",
+      "bytes": 102,
+      "sha256": "ee25b589f0b9b21a4a76c34408c1a67f9b5ff3e17a7dfff3151daf93c5670fff"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera.yaml",
+      "bytes": 3430,
+      "sha256": "e5e203115eff59df8a3237ad63acc6efb19362eae625fa764b4180f41e532042"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0.yaml",
+      "bytes": 3424,
+      "sha256": "bfe0a46ad905078927067839dbd1a3069e334ff74ccba8c813b5ca321e8841b2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/attributes/motion-detection-enabled.yaml",
+      "bytes": 153,
+      "sha256": "da733d9a94a89d912a9251d8be4b12bbae80ffc7206658995e168ab2611a2a53"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/messages/get-event-image.yaml",
+      "bytes": 299,
+      "sha256": "1f2c80849d04f9326b2e50eb790e8d86bc8a030866f4ac4d55c709ccda182815"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/messages/ptz-control.yaml",
+      "bytes": 351,
+      "sha256": "c9d53ae4794b5a829a05a3d0e39482ca3a61132c451f6e84f6621afa5547600e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/messages/set-motion-detection.yaml",
+      "bytes": 156,
+      "sha256": "6becf07d662ff2e7ba4888c1fc185e8c56f48130407d86719e6d696d4fea976a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/messages/start-streaming.yaml",
+      "bytes": 343,
+      "sha256": "55aa39d7ae0b22d08ddcdd8f944adf1bb4f5c3d22bead9ea28771a42429998ce"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/messages/stop-streaming.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-dioxide-concentration-sensor.yaml",
+      "bytes": 2104,
+      "sha256": "b7759f0737531f39b3e1429d1494a13907a477a81cbfe2cee846175d54cc43bf"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-dioxide-concentration-sensor/1.0.yaml",
+      "bytes": 2102,
+      "sha256": "39ada15c57303b20476b7403b9f1168b0b9f0e5259c66cdb3c04e01d07b66975"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-dioxide-concentration-sensor/1.0/attributes/max-measured-value.yaml",
+      "bytes": 139,
+      "sha256": "3296714daf717878784e9f93987c1a80193ea982297850e90be75228af6cfb43"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-dioxide-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-dioxide-concentration-sensor/1.0/attributes/min-measured-value.yaml",
+      "bytes": 139,
+      "sha256": "f88770c4673e09c2233a5d3e418dfa51770892766ae3546870ff86021c9d8f3a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-monoxide-concentration-sensor.yaml",
+      "bytes": 2120,
+      "sha256": "153fd5e8a748ba2c0110cb480f193449040768a0bfc22411e41c7e1c5fb70d4c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-monoxide-concentration-sensor/1.0.yaml",
+      "bytes": 2118,
+      "sha256": "d9c27cbe60b0cc7a1936be9941da9b8bcb7b9d532ab9c97dae6257e2f03451da"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-monoxide-concentration-sensor/1.0/attributes/max-measured-value.yaml",
+      "bytes": 139,
+      "sha256": "3296714daf717878784e9f93987c1a80193ea982297850e90be75228af6cfb43"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-monoxide-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/carbon-monoxide-concentration-sensor/1.0/attributes/min-measured-value.yaml",
+      "bytes": 139,
+      "sha256": "f88770c4673e09c2233a5d3e418dfa51770892766ae3546870ff86021c9d8f3a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/channel.yaml",
+      "bytes": 1464,
+      "sha256": "3fb6f1c236feee5650f44caa3d6aac8d9e578d8dadb9776f4e3c14c1988b2706"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/channel/1.0.yaml",
+      "bytes": 1462,
+      "sha256": "ff03829d17bfc05bf78ea6a2cd20ba2dc8640084d51916f1758f09964997c8fb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/channel/1.0/attributes/channel.yaml",
+      "bytes": 171,
+      "sha256": "ee64e6062268b412eb3ac260c1802d79d68ea0aa87916cc70b81178cd0c37eb6"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/channel/1.0/messages/change-channel.yaml",
+      "bytes": 307,
+      "sha256": "eb05a43e73f64bc510423c880a48d4b6d71eb81f6d8a70971214c4866975fc2d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/channel/1.0/messages/skip-channels.yaml",
+      "bytes": 114,
+      "sha256": "57649195db8c37521e82652e8e667a36e69bed634cec3776e6645f21f9f2c8ea"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cleaning-mode.yaml",
+      "bytes": 5150,
+      "sha256": "8c75a8f4f38895582973c0e85071514e745b7c0f03dc98e2c10fd2e21d3145b3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cleaning-mode/1.0.yaml",
+      "bytes": 4957,
+      "sha256": "062e50da413dc9e2bd553bf7acc83fe1dd18fc88b236f8817953ac813a33cad4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cleaning-mode/1.0/attributes/cleaning-mode.yaml",
+      "bytes": 381,
+      "sha256": "2d2d1d8e0a102ea9b72922ceff1ccd992a85e32366323f3c5de941aa61c3b307"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cleaning-mode/1.0/attributes/suction-level.yaml",
+      "bytes": 378,
+      "sha256": "3740b44382595094ffc34a1ea4becab272564c942aa703105b6669fd71df0258"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cleaning-mode/1.0/attributes/water-flow.yaml",
+      "bytes": 355,
+      "sha256": "48b0d1bb0fefc47fb73a1438b18935d4d01a1d385fbd8cf58a1d50a415346886"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cleaning-mode/1.0/messages/set-cleaning-mode.yaml",
+      "bytes": 896,
+      "sha256": "614fd7e6dfb79210727ded3292ec41c8e5616d3f2bf1175dfa4c0d836c48dbea"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color-temperature.yaml",
+      "bytes": 1702,
+      "sha256": "19f7e7693b3954c0287ec0c1341ffe27c1d43dd99aa0c585d8b14d6ccdadbb90"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color-temperature/1.0.yaml",
+      "bytes": 1688,
+      "sha256": "3e9e8b16bc3054f5c61ae49ac7044e342185d01796184654cfec15b91ca18afa"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color-temperature/1.0/attributes/color-temperature-in-kelvin.yaml",
+      "bytes": 100,
+      "sha256": "a873192d57c9a2492bdd368544cc4350e583b7f861548dfc5383db666f860682"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color-temperature/1.0/messages/decrease-color-temperature.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color-temperature/1.0/messages/increase-color-temperature.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color-temperature/1.0/messages/set-color-temperature.yaml",
+      "bytes": 544,
+      "sha256": "f9fd9d2c36d491154920c9bfc3cd0510759713b8d090c21b2dd74aa75709d53d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color.yaml",
+      "bytes": 1559,
+      "sha256": "7f8160e6d590755a44dc09e09867bc7d155517593eda0df4f20b296dcfaac33e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color/1.0.yaml",
+      "bytes": 1559,
+      "sha256": "59891d7fff5af5c920f3f835940ff2c2d8ad8a7478a463086b42756e34bdd801"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color/1.0/attributes/color.yaml",
+      "bytes": 383,
+      "sha256": "7516f7112c2b117cf79c9ea33b63e186dea5bd6b8662e9b84b20f1c6bf2e0958"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/color/1.0/messages/set-color.yaml",
+      "bytes": 383,
+      "sha256": "219f637b09952625e85f8b262f74980071896ff253c1e216da5a013c65e4cca5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/connectivity.yaml",
+      "bytes": 1457,
+      "sha256": "7ece9b70701fd36d999b45bf994f0ee205c3ae5b6f842ed2ee210ca1969b5117"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/connectivity/1.0.yaml",
+      "bytes": 1455,
+      "sha256": "7dfe21f43efeaaf89b6ebdb2e31539520830fe19483b0050b15097e5e4fc9d1b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/connectivity/1.0/attributes/network-throughput.yaml",
+      "bytes": 116,
+      "sha256": "f621fd88e4ec9fd363b4767fc9b68e8258a5cf1c2bfc1277a76de8c933d00dff"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/connectivity/1.0/attributes/radio-diagnostics.yaml",
+      "bytes": 347,
+      "sha256": "d91705f28e1ad050a24428070c8f6841d342c131c056abb55a55f8efa4481fa8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/connectivity/1.0/attributes/reachability.yaml",
+      "bytes": 140,
+      "sha256": "c78559721f90ca41d1f30fc06258b891a9fd6dd8b5df8773f8e59c6d822d24c8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contact-sensor.yaml",
+      "bytes": 754,
+      "sha256": "6b4df232f8f12b9389ab6a7640c58182eaa701a592abff3244681c765969aa62"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contact-sensor/1.0.yaml",
+      "bytes": 752,
+      "sha256": "eb24477a02707229037adca772105527f84f2d55fc7c26c27203443758b37190"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contact-sensor/1.0/attributes/detection-state.yaml",
+      "bytes": 147,
+      "sha256": "4c39c79db050c7fe3b827f9bb065c6321180b50896743690a17751431bc4f73d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contacts-provider.yaml",
+      "bytes": 1503,
+      "sha256": "1dfd22c0787c6b275c096a1807340bf6958699a5b9b9a2bf124238abfd7ef902"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contacts-provider/1.0.yaml",
+      "bytes": 1501,
+      "sha256": "27f5c2f1b269142218f57a164264eb21775e481a9a5dcbaa3f41e3412b3dae2e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contacts-provider/1.0/messages/list-contacts-response.yaml",
+      "bytes": 490,
+      "sha256": "cc62afb51359995bbdadc01e78f6d04e8b216ab158f13c816cddef6dd72be2f4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/contacts-provider/1.0/messages/list-contacts.yaml",
+      "bytes": 104,
+      "sha256": "f716d304b17d415d0916a542edb48c3b43c0e4dbf5833e4448c6a6ff273f06ec"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/content-launcher.yaml",
+      "bytes": 3026,
+      "sha256": "b3d96a1a76d45737753643938edd31572315fe1dfbaad976b0395086072080f9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/content-launcher/1.0.yaml",
+      "bytes": 3026,
+      "sha256": "2572c8391ccb7c098b173e62a6e4a04f22d97d5458c25a632761647fbf6dfee1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/content-launcher/1.0/messages/launch-content.yaml",
+      "bytes": 787,
+      "sha256": "d1bfa3833bb1efa017fed6cc29583ad8de76cc16d40e82346f2a3c265cca7bb6"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/content-launcher/1.0/messages/launch-url.yaml",
+      "bytes": 693,
+      "sha256": "c56af3ac0db1aea396a2543eb3d6644c0110eeeb23ab3d439146eb7797ee78dc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-route-groups-provider.yaml",
+      "bytes": 1413,
+      "sha256": "57d41507eac5e138a03be64cba25aac1c48baad34f50853d9ebb42c018ee575e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-route-groups-provider/1.0.yaml",
+      "bytes": 1413,
+      "sha256": "04280ec149da0973822180211e412633711a8387f6f28ede30e72bd392b0be60"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-route-groups-provider/1.0/messages/create-group.yaml",
+      "bytes": 346,
+      "sha256": "6434fda918eb816f67a7ecc286bc141ca6ede32af156b1ed4c462cfeffb6e4bc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-route-groups-provider/1.0/messages/delete-group.yaml",
+      "bytes": 211,
+      "sha256": "aa49dd90e63979568cb96e4e6712d765624eb05b403094b71599e4653c5d270b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider.yaml",
+      "bytes": 8760,
+      "sha256": "8dbd7b74db0f2e9eaa1dc2a45f88dd49871a2c5a968efecbd9313938e699c199"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0.yaml",
+      "bytes": 8628,
+      "sha256": "c34a0ec468416a57342cacc8db2c7d66429f9ed0792c04fadcbfd4dccb3a7e4c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/acknowledged.yaml",
+      "bytes": 292,
+      "sha256": "9453420fe008b944e843f10ddc69cccca36e0bb98d5b4a857c764a77e0715bf3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/attribute-report.yaml",
+      "bytes": 1383,
+      "sha256": "012571bc3c71427484128cc573367084ca6913526de94fe3a93c332bb459f384"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/batch-message-dispatch.yaml",
+      "bytes": 475,
+      "sha256": "aab3230ae41ca228119f5579c700676ba65917bd8822ad815ee6a361ca666866"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/deferred-response.yaml",
+      "bytes": 433,
+      "sha256": "6ac650ccd65e164f08715401e4ae8060f264a28aa15aee3a4babd8b8a681c74a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/error-dispatch.yaml",
+      "bytes": 1069,
+      "sha256": "9408f8f39a80323818df8461efd860a46ace2df7382904d23661458d9670cc57"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/report-attributes.yaml",
+      "bytes": 1512,
+      "sha256": "bb1970095f5d0de3a16f181ea26f04fa68842bfea8069d7f772f01378aad32d4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/successful-dispatch.yaml",
+      "bytes": 203,
+      "sha256": "2d82ef2dd16119c41540199955b6d13c2fcaf3ea74ae47e39525607322442f3d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cooktop.yaml",
+      "bytes": 1006,
+      "sha256": "a21565b4e14d5fce5dfc2aa6b4704edd76e660d06ccc2bbdcc07b9089f3b761e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cooktop/1.0.yaml",
+      "bytes": 994,
+      "sha256": "c541245f469c9be9e6913a42ef87aa6bc090d4e39ebe4282f8aa86cfe0409527"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/cooktop/1.0/attributes/operational-state.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/dishwasher.yaml",
+      "bytes": 1017,
+      "sha256": "a574f67c98a21ca5a0dd3238a0f5f193a2c868000fb0396d7d87a46abb0b0b73"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/dishwasher/1.0.yaml",
+      "bytes": 1005,
+      "sha256": "a1563710cba6d48b2bd985fecc8ba285090fc4ace2e1e01c25f531874f465bb8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/dishwasher/1.0/attributes/operational-state.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/doorbell.yaml",
+      "bytes": 816,
+      "sha256": "8d68a81bb99f7cacc68a54a8633a0db2f697af7528963e15fc7da84590ea3b16"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/doorbell/1.0.yaml",
+      "bytes": 816,
+      "sha256": "9489e2df37b7be8c8ca5cfc6a7465be21c51be154b836e1dcfe39301effe045a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/doorbell/1.0/messages/chime.yaml",
+      "bytes": 207,
+      "sha256": "6ba02f8e402635570049ed49d7f9c8092fa78e56a97ebd692038420b2ec9dbaa"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/electrical-conductivity-sensor.yaml",
+      "bytes": 1557,
+      "sha256": "ff21310e92ac0845f1cf1e0b90066be8f095605bcdaa939e814d1dd40d6e883f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/electrical-conductivity-sensor/1.0.yaml",
+      "bytes": 1557,
+      "sha256": "77187bc7547188a581cc95f3ca0e951575c08bf4ffa04ee0a320e7ea6abec6bb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/electrical-conductivity-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/embedding-generation.yaml",
+      "bytes": 1408,
+      "sha256": "9d5d77dd24efb748ee3bb9ac6f06527f815a90bde5e6bd45c670d07bb111422c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/embedding-generation/1.0.yaml",
+      "bytes": 1408,
+      "sha256": "ecedcfa8b7b639ec697b3e1cb0e208174f3bfd690c98d64b2ee5cfe91c090360"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/embedding-generation/1.0/messages/embedding-uri.yaml",
+      "bytes": 328,
+      "sha256": "a203c865965a0ce438f1f866a1c567457623503d996556d81ea5a27cec77ac9b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/embedding-generation/1.0/messages/generate-embedding.yaml",
+      "bytes": 285,
+      "sha256": "6050da4c96160cd24266c4e3e88401cb70757606877c6d0caf7560099009540f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/endpoint-registry.yaml",
+      "bytes": 1317,
+      "sha256": "d44e325832a3a1625e7bfc9fae9ee010d4058315bd2f1f1ca06f188d24a92182"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/endpoint-registry/1.0.yaml",
+      "bytes": 1283,
+      "sha256": "361ac263840126d42c52d3c7468eb3df42d9328ce2676965c9cd2ca4bf331f9d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/endpoint-registry/1.0/messages/endpoint-updated.yaml",
+      "bytes": 599,
+      "sha256": "20d533a8c4a999b90ac122bc8dd5ef7f731821fc2b7c0e29fe4436fe0b1732e1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer.yaml",
+      "bytes": 3217,
+      "sha256": "b7dd7c92cb0d16be463dfc0eb9875fece24a9e5890d6ebd08435e3781b24f410"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer/1.0.yaml",
+      "bytes": 3217,
+      "sha256": "7a488921b75f5803efd4cd60552cfdfaa36d4cc6f17c70886b90a47a4c2c2fc7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer/1.0/attributes/bands.yaml",
+      "bytes": 432,
+      "sha256": "5c6d2426609376ef8c85999b2a061c27d6478a1957f6196b714fab5644a0cd30"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer/1.0/attributes/mode.yaml",
+      "bytes": 99,
+      "sha256": "2270b6ba6b9d04818a698ab018bd9d45c5fd77c302592045c9ca97a6ef87ae39"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer/1.0/messages/adjust-bands.yaml",
+      "bytes": 454,
+      "sha256": "7d7d9434e6044424f36190053156f4611a8450175f6faef9333d0cc2a3e1caeb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer/1.0/messages/set-bands.yaml",
+      "bytes": 430,
+      "sha256": "94e51ee5d8864f3d52c000ab381ae8dd8cc663ec92c5e5234d136b70055c1bcb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/equalizer/1.0/messages/set-mode.yaml",
+      "bytes": 97,
+      "sha256": "785ae63eada941520496fa9d1c43baef03e5fd8aac50dbd37756f9ac4471baa2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/event-detection-sensor.yaml",
+      "bytes": 2010,
+      "sha256": "a3d3ad95a2180de4b583e5ffec08bf326de449b9d8b99b7625cc17855cd4c94e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/event-detection-sensor/1.0.yaml",
+      "bytes": 1972,
+      "sha256": "bef93b75660d9cb42f20a9e68dea5dd65c565e42fbacf3d9efb92822e2572b98"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/event-detection-sensor/1.0/attributes/human-presence-detection-state.yaml",
+      "bytes": 257,
+      "sha256": "3223618099038d7d1a0f3880e8481c54132d5909549af96b3ded4a5fb428d1d1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/event-detection-sensor/1.0/messages/person-detected.yaml",
+      "bytes": 217,
+      "sha256": "e214c936fc54aaac8c4d0772f09c11d948dff15c42e6cdbcfb48598d62bb1a15"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/extractor-hood.yaml",
+      "bytes": 732,
+      "sha256": "2d40ac0e4f7c1ad4bbf6c9252c424fd85586bdcba15465aa0e0db4a4c02062e1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/extractor-hood/1.0.yaml",
+      "bytes": 732,
+      "sha256": "12ba2b7aa675daa99c046eaeaae7cf03a3bc15a2e90ef0595a9fddd156294f48"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/extractor-hood/1.0/attributes/fan-speed.yaml",
+      "bytes": 178,
+      "sha256": "4f7e6c5ee4c5701564953565e090f49d42508abcaae01351c94349b1958f3792"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/fan-control.yaml",
+      "bytes": 2451,
+      "sha256": "8cc4361123c97cdd1ca651dfe2eab5464a71c258b78f0430d83b315599c738cb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/fan-control/1.0.yaml",
+      "bytes": 2451,
+      "sha256": "9ec850e336513d0fcbd3681ae369643f9355a63202a955b512d45e26ae09e93f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/fan-control/1.0/attributes/fan-mode.yaml",
+      "bytes": 229,
+      "sha256": "5f48dd2f3033261fab2dce053c805ea9fd005cd1dcac561719ffa7ab7821cca7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/fan-control/1.0/attributes/fan-speed.yaml",
+      "bytes": 178,
+      "sha256": "4f7e6c5ee4c5701564953565e090f49d42508abcaae01351c94349b1958f3792"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/fan-control/1.0/messages/set-mode.yaml",
+      "bytes": 227,
+      "sha256": "ac9947f2ca8b0bca8eb3a97d2df6ea842eb9a909885b0f90b671479377da286b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/fan-control/1.0/messages/set-speed.yaml",
+      "bytes": 178,
+      "sha256": "240687ac4fe06ab2c570c9758f015f2bc6dcabe2372b6b2ba4fe005ed928339e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider.yaml",
+      "bytes": 7015,
+      "sha256": "575f3c66fd3cf011ab10e2fc5023dd18c0f298b29a20356c9204cb52cb93e20f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0.yaml",
+      "bytes": 6886,
+      "sha256": "934e17d7cb1431ed1a08987d058af69e1f5dcb82da3b1e48f2e9373803ceb0c0"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/delete-file-response.yaml",
+      "bytes": 169,
+      "sha256": "b7d8e4ac3726bbbfb14e4e73d0343fe916d04c4e5e6ee585983d9648318d793d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/delete-file.yaml",
+      "bytes": 247,
+      "sha256": "32c927ef6fff25e60917d91afef07294fae685a3a562ab93affa7f6ed3294779"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/download-file-response.yaml",
+      "bytes": 396,
+      "sha256": "14368d5cc2fc848616be5fff09972663eade68cea738052ad6a8256d8184a645"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/download-file.yaml",
+      "bytes": 251,
+      "sha256": "a2a4c01da35022aea929b0db81ff743a166472fb14c2890d05bc0b86dd105d85"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/list-albums-response.yaml",
+      "bytes": 582,
+      "sha256": "ef655f4e97343d5f42e6bf04e08d1f30b1962b6e753d89643920c32661b86d55"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/list-albums.yaml",
+      "bytes": 374,
+      "sha256": "aa207dfbdecae72eb8f7692c51948b5420d510d4f6637c97acf87a52f58ea919"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/list-folder-response.yaml",
+      "bytes": 825,
+      "sha256": "ea66570d1b1a5eca1874cb07da76fd483315327ae0ff0886b090dd3a5e3c1b6d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/list-folder.yaml",
+      "bytes": 494,
+      "sha256": "e65bfe848f697872074b6e35617046daf53d87735d0df03d3e7f9898d23506db"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/upload-file-response.yaml",
+      "bytes": 272,
+      "sha256": "9d17fa6f506fcd9bb779f38ad1a3e5fb54266357fac160ba6ad6e8b0a5821f7f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/filesystem-provider/1.0/messages/upload-file.yaml",
+      "bytes": 664,
+      "sha256": "d567c06c9263fda25a0aa55f4a56dc31b32256a0b0d975963550ad0c209d1ef1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flow-sensor.yaml",
+      "bytes": 1514,
+      "sha256": "6e43847b18ac51a2fa65e36921aa3e85219a77720cc84f06b9a8201a4ad5467c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flow-sensor/1.0.yaml",
+      "bytes": 1514,
+      "sha256": "70d3dbe2b4380d19afc81beb6446eca18ea1e24063266207dd2603c02219c2dc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flow-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows.yaml",
+      "bytes": 11333,
+      "sha256": "e97151028b35680fc36348f7013702ce955386be3f7d85f0732987118199e451"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0.yaml",
+      "bytes": 11327,
+      "sha256": "3d319da2bdc6410bfe0d38250d4409ad85f0adf1e256955fadefb212ff1fa346"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/complete.yaml",
+      "bytes": 653,
+      "sha256": "01f6633d8721a9d96a596e9b461d287bd61cf580f4bb9767354634da786bfff5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/initiate.yaml",
+      "bytes": 791,
+      "sha256": "ad2f2dee8068559bac55691cf77ab54ffdd7710acf56194585cd4dc3f9c8bb18"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/message-ack.yaml",
+      "bytes": 768,
+      "sha256": "1d0b62785c931d793050c313f09beec4113683ffeb5f22f88eb66a39ea6369b5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/message-unack.yaml",
+      "bytes": 801,
+      "sha256": "55b82956f8cdbe0faaa185e400af9e8052c8a840d6b74a21a6e04caed83b4674"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/node-complete.yaml",
+      "bytes": 872,
+      "sha256": "5507a7468d83461818dad2de4bea2f630c5ec9f95361f32233f9168e810e176f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/pause.yaml",
+      "bytes": 573,
+      "sha256": "dace76829d9b0f6701c774c01651181cce816b2c2e10e28c51852e546bfa508c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/resume.yaml",
+      "bytes": 396,
+      "sha256": "7b8ee27dfed3bad981ed18ffd2937bca736e9d8d55ccb781d6f4667dd174984f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/flows/1.0/messages/terminate.yaml",
+      "bytes": 682,
+      "sha256": "4c4092c37018d0316ab2b84a4385cf1e4d685cc849bd4865917adfd7d19c7cdf"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/formaldehyde-concentration-sensor.yaml",
+      "bytes": 1576,
+      "sha256": "ee719085b9faca99993745fc9f4b0d48e6aaba439e822fc8f1ea223505716ff4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/formaldehyde-concentration-sensor/1.0.yaml",
+      "bytes": 1576,
+      "sha256": "7811d5486b71a97d18a0f9cdf4343d0a172182eae03c15aaf4e049e674345485"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/formaldehyde-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/humidity-sensor.yaml",
+      "bytes": 654,
+      "sha256": "9506469610361860409e6f476396a468472bc63dbb155f25c0b396f6710e145f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/humidity-sensor/1.0.yaml",
+      "bytes": 654,
+      "sha256": "f566e89c5c065891d4524f911c185f27a46b3acdde7f772554606d9dda5b1a9d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/humidity-sensor/1.0/attributes/relative-humidity.yaml",
+      "bytes": 99,
+      "sha256": "b572915c102fb79f7231b48d37418124f8d6bc334dd8746b819552b7602a1bf3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/input.yaml",
+      "bytes": 2338,
+      "sha256": "d2db64305bb79ed4cd36caab8a977f46b93799413beb1c8374a83b4e18588c75"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/input/1.0.yaml",
+      "bytes": 2338,
+      "sha256": "51e7b5aad9383ad2c509d01349ca54f1b5b01f92a6310c2382ba8f84aea8a470"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/input/1.0/attributes/input.yaml",
+      "bytes": 214,
+      "sha256": "7d5da1b35c54986ba206f09531beeb4f0b5503d61d25bce43a8d972c1901f89d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/input/1.0/messages/navigate-input.yaml",
+      "bytes": 141,
+      "sha256": "886dcd00bedbf71c3e78e12f1c84402de674514b10fd2f76af03cbaa162f18f2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/input/1.0/messages/select-input.yaml",
+      "bytes": 198,
+      "sha256": "d390b7036c672aad7977672219262466f8249f9b0803fa71ec85cdfb0f92fbd2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/keypad-input.yaml",
+      "bytes": 2579,
+      "sha256": "fd155a5b2e6849ad10b3039b2df01a2cc9e390c8a84385a2d756ba09b2156c51"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/keypad-input/1.0.yaml",
+      "bytes": 2579,
+      "sha256": "bd1d2c83c109d8b1c84b5567932c92c811ab10b75d0bf752bf720939dd1e4573"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/keypad-input/1.0/messages/send-key.yaml",
+      "bytes": 725,
+      "sha256": "84e8d0af939c2c3096b44a6e5cef0be603e53291fa1c0355a527693af7f41543"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/laundry-dryer.yaml",
+      "bytes": 1013,
+      "sha256": "6267ea8151c122b6fb305fc9f8efb822bee87fdf4b9090a3a464e165fae94eff"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/laundry-dryer/1.0.yaml",
+      "bytes": 1001,
+      "sha256": "fe2baa2dabca0994c0ae79a8148a4e56c72fd6b0cc893aa271d98fd12f1e1415"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/laundry-dryer/1.0/attributes/operational-state.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/laundry-washer.yaml",
+      "bytes": 1003,
+      "sha256": "f88ab0a21473616834fb63b2f6006175b76f51afd2fb62c5ba6a3ee225c0bee4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/laundry-washer/1.0.yaml",
+      "bytes": 991,
+      "sha256": "4cbc75aca99acd4bf5a7b0ee372e9b5f676fcc8fd3de74789f6b797e1bf330a7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/laundry-washer/1.0/attributes/operational-state.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/leaf-wetness-sensor.yaml",
+      "bytes": 1525,
+      "sha256": "bc442be7851e0f5592231837b62033dfb07add3d32594dfea2c84cad11c559a4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/leaf-wetness-sensor/1.0.yaml",
+      "bytes": 1525,
+      "sha256": "5fc7e15a845f85ab355e8831cc3cdc4c2f7e21207ff93f165e74cfb50b5d4007"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/leaf-wetness-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/light-sensor.yaml",
+      "bytes": 1435,
+      "sha256": "be5c3b2838ef2124e02457ff23027c7b1875f0d86dfd20a5bd07318072b14489"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/light-sensor/1.0.yaml",
+      "bytes": 1423,
+      "sha256": "0dacaccfc39fa003e8a9dfb1acdc26a680e189ace721388d8e4ff84a1587337f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/light-sensor/1.0/attributes/illuminance.yaml",
+      "bytes": 838,
+      "sha256": "68ac6bccf0a3afe137f736a3c889faa6b0395926fc5df370d95a739dc391cb6c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location-tracker.yaml",
+      "bytes": 814,
+      "sha256": "6c2463e3a5ab1cb35ad739b2c5558be193bca8fa9d90d249014138df046339ae"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location-tracker/1.0.yaml",
+      "bytes": 814,
+      "sha256": "7af699758827297e821e92c83e46ac5e7764f2c1b6f5b84cf798d2b66e04b177"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location-tracker/1.0/attributes/locator-signal.yaml",
+      "bytes": 136,
+      "sha256": "ecb0916b392f9047102ed060f434896f8161660bc5dbc61c9182b290c1b7a874"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location-tracker/1.0/messages/start-locator.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location.yaml",
+      "bytes": 1240,
+      "sha256": "79b227dbea36710c33372f159d1fe2295f8dceed8390c5ebb1c66b4ac1e02d0e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location/1.0.yaml",
+      "bytes": 1240,
+      "sha256": "8c10693cf7b02ff8ac88e93b72e1dd8029bfc46472d09f05152c10d0b969d9eb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/location/1.0/attributes/geolocation.yaml",
+      "bytes": 611,
+      "sha256": "27b7fd19a2f86c997b8ccdc26c67f14b64e6d557bb2d574c716be743582ff8d0"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/lock.yaml",
+      "bytes": 954,
+      "sha256": "0e826c09bf339035415c0299bebf6d80aa04539c327b52c8e7a4f848931ed21d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/lock/1.0.yaml",
+      "bytes": 954,
+      "sha256": "3e93329d444f0e85ebe986ba8665c63727d2a68bb6c6bcb8bb087119c4174f79"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/lock/1.0/attributes/lock-state.yaml",
+      "bytes": 156,
+      "sha256": "7bbc5da19bc4ddbc5be8f0cd44acc2cde8da38550c939ad3288851035f814dbc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/lock/1.0/messages/lock.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/lock/1.0/messages/unlock.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player.yaml",
+      "bytes": 9909,
+      "sha256": "90fd0b2b151f4a4ed28f85d1b542a45a5fb165f6adae1580c213ccd6a25c57d9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0.yaml",
+      "bytes": 9891,
+      "sha256": "06cea8a7b70ca8db7c51dda8b003d1d9bfeb5999788c28cd4174cb7a23a53cb5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-speed.yaml",
+      "bytes": 196,
+      "sha256": "7db843af564d8c611ba610da70c03c71484009ceb356b50d99f186205c4e07f6"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-state.yaml",
+      "bytes": 230,
+      "sha256": "cbc76e03549e925c2bb80364072f3769c5d55f9a15116fc55421154198e99553"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/audio-stream.yaml",
+      "bytes": 588,
+      "sha256": "f204bba67d6ad98b01166dfd22330849a00a5ade6a73e3046cba89f5d517c371"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/audio.yaml",
+      "bytes": 726,
+      "sha256": "60a79e7926962a031b1af5fcc3bd44ff96194a84bef9fd75389a2e17f5921a32"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/next.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/pause.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-audio.yaml",
+      "bytes": 951,
+      "sha256": "0483fb713f95bedf8c078e0b9bd8bc873369fa45182671a625cfd49dc1c0776a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-media.yaml",
+      "bytes": 400,
+      "sha256": "6b305fbc69f2ff414cde39afcc5090851a3bdd0985776034abf93ae2c8445d40"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-uri.yaml",
+      "bytes": 402,
+      "sha256": "d9bbfba7ecf7e7648676263ed81a07c35ad815b09c4172ec5d656504785e62da"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/previous.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/rewind.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/search-and-play.yaml",
+      "bytes": 167,
+      "sha256": "14c03c752261da9549ff30dd6b80daf588d6a95ebc85959175ca86dc0de8cbcb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/seek.yaml",
+      "bytes": 198,
+      "sha256": "621098a7b3a6647527d734dfe234f85e5062b2967d044c08697d054c366e655f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/skip-backward.yaml",
+      "bytes": 172,
+      "sha256": "f1eef0bfe785e6b1ac4a590976a0473aa86a7342aa292eb9a93c76b539eb8175"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/skip-forward.yaml",
+      "bytes": 171,
+      "sha256": "5990d948c0b1d4291cd473bd644224fa411cc02d0077384512d2773bf9d19927"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/start-over.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/stop.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist.yaml",
+      "bytes": 3020,
+      "sha256": "921d8e928aa5a699bfb585409c00d2eea3bcdfa4cc61f8aaa596892c6481d446"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0.yaml",
+      "bytes": 3020,
+      "sha256": "ef6622427e3523994e219c28c18a4034ca1006b03f109c7e4e0779fd68a96dc4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/add-to-playlist.yaml",
+      "bytes": 313,
+      "sha256": "255a4ccac36d841beee4eeb7275346b16d4033b45014c51458c0ce21bd80e618"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/create-playlist.yaml",
+      "bytes": 271,
+      "sha256": "9c30cd4200c6cf0db0531894e4be5eb5bd83f51f08eb3f07ad1f62526c467d01"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/get-playlist.yaml",
+      "bytes": 174,
+      "sha256": "c54be8f0bc04c811a9636dee33bfd631372cc56888354af67e19498572c8f1a8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/play-playlist.yaml",
+      "bytes": 267,
+      "sha256": "c0238a5e8ac14129ae42dced0319f2d440e8cc4d009ba08d24f8d448dfd1a308"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/remove-from-playlist.yaml",
+      "bytes": 409,
+      "sha256": "560cc94c1a6b29309a00fde655bc2d1932c30ef79309c1f5aeab2afd2078c7e7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/shuffle-playlist.yaml",
+      "bytes": 173,
+      "sha256": "4dac5257681787a1446846b01b51079cf7f066b72acd0aaec8d67feb210832bb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-search.yaml",
+      "bytes": 4403,
+      "sha256": "0f2e0b1b6db780a561a99a0ebcc00b20ebd9be3e8d7604bdc3c23737add5ec07"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-search/1.0.yaml",
+      "bytes": 4349,
+      "sha256": "71c799b00b0c622a35123c373db29eb1da5fbb34736c7a367f8ef3028265ce8f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-search/1.0/messages/audio-media-results.yaml",
+      "bytes": 2305,
+      "sha256": "710d9b76af7d6a5e688f8e06bfe6b6a237ce9279da0fd668b976240ce0873b97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-search/1.0/messages/search-media.yaml",
+      "bytes": 691,
+      "sha256": "8ae820efe8a833a83ff2326c48f4e6a41f24b5ed83bf9bd169a27c89045041eb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/microwave-oven.yaml",
+      "bytes": 1002,
+      "sha256": "e7de4db877f3901ab63b75b37fec1b60fc3d5e2d913f3c17e85dc808d575e9dc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/microwave-oven/1.0.yaml",
+      "bytes": 990,
+      "sha256": "e64257a3ab6a42e33825d74345be073239e952bf5ca574b22dd2f50643cf7245"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/microwave-oven/1.0/attributes/operational-state.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/motion-sensor.yaml",
+      "bytes": 1154,
+      "sha256": "f6f732b0bd31dea8cf55e8dbc2ab14d69375507268fd104fe50966590fd92782"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/motion-sensor/1.0.yaml",
+      "bytes": 1152,
+      "sha256": "9ca3350ccb670de74afabb5c55506d9fe1aefabb360e00f090eeb197db2c2adb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/motion-sensor/1.0/attributes/detection-state.yaml",
+      "bytes": 147,
+      "sha256": "2645e05cb9d7901fa1aa32a28872ff6e187ec1e4b87e2eae30fe9d53e611291a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/motion-sensor/1.0/messages/motion-detected.yaml",
+      "bytes": 208,
+      "sha256": "ba27074f5e81a9f908247e6b6a70ac082d3b1eb6fb09145a5b6c0a97c728b11d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/nitrogen-dioxide-concentration-sensor.yaml",
+      "bytes": 1572,
+      "sha256": "145943b7574dfe6e65769d2390afcd7ab8fabacf8c16499a16af14c959b7fd55"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/nitrogen-dioxide-concentration-sensor/1.0.yaml",
+      "bytes": 1572,
+      "sha256": "d3b77f7d9ce66f84e01d51e7ac3f7ba6bcfde5d42720a05531a4f27490f32d53"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/nitrogen-dioxide-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/notification.yaml",
+      "bytes": 9721,
+      "sha256": "de406283fd8dd3879c985454b8321e11f2e12272ea78f1db9048b75d772967cc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/notification/1.0.yaml",
+      "bytes": 9721,
+      "sha256": "d5a212de68105c2761dd3eefd7f15204dddd7b5ed0a5149912ff18c3fb535e2e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/notification/1.0/messages/notification-schedule.yaml",
+      "bytes": 2732,
+      "sha256": "a12c1497973f9fe76ab87b4781ff0133a483832a5706cda5dc7447bbcabe2fbc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/notification/1.0/messages/notification-trigger.yaml",
+      "bytes": 3514,
+      "sha256": "c17d0099c2ab1932e3a7157b1969c9dc8e2e2a78a5710fbfa5c75a78e199515f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/notification/1.0/messages/notification.yaml",
+      "bytes": 980,
+      "sha256": "80da9cb6bfad9a520ce11b896bf047e73992bed471f6f13088a2f519ed1d2ae9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven.yaml",
+      "bytes": 691,
+      "sha256": "60a8b6abfc137730d2d9184017c1de1549d0f0780d4c0b86a241b45715a37e5f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven/1.0.yaml",
+      "bytes": 691,
+      "sha256": "063edab799eb036655458b657b50311f894ad98b7678a48aeea7c3b999fee3b7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven/1.0/attributes/temperature.yaml",
+      "bytes": 179,
+      "sha256": "8b341e68262b463ab5f30279f2f0eef89fd315206c1f903eb8834977b0956eeb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/ozone-concentration-sensor.yaml",
+      "bytes": 1553,
+      "sha256": "b985290e4667efcec2bd0054645c03777fb563976bd1e0315a4ebf0441cfb079"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/ozone-concentration-sensor/1.0.yaml",
+      "bytes": 1553,
+      "sha256": "2314dc7376540997405935686b0d8396c9bfc9d14c13b6a64bf78c65b2a2c73a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/ozone-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/percentage.yaml",
+      "bytes": 1117,
+      "sha256": "518a64dd7cbe7c5f04c2b5035e53b36d2aa85f1084bc3ea0effcc52ec01f389f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/percentage/1.0.yaml",
+      "bytes": 1117,
+      "sha256": "566a7a4f14258e3ab1b160bd9ffce470c94ecb3eaa33b628b75abd062f6e32e7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/percentage/1.0/attributes/percentage.yaml",
+      "bytes": 99,
+      "sha256": "b572915c102fb79f7231b48d37418124f8d6bc334dd8746b819552b7602a1bf3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/percentage/1.0/messages/adjust-percentage.yaml",
+      "bytes": 119,
+      "sha256": "1a9e7b9bfff45b368b6b9d93e0a4fd6b7f1e1d8ddded112d0a55702ac4ec3e1b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/percentage/1.0/messages/set-percentage.yaml",
+      "bytes": 109,
+      "sha256": "7a2cee98beb0c1ec647830c0f90ab73e71df8211f4f4004ef21f1e6f9ec6bea2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pet-feeder.yaml",
+      "bytes": 927,
+      "sha256": "7525f38e484df5d8f3797b03e421b661c364806167d8a21693010b5ab71eda08"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pet-feeder/1.0.yaml",
+      "bytes": 927,
+      "sha256": "da39c282a8d27fcc1ffecf988596927cf45576adec974e27bd80898280ca98a1"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pet-feeder/1.0/messages/trigger-feed.yaml",
+      "bytes": 321,
+      "sha256": "c4389274e193701824f7ab7e9279ed2829fc3495d5ed296e956a812ad1e2d743"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/ph-sensor.yaml",
+      "bytes": 1509,
+      "sha256": "c116fc41d68e7076235eda92906130bc1dd47b76cd391c422cf1da2a81856d55"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/ph-sensor/1.0.yaml",
+      "bytes": 1509,
+      "sha256": "554bc5b9004c693ecba2c7beea40d06f17d27d94bd0646d0dd0a944194f22e7f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/ph-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pm10-concentration-sensor.yaml",
+      "bytes": 1548,
+      "sha256": "7accb4c22e58009db0fa06a1e0d80ff9e0f1871db8f6a1e9332df34bdad9fbc7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pm10-concentration-sensor/1.0.yaml",
+      "bytes": 1548,
+      "sha256": "da1d4394b10bb6819ad8fb8d097bb0f2e387d56fef96f99ae54b3161df1cdf61"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pm10-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pm2-5-concentration-sensor.yaml",
+      "bytes": 1547,
+      "sha256": "b72986d841e548be71fe48f24608d960f1ab88eac1684f2ff7b5e52b4c2a90c8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pm2-5-concentration-sensor/1.0.yaml",
+      "bytes": 1547,
+      "sha256": "cf1b0e43217f72d2948a5b2373c1efc436711dfc5a6787acd0e035185d50db00"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pm2-5-concentration-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power-level.yaml",
+      "bytes": 1128,
+      "sha256": "9fd92fedb07f34735a1482efc90999df0f5ae3475db06253a726ce9d00288313"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power-level/1.0.yaml",
+      "bytes": 1128,
+      "sha256": "3c8b854368773e265d6dc78cdfd21d19b9c685d08e92915a478776312f9b1acf"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power-level/1.0/attributes/power-level.yaml",
+      "bytes": 99,
+      "sha256": "b572915c102fb79f7231b48d37418124f8d6bc334dd8746b819552b7602a1bf3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power-level/1.0/messages/adjust-power-level.yaml",
+      "bytes": 119,
+      "sha256": "f9e6deea748461c44497da374dc657c98a5f717736f74756e102c51ce657aea9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power-level/1.0/messages/set-power-level.yaml",
+      "bytes": 109,
+      "sha256": "4863dbce59f1d6a4abd9f4bf680310e341caa4fa094dd3d5e66dff8ddc876889"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power.yaml",
+      "bytes": 1361,
+      "sha256": "bec460162e8f2752f0c9612a8b2411f15087e53078602f58a8853878a37db25d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power/1.0.yaml",
+      "bytes": 1361,
+      "sha256": "1e911324d1f2005d89d78a4b5a277502f27eb96ce5045b121fd6c9483e880be9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power/1.0/attributes/power.yaml",
+      "bytes": 184,
+      "sha256": "defd7d7286b0e995436aad09266dc6c0533c3a8a343b4ab16fad6c2c27d70121"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power/1.0/messages/reboot.yaml",
+      "bytes": 195,
+      "sha256": "c6e9f3d1a5a5092e7877dcde4824343e0045188b132b5d5ce72624572e0aaae8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power/1.0/messages/turn-off.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/power/1.0/messages/turn-on.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pressure-sensor.yaml",
+      "bytes": 1518,
+      "sha256": "1e7fb0c24de5cc4de933b7a9747e9f496a6000fbd95f5c5d13c0aedc5117202a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pressure-sensor/1.0.yaml",
+      "bytes": 1518,
+      "sha256": "be7c966529f0ab0a1ece4d70926aa390a0f0207b7357f3f07e7ba17b999c0dbb"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pressure-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control.yaml",
+      "bytes": 3092,
+      "sha256": "9bcd16b55de2951cc4f4efe3d53bd12f166931b05a1270f8e9ef6d9f7b91e5c9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control/1.0.yaml",
+      "bytes": 3080,
+      "sha256": "a484cc8323a7fe7937237526b2b45b612877a4eccaa75d5d2583cf3f4771800c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control/1.0/attributes/capacity.yaml",
+      "bytes": 145,
+      "sha256": "939376dd38f07c32cb4e620abdf8e2912baa02b936c2b21158677d611bb2b1d7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control/1.0/attributes/pump-mode.yaml",
+      "bytes": 300,
+      "sha256": "5ace8f8c0aa8873ca2d166e4eac0d51235f169bfda61e203dfc5b004f18fb4e2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control/1.0/attributes/pump-status.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control/1.0/messages/set-mode.yaml",
+      "bytes": 298,
+      "sha256": "bd78e0d87b814b420019f74994804edb1a171f5355dc7c6eb250db42748adc3f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/pump-configuration-and-control/1.0/messages/set-speed.yaml",
+      "bytes": 179,
+      "sha256": "4b2adf7356bbefd77e5b92e8a2a7b6f66ec526486f3acd75fbdd2659548ba936"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings.yaml",
+      "bytes": 4496,
+      "sha256": "6611ff17f2d35d245cd7fe45ea7ada29ddbb7d4787c1a5d24bd42107503dfd5e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0.yaml",
+      "bytes": 4442,
+      "sha256": "b4b6b320a80582d0b0f0f9441da5b154dadacb4b7ea83fb8f39efe6d6779478d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0/messages/delete-recording-response.yaml",
+      "bytes": 138,
+      "sha256": "3ca7cbd5885176ac4300672c32047cd126cb7c6f4f41d9c1ced8ea4ec9e44cad"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0/messages/delete-recording.yaml",
+      "bytes": 256,
+      "sha256": "1c0f8e6c4e710604addaad03114edbb95e886ed63988970c56f4c31281c145d2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0/messages/download-recording-response.yaml",
+      "bytes": 273,
+      "sha256": "54c9d44e3dcd69996fde94351124621de3f40b17a0ce2ab6e2a18ee57a067e68"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0/messages/download-recording.yaml",
+      "bytes": 260,
+      "sha256": "b85df52c31d6890851b3eef1354b5b117d38e4389974a374650cc0f07f0d1fe8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0/messages/list-recordings-response.yaml",
+      "bytes": 1301,
+      "sha256": "bfc24fb454ed91251dd6b116273e50ad61bd22317e364c2794748a1b68cb6a16"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/recordings/1.0/messages/list-recordings.yaml",
+      "bytes": 551,
+      "sha256": "3c5c95e2dd77872b6b735b8b8256b6b545d50e46a44674f23b0acf348b461543"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/refrigerator.yaml",
+      "bytes": 662,
+      "sha256": "5b061e70beada907960b8900d380ee9da417f8a7555b83252b83a1545723c6b7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/refrigerator/1.0.yaml",
+      "bytes": 662,
+      "sha256": "9b189d4524810448137d13e0628dc11cb3d9482941bdbcf06c06c3a553557e44"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/refrigerator/1.0/attributes/temperature.yaml",
+      "bytes": 147,
+      "sha256": "aa1b6bc1b2833fac1cd1c9cad7e09263ab03b062b29cae06f6b6491030c004b7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider.yaml",
+      "bytes": 1414,
+      "sha256": "bec93de39e6cebc5b7b41b08a327fc46564449e2d227a89a6eb1ddcac3373e1f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0.yaml",
+      "bytes": 1414,
+      "sha256": "eb87e7755b27165dad14f7c95449725ff79d1d6e237b56fb21e7379d3c51d5a2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders-response.yaml",
+      "bytes": 417,
+      "sha256": "4835d553621c00b034bc9089f19ab7a7c76cf63fa99f65683f660baa16b81bff"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders.yaml",
+      "bytes": 106,
+      "sha256": "117ca9d0f57b17974e952ace06cc69278d63599d01926a35f512dff339d4548e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control.yaml",
+      "bytes": 2447,
+      "sha256": "790350368655a95ec336f2c7b2c3aa6cf0fdad44146d1f69288b7fd0ab0533d5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control/1.0.yaml",
+      "bytes": 2445,
+      "sha256": "c1f73a71c452f94f5d7e8195925bf4fb03b49e3986048d8a2f72635a58dca9f7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control/1.0/messages/end-session.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control/1.0/messages/move.yaml",
+      "bytes": 411,
+      "sha256": "c532990ccfda1c1b2e0c652a1e3643fc54150d608c7c24793a4ff8ab8262ea50"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control/1.0/messages/start-session.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control/1.0/messages/stop-session.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/remote-control/1.0/messages/unary-move.yaml",
+      "bytes": 719,
+      "sha256": "c9ad3049bca3bc2f113ae828eae5355455702c2b22c5ed0c80f0f4a861544b3d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner.yaml",
+      "bytes": 4791,
+      "sha256": "de895fcd6e471dd71c2a8022ecf9cedf9fdd9845be1000f5b5a9695f2d255e8e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0.yaml",
+      "bytes": 4751,
+      "sha256": "37158c4c1b4747b81eaf643d495679fb852d09173342c7435e362ca0279d3949"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/attributes/cleaning-mode.yaml",
+      "bytes": 227,
+      "sha256": "a679e3e8d765b2d4fda9a691c568fd45259e665e7bc514eedf0866851f7e6870"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/attributes/operational-state.yaml",
+      "bytes": 401,
+      "sha256": "e00092a11e0b4fcc0c8a5f74e1da8659feb7639c1485079362608e85524c7c97"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/messages/clean-room.yaml",
+      "bytes": 729,
+      "sha256": "de0a9bbc2b9786eff7c55caef2096753bd2ea6af352f12ee779f72e7cbfdf1bc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/messages/pause.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/messages/return-to-dock.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/messages/set-cleaning-mode.yaml",
+      "bytes": 225,
+      "sha256": "61a34079801a4d9afc5ddef2989995e5f98b713905f0f15cf9c7dbf62147a84f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/messages/start.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/robotic-vacuum-cleaner/1.0/messages/stop.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery.yaml",
+      "bytes": 13083,
+      "sha256": "5b6d9c9436af02fb48122888f2721a22f07ddf7880ad9bb25b6344a56e503564"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery/1.0.yaml",
+      "bytes": 12845,
+      "sha256": "3586ed863294e769a5e4e02dd68f5cc3ef3ad3bbad2afb10628cc8ebc0a1243d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/add-group-route-members.yaml",
+      "bytes": 401,
+      "sha256": "43669529e9c84ab61aa68474fbdbf935004c767eb4a1d211dada3650846619dd"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/discover-routes.yaml",
+      "bytes": 81,
+      "sha256": "3d3bb33416515b062997785f4b8755ae08eafd01cfd43b60d4254ef6ae17d714"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/remove-group-route-members.yaml",
+      "bytes": 416,
+      "sha256": "3677df86ba395da491ddef3be0928463247c9139b45c2ca0e7a728bcb966f4b6"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/route-discovery-report.yaml",
+      "bytes": 8528,
+      "sha256": "17db7c7c769d27b01d8af0164b27e1377947d941b4c971a473a90789fd165ec4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/set-group-route-name.yaml",
+      "bytes": 644,
+      "sha256": "d0e477df48a2b75be982dcc5336ef3e47737968e35e0436623ca65b65855cda8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtc-session.yaml",
+      "bytes": 11157,
+      "sha256": "5579ab429ef27f90a2ba17fbec22430c36879ab7bf462677106b139d556b07fa"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtc-session/1.0.yaml",
+      "bytes": 11012,
+      "sha256": "e325e21e91a487cf9dc149b25eeab53c12027a5ba6825d7c2f5476bdb82331bd"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtc-session/1.0/messages/answer-generated-for-session.yaml",
+      "bytes": 981,
+      "sha256": "2d5c79bd2c3770eb271b2566f57490691fd32fd7ed95b1b1fc6b8628223b0e13"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtc-session/1.0/messages/disconnect-session.yaml",
+      "bytes": 107,
+      "sha256": "69d51e93a452f2d267ad5f4dc8cd1fa191f3dd7eab12fb2a74ec380e38476ea3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtc-session/1.0/messages/initiate-session-with-offer.yaml",
+      "bytes": 2150,
+      "sha256": "ee1c5e91b3c21d467e8c9c3e63ac0e340ac83963ea795a45347bfb413d3b4671"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtc-session/1.0/messages/session-disconnected.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtsp-session.yaml",
+      "bytes": 2431,
+      "sha256": "24c28f259ad6c3ea422671bb60c07ff0542487801c3d483db2882b02427ea33e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtsp-session/1.0.yaml",
+      "bytes": 2431,
+      "sha256": "bcfd4f98dacca252a579c50d39b29af3daff9e86ef05fb3a5d255c31c729e89c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtsp-session/1.0/messages/start-session-response.yaml",
+      "bytes": 493,
+      "sha256": "5e3585e19e3ab26d35891f459624cf88092f09f5fa592c9b92293570e1aa542a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtsp-session/1.0/messages/start-session.yaml",
+      "bytes": 252,
+      "sha256": "6670fd46d97fa80de11b005ae944776c6047e71dca203dca7523ecb2fba9ad27"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtsp-session/1.0/messages/stop-session-response.yaml",
+      "bytes": 258,
+      "sha256": "eb35fa17b5fd11c794a5aea71faf736055a7f5268873d4458d61f51c2122dae9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/rtsp-session/1.0/messages/stop-session.yaml",
+      "bytes": 243,
+      "sha256": "40dafe20e66f3df0c40ddd524930c01cd751d4756edd49d42cab69bd40f9a701"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/scene.yaml",
+      "bytes": 690,
+      "sha256": "6048ec16671371f82ec6051511c872f4f4fd34eb4ab950ffcb18cf0236241551"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/scene/1.0.yaml",
+      "bytes": 690,
+      "sha256": "1e2898eea46452d4a72f6504480289fbc9fbbcc841c57f007e0266bbfd72d8bf"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/scene/1.0/messages/activate.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/scene/1.0/messages/deactivate.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel.yaml",
+      "bytes": 5328,
+      "sha256": "31bd490844396d100d36a4d6c7f4a9920a8b369ab9b53cc979627af1b3a30a98"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0.yaml",
+      "bytes": 5328,
+      "sha256": "ec76918abae7dc49f42b00271babd21ea5ed0dc6c4e3d8248222a73c63c97342"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/arm-state.yaml",
+      "bytes": 184,
+      "sha256": "dfce28485d6740f512e39dc0dc9a9bc293f76c7c51f67dbe475fcaf217b20d8e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/burglary-alarm.yaml",
+      "bytes": 134,
+      "sha256": "fb2f7eefea0970a00736e0bf65717e9f4f54cdd225015fc1849ddf6acfb4938f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/carbon-monoxide-alarm.yaml",
+      "bytes": 134,
+      "sha256": "fb2f7eefea0970a00736e0bf65717e9f4f54cdd225015fc1849ddf6acfb4938f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/delay-state.yaml",
+      "bytes": 531,
+      "sha256": "a4a4cff5858c80cf0a638369ecf51f762b5756bf7f92893483e511f5c92989a4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/fire-alarm.yaml",
+      "bytes": 134,
+      "sha256": "fb2f7eefea0970a00736e0bf65717e9f4f54cdd225015fc1849ddf6acfb4938f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/siren-state.yaml",
+      "bytes": 470,
+      "sha256": "3b473661aa3c3e24d4631461633a65c3b859c4fb260f62293b20da050943409a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/attributes/water-alarm.yaml",
+      "bytes": 134,
+      "sha256": "fb2f7eefea0970a00736e0bf65717e9f4f54cdd225015fc1849ddf6acfb4938f"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/messages/arm.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-panel/1.0/messages/disarm.yaml",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin.yaml",
+      "bytes": 11826,
+      "sha256": "b819f60bdd617bb0105eda5825a6ac5e480dbcc4a4e0bede31e9774af16a76f4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0.yaml",
+      "bytes": 11647,
+      "sha256": "4ea134641da103a62fd921961c2ee9873de6cb5631ccc5c6b7baabd71dccdbee"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/attributes/pin-records.yaml",
+      "bytes": 1395,
+      "sha256": "ca16ced1a5b60f4791005b618c8b03f64626ec0b63f32ee13c81eebb204b9f14"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/attributes/pin-support.yaml",
+      "bytes": 464,
+      "sha256": "efa46027777b38ef40c7f777d88b85ca69670b462181fbfb445c9bea6d1f3b55"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/create-pin.yaml",
+      "bytes": 653,
+      "sha256": "41c05818aaddcae8c619d0bff273ebcd7238785969808b2aa33710411bb3fcbf"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/delete-pin.yaml",
+      "bytes": 321,
+      "sha256": "279d4336d2722ebf7466b16d5be107fbf201d8b01dcb29375f265e211fa434dd"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/pin-operation-result.yaml",
+      "bytes": 892,
+      "sha256": "a677077d51dcdbe175fd34faade4dac6e361bfaa07a1639280333db1517bbf85"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/pin-records-report.yaml",
+      "bytes": 1326,
+      "sha256": "cefbd54f42399f84c2fd434031dccf18c6a757136d36c7a650210d1edfe2b0c7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/query-operation.yaml",
+      "bytes": 446,
+      "sha256": "5602c62b92919330cddc7c6b3d79034b15643900ef5f1d52600fe6d653d98030"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/query-pins.yaml",
+      "bytes": 412,
+      "sha256": "c8d4b5596ba9b82e820ffedaa15cd98d81791b0346df2b3a1e7b18af81d731dd"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/security-pin/1.0/messages/update-pin.yaml",
+      "bytes": 662,
+      "sha256": "541fc3e9f4349ec13babf399d4bbcd3f0fe15252c6198ae231fc8abcb1c314e5"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/smoke-co-alarm.yaml",
+      "bytes": 901,
+      "sha256": "4eb0d7e1d099d7168b2b90058a9d367735bc92c831b14cfd1fad4372d3141639"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/smoke-co-alarm/1.0.yaml",
+      "bytes": 899,
+      "sha256": "492aacc94e45b28f75fb16877ef0d02520875f6ef6c06bda3e031f9373dee2ed"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/smoke-co-alarm/1.0/attributes/alarm-state.yaml",
+      "bytes": 270,
+      "sha256": "975e816b58819bd0dc75c5ed4c2d55efbf283ddac6ac2d6a5963dea293cc46bf"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/snapshot.yaml",
+      "bytes": 1258,
+      "sha256": "2c2901a3eba753fa8b05ba9c195a10569d1407cfcb080dfe3400bf9e4e7ad554"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/snapshot/1.0.yaml",
+      "bytes": 1258,
+      "sha256": "de298fdbf194e8ba10a916356cf8a0f77840cbb02025c667ee66bdf250880e63"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/snapshot/1.0/messages/get-snapshot-response.yaml",
+      "bytes": 371,
+      "sha256": "f775f25966309f435028d073d13119f988b69be200ca45d8eb25491f1321f91b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/snapshot/1.0/messages/get-snapshot.yaml",
+      "bytes": 116,
+      "sha256": "ec8d114e2ddce673b942608af03a50ec719524b5be0c3bd6cd2b7fa45de48d51"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/soil-moisture-sensor.yaml",
+      "bytes": 1532,
+      "sha256": "eca5d0fc6d2f4294c6b4167ba8366f3ba72064b12838b84566b67e882ec27da8"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/soil-moisture-sensor/1.0.yaml",
+      "bytes": 1532,
+      "sha256": "292a1f3be8a1314370aacc83ba8b1bcbcb60709e1cf27221d68988e84e4f474d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/soil-moisture-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/spatial.yaml",
+      "bytes": 6795,
+      "sha256": "a35c7277c6df29aa6e481626e621ead2dff77c57b487154443238c100d911a30"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/spatial/1.0.yaml",
+      "bytes": 6552,
+      "sha256": "683e6b96b61a103be05cbc4825eff10e82f20c8fafbdcc2dfadd2d56d568d641"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/spatial/1.0/attributes/active.yaml",
+      "bytes": 190,
+      "sha256": "9e5261a586737306b4b9cf0c67f36ff8aa0ac025426b09b11695d8146f43d660"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/spatial/1.0/attributes/geometry.yaml",
+      "bytes": 2335,
+      "sha256": "eb8ae468f6355a7594a6804080266325ecb1a95dae7b28cf125a5a6fc0dafaca"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/spatial/1.0/attributes/position.yaml",
+      "bytes": 1010,
+      "sha256": "001fc065ed552b18b09e1b735cbf5a35c682687e79af51e11884be4127b31840"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker.yaml",
+      "bytes": 1578,
+      "sha256": "c163b5d796c9609a6b066b7e49a3fd9c866be7f0dba88307da10c8f0b314b57e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker/1.0.yaml",
+      "bytes": 1578,
+      "sha256": "14893f0368b84ba9ed468a115c61cdd758a56cb4f0ef980a3f7f4b03f571d119"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker/1.0/attributes/muted.yaml",
+      "bytes": 100,
+      "sha256": "b57d0b815cf00b80a45270d12863da166def8b964801347d83b6b8650db45d21"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker/1.0/attributes/volume.yaml",
+      "bytes": 131,
+      "sha256": "4575ff34390f7d0c6a3be43d66be9c68b74c2b4a223361edf570d9fdbb9c7414"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker/1.0/messages/adjust-volume.yaml",
+      "bytes": 111,
+      "sha256": "aaa343c8f43acb7a0271a4f0cd0637250ee5115210878a0fda97e51e98255236"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker/1.0/messages/set-mute.yaml",
+      "bytes": 98,
+      "sha256": "f382a000f2e78e9d3f6c727b345d74196dc76cb7c334678c2d1debc1158bcc92"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speaker/1.0/messages/set-volume.yaml",
+      "bytes": 133,
+      "sha256": "c961e6c7540357f7029ef99f63213c1060b8cf6d8929b0079b1f8d889369656a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-audio-generation.yaml",
+      "bytes": 1461,
+      "sha256": "6871cf60955c57cc606f9922f9a86369be49d97c4f6c0b74e9123f5456568a6a"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0.yaml",
+      "bytes": 1432,
+      "sha256": "1f39f088680a472cf4d1450f5ef1c425b49e7a9d4aef42f61aaf899bbfa783ee"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/audio-uri.yaml",
+      "bytes": 342,
+      "sha256": "c6177e978b074c9aa8bebdb997dfee743d4c1c37525ff5943fda62032ea1acb9"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/generate-speech.yaml",
+      "bytes": 294,
+      "sha256": "40918c5569f63a4a6361441cad4a3400172e9cb821cf1e078b6a4b5782958e02"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-synthesizer.yaml",
+      "bytes": 916,
+      "sha256": "7f091edc344c8b0a382f208eb26ebe016e37221de44e30bfe6ad40055387b6fc"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-synthesizer/1.0.yaml",
+      "bytes": 916,
+      "sha256": "f001561a10b2f60420a06eb211d65535e8139492bdf2f45028f76989877e7f5b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/speech-synthesizer/1.0/messages/speak.yaml",
+      "bytes": 302,
+      "sha256": "448c4dc6d0f23d8d1c4259b576ac1f6a290de1f9946841756af80a809c00d223"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/temperature-sensor.yaml",
+      "bytes": 981,
+      "sha256": "bffa90ae8905cb16f443fbfaa4486df569da170e7fdd5880f08d5d2725aac724"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/temperature-sensor/1.0.yaml",
+      "bytes": 981,
+      "sha256": "e095481061c8d9d2435394cac8724224896d23f19797ce54ba893d9d3c224ca7"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/temperature-sensor/1.0/attributes/operation-mode.yaml",
+      "bytes": 99,
+      "sha256": "2270b6ba6b9d04818a698ab018bd9d45c5fd77c302592045c9ca97a6ef87ae39"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/temperature-sensor/1.0/attributes/temperature.yaml",
+      "bytes": 180,
+      "sha256": "e1030af37b893bb2cb95a4df184cc3870f5cbc7e326354376766c909c37ec962"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/text-stream.yaml",
+      "bytes": 2157,
+      "sha256": "a85809d89d442ff8679d993cac449dd751e5b85f7582bc4d706fdda97fe04d24"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/text-stream/1.0.yaml",
+      "bytes": 2157,
+      "sha256": "1d90e3a407c1c709c6127e1fdeba87ae02370c62abb65d7d1b7c694957ac7573"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/text-stream/1.0/messages/text-stream.yaml",
+      "bytes": 447,
+      "sha256": "b7a7806abd0dec38206c9ba43c7107d6cbf8de47f41319899890a5c228a9c199"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/text.yaml",
+      "bytes": 715,
+      "sha256": "0e82c6d5319df95025a347d9a9c735223dde6d20acbffdfe7d931c094778f850"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/text/1.0.yaml",
+      "bytes": 715,
+      "sha256": "dc3a560341ffc6d058a4d69132186f8e481608c66210593c74b8411661664c15"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/text/1.0/messages/text.yaml",
+      "bytes": 191,
+      "sha256": "7c18472d40cd7f2f87ae2cd52426601008b6bab9475c4ed73de4a09deb84459e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat.yaml",
+      "bytes": 3742,
+      "sha256": "69c0e6f1c3c68138871c7483af7919b0401f6fc24a6dae210bf3de88c5088446"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0.yaml",
+      "bytes": 3742,
+      "sha256": "981135627aa63f501171a30e151f6c250dc95b28e8275aafbb1c4ad2032b0636"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/attributes/lower-setpoint.yaml",
+      "bytes": 180,
+      "sha256": "e1030af37b893bb2cb95a4df184cc3870f5cbc7e326354376766c909c37ec962"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/attributes/target-setpoint.yaml",
+      "bytes": 180,
+      "sha256": "e1030af37b893bb2cb95a4df184cc3870f5cbc7e326354376766c909c37ec962"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/attributes/thermostat-mode.yaml",
+      "bytes": 174,
+      "sha256": "19b52514918092265eb5047e3a8549beaa87b5c3e7493cac21b4687680c0e7c2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/attributes/upper-setpoint.yaml",
+      "bytes": 180,
+      "sha256": "e1030af37b893bb2cb95a4df184cc3870f5cbc7e326354376766c909c37ec962"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/messages/adjust-target-temperature.yaml",
+      "bytes": 402,
+      "sha256": "aa292e90af65867d2a1934c067d703da031f9bd7de8219d95f241b2bf9948872"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/messages/set-target-temperature.yaml",
+      "bytes": 475,
+      "sha256": "e1c617441bef4483361ece2e387f853102a3528f58d91c7ed01d91d23790b727"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/thermostat/1.0/messages/set-thermostat-mode.yaml",
+      "bytes": 172,
+      "sha256": "d1ed47ab34dfb746ecc04236ffcd77ca72f797ac43737747d635009db28ce37c"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/water-heater.yaml",
+      "bytes": 2175,
+      "sha256": "bde002838b18cfd084958dd98676c1af46daa7525cbd191c4ce96827dea0c23b"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/water-heater/1.0.yaml",
+      "bytes": 2175,
+      "sha256": "9bf0a878ee5d78303687fd8f694651fa7050bceb5879e2a36540b883f0a32311"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/water-heater/1.0/attributes/mode.yaml",
+      "bytes": 175,
+      "sha256": "eadf19bf5560254c42354d1c1c33a778c0d1cb064181c8a87fe38fa4f18a6968"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/water-heater/1.0/attributes/temperature-setpoint.yaml",
+      "bytes": 188,
+      "sha256": "b98fec5ba1fb4e2928bda8ec96aa58bcee7793d8d44331f50145f9466dc35440"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/water-heater/1.0/messages/set-mode.yaml",
+      "bytes": 173,
+      "sha256": "93575c190e7bed7b5bd5bbfc060a815230fe70462caebc9940033407b9d8829e"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/water-heater/1.0/messages/set-temperature.yaml",
+      "bytes": 200,
+      "sha256": "d4fc1f1d08b8149789c80887d6d8893cb446c231b3e3757a574599bc8e5078a2"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/wind-speed-sensor.yaml",
+      "bytes": 1542,
+      "sha256": "b128fea6e7910542898c51669ec9da17d6b0240fa259ada1442eb865d64566ab"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/wind-speed-sensor/1.0.yaml",
+      "bytes": 1542,
+      "sha256": "1fd27502088de1fb083ba30d33e181e577a7e935b550986545b284c6e831687d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/wind-speed-sensor/1.0/attributes/measured-value.yaml",
+      "bytes": 787,
+      "sha256": "0812018101a99d43a7f2ebd5a600ab0fd20256f88399dc105b6fa2f248256c86"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window-covering.yaml",
+      "bytes": 2174,
+      "sha256": "d9668a0b00f6b4ab179f4f38f87b801332b52dcebc99cd75fbc4b78cf4f61e20"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window-covering/1.0.yaml",
+      "bytes": 2174,
+      "sha256": "747e8a68919493f04afd9b47bf8224ead231f7ae2e907335f2929b06edbf4742"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window-covering/1.0/attributes/position.yaml",
+      "bytes": 312,
+      "sha256": "fae1aa5494670ed1efb11f4f529a9574ff0f5fe16f080ff7d9000c49870207ee"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window-covering/1.0/messages/go-to-lift-percentage.yaml",
+      "bytes": 240,
+      "sha256": "2dd1e05ab601527ee23ae06e3f149b28070bbdd0bd8d8f5da112f7f8bb5b9ef4"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window-covering/1.0/messages/go-to-tilt-percentage.yaml",
+      "bytes": 240,
+      "sha256": "7c8b6c4982e5b69fb2d28b450caf6ef21b930bd5d29c490c249316583681d689"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window.yaml",
+      "bytes": 944,
+      "sha256": "68efec7e9797e4ad395c1c8c73f2e6fdf64e7ef6c011e551c29934a804a0599d"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window/1.0.yaml",
+      "bytes": 944,
+      "sha256": "52a9db7f1a0acd70c49fdb5c133436d12bfb3566b67c884651c03e089889e3b3"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window/1.0/attributes/lock-state.yaml",
+      "bytes": 141,
+      "sha256": "e4f8878a5b28b3b82b4daeb0566c974362b852354715e2db60c51f076e209d94"
+    },
+    {
+      "path": "/docs/references/capability-interfaces/window/1.0/attributes/window-state.yaml",
+      "bytes": 152,
+      "sha256": "a4666f819386e6d82f367ef6e197f11c2038f5830e9aa65d5fe079b90d937f32"
+    },
+    {
+      "path": "/docs/references/openapi.yaml",
+      "bytes": 734435,
+      "sha256": "c706a35f6705e04a502d33be2b658b43977d891906084923e80daca4dc01496f"
+    },
+    {
+      "path": "/llms.txt",
+      "bytes": 648,
+      "sha256": "c8de30ce6ca8003490f292f4730c96c045679ab95cae1b679b112515c7881140"
+    }
+  ]
+}

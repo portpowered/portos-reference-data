@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "positionMilliseconds": {
+      "type": "integer",
+      "description": "Position to seek to in milliseconds",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "positionMilliseconds"
+  ],
+  "additionalProperties": false
+}

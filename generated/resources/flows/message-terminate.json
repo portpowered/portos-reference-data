@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow to terminate",
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for termination",
+      "enum": [
+        "user_request",
+        "error",
+        "timeout",
+        "completion",
+        "cancellation"
+      ]
+    },
+    "graceful": {
+      "type": "boolean",
+      "description": "Whether to perform graceful termination",
+      "default": true
+    },
+    "cleanup": {
+      "type": "boolean",
+      "description": "Whether to perform cleanup operations",
+      "default": true
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the termination",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId",
+    "reason"
+  ],
+  "additionalProperties": false
+}

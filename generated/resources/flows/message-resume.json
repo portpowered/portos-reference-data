@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow to resume",
+      "minLength": 1
+    },
+    "checkpointId": {
+      "type": "string",
+      "description": "Checkpoint identifier to resume from (optional)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the resume operation",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId"
+  ],
+  "additionalProperties": false
+}

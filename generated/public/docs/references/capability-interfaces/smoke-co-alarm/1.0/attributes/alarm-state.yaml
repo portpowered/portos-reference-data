@@ -1,0 +1,16 @@
+type: object
+properties:
+  value:
+    type: string
+    description: Alarm state
+    enum:
+      - NORMAL
+      - SMOKE_ALARM
+      - CO_ALARM
+      - BOTH_ALARM
+      - TEST_MODE
+      - HARDWARE_FAULT
+      - END_OF_LIFE
+required:
+  - value
+additionalProperties: false

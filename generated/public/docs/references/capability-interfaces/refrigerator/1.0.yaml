@@ -1,0 +1,25 @@
+name: refrigerator
+namespace: port1/systems/zero/capability-interfaces/refrigerator
+version: '1.0'
+description: >-
+  Refrigerators report their temperature. Use the reading to show the conditions supplied by the
+  appliance.
+messages: []
+attributes:
+  - name: temperature
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Temperature in degrees Celsius
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

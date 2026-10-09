@@ -1,0 +1,27 @@
+name: oven
+namespace: port1/systems/zero/capability-interfaces/oven
+version: '1.0'
+description: >-
+  Ovens report their temperature. Use the reading to show the temperature supplied by a connected
+  appliance.
+messages: []
+attributes:
+  - name: temperature
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Temperature in degrees Celsius
+          minimum: 0
+          maximum: 300
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

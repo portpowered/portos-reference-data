@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedModes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "OFF",
+          "AUTO",
+          "HEAT",
+          "ECO",
+          "BOOST"
+        ]
+      },
+      "description": "Supported water heater modes"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Water heaters set a temperature and operating mode. Read the temperature setpoint and mode to show the settings supplied by a connected heater."
+}

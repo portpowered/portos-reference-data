@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow",
+      "minLength": 1
+    },
+    "nodeId": {
+      "type": "string",
+      "description": "Unique identifier for the completed node",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Node completion status",
+      "enum": [
+        "success",
+        "failure",
+        "skipped",
+        "timeout"
+      ]
+    },
+    "result": {
+      "type": "object",
+      "description": "Node execution result",
+      "additionalProperties": true
+    },
+    "duration": {
+      "type": "number",
+      "description": "Node execution duration in milliseconds",
+      "minimum": 0
+    },
+    "nextNodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of next node IDs to execute"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the node completion",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId",
+    "nodeId",
+    "status",
+    "duration"
+  ],
+  "additionalProperties": false
+}

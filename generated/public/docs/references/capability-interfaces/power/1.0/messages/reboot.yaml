@@ -1,0 +1,6 @@
+description: >-
+  Restart the endpoint. Advertise this message only when the provider supports
+  rebooting the device.
+type: object
+additionalProperties: false
+title: PowerInterfaceRebootMessage

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "description": "The brightness level of an endpoint",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,26 @@
+name: scene
+namespace: port1/systems/zero/capability-interfaces/scene
+version: '1.0'
+description: >-
+  Scenes activate or deactivate a predefined device scene. Use them to request a
+  saved combination of settings from a connected integration.
+messages:
+  - name: activate
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: deactivate
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

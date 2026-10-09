@@ -1,0 +1,11 @@
+type: object
+properties:
+  value:
+    type: string
+    description: The power state of an endpoint
+    enum:
+      - 'ON'
+      - 'OFF'
+required:
+  - value
+additionalProperties: false

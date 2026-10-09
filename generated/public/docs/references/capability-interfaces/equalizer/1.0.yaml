@@ -1,0 +1,133 @@
+name: equalizer
+namespace: port1/systems/zero/capability-interfaces/equalizer
+version: '1.0'
+description: >-
+  Equalizers adjust audio bands and select an equalizer mode. Read the current bands and mode to
+  keep an audio control in step with the device.
+messages:
+  - name: adjust-bands
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - bands
+      properties:
+        bands:
+          type: array
+          items:
+            type: object
+            description: An equalizer frequency band adjustment delta
+            required:
+              - name
+              - valueDelta
+            properties:
+              name:
+                type: string
+                enum:
+                  - BASS
+                  - MIDRANGE
+                  - TREBLE
+              valueDelta:
+                type: integer
+            title: EqualizerBandDelta
+      additionalProperties: false
+  - name: set-bands
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - bands
+      properties:
+        bands:
+          type: array
+          items:
+            type: object
+            description: An equalizer frequency band setting
+            required:
+              - name
+              - value
+            properties:
+              name:
+                type: string
+                enum:
+                  - BASS
+                  - MIDRANGE
+                  - TREBLE
+              value:
+                type: integer
+            title: EqualizerBand
+      additionalProperties: false
+  - name: set-mode
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - mode
+      properties:
+        mode:
+          type: string
+      additionalProperties: false
+attributes:
+  - name: bands
+    description: null
+    schema:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: object
+            description: An equalizer frequency band setting
+            required:
+              - name
+              - value
+            properties:
+              name:
+                type: string
+                enum:
+                  - BASS
+                  - MIDRANGE
+                  - TREBLE
+              value:
+                type: integer
+            title: EqualizerBand
+      required:
+        - values
+      additionalProperties: false
+  - name: mode
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    supportedBands:
+      type: array
+      items:
+        type: string
+        enum:
+          - BASS
+          - MIDRANGE
+          - TREBLE
+    supportedModes:
+      type: array
+      items:
+        type: string
+  additionalProperties: false
+  description: >-
+    Equalizers adjust audio bands and select an equalizer mode. Read the current bands and mode to
+    keep an audio control in step with the device.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

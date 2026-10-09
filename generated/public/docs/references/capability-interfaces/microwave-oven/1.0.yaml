@@ -1,0 +1,35 @@
+name: microwave-oven
+namespace: port1/systems/zero/capability-interfaces/microwave-oven
+version: '1.0'
+description: >-
+  Microwave ovens report their operational state. Use that state to show what the appliance is
+  currently doing.
+messages: []
+attributes:
+  - name: operational-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: >-
+            Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its
+            dock; DOCKED means it is on the dock and not charging.
+          enum:
+            - STOPPED
+            - RUNNING
+            - PAUSED
+            - ERROR
+            - CHARGING
+            - DOCKED
+            - RETURNING_TO_DOCK
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,16 @@
+{
+  "description": "Download recording response.",
+  "type": "object",
+  "properties": {
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Provider URL for downloading the recording."
+    }
+  },
+  "required": [
+    "uri"
+  ],
+  "additionalProperties": false,
+  "title": "RecordingsInterfaceDownloadRecordingResponseMessage"
+}

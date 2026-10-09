@@ -1,0 +1,11 @@
+description: Download file.
+type: object
+properties:
+  fileId:
+    type: string
+    minLength: 1
+    description: Provider identifier for the file.
+required:
+  - fileId
+additionalProperties: false
+title: FilesystemProviderInterfaceDownloadFileMessage

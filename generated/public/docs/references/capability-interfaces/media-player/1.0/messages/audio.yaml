@@ -1,0 +1,34 @@
+type: object
+properties:
+  audioData:
+    type: string
+    description: Base64 encoded audio data
+    format: base64
+  isFinal:
+    type: boolean
+    description: Whether the audio is the final chunk
+    default: false
+  sequenceId:
+    type: integer
+    description: Number of audio channels
+  streamId:
+    type: string
+    description: Audio stream ID
+    default: default
+  text:
+    type: string
+    description: Audio text
+    default: ''
+  mimeType:
+    type: string
+    description: Audio MIME type
+    default: audio/ogg
+  rawBytes:
+    type: string
+    description: Audio raw bytes
+    format: binary
+  duration:
+    type: number
+    description: Audio duration in seconds
+    minimum: 0
+additionalProperties: false

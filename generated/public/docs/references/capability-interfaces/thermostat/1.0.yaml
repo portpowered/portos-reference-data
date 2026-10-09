@@ -1,0 +1,159 @@
+name: thermostat
+namespace: port1/systems/zero/capability-interfaces/thermostat
+version: '1.0'
+description: >-
+  Thermostats set a target temperature and select a heating or cooling mode. Read the reported
+  setpoints and operating mode to show the current settings.
+messages:
+  - name: adjust-target-temperature
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - targetSetpointDelta
+      properties:
+        targetSetpointDelta:
+          type: object
+          description: A temperature setpoint with value and scale
+          properties:
+            value:
+              type: number
+            scale:
+              type: string
+              enum:
+                - CELSIUS
+                - FAHRENHEIT
+          required:
+            - value
+            - scale
+          title: TemperatureSetpoint
+      additionalProperties: false
+  - name: set-target-temperature
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        targetSetpoint:
+          $ref: '#/properties/lowerSetpoint'
+        lowerSetpoint:
+          type: object
+          description: A temperature setpoint with value and scale
+          properties:
+            value:
+              type: number
+            scale:
+              type: string
+              enum:
+                - CELSIUS
+                - FAHRENHEIT
+          required:
+            - value
+            - scale
+          title: TemperatureSetpoint
+        upperSetpoint:
+          $ref: '#/properties/lowerSetpoint'
+      additionalProperties: false
+  - name: set-thermostat-mode
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - mode
+      properties:
+        mode:
+          type: string
+          enum:
+            - HEAT
+            - COOL
+            - AUTO
+            - ECO
+            - 'OFF'
+      additionalProperties: false
+attributes:
+  - name: lower-setpoint
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+        scale:
+          type: string
+          enum:
+            - CELSIUS
+            - FAHRENHEIT
+      required:
+        - value
+        - scale
+      additionalProperties: false
+  - name: target-setpoint
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+        scale:
+          type: string
+          enum:
+            - CELSIUS
+            - FAHRENHEIT
+      required:
+        - value
+        - scale
+      additionalProperties: false
+  - name: thermostat-mode
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - HEAT
+            - COOL
+            - AUTO
+            - ECO
+            - 'OFF'
+      required:
+        - value
+      additionalProperties: false
+  - name: upper-setpoint
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+        scale:
+          type: string
+          enum:
+            - CELSIUS
+            - FAHRENHEIT
+      required:
+        - value
+        - scale
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    supportedModes:
+      type: array
+      items:
+        type: string
+    supportedFanModes:
+      type: array
+      items:
+        type: string
+  additionalProperties: false
+  description: >-
+    Thermostats set a target temperature and select a heating or cooling mode. Read the reported
+    setpoints and operating mode to show the current settings.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

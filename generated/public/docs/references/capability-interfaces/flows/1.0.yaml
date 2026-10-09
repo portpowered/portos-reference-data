@@ -1,0 +1,426 @@
+name: flows
+namespace: port1/systems/zero/capability-interfaces/flows
+version: '1.0'
+description: >-
+  Flows run automations that can be initiated, paused, resumed, or terminated. Follow completion and
+  acknowledgement events to understand the progress of a run.
+messages:
+  - name: complete
+    description: null
+    directionality: out
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the completed flow
+          minLength: 1
+        status:
+          type: string
+          description: Completion status
+          enum:
+            - success
+            - failure
+            - cancelled
+            - timeout
+        result:
+          type: object
+          description: Flow execution result
+          additionalProperties: true
+        duration:
+          type: number
+          description: Total execution duration in milliseconds
+          minimum: 0
+        metadata:
+          type: object
+          description: Additional metadata for the completion
+          additionalProperties: true
+      required:
+        - flowId
+        - status
+        - duration
+      additionalProperties: false
+  - name: initiate
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow to initiate
+          minLength: 1
+        flowType:
+          type: string
+          description: Type of flow to initiate
+          minLength: 1
+        parameters:
+          type: object
+          description: Flow initiation parameters
+          additionalProperties: true
+        priority:
+          type: string
+          description: Flow execution priority
+          enum:
+            - low
+            - normal
+            - high
+            - urgent
+          default: normal
+        timeout:
+          type: integer
+          description: Flow timeout in milliseconds
+          minimum: 1000
+          maximum: 86400000
+        metadata:
+          type: object
+          description: Additional metadata for the flow initiation
+          additionalProperties: true
+      required:
+        - flowId
+        - flowType
+        - parameters
+      additionalProperties: false
+  - name: message-ack
+    description: null
+    directionality: out
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow
+          minLength: 1
+        messageId:
+          type: string
+          description: Unique identifier for the acknowledged message
+          minLength: 1
+        ackId:
+          type: string
+          description: Unique identifier for this acknowledgment
+          minLength: 1
+        status:
+          type: string
+          description: Acknowledgment status
+          enum:
+            - received
+            - processed
+            - failed
+        timestamp:
+          type: string
+          format: date-time
+          description: Acknowledgment timestamp
+        metadata:
+          type: object
+          description: Additional metadata for the acknowledgment
+          additionalProperties: true
+      required:
+        - flowId
+        - messageId
+        - ackId
+        - status
+        - timestamp
+      additionalProperties: false
+  - name: message-unack
+    description: null
+    directionality: out
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow
+          minLength: 1
+        messageId:
+          type: string
+          description: Unique identifier for the unacknowledged message
+          minLength: 1
+        unackId:
+          type: string
+          description: Unique identifier for this unacknowledgment
+          minLength: 1
+        reason:
+          type: string
+          description: Reason for unacknowledgment
+          enum:
+            - timeout
+            - error
+            - rejected
+            - duplicate
+        timestamp:
+          type: string
+          format: date-time
+          description: Unacknowledgment timestamp
+        metadata:
+          type: object
+          description: Additional metadata for the unacknowledgment
+          additionalProperties: true
+      required:
+        - flowId
+        - messageId
+        - unackId
+        - reason
+        - timestamp
+      additionalProperties: false
+  - name: node-complete
+    description: null
+    directionality: out
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow
+          minLength: 1
+        nodeId:
+          type: string
+          description: Unique identifier for the completed node
+          minLength: 1
+        status:
+          type: string
+          description: Node completion status
+          enum:
+            - success
+            - failure
+            - skipped
+            - timeout
+        result:
+          type: object
+          description: Node execution result
+          additionalProperties: true
+        duration:
+          type: number
+          description: Node execution duration in milliseconds
+          minimum: 0
+        nextNodes:
+          type: array
+          items:
+            type: string
+          description: List of next node IDs to execute
+        metadata:
+          type: object
+          description: Additional metadata for the node completion
+          additionalProperties: true
+      required:
+        - flowId
+        - nodeId
+        - status
+        - duration
+      additionalProperties: false
+  - name: pause
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow to pause
+          minLength: 1
+        reason:
+          type: string
+          description: Reason for pausing
+          enum:
+            - user_request
+            - resource_limit
+            - waiting
+            - maintenance
+        checkpoint:
+          type: boolean
+          description: Whether to create a checkpoint before pausing
+          default: true
+        metadata:
+          type: object
+          description: Additional metadata for the pause operation
+          additionalProperties: true
+      required:
+        - flowId
+        - reason
+      additionalProperties: false
+  - name: resume
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow to resume
+          minLength: 1
+        checkpointId:
+          type: string
+          description: Checkpoint identifier to resume from (optional)
+        metadata:
+          type: object
+          description: Additional metadata for the resume operation
+          additionalProperties: true
+      required:
+        - flowId
+      additionalProperties: false
+  - name: terminate
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: Unique identifier for the flow to terminate
+          minLength: 1
+        reason:
+          type: string
+          description: Reason for termination
+          enum:
+            - user_request
+            - error
+            - timeout
+            - completion
+            - cancellation
+        graceful:
+          type: boolean
+          description: Whether to perform graceful termination
+          default: true
+        cleanup:
+          type: boolean
+          description: Whether to perform cleanup operations
+          default: true
+        metadata:
+          type: object
+          description: Additional metadata for the termination
+          additionalProperties: true
+      required:
+        - flowId
+        - reason
+      additionalProperties: false
+attributes: []
+configuration:
+  type: object
+  properties:
+    maxFlowIdLength:
+      type: integer
+      description: Maximum length for flow IDs
+      default: 100
+    maxNodeIdLength:
+      type: integer
+      description: Maximum length for node IDs
+      default: 100
+    supportedStatuses:
+      type: object
+      description: Supported flow status categories
+      properties:
+        flow:
+          type: array
+          items:
+            type: string
+            enum:
+              - success
+              - failure
+              - cancelled
+              - timeout
+          description: Supported flow statuses
+        node:
+          type: array
+          items:
+            type: string
+            enum:
+              - success
+              - failure
+              - skipped
+              - timeout
+          description: Supported node statuses
+        ack:
+          type: array
+          items:
+            type: string
+            enum:
+              - received
+              - processed
+              - failed
+          description: Supported acknowledgment statuses
+      required:
+        - flow
+        - node
+        - ack
+      additionalProperties: false
+      title: FlowSupportedStatuses
+    supportedReasons:
+      type: object
+      description: Supported flow reason categories
+      properties:
+        termination:
+          type: array
+          items:
+            type: string
+            enum:
+              - user_request
+              - error
+              - timeout
+              - completion
+              - cancellation
+          description: Supported termination reasons
+        pause:
+          type: array
+          items:
+            type: string
+            enum:
+              - user_request
+              - resource_limit
+              - waiting
+              - maintenance
+          description: Supported pause reasons
+        unack:
+          type: array
+          items:
+            type: string
+            enum:
+              - timeout
+              - error
+              - rejected
+              - duplicate
+          description: Supported unacknowledgment reasons
+      required:
+        - termination
+        - pause
+        - unack
+      additionalProperties: false
+      title: FlowSupportedReasons
+    supportedPriorities:
+      type: array
+      items:
+        type: string
+        enum:
+          - low
+          - normal
+          - high
+          - urgent
+      description: Supported flow priorities
+    defaultTimeout:
+      type: integer
+      description: Default flow timeout in milliseconds
+      default: 300000
+    maxTimeout:
+      type: integer
+      description: Maximum flow timeout in milliseconds
+      default: 86400000
+    checkpointEnabled:
+      type: boolean
+      description: Whether checkpoints are enabled
+      default: true
+  required:
+    - maxFlowIdLength
+    - maxNodeIdLength
+    - supportedStatuses
+    - supportedReasons
+    - supportedPriorities
+    - defaultTimeout
+    - maxTimeout
+    - checkpointEnabled
+  additionalProperties: false
+  description: >-
+    Flows run automations that can be initiated, paused, resumed, or terminated. Follow completion
+    and acknowledgement events to understand the progress of a run.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

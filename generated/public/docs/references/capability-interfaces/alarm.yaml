@@ -1,0 +1,47 @@
+name: alarm
+namespace: port1/systems/zero/capability-interfaces/alarm
+version: '1.0'
+description: >-
+  Alarms ring, silence, or test a device's siren when supported. Read the alarm
+  state to see whether the siren is active.
+messages:
+  - name: ring-alarm
+    description: Sound the endpoint alarm. Requires an endpoint with an alarm actuator.
+    directionality: in
+    schema:
+      description: Sound the endpoint alarm. Requires an endpoint with an alarm actuator.
+      type: object
+      additionalProperties: false
+      title: AlarmInterfaceRingAlarmMessage
+  - name: silence-alarm
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: test-alarm
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: alarm-state
+    description: Alarm state.
+    schema:
+      description: Alarm state.
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: Whether the audible alarm is currently sounding.
+      required:
+        - active
+      additionalProperties: false
+      title: AlarmInterfaceAlarmStateAttribute
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

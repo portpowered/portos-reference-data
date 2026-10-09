@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": [
+    "audioUrl"
+  ],
+  "properties": {
+    "audioUrl": {
+      "type": "string",
+      "description": "URL or base64 data URI of the audio to generate an embedding from"
+    },
+    "referenceText": {
+      "type": "string",
+      "description": "Optional reference text for the audio content"
+    }
+  },
+  "additionalProperties": false
+}

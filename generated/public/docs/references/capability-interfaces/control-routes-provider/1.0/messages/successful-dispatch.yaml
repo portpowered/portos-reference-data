@@ -1,0 +1,5 @@
+description: >-
+  Response to acknowledge a message was successfully dispatched, it confirms
+  that a message was dispatched, and that the result was successful.
+type: object
+additionalProperties: false

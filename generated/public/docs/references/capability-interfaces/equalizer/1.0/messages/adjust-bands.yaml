@@ -1,0 +1,23 @@
+type: object
+required:
+  - bands
+properties:
+  bands:
+    type: array
+    items:
+      type: object
+      description: An equalizer frequency band adjustment delta
+      required:
+        - name
+        - valueDelta
+      properties:
+        name:
+          type: string
+          enum:
+            - BASS
+            - MIDRANGE
+            - TREBLE
+        valueDelta:
+          type: integer
+      title: EqualizerBandDelta
+additionalProperties: false

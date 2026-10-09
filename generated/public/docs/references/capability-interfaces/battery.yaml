@@ -1,0 +1,33 @@
+name: battery
+namespace: port1/systems/zero/capability-interfaces/battery
+version: '1.0'
+description: >-
+  Battery reports a connected device's charge level and battery health. Use it
+  to show when a device needs charging or a replacement battery.
+messages: []
+attributes:
+  - name: battery
+    description: null
+    schema:
+      type: object
+      properties:
+        level:
+          type: number
+          minimum: 0
+          maximum: 100
+        health:
+          type: string
+          description: Reported battery condition.
+          enum:
+            - OK
+            - LOW
+            - CRITICAL
+      required:
+        - level
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,101 @@
+{
+  "description": "Observed area of the group route in the coordinate system of its reference frame",
+  "type": "object",
+  "required": [
+    "shape",
+    "observedAt"
+  ],
+  "properties": {
+    "shape": {
+      "description": "Area covered by a group route, as a polygon or multi-polygon",
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "GeoJSON-like polygon: an exterior ring followed by optional interior rings (holes)",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Polygon"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "array",
+                "description": "A closed ring of positions; the first and last positions are equal (GeoJSON linear ring)",
+                "minItems": 4,
+                "items": {
+                  "type": "array",
+                  "description": "A position as [x, y] or [x, y, z] in the frame's coordinate system",
+                  "minItems": 2,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "additionalProperties": false,
+          "title": "SpatialPolygon"
+        },
+        {
+          "type": "object",
+          "description": "GeoJSON-like multi-polygon: a list of polygons, each a list of rings",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "MultiPolygon"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/properties/shape/oneOf/0/properties/coordinates/items"
+                }
+              }
+            }
+          },
+          "additionalProperties": false,
+          "title": "SpatialMultiPolygon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "Polygon": "SpatialPolygon.yaml",
+          "MultiPolygon": "SpatialMultiPolygon.yaml"
+        }
+      }
+    },
+    "relativeToGroupId": {
+      "type": "string",
+      "description": "Canonical endpoint group whose frame the coordinates use"
+    },
+    "relativeToGroupRouteId": {
+      "type": "string",
+      "description": "Provider group route whose coordinate system the coordinates use"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the provider observed this geometry"
+    }
+  },
+  "additionalProperties": false
+}

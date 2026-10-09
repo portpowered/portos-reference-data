@@ -1,0 +1,4 @@
+description: Delete recording response.
+type: object
+additionalProperties: false
+title: RecordingsInterfaceDeleteRecordingResponseMessage

@@ -1,0 +1,142 @@
+name: recordings
+namespace: port1/systems/zero/capability-interfaces/recordings
+version: '1.0'
+description: >-
+  Recordings list saved captures and expose recording download and deletion. Use
+  pagination to browse the recordings supplied by a connected provider.
+messages:
+  - name: delete-recording
+    description: Delete recording.
+    directionality: in
+    schema:
+      description: Delete recording.
+      type: object
+      properties:
+        recordingId:
+          type: string
+          minLength: 1
+          description: Provider recording identifier.
+      required:
+        - recordingId
+      additionalProperties: false
+      title: RecordingsInterfaceDeleteRecordingMessage
+  - name: delete-recording-response
+    description: Delete recording response.
+    directionality: out
+    schema:
+      description: Delete recording response.
+      type: object
+      additionalProperties: false
+      title: RecordingsInterfaceDeleteRecordingResponseMessage
+  - name: download-recording
+    description: Download recording.
+    directionality: in
+    schema:
+      description: Download recording.
+      type: object
+      properties:
+        recordingId:
+          type: string
+          minLength: 1
+          description: Provider recording identifier.
+      required:
+        - recordingId
+      additionalProperties: false
+      title: RecordingsInterfaceDownloadRecordingMessage
+  - name: download-recording-response
+    description: Download recording response.
+    directionality: out
+    schema:
+      description: Download recording response.
+      type: object
+      properties:
+        uri:
+          type: string
+          format: uri
+          description: Provider URL for downloading the recording.
+      required:
+        - uri
+      additionalProperties: false
+      title: RecordingsInterfaceDownloadRecordingResponseMessage
+  - name: list-recordings
+    description: List recordings.
+    directionality: in
+    schema:
+      description: List recordings.
+      type: object
+      properties:
+        cursor:
+          type: string
+          description: >-
+            Opaque cursor for the next page; omitted when there are no further
+            results.
+        maxResults:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          description: Maximum number of items to return.
+        from:
+          type: string
+          format: date-time
+          description: Inclusive start time.
+        to:
+          type: string
+          format: date-time
+          description: Exclusive end time.
+      additionalProperties: false
+      title: RecordingsInterfaceListRecordingsMessage
+  - name: list-recordings-response
+    description: List recordings response.
+    directionality: out
+    schema:
+      description: List recordings response.
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            description: A stored recording.
+            properties:
+              recordingId:
+                type: string
+                minLength: 1
+                description: Provider identifier of the recording.
+              mediaId:
+                title: MediaId
+                type: string
+                minLength: 1
+                description: >-
+                  Media IDs are a standardized identifier that Port OS uses to
+                  represent media across YouTube, Spotify, and other media
+                  providers. See https://portpowered.com/docs/media for the
+                  current media identifiers documentation.
+              startedAt:
+                type: string
+                format: date-time
+                description: Recording start time.
+              durationSeconds:
+                type: number
+                minimum: 0
+                description: Recording duration in seconds.
+            required:
+              - recordingId
+            additionalProperties: false
+            title: Recording
+          description: Recordings in this page.
+        nextCursor:
+          type: string
+          description: >-
+            Opaque cursor for the next page; omitted when there are no further
+            results.
+      required:
+        - items
+      additionalProperties: false
+      title: RecordingsInterfaceListRecordingsResponseMessage
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

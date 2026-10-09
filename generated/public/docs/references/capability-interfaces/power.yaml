@@ -1,0 +1,52 @@
+name: power
+namespace: port1/systems/zero/capability-interfaces/power
+version: '1.0'
+description: >-
+  Power turns a device on or off, reports its power state, and restarts devices
+  that support rebooting.
+messages:
+  - name: reboot
+    description: >-
+      Restart the endpoint. Advertise this message only when the provider
+      supports rebooting the device.
+    directionality: in
+    schema:
+      description: >-
+        Restart the endpoint. Advertise this message only when the provider
+        supports rebooting the device.
+      type: object
+      additionalProperties: false
+      title: PowerInterfaceRebootMessage
+  - name: turn-off
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: turn-on
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: power
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The power state of an endpoint
+          enum:
+            - 'ON'
+            - 'OFF'
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

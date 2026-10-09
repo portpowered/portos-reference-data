@@ -1,0 +1,15 @@
+type: object
+properties:
+  liftPosition:
+    type: integer
+    description: Lift position percentage (0-100)
+    minimum: 0
+    maximum: 100
+  tiltPosition:
+    type: integer
+    description: Tilt position percentage (0-100)
+    minimum: 0
+    maximum: 100
+required:
+  - liftPosition
+additionalProperties: false

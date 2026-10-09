@@ -1,0 +1,84 @@
+name: authorization
+namespace: port1/systems/zero/capability-interfaces/authorization
+version: '1.0'
+description: >-
+  Authorization connects an integration to an account and keeps its credentials
+  up to date. Use token refresh and authorization reports to follow the
+  connection as it changes.
+messages:
+  - name: authorization-established
+    description: >-
+      The authorization established message is sent to a plugin to indicate that
+      the plugin has been installed and authorized for a principal
+    directionality: out
+    schema:
+      description: >-
+        The authorization established message is sent to a plugin to indicate
+        that the plugin has been installed and authorized for a principal
+      type: object
+      additionalProperties: false
+      properties:
+        authlinkId:
+          type: string
+          description: The id of the authorized link between the principal and the plugin
+        portosAccessToken:
+          type: string
+          description: >-
+            The access token of the authorization link representing the
+            principala as understood by port OS
+        pluginAccessToken:
+          type: string
+          description: >-
+            The access token of the authorization link representing the
+            principal as understood by the plugin
+      required:
+        - portosAccessToken
+        - authlinkId
+  - name: authorization-update-report
+    description: null
+    directionality: out
+    schema:
+      type: object
+      additionalProperties: false
+      properties:
+        secretId:
+          type: string
+          description: The id of the secret to update
+        authlinkId:
+          type: string
+          description: The id of the auth link to update
+        refreshToken:
+          type: string
+          description: The refresh token to refresh
+        accessToken:
+          type: string
+          description: The access token to refresh
+        customMetadata:
+          type: object
+          additionalProperties: true
+          description: Custom metadata to attach to the authorization update report
+        expiryTime:
+          type: integer
+          format: int64
+          description: The expiry time in seconds from current time
+      required:
+        - refreshToken
+        - accessToken
+        - expiryTime
+  - name: refresh-tokens
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+      properties:
+        refreshToken:
+          type: string
+          description: The refresh token to refresh
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

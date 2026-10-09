@@ -1,0 +1,91 @@
+name: water-heater
+namespace: port1/systems/zero/capability-interfaces/water-heater
+version: '1.0'
+description: >-
+  Water heaters set a temperature and operating mode. Read the temperature setpoint and mode to show
+  the settings supplied by a connected heater.
+messages:
+  - name: set-mode
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        mode:
+          type: string
+          enum:
+            - 'OFF'
+            - AUTO
+            - HEAT
+            - ECO
+            - BOOST
+      required:
+        - mode
+      additionalProperties: false
+  - name: set-temperature
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        temperature:
+          type: number
+          description: Temperature setpoint in degrees Celsius
+          minimum: 0
+          maximum: 100
+      required:
+        - temperature
+      additionalProperties: false
+attributes:
+  - name: mode
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - 'OFF'
+            - AUTO
+            - HEAT
+            - ECO
+            - BOOST
+      required:
+        - value
+      additionalProperties: false
+  - name: temperature-setpoint
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Temperature setpoint in degrees Celsius
+          minimum: 0
+          maximum: 100
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    supportedModes:
+      type: array
+      items:
+        type: string
+        enum:
+          - 'OFF'
+          - AUTO
+          - HEAT
+          - ECO
+          - BOOST
+      description: Supported water heater modes
+  additionalProperties: false
+  description: >-
+    Water heaters set a temperature and operating mode. Read the temperature setpoint and mode to
+    show the settings supplied by a connected heater.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,166 @@
+name: robotic-vacuum-cleaner
+namespace: port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
+version: '1.0'
+description: >-
+  Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a
+  cleaning mode and read the reported mode and operational state to follow a
+  cleaning session.
+messages:
+  - name: clean-room
+    description: >-
+      Clean one or more rooms, in the requested order. Each entry is a canonical
+      endpoint group the robot can control through a CAN_CONTROL relationship.
+      More than one room requires the configuration to declare
+      supportsMultiRoomCleaning; otherwise the request is rejected with
+      MULTI_ROOM_UNSUPPORTED.
+    directionality: in
+    schema:
+      description: >-
+        Clean one or more rooms, in the requested order. Each entry is a
+        canonical endpoint group the robot can control through a CAN_CONTROL
+        relationship. More than one room requires the configuration to declare
+        supportsMultiRoomCleaning; otherwise the request is rejected with
+        MULTI_ROOM_UNSUPPORTED.
+      type: object
+      properties:
+        groupIds:
+          type: array
+          minItems: 1
+          maxItems: 20
+          uniqueItems: true
+          items:
+            type: string
+            minLength: 1
+          description: Endpoint group IDs of the rooms to clean, in cleaning order
+        repeat:
+          type: integer
+          minimum: 1
+          maximum: 3
+          description: Number of cleaning passes per room; defaults to 1
+      required:
+        - groupIds
+      additionalProperties: false
+  - name: pause
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: return-to-dock
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: set-cleaning-mode
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        mode:
+          type: string
+          description: Robot vacuum cleaning mode
+          enum:
+            - AUTO
+            - SPOT
+            - EDGE
+            - SINGLE_ROOM
+            - CUSTOM
+      required:
+        - mode
+      additionalProperties: false
+  - name: start
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: stop
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: cleaning-mode
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Robot vacuum cleaning mode
+          enum:
+            - AUTO
+            - SPOT
+            - EDGE
+            - SINGLE_ROOM
+            - CUSTOM
+      required:
+        - value
+      additionalProperties: false
+  - name: operational-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: >-
+            Operational state of a device. RETURNING_TO_DOCK means a robot is
+            driving back to its dock; DOCKED means it is on the dock and not
+            charging.
+          enum:
+            - STOPPED
+            - RUNNING
+            - PAUSED
+            - ERROR
+            - CHARGING
+            - DOCKED
+            - RETURNING_TO_DOCK
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    supportedCleaningModes:
+      type: array
+      items:
+        type: string
+        description: Robot vacuum cleaning mode
+        enum:
+          - AUTO
+          - SPOT
+          - EDGE
+          - SINGLE_ROOM
+          - CUSTOM
+      description: Supported cleaning modes
+    supportsScheduling:
+      type: boolean
+      description: Whether the vacuum supports scheduling
+      default: false
+    supportsRoomCleaning:
+      type: boolean
+      description: >-
+        Whether the vacuum accepts clean-room for rooms it declares CAN_CONTROL
+        on. Vacuums that omit it do not advertise clean-room.
+      default: false
+    supportsMultiRoomCleaning:
+      type: boolean
+      description: >-
+        Whether clean-room accepts more than one room in one request. When
+        false, more than one groupId is rejected with MULTI_ROOM_UNSUPPORTED
+        before dispatch.
+      default: false
+  additionalProperties: false
+  description: >-
+    Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a
+    cleaning mode and read the reported mode and operational state to follow a
+    cleaning session.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

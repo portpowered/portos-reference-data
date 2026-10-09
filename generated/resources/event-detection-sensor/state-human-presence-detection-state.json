@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "DETECTED",
+        "NOT_DETECTED"
+      ]
+    },
+    "detectionMethods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "AUDIO",
+          "VIDEO"
+        ]
+      }
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

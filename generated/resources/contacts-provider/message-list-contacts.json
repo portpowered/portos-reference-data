@@ -1,0 +1,5 @@
+{
+  "description": "Request to list contacts from a contacts provider",
+  "type": "object",
+  "additionalProperties": false
+}

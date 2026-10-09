@@ -1,0 +1,46 @@
+name: percentage
+namespace: port1/systems/zero/capability-interfaces/percentage
+version: '1.0'
+description: >-
+  Percentage controls set or adjust a percentage and report the current value.
+  Use them for connected controls expressed as a proportional level.
+messages:
+  - name: adjust-percentage
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - percentageDelta
+      properties:
+        percentageDelta:
+          type: number
+      additionalProperties: false
+  - name: set-percentage
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - percentage
+      properties:
+        percentage:
+          type: number
+      additionalProperties: false
+attributes:
+  - name: percentage
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

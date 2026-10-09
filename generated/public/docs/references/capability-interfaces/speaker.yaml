@@ -1,0 +1,71 @@
+name: speaker
+namespace: port1/systems/zero/capability-interfaces/speaker
+version: '1.0'
+description: >-
+  Speakers set or adjust volume and change mute state. Read the current volume
+  and mute state to keep playback controls in step with the device.
+messages:
+  - name: adjust-volume
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - volumeDelta
+      properties:
+        volumeDelta:
+          type: number
+      additionalProperties: false
+  - name: set-mute
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - mute
+      properties:
+        mute:
+          type: boolean
+      additionalProperties: false
+  - name: set-volume
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - volume
+      properties:
+        volume:
+          type: number
+          minimum: 0
+          maximum: 100
+      additionalProperties: false
+attributes:
+  - name: muted
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: boolean
+      required:
+        - value
+      additionalProperties: false
+  - name: volume
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          minimum: 0
+          maximum: 100
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

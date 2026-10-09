@@ -1,0 +1,40 @@
+name: temperature-sensor
+namespace: port1/systems/zero/capability-interfaces/temperature-sensor
+version: '1.0'
+description: >-
+  Temperature sensors report temperature and operation mode. Use the reading to display conditions
+  or give a heating and cooling flow a measured input.
+messages: []
+attributes:
+  - name: operation-mode
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+      required:
+        - value
+      additionalProperties: false
+  - name: temperature
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+        scale:
+          type: string
+          enum:
+            - CELSIUS
+            - FAHRENHEIT
+      required:
+        - value
+        - scale
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

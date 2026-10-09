@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow to initiate",
+      "minLength": 1
+    },
+    "flowType": {
+      "type": "string",
+      "description": "Type of flow to initiate",
+      "minLength": 1
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Flow initiation parameters",
+      "additionalProperties": true
+    },
+    "priority": {
+      "type": "string",
+      "description": "Flow execution priority",
+      "enum": [
+        "low",
+        "normal",
+        "high",
+        "urgent"
+      ],
+      "default": "normal"
+    },
+    "timeout": {
+      "type": "integer",
+      "description": "Flow timeout in milliseconds",
+      "minimum": 1000,
+      "maximum": 86400000
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the flow initiation",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId",
+    "flowType",
+    "parameters"
+  ],
+  "additionalProperties": false
+}

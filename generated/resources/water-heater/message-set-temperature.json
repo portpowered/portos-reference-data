@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "type": "number",
+      "description": "Temperature setpoint in degrees Celsius",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "temperature"
+  ],
+  "additionalProperties": false
+}

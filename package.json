@@ -1,0 +1,23 @@
+{
+  "name": "@portos/reference-data",
+  "version": "0.2.0",
+  "private": false,
+  "publishConfig": { "access": "public" },
+  "repository": { "type": "git", "url": "https://github.com/portpowered/portos-reference-data.git" },
+  "type": "module",
+  "files": [
+    "generated",
+    "README.md"
+  ],
+  "exports": {
+    "./capabilities": "./generated/capabilities.json",
+    "./openapi": "./generated/openapi.json",
+    "./guides": "./generated/guides.json",
+    "./public/*": "./generated/public/*",
+    "./resources/*": "./generated/resources/*"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "check": "node scripts/generate.mjs --check && node scripts/validate-public-assets.mjs"
+  }
+}

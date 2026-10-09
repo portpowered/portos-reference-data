@@ -1,0 +1,40 @@
+name: lock
+namespace: port1/systems/zero/capability-interfaces/lock
+version: '1.0'
+description: >-
+  Locks accept lock and unlock commands and report their lock state. Use the reported state to check
+  an entryway before requesting a change.
+messages:
+  - name: lock
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: unlock
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: lock-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - LOCKED
+            - UNLOCKED
+            - JAMMED
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

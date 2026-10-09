@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "number": {
+      "type": "string"
+    },
+    "callSign": {
+      "type": "string"
+    },
+    "affiliateCallSign": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

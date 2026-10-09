@@ -1,0 +1,10 @@
+type: object
+properties:
+  liftPercent100thsValue:
+    type: integer
+    description: Lift position in percent (0-10000, where 10000 = 100%)
+    minimum: 0
+    maximum: 10000
+required:
+  - liftPercent100thsValue
+additionalProperties: false

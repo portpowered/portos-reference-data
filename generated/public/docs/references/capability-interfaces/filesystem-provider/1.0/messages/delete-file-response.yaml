@@ -1,0 +1,4 @@
+description: The provider confirmed deletion of the requested file.
+type: object
+additionalProperties: false
+title: FilesystemProviderInterfaceDeleteFileResponseMessage

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedModes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supportedFanModes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "description": "Thermostats set a target temperature and select a heating or cooling mode. Read the reported setpoints and operating mode to show the current settings."
+}

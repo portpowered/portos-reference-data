@@ -1,0 +1,16 @@
+type: object
+properties:
+  catalogVendorId:
+    type: integer
+    description: Catalog vendor ID
+    minimum: 0
+  applicationId:
+    type: string
+    description: Application ID
+  data:
+    type: string
+    description: Optional data to pass to the application
+required:
+  - catalogVendorId
+  - applicationId
+additionalProperties: false

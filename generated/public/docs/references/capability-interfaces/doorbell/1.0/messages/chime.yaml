@@ -1,0 +1,10 @@
+description: A distinct doorbell press. A chime does not imply a door was opened.
+type: object
+properties:
+  value:
+    type: string
+    enum:
+      - PRESSED
+required:
+  - value
+additionalProperties: false

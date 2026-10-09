@@ -1,0 +1,25 @@
+description: Response containing a list of events from a calendar provider
+type: object
+properties:
+  events:
+    type: array
+    items:
+      type: object
+      description: A calendar event
+      properties:
+        eventId:
+          type: string
+        title:
+          type: string
+        location:
+          type: string
+        description:
+          type: string
+        allDay:
+          type: boolean
+      required:
+        - eventId
+      title: CalendarEvent
+required:
+  - events
+additionalProperties: false

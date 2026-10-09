@@ -1,0 +1,12 @@
+type: object
+properties:
+  playlistId:
+    type: string
+    description: ID of the playlist to play
+    minLength: 1
+  endpointId:
+    type: string
+    description: Optional target endpoint to play the playlist on
+required:
+  - playlistId
+additionalProperties: false

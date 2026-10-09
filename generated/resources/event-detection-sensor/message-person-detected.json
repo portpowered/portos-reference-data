@@ -1,0 +1,16 @@
+{
+  "description": "A distinct person detection occurrence, independent of cached presence state.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "DETECTED"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,36 @@
+name: speech-synthesizer
+namespace: port1/systems/zero/capability-interfaces/speech-synthesizer
+version: '1.0'
+description: >-
+  Speech synthesizers accept a request to speak. Use them to send spoken output
+  to a connected device or integration.
+messages:
+  - name: speak
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: object
+          description: Speech synthesis input
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - SSML
+            ssml:
+              type: string
+          title: SpeechInput
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

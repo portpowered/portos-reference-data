@@ -1,0 +1,24 @@
+{
+  "description": "Request to dispatch a batch of messages to a control route sent from port OS to the control routes provider",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "object",
+      "description": "A batch message dispatch item",
+      "properties": {
+        "message": {
+          "description": "The payload of the message to dispatch to the control route provider.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "title": "BatchMessageItem"
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

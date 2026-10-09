@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "string",
+      "description": "Input name to select"
+    },
+    "index": {
+      "type": "integer",
+      "description": "Input index to select",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

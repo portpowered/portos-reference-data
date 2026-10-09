@@ -1,0 +1,18 @@
+type: object
+properties:
+  value:
+    type: string
+    description: >-
+      Operational state of a device. RETURNING_TO_DOCK means a robot is driving
+      back to its dock; DOCKED means it is on the dock and not charging.
+    enum:
+      - STOPPED
+      - RUNNING
+      - PAUSED
+      - ERROR
+      - CHARGING
+      - DOCKED
+      - RETURNING_TO_DOCK
+required:
+  - value
+additionalProperties: false

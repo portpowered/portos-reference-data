@@ -1,0 +1,10 @@
+type: object
+properties:
+  value:
+    type: number
+    description: Temperature setpoint in degrees Celsius
+    minimum: 0
+    maximum: 100
+required:
+  - value
+additionalProperties: false

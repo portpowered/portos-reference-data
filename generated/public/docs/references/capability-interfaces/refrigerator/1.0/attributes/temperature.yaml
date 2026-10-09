@@ -1,0 +1,8 @@
+type: object
+properties:
+  value:
+    type: number
+    description: Temperature in degrees Celsius
+required:
+  - value
+additionalProperties: false

@@ -1,0 +1,986 @@
+scopes:
+  endpoint:read: Read authorized endpoints and capability state.
+  endpoint:write: Manage authorized endpoints and routes.
+  message:read: Read authorized messages.
+  message:send: Dispatch capability messages to authorized targets.
+  group:read: Read authorized groups and membership.
+  group:manage: Manage authorized groups and membership.
+  subscription:read: Read authorized subscriptions.
+  subscription:write: Manage authorized subscriptions.
+  secret:read: Read secrets; unavailable to anonymous DCR clients.
+  secret:write: Manage secrets; unavailable to anonymous DCR clients.
+  flow:read: Read flows; unavailable to anonymous DCR clients.
+  flow:write: Manage flows; unavailable to anonymous DCR clients.
+  flow:trigger: Trigger flows; unavailable to anonymous DCR clients.
+  principal:read: Read principals; unavailable to anonymous DCR clients.
+  principal:write: Manage principals; unavailable to anonymous DCR clients.
+  access-control-rule:read: Read resource rules; unavailable to anonymous DCR clients.
+  access-control-rule:write: Manage resource rules; unavailable to anonymous DCR clients.
+operations:
+  - path: /integration-requests
+    runtimePath: /integration-requests
+    method: POST
+    operationId: requestFutureIntegration
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /ping
+    runtimePath: /ping
+    method: GET
+    operationId: ping
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /metrics
+    runtimePath: /metrics
+    method: GET
+    operationId: getMetrics
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /.well-known/openid-configuration
+    runtimePath: /.well-known/openid-configuration
+    method: GET
+    operationId: getOpenIDConfiguration
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /.well-known/oauth-authorization-server
+    runtimePath: /.well-known/oauth-authorization-server
+    method: GET
+    operationId: getOAuthAuthorizationServerMetadata
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /.well-known/jwks.json
+    runtimePath: /.well-known/jwks.json
+    method: GET
+    operationId: getJWKS
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /.well-known/oauth-protected-resource
+    runtimePath: /.well-known/oauth-protected-resource
+    method: GET
+    operationId: getOAuthProtectedResourceMetadata
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /.well-known/oauth-protected-resource/mcp
+    runtimePath: /.well-known/oauth-protected-resource/mcp
+    method: GET
+    operationId: getMCPOAuthProtectedResourceMetadata
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /endpoints
+    runtimePath: /endpoints
+    method: GET
+    operationId: enumerateEndpoints
+    security:
+      - oauth2:
+          - endpoint:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /endpoints
+    runtimePath: /endpoints
+    method: POST
+    operationId: upsertEndpoint
+    security:
+      - oauth2:
+          - endpoint:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /endpoints
+    runtimePath: /endpoints
+    method: PATCH
+    operationId: modifyEndpoint
+    security:
+      - oauth2:
+          - endpoint:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /endpoints
+    runtimePath: /endpoints
+    method: DELETE
+    operationId: deleteEndpoint
+    security:
+      - oauth2:
+          - endpoint:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /endpoint-query
+    runtimePath: /endpoint-query
+    method: POST
+    operationId: endpointQuery
+    security:
+      - oauth2:
+          - endpoint:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /events
+    runtimePath: /events
+    method: POST
+    operationId: createSyntheticEvent
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /events/receipts/{receiptId}
+    runtimePath: /events/receipts/{receiptId}
+    method: GET
+    operationId: getEventReceipt
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /event-dead-letters
+    runtimePath: /event-dead-letters
+    method: GET
+    operationId: enumerateEventDeadLetters
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /event-dead-letters/{id}
+    runtimePath: /event-dead-letters/{id}
+    method: GET
+    operationId: getEventDeadLetter
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /event-dead-letters/{id}
+    runtimePath: /event-dead-letters/{id}
+    method: DELETE
+    operationId: deleteEventDeadLetter
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /event-dead-letters/{id}/redrives
+    runtimePath: /event-dead-letters/{id}/redrives
+    method: POST
+    operationId: redriveEventDeadLetter
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /endpoint-simulators
+    runtimePath: /endpoint-simulators
+    method: GET
+    operationId: enumerateSimulators
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /endpoint-simulators
+    runtimePath: /endpoint-simulators
+    method: POST
+    operationId: upsertSimulator
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /endpoint-simulators
+    runtimePath: /endpoint-simulators
+    method: DELETE
+    operationId: deleteSimulator
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /routes
+    runtimePath: /routes
+    method: GET
+    operationId: getRoutes
+    security:
+      - oauth2:
+          - endpoint:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /routes
+    runtimePath: /routes
+    method: POST
+    operationId: upsertRoute
+    security:
+      - oauth2:
+          - endpoint:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /routes
+    runtimePath: /routes
+    method: DELETE
+    operationId: deleteRoute
+    security:
+      - oauth2:
+          - endpoint:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /discovery
+    runtimePath: /discovery
+    method: POST
+    operationId: synchronizeRoutes
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugins
+    runtimePath: /plugins
+    method: GET
+    operationId: enumeratePlugins
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugins
+    runtimePath: /plugins
+    method: POST
+    operationId: upsertPluginRequest
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugins
+    runtimePath: /plugins
+    method: DELETE
+    operationId: deletePlugin
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugins/establish
+    runtimePath: /plugins/establish
+    method: POST
+    operationId: establishPlugin
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth-links
+    runtimePath: /auth-links
+    method: GET
+    operationId: enumerateAuthLinks
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth-links
+    runtimePath: /auth-links
+    method: POST
+    operationId: upsertAuthLink
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth-links
+    runtimePath: /auth-links
+    method: DELETE
+    operationId: deleteAuthLink
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth-links/establish
+    runtimePath: /auth-links/establish
+    method: POST
+    operationId: establishAuthLink
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth-links/refresh
+    runtimePath: /auth-links/refresh
+    method: POST
+    operationId: refreshAuthLinkToken
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugin-auth-multifactor-exchange
+    runtimePath: /plugin-auth-multifactor-exchange
+    method: POST
+    operationId: pluginAuthMultifactorExchange
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugin-auth-code-exchange
+    runtimePath: /plugin-auth-code-exchange
+    method: POST
+    operationId: pluginAuthCodeExchange
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugin-auth-code-link
+    runtimePath: /plugin-auth-code-link
+    method: POST
+    operationId: pluginAuthCodeLink
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /endpoint-groups
+    runtimePath: /endpoint-groups
+    method: GET
+    operationId: enumerateEndpointGroups
+    security:
+      - oauth2:
+          - group:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /endpoint-groups
+    runtimePath: /endpoint-groups
+    method: POST
+    operationId: createEndpointGroup
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /endpoint-groups-manage
+    runtimePath: /endpoint-groups-manage
+    method: POST
+    operationId: endpointGroupsManage
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /group-relationships
+    runtimePath: /group-relationships
+    method: GET
+    operationId: enumerateGroupRelationships
+    security:
+      - oauth2:
+          - group:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: >-
+      /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/set-name
+    runtimePath: >-
+      /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/set-name
+    method: POST
+    operationId: setEndpointGroupName
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}
+    method: GET
+    operationId: getEndpointGroup
+    security:
+      - oauth2:
+          - group:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}
+    method: DELETE
+    operationId: deleteEndpointGroup
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: >-
+      /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/add-members
+    runtimePath: >-
+      /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/add-members
+    method: POST
+    operationId: addEndpointGroupMembers
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: >-
+      /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/remove-members
+    runtimePath: >-
+      /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/remove-members
+    method: POST
+    operationId: removeEndpointGroupMembers
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /group-routes
+    runtimePath: /group-routes
+    method: GET
+    operationId: enumerateGroupRoutes
+    security:
+      - oauth2:
+          - group:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/group-routes/{groupId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/group-routes/{groupId}
+    method: DELETE
+    operationId: deleteGroupRoute
+    security:
+      - oauth2:
+          - group:manage
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /access-control-rules
+    runtimePath: /access-control-rules
+    method: GET
+    operationId: getAccessControlRules
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /access-control-rules
+    runtimePath: /access-control-rules
+    method: POST
+    operationId: upsertAccessControlRule
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /access-control-rules/evaluate
+    runtimePath: /access-control-rules/evaluate
+    method: POST
+    operationId: evaluateAccessControlRule
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}
+    method: DELETE
+    operationId: deleteAccessControlRule
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /secrets
+    runtimePath: /secrets
+    method: GET
+    operationId: enumerateSecrets
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /secrets
+    runtimePath: /secrets
+    method: POST
+    operationId: upsertSecret
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /port1/{principalType}/{principalId}/secrets/{secretId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/secrets/{secretId}
+    method: DELETE
+    operationId: deleteSecret
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /principals
+    runtimePath: /principals
+    method: GET
+    operationId: enumeratePrincipals
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /principals
+    runtimePath: /principals
+    method: POST
+    operationId: upsertPrincipal
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}
+    runtimePath: /{namespace}/{principalType}/{principalId}
+    method: DELETE
+    operationId: deletePrincipal
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth/token
+    runtimePath: /auth/token
+    method: POST
+    operationId: generateToken
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /auth/revoke
+    runtimePath: /auth/revoke
+    method: POST
+    operationId: revokeOAuthGrant
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /tokens
+    runtimePath: /tokens
+    method: GET
+    operationId: enumerateTokens
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /tokens
+    runtimePath: /tokens
+    method: POST
+    operationId: createToken
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/tokens/{tokenId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/tokens/{tokenId}
+    method: DELETE
+    operationId: invalidateToken
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth/authorize
+    runtimePath: /auth/authorize
+    method: POST
+    operationId: authorize
+    security:
+      - {}
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /auth/raise
+    runtimePath: /auth/raise
+    method: POST
+    operationId: raiseAnonymousPrincipal
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /auth/callback
+    runtimePath: /auth/callback
+    method: POST
+    operationId: handleOAuthCallback
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /auth/device-authorize
+    runtimePath: /auth/device-authorize
+    method: POST
+    operationId: deviceAuthorize
+    security:
+      - {}
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth-clients
+    runtimePath: /oauth-clients
+    method: GET
+    operationId: enumerateOAuthClients
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /oauth-clients
+    runtimePath: /oauth-clients
+    method: POST
+    operationId: createOAuthClient
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /port1/{principalType}/{principalId}/oauth-clients/{clientId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/oauth-clients/{clientId}
+    method: GET
+    operationId: getOAuthClient
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /port1/{principalType}/{principalId}/oauth-clients/{clientId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/oauth-clients/{clientId}
+    method: PUT
+    operationId: updateOAuthClient
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /port1/{principalType}/{principalId}/oauth-clients/{clientId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/oauth-clients/{clientId}
+    method: DELETE
+    operationId: deleteOAuthClient
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /oauth/generate-code
+    runtimePath: /oauth/generate-code
+    method: POST
+    operationId: generateOAuthCode
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth/register
+    runtimePath: /oauth/register
+    method: POST
+    operationId: registerDynamicOAuthClient
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth/authorize
+    runtimePath: /oauth/authorize
+    method: GET
+    operationId: beginOAuthAuthorization
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth/authorize
+    runtimePath: /oauth/authorize
+    method: POST
+    operationId: completeOAuthConsent
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth/validate-request
+    runtimePath: /oauth/validate-request
+    method: POST
+    operationId: validateOAuthRequest
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth/verify-device
+    runtimePath: /oauth/verify-device
+    method: GET
+    operationId: verifyDevice
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /oauth/authorize-device
+    runtimePath: /oauth/authorize-device
+    method: POST
+    operationId: authorizeDevice
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /flows
+    runtimePath: /flows
+    method: GET
+    operationId: queryFlows
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /flows
+    runtimePath: /flows
+    method: POST
+    operationId: upsertFlow
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{principalType}/{principalId}/flows/{flowId}
+    runtimePath: /{principalType}/{principalId}/flows/{flowId}
+    method: DELETE
+    operationId: deleteFlow
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /flows/trigger
+    runtimePath: /flows/trigger
+    method: POST
+    operationId: triggerFlow
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs
+    runtimePath: /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs
+    method: GET
+    operationId: queryFlowRuns
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs
+    runtimePath: /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs
+    method: POST
+    operationId: createFlowRun
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/flow-runs/{runId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/flow-runs/{runId}
+    method: DELETE
+    operationId: deleteFlowRun
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: >-
+      /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs/{runId}/messages
+    runtimePath: >-
+      /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs/{runId}/messages
+    method: POST
+    operationId: upsertFlowRunMessage
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: >-
+      /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs/{runId}/set-status
+    runtimePath: >-
+      /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs/{runId}/set-status
+    method: POST
+    operationId: setFlowRunStatus
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /flow-nodes
+    runtimePath: /flow-nodes
+    method: GET
+    operationId: enumerateFlowNodes
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /flow-nodes
+    runtimePath: /flow-nodes
+    method: POST
+    operationId: createFlowNode
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /flow-nodes
+    runtimePath: /flow-nodes
+    method: DELETE
+    operationId: deleteFlowNode
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /flow-node-specifications
+    runtimePath: /flow-node-specifications
+    method: GET
+    operationId: enumerateFlowNodeSpecifications
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /messages
+    runtimePath: /messages
+    method: POST
+    operationId: sendMessage
+    security:
+      - oauth2:
+          - message:send
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /messages/send
+    runtimePath: /messages/send
+    method: POST
+    operationId: sendMessageLegacyAlias
+    security:
+      - oauth2:
+          - message:send
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /message-gateway
+    runtimePath: /message-gateway
+    method: POST
+    operationId: pushToMessageGateway
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /subscriptions
+    runtimePath: /subscriptions
+    method: GET
+    operationId: enumerateSubscriptions
+    security:
+      - oauth2:
+          - subscription:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /subscriptions
+    runtimePath: /subscriptions
+    method: POST
+    operationId: upsertSubscription
+    security:
+      - oauth2:
+          - subscription:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}
+    method: GET
+    operationId: getSubscription
+    security:
+      - oauth2:
+          - subscription:read
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}
+    method: PATCH
+    operationId: patchSubscription
+    security:
+      - oauth2:
+          - subscription:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}
+    method: DELETE
+    operationId: deleteSubscription
+    security:
+      - oauth2:
+          - subscription:write
+      - bearerAuth: []
+    delegated: true
+    resourcePermissionRequired: true
+  - path: /views
+    runtimePath: /views
+    method: GET
+    operationId: enumerateViews
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /views
+    runtimePath: /views
+    method: POST
+    operationId: createView
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/views/{viewId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/views/{viewId}
+    method: GET
+    operationId: getView
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/views/{viewId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/views/{viewId}
+    method: PUT
+    operationId: updateView
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /{namespace}/{principalType}/{principalId}/views/{viewId}
+    runtimePath: /{namespace}/{principalType}/{principalId}/views/{viewId}
+    method: DELETE
+    operationId: deleteView
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /webhooks/smartthings
+    runtimePath: /webhooks/smartthings
+    method: POST
+    operationId: handleSmartThingsWebhook
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /webhooks/github
+    runtimePath: /webhooks/github
+    method: POST
+    operationId: handleGitHubWebhook
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /webhooks/google-cloud-scheduler
+    runtimePath: /webhooks/google-cloud-scheduler
+    method: POST
+    operationId: handleGoogleCloudSchedulerWebhook
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /tuya/qrcode
+    runtimePath: /tuya/qrcode
+    method: POST
+    operationId: generateTuyaQrCode
+    security: []
+    delegated: false
+    resourcePermissionRequired: false
+  - path: /tuya/validatetoken
+    runtimePath: /tuya/validatetoken
+    method: POST
+    operationId: validateTuyaLoginCode
+    security: []
+    delegated: false
+    resourcePermissionRequired: false

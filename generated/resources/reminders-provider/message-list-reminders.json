@@ -1,0 +1,5 @@
+{
+  "description": "Request to list reminders from a reminders provider",
+  "type": "object",
+  "additionalProperties": false
+}

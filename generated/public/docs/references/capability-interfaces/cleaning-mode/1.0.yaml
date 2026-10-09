@@ -1,0 +1,156 @@
+name: cleaning-mode
+namespace: port1/systems/zero/capability-interfaces/cleaning-mode
+version: '1.0'
+description: >-
+  Cleaning types, suction levels and water flows the robot supports, refreshed on every discovery.
+  set-cleaning-mode values outside these lists are rejected before dispatch.
+messages:
+  - name: set-cleaning-mode
+    description: >-
+      Set whether the robot vacuums, mops or does both, optionally with a suction level and water
+      flow. Omitted levels keep the current non-off value. Values outside the configured supported
+      lists are rejected with 422 before dispatch.
+    directionality: in
+    schema:
+      description: >-
+        Set whether the robot vacuums, mops or does both, optionally with a suction level and water
+        flow. Omitted levels keep the current non-off value. Values outside the configured supported
+        lists are rejected with 422 before dispatch.
+      type: object
+      properties:
+        mode:
+          type: string
+          description: 'What a cleaning robot does: vacuum only, mop only, or vacuum and mop together'
+          enum:
+            - VACUUM
+            - MOP
+            - VACUUM_AND_MOP
+        suctionLevel:
+          type: string
+          description: Vacuum suction level, ordered from off to strongest
+          enum:
+            - 'OFF'
+            - QUIET
+            - BALANCED
+            - TURBO
+            - MAX
+            - MAX_PLUS
+        waterFlow:
+          type: string
+          description: Mop water flow level, ordered from off to highest
+          enum:
+            - 'OFF'
+            - LOW
+            - MEDIUM
+            - HIGH
+            - EXTREME
+      required:
+        - mode
+      additionalProperties: false
+attributes:
+  - name: cleaning-mode
+    description: Current cleaning type. Omitted when the robot is in a native mode with no equivalent value.
+    schema:
+      description: Current cleaning type. Omitted when the robot is in a native mode with no equivalent value.
+      type: object
+      properties:
+        value:
+          type: string
+          description: 'What a cleaning robot does: vacuum only, mop only, or vacuum and mop together'
+          enum:
+            - VACUUM
+            - MOP
+            - VACUUM_AND_MOP
+      required:
+        - value
+      additionalProperties: false
+  - name: suction-level
+    description: Current suction level. Omitted when the robot is in a native mode with no equivalent value.
+    schema:
+      description: Current suction level. Omitted when the robot is in a native mode with no equivalent value.
+      type: object
+      properties:
+        value:
+          type: string
+          description: Vacuum suction level, ordered from off to strongest
+          enum:
+            - 'OFF'
+            - QUIET
+            - BALANCED
+            - TURBO
+            - MAX
+            - MAX_PLUS
+      required:
+        - value
+      additionalProperties: false
+  - name: water-flow
+    description: Current water flow. Omitted when the robot is in a native mode with no equivalent value.
+    schema:
+      description: Current water flow. Omitted when the robot is in a native mode with no equivalent value.
+      type: object
+      properties:
+        value:
+          type: string
+          description: Mop water flow level, ordered from off to highest
+          enum:
+            - 'OFF'
+            - LOW
+            - MEDIUM
+            - HIGH
+            - EXTREME
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  description: >-
+    Cleaning types, suction levels and water flows the robot supports, refreshed on every discovery.
+    set-cleaning-mode values outside these lists are rejected before dispatch.
+  type: object
+  required:
+    - supportedModes
+  properties:
+    supportedModes:
+      type: array
+      minItems: 1
+      uniqueItems: true
+      items:
+        type: string
+        description: 'What a cleaning robot does: vacuum only, mop only, or vacuum and mop together'
+        enum:
+          - VACUUM
+          - MOP
+          - VACUUM_AND_MOP
+      description: Supported cleaning types
+    supportedSuctionLevels:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+        description: Vacuum suction level, ordered from off to strongest
+        enum:
+          - 'OFF'
+          - QUIET
+          - BALANCED
+          - TURBO
+          - MAX
+          - MAX_PLUS
+      description: Supported suction levels
+    supportedWaterFlows:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+        description: Mop water flow level, ordered from off to highest
+        enum:
+          - 'OFF'
+          - LOW
+          - MEDIUM
+          - HIGH
+          - EXTREME
+      description: Supported water flows
+  additionalProperties: false
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

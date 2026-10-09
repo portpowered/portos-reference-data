@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "object",
+      "description": "A measurement value with optional null support",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The measured value"
+        },
+        "isNull": {
+          "type": "boolean",
+          "description": "True if the measurement is invalid/null",
+          "default": false
+        }
+      },
+      "required": [
+        "value",
+        "isNull"
+      ],
+      "additionalProperties": false,
+      "title": "MeasurementValue"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement",
+      "enum": [
+        "LUX",
+        "PPM",
+        "PPB",
+        "PERCENT",
+        "PASCAL",
+        "LITERS_PER_MINUTE",
+        "PERCENT_VOLUME",
+        "PH",
+        "SIEMENS_PER_METER",
+        "METERS_PER_SECOND",
+        "DEGREES_CELSIUS",
+        "DEGREES_FAHRENHEIT"
+      ]
+    }
+  },
+  "required": [
+    "value",
+    "unit"
+  ],
+  "additionalProperties": false
+}

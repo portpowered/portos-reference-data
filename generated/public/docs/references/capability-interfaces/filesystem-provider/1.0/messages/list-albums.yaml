@@ -1,0 +1,14 @@
+description: Request to list photo albums from a filesystem provider
+type: object
+additionalProperties: false
+properties:
+  cursor:
+    type: string
+    description: >-
+      Opaque cursor for the next page; omitted when there are no further
+      results.
+  maxResults:
+    type: integer
+    minimum: 1
+    maximum: 1000
+    description: Maximum number of items to return.

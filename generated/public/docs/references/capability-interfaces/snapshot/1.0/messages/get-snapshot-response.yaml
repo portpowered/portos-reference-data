@@ -1,0 +1,19 @@
+type: object
+required:
+  - value
+  - timeOfSample
+properties:
+  value:
+    type: object
+    description: A snapshot value with URI and expiration
+    properties:
+      uri:
+        type: string
+      expirationTime:
+        type: string
+        format: date-time
+    title: SnapshotValue
+  timeOfSample:
+    type: string
+    format: date-time
+additionalProperties: false

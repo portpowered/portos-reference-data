@@ -1,0 +1,16 @@
+type: object
+properties:
+  value:
+    type: string
+    description: Fan mode
+    enum:
+      - 'OFF'
+      - LOW
+      - MEDIUM
+      - HIGH
+      - 'ON'
+      - AUTO
+      - SMART
+required:
+  - value
+additionalProperties: false

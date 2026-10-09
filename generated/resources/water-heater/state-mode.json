@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "OFF",
+        "AUTO",
+        "HEAT",
+        "ECO",
+        "BOOST"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

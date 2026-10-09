@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "input"
+  ],
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Speech synthesis input",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "SSML"
+          ]
+        },
+        "ssml": {
+          "type": "string"
+        }
+      },
+      "title": "SpeechInput"
+    }
+  },
+  "additionalProperties": false
+}

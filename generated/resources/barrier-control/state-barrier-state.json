@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "CLOSED",
+        "OPEN",
+        "OPENING",
+        "CLOSING",
+        "STOPPED"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

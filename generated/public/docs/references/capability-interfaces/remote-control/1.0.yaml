@@ -1,0 +1,88 @@
+name: remote-control
+namespace: port1/systems/zero/capability-interfaces/remote-control
+version: '1.0'
+description: >-
+  Remote control starts and ends control sessions and sends movement instructions. Use velocity,
+  turning, and duration fields to request movement from a connected device.
+messages:
+  - name: end-session
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: move
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        velocity:
+          type: number
+          description: Forward/backward speed
+        omega:
+          type: number
+          description: Angular velocity for turning
+        duration:
+          type: integer
+          description: Duration in milliseconds
+        seqNum:
+          type: integer
+          description: Sequence number for ordering move commands
+      required:
+        - velocity
+        - omega
+        - duration
+        - seqNum
+      additionalProperties: false
+  - name: start-session
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: stop-session
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: unary-move
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        instructions:
+          type: array
+          description: Ordered list of movement instructions to execute in sequence
+          items:
+            type: object
+            description: A movement instruction for remote control
+            properties:
+              velocity:
+                type: number
+                description: Forward/backward speed
+              omega:
+                type: number
+                description: Angular velocity for turning
+              duration:
+                type: integer
+                description: Duration in milliseconds
+            required:
+              - velocity
+              - omega
+              - duration
+            additionalProperties: false
+            title: MovementInstruction
+          minItems: 1
+      required:
+        - instructions
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

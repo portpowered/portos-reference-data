@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "level": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "health": {
+      "type": "string",
+      "description": "Reported battery condition.",
+      "enum": [
+        "OK",
+        "LOW",
+        "CRITICAL"
+      ]
+    }
+  },
+  "required": [
+    "level"
+  ],
+  "additionalProperties": false
+}

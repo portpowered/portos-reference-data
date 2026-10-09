@@ -1,0 +1,25 @@
+type: object
+properties:
+  query:
+    type: string
+    description: Freeform query string
+  type:
+    type: string
+    description: Supported types, track, album, artist, playlist. Defaults to track
+    default: track
+  album:
+    type: string
+    description: Search by album name, can only be used when searching albums, and tracks
+  artist:
+    type: string
+    description: >-
+      Search by artist name, can only be used when searching artists, albums and
+      tracks
+  year:
+    type: string
+    description: >-
+      Search by year, can only be used when searching albums, years, and tracks.
+      You can pass a range like 1990-2000
+required:
+  - query
+additionalProperties: false

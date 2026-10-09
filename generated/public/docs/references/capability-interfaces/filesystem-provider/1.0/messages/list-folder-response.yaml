@@ -1,0 +1,34 @@
+description: Response containing a list of files and folders from a filesystem provider
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      description: A cloud storage item (file or folder)
+      properties:
+        itemId:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          description: 'Item type: FILE, FOLDER, or APP_LIBRARY'
+        size:
+          type: integer
+          format: int64
+          description: File size in bytes
+        extension:
+          type: string
+      required:
+        - name
+        - type
+      title: StorageItem
+  nextCursor:
+    type: string
+    description: >-
+      Opaque cursor for the next page; omitted when there are no further
+      results.
+required:
+  - items
+additionalProperties: false

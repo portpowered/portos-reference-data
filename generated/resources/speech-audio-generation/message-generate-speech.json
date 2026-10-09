@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": [
+    "text"
+  ],
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "The text content to synthesize into speech audio"
+    },
+    "speakerEmbeddingUrl": {
+      "type": "string",
+      "description": "URL or base64 data URI of the speaker embedding for voice characteristics"
+    }
+  },
+  "additionalProperties": false
+}

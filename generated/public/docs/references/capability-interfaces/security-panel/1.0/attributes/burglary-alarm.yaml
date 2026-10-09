@@ -1,0 +1,10 @@
+type: object
+properties:
+  value:
+    type: string
+    enum:
+      - OK
+      - ALARM
+required:
+  - value
+additionalProperties: false

@@ -1,0 +1,14 @@
+type: object
+properties:
+  value:
+    type: string
+    description: The current playback state
+    enum:
+      - playing
+      - paused
+      - stopped
+      - loading
+      - error
+required:
+  - value
+additionalProperties: false

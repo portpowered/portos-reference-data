@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow",
+      "minLength": 1
+    },
+    "messageId": {
+      "type": "string",
+      "description": "Unique identifier for the acknowledged message",
+      "minLength": 1
+    },
+    "ackId": {
+      "type": "string",
+      "description": "Unique identifier for this acknowledgment",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Acknowledgment status",
+      "enum": [
+        "received",
+        "processed",
+        "failed"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Acknowledgment timestamp"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the acknowledgment",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId",
+    "messageId",
+    "ackId",
+    "status",
+    "timestamp"
+  ],
+  "additionalProperties": false
+}

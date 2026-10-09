@@ -1,0 +1,51 @@
+{
+  "description": "Anchor point of the group route in its reference frame. It is a label anchor, not a navigation target.",
+  "type": "object",
+  "required": [
+    "point",
+    "observedAt"
+  ],
+  "properties": {
+    "point": {
+      "type": "object",
+      "description": "GeoJSON-like point",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Point"
+          ]
+        },
+        "coordinates": {
+          "type": "array",
+          "description": "A position as [x, y] or [x, y, z] in the frame's coordinate system",
+          "minItems": 2,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "title": "SpatialPoint"
+    },
+    "relativeToGroupId": {
+      "type": "string",
+      "description": "Canonical endpoint group whose frame the coordinates use"
+    },
+    "relativeToGroupRouteId": {
+      "type": "string",
+      "description": "Provider group route whose coordinate system the coordinates use"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the provider observed this position"
+    }
+  },
+  "additionalProperties": false
+}

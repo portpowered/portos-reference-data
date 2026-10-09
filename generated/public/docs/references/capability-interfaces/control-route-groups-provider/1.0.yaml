@@ -1,0 +1,41 @@
+name: control-route-groups-provider
+namespace: port1/systems/zero/capability-interfaces/control-route-groups-provider
+version: '1.0'
+description: >-
+  Control route groups organize several routes into a group. Create a group with its member routes
+  or delete a group your integration no longer needs.
+messages:
+  - name: create-group
+    description: 'Request to delete a group based on its group ID. '
+    directionality: in
+    schema:
+      description: 'Request to delete a group based on its group ID. '
+      type: object
+      properties:
+        pluginGroupRouteId:
+          type: string
+          description: The plugin group route ID to delete.
+        memberRouteIds:
+          type: array
+          items:
+            type: string
+          description: The IDs of the routes that should exist in the group.
+      additionalProperties: false
+  - name: delete-group
+    description: 'Request to delete a group based on its group ID. '
+    directionality: in
+    schema:
+      description: 'Request to delete a group based on its group ID. '
+      type: object
+      properties:
+        pluginGroupRouteId:
+          type: string
+          description: The plugin group route ID to delete.
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

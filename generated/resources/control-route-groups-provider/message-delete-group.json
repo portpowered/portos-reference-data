@@ -1,0 +1,11 @@
+{
+  "description": "Request to delete a group based on its group ID. ",
+  "type": "object",
+  "properties": {
+    "pluginGroupRouteId": {
+      "type": "string",
+      "description": "The plugin group route ID to delete."
+    }
+  },
+  "additionalProperties": false
+}

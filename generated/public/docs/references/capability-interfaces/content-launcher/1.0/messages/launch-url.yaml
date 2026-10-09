@@ -1,0 +1,29 @@
+type: object
+properties:
+  contentUrl:
+    type: string
+    format: uri
+    description: URL of the content to launch
+  displayString:
+    type: string
+    description: Display string for the content
+  brandingInformation:
+    type: object
+    description: Content provider branding information
+    properties:
+      providerName:
+        type: string
+        description: Provider name
+      background:
+        type: string
+        format: uri
+        description: Background image URL
+      logo:
+        type: string
+        format: uri
+        description: Logo image URL
+    additionalProperties: false
+    title: BrandingInformation
+required:
+  - contentUrl
+additionalProperties: false

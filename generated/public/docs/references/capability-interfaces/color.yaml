@@ -1,0 +1,61 @@
+name: color
+namespace: port1/systems/zero/capability-interfaces/color
+version: '1.0'
+description: >-
+  Color sets and reports the color of a connected device. Use it to coordinate
+  lighting for a scene or let an assistant choose a new color.
+messages:
+  - name: set-color
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - color
+      properties:
+        color:
+          type: object
+          description: A color in HSB (Hue, Saturation, Brightness) color space
+          properties:
+            hue:
+              type: number
+            saturation:
+              type: number
+            brightness:
+              type: number
+          required:
+            - hue
+            - saturation
+            - brightness
+          title: HsbColor
+      additionalProperties: false
+attributes:
+  - name: color
+    description: null
+    schema:
+      type: object
+      properties:
+        color:
+          type: object
+          description: A color in HSB (Hue, Saturation, Brightness) color space
+          properties:
+            hue:
+              type: number
+            saturation:
+              type: number
+            brightness:
+              type: number
+          required:
+            - hue
+            - saturation
+            - brightness
+          title: HsbColor
+      required:
+        - color
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

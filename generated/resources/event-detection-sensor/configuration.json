@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "detectionMethods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "AUDIO",
+          "VIDEO"
+        ]
+      }
+    },
+    "supportedEvents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "A supported event detection category",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "subType": {
+            "type": "string"
+          }
+        },
+        "title": "SupportedEvent"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "description": "Event detection sensors report human presence and emit person-detected events. Use them to give an automation context about activity in a monitored area."
+}

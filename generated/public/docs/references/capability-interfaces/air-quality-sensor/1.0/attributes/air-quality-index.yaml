@@ -1,0 +1,17 @@
+type: object
+properties:
+  value:
+    type: integer
+    description: Air quality index value
+    minimum: 0
+  standard:
+    type: string
+    description: Air quality standard
+    enum:
+      - AirQualityIndex
+      - PartsPerMillion2_5
+      - PartsPerMillion10
+required:
+  - value
+  - standard
+additionalProperties: false

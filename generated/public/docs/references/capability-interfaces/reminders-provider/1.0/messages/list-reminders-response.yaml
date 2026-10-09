@@ -1,0 +1,19 @@
+description: Response containing a list of reminder lists from a reminders provider
+type: object
+properties:
+  reminderLists:
+    type: array
+    items:
+      type: object
+      description: A reminder list
+      properties:
+        listId:
+          type: string
+        title:
+          type: string
+      required:
+        - listId
+      title: ReminderList
+required:
+  - reminderLists
+additionalProperties: false

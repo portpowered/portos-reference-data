@@ -1,0 +1,15 @@
+description: Download file response.
+type: object
+properties:
+  uri:
+    type: string
+    format: uri
+    description: Provider URL for downloading the file.
+  expiresAt:
+    type: string
+    format: date-time
+    description: Expiration of the download URL, if supplied by the provider.
+required:
+  - uri
+additionalProperties: false
+title: FilesystemProviderInterfaceDownloadFileResponseMessage

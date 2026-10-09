@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": [
+    "volume"
+  ],
+  "properties": {
+    "volume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "additionalProperties": false
+}

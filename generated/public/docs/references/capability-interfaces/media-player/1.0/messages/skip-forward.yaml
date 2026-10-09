@@ -1,0 +1,7 @@
+type: object
+properties:
+  deltaPositionMilliseconds:
+    type: integer
+    description: Number of milliseconds to skip forward
+    minimum: 0
+additionalProperties: false

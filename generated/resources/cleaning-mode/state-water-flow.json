@@ -1,0 +1,21 @@
+{
+  "description": "Current water flow. Omitted when the robot is in a native mode with no equivalent value.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "description": "Mop water flow level, ordered from off to highest",
+      "enum": [
+        "OFF",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "EXTREME"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

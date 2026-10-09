@@ -1,0 +1,130 @@
+name: camera
+namespace: port1/systems/zero/capability-interfaces/camera
+version: '1.0'
+description: >-
+  Cameras provide streaming, event images, and camera controls. Start a stream,
+  adjust pan and tilt when supported, or configure motion detection for the view
+  you need.
+messages:
+  - name: get-event-image
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: The ID of the camera event to retrieve the image for
+        eventTimestamp:
+          type: string
+          format: date-time
+          description: The timestamp of the camera event (ISO 8601 format)
+      required:
+        - eventId
+      additionalProperties: false
+  - name: ptz-control
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        pan:
+          type: number
+          description: Pan value (-100 to 100)
+          minimum: -100
+          maximum: 100
+        tilt:
+          type: number
+          description: Tilt value (-100 to 100)
+          minimum: -100
+          maximum: 100
+        zoom:
+          type: number
+          description: Zoom value (0 to 100)
+          minimum: 0
+          maximum: 100
+      additionalProperties: false
+  - name: set-motion-detection
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          description: Whether to enable motion detection
+      required:
+        - enabled
+      additionalProperties: false
+  - name: start-streaming
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        streamingProtocol:
+          type: string
+          enum:
+            - RTSP
+            - HLS
+            - DASH
+            - WEBRTC
+            - OTHER
+          description: Streaming protocol to use
+        streamingUrl:
+          type: string
+          format: uri
+          description: URL for streaming (if applicable)
+      required:
+        - streamingProtocol
+      additionalProperties: false
+  - name: stop-streaming
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: motion-detection-enabled
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: boolean
+          description: Whether motion detection is enabled
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    supportedStreamingProtocols:
+      type: array
+      items:
+        type: string
+        enum:
+          - RTSP
+          - HLS
+          - DASH
+          - WEBRTC
+          - OTHER
+      description: Supported streaming protocols
+    supportsPTZ:
+      type: boolean
+      description: Whether the camera supports pan-tilt-zoom controls
+      default: false
+    supportsMotionDetection:
+      type: boolean
+      description: Whether the camera supports motion detection
+      default: false
+  additionalProperties: false
+  description: >-
+    Cameras provide streaming, event images, and camera controls. Start a
+    stream, adjust pan and tilt when supported, or configure motion detection
+    for the view you need.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

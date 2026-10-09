@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "catalogVendorId": {
+      "type": "integer",
+      "description": "Catalog vendor ID"
+    },
+    "applicationId": {
+      "type": "string",
+      "description": "Application ID"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,50 @@
+name: calendar-provider
+namespace: port1/systems/zero/capability-interfaces/calendar-provider
+version: '1.0'
+description: >-
+  Calendar providers list events from a connected calendar. Use the returned events to give an
+  assistant schedule context or build an automation around an upcoming appointment.
+messages:
+  - name: list-events
+    description: Request to list events from a calendar provider
+    directionality: in
+    schema:
+      description: Request to list events from a calendar provider
+      type: object
+      additionalProperties: false
+  - name: list-events-response
+    description: Response containing a list of events from a calendar provider
+    directionality: out
+    schema:
+      description: Response containing a list of events from a calendar provider
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            description: A calendar event
+            properties:
+              eventId:
+                type: string
+              title:
+                type: string
+              location:
+                type: string
+              description:
+                type: string
+              allDay:
+                type: boolean
+            required:
+              - eventId
+            title: CalendarEvent
+      required:
+        - events
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,16 @@
+type: object
+properties:
+  mode:
+    type: string
+    enum:
+      - STANDARD
+      - CONSTANT_SPEED
+      - CONSTANT_PRESSURE
+      - PROPORTIONAL_PRESSURE
+      - CONSTANT_FLOW
+      - PROPORTIONAL_FLOW
+      - CONSTANT_TEMPERATURE
+      - AUTOMATIC
+required:
+  - mode
+additionalProperties: false

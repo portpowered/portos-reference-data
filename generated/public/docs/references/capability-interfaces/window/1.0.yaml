@@ -1,0 +1,41 @@
+name: window
+namespace: port1/systems/zero/capability-interfaces/window
+version: '1.0'
+description: >-
+  Windows report their window state and lock state. Use those reports to check the status supplied
+  by a connected window.
+messages: []
+attributes:
+  - name: lock-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - LOCKED
+            - UNLOCKED
+      required:
+        - value
+      additionalProperties: false
+  - name: window-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - OPEN
+            - CLOSED
+            - TILTED
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

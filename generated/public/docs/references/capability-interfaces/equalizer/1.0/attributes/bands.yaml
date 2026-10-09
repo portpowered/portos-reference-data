@@ -1,0 +1,23 @@
+type: object
+properties:
+  values:
+    type: array
+    items:
+      type: object
+      description: An equalizer frequency band setting
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          enum:
+            - BASS
+            - MIDRANGE
+            - TREBLE
+        value:
+          type: integer
+      title: EqualizerBand
+required:
+  - values
+additionalProperties: false

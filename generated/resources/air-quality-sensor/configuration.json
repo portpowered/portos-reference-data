@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedStandards": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Air quality standard",
+        "enum": [
+          "AirQualityIndex",
+          "PartsPerMillion2_5",
+          "PartsPerMillion10"
+        ]
+      },
+      "description": "Supported air quality standards"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Air quality reports the air-quality index measured by a device. Use the reading to understand conditions in a room and decide when to run ventilation or another automation."
+}

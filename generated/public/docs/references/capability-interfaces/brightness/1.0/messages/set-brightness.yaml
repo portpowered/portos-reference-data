@@ -1,0 +1,10 @@
+type: object
+additionalProperties: false
+properties:
+  brightness:
+    type: integer
+    description: The brightness level to set
+    minimum: 0
+    maximum: 100
+required:
+  - brightness

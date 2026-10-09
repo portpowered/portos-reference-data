@@ -1,0 +1,5 @@
+{
+  "description": "Request to list events from a calendar provider",
+  "type": "object",
+  "additionalProperties": false
+}

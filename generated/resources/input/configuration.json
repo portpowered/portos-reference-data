@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedInputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "A supported input source",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer",
+            "description": "Input index",
+            "minimum": 0
+          },
+          "inputType": {
+            "type": "string",
+            "description": "Type of input connector",
+            "enum": [
+              "HDMI",
+              "COMPOSITE",
+              "COMPONENT",
+              "SVIDEO",
+              "VGA",
+              "DVI",
+              "USB",
+              "BLUETOOTH",
+              "WIFI",
+              "ETHERNET",
+              "OTHER"
+            ]
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "title": "SupportedInput"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "description": "Input controls select or navigate between the inputs on a connected device. Read the current input to show which source is selected."
+}

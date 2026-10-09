@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": [
+    "volumeDelta"
+  ],
+  "properties": {
+    "volumeDelta": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

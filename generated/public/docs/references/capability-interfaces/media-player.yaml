@@ -1,0 +1,371 @@
+name: media-player
+namespace: port1/systems/zero/capability-interfaces/media-player
+version: '1.0'
+description: >-
+  Media players select media by its Port OS media ID, play supplied audio or a
+  URI, and control playback. Read playback state and use only the commands
+  supported by the connected player.
+messages:
+  - name: audio
+    description: null
+    directionality: out
+    schema:
+      type: object
+      properties:
+        audioData:
+          type: string
+          description: Base64 encoded audio data
+          format: base64
+        isFinal:
+          type: boolean
+          description: Whether the audio is the final chunk
+          default: false
+        sequenceId:
+          type: integer
+          description: Number of audio channels
+        streamId:
+          type: string
+          description: Audio stream ID
+          default: default
+        text:
+          type: string
+          description: Audio text
+          default: ''
+        mimeType:
+          type: string
+          description: Audio MIME type
+          default: audio/ogg
+        rawBytes:
+          type: string
+          description: Audio raw bytes
+          format: binary
+        duration:
+          type: number
+          description: Audio duration in seconds
+          minimum: 0
+      additionalProperties: false
+  - name: audio-stream
+    description: null
+    directionality: out
+    schema:
+      type: object
+      properties:
+        streamId:
+          type: string
+          description: Unique identifier for this audio stream
+          minLength: 1
+        sequenceId:
+          type: integer
+          description: Sequence ID for this audio stream
+          minimum: 0
+        isFinal:
+          type: boolean
+          description: Whether this is the final chunk in the stream
+          default: false
+        audioData:
+          type: string
+          description: Base64 encoded audio data
+          format: base64
+        rawBytes:
+          type: string
+          description: Audio raw bytes
+          format: binary
+      required:
+        - streamId
+        - sequenceId
+        - isFinal
+      additionalProperties: false
+  - name: next
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: pause
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: play-audio
+    description: >-
+      Play a base64 encoded audio object on the endpoint. Requires audio output
+      support; RTSP or SDP alone does not establish playback support.
+    directionality: in
+    schema:
+      description: >-
+        Play a base64 encoded audio object on the endpoint. Requires audio
+        output support; RTSP or SDP alone does not establish playback support.
+      type: object
+      properties:
+        audio:
+          type: object
+          description: An audio object to play on an endpoint with audio output.
+          properties:
+            data:
+              type: string
+              format: byte
+              minLength: 4
+              maxLength: 13981016
+              pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+              description: Base64 encoded audio, at most 10 MiB decoded.
+              example: UklGRg==
+            mimeType:
+              type: string
+              pattern: ^audio/[a-zA-Z0-9.+-]+$
+              description: The audio MIME type, such as audio/wav or audio/mpeg.
+              example: audio/wav
+          required:
+            - data
+            - mimeType
+          additionalProperties: false
+          title: PlayableAudio
+      required:
+        - audio
+      additionalProperties: false
+      title: MediaPlayerInterfacePlayAudioMessage
+  - name: play-media
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        mediaId:
+          title: MediaId
+          type: string
+          minLength: 1
+          description: >-
+            Media IDs are a standardized identifier that Port OS uses to
+            represent media across YouTube, Spotify, and other media providers.
+            See https://portpowered.com/docs/media for the current media
+            identifiers documentation.
+      required:
+        - mediaId
+      additionalProperties: false
+  - name: play
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: play-uri
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Public HTTPS URI of the audio to play
+          format: uri
+          minLength: 1
+        title:
+          type: string
+          description: Optional title for display or logging purposes
+        offsetInMilliseconds:
+          type: integer
+          description: Playback start position in milliseconds
+          minimum: 0
+          default: 0
+      required:
+        - uri
+      additionalProperties: false
+  - name: previous
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: rewind
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: search-and-play
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Query to search for audio content
+          minLength: 1
+      required:
+        - query
+      additionalProperties: false
+  - name: seek
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        positionMilliseconds:
+          type: integer
+          description: Position to seek to in milliseconds
+          minimum: 0
+      required:
+        - positionMilliseconds
+      additionalProperties: false
+  - name: skip-backward
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        deltaPositionMilliseconds:
+          type: integer
+          description: Number of milliseconds to skip backward
+          minimum: 0
+      additionalProperties: false
+  - name: skip-forward
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        deltaPositionMilliseconds:
+          type: integer
+          description: Number of milliseconds to skip forward
+          minimum: 0
+      additionalProperties: false
+  - name: start-over
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+  - name: stop
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+attributes:
+  - name: playback-speed
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Playback speed multiplier (1.0 = normal speed)
+          minimum: 0.1
+          maximum: 10
+      required:
+        - value
+      additionalProperties: false
+  - name: playback-state
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The current playback state
+          enum:
+            - playing
+            - paused
+            - stopped
+            - loading
+            - error
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  description: >-
+    Media players select media by its Port OS media ID, play supplied audio or a
+    URI, and control playback. Read playback state and use only the commands
+    supported by the connected player.
+  type: object
+  properties:
+    supportedPlaybackStates:
+      type: array
+      items:
+        type: string
+        description: The current playback state
+        enum:
+          - playing
+          - paused
+          - stopped
+          - loading
+          - error
+      description: Supported playback states
+    supportedPlaybackSpeeds:
+      type: array
+      items:
+        type: number
+      description: Supported playback speeds (e.g., 0.5, 1.0, 1.5, 2.0)
+    seekRange:
+      description: Seek range in seconds
+      type: object
+      properties:
+        min:
+          type: number
+          description: Minimum measured value
+        max:
+          type: number
+          description: Maximum measured value
+      required:
+        - min
+        - max
+      additionalProperties: false
+      title: MeasurementRange
+    supportedMediaTypes:
+      type: array
+      items:
+        type: string
+        enum:
+          - audio
+          - video
+          - image
+          - playlist
+      description: List of supported media types
+    supportedFormats:
+      type: array
+      items:
+        type: string
+        enum:
+          - mp3
+          - wav
+          - flac
+          - aac
+          - ogg
+          - mp4
+          - avi
+          - mkv
+          - jpg
+          - png
+          - gif
+      description: List of supported media formats
+    maxPlaylistSize:
+      type: integer
+      description: Maximum number of items in a playlist
+      minimum: 1
+      maximum: 10000
+    defaultQuality:
+      type: string
+      description: Default quality setting for media playback
+      enum:
+        - low
+        - medium
+        - high
+        - lossless
+    supportsPlayURI:
+      type: boolean
+      description: Whether the endpoint can play an audio URI.
+    supportedAudioMimeTypes:
+      type: array
+      description: >-
+        Audio MIME types accepted by play-audio. Advertise play-audio only when
+        audio output is supported.
+      items:
+        type: string
+  additionalProperties: false
+  title: MediaPlayerInterfaceConfiguration
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

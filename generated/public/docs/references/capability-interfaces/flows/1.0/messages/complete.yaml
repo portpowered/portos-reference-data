@@ -1,0 +1,31 @@
+type: object
+properties:
+  flowId:
+    type: string
+    description: Unique identifier for the completed flow
+    minLength: 1
+  status:
+    type: string
+    description: Completion status
+    enum:
+      - success
+      - failure
+      - cancelled
+      - timeout
+  result:
+    type: object
+    description: Flow execution result
+    additionalProperties: true
+  duration:
+    type: number
+    description: Total execution duration in milliseconds
+    minimum: 0
+  metadata:
+    type: object
+    description: Additional metadata for the completion
+    additionalProperties: true
+required:
+  - flowId
+  - status
+  - duration
+additionalProperties: false

@@ -1,0 +1,42 @@
+{
+  "description": "Set whether the robot vacuums, mops or does both, optionally with a suction level and water flow. Omitted levels keep the current non-off value. Values outside the configured supported lists are rejected with 422 before dispatch.",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string",
+      "description": "What a cleaning robot does: vacuum only, mop only, or vacuum and mop together",
+      "enum": [
+        "VACUUM",
+        "MOP",
+        "VACUUM_AND_MOP"
+      ]
+    },
+    "suctionLevel": {
+      "type": "string",
+      "description": "Vacuum suction level, ordered from off to strongest",
+      "enum": [
+        "OFF",
+        "QUIET",
+        "BALANCED",
+        "TURBO",
+        "MAX",
+        "MAX_PLUS"
+      ]
+    },
+    "waterFlow": {
+      "type": "string",
+      "description": "Mop water flow level, ordered from off to highest",
+      "enum": [
+        "OFF",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "EXTREME"
+      ]
+    }
+  },
+  "required": [
+    "mode"
+  ],
+  "additionalProperties": false
+}

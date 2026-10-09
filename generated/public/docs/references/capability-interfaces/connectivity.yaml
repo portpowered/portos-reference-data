@@ -1,0 +1,59 @@
+name: connectivity
+namespace: port1/systems/zero/capability-interfaces/connectivity
+version: '1.0'
+description: >-
+  Connectivity tells you whether a connected device is reachable. Use its
+  reported state to explain an unavailable device or decide when to retry an
+  action.
+messages: []
+attributes:
+  - name: network-throughput
+    description: null
+    schema:
+      type: object
+      properties:
+        quality:
+          type: string
+        bitsPerSecond:
+          type: integer
+      additionalProperties: false
+  - name: radio-diagnostics
+    description: null
+    schema:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: object
+            description: A radio diagnostic measurement
+            properties:
+              radioType:
+                type: string
+              rssi:
+                type: number
+              snr:
+                type: number
+            title: RadioDiagnosticValue
+      required:
+        - values
+      additionalProperties: false
+  - name: reachability
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          enum:
+            - OK
+            - UNREACHABLE
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

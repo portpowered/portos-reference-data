@@ -1,0 +1,10 @@
+description: A distinct motion occurrence, independent of cached detection state.
+type: object
+properties:
+  value:
+    type: string
+    enum:
+      - DETECTED
+required:
+  - value
+additionalProperties: false

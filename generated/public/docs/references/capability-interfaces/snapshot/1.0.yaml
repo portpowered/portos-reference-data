@@ -1,0 +1,47 @@
+name: snapshot
+namespace: port1/systems/zero/capability-interfaces/snapshot
+version: '1.0'
+description: >-
+  Snapshots request a captured view and return a snapshot response. Use them when an integration
+  needs a single capture rather than a continuous live view.
+messages:
+  - name: get-snapshot
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        preferOnDemandSnapshot:
+          type: boolean
+          default: false
+      additionalProperties: false
+  - name: get-snapshot-response
+    description: null
+    directionality: out
+    schema:
+      type: object
+      required:
+        - value
+        - timeOfSample
+      properties:
+        value:
+          type: object
+          description: A snapshot value with URI and expiration
+          properties:
+            uri:
+              type: string
+            expirationTime:
+              type: string
+              format: date-time
+          title: SnapshotValue
+        timeOfSample:
+          type: string
+          format: date-time
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

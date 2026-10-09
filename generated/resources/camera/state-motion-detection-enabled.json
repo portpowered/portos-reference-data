@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "boolean",
+      "description": "Whether motion detection is enabled"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

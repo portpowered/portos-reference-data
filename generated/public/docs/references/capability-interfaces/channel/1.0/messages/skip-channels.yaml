@@ -1,0 +1,7 @@
+type: object
+required:
+  - channelCount
+properties:
+  channelCount:
+    type: integer
+additionalProperties: false

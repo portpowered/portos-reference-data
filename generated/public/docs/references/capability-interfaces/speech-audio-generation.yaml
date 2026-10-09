@@ -1,0 +1,50 @@
+name: speech-audio-generation
+namespace: port1/systems/zero/capability-interfaces/speech-audio-generation
+version: '1.0'
+description: >-
+  Speech audio generation turns an input into speech audio and returns its URI.
+  Use the result when an integration needs an audio file it can pass to a
+  player.
+messages:
+  - name: audio-uri
+    description: null
+    directionality: out
+    schema:
+      type: object
+      required:
+        - uri
+      properties:
+        uri:
+          type: string
+          description: URL of the generated audio resource
+        mimeType:
+          type: string
+          description: MIME type of the audio resource (e.g., audio/mpeg)
+        durationMs:
+          type: integer
+          description: Duration of the generated audio in milliseconds
+      additionalProperties: false
+  - name: generate-speech
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+          description: The text content to synthesize into speech audio
+        speakerEmbeddingUrl:
+          type: string
+          description: >-
+            URL or base64 data URI of the speaker embedding for voice
+            characteristics
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

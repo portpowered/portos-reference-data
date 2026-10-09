@@ -1,0 +1,16 @@
+# Port OS
+
+> Discover connected devices and control their declared capabilities with scoped OAuth access.
+
+## Start
+
+- [For agents](/docs/for-ai/index.md): ordered setup and documentation tree.
+- [Authentication and DCR](/docs/for-ai/guides/authentication-and-dcr.md): discovery, public registration, PKCE, callback, refresh.
+- [Quickstart](/docs/for-ai/guides/quickstart.md): inspect one light and verify its reported state.
+
+## Reference
+
+- [Task guides](/docs/for-ai/guides/index.md)
+- [OpenAPI](/docs/references/openapi.yaml)
+- [Capabilities](/docs/for-ai/capability-interfaces.md)
+- [Authorization](/docs/for-ai/guides/authorization-rules.md)

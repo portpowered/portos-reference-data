@@ -1,0 +1,7 @@
+type: object
+properties:
+  quality:
+    type: string
+  bitsPerSecond:
+    type: integer
+additionalProperties: false

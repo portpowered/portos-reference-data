@@ -1,0 +1,77 @@
+name: carbon-dioxide-concentration-sensor
+namespace: port1/systems/zero/capability-interfaces/carbon-dioxide-concentration-sensor
+version: '1.0'
+description: >-
+  Carbon dioxide measurements report the concentration observed by a sensor, including its minimum
+  and maximum readings. Use them to track changes in indoor conditions over time.
+messages: []
+attributes:
+  - name: max-measured-value
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Maximum measured value
+      required:
+        - value
+      additionalProperties: false
+  - name: measured-value
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: object
+          description: A measurement value with optional null support
+          properties:
+            value:
+              type: number
+              description: The measured value
+            isNull:
+              type: boolean
+              description: True if the measurement is invalid/null
+              default: false
+          required:
+            - value
+            - isNull
+          additionalProperties: false
+          title: MeasurementValue
+        unit:
+          type: string
+          description: Unit of measurement
+          enum:
+            - LUX
+            - PPM
+            - PPB
+            - PERCENT
+            - PASCAL
+            - LITERS_PER_MINUTE
+            - PERCENT_VOLUME
+            - PH
+            - SIEMENS_PER_METER
+            - METERS_PER_SECOND
+            - DEGREES_CELSIUS
+            - DEGREES_FAHRENHEIT
+      required:
+        - value
+        - unit
+      additionalProperties: false
+  - name: min-measured-value
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Minimum measured value
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,18 @@
+description: >-
+  Current suction level. Omitted when the robot is in a native mode with no
+  equivalent value.
+type: object
+properties:
+  value:
+    type: string
+    description: Vacuum suction level, ordered from off to strongest
+    enum:
+      - 'OFF'
+      - QUIET
+      - BALANCED
+      - TURBO
+      - MAX
+      - MAX_PLUS
+required:
+  - value
+additionalProperties: false

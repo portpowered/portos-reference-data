@@ -1,0 +1,221 @@
+name: control-routes-provider
+namespace: port1/systems/zero/capability-interfaces/control-routes-provider
+version: '1.0'
+description: >-
+  Control route providers carry dispatch results and attribute reports between an integration and
+  Port OS. Use them to report acknowledgements, errors, deferred responses, and batches of messages.
+messages:
+  - name: acknowledged
+    description: >-
+      Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
+      but not necessarily that it did anything.  Consider this to happen on any infrared based
+      device (TV remotes), where no ack is feasible.
+    directionality: in
+    schema:
+      description: >-
+        Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
+        but not necessarily that it did anything.  Consider this to happen on any infrared based
+        device (TV remotes), where no ack is feasible.
+      type: object
+      additionalProperties: false
+  - name: attribute-report
+    description: Response to report attributes of a control route
+    directionality: in
+    schema:
+      description: Response to report attributes of a control route
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            description: A control route item with associated plugin route and attributes
+            properties:
+              associatedPluginRouteId:
+                type: string
+              attributes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    namespace:
+                      type: string
+                      description: The namespace of the attribute
+                    name:
+                      type: string
+                      description: The name of the attribute
+                    version:
+                      type: string
+                      description: The version of the attribute
+                    value:
+                      type: object
+                      description: The value of the attribute
+                    sampledAt:
+                      type: string
+                      format: date-time
+                      description: >-
+                        Actual observation time in UTC; omit when unknown. Request time is not a
+                        sample time.
+                  required:
+                    - namespace
+                    - name
+                    - version
+                    - value
+                  title: AttributeSchema
+            required:
+              - associatedPluginRouteId
+              - attributes
+            title: ControlRouteItem
+      required:
+        - items
+      additionalProperties: false
+  - name: batch-message-dispatch
+    description: >-
+      Request to dispatch a batch of messages to a control route sent from port OS to the control
+      routes provider
+    directionality: in
+    schema:
+      description: >-
+        Request to dispatch a batch of messages to a control route sent from port OS to the control
+        routes provider
+      type: object
+      properties:
+        items:
+          type: object
+          description: A batch message dispatch item
+          properties:
+            message:
+              description: The payload of the message to dispatch to the control route provider.
+              type: object
+          required:
+            - message
+          title: BatchMessageItem
+      required:
+        - items
+      additionalProperties: false
+  - name: deferred-response
+    description: >-
+      Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
+      and that a confirmation of the result will be sent later on.  We generate this message when
+      the device is expected to respond some time later on, and we need to wait for the result.  For
+      the default behavior, we expect to wait up to a minute to handle low powered devices.
+    directionality: in
+    schema:
+      description: >-
+        Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
+        and that a confirmation of the result will be sent later on.  We generate this message when
+        the device is expected to respond some time later on, and we need to wait for the result. 
+        For the default behavior, we expect to wait up to a minute to handle low powered devices.
+      type: object
+      additionalProperties: false
+  - name: error-dispatch
+    description: >-
+      Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
+      and that the result was not successful.
+    directionality: in
+    schema:
+      description: >-
+        Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
+        and that the result was not successful.
+      type: object
+      properties:
+        error:
+          type: object
+          description: An error from a dispatch operation
+          properties:
+            type:
+              type: string
+              description: >-
+                The type of the error, an enum which denotes a specific type of error that belongs
+                to a family of errors.
+            family:
+              type: string
+              description: >-
+                The family of the error, an enum which denotes a general set of issues similar to
+                the http error set. Some examples are BAD_REQUEST, SYSTEM_ERROR, etc.
+            code:
+              type: string
+              description: >-
+                The code of the error, an opaque error code that can be given for debugging
+                purposes.
+            message:
+              type: string
+              description: The message of the error, a human readable message that describes the error.
+          title: DispatchError
+      additionalProperties: false
+  - name: report-attributes
+    description: >-
+      Request to report attributes of a control route sent from port OS to the control routes
+      provider
+    directionality: in
+    schema:
+      description: >-
+        Request to report attributes of a control route sent from port OS to the control routes
+        provider
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            description: A control route report item with cookies and attributes
+            properties:
+              associatedPluginRouteId:
+                type: string
+              cookies:
+                type: object
+                additionalProperties: true
+              attributes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    namespace:
+                      type: string
+                      description: The namespace of the attribute
+                    name:
+                      type: string
+                      description: The name of the attribute
+                    version:
+                      type: string
+                      description: The version of the attribute
+                    value:
+                      type: object
+                      description: The value of the attribute
+                    sampledAt:
+                      type: string
+                      format: date-time
+                      description: >-
+                        Actual observation time in UTC; omit when unknown. Request time is not a
+                        sample time.
+                  required:
+                    - namespace
+                    - name
+                    - version
+                    - value
+                  title: AttributeSchema
+            required:
+              - associatedPluginRouteId
+              - attributes
+            title: ControlRouteReportItem
+      required:
+        - items
+      additionalProperties: false
+  - name: successful-dispatch
+    description: >-
+      Response to acknowledge a message was successfully dispatched, it confirms that a message was
+      dispatched, and that the result was successful.
+    directionality: in
+    schema:
+      description: >-
+        Response to acknowledge a message was successfully dispatched, it confirms that a message
+        was dispatched, and that the result was successful.
+      type: object
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

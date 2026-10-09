@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedBands": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BASS",
+          "MIDRANGE",
+          "TREBLE"
+        ]
+      }
+    },
+    "supportedModes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "description": "Equalizers adjust audio bands and select an equalizer mode. Read the current bands and mode to keep an audio control in step with the device."
+}

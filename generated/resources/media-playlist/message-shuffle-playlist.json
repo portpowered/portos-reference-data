@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "playlistId": {
+      "type": "string",
+      "description": "ID of the playlist to shuffle",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "playlistId"
+  ],
+  "additionalProperties": false
+}

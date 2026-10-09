@@ -1,0 +1,52 @@
+description: >-
+  Request to report attributes of a control route sent from port OS to the
+  control routes provider
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      description: A control route report item with cookies and attributes
+      properties:
+        associatedPluginRouteId:
+          type: string
+        cookies:
+          type: object
+          additionalProperties: true
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              namespace:
+                type: string
+                description: The namespace of the attribute
+              name:
+                type: string
+                description: The name of the attribute
+              version:
+                type: string
+                description: The version of the attribute
+              value:
+                type: object
+                description: The value of the attribute
+              sampledAt:
+                type: string
+                format: date-time
+                description: >-
+                  Actual observation time in UTC; omit when unknown. Request
+                  time is not a sample time.
+            required:
+              - namespace
+              - name
+              - version
+              - value
+            title: AttributeSchema
+      required:
+        - associatedPluginRouteId
+        - attributes
+      title: ControlRouteReportItem
+required:
+  - items
+additionalProperties: false

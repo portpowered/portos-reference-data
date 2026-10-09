@@ -1,0 +1,11 @@
+description: Upload file response.
+type: object
+properties:
+  fileId:
+    type: string
+    minLength: 1
+    description: Provider identifier of the uploaded file.
+required:
+  - fileId
+additionalProperties: false
+title: FilesystemProviderInterfaceUploadFileResponseMessage

@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": [
+    "direction"
+  ],
+  "properties": {
+    "direction": {
+      "type": "string",
+      "enum": [
+        "UP",
+        "DOWN"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

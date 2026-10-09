@@ -1,0 +1,12 @@
+type: object
+properties:
+  value:
+    type: string
+    description: Current input name
+  index:
+    type: integer
+    description: Current input index
+    minimum: 0
+required:
+  - value
+additionalProperties: false

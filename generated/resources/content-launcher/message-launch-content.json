@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "search": {
+      "type": "object",
+      "description": "Content search criteria",
+      "properties": {
+        "parameterList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "A content search parameter",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "VIDEO",
+                  "AUDIO",
+                  "IMAGE",
+                  "OTHER"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false,
+            "title": "ContentSearchParameter"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "title": "ContentSearch"
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "description": "Whether to auto-play the content",
+      "default": true
+    }
+  },
+  "additionalProperties": false
+}

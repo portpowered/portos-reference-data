@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "acceptHeader": {
+      "type": "string",
+      "description": "Accept header for content requests"
+    },
+    "supportedStreamingProtocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "DASH",
+          "HLS",
+          "SMOOTH_STREAMING",
+          "OTHER"
+        ]
+      },
+      "description": "Supported streaming protocols"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Content launchers open content or a URL on a connected device. Use them to send a selected item to a screen or start the content a customer asked for."
+}

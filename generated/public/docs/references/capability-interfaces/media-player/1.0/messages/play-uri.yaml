@@ -1,0 +1,18 @@
+type: object
+properties:
+  uri:
+    type: string
+    description: Public HTTPS URI of the audio to play
+    format: uri
+    minLength: 1
+  title:
+    type: string
+    description: Optional title for display or logging purposes
+  offsetInMilliseconds:
+    type: integer
+    description: Playback start position in milliseconds
+    minimum: 0
+    default: 0
+required:
+  - uri
+additionalProperties: false

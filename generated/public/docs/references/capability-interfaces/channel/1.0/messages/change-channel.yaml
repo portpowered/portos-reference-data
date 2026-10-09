@@ -1,0 +1,16 @@
+type: object
+properties:
+  channel:
+    type: object
+    description: A channel reference
+    properties:
+      number:
+        type: string
+      callSign:
+        type: string
+      affiliateCallSign:
+        type: string
+      uri:
+        type: string
+    title: ChannelInfo
+additionalProperties: false

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "description": "The ID of the camera event to retrieve the image for"
+    },
+    "eventTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp of the camera event (ISO 8601 format)"
+    }
+  },
+  "required": [
+    "eventId"
+  ],
+  "additionalProperties": false
+}

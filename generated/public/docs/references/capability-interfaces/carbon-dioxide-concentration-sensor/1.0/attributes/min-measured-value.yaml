@@ -1,0 +1,8 @@
+type: object
+properties:
+  value:
+    type: number
+    description: Minimum measured value
+required:
+  - value
+additionalProperties: false

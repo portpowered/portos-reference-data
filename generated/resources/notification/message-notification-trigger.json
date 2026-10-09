@@ -1,0 +1,180 @@
+{
+  "type": "object",
+  "properties": {
+    "triggerId": {
+      "type": "string",
+      "description": "Unique identifier for this trigger",
+      "minLength": 1
+    },
+    "triggerType": {
+      "type": "string",
+      "description": "Type of trigger",
+      "enum": [
+        "immediate",
+        "scheduled",
+        "event-based",
+        "condition-based"
+      ]
+    },
+    "notification": {
+      "type": "object",
+      "description": "Notification payload information",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Notification title",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "body": {
+          "type": "string",
+          "description": "Notification body text",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "priority": {
+          "type": "string",
+          "description": "Notification priority level",
+          "enum": [
+            "low",
+            "normal",
+            "high",
+            "urgent"
+          ]
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "push",
+              "email",
+              "sms",
+              "in-app",
+              "webhook"
+            ]
+          },
+          "description": "Channels to send the notification through"
+        },
+        "targetUsers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of user IDs to send the notification to"
+        }
+      },
+      "required": [
+        "title",
+        "body",
+        "priority",
+        "channels",
+        "targetUsers"
+      ],
+      "additionalProperties": false,
+      "title": "NotificationPayload"
+    },
+    "conditions": {
+      "type": "object",
+      "description": "Conditions for triggering a notification",
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "description": "Type of event that triggers the notification"
+        },
+        "eventData": {
+          "type": "object",
+          "description": "Data that must match for the event to trigger"
+        },
+        "timeWindow": {
+          "type": "object",
+          "description": "Time window for a notification trigger",
+          "properties": {
+            "startTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endTime": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false,
+          "title": "NotificationTimeWindow"
+        }
+      },
+      "additionalProperties": false,
+      "title": "NotificationConditions"
+    },
+    "schedule": {
+      "type": "object",
+      "description": "Schedule configuration for notifications",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When to start sending notifications"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When to stop sending notifications (optional)"
+        },
+        "cronExpression": {
+          "type": "string",
+          "description": "Cron expression for recurring notifications"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Timezone for the schedule",
+          "default": "UTC"
+        },
+        "repeatCount": {
+          "type": "integer",
+          "description": "Number of times to repeat (null for infinite)",
+          "minimum": 1
+        },
+        "interval": {
+          "type": "object",
+          "description": "Interval between notifications",
+          "properties": {
+            "value": {
+              "type": "integer",
+              "description": "Interval value",
+              "minimum": 1
+            },
+            "unit": {
+              "type": "string",
+              "description": "Interval unit",
+              "enum": [
+                "seconds",
+                "minutes",
+                "hours",
+                "days",
+                "weeks",
+                "months"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ],
+          "additionalProperties": false,
+          "title": "NotificationInterval"
+        }
+      },
+      "required": [
+        "startTime"
+      ],
+      "additionalProperties": false,
+      "title": "NotificationSchedule"
+    }
+  },
+  "required": [
+    "triggerId",
+    "triggerType",
+    "notification"
+  ],
+  "additionalProperties": false
+}

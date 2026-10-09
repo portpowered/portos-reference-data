@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the playlist to create",
+      "minLength": 1
+    },
+    "tracks": {
+      "type": "array",
+      "description": "Optional initial list of track URIs",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false
+}

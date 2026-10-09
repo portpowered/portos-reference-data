@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "playlistId": {
+      "type": "string",
+      "description": "ID of the playlist to remove a track from",
+      "minLength": 1
+    },
+    "trackIndex": {
+      "type": "integer",
+      "description": "Index of the track to remove (-1 to use trackUri instead)"
+    },
+    "trackUri": {
+      "type": "string",
+      "description": "URI of the track to remove (used when trackIndex is -1)"
+    }
+  },
+  "required": [
+    "playlistId",
+    "trackIndex"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "catalogVendorId": {
+      "type": "integer",
+      "description": "Catalog vendor ID",
+      "minimum": 0
+    },
+    "applicationId": {
+      "type": "string",
+      "description": "Application ID"
+    }
+  },
+  "required": [
+    "catalogVendorId",
+    "applicationId"
+  ],
+  "additionalProperties": false
+}

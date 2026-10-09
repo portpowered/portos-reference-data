@@ -1,0 +1,47 @@
+name: embedding-generation
+namespace: port1/systems/zero/capability-interfaces/embedding-generation
+version: '1.0'
+description: >-
+  Embedding generation turns an input into an embedding and returns its URI. Use the result in
+  integrations that work with vector representations of content.
+messages:
+  - name: embedding-uri
+    description: null
+    directionality: out
+    schema:
+      type: object
+      required:
+        - uri
+      properties:
+        uri:
+          type: string
+          description: URL of the generated embedding resource
+        format:
+          type: string
+          description: Format of the embedding (e.g., safetensors, onnx)
+        mimeType:
+          type: string
+          description: MIME type of the embedding resource
+      additionalProperties: false
+  - name: generate-embedding
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - audioUrl
+      properties:
+        audioUrl:
+          type: string
+          description: URL or base64 data URI of the audio to generate an embedding from
+        referenceText:
+          type: string
+          description: Optional reference text for the audio content
+      additionalProperties: false
+attributes: []
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

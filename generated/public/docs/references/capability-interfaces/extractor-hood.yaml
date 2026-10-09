@@ -1,0 +1,27 @@
+name: extractor-hood
+namespace: port1/systems/zero/capability-interfaces/extractor-hood
+version: '1.0'
+description: >-
+  Extractor hoods report their fan speed. Use that state to show the current
+  ventilation setting alongside other kitchen appliances.
+messages: []
+attributes:
+  - name: fan-speed
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: integer
+          description: Fan speed percentage (0-100)
+          minimum: 0
+          maximum: 100
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,10 @@
+type: object
+properties:
+  value:
+    type: number
+    description: Playback speed multiplier (1.0 = normal speed)
+    minimum: 0.1
+    maximum: 10
+required:
+  - value
+additionalProperties: false

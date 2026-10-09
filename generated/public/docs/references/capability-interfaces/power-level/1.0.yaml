@@ -1,0 +1,46 @@
+name: power-level
+namespace: port1/systems/zero/capability-interfaces/power-level
+version: '1.0'
+description: >-
+  Power level sets or adjusts a device's output level and reports the current setting. Use it when a
+  device supports more than a simple on/off control.
+messages:
+  - name: adjust-power-level
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - powerLevelDelta
+      properties:
+        powerLevelDelta:
+          type: number
+      additionalProperties: false
+  - name: set-power-level
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - powerLevel
+      properties:
+        powerLevel:
+          type: number
+      additionalProperties: false
+attributes:
+  - name: power-level
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,48 @@
+type: object
+properties:
+  notificationId:
+    type: string
+    description: Unique identifier for this notification
+    minLength: 1
+  title:
+    type: string
+    description: Notification title
+    minLength: 1
+    maxLength: 200
+  body:
+    type: string
+    description: Notification body text
+    minLength: 1
+    maxLength: 2000
+  priority:
+    type: string
+    description: Notification priority level
+    enum:
+      - low
+      - normal
+      - high
+      - urgent
+  channels:
+    type: array
+    items:
+      type: string
+      enum:
+        - push
+        - email
+        - sms
+        - in-app
+        - webhook
+    description: Channels to send the notification through
+  targetUsers:
+    type: array
+    items:
+      type: string
+    description: List of user IDs to send the notification to
+  metadata:
+    type: object
+    description: Additional metadata for the notification
+    additionalProperties: true
+required:
+  - title
+  - body
+additionalProperties: false

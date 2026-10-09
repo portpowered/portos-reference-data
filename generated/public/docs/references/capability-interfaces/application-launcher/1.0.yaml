@@ -1,0 +1,98 @@
+name: application-launcher
+namespace: port1/systems/zero/capability-interfaces/application-launcher
+version: '1.0'
+description: >-
+  Application launchers start and stop applications on a connected device. Check the available
+  applications and the current selection before choosing what to launch.
+messages:
+  - name: launch-application
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        catalogVendorId:
+          type: integer
+          description: Catalog vendor ID
+          minimum: 0
+        applicationId:
+          type: string
+          description: Application ID
+        data:
+          type: string
+          description: Optional data to pass to the application
+      required:
+        - catalogVendorId
+        - applicationId
+      additionalProperties: false
+  - name: stop-application
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        catalogVendorId:
+          type: integer
+          description: Catalog vendor ID
+          minimum: 0
+        applicationId:
+          type: string
+          description: Application ID
+      required:
+        - catalogVendorId
+        - applicationId
+      additionalProperties: false
+attributes:
+  - name: application-list
+    description: null
+    schema:
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            type: object
+            description: An application reference
+            properties:
+              catalogVendorId:
+                type: integer
+                description: Catalog vendor ID
+              applicationId:
+                type: string
+                description: Application ID
+            required:
+              - catalogVendorId
+              - applicationId
+            additionalProperties: false
+            title: ApplicationInfo
+      required:
+        - applications
+      additionalProperties: false
+  - name: current-application
+    description: null
+    schema:
+      type: object
+      properties:
+        catalogVendorId:
+          type: integer
+          description: Catalog vendor ID
+        applicationId:
+          type: string
+          description: Application ID
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    catalogVendorId:
+      type: integer
+      description: Catalog vendor ID
+      minimum: 0
+  additionalProperties: false
+  description: >-
+    Application launchers start and stop applications on a connected device. Check the available
+    applications and the current selection before choosing what to launch.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

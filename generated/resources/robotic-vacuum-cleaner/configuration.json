@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "supportedCleaningModes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Robot vacuum cleaning mode",
+        "enum": [
+          "AUTO",
+          "SPOT",
+          "EDGE",
+          "SINGLE_ROOM",
+          "CUSTOM"
+        ]
+      },
+      "description": "Supported cleaning modes"
+    },
+    "supportsScheduling": {
+      "type": "boolean",
+      "description": "Whether the vacuum supports scheduling",
+      "default": false
+    },
+    "supportsRoomCleaning": {
+      "type": "boolean",
+      "description": "Whether the vacuum accepts clean-room for rooms it declares CAN_CONTROL on. Vacuums that omit it do not advertise clean-room.",
+      "default": false
+    },
+    "supportsMultiRoomCleaning": {
+      "type": "boolean",
+      "description": "Whether clean-room accepts more than one room in one request. When false, more than one groupId is rejected with MULTI_ROOM_UNSUPPORTED before dispatch.",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "description": "Robotic vacuum cleaners start, pause, stop, and return to their dock. Set a cleaning mode and read the reported mode and operational state to follow a cleaning session."
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "secretId": {
+      "type": "string",
+      "description": "The id of the secret to update"
+    },
+    "authlinkId": {
+      "type": "string",
+      "description": "The id of the auth link to update"
+    },
+    "refreshToken": {
+      "type": "string",
+      "description": "The refresh token to refresh"
+    },
+    "accessToken": {
+      "type": "string",
+      "description": "The access token to refresh"
+    },
+    "customMetadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Custom metadata to attach to the authorization update report"
+    },
+    "expiryTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The expiry time in seconds from current time"
+    }
+  },
+  "required": [
+    "refreshToken",
+    "accessToken",
+    "expiryTime"
+  ]
+}

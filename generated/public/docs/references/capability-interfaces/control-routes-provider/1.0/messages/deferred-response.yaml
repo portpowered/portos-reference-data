@@ -1,0 +1,8 @@
+description: >-
+  Response to acknowledge a message was dispatched, it confirms that a message
+  was dispatched, and that a confirmation of the result will be sent later on. 
+  We generate this message when the device is expected to respond some time
+  later on, and we need to wait for the result.  For the default behavior, we
+  expect to wait up to a minute to handle low powered devices.
+type: object
+additionalProperties: false

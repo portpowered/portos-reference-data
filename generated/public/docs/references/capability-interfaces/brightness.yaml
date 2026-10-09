@@ -1,0 +1,42 @@
+name: brightness
+namespace: port1/systems/zero/capability-interfaces/brightness
+version: '1.0'
+description: >-
+  Brightness sets how bright a connected device should be and reports its
+  current level. Use it to dim a light for the evening or restore a brighter
+  setting for work.
+messages:
+  - name: set-brightness
+    description: null
+    directionality: in
+    schema:
+      type: object
+      additionalProperties: false
+      properties:
+        brightness:
+          type: integer
+          description: The brightness level to set
+          minimum: 0
+          maximum: 100
+      required:
+        - brightness
+attributes:
+  - name: brightness
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: integer
+          description: The brightness level of an endpoint
+          minimum: 0
+          maximum: 100
+      required:
+        - value
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,45 @@
+name: location
+namespace: port1/systems/zero/capability-interfaces/location
+version: '1.0'
+description: >-
+  Location reports a connected resource's geolocation. Use it to show the
+  position supplied by that resource.
+messages: []
+attributes:
+  - name: geolocation
+    description: null
+    schema:
+      type: object
+      required:
+        - coordinate
+      properties:
+        coordinate:
+          type: object
+          description: A geographic coordinate
+          required:
+            - latitudeInDegrees
+            - longitudeInDegrees
+          properties:
+            latitudeInDegrees:
+              type: number
+            longitudeInDegrees:
+              type: number
+            accuracy:
+              type: object
+              description: Geographic coordinate accuracy
+              properties:
+                value:
+                  type: number
+                unit:
+                  type: string
+                  enum:
+                    - METERS
+              title: GeoAccuracy
+          title: GeoCoordinate
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,11 @@
+description: Start session.
+type: object
+properties:
+  sessionId:
+    type: string
+    minLength: 1
+    description: Caller supplied session identifier.
+required:
+  - sessionId
+additionalProperties: false
+title: RtspSessionInterfaceStartSessionMessage

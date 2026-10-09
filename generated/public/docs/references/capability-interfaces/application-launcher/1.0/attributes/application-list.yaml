@@ -1,0 +1,22 @@
+type: object
+properties:
+  applications:
+    type: array
+    items:
+      type: object
+      description: An application reference
+      properties:
+        catalogVendorId:
+          type: integer
+          description: Catalog vendor ID
+        applicationId:
+          type: string
+          description: Application ID
+      required:
+        - catalogVendorId
+        - applicationId
+      additionalProperties: false
+      title: ApplicationInfo
+required:
+  - applications
+additionalProperties: false

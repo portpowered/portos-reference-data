@@ -1,0 +1,15 @@
+type: object
+required:
+  - colorTemperatureInKelvin
+properties:
+  colorTemperatureInKelvin:
+    type: integer
+    description: >-
+      The colorTemperatureInKelvin property represents the color temperature in
+      degrees Kelvin of an endpoint, and is used by endpoints that support
+      tunable white light. Valid values range from 1,000 to 10,000 absolute
+      Kelvin.
+
+      The color values roughly map to:  - warm white: 2000 - soft white: 2500 -
+      white: 4000 - daylight white: 5500 - cool white: 7000
+additionalProperties: false

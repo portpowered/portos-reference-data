@@ -1,0 +1,94 @@
+name: input
+namespace: port1/systems/zero/capability-interfaces/input
+version: '1.0'
+description: >-
+  Input controls select or navigate between the inputs on a connected device. Read the current input
+  to show which source is selected.
+messages:
+  - name: navigate-input
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - direction
+      properties:
+        direction:
+          type: string
+          enum:
+            - UP
+            - DOWN
+      additionalProperties: false
+  - name: select-input
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        input:
+          type: string
+          description: Input name to select
+        index:
+          type: integer
+          description: Input index to select
+          minimum: 0
+      additionalProperties: false
+attributes:
+  - name: input
+    description: null
+    schema:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Current input name
+        index:
+          type: integer
+          description: Current input index
+          minimum: 0
+      required:
+        - value
+      additionalProperties: false
+configuration:
+  type: object
+  properties:
+    supportedInputs:
+      type: array
+      items:
+        type: object
+        description: A supported input source
+        properties:
+          name:
+            type: string
+          index:
+            type: integer
+            description: Input index
+            minimum: 0
+          inputType:
+            type: string
+            description: Type of input connector
+            enum:
+              - HDMI
+              - COMPOSITE
+              - COMPONENT
+              - SVIDEO
+              - VGA
+              - DVI
+              - USB
+              - BLUETOOTH
+              - WIFI
+              - ETHERNET
+              - OTHER
+        required:
+          - name
+        additionalProperties: false
+        title: SupportedInput
+  additionalProperties: false
+  description: >-
+    Input controls select or navigate between the inputs on a connected device. Read the current
+    input to show which source is selected.
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

@@ -1,0 +1,7 @@
+type: object
+required:
+  - mute
+properties:
+  mute:
+    type: boolean
+additionalProperties: false

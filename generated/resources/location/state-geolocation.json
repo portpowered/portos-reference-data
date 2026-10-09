@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "coordinate"
+  ],
+  "properties": {
+    "coordinate": {
+      "type": "object",
+      "description": "A geographic coordinate",
+      "required": [
+        "latitudeInDegrees",
+        "longitudeInDegrees"
+      ],
+      "properties": {
+        "latitudeInDegrees": {
+          "type": "number"
+        },
+        "longitudeInDegrees": {
+          "type": "number"
+        },
+        "accuracy": {
+          "type": "object",
+          "description": "Geographic coordinate accuracy",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "METERS"
+              ]
+            }
+          },
+          "title": "GeoAccuracy"
+        }
+      },
+      "title": "GeoCoordinate"
+    }
+  },
+  "additionalProperties": false
+}

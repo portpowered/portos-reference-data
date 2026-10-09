@@ -1,0 +1,136 @@
+{
+  "type": "object",
+  "properties": {
+    "artists": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Artist information",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the artist",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Artist name",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false,
+        "title": "Artist"
+      },
+      "description": "Artist results"
+    },
+    "albums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Album information",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the album",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Album name",
+            "minLength": 1
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/properties/artists/items"
+            },
+            "description": "Album artists"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "artists"
+        ],
+        "additionalProperties": false,
+        "title": "Album"
+      },
+      "description": "Album results"
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Track information",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the track",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Track name",
+            "minLength": 1
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/properties/artists/items"
+            },
+            "description": "Track artists"
+          },
+          "album": {
+            "$ref": "#/properties/albums/items",
+            "description": "Track album"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "artists",
+          "album"
+        ],
+        "additionalProperties": false,
+        "title": "Track"
+      },
+      "description": "Track results"
+    },
+    "playlists": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the playlist",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Playlist name",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false,
+        "title": "Playlist"
+      },
+      "description": "Playlist results"
+    }
+  },
+  "required": [
+    "artists",
+    "albums",
+    "tracks",
+    "playlists"
+  ],
+  "additionalProperties": false
+}

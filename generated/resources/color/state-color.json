@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "color": {
+      "type": "object",
+      "description": "A color in HSB (Hue, Saturation, Brightness) color space",
+      "properties": {
+        "hue": {
+          "type": "number"
+        },
+        "saturation": {
+          "type": "number"
+        },
+        "brightness": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "hue",
+        "saturation",
+        "brightness"
+      ],
+      "title": "HsbColor"
+    }
+  },
+  "required": [
+    "color"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,59 @@
+name: channel
+namespace: port1/systems/zero/capability-interfaces/channel
+version: '1.0'
+description: >-
+  Channel controls select a channel or skip between channels on a connected device. Read the current
+  channel to keep the interface in step with what is playing.
+messages:
+  - name: change-channel
+    description: null
+    directionality: in
+    schema:
+      type: object
+      properties:
+        channel:
+          type: object
+          description: A channel reference
+          properties:
+            number:
+              type: string
+            callSign:
+              type: string
+            affiliateCallSign:
+              type: string
+            uri:
+              type: string
+          title: ChannelInfo
+      additionalProperties: false
+  - name: skip-channels
+    description: null
+    directionality: in
+    schema:
+      type: object
+      required:
+        - channelCount
+      properties:
+        channelCount:
+          type: integer
+      additionalProperties: false
+attributes:
+  - name: channel
+    description: null
+    schema:
+      type: object
+      properties:
+        number:
+          type: string
+        callSign:
+          type: string
+        affiliateCallSign:
+          type: string
+        uri:
+          type: string
+      additionalProperties: false
+configuration: null
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

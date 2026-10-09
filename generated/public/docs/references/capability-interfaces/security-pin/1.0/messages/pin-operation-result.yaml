@@ -1,0 +1,36 @@
+description: >-
+  Correlated safe PIN provisioning result. APPLIED requires vendor-confirmed
+  completion, not dispatch acceptance. CREATE supplies recordId once assigned;
+  UPDATE and DELETE retain the requested ID. FAILED requires a safe code; other
+  statuses forbid code. Never include credentials or raw vendor errors.
+type: object
+properties:
+  correlationToken:
+    type: string
+    minLength: 1
+  operation:
+    type: string
+    enum:
+      - CREATE
+      - UPDATE
+      - DELETE
+  recordId:
+    type: string
+    minLength: 1
+  provisioningStatus:
+    type: string
+    enum:
+      - PENDING
+      - APPLIED
+      - FAILED
+  code:
+    type: string
+    minLength: 1
+    description: >-
+      Stable safe structured failure code. Never raw vendor text, credentials or
+      response bodies.
+required:
+  - correlationToken
+  - operation
+  - provisioningStatus
+additionalProperties: false

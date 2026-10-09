@@ -1,0 +1,51 @@
+{
+  "description": "List recordings response.",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "A stored recording.",
+        "properties": {
+          "recordingId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Provider identifier of the recording."
+          },
+          "mediaId": {
+            "title": "MediaId",
+            "type": "string",
+            "minLength": 1,
+            "description": "Media IDs are a standardized identifier that Port OS uses to represent media across YouTube, Spotify, and other media providers. See https://portpowered.com/docs/media for the current media identifiers documentation."
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Recording start time."
+          },
+          "durationSeconds": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Recording duration in seconds."
+          }
+        },
+        "required": [
+          "recordingId"
+        ],
+        "additionalProperties": false,
+        "title": "Recording"
+      },
+      "description": "Recordings in this page."
+    },
+    "nextCursor": {
+      "type": "string",
+      "description": "Opaque cursor for the next page; omitted when there are no further results."
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false,
+  "title": "RecordingsInterfaceListRecordingsResponseMessage"
+}
