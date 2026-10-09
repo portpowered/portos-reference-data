@@ -2,6 +2,8 @@
 
 Use these common components for Muse, Grok, Claude, a custom REST agent or an MCP connector. The product name does not change the authorization protocol or permissions. Check your client's current capabilities before assuming it supports a particular registration method.
 
+For a new REST connection, read the [complete authentication walkthrough](/docs/for-ai/guides/authentication-and-dcr.md), then the [REST quickstart](/docs/for-ai/guides/quickstart.md). The walkthrough includes the OAuth components in the table below; you can skip their separate files. For an existing connector, use the table to read only the component you need. This directory is a set of alternatives, not a checklist of required downloads.
+
 Copy this prompt into a client that can retrieve public documents:
 
 > Read https://app.portoperatingsystem.lol/docs/for-ai/guides/connect-agent.md. Discover Port OS authentication, choose REST or MCP and a registration method supported by this client, and help me connect. Pause for me to sign in and approve the requested access, then list only devices I can access. Do not claim device control until its result is observed.

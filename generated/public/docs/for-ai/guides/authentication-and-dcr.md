@@ -2,7 +2,11 @@
 
 All supported agents use the same OAuth components. REST and MCP select different protected resources; DCR and CIMD select different registration methods. Neither product branding nor registration grants device access.
 
-The complete walkthrough below is generated from the canonical components linked here. Read it in one document, or reference the individual components from your connector:
+Choose one reading path. This complete walkthrough already includes discovery, registration, consent, token lifecycle and authorization rules below; you do not need to fetch those component links again. If your connector already implements some steps, read only the missing components instead. Both paths use the same canonical instructions.
+
+For REST, use the discovered issuer as the OAuth resource. For MCP, use the MCP protected-resource metadata. Keep that choice through authorization, exchange and refresh. If you chose the wrong transport, start a new authorization flow for the correct resource; refresh does not switch audiences.
+
+Walkthrough steps (the linked components are also included below):
 
 1. [Discover endpoints and choose REST or MCP](/docs/for-ai/guides/oauth-discovery.md).
 2. [Register with DCR or supported CIMD](/docs/for-ai/guides/oauth-client-registration.md). Remote callbacks require HTTPS; local callback registrations contain only localhost/loopback callbacks. Repeated canonical fingerprints reuse the original public client without expanding scopes.
@@ -22,6 +26,8 @@ This discovery step is shared by every client. The deployed pilot API is https:/
 | MCP | The returned issuer plus /mcp, Streamable HTTP | The resource returned by /.well-known/oauth-protected-resource/mcp, normally issuer plus /mcp |
 
 An MCP connector can start at https://api.portoperatingsystem.lol/mcp and follow its WWW-Authenticate resource_metadata URL. Fetch that public metadata and the authorization server it names. MCP initialization alone does not prove that the account's devices are accessible. Never use a REST token on MCP or an MCP token on REST.
+
+Choose the transport before authorizing. Keep its resource unchanged through authorization, token exchange and refresh. If a REST request fails because you authorized the MCP resource (or the reverse), obtain a new user authorization for the correct resource. Refresh cannot change the token's audience.
 
 Choose one supported [client registration method](/docs/for-ai/guides/oauth-client-registration.md), then follow the same [consent and callback steps](/docs/for-ai/guides/oauth-consent-and-callback.md). If metadata omits registration_endpoint, new DCR registration is unavailable; do not guess a replacement endpoint or silently switch to another client's credentials.
 

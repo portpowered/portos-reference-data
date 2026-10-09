@@ -1,17 +1,24 @@
 # Port OS: start here for agents
 
-Read [authentication and DCR](/docs/for-ai/guides/authentication-and-dcr.md), then [the quickstart](/docs/for-ai/guides/quickstart.md). Register a public client, open the user authorization URL, wait for the user to consent, verify the callback, then exchange its code with PKCE. Registration alone gives no device access. Never request the user’s Google password or reuse another client’s tokens.
+## New REST connection
 
-## Documentation tree
+Read [the complete authentication walkthrough](/docs/for-ai/guides/authentication-and-dcr.md), then [the REST quickstart](/docs/for-ai/guides/quickstart.md). The walkthrough includes discovery, DCR/CIMD, consent, callback, token lifecycle and permission rules. You do not need to read their separate component files again. Follow an operation or capability link from the quickstart only when you need its exact contract.
 
-- [All task guides](/docs/for-ai/guides/index.md)
-- [Scopes and permission evaluation](/docs/for-ai/guides/authorization-rules.md)
-- [REST operation directory](/docs/for-ai/operations/index.md)
-- [Small REST schema files](/docs/for-ai/schemas.md)
-- [Capability directory](/docs/for-ai/capability-interfaces.md)
-- [OpenAPI YAML](/docs/references/openapi.yaml)
+Registration alone gives no device access. Wait for user consent and validate the callback before exchanging its code with PKCE. Never request the user’s Google password or reuse another client’s tokens.
+
+## Existing connector or MCP
+
+Use [the shared connection guide](/docs/for-ai/guides/connect-agent.md) to select the transport and only the components your client needs. REST and MCP use different OAuth resources; choose before authorization and retain the resource through exchange and refresh.
+
+## Documentation tree: look up what you need
+
+- [Task/component guide directory](/docs/for-ai/guides/index.md): alternatives, not a required reading checklist
+- [REST operation directory](/docs/for-ai/operations/index.md): individual operations and their scopes
+- [Small REST schema files](/docs/for-ai/schemas.md): linked request/response components
+- [Capability directory](/docs/for-ai/capability-interfaces.md): match the discovered namespace and version
+- [Authorization inventory](/docs/references/authorization.yaml): machine-readable scope/policy rules
+- [Full OpenAPI YAML](/docs/references/openapi.yaml): comprehensive lookup and SDK generation; unnecessary for the quickstart
 - [Capability YAML index](/docs/references/capability-interfaces.yaml)
-- [Authorization inventory](/docs/references/authorization.yaml)
 - [Release manifest](/docs/references/manifest.json)
 
 These links are public UTF-8 documents. You do not need JavaScript, sign-in, or a repository checkout to read them. Device data still requires consent and resource permission.

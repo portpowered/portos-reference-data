@@ -1,5 +1,7 @@
 # User guides
 
+This is a directory, not a required reading checklist. For a new REST connection, read [the complete authentication walkthrough](/docs/for-ai/guides/authentication-and-dcr.md) and [the quickstart](/docs/for-ai/guides/quickstart.md). The walkthrough already includes its OAuth components. Read individual components only when you need a specific step.
+
 - [Add devices through provider linking](/docs/for-ai/guides/adding-devices.md)
 - [Authentication and dynamic client registration](/docs/for-ai/guides/authentication-and-dcr.md)
 - [Scopes and authorization rules](/docs/for-ai/guides/authorization-rules.md)

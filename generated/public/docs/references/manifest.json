@@ -1,12 +1,12 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.4",
-  "sourceCommit": "ddab20777e6044b21db0f0c1c525bf59ff4f31f0",
+  "version": "0.4.5",
+  "sourceCommit": "07fdcc4ef4f322950ecb617ffaf47a79b9f0a122",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "8a1f7e267ecac60eaf7a4e7ded150b2ff86ac59760c11b5251b52e4a78db40ca",
+  "sourceInputSHA256": "d8183268527e9f3de34ec8374b1007a4ed48cc0d4255dd8c3bc5822f10e57818",
   "sourceInputCount": 735,
-  "assetSetSHA256": "d101a7e55686035b22ab0b4e5cc2839c8e9c835db31d6ef329c6e801f53c848b",
+  "assetSetSHA256": "bae4942d5ad905c28c49cd3967c8e3c24f54db3dc36c90119208fd9c12ef1adc",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -1184,8 +1184,8 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 16740,
-      "sha256": "69ff1fda5f5443ed1fa5c21abdfa5dda5c73b1edc6e54b9f056776f881d7dc80",
+      "bytes": 17581,
+      "sha256": "32616ea9e28a675efe2c2dee51f149eefec2dead1af2b5275b91c3c9bae3a7be",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1227,15 +1227,17 @@
     {
       "path": "/docs/for-ai/guides/connect-agent.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2474,
-      "sha256": "2ace8142f363edcf8d48039f463fd2528307ffac1c3238301d85e8955b234e6a",
+      "bytes": 2919,
+      "sha256": "5aa9459297c58a1b648b2385a546b25814567c4bdbaef30ab03ffe909f73d391",
       "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
         "/docs/for-ai/guides/oauth-consent-and-callback.md",
         "/docs/for-ai/guides/oauth-discovery.md",
-        "/docs/for-ai/guides/oauth-token-lifecycle.md"
+        "/docs/for-ai/guides/oauth-token-lifecycle.md",
+        "/docs/for-ai/guides/quickstart.md"
       ]
     },
     {
@@ -1270,8 +1272,8 @@
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1838,
-      "sha256": "becf671ec3d3e46eafd6dfe8ac99e14b780534fc435a55c1b997d5b32498cfa5",
+      "bytes": 2190,
+      "sha256": "936e643766ce6a3c245a03f91b8a1b74087ce4cfa237e6f94e8e0939e92a6720",
       "links": [
         "/docs/for-ai/guides/adding-devices.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -1366,8 +1368,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2545,
-      "sha256": "e04f8ab874da6c399c59c7f4618da37f99160f87c7f0adf39800486d6fb3192f",
+      "bytes": 2850,
+      "sha256": "588efd7396d2b5b600eb2bd085d1c947afc429fb5f383cc3093734e9ce2a27c7",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
@@ -1475,12 +1477,12 @@
     {
       "path": "/docs/for-ai/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1185,
-      "sha256": "ed6011cbe96c70b27fe8ec486c24beb69737ec570b14368b580ba855179e1383",
+      "bytes": 1973,
+      "sha256": "303ac8481dfd46c092f1e9fe988740878d146d0194404b309eeb554f4eb2973c",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/guides/authorization-rules.md",
+        "/docs/for-ai/guides/connect-agent.md",
         "/docs/for-ai/guides/index.md",
         "/docs/for-ai/guides/quickstart.md",
         "/docs/for-ai/operations/index.md",
