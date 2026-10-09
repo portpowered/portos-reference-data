@@ -5,7 +5,7 @@ last modified: 2026, october, 7
 
 # Port OS reference data
 
-`@portos/reference-data` bundles the capability catalog and OpenAPI specification as reusable JSON exports. Website field tables, capability navigation, and native Fumadocs HTTP documentation render automatically from these exports; no per-capability page authoring is required.
+`@portpowered/reference-data` bundles the capability catalog and OpenAPI specification as reusable JSON exports. Website field tables, capability navigation, and native Fumadocs HTTP documentation render automatically from these exports; no per-capability page authoring is required.
 
 ## Updating resources
 
@@ -21,8 +21,8 @@ Never edit generated JSON manually. Regeneration removes obsolete resources when
 
 ## Consuming the package
 
-Import `@portos/reference-data/capabilities`, `@portos/reference-data/openapi` or `@portos/reference-data/guides` with your runtime's JSON import mechanism. The release repository contains public projections only. Authored application sources stay in the private application repository. Release the same version to npm and the public Go module `github.com/portpowered/portos-reference-data`; the manifest lists identical file hashes for both distributions.
+Import `@portpowered/reference-data/capabilities`, `@portpowered/reference-data/openapi` or `@portpowered/reference-data/guides` with your runtime's JSON import mechanism. The release repository contains public projections only. Authored application sources stay in the private application repository. Release the same version to npm and the public Go module `github.com/portpowered/portos-reference-data`; the manifest lists identical file hashes for both distributions.
 
-Individual schemas are exported as `@portos/reference-data/resources/<capability>/configuration.json`, `state-<attribute>.json`, and `message-<name>.json`. Consumers can render field tables directly from these resources. Keep the package imports on the server or at build time to avoid shipping the complete catalog in browser JavaScript.
+Individual schemas are exported as `@portpowered/reference-data/resources/<capability>/configuration.json`, `state-<attribute>.json`, and `message-<name>.json`. Consumers can render field tables directly from these resources. Keep the package imports on the server or at build time to avoid shipping the complete catalog in browser JavaScript.
 
 Run `npm pack` in this directory to produce a portable bundle. The bundle contains generated JSON, the raw public tree and this README; regeneration belongs to the source repository. The Go module embeds that public tree and exposes it through `Files() fs.FS`. Public URLs are rooted at `/llms.txt`, `/docs/for-ai/` and `/docs/references/`; missing files are absent rather than an app-shell fallback. Run `node scripts/validate-public-assets.mjs` and `go test ./...` before release.

@@ -1,6 +1,6 @@
 # deviceAuthorize
 
-POST `/auth/device-authorize`
+POST `/auth/device_authorization`
 
 OAuth2 Device Authorization
 
@@ -9,13 +9,13 @@ This API is used by your device to obtain authorization from the resource owner 
 See the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).
 
 
-Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
+Uses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow.
 
 ## Authorization
 
 ```yaml
-path: /auth/device-authorize
-runtimePath: /auth/device-authorize
+path: /auth/device_authorization
+runtimePath: /auth/device_authorization
 method: POST
 operationId: deviceAuthorize
 security:
@@ -27,7 +27,7 @@ resourcePermissionRequired: false
 ## Complete operation contract
 
 ```yaml
-path: /auth/device-authorize
+path: /auth/device_authorization
 post:
   tags:
     - Auth
@@ -42,8 +42,9 @@ post:
 
 
 
-    Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
-    delegated device profile cannot invoke this operation.
+    Uses the existing managed-client device flow. This endpoint is public, but validates its client
+    and supported device grant; anonymous DCR clients support authorization_code and optional
+    refresh_token, and cannot start the device flow.
   operationId: deviceAuthorize
   security:
     - {}

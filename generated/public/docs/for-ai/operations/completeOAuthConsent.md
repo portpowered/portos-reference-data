@@ -70,8 +70,7 @@ post:
                 type: string
                 format: uri
     '400':
-      description: Invalid
-      expired or consumed request.: null
+      description: Invalid, expired or consumed request.
     '401':
       description: User sign-in required.
   x-portos-delegated: false

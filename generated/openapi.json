@@ -7,7 +7,8 @@
   },
   "servers": [
     {
-      "url": "https://api.portpowered.com"
+      "url": "https://api.portoperatingsystem.lol",
+      "description": "Pilot API. Discover its canonical OAuth issuer and resource before authorization."
     },
     {
       "url": "http://localhost"
@@ -24,7 +25,7 @@
   "tags": [
     {
       "name": "Auth",
-      "description": "Port OS requires authorization to perform calls against port OS. \n\nPort OS uses OAuth to get tokens that you can use to call into \nPort OS APIs. \n\n### More resources\n\n1. [Authentication quickstart](portos.com/docs/auth-basics)\n2. [Authentication for Applications](portos.com/docs/auth-for-applications)\n2. [Authentication for Endpoints](portos.com/docs/auth-for-endpoints)\n3. [Authentication for Services](portos.com/docs/auth-for-services)\n"
+      "description": "Port OS requires authorization to perform calls against port OS. \n\nPort OS uses OAuth to get tokens that you can use to call into \nPort OS APIs. \n\nPublic agents compose the shared discovery, DCR/CIMD registration, consent/callback, token lifecycle and authorization rules from [the agent authentication guide](https://app.portoperatingsystem.lol/docs/for-ai/guides/connect-agent.md). Registration alone grants no resource access. Operation scopes restrict delegated authority in addition to the existing principal/resource permission rules.\n"
     },
     {
       "name": "Endpoints",
@@ -6602,36 +6603,6 @@
         ]
       }
     },
-    "/auth/authorize": {
-      "post": {
-        "tags": [
-          "Auth"
-        ],
-        "summary": "OAuth2 Authorization",
-        "description": "This API is used by your website/browser/user-agent to obtain authorization for port OS resources from the resource owner via user-agent redirection. \n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
-        "operationId": "authorize",
-        "security": [
-          {}
-        ],
-        "responses": {
-          "201": {
-            "description": "Token Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Token"
-                },
-                "example": {
-                  "key": "value"
-                }
-              }
-            }
-          }
-        },
-        "x-portos-delegated": false,
-        "x-portos-resource-permission": false
-      }
-    },
     "/auth/raise": {
       "post": {
         "operationId": "raiseAnonymousPrincipal",
@@ -6782,13 +6753,13 @@
         "x-portos-resource-permission": false
       }
     },
-    "/auth/device-authorize": {
+    "/auth/device_authorization": {
       "post": {
         "tags": [
           "Auth"
         ],
         "summary": "OAuth2 Device Authorization",
-        "description": "This API is used by your device to obtain authorization from the resource owner via a device code or QR code that your device can scan.\n\nSee the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
+        "description": "This API is used by your device to obtain authorization from the resource owner via a device code or QR code that your device can scan.\n\nSee the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).\n\n\nUses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow.",
         "operationId": "deviceAuthorize",
         "security": [
           {}
@@ -7613,14 +7584,87 @@
             }
           },
           "400": {
-            "description": "Invalid",
-            "expired or consumed request.": null
+            "description": "Invalid, expired or consumed request."
           },
           "401": {
             "description": "User sign-in required."
           }
         },
         "x-portos-delegated": false
+      }
+    },
+    "/oauth/authorization-request": {
+      "get": {
+        "operationId": "getPendingOAuthConsent",
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Read a pending request for the signed-in consent page",
+        "description": "Returns server-stored consent details to the authenticated website. Descriptive\nclient metadata is unverified. Agents use the public authorization endpoint and\nwait for the user; a delegated device token cannot read this session-only endpoint.\n",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-portos-delegated": false,
+        "x-portos-resource-permission": false,
+        "parameters": [
+          {
+            "in": "query",
+            "name": "request_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pending consent details. Response is not cacheable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "client_id",
+                    "client_name",
+                    "redirect_uri",
+                    "resource",
+                    "scopes"
+                  ],
+                  "properties": {
+                    "client_id": {
+                      "type": "string"
+                    },
+                    "client_name": {
+                      "type": "string"
+                    },
+                    "redirect_uri": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "resource": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "scopes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid, expired or consumed request."
+          },
+          "401": {
+            "description": "User sign-in required."
+          }
+        }
       }
     },
     "/oauth/validate-request": {
@@ -7631,7 +7675,11 @@
         ],
         "summary": "OAuth2 Validate Authorization Request",
         "description": "This endpoint validates OAuth 2.0 authorization request parameters without creating an authorization code. It returns client information relevant for displaying on the authorization page, such as client name, Terms of Service URI, Privacy Policy URI, logo URI, and validated scopes.\nThis endpoint is useful for pre-validation before user consent, allowing the frontend to display relevant client information to the user.\n",
-        "security": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -9884,7 +9932,7 @@
         ]
       }
     },
-    "/message-gateway": {
+    "/messages-gateway": {
       "post": {
         "operationId": "pushToMessageGateway",
         "tags": [
@@ -11504,8 +11552,8 @@
         "description": "OAuth2 authentication using the OAuth2 flow.",
         "flows": {
           "authorizationCode": {
-            "authorizationUrl": "https://api.portpowered.com/oauth/authorize",
-            "tokenUrl": "https://api.portpowered.com/auth/token",
+            "authorizationUrl": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize",
+            "tokenUrl": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
             "scopes": {
               "endpoint:read": "Read authorized endpoints and capability state.",
               "endpoint:write": "Manage authorized endpoints and routes.",
@@ -11527,7 +11575,7 @@
             }
           },
           "clientCredentials": {
-            "tokenUrl": "https://api.portpowered.com/auth/token",
+            "tokenUrl": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
             "scopes": {}
           }
         }
@@ -24689,19 +24737,6 @@
           "message": {
             "type": "string",
             "description": "Confirmation message (e.g. \"Token invalidated successfully\")."
-          }
-        }
-      },
-      "Token": {
-        "type": "object",
-        "properties": {
-          "accessToken": {
-            "type": "string",
-            "description": "The access token"
-          },
-          "refreshToken": {
-            "type": "string",
-            "description": "The refresh token"
           }
         }
       },

@@ -585,14 +585,6 @@ operations:
       - bearerAuth: []
     delegated: false
     resourcePermissionRequired: true
-  - path: /auth/authorize
-    runtimePath: /auth/authorize
-    method: POST
-    operationId: authorize
-    security:
-      - {}
-    delegated: false
-    resourcePermissionRequired: false
   - path: /auth/raise
     runtimePath: /auth/raise
     method: POST
@@ -607,8 +599,8 @@ operations:
     security: []
     delegated: false
     resourcePermissionRequired: false
-  - path: /auth/device-authorize
-    runtimePath: /auth/device-authorize
+  - path: /auth/device_authorization
+    runtimePath: /auth/device_authorization
     method: POST
     operationId: deviceAuthorize
     security:
@@ -691,11 +683,20 @@ operations:
       - bearerAuth: []
     delegated: false
     resourcePermissionRequired: false
+  - path: /oauth/authorization-request
+    runtimePath: /oauth/authorization-request
+    method: GET
+    operationId: getPendingOAuthConsent
+    security:
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: false
   - path: /oauth/validate-request
     runtimePath: /oauth/validate-request
     method: POST
     operationId: validateOAuthRequest
-    security: []
+    security:
+      - bearerAuth: []
     delegated: false
     resourcePermissionRequired: false
   - path: /oauth/verify-device
@@ -842,8 +843,8 @@ operations:
       - bearerAuth: []
     delegated: true
     resourcePermissionRequired: true
-  - path: /message-gateway
-    runtimePath: /message-gateway
+  - path: /messages-gateway
+    runtimePath: /messages-gateway
     method: POST
     operationId: pushToMessageGateway
     security:

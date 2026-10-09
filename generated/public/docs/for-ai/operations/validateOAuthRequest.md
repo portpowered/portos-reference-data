@@ -15,7 +15,8 @@ path: /oauth/validate-request
 runtimePath: /oauth/validate-request
 method: POST
 operationId: validateOAuthRequest
-security: []
+security:
+  - bearerAuth: []
 delegated: false
 resourcePermissionRequired: false
 ```
@@ -37,7 +38,8 @@ post:
 
     This endpoint is useful for pre-validation before user consent, allowing the frontend to display
     relevant client information to the user.
-  security: []
+  security:
+    - bearerAuth: []
   requestBody:
     required: true
     content:

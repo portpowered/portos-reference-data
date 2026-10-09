@@ -1,5 +1,5 @@
 // Package referencedata distributes the same immutable public documentation
-// assets as @portos/reference-data. It contains no HTTP or authentication logic.
+// assets as @portpowered/reference-data. It contains no HTTP or authentication logic.
 package referencedata
 
 import (

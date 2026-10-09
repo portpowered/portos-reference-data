@@ -1,8 +1,8 @@
 {
-  "package": "@portos/reference-data",
+  "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.3.0",
-  "assetSetSHA256": "f0558bebb65270c7c5ab6c0828f681bd0347cc31ec4b439e9fe2d5cd7367b260",
+  "version": "0.4.0",
+  "assetSetSHA256": "ece1d874e230c3ad55b25cb98615664095a0768aa9f9ec381238bdfbd6cec236",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -585,11 +585,6 @@
       "sha256": "d8e4983610fd9378db12b6acd23eb891a3bd5fc7cdb21f4f7cc7e034ce2321e6"
     },
     {
-      "path": "/docs/for-ai/operations/authorize.md",
-      "bytes": 1462,
-      "sha256": "8045e065e19e703e44219de316742bd6bf547bc7f27740c1c1f8ab6668944873"
-    },
-    {
       "path": "/docs/for-ai/operations/authorizeDevice.md",
       "bytes": 3014,
       "sha256": "81eb6a6aa40d274ebbc4600ad89fa65a4e181acb97346086c4d0a2355fae6b8a"
@@ -601,8 +596,8 @@
     },
     {
       "path": "/docs/for-ai/operations/completeOAuthConsent.md",
-      "bytes": 2200,
-      "sha256": "d67f83f20903b583f924e45b1e2daf7e60d9ffbfc750ad4de4b2d0bb5cbc4c59"
+      "bytes": 2189,
+      "sha256": "a690c7e82720398866e8d63ff308b86c92c95b6ee7a2931932651ce23c84cd88"
     },
     {
       "path": "/docs/for-ai/operations/createEndpointGroup.md",
@@ -726,8 +721,8 @@
     },
     {
       "path": "/docs/for-ai/operations/deviceAuthorize.md",
-      "bytes": 2228,
-      "sha256": "9538d350713d209095d1f7cc5b467e76e307116b7eb0238dcfdaca23b31d0ff0"
+      "bytes": 2424,
+      "sha256": "6fc2c3eb98ecdac9be5c03772d1d9d913bd55028023d887604d119ee812cf720"
     },
     {
       "path": "/docs/for-ai/operations/endpointGroupsManage.md",
@@ -905,6 +900,11 @@
       "sha256": "1ddea95c58539ace4e6fc610a59e5bf525e99259c6b3cf59f8c84c23f707d1d6"
     },
     {
+      "path": "/docs/for-ai/operations/getPendingOAuthConsent.md",
+      "bytes": 2284,
+      "sha256": "82012edecb5d745c1fac2628643275349230c96de3e26d3b617d45a7da00c0e6"
+    },
+    {
       "path": "/docs/for-ai/operations/getRoutes.md",
       "bytes": 2695,
       "sha256": "71e30f45aecf1565d83fa7379b5d3e6ffb6ecf413575c52077fa442119b99830"
@@ -941,8 +941,8 @@
     },
     {
       "path": "/docs/for-ai/operations/index.md",
-      "bytes": 9461,
-      "sha256": "14bcead23f0c5622dc56985d62ea8ba79c7bcbda532bbe2791be87207c9a3375"
+      "bytes": 9491,
+      "sha256": "af97a94f4acb8e3b21bba8c85705ac69cda4c8ffa4a8a08c5d5ce2db545e5094"
     },
     {
       "path": "/docs/for-ai/operations/invalidateToken.md",
@@ -981,8 +981,8 @@
     },
     {
       "path": "/docs/for-ai/operations/pushToMessageGateway.md",
-      "bytes": 1369,
-      "sha256": "907bdcff27757b275df25770e04fd2e72bf34e2763473c2de205e5bfc28edf9e"
+      "bytes": 1373,
+      "sha256": "d037ec90ab87b39c253b106abfc8c1409584cc27da598ef56eb2c9412c9b0020"
     },
     {
       "path": "/docs/for-ai/operations/queryFlowRuns.md",
@@ -1126,8 +1126,8 @@
     },
     {
       "path": "/docs/for-ai/operations/validateOAuthRequest.md",
-      "bytes": 2134,
-      "sha256": "16e72bf9a3ed8342127a3dcd7a5544c358ec89706aa51da758e5a2083bde39d7"
+      "bytes": 2168,
+      "sha256": "ef16b4327c8b471794c612b77fcaad8bae306c5e7ab76bfd76734ebe2d5dc8c7"
     },
     {
       "path": "/docs/for-ai/operations/validateTuyaLoginCode.md",
@@ -1141,13 +1141,13 @@
     },
     {
       "path": "/docs/references/authorization.json",
-      "bytes": 38240,
-      "sha256": "e5c4e7828cb5fb67c16703fe25cd34d183b00a1c0cdaea16d34deeb29e794af3"
+      "bytes": 38378,
+      "sha256": "c21aa9ff2b3c8c2c47d9854fd0b1e34b7ca6b48f4d038ca6540ff8fea5f27080"
     },
     {
       "path": "/docs/references/authorization.yaml",
-      "bytes": 28285,
-      "sha256": "e1b5c6157d39d6140e379a4156718228a208fc78ee43bc88b81b9dcf877d8616"
+      "bytes": 28365,
+      "sha256": "e0cf0406db18f96a88cf0d2d1505975d87597f0347c20c5fa44718654134eac2"
     },
     {
       "path": "/docs/references/capability-interfaces.yaml",
@@ -3371,8 +3371,8 @@
     },
     {
       "path": "/docs/references/openapi.yaml",
-      "bytes": 735618,
-      "sha256": "99f92ebbb99dbdfa4e0d4ad1b4dcfda71bfd913bf6a63799876b094821fe7c55"
+      "bytes": 736662,
+      "sha256": "e49ac8264f3ba4453025e09c3732c2318c7279958b63a9260dc9e245ae88c225"
     },
     {
       "path": "/llms.txt",

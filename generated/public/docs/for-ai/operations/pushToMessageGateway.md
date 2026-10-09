@@ -1,6 +1,6 @@
 # pushToMessageGateway
 
-POST `/message-gateway`
+POST `/messages-gateway`
 
 
 
@@ -11,8 +11,8 @@ Requires a signed user/session or the existing authenticated client flow. The an
 ## Authorization
 
 ```yaml
-path: /message-gateway
-runtimePath: /message-gateway
+path: /messages-gateway
+runtimePath: /messages-gateway
 method: POST
 operationId: pushToMessageGateway
 security:
@@ -25,7 +25,7 @@ resourcePermissionRequired: true
 ## Complete operation contract
 
 ```yaml
-path: /message-gateway
+path: /messages-gateway
 post:
   operationId: pushToMessageGateway
   tags:
