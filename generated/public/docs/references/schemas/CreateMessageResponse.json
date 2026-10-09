@@ -7,7 +7,7 @@
   "properties": {
     "messageId": {
       "type": "string",
-      "description": "The ID of the created message"
+      "description": "Identifies the unary response message when one is returned. An accepted asynchronous request can return an empty string with no message. This field does not provide a durable dispatch receipt, retry deduplication or proof of observed device state."
     },
     "message": {
       "$ref": "/docs/references/schemas/Message.json",

@@ -9826,14 +9826,14 @@
         },
         "responses": {
           "200": {
-            "description": "Message sent successfully",
+            "description": "Request accepted; an asynchronous acknowledgment may have an empty messageId and no message. Verify device state separately.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateMessageResponse"
                 },
                 "example": {
-                  "messageId": "example-dispatch-id"
+                  "messageId": ""
                 }
               }
             }
@@ -10106,14 +10106,14 @@
         },
         "responses": {
           "200": {
-            "description": "Message sent successfully",
+            "description": "Request accepted; an asynchronous acknowledgment may have an empty messageId and no message. Verify device state separately.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateMessageResponse"
                 },
                 "example": {
-                  "messageId": "example-dispatch-id"
+                  "messageId": ""
                 }
               }
             }
@@ -26762,7 +26762,7 @@
         "properties": {
           "messageId": {
             "type": "string",
-            "description": "The ID of the created message"
+            "description": "Identifies the unary response message when one is returned. An accepted asynchronous request can return an empty string with no message. This field does not provide a durable dispatch receipt, retry deduplication or proof of observed device state."
           },
           "message": {
             "$ref": "#/components/schemas/Message",

@@ -114,13 +114,15 @@ post:
             body: {}
   responses:
     '200':
-      description: Message sent successfully
+      description: >-
+        Request accepted; an asynchronous acknowledgment may have an empty messageId and no message.
+        Verify device state separately.
       content:
         application/json:
           schema:
             $ref: /docs/references/schemas/CreateMessageResponse.json
           example:
-            messageId: example-dispatch-id
+            messageId: ''
     '400':
       description: Invalid request payload or plugin dispatch request error
       content:
