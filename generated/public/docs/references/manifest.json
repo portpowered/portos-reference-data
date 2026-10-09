@@ -1,8 +1,8 @@
 {
   "package": "@portos/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.2.2",
-  "assetSetSHA256": "3c8f286092bfaa2f93ec3f40c1660113de619784f6b5c1f34abcfd814b54432c",
+  "version": "0.3.0",
+  "assetSetSHA256": "f0558bebb65270c7c5ab6c0828f681bd0347cc31ec4b439e9fe2d5cd7367b260",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -461,8 +461,8 @@
     },
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
-      "bytes": 4911,
-      "sha256": "9eeccdb63132b992b5776231b4b941cdab07aba25d68e9fe15fa3c78e0aa0b60"
+      "bytes": 1564,
+      "sha256": "7ecdba8c01628371ac49686089c9ef9efb4de6f1dddb725e6137e8f928544f0e"
     },
     {
       "path": "/docs/for-ai/guides/authorization-rules.md",
@@ -475,14 +475,19 @@
       "sha256": "588cafd0d91b7daef28de8369fc6b54e246a513166bd43de1fa3a1525225b210"
     },
     {
+      "path": "/docs/for-ai/guides/connect-agent.md",
+      "bytes": 2474,
+      "sha256": "2ace8142f363edcf8d48039f463fd2528307ffac1c3238301d85e8955b234e6a"
+    },
+    {
       "path": "/docs/for-ai/guides/connect-grok.md",
-      "bytes": 1224,
-      "sha256": "c5b521aabcba89d1dc27b65d2e3845786ed6ee1eb216fb3bc9464f034ce61df6"
+      "bytes": 493,
+      "sha256": "940859581cb364c4549ef9263ae37ecdf81ffe596f141d3d4eb14d8663103fb7"
     },
     {
       "path": "/docs/for-ai/guides/connect-muse.md",
-      "bytes": 1224,
-      "sha256": "e5042f5d3e7265bd1a8a4277cd1d0ad182d882488886a63598486a2ca4213f99"
+      "bytes": 493,
+      "sha256": "2630120ffab0ee3c2792d43ea86dff906fef263a1ac0a13228d2eff0ed511659"
     },
     {
       "path": "/docs/for-ai/guides/first-setup.md",
@@ -491,8 +496,8 @@
     },
     {
       "path": "/docs/for-ai/guides/index.md",
-      "bytes": 1362,
-      "sha256": "09cbc8b91a1c9b57efbbdb81f4cbb0bc7bee573a58b34cef13c281b307518f56"
+      "bytes": 1838,
+      "sha256": "becf671ec3d3e46eafd6dfe8ac99e14b780534fc435a55c1b997d5b32498cfa5"
     },
     {
       "path": "/docs/for-ai/guides/lighting.md",
@@ -513,6 +518,26 @@
       "path": "/docs/for-ai/guides/media.md",
       "bytes": 722,
       "sha256": "9b1d554e8f1e78df622ebe5fcb5de757aee4b21f7e24343a3a4797286c9a1f4c"
+    },
+    {
+      "path": "/docs/for-ai/guides/oauth-client-registration.md",
+      "bytes": 3490,
+      "sha256": "df91de30ed9c51fc655229f3946779bcd48d32634af4222d083d4bd37504a489"
+    },
+    {
+      "path": "/docs/for-ai/guides/oauth-consent-and-callback.md",
+      "bytes": 2010,
+      "sha256": "49f5edf60aca1b811fb989f9128edef1c7942f256ceedca2863f5fe8f786fa8c"
+    },
+    {
+      "path": "/docs/for-ai/guides/oauth-discovery.md",
+      "bytes": 1719,
+      "sha256": "6a762a3be4db768c8f49746146689763d36cf63ad5683ac9594280c0666d0dc5"
+    },
+    {
+      "path": "/docs/for-ai/guides/oauth-token-lifecycle.md",
+      "bytes": 1998,
+      "sha256": "665e0a88f9a5ac8dc130c41818d0efdaf01970342ae16a321e7d05a44ff29e47"
     },
     {
       "path": "/docs/for-ai/guides/port-os-concepts.md",
