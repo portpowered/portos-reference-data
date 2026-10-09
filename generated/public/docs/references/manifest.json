@@ -1,8 +1,8 @@
 {
   "package": "@portos/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.2.1",
-  "assetSetSHA256": "cdac6e2b6153bc27cb73534a7c44ad0940a4089dc17e5606c2a16e92298cf326",
+  "version": "0.2.2",
+  "assetSetSHA256": "3c8f286092bfaa2f93ec3f40c1660113de619784f6b5c1f34abcfd814b54432c",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -461,8 +461,8 @@
     },
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
-      "bytes": 3989,
-      "sha256": "62e606398aa3a53a5d8dcb83007038730491c7f5eb6fa95674c067b014fe1a5b"
+      "bytes": 4911,
+      "sha256": "9eeccdb63132b992b5776231b4b941cdab07aba25d68e9fe15fa3c78e0aa0b60"
     },
     {
       "path": "/docs/for-ai/guides/authorization-rules.md",
@@ -986,8 +986,8 @@
     },
     {
       "path": "/docs/for-ai/operations/registerDynamicOAuthClient.md",
-      "bytes": 3422,
-      "sha256": "8e128538220aa324bb0aec521eb6c9ef90b876f6fef4a8287e7e730513dc84d6"
+      "bytes": 4344,
+      "sha256": "d838925babecfde7680fd38b71eb6c838cd51fb23f7d981640816df36a5965dc"
     },
     {
       "path": "/docs/for-ai/operations/removeEndpointGroupMembers.md",
@@ -3346,8 +3346,8 @@
     },
     {
       "path": "/docs/references/openapi.yaml",
-      "bytes": 734847,
-      "sha256": "f2c569f5ee227a7d44399bc0e7535da035b6426e300d67761f27d195f151c010"
+      "bytes": 735618,
+      "sha256": "99f92ebbb99dbdfa4e0d4ad1b4dcfda71bfd913bf6a63799876b094821fe7c55"
     },
     {
       "path": "/llms.txt",

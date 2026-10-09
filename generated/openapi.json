@@ -7368,7 +7368,7 @@
         "security": [],
         "x-portos-delegated": false,
         "x-portos-resource-permission": false,
-        "description": "RFC 7591 anonymous public-client registration. No Google session is required.\nThis registration gives no user or resource permissions. Public clients must\nuse PKCE S256, resource-bound authorization_code flow and explicit user consent.\nClient name, software_id and client_uri are unverified claims, not proof of Muse\nor any other product. Untrusted software_statement is rejected.\nHTTPS callbacks are allowed; HTTP callbacks require literal loopback IPs.\nUnknown metadata extensions are ignored as required by RFC 7591.\nThe deployment enforces rolling registration and retained-client quotas.\n",
+        "description": "RFC 7591 anonymous public-client registration. No Google session is required.\nThis registration gives no user or resource permissions. Public clients must\nuse PKCE S256, resource-bound authorization_code flow and explicit user consent.\nClient name, software_id and client_uri are unverified claims, not proof of Muse\nor any other product. Untrusted software_statement is rejected.\nRemote callbacks require HTTPS. HTTP is allowed for localhost or literal\nloopback IPs only, and local callbacks cannot be mixed with remote callbacks.\nSHA-256 of canonical client_name, sorted redirect_uris, sorted grant_types,\nsorted response_types and token_endpoint_auth_method identifies a registration.\nA repeated fingerprint returns the original client_id and accepted metadata,\nincluding its original scopes; it never overwrites metadata or expands scopes.\nReused registrations do not consume new-registration quota.\nUnknown metadata extensions are ignored as required by RFC 7591.\nThe deployment enforces rolling registration and retained-client quotas.\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -24890,6 +24890,7 @@
           },
           "redirect_uris": {
             "type": "array",
+            "description": "Exact callbacks must form either an entirely localhost/loopback set or an entirely remote HTTPS set. HTTP is allowed only for localhost or literal loopback IPs. Local and remote callbacks cannot be mixed; user information and fragments are forbidden.",
             "minItems": 1,
             "maxItems": 8,
             "items": {

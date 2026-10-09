@@ -9,7 +9,13 @@ This registration gives no user or resource permissions. Public clients must
 use PKCE S256, resource-bound authorization_code flow and explicit user consent.
 Client name, software_id and client_uri are unverified claims, not proof of Muse
 or any other product. Untrusted software_statement is rejected.
-HTTPS callbacks are allowed; HTTP callbacks require literal loopback IPs.
+Remote callbacks require HTTPS. HTTP is allowed for localhost or literal
+loopback IPs only, and local callbacks cannot be mixed with remote callbacks.
+SHA-256 of canonical client_name, sorted redirect_uris, sorted grant_types,
+sorted response_types and token_endpoint_auth_method identifies a registration.
+A repeated fingerprint returns the original client_id and accepted metadata,
+including its original scopes; it never overwrites metadata or expands scopes.
+Reused registrations do not consume new-registration quota.
 Unknown metadata extensions are ignored as required by RFC 7591.
 The deployment enforces rolling registration and retained-client quotas.
 
@@ -44,7 +50,13 @@ post:
     use PKCE S256, resource-bound authorization_code flow and explicit user consent.
     Client name, software_id and client_uri are unverified claims, not proof of Muse
     or any other product. Untrusted software_statement is rejected.
-    HTTPS callbacks are allowed; HTTP callbacks require literal loopback IPs.
+    Remote callbacks require HTTPS. HTTP is allowed for localhost or literal
+    loopback IPs only, and local callbacks cannot be mixed with remote callbacks.
+    SHA-256 of canonical client_name, sorted redirect_uris, sorted grant_types,
+    sorted response_types and token_endpoint_auth_method identifies a registration.
+    A repeated fingerprint returns the original client_id and accepted metadata,
+    including its original scopes; it never overwrites metadata or expands scopes.
+    Reused registrations do not consume new-registration quota.
     Unknown metadata extensions are ignored as required by RFC 7591.
     The deployment enforces rolling registration and retained-client quotas.
   requestBody:
