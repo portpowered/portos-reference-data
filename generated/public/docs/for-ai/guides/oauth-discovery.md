@@ -12,3 +12,17 @@ An MCP connector can start at https://api.portoperatingsystem.lol/mcp and follow
 Choose one supported [client registration method](/docs/for-ai/guides/oauth-client-registration.md), then follow the same [consent and callback steps](/docs/for-ai/guides/oauth-consent-and-callback.md). If metadata omits registration_endpoint, new DCR registration is unavailable; do not guess a replacement endpoint or silently switch to another client's credentials.
 
 See [scopes and resource rules](/docs/for-ai/guides/authorization-rules.md). Authorization-server scopes_supported describes server vocabulary; a particular client's accepted scopes can be narrower.
+
+## Carry discovery values into every request
+
+This JavaScript fragment initializes a REST connection. Keep `authorizationServer` and `resource` for the consent and token examples; the API alias is only the discovery starting point.
+
+```javascript
+const response = await fetch('https://api.portoperatingsystem.lol/.well-known/oauth-authorization-server');
+if (!response.ok) throw new Error('OAuth discovery failed');
+const authorizationServer = await response.json();
+const resource = authorizationServer.issuer;
+const apiBase = authorizationServer.issuer;
+```
+
+For MCP, assign `resource` from the protected-resource metadata's `resource` field instead. Do not replace either value with the hostname you started from. A wrong `resource` can produce an `invalid_request` error callback even when client registration succeeded.

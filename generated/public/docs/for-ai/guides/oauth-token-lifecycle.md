@@ -11,6 +11,21 @@ code_verifier=<this attempt's original verifier>
 resource=<the same canonical resource used for authorization>
 ```
 
+Continue with the same discovery values and verifier from the consent example. `code` below must be from a callback whose `state` and `iss` you validated; abort on any callback `error`:
+
+```javascript
+const tokenResponse = await fetch(authorizationServer.token_endpoint, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  body: new URLSearchParams({
+    grant_type: 'authorization_code', client_id: clientId, code,
+    redirect_uri: redirectUri, code_verifier: verifier, resource,
+  }),
+});
+if (!tokenResponse.ok) throw new Error('OAuth code exchange failed');
+const tokens = await tokenResponse.json(); // Store securely; do not print tokens.
+```
+
 Save access_token, refresh_token and returned scope in the connector's secure credential store. Public clients have no client secret. Use Authorization: Bearer <access_token> with REST requests or the MCP HTTP connection, according to that token's resource. A refresh token is never an API credential. [Scopes bound access; resource policies still apply](/docs/for-ai/guides/authorization-rules.md).
 
 Refresh with grant_type=refresh_token, client_id, refresh_token and the original resource at token_endpoint. Scope may stay the same or narrow; it cannot expand. Credentials rotate: store the newly returned refresh token atomically and stop using the previous one. A revoked or reused refresh token must not be retried in a loop. Reauthorize when the grant no longer permits the intended operation.

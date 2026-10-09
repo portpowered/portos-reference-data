@@ -17,6 +17,25 @@ code_challenge=<S256 challenge>
 code_challenge_method=S256
 ```
 
+For REST, use the `resource = authorizationServer.issuer` value retained from discovery. Construct the URL rather than writing an alias into a template. This JavaScript fragment assumes `clientId`, `redirectUri` and `acceptedScope` come from your registration response and callback configuration:
+
+```javascript
+const base64url = bytes => btoa(String.fromCharCode(...bytes))
+  .replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
+const verifier = base64url(crypto.getRandomValues(new Uint8Array(32)));
+const state = base64url(crypto.getRandomValues(new Uint8Array(32)));
+const challenge = base64url(new Uint8Array(await crypto.subtle.digest(
+  'SHA-256', new TextEncoder().encode(verifier))));
+const authorizationURL = new URL(authorizationServer.authorization_endpoint);
+authorizationURL.search = new URLSearchParams({
+  client_id: clientId, redirect_uri: redirectUri, response_type: 'code',
+  scope: acceptedScope, resource, state,
+  code_challenge: challenge, code_challenge_method: 'S256',
+}).toString();
+// Retain verifier, state and authorizationServer.issuer privately until callback validation.
+// Open authorizationURL.href in the user's browser; wait for their consent.
+```
+
 The user signs in on Port OS and reviews the requested permissions. Pause for the user; an agent must not approve its own grant, request passwords or manufacture a production sign-in identity. Local functional tests substitute an existing signed fixture identity at this boundary without changing production sign-in.
 
 After approval, Port OS navigates to the exact callback with code, state and iss. Reject a callback whose state or issuer does not match this attempt. Treat an error callback as a denied or failed authorization, not a code. Codes and pending consent expire after ten minutes and are single-use. Do not paste codes or credentials into shared chat or logs. Continue with [code exchange and token lifecycle](/docs/for-ai/guides/oauth-token-lifecycle.md).

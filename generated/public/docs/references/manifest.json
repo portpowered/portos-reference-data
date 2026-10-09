@@ -1,12 +1,12 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.2",
-  "sourceCommit": "9c7f81d92ddc6ce6df4b0b2a692a7f0ff9550edf",
+  "version": "0.4.3",
+  "sourceCommit": "eecb0269b4626c38f646c4ed03b55a793c511bbd",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "672e3c9e2c90ebf19de4df1c79a1d44be167d9433c6d488bb071521bb73d00ad",
+  "sourceInputSHA256": "19728ad478ab3d79f8f50f3d816de492ad6dd9f3361a2a1cd097448b5264b260",
   "sourceInputCount": 735,
-  "assetSetSHA256": "facf032524bd00fec240cf2a0de2f45c6534b1272756cf8306e13c48b4950cc3",
+  "assetSetSHA256": "47173fdb53c1c85580bf61d001555c969acf468d8dd1ffe33dfc84de92f6eaec",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -1184,17 +1184,22 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1564,
-      "sha256": "7ecdba8c01628371ac49686089c9ef9efb4de6f1dddb725e6137e8f928544f0e",
+      "bytes": 16740,
+      "sha256": "69ff1fda5f5443ed1fa5c21abdfa5dda5c73b1edc6e54b9f056776f881d7dc80",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
-        "/docs/for-ai/guides/connect-agent.md",
         "/docs/for-ai/guides/first-setup.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
         "/docs/for-ai/guides/oauth-consent-and-callback.md",
         "/docs/for-ai/guides/oauth-discovery.md",
         "/docs/for-ai/guides/oauth-token-lifecycle.md",
-        "/docs/for-ai/guides/quickstart.md"
+        "/docs/for-ai/guides/quickstart.md",
+        "/docs/for-ai/guides/troubleshooting.md",
+        "/docs/for-ai/operations/generateToken.md",
+        "/docs/for-ai/operations/index.md",
+        "/docs/for-ai/operations/registerDynamicOAuthClient.md",
+        "/docs/for-ai/operations/revokeOAuthGrant.md",
+        "/docs/references/authorization.yaml"
       ]
     },
     {
@@ -1350,8 +1355,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-consent-and-callback.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2010,
-      "sha256": "49f5edf60aca1b811fb989f9128edef1c7942f256ceedca2863f5fe8f786fa8c",
+      "bytes": 3205,
+      "sha256": "bc22815e582752c38aa905619bc1cb538c3723c24e1bcad11ee607fb73969629",
       "links": [
         "/docs/for-ai/guides/oauth-client-registration.md",
         "/docs/for-ai/guides/oauth-discovery.md",
@@ -1361,8 +1366,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1719,
-      "sha256": "6a762a3be4db768c8f49746146689763d36cf63ad5683ac9594280c0666d0dc5",
+      "bytes": 2545,
+      "sha256": "e04f8ab874da6c399c59c7f4618da37f99160f87c7f0adf39800486d6fb3192f",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
@@ -1372,8 +1377,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-token-lifecycle.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1998,
-      "sha256": "665e0a88f9a5ac8dc130c41818d0efdaf01970342ae16a321e7d05a44ff29e47",
+      "bytes": 2686,
+      "sha256": "265884b7d4c2c221ec9bdb8cb45347e53185162b5138ca19c2bbd85da607cd1c",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -2916,12 +2921,52 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 77268,
-      "sha256": "8518190d62af19aa102dd27ef807febeaaf52a1355ae1f59833ca5e451f77ed9",
+      "bytes": 3938,
+      "sha256": "0f3f3091f315c5ac335e3c313f20bea991416b4294ab0e8a3502d3b21ccd7ac5",
       "links": [
-        "/docs/references/headers/ETag.json",
-        "/docs/references/parameters/IdempotencyKey.json",
-        "/docs/references/parameters/IfMatch.json",
+        "/docs/for-ai/operations/index.md",
+        "/docs/for-ai/schemas/a-1.md",
+        "/docs/for-ai/schemas/a-2.md",
+        "/docs/for-ai/schemas/b-1.md",
+        "/docs/for-ai/schemas/c-1.md",
+        "/docs/for-ai/schemas/c-2.md",
+        "/docs/for-ai/schemas/c-3.md",
+        "/docs/for-ai/schemas/d-1.md",
+        "/docs/for-ai/schemas/e-1.md",
+        "/docs/for-ai/schemas/e-2.md",
+        "/docs/for-ai/schemas/f-1.md",
+        "/docs/for-ai/schemas/f-2.md",
+        "/docs/for-ai/schemas/g-1.md",
+        "/docs/for-ai/schemas/h-1.md",
+        "/docs/for-ai/schemas/i-1.md",
+        "/docs/for-ai/schemas/k-1.md",
+        "/docs/for-ai/schemas/l-1.md",
+        "/docs/for-ai/schemas/m-1.md",
+        "/docs/for-ai/schemas/m-2.md",
+        "/docs/for-ai/schemas/n-1.md",
+        "/docs/for-ai/schemas/o-1.md",
+        "/docs/for-ai/schemas/p-1.md",
+        "/docs/for-ai/schemas/p-2.md",
+        "/docs/for-ai/schemas/q-1.md",
+        "/docs/for-ai/schemas/r-1.md",
+        "/docs/for-ai/schemas/r-2.md",
+        "/docs/for-ai/schemas/s-1.md",
+        "/docs/for-ai/schemas/s-2.md",
+        "/docs/for-ai/schemas/s-3.md",
+        "/docs/for-ai/schemas/t-1.md",
+        "/docs/for-ai/schemas/u-1.md",
+        "/docs/for-ai/schemas/v-1.md",
+        "/docs/for-ai/schemas/w-1.md",
+        "/docs/references/schemas/index.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/a-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4249,
+      "sha256": "e598e2c4840939220f9ae291c32089a02cbbade88202481ad7ae6d2bb5bc8d77",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/AccessControlEntity.json",
         "/docs/references/schemas/AccessControlOperation.json",
         "/docs/references/schemas/AccessControlRequesterContext.json",
@@ -2960,13 +3005,31 @@
         "/docs/references/schemas/AuthLink.json",
         "/docs/references/schemas/AuthLinkSecret.json",
         "/docs/references/schemas/AuthLinksList.json",
-        "/docs/references/schemas/AuthResourceType.json",
         "/docs/references/schemas/AuthorizationInterfaceAuthorizationEstablishedMessage.json",
-        "/docs/references/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessage.json",
+        "/docs/references/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/a-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 640,
+      "sha256": "fe1b54da71a81d65d7176d1414677945041f27478820a904aaae05bb7e5c3ea1",
+      "links": [
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/AuthResourceType.json",
         "/docs/references/schemas/AuthorizationInterfaceConfiguration.json",
         "/docs/references/schemas/AuthorizationInterfaceRefreshTokensMessage.json",
         "/docs/references/schemas/AuthorizeDeviceRequest.json",
-        "/docs/references/schemas/AuthorizeDeviceResponse.json",
+        "/docs/references/schemas/AuthorizeDeviceResponse.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/b-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2013,
+      "sha256": "9cbec20f8d604f8086a0c0f5d5a5894f35cd89b8c9564ec06134221370e0d4ed",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/BarrierControlInterfaceBarrierPositionAttribute.json",
         "/docs/references/schemas/BarrierControlInterfaceBarrierStateAttribute.json",
         "/docs/references/schemas/BarrierControlInterfaceCloseMessage.json",
@@ -2984,7 +3047,16 @@
         "/docs/references/schemas/BrandingInformation.json",
         "/docs/references/schemas/BrightnessInterfaceBrightnessAttribute.json",
         "/docs/references/schemas/BrightnessInterfaceConfiguration.json",
-        "/docs/references/schemas/BrightnessInterfaceSetBrightnessMessage.json",
+        "/docs/references/schemas/BrightnessInterfaceSetBrightnessMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/c-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5271,
+      "sha256": "c362f7db814b886238ad12672da443ed9975be9a6493637d9e9f3b3cab921d24",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/CalendarEvent.json",
         "/docs/references/schemas/CalendarProviderCapabilityInterfaceConfiguration.json",
         "/docs/references/schemas/CalendarProviderInterfaceListEventsMessage.json",
@@ -3024,7 +3096,16 @@
         "/docs/references/schemas/ColorTemperatureInterfaceConfiguration.json",
         "/docs/references/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessage.json",
         "/docs/references/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessage.json",
-        "/docs/references/schemas/ColorTemperatureInterfaceSetColorTemperatureMessage.json",
+        "/docs/references/schemas/ColorTemperatureInterfaceSetColorTemperatureMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/c-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4861,
+      "sha256": "14b05cd0eff13fc9504773bb5b08f7e171b0acdaf43bb6e497bac24fbf95200f",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/ConductivityInterfaceMeasuredValueAttribute.json",
         "/docs/references/schemas/ConnectivityInterfaceConfiguration.json",
         "/docs/references/schemas/ConnectivityInterfaceNetworkThroughputAttribute.json",
@@ -3056,6 +3137,24 @@
         "/docs/references/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessage.json",
         "/docs/references/schemas/CooktopInterfaceConfiguration.json",
         "/docs/references/schemas/CooktopInterfaceOperationalStateAttribute.json",
+        "/docs/references/schemas/configuration-2.json",
+        "/docs/references/schemas/configuration-3.json",
+        "/docs/references/schemas/configuration-4.json",
+        "/docs/references/schemas/configuration-5.json",
+        "/docs/references/schemas/configuration-6.json",
+        "/docs/references/schemas/configuration-7.json",
+        "/docs/references/schemas/configuration-8.json",
+        "/docs/references/schemas/configuration-9.json",
+        "/docs/references/schemas/configuration.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/c-3.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1235,
+      "sha256": "a63ac20663162406b335d6ca675ee5c54d9bb830687643057054b79d012e8934",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/CreateEndpointGroupItem.json",
         "/docs/references/schemas/CreateEndpointGroupRequest.json",
         "/docs/references/schemas/CreateEndpointGroupResponse.json",
@@ -3067,7 +3166,16 @@
         "/docs/references/schemas/CreateOAuthClientResponse.json",
         "/docs/references/schemas/CreateTokenRequest.json",
         "/docs/references/schemas/CreateTokenResponse.json",
-        "/docs/references/schemas/CustomPluginSecret.json",
+        "/docs/references/schemas/CustomPluginSecret.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/d-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1797,
+      "sha256": "6178f068cb74d77072351fab39b043d160b8ed446a637b40f2fbed7d2d1a748c",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/DataType.json",
         "/docs/references/schemas/DebugNodeConfiguration.json",
         "/docs/references/schemas/DeduplicateNodeConfiguration.json",
@@ -3085,7 +3193,16 @@
         "/docs/references/schemas/DispatchError.json",
         "/docs/references/schemas/DoorbellInterfaceChimeMessage.json",
         "/docs/references/schemas/DoorbellInterfaceConfiguration.json",
-        "/docs/references/schemas/DynamicClientMetadata.json",
+        "/docs/references/schemas/DynamicClientMetadata.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/e-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4339,
+      "sha256": "aca5abe0d49d832163edd37a9e8b6ebfe9ef60e69146d28bb99e3618f752bf29",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/ElectricalConductivitySensorInterfaceConfiguration.json",
         "/docs/references/schemas/EmbeddingGenerationInterfaceConfiguration.json",
         "/docs/references/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessage.json",
@@ -3125,7 +3242,17 @@
         "/docs/references/schemas/EnumerateOAuthClientsResponse.json",
         "/docs/references/schemas/EnumeratePluginsResponse.json",
         "/docs/references/schemas/EnumeratePrincipalsResponse.json",
-        "/docs/references/schemas/EnumerateRoutesResponse.json",
+        "/docs/references/schemas/EnumerateRoutesResponse.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/e-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3801,
+      "sha256": "2117bd4d0f4326dd8db01cef99cd29897cb0e49ef4bb4b6ad21b170a7b6a78c4",
+      "links": [
+        "/docs/for-ai/schemas.md",
+        "/docs/references/headers/ETag.json",
         "/docs/references/schemas/EnumerateSecretsResponse.json",
         "/docs/references/schemas/EnumerateSubscriptionsResponse.json",
         "/docs/references/schemas/EnumerateTokensResponse.json",
@@ -3162,7 +3289,16 @@
         "/docs/references/schemas/EventRedriveResult.json",
         "/docs/references/schemas/EventTarget.json",
         "/docs/references/schemas/ExtractorHoodInterfaceConfiguration.json",
-        "/docs/references/schemas/ExtractorHoodInterfaceFanSpeedAttribute.json",
+        "/docs/references/schemas/ExtractorHoodInterfaceFanSpeedAttribute.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/f-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4435,
+      "sha256": "9c4b3b2eade0f4ed56284427d5d0fe7a23d1ad4c31587d82e698726cc197e851",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/FanControlInterfaceConfiguration.json",
         "/docs/references/schemas/FanControlInterfaceFanModeAttribute.json",
         "/docs/references/schemas/FanControlInterfaceFanSpeedAttribute.json",
@@ -3195,8 +3331,6 @@
         "/docs/references/schemas/FlowSensorInterfaceConfiguration.json",
         "/docs/references/schemas/FlowSensorInterfaceMeasuredValueAttribute.json",
         "/docs/references/schemas/FlowSupportedReasons.json",
-        "/docs/references/schemas/FlowSupportedStatuses.json",
-        "/docs/references/schemas/FlowTrigger.json",
         "/docs/references/schemas/FlowsInterfaceCompleteMessage.json",
         "/docs/references/schemas/FlowsInterfaceInitiateMessage.json",
         "/docs/references/schemas/FlowsInterfaceMessageAckMessage.json",
@@ -3204,9 +3338,29 @@
         "/docs/references/schemas/FlowsInterfaceNodeCompleteMessage.json",
         "/docs/references/schemas/FlowsInterfacePauseMessage.json",
         "/docs/references/schemas/FlowsInterfaceResumeMessage.json",
-        "/docs/references/schemas/FlowsInterfaceTerminateMessage.json",
+        "/docs/references/schemas/FlowsInterfaceTerminateMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/f-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 567,
+      "sha256": "b8729003c71e3202be4c13c9d5f8cf78253475e74f15c60a5b29a8ca6766a4d3",
+      "links": [
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/FlowSupportedStatuses.json",
+        "/docs/references/schemas/FlowTrigger.json",
         "/docs/references/schemas/FormaldehydeConcMeasInterfaceConfiguration.json",
-        "/docs/references/schemas/FormaldehydeConcMeasInterfaceMeasuredValueAttribute.json",
+        "/docs/references/schemas/FormaldehydeConcMeasInterfaceMeasuredValueAttribute.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/g-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1228,
+      "sha256": "ace9d12501eb15219c7ba1488217412ba7d3518f5fd4757639c5c29a0df6b61e",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/GenerateOAuthCodeRequest.json",
         "/docs/references/schemas/GenerateOAuthCodeResponse.json",
         "/docs/references/schemas/GenerateTokenRequest.json",
@@ -3219,21 +3373,59 @@
         "/docs/references/schemas/GroupRelationshipVertex.json",
         "/docs/references/schemas/GroupRoute.json",
         "/docs/references/schemas/GroupRouteAttributeState.json",
-        "/docs/references/schemas/GroupRoutesList.json",
+        "/docs/references/schemas/GroupRoutesList.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/h-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 606,
+      "sha256": "1aba8d6905d53cab600faafdeea88c3cf4cfef4a8fc5a62fb22bb6f4f125fb76",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/HostedComputePlugin.json",
         "/docs/references/schemas/HsbColor.json",
         "/docs/references/schemas/HttpPlugin.json",
         "/docs/references/schemas/HumiditySensorInterfaceConfiguration.json",
-        "/docs/references/schemas/HumiditySensorInterfaceRelativeHumidityAttribute.json",
+        "/docs/references/schemas/HumiditySensorInterfaceRelativeHumidityAttribute.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/i-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 982,
+      "sha256": "bb33879b5fe76c2a73719d2252ee73f4b4fee6cbcb1744789a474c0f184c24a0",
+      "links": [
+        "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/IdempotencyKey.json",
+        "/docs/references/parameters/IfMatch.json",
         "/docs/references/schemas/InferenceNodeConfiguration.json",
         "/docs/references/schemas/InputInterfaceConfiguration.json",
         "/docs/references/schemas/InputInterfaceInputAttribute.json",
         "/docs/references/schemas/InputInterfaceNavigateInputMessage.json",
         "/docs/references/schemas/InputInterfaceSelectInputMessage.json",
         "/docs/references/schemas/IntegrationRequest.json",
-        "/docs/references/schemas/InvalidateTokenResponse.json",
+        "/docs/references/schemas/InvalidateTokenResponse.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/k-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 357,
+      "sha256": "a0afa3b3adc25cc517bfba1853e8eaee992b30b3f707ba8089faa69429f263a2",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/KeypadInputInterfaceConfiguration.json",
-        "/docs/references/schemas/KeypadInputInterfaceSendKeyMessage.json",
+        "/docs/references/schemas/KeypadInputInterfaceSendKeyMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/l-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2241,
+      "sha256": "85a512657fb5469f019b1a8e39bb54fa216c9eb03d5123a8f88188c4f171fa34",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/LaundryDryerInterfaceConfiguration.json",
         "/docs/references/schemas/LaundryDryerInterfaceOperationalStateAttribute.json",
         "/docs/references/schemas/LaundryWasherInterfaceConfiguration.json",
@@ -3251,7 +3443,16 @@
         "/docs/references/schemas/LockInterfaceConfiguration.json",
         "/docs/references/schemas/LockInterfaceLockMessage.json",
         "/docs/references/schemas/LockInterfaceLockStateAttribute.json",
-        "/docs/references/schemas/LockInterfaceUnlockMessage.json",
+        "/docs/references/schemas/LockInterfaceUnlockMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/m-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4561,
+      "sha256": "52cf6e1ea1757214199e1bbcce7c404de84455c6ca44d9804280450c80f0ab7b",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/MeasurementRange.json",
         "/docs/references/schemas/MeasurementUnit.json",
         "/docs/references/schemas/MeasurementValue.json",
@@ -3291,7 +3492,16 @@
         "/docs/references/schemas/MessageEndpoint.json",
         "/docs/references/schemas/MessageHeader.json",
         "/docs/references/schemas/MessageInterfaceConfiguration.json",
-        "/docs/references/schemas/MessageSourceNodeConfiguration.json",
+        "/docs/references/schemas/MessageSourceNodeConfiguration.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/m-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1369,
+      "sha256": "b6a710b03be383db3944d421411cdfa6671ccf0ebb7d1acd55a27f6cc305dc0a",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/MessageTarget.json",
         "/docs/references/schemas/MessageTargetGroupRoute.json",
         "/docs/references/schemas/MessageTargetGroupRouteReference.json",
@@ -3303,7 +3513,16 @@
         "/docs/references/schemas/MotionSensorInterfaceConfiguration.json",
         "/docs/references/schemas/MotionSensorInterfaceDetectionStateAttribute.json",
         "/docs/references/schemas/MotionSensorInterfaceMotionDetectedMessage.json",
-        "/docs/references/schemas/MovementInstruction.json",
+        "/docs/references/schemas/MovementInstruction.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/n-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1360,
+      "sha256": "255a8bb92c23af99e0c9beba947dd8e7c1aa483bb537ef76c5fc7e495fd2916d",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/NO2ConcMeasInterfaceConfiguration.json",
         "/docs/references/schemas/NO2ConcMeasInterfaceMeasuredValueAttribute.json",
         "/docs/references/schemas/NotificationCapabilityInterfaceConfiguration.json",
@@ -3314,7 +3533,16 @@
         "/docs/references/schemas/NotificationInterval.json",
         "/docs/references/schemas/NotificationPayload.json",
         "/docs/references/schemas/NotificationSchedule.json",
-        "/docs/references/schemas/NotificationTimeWindow.json",
+        "/docs/references/schemas/NotificationTimeWindow.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/o-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1587,
+      "sha256": "2ba8c399dd63652c39386803c8f45d9f06c859d805b3718adf082ac805ca3bc2",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/O3ConcMeasInterfaceConfiguration.json",
         "/docs/references/schemas/O3ConcMeasInterfaceMeasuredValueAttribute.json",
         "/docs/references/schemas/OAuth2ConnectionData.json",
@@ -3330,11 +3558,16 @@
         "/docs/references/schemas/OntologicalType.json",
         "/docs/references/schemas/OperationalState.json",
         "/docs/references/schemas/OvenInterfaceConfiguration.json",
-        "/docs/references/schemas/OvenInterfaceTemperatureAttribute.json",
-        "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceConfiguration.json",
-        "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
-        "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceConfiguration.json",
-        "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
+        "/docs/references/schemas/OvenInterfaceTemperatureAttribute.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/p-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3907,
+      "sha256": "f174867ceb9eeae65fdca4712b1349ca678bc178ffdad5290398bd98955d3176",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/PaginationContext.json",
         "/docs/references/schemas/PatchSubscriptionRequest.json",
         "/docs/references/schemas/PercentageInterfaceAdjustPercentageMessage.json",
@@ -3374,7 +3607,20 @@
         "/docs/references/schemas/PluginMetadataMultifactorField.json",
         "/docs/references/schemas/PluginMetadataOAuth.json",
         "/docs/references/schemas/PluginType.json",
-        "/docs/references/schemas/PluginsList.json",
+        "/docs/references/schemas/PluginsList.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/p-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3182,
+      "sha256": "afa2d0946877c719f5fc1aa94d8a6abadfbca310064a60fb6f9bf3ceca26e200",
+      "links": [
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceConfiguration.json",
+        "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
+        "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceConfiguration.json",
+        "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
         "/docs/references/schemas/Position.json",
         "/docs/references/schemas/PowerInterfaceConfiguration.json",
         "/docs/references/schemas/PowerInterfacePowerAttribute.json",
@@ -3395,11 +3641,29 @@
         "/docs/references/schemas/PumpConfigurationAndControlInterfacePumpModeAttribute.json",
         "/docs/references/schemas/PumpConfigurationAndControlInterfacePumpStatusAttribute.json",
         "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetModeMessage.json",
-        "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessage.json",
+        "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/q-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 435,
+      "sha256": "c0836dfa8fae60ed1535aaa44bf18e287107b398658be7325d487d44049a8e61",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/Query.json",
         "/docs/references/schemas/QueryComparator.json",
         "/docs/references/schemas/QueryFlowRunsResponse.json",
-        "/docs/references/schemas/QueryFlowsResponse.json",
+        "/docs/references/schemas/QueryFlowsResponse.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/r-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4829,
+      "sha256": "5d81f393f665bacdea224fa170851bf1b02d162934f5c18ef558aa58f90eef45",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/RadioDiagnosticValue.json",
         "/docs/references/schemas/Recording.json",
         "/docs/references/schemas/RecordingsInterfaceConfiguration.json",
@@ -3439,7 +3703,16 @@
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceStartMessage.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceStopMessage.json",
         "/docs/references/schemas/Route.json",
-        "/docs/references/schemas/RouteDiscoveryConfiguration.json",
+        "/docs/references/schemas/RouteDiscoveryConfiguration.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/r-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3423,
+      "sha256": "4d1ed4bdd6ba41a769b4f40d289b8be2ac6b00f1afa37d1196251b17ac23230a",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessage.json",
         "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage.json",
         "/docs/references/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage.json",
@@ -3469,7 +3742,16 @@
         "/docs/references/schemas/RtspSessionInterfaceStartSessionMessage.json",
         "/docs/references/schemas/RtspSessionInterfaceStartSessionResponseMessage.json",
         "/docs/references/schemas/RtspSessionInterfaceStopSessionMessage.json",
-        "/docs/references/schemas/RtspSessionInterfaceStopSessionResponseMessage.json",
+        "/docs/references/schemas/RtspSessionInterfaceStopSessionResponseMessage.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/s-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4387,
+      "sha256": "87a59e2598d8d7f7560106cb9c4c7261090e0ba81e3b80e2d531180deb9bd9ef",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/SceneInterfaceActivateMessage.json",
         "/docs/references/schemas/SceneInterfaceConfiguration.json",
         "/docs/references/schemas/SceneInterfaceDeactivateMessage.json",
@@ -3509,7 +3791,16 @@
         "/docs/references/schemas/SimulatorQueryResponse.json",
         "/docs/references/schemas/SimulatorQueryResponseV2.json",
         "/docs/references/schemas/SimulatorRecordFields.json",
-        "/docs/references/schemas/SimulatorSharedFields.json",
+        "/docs/references/schemas/SimulatorSharedFields.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/s-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4183,
+      "sha256": "0608f71e40e38c8d3de1da37436b69b0669a2a2aafb3b8851d8e350c510a993b",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/SimulatorV2.json",
         "/docs/references/schemas/SleepNodeConfiguration.json",
         "/docs/references/schemas/SmokeCoAlarmInterfaceAlarmStateAttribute.json",
@@ -3549,7 +3840,16 @@
         "/docs/references/schemas/StorageItem.json",
         "/docs/references/schemas/Subscription.json",
         "/docs/references/schemas/SubscriptionQueryKeys.json",
-        "/docs/references/schemas/SuctionLevel.json",
+        "/docs/references/schemas/SuctionLevel.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/s-3.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 886,
+      "sha256": "fa6da8aad72b293140b2c61f6ef5fc48d3d91161ae6b926c3148752c15c7d136",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/SupportedEvent.json",
         "/docs/references/schemas/SupportedInput.json",
         "/docs/references/schemas/SynchronizationItemError.json",
@@ -3558,7 +3858,16 @@
         "/docs/references/schemas/SyntheticEventEndpoint.json",
         "/docs/references/schemas/SyntheticEventHeader.json",
         "/docs/references/schemas/SyntheticEventRequest.json",
-        "/docs/references/schemas/SystemId.json",
+        "/docs/references/schemas/SystemId.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/t-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2798,
+      "sha256": "0325e7c169abd2cfe5851f2d2e598bad4f448d7bd4a23de373507805ea127cd8",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/TemperatureSensorInterfaceConfiguration.json",
         "/docs/references/schemas/TemperatureSensorInterfaceOperationModeAttribute.json",
         "/docs/references/schemas/TemperatureSensorInterfaceTemperatureAttribute.json",
@@ -3583,7 +3892,16 @@
         "/docs/references/schemas/TriggerFlowRequest.json",
         "/docs/references/schemas/TriggerFlowResponse.json",
         "/docs/references/schemas/TriggerFlowResult.json",
-        "/docs/references/schemas/TypeValue.json",
+        "/docs/references/schemas/TypeValue.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/u-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2770,
+      "sha256": "edbfcbe9a2bb378b5bdd0f77162e921a986a4ebc98ee93eb3dd5855fb672dc30",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/UpdateOAuthClientResponse.json",
         "/docs/references/schemas/UpsertAccessControlRuleRequest.json",
         "/docs/references/schemas/UpsertAccessControlRuleResponse.json",
@@ -3612,12 +3930,30 @@
         "/docs/references/schemas/UpsertSubscriptionResponse.json",
         "/docs/references/schemas/UpsertSubscriptionResult.json",
         "/docs/references/schemas/UpsertViewRequest.json",
-        "/docs/references/schemas/UpsertViewResponse.json",
+        "/docs/references/schemas/UpsertViewResponse.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/v-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 556,
+      "sha256": "56682db2237ed3c1a210ada271450e2929f136c1944f2bc1ec92dca9c0d16b9d",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/ValidateOAuthRequestRequest.json",
         "/docs/references/schemas/ValidateOAuthRequestResponse.json",
         "/docs/references/schemas/VerifyDeviceResponse.json",
         "/docs/references/schemas/View.json",
-        "/docs/references/schemas/ViewSchemaVersion.json",
+        "/docs/references/schemas/ViewSchemaVersion.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/w-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2258,
+      "sha256": "8842ad86d2293ab282b4282a4a30a4cd20f7c595d9f6f0558266631a40ded708",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/WaterFlow.json",
         "/docs/references/schemas/WaterHeaterInterfaceConfiguration.json",
         "/docs/references/schemas/WaterHeaterInterfaceModeAttribute.json",
@@ -3636,16 +3972,7 @@
         "/docs/references/schemas/WindowCoveringInterfacePositionAttribute.json",
         "/docs/references/schemas/WindowInterfaceConfiguration.json",
         "/docs/references/schemas/WindowInterfaceLockStateAttribute.json",
-        "/docs/references/schemas/WindowInterfaceWindowStateAttribute.json",
-        "/docs/references/schemas/configuration-2.json",
-        "/docs/references/schemas/configuration-3.json",
-        "/docs/references/schemas/configuration-4.json",
-        "/docs/references/schemas/configuration-5.json",
-        "/docs/references/schemas/configuration-6.json",
-        "/docs/references/schemas/configuration-7.json",
-        "/docs/references/schemas/configuration-8.json",
-        "/docs/references/schemas/configuration-9.json",
-        "/docs/references/schemas/configuration.json"
+        "/docs/references/schemas/WindowInterfaceWindowStateAttribute.json"
       ]
     },
     {
