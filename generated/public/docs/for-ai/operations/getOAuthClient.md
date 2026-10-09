@@ -76,6 +76,9 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthClient'
+          example:
+            clientId: port1/systems/zero/oauth-clients/1234567890
+            clientName: port1/principals/example
     '400':
       description: Invalid request payload
       content:

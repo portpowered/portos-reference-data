@@ -44,6 +44,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/EvaluateAccessControlRuleRequest'
+        example:
+          requests: port1/principals/example
   responses:
     '200':
       description: Access control rule evaluated successfully

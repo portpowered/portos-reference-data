@@ -972,8 +972,8 @@
       "resourcePermissionRequired": false
     },
     {
-      "path": "/auth/device_authorization",
-      "runtimePath": "/auth/device_authorization",
+      "path": "/auth/device-authorization",
+      "runtimePath": "/auth/device-authorization",
       "method": "POST",
       "operationId": "deviceAuthorize",
       "security": [

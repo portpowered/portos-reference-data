@@ -89,6 +89,8 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/GetAccessControlRulesResponse'
+          example:
+            results: []
     '500':
       description: Internal server error
       content:

@@ -58,6 +58,8 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/FlowNode'
+          example:
+            id: port1/principals/example
     '400':
       description: Bad request — invalid request payload or validation failure.
       content:

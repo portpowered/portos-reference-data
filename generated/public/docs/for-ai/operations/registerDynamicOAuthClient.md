@@ -92,12 +92,21 @@ post:
                   client_id_issued_at:
                     type: integer
                     format: int64
+          example:
+            redirect_uris:
+              - http://127.0.0.1:8765/callback
+            token_endpoint_auth_method: none
+            client_id: dcr_example
+            client_id_issued_at: 1791504000
     '400':
       description: Invalid metadata, redirect URI, or unapproved software statement.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthProtocolError'
+          example:
+            error: invalid_client_metadata
+            error_description: Use HTTPS callbacks or an entirely local callback set.
     '415':
       description: Use application/json.
     '429':

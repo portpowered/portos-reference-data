@@ -104,6 +104,14 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/EndpointGroup'
+          example:
+            id: port1/principals/example/endpoint-groups/living-room
+            name:
+              type: LIGHT
+              value: port1/principals/example
+            ownerId: port1/principals/example
+            interfaces: []
+            etag: '"12"'
     '400':
       description: Invalid request payload
       content:

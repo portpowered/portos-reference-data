@@ -45,7 +45,6 @@ get:
               - issuer
               - authorization_endpoint
               - token_endpoint
-              - registration_endpoint
               - revocation_endpoint
               - scopes_supported
             properties:
@@ -61,6 +60,7 @@ get:
               registration_endpoint:
                 type: string
                 format: uri
+                description: Advertised when new anonymous registration is enabled; omitted when disabled.
               revocation_endpoint:
                 type: string
                 format: uri
@@ -85,6 +85,24 @@ get:
                 type: boolean
               authorization_response_iss_parameter_supported:
                 type: boolean
+          example:
+            issuer: https://portos-pilot-api-685761720421.us-west1.run.app
+            authorization_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize
+            token_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
+            revocation_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/revoke
+            scopes_supported:
+              - endpoint:read
+              - message:send
+            registration_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/register
+            jwks_uri: https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json
+            code_challenge_methods_supported:
+              - S256
+            token_endpoint_auth_methods_supported:
+              - none
+              - client_secret_post
+              - client_secret_basic
+            client_id_metadata_document_supported: true
+            authorization_response_iss_parameter_supported: true
 ```
 
 Resolve component references against [OpenAPI](/docs/references/openapi.yaml). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

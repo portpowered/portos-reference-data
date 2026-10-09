@@ -1,8 +1,8 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.0",
-  "assetSetSHA256": "ece1d874e230c3ad55b25cb98615664095a0768aa9f9ec381238bdfbd6cec236",
+  "version": "0.4.1",
+  "assetSetSHA256": "a73a41718d34c8c572f0541519634c6fc67f5dbf79001792e1aa50bc88b01677",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -581,13 +581,13 @@
     },
     {
       "path": "/docs/for-ai/operations/addEndpointGroupMembers.md",
-      "bytes": 4157,
-      "sha256": "d8e4983610fd9378db12b6acd23eb891a3bd5fc7cdb21f4f7cc7e034ce2321e6"
+      "bytes": 4206,
+      "sha256": "16d1cbacd1a8fe30e7608e3ff7802359140fb24ebc71b88934bf955067f9265b"
     },
     {
       "path": "/docs/for-ai/operations/authorizeDevice.md",
-      "bytes": 3014,
-      "sha256": "81eb6a6aa40d274ebbc4600ad89fa65a4e181acb97346086c4d0a2355fae6b8a"
+      "bytes": 3503,
+      "sha256": "6366221da92c595373ec8489c01d38126f326b23fe12164ccf15240973d0406c"
     },
     {
       "path": "/docs/for-ai/operations/beginOAuthAuthorization.md",
@@ -596,8 +596,8 @@
     },
     {
       "path": "/docs/for-ai/operations/completeOAuthConsent.md",
-      "bytes": 2189,
-      "sha256": "a690c7e82720398866e8d63ff308b86c92c95b6ee7a2931932651ce23c84cd88"
+      "bytes": 2407,
+      "sha256": "c315c47bdcc9277da390559ef3827f5f203dd15de72b63154af2de4ccbeb5ef6"
     },
     {
       "path": "/docs/for-ai/operations/createEndpointGroup.md",
@@ -606,8 +606,8 @@
     },
     {
       "path": "/docs/for-ai/operations/createFlowNode.md",
-      "bytes": 2851,
-      "sha256": "e13f398f366c8cdde5063781365a8eaa28048ae044734751700159e3b132ba19"
+      "bytes": 2911,
+      "sha256": "ff217cbca4e9c74461cb8934bcc03dbab1dc129c2be3aa5580c63f6a508d44fd"
     },
     {
       "path": "/docs/for-ai/operations/createFlowRun.md",
@@ -616,8 +616,8 @@
     },
     {
       "path": "/docs/for-ai/operations/createOAuthClient.md",
-      "bytes": 2189,
-      "sha256": "fa3a068c98d1816e6a59409a0e5b670dd436c6779d42c38369397579352cc64c"
+      "bytes": 2370,
+      "sha256": "73b67b07ae59f54742b73a218641746a171f354c3ebc15e19b2cdec04c21267c"
     },
     {
       "path": "/docs/for-ai/operations/createSyntheticEvent.md",
@@ -626,13 +626,13 @@
     },
     {
       "path": "/docs/for-ai/operations/createToken.md",
-      "bytes": 2346,
-      "sha256": "672f77683022f72c90670b9805805c5babe298b22c44915da2fe7f3801963864"
+      "bytes": 2497,
+      "sha256": "e4037d2692d5b56478d38fd05e58e614493830ab16c96c3c213466be0e1f97fe"
     },
     {
       "path": "/docs/for-ai/operations/createView.md",
-      "bytes": 1870,
-      "sha256": "2f8324420bec94f5a3a527e527a6f1fc860f33c7d3600c52b4a81b3bba4ccf04"
+      "bytes": 2018,
+      "sha256": "7cdab54cd6debfcad72e3f12f0b7413b335ca7e3ac6d8496c11a1d70ee08c1c4"
     },
     {
       "path": "/docs/for-ai/operations/deleteAccessControlRule.md",
@@ -647,7 +647,7 @@
     {
       "path": "/docs/for-ai/operations/deleteEndpoint.md",
       "bytes": 1126,
-      "sha256": "5385e290fdb8476e6832b44f3edae210dd4749a4c77a16e25240402c940278e9"
+      "sha256": "c6d24334e273b99aaa08ebe38917f20dbd2d9a5beeee6cc45aa0ec5f98c056ae"
     },
     {
       "path": "/docs/for-ai/operations/deleteEndpointGroup.md",
@@ -666,8 +666,8 @@
     },
     {
       "path": "/docs/for-ai/operations/deleteFlowNode.md",
-      "bytes": 2554,
-      "sha256": "35d98e489b8c2505044fb89c97c68a2c2eb5483d198e51f8345ed6aa71ac4623"
+      "bytes": 2610,
+      "sha256": "ae824e08c5fe4ebb254417eaa9baa8547308db9356add4eb2852d8ab00153674"
     },
     {
       "path": "/docs/for-ai/operations/deleteFlowRun.md",
@@ -696,8 +696,8 @@
     },
     {
       "path": "/docs/for-ai/operations/deleteRoute.md",
-      "bytes": 1088,
-      "sha256": "77e8afbef95f7a590181eae77189032e4f26fd4fc3ed9d969b61aed178fabea3"
+      "bytes": 1089,
+      "sha256": "60fafd0711a9c4c1bef17404b3cacc56c298cc67549d7d9ff15fe1f8702e4e5d"
     },
     {
       "path": "/docs/for-ai/operations/deleteSecret.md",
@@ -721,8 +721,8 @@
     },
     {
       "path": "/docs/for-ai/operations/deviceAuthorize.md",
-      "bytes": 2424,
-      "sha256": "6fc2c3eb98ecdac9be5c03772d1d9d913bd55028023d887604d119ee812cf720"
+      "bytes": 3084,
+      "sha256": "7e82d58ee0afd216850ab4e3f6f672631a3fcd288cf5706937ed6ced6709575f"
     },
     {
       "path": "/docs/for-ai/operations/endpointGroupsManage.md",
@@ -746,8 +746,8 @@
     },
     {
       "path": "/docs/for-ai/operations/enumerateEndpoints.md",
-      "bytes": 6285,
-      "sha256": "ff227335ccccd232bfdd975c6ee27d220b7a5abdead98f57878155dece9b0df9"
+      "bytes": 6658,
+      "sha256": "d74f892e640f41f58e3bd145f0ded8acff664d10f69fb62fa6e3e76cedbd8e55"
     },
     {
       "path": "/docs/for-ai/operations/enumerateEventDeadLetters.md",
@@ -816,43 +816,43 @@
     },
     {
       "path": "/docs/for-ai/operations/establishAuthLink.md",
-      "bytes": 2982,
-      "sha256": "c5d6558a961e8118d612ea16704abb20ed08ef8029eb85cff14b70909a92ea62"
+      "bytes": 3044,
+      "sha256": "6d54d6256fcfa7265d32fb053a41232e7749ed9e7b2b8d22a454f59a885c49e2"
     },
     {
       "path": "/docs/for-ai/operations/establishPlugin.md",
-      "bytes": 2589,
-      "sha256": "2e4b5b004dd81422ee2eb9c6bea9905d89b4656d764e22146d03fa04c13b90ea"
+      "bytes": 2714,
+      "sha256": "7e7232341cc301554a44423db20e817a0a20a85d75356a3b57a5120dac6580ac"
     },
     {
       "path": "/docs/for-ai/operations/evaluateAccessControlRule.md",
-      "bytes": 1706,
-      "sha256": "d9c460a9096bb31360e4fb518d5130c3b1f8b97a81f68347dfa94ae1ac848306"
+      "bytes": 1768,
+      "sha256": "4405733aab0af8abc0627db760f4c9ac114e431e99ddf577dc51b3044d1b9d8a"
     },
     {
       "path": "/docs/for-ai/operations/generateOAuthCode.md",
-      "bytes": 2334,
-      "sha256": "fc8c3aa28a67fa996198a61070765eed6035271f73a92955487131b700020e3a"
+      "bytes": 2561,
+      "sha256": "65815be511d0b1f6974c9b0b6d71cb25290c81cf52ddbb2f738b41743ded23ff"
     },
     {
       "path": "/docs/for-ai/operations/generateToken.md",
-      "bytes": 2499,
-      "sha256": "3cd493cc3d5a6053fe0b6aaafdc842ce73828ca842cd397d8be43d69d4895be1"
+      "bytes": 2526,
+      "sha256": "e2d1b2f7e473ec85de06d7443ff30283d937c1c391bdb9a6f9a0192cb5e7dead"
     },
     {
       "path": "/docs/for-ai/operations/generateTuyaQrCode.md",
-      "bytes": 2985,
-      "sha256": "1cbcb00700bb09ce656b662aeb84832e5f17e5b92236dc7fdbdaaa41bc534cd9"
+      "bytes": 3094,
+      "sha256": "26536dbdcfbb9743adfcfe6056def3e1b3eec494add817caac9bc2a3423b52ba"
     },
     {
       "path": "/docs/for-ai/operations/getAccessControlRules.md",
-      "bytes": 2712,
-      "sha256": "8a166e21ce09c60839b48f2d5b97afa4a6dbc1182f01c41ca6fc1c61547ccbe2"
+      "bytes": 2755,
+      "sha256": "36c7240d3adb619c100f744f77843e19c89a85c4a7fc1f28ff4e696f7c205988"
     },
     {
       "path": "/docs/for-ai/operations/getEndpointGroup.md",
-      "bytes": 4191,
-      "sha256": "4f9ec83adabe20082ae453170ca42db9264685e823a6056e8413ab0a824f813f"
+      "bytes": 4467,
+      "sha256": "ee0ce91b5a25978044fa8abeba3676b6d270f23e0b0a0596616ea9b4f233e7a4"
     },
     {
       "path": "/docs/for-ai/operations/getEventDeadLetter.md",
@@ -881,13 +881,13 @@
     },
     {
       "path": "/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md",
-      "bytes": 2896,
-      "sha256": "5cacc9698bf5dfaa9e3dcba2f3ccf619edf509744093d8ca9decf851da905d87"
+      "bytes": 3984,
+      "sha256": "108cfe657d38c1a0e9884237dd5211f997f66a1614d45187105d7524c19ec718"
     },
     {
       "path": "/docs/for-ai/operations/getOAuthClient.md",
-      "bytes": 3649,
-      "sha256": "911972b02bba16c332fca52706035a30ea240e188c3f9152041d9560cd0d98eb"
+      "bytes": 3783,
+      "sha256": "2f7cceee3d54128cff458e8487a962edfb52e2643d540e7d817d6b5c591a5716"
     },
     {
       "path": "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
@@ -896,13 +896,13 @@
     },
     {
       "path": "/docs/for-ai/operations/getOpenIDConfiguration.md",
-      "bytes": 2808,
-      "sha256": "1ddea95c58539ace4e6fc610a59e5bf525e99259c6b3cf59f8c84c23f707d1d6"
+      "bytes": 3345,
+      "sha256": "81b35f23d4bef87459220586150fa010c0a8621000423b537d7b636affe068c1"
     },
     {
       "path": "/docs/for-ai/operations/getPendingOAuthConsent.md",
-      "bytes": 2284,
-      "sha256": "82012edecb5d745c1fac2628643275349230c96de3e26d3b617d45a7da00c0e6"
+      "bytes": 2534,
+      "sha256": "f4abd2236ddcd69042f06c9acc8440f275a3a0dd0d338943898062926ead0b2a"
     },
     {
       "path": "/docs/for-ai/operations/getRoutes.md",
@@ -916,8 +916,8 @@
     },
     {
       "path": "/docs/for-ai/operations/getView.md",
-      "bytes": 2989,
-      "sha256": "966f1488d38cb7593b82625a96d8d0aeff26fd67a5cd77310387bd855fb62f57"
+      "bytes": 3049,
+      "sha256": "25d662452f61fcf9ce243b299ac48a3415776e7844bb9107f4f0d64797832df7"
     },
     {
       "path": "/docs/for-ai/operations/handleGitHubWebhook.md",
@@ -926,13 +926,13 @@
     },
     {
       "path": "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
-      "bytes": 2914,
-      "sha256": "35efde196b10a24dde224f2391a8aafc2f715e9a85f989892fcd1020fe6d5637"
+      "bytes": 3019,
+      "sha256": "8103c90421f469293ad3a8aac9f7ff8bb74d4a385767dcb3b6a764c240908405"
     },
     {
       "path": "/docs/for-ai/operations/handleOAuthCallback.md",
-      "bytes": 2379,
-      "sha256": "7d36cd6ca795c7a2b4cd9c79db89fe8ac1b0a6d954c463761de3fb78c05f749f"
+      "bytes": 2631,
+      "sha256": "4c04c85243ad25f87396980e71d85ff9d903bbbecc002ee46fbdefb1810562f3"
     },
     {
       "path": "/docs/for-ai/operations/handleSmartThingsWebhook.md",
@@ -942,12 +942,12 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "bytes": 9491,
-      "sha256": "af97a94f4acb8e3b21bba8c85705ac69cda4c8ffa4a8a08c5d5ce2db545e5094"
+      "sha256": "7ba4f932af49134fb848294a701a3be6df86131cf0dd70737461dfacc7ca1cbc"
     },
     {
       "path": "/docs/for-ai/operations/invalidateToken.md",
-      "bytes": 2763,
-      "sha256": "afb17d5fbd153d8c13841cffaab5f77ee27a3278e7fbcde37f76315a51bcc834"
+      "bytes": 2884,
+      "sha256": "aaa1b16a56c2a96203606f479e2dc25ba2053234b838afd0078ac56883ee955b"
     },
     {
       "path": "/docs/for-ai/operations/modifyEndpoint.md",
@@ -966,8 +966,8 @@
     },
     {
       "path": "/docs/for-ai/operations/pluginAuthCodeExchange.md",
-      "bytes": 1796,
-      "sha256": "ac110b0bab206f58adda0422011ebf836beed0753b500d2d5569b31e5fc2bf59"
+      "bytes": 1945,
+      "sha256": "d8160bdd4a404650fb54532919e847bd1e55a7990aa99f833c87723249b4665b"
     },
     {
       "path": "/docs/for-ai/operations/pluginAuthCodeLink.md",
@@ -976,13 +976,13 @@
     },
     {
       "path": "/docs/for-ai/operations/pluginAuthMultifactorExchange.md",
-      "bytes": 1896,
-      "sha256": "527a2e262f99dca5267bd53462fbb4ce5ad6820c1c859a11d04662e388e8f982"
+      "bytes": 2045,
+      "sha256": "56c21f2da50e520e427e98734e62ae84d2d818ee028ed548e53d390d43308547"
     },
     {
       "path": "/docs/for-ai/operations/pushToMessageGateway.md",
-      "bytes": 1373,
-      "sha256": "d037ec90ab87b39c253b106abfc8c1409584cc27da598ef56eb2c9412c9b0020"
+      "bytes": 1409,
+      "sha256": "de4ed60527801b47a4e87c8cc6117116ea95642a54da003edfc09ce8b324a694"
     },
     {
       "path": "/docs/for-ai/operations/queryFlowRuns.md",
@@ -996,8 +996,8 @@
     },
     {
       "path": "/docs/for-ai/operations/raiseAnonymousPrincipal.md",
-      "bytes": 2808,
-      "sha256": "d5bc6bcd285605fce8f5a45169976bd7b34b6dce2711fe637c72b250508f7459"
+      "bytes": 3456,
+      "sha256": "447acb61795ae497a406e869789470436e84df3f01fcab5055bbcdc718e79ae5"
     },
     {
       "path": "/docs/for-ai/operations/redriveEventDeadLetter.md",
@@ -1006,18 +1006,18 @@
     },
     {
       "path": "/docs/for-ai/operations/refreshAuthLinkToken.md",
-      "bytes": 2087,
-      "sha256": "c11350d685604316958b636fb98515da27af4d98e77d57cb89a04703e878b4aa"
+      "bytes": 2151,
+      "sha256": "d233c5019feb4f4960609a071e65db62a9904bfda10ee0cc52431d201c706407"
     },
     {
       "path": "/docs/for-ai/operations/registerDynamicOAuthClient.md",
-      "bytes": 4344,
-      "sha256": "d838925babecfde7680fd38b71eb6c838cd51fb23f7d981640816df36a5965dc"
+      "bytes": 4709,
+      "sha256": "5c484360c88fe7f5dc89c232d8f7c1f90ab175dbe85231280166fdcf403e1c6e"
     },
     {
       "path": "/docs/for-ai/operations/removeEndpointGroupMembers.md",
-      "bytes": 4200,
-      "sha256": "6dfb21bcacbd0e92a0652c80bc1d371314359a853164d13f9fc3849fef2cd37e"
+      "bytes": 4249,
+      "sha256": "b4d749e1d5e8ed4e3eff3d40fa91f904f8e9ba96b0bb2b44292ec31ad23aa2fb"
     },
     {
       "path": "/docs/for-ai/operations/requestFutureIntegration.md",
@@ -1026,8 +1026,8 @@
     },
     {
       "path": "/docs/for-ai/operations/revokeOAuthGrant.md",
-      "bytes": 1559,
-      "sha256": "a7fae032e0c31ea1f1c07f5e2a46978857ad80be5d82056c50d26c16e306f7ff"
+      "bytes": 1651,
+      "sha256": "b31047a5af2a46e12415ceda93a00181bc9473d684a69f26749273885752a40a"
     },
     {
       "path": "/docs/for-ai/operations/sendMessage.md",
@@ -1041,8 +1041,8 @@
     },
     {
       "path": "/docs/for-ai/operations/setEndpointGroupName.md",
-      "bytes": 4057,
-      "sha256": "441aa780c73aaa58514e73ea143447c8a2304fa238640d4fa771221777ec6db2"
+      "bytes": 4158,
+      "sha256": "0ea60998f5392a1a9a02bcd076c3c7b8f249261c9dd6e1eefae0c1b2903e27c1"
     },
     {
       "path": "/docs/for-ai/operations/setFlowRunStatus.md",
@@ -1051,8 +1051,8 @@
     },
     {
       "path": "/docs/for-ai/operations/synchronizeRoutes.md",
-      "bytes": 7731,
-      "sha256": "c84cfe09976182cdaf842b287598c6748be2044927f7724954b5db4fd6bf57a2"
+      "bytes": 7769,
+      "sha256": "1b78212f5aa39b4675daf110f9249185372f1f4c2e86120ea57145de38cfeecb"
     },
     {
       "path": "/docs/for-ai/operations/triggerFlow.md",
@@ -1061,28 +1061,28 @@
     },
     {
       "path": "/docs/for-ai/operations/updateOAuthClient.md",
-      "bytes": 2978,
-      "sha256": "eed3aeda22404e12d6677febd6bea35c58f61b5716dd3c2378ebbe15a833e05c"
+      "bytes": 3044,
+      "sha256": "94bc21c226e7176a576c4f116f85aea1e610dd761e8c9f3b5afe48dfb945bba1"
     },
     {
       "path": "/docs/for-ai/operations/updateView.md",
-      "bytes": 2687,
-      "sha256": "9e0d5800c303bd7c4a53749fba6cb17837b3ca2d2ada1bc079c0346a17b2f628"
+      "bytes": 2835,
+      "sha256": "17a05e594d796a86e6730d0643f730101188e5c6a9f06fd1e61676f06fdba226"
     },
     {
       "path": "/docs/for-ai/operations/upsertAccessControlRule.md",
-      "bytes": 1945,
-      "sha256": "f3283ee9b0fe0e707e3d6469cbf0935c63941ccf99388135e8fc2e98ea202d00"
+      "bytes": 2147,
+      "sha256": "2731c448bb55f235348123d08814c5d803eae8178566a1f7d75f26161de0a61c"
     },
     {
       "path": "/docs/for-ai/operations/upsertAuthLink.md",
-      "bytes": 1533,
-      "sha256": "d88fc55885ff1255c66585d3f3d44bbc091c6ef3917bc0bee843f4f0fff79974"
+      "bytes": 1799,
+      "sha256": "1d9d7819417c6a638234e04e87c888c6e84f39905aa168d9a4a46b61a5bea08d"
     },
     {
       "path": "/docs/for-ai/operations/upsertEndpoint.md",
-      "bytes": 1069,
-      "sha256": "6b07af867b148ce8d40628d9cec93f48d4597517422f0461a003f8655b291806"
+      "bytes": 1237,
+      "sha256": "ec8dfd8e3a4480d8ab00fee376d97ee688d03d42c585948f135bcdb00978b96a"
     },
     {
       "path": "/docs/for-ai/operations/upsertFlow.md",
@@ -1096,28 +1096,28 @@
     },
     {
       "path": "/docs/for-ai/operations/upsertPluginRequest.md",
-      "bytes": 1530,
-      "sha256": "cf1b19a49e40e0d39fb223406236339e199e4c0bc78c97163954967d9343cfaa"
+      "bytes": 1606,
+      "sha256": "bf9e22659fe6f4cf3c0a0c1a119a61cfb3fbf810d6e5b7dfec99f71b104953c9"
     },
     {
       "path": "/docs/for-ai/operations/upsertPrincipal.md",
-      "bytes": 1538,
-      "sha256": "a58b4ee694ca2201e93f7a1323bfe2ecff676e0901acedeeb2cf22c42673aec4"
+      "bytes": 1597,
+      "sha256": "d0a716e4d263133f81ab4fd95d117478aaeeff68745b93fc7ca9dc3eeae48a86"
     },
     {
       "path": "/docs/for-ai/operations/upsertRoute.md",
-      "bytes": 1031,
-      "sha256": "b224505d402cd7f078af76cdb4c88e3159f8f1f8165bb14a36b4b613c69a1551"
+      "bytes": 1226,
+      "sha256": "caf603098b7111ea0177ac7d3cb03c4db9c61940b3b336bd48215f98becbd32e"
     },
     {
       "path": "/docs/for-ai/operations/upsertSecret.md",
-      "bytes": 3152,
-      "sha256": "251fc1403bd8d24d1ccfb14ac41de61d34e9ef1f0038426a40330bc156413173"
+      "bytes": 3350,
+      "sha256": "cb605e5edd5e641c9fd2946855d2938949a70de87dabd5d81bdd7816363b20ff"
     },
     {
       "path": "/docs/for-ai/operations/upsertSimulator.md",
-      "bytes": 5340,
-      "sha256": "f25a490126ce34b4ae84d30c6ec327f6ef84e0307cfde52622a1e7eed6cad328"
+      "bytes": 5463,
+      "sha256": "afac2e20e35a74f7a8097c64b5c1ec476b47536c3b90187278c5cf6a55b7ae65"
     },
     {
       "path": "/docs/for-ai/operations/upsertSubscription.md",
@@ -1126,28 +1126,28 @@
     },
     {
       "path": "/docs/for-ai/operations/validateOAuthRequest.md",
-      "bytes": 2168,
-      "sha256": "ef16b4327c8b471794c612b77fcaad8bae306c5e7ab76bfd76734ebe2d5dc8c7"
+      "bytes": 2393,
+      "sha256": "a1ba169719ced0c4cc5a973c6d99a4234a39f8699c439c77d2ae74a9d39cd9f2"
     },
     {
       "path": "/docs/for-ai/operations/validateTuyaLoginCode.md",
-      "bytes": 3776,
-      "sha256": "c723a4fbc07263c1d8e3c1cd6d814b031cf944d4e3a87ea79e1500e20234bc9d"
+      "bytes": 3929,
+      "sha256": "ee385ccbddfd63494556fac02a31adfca81fd7e89bf615532c5f0c0ff7d82b8f"
     },
     {
       "path": "/docs/for-ai/operations/verifyDevice.md",
-      "bytes": 2350,
-      "sha256": "c06097d8ebde697e5a15cbb41f5792111a76dc4bc83f9175bdc38e68891397c2"
+      "bytes": 2776,
+      "sha256": "2f319cb948c8fa0789bffdb68ea45559fa832ec36cbc779f9a508d0c4c67e263"
     },
     {
       "path": "/docs/references/authorization.json",
       "bytes": 38378,
-      "sha256": "c21aa9ff2b3c8c2c47d9854fd0b1e34b7ca6b48f4d038ca6540ff8fea5f27080"
+      "sha256": "459c04391581ab68829ab3db1b89a99ec1bee41948afee6c314702a27d054370"
     },
     {
       "path": "/docs/references/authorization.yaml",
       "bytes": 28365,
-      "sha256": "e0cf0406db18f96a88cf0d2d1505975d87597f0347c20c5fa44718654134eac2"
+      "sha256": "00ceec4850728a5e80577a592c132d3a881686b407c3fd2784b4fba1eaf8f57f"
     },
     {
       "path": "/docs/references/capability-interfaces.yaml",
@@ -3371,8 +3371,8 @@
     },
     {
       "path": "/docs/references/openapi.yaml",
-      "bytes": 736662,
-      "sha256": "e49ac8264f3ba4453025e09c3732c2318c7279958b63a9260dc9e245ae88c225"
+      "bytes": 747595,
+      "sha256": "dab95d12c9ef345fc07ca60687d4847c872c8d1329b9f21852009147db0e1292"
     },
     {
       "path": "/llms.txt",

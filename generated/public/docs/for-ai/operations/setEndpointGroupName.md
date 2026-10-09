@@ -67,6 +67,10 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/SetEndpointGroupNameRequest'
+        example:
+          name:
+            type: LIGHT
+            value: port1/principals/example
   responses:
     '202':
       description: Endpoint group name update accepted

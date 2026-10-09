@@ -53,18 +53,29 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/VerifyDeviceResponse'
+          example:
+            deviceauth_id: da_1234567890abcdef
+            client_name: My OAuth Application
+            client_id: port1/principals/user123/oauth-clients/my-client
+            status: pending
     '400':
       description: Invalid request (e.g., missing or invalid user_code)
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
   x-portos-delegated: false
   x-portos-resource-permission: false
 ```

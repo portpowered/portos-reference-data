@@ -69,6 +69,10 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/Simulator'
+          example:
+            device_type: light
+            id: port1.simulator.example
+            name: Example device
         application/vnd.portos.simulator.v2+json:
           schema:
             $ref: '#/components/schemas/SimulatorV2'

@@ -37,7 +37,7 @@ delete:
         schema:
           $ref: '#/components/schemas/DeleteRouteRequest'
         example:
-          id: port1/principals/user123/resources/abc-123
+          id: port1/principals/example/routes/light-route
   responses:
     '200':
       description: Route deleted successfully

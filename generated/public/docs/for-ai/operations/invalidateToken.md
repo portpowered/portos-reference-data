@@ -73,6 +73,8 @@ delete:
         application/json:
           schema:
             $ref: '#/components/schemas/InvalidateTokenResponse'
+          example:
+            message: The request could not be completed. Check the supplied parameters and try again.
     '401':
       description: Unauthorized
     '403':

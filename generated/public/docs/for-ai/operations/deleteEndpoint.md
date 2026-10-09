@@ -37,7 +37,7 @@ delete:
         schema:
           $ref: '#/components/schemas/DeleteEndpointRequest'
         example:
-          id: port1/principals/user123/resources/abc-123
+          id: port1/principals/example/endpoints/light-1
   responses:
     '200':
       description: Endpoint deleted successfully

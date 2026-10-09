@@ -36,6 +36,12 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertEndpointRequest'
+        example:
+          id: port1/principals/example/endpoints/light-1
+          name:
+            type: PLAIN
+            value: Office light
+          type: LIGHT
   responses:
     '200':
       description: Endpoint upserted successfully

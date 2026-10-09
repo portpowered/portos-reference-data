@@ -70,6 +70,9 @@ post:
             node_id:
               type: string
               description: The Port OS identifier of the flow node to execute
+        example:
+          flow_id: port1/principals/example
+          node_id: port1/principals/example
   responses:
     '200':
       description: Webhook received and flow run triggered (always returned to prevent retries)

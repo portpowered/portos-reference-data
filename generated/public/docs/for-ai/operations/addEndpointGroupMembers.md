@@ -69,6 +69,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/AddEndpointGroupMembersRequest'
+        example:
+          memberEndpointIds: []
   responses:
     '202':
       description: Members addition accepted

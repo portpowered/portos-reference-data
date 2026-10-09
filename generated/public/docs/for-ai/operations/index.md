@@ -68,7 +68,7 @@ Use the operation’s scopes and its resource permission requirements. Public di
 - [DELETE /{namespace}/{principalType}/{principalId}/tokens/{tokenId}](/docs/for-ai/operations/invalidateToken.md)
 - [POST /auth/raise](/docs/for-ai/operations/raiseAnonymousPrincipal.md)
 - [POST /auth/callback](/docs/for-ai/operations/handleOAuthCallback.md)
-- [POST /auth/device_authorization](/docs/for-ai/operations/deviceAuthorize.md)
+- [POST /auth/device-authorization](/docs/for-ai/operations/deviceAuthorize.md)
 - [GET /oauth-clients](/docs/for-ai/operations/enumerateOAuthClients.md)
 - [POST /oauth-clients](/docs/for-ai/operations/createOAuthClient.md)
 - [GET /port1/{principalType}/{principalId}/oauth-clients/{clientId}](/docs/for-ai/operations/getOAuthClient.md)

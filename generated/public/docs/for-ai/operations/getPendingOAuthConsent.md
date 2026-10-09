@@ -73,6 +73,12 @@ get:
                 type: array
                 items:
                   type: string
+          example:
+            client_id: dcr_example
+            client_name: Example agent
+            redirect_uri: http://127.0.0.1:8765/callback
+            resource: https://portos-pilot-api-685761720421.us-west1.run.app
+            scopes: []
     '400':
       description: Invalid, expired or consumed request.
     '401':

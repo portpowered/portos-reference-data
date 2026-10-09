@@ -55,6 +55,10 @@ post:
               type: string
               description: |
                 Token type identifier. Must be urn:ietf:params:oauth:token-type:id_token
+        example:
+          anonymous_refresh_token: port1/principals/example
+          subject_token: port1/principals/example
+          subject_token_type: port1/principals/example
   responses:
     '200':
       description: Principal raised successfully
@@ -62,24 +66,37 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/GenerateTokenResponse'
+          example:
+            access_token: port1/principals/example
+            token_type: port1/principals/example
+            expires_in: 1
     '400':
       description: Invalid request (malformed form data or invalid parameters)
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
     '401':
       description: Invalid grant (anonymous refresh token is not valid)
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
   x-portos-delegated: false
   x-portos-resource-permission: false
 ```

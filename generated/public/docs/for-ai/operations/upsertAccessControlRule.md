@@ -44,6 +44,11 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertAccessControlRuleRequest'
+        example:
+          operation: port1/principals/example
+          resource: port1/users/alice/endpoints/thermostat-zero
+          identity: port1/account/john/users/alice
+          effect: ALLOW
   responses:
     '200':
       description: Access control rule upserted successfully

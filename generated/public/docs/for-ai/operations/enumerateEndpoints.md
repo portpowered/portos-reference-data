@@ -58,7 +58,7 @@ get:
         check-token:
           value: ~caller
         check-id:
-          value: port1/user/alice/user/alice
+          value: port1/principals/example
     - name: id
       in: query
       description: The unique identifier of a specific endpoint to retrieve
@@ -67,7 +67,7 @@ get:
         type: string
       examples:
         endpoint-id:
-          value: port1/user/alice/endpoints/abc-123
+          value: port1/principals/example/endpoints/light-1
     - name: type
       in: query
       description: Filter endpoints by their primary type
@@ -76,7 +76,7 @@ get:
         type: string
       examples:
         type-filter:
-          value: light
+          value: LIGHT
     - name: serialNumber
       in: query
       description: Filter endpoints by their serial number
@@ -94,7 +94,7 @@ get:
         type: string
       examples:
         next-token:
-          value: '123'
+          value: OPAQUE_TOKEN_FROM_PREVIOUS_RESPONSE
     - name: maxResults
       in: query
       description: The maximum number of results to return
@@ -145,6 +145,16 @@ get:
           schema:
             $ref: '#/components/schemas/EndpointQueryResponse'
           examples: {}
+          example:
+            results:
+              - id: port1/principals/example/endpoints/light-1
+                name:
+                  type: PLAIN
+                  value: Office light
+                type: LIGHT
+                interfaces: []
+                ownerId: port1/principals/example
+                enablement: ENABLED
     '400':
       description: Bad request - missing required parameters
       content:

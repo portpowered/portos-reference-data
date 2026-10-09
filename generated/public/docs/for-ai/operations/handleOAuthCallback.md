@@ -62,12 +62,19 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/GenerateTokenResponse'
+          example:
+            access_token: port1/principals/example
+            token_type: port1/principals/example
+            expires_in: 1
     '400':
       description: Invalid callback data or provider error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
   x-portos-delegated: false
   x-portos-resource-permission: false
 ```

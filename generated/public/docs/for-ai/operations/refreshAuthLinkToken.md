@@ -54,6 +54,8 @@ post:
             authLinkId:
               type: string
               description: The ID of the auth link to refresh tokens for
+        example:
+          authLinkId: port1/principals/example
   responses:
     '200':
       description: Token refreshed successfully

@@ -42,6 +42,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertPrincipalRequest'
+        example:
+          items: port1/principals/example
   responses:
     '200':
       description: Principal created successfully

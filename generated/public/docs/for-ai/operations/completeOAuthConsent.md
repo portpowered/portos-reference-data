@@ -56,6 +56,9 @@ post:
               type: boolean
             scope:
               type: string
+        example:
+          request_id: SERVER_ISSUED_PENDING_REQUEST_ID
+          approved: true
   responses:
     '200':
       description: Callback navigation URL containing code or denial and original state.
@@ -69,6 +72,8 @@ post:
               redirect_url:
                 type: string
                 format: uri
+          example:
+            redirect_url: http://127.0.0.1:8765/callback?code=SERVER_ISSUED_CODE&state=ORIGINAL_STATE
     '400':
       description: Invalid, expired or consumed request.
     '401':

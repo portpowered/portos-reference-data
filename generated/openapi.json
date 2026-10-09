@@ -332,7 +332,22 @@
                   }
                 },
                 "example": {
-                  "key": "value"
+                  "issuer": "https://portos-pilot-api-685761720421.us-west1.run.app",
+                  "jwks_uri": "https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json",
+                  "token_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
+                  "response_types_supported": [
+                    "code"
+                  ],
+                  "subject_types_supported": [
+                    "public"
+                  ],
+                  "id_token_signing_alg_values_supported": [
+                    "RS256"
+                  ],
+                  "grant_types_supported": [
+                    "authorization_code",
+                    "refresh_token"
+                  ]
                 }
               }
             }
@@ -364,7 +379,6 @@
                     "issuer",
                     "authorization_endpoint",
                     "token_endpoint",
-                    "registration_endpoint",
                     "revocation_endpoint",
                     "scopes_supported"
                   ],
@@ -383,7 +397,8 @@
                     },
                     "registration_endpoint": {
                       "type": "string",
-                      "format": "uri"
+                      "format": "uri",
+                      "description": "Advertised when new anonymous registration is enabled; omitted when disabled."
                     },
                     "revocation_endpoint": {
                       "type": "string",
@@ -421,6 +436,28 @@
                       "type": "boolean"
                     }
                   }
+                },
+                "example": {
+                  "issuer": "https://portos-pilot-api-685761720421.us-west1.run.app",
+                  "authorization_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize",
+                  "token_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
+                  "revocation_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/revoke",
+                  "scopes_supported": [
+                    "endpoint:read",
+                    "message:send"
+                  ],
+                  "registration_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/register",
+                  "jwks_uri": "https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json",
+                  "code_challenge_methods_supported": [
+                    "S256"
+                  ],
+                  "token_endpoint_auth_methods_supported": [
+                    "none",
+                    "client_secret_post",
+                    "client_secret_basic"
+                  ],
+                  "client_id_metadata_document_supported": true,
+                  "authorization_response_iss_parameter_supported": true
                 }
               }
             }
@@ -661,7 +698,7 @@
                 "value": "~caller"
               },
               "check-id": {
-                "value": "port1/user/alice/user/alice"
+                "value": "port1/principals/example"
               }
             }
           },
@@ -675,7 +712,7 @@
             },
             "examples": {
               "endpoint-id": {
-                "value": "port1/user/alice/endpoints/abc-123"
+                "value": "port1/principals/example/endpoints/light-1"
               }
             }
           },
@@ -689,7 +726,7 @@
             },
             "examples": {
               "type-filter": {
-                "value": "light"
+                "value": "LIGHT"
               }
             }
           },
@@ -717,7 +754,7 @@
             },
             "examples": {
               "next-token": {
-                "value": "123"
+                "value": "OPAQUE_TOKEN_FROM_PREVIOUS_RESPONSE"
               }
             }
           },
@@ -777,7 +814,22 @@
                 "schema": {
                   "$ref": "#/components/schemas/EndpointQueryResponse"
                 },
-                "examples": {}
+                "examples": {},
+                "example": {
+                  "results": [
+                    {
+                      "id": "port1/principals/example/endpoints/light-1",
+                      "name": {
+                        "type": "PLAIN",
+                        "value": "Office light"
+                      },
+                      "type": "LIGHT",
+                      "interfaces": [],
+                      "ownerId": "port1/principals/example",
+                      "enablement": "ENABLED"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -855,6 +907,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertEndpointRequest"
+              },
+              "example": {
+                "id": "port1/principals/example/endpoints/light-1",
+                "name": {
+                  "type": "PLAIN",
+                  "value": "Office light"
+                },
+                "type": "LIGHT"
               }
             }
           }
@@ -958,7 +1018,7 @@
                 "$ref": "#/components/schemas/DeleteEndpointRequest"
               },
               "example": {
-                "id": "port1/principals/user123/resources/abc-123"
+                "id": "port1/principals/example/endpoints/light-1"
               }
             }
           }
@@ -2135,6 +2195,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Simulator"
+                },
+                "example": {
+                  "device_type": "light",
+                  "id": "port1.simulator.example",
+                  "name": "Example device"
                 }
               },
               "application/vnd.portos.simulator.v2+json": {
@@ -2677,7 +2742,7 @@
                 "$ref": "#/components/schemas/DeleteRouteRequest"
               },
               "example": {
-                "id": "port1/principals/user123/resources/abc-123"
+                "id": "port1/principals/example/routes/light-route"
               }
             }
           }
@@ -2718,6 +2783,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertRouteRequest"
+              },
+              "example": {
+                "id": "port1/principals/example/routes/light-route",
+                "endpointId": "port1/principals/example/endpoints/light-1",
+                "pluginId": "port1/systems/zero/plugins/example"
               }
             }
           }
@@ -2766,6 +2836,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SynchronizationRequest"
+              },
+              "example": {
+                "routes": []
               }
             }
           }
@@ -2981,6 +3054,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpsertPluginResponse"
+                },
+                "example": {
+                  "id": "port1/principals/example/plugins/example"
                 }
               }
             }
@@ -3064,6 +3140,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EstablishPluginRequest"
+              },
+              "example": {
+                "plugin": {
+                  "type": "LIGHT"
+                }
               }
             }
           }
@@ -3075,6 +3156,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EstablishPluginResponse"
+                },
+                "example": {
+                  "pluginId": "port1/principals/example"
                 }
               }
             }
@@ -3227,6 +3311,17 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertAuthLinkRequest"
+              },
+              "example": {
+                "authLink": {
+                  "associatedPrincipalId": "port1/principals/example",
+                  "associatedPluginId": "port1/systems/zero/plugins/example",
+                  "associatedSecrets": [
+                    {
+                      "id": "port1/principals/example/secrets/plugin-credential"
+                    }
+                  ]
+                }
               }
             }
           }
@@ -3324,6 +3419,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EstablishAuthLinkRequest"
+              },
+              "example": {
+                "pluginId": "port1/principals/example"
               }
             }
           }
@@ -3431,6 +3529,9 @@
                     "description": "The ID of the auth link to refresh tokens for"
                   }
                 }
+              },
+              "example": {
+                "authLinkId": "port1/principals/example"
               }
             }
           }
@@ -3463,6 +3564,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PluginAuthMultifactorExchangeRequest"
+              },
+              "example": {
+                "pluginId": "port1/principals/example",
+                "principalId": "port1/principals/example",
+                "pluginAuthenticationData": {}
               }
             }
           }
@@ -3503,6 +3609,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PluginAuthCodeExchangeRequest"
+              },
+              "example": {
+                "pluginId": "port1/principals/example",
+                "principalId": "port1/principals/example",
+                "pluginAuthenticationData": {}
               }
             }
           }
@@ -4364,6 +4475,12 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SetEndpointGroupNameRequest"
+              },
+              "example": {
+                "name": {
+                  "type": "LIGHT",
+                  "value": "port1/principals/example"
+                }
               }
             }
           }
@@ -4590,6 +4707,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EndpointGroup"
+                },
+                "example": {
+                  "id": "port1/principals/example/endpoint-groups/living-room",
+                  "name": {
+                    "type": "LIGHT",
+                    "value": "port1/principals/example"
+                  },
+                  "ownerId": "port1/principals/example",
+                  "interfaces": [],
+                  "etag": "\"12\""
                 }
               }
             }
@@ -4900,6 +5027,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddEndpointGroupMembersRequest"
+              },
+              "example": {
+                "memberEndpointIds": []
               }
             }
           }
@@ -5083,6 +5213,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/RemoveEndpointGroupMembersRequest"
+              },
+              "example": {
+                "memberEndpointIds": []
               }
             }
           }
@@ -5513,6 +5646,12 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertAccessControlRuleRequest"
+              },
+              "example": {
+                "operation": "port1/principals/example",
+                "resource": "port1/users/alice/endpoints/thermostat-zero",
+                "identity": "port1/account/john/users/alice",
+                "effect": "ALLOW"
               }
             }
           }
@@ -5643,6 +5782,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetAccessControlRulesResponse"
+                },
+                "example": {
+                  "results": []
                 }
               }
             }
@@ -5689,6 +5831,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EvaluateAccessControlRuleRequest"
+              },
+              "example": {
+                "requests": "port1/principals/example"
               }
             }
           }
@@ -5917,6 +6062,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertSecretRequest"
+              },
+              "example": {
+                "secret": {
+                  "id": "port1/principals/example",
+                  "type": "LIGHT",
+                  "clientId": "port1/principals/example",
+                  "clientSecret": "port1/principals/example"
+                }
               }
             }
           }
@@ -6128,6 +6281,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertPrincipalRequest"
+              },
+              "example": {
+                "items": "port1/principals/example"
               }
             }
           }
@@ -6242,7 +6398,7 @@
                 "redirect_uri": "http://127.0.0.1:8765/callback",
                 "code": "CALLBACK_CODE",
                 "code_verifier": "ORIGINAL_RANDOM_PKCE_VERIFIER",
-                "resource": "https://api.portpowered.com"
+                "resource": "https://portos-pilot-api-685761720421.us-west1.run.app"
               }
             }
           }
@@ -6306,6 +6462,10 @@
                     "type": "string"
                   }
                 }
+              },
+              "example": {
+                "token": "port1/principals/example",
+                "client_id": "dcr_example"
               }
             }
           }
@@ -6493,6 +6653,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateTokenResponse"
+                },
+                "example": {
+                  "id": "port1/principals/example",
+                  "token": "port1/principals/example",
+                  "expires_at": "2026-10-08T12:00:00Z"
                 }
               }
             }
@@ -6574,6 +6739,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/InvalidateTokenResponse"
+                },
+                "example": {
+                  "message": "The request could not be completed. Check the supplied parameters and try again."
                 }
               }
             }
@@ -6637,6 +6805,11 @@
                     "description": "Token type identifier. Must be urn:ietf:params:oauth:token-type:id_token\n"
                   }
                 }
+              },
+              "example": {
+                "anonymous_refresh_token": "port1/principals/example",
+                "subject_token": "port1/principals/example",
+                "subject_token_type": "port1/principals/example"
               }
             }
           }
@@ -6648,6 +6821,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenerateTokenResponse"
+                },
+                "example": {
+                  "access_token": "port1/principals/example",
+                  "token_type": "port1/principals/example",
+                  "expires_in": 1
                 }
               }
             }
@@ -6658,6 +6836,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -6668,6 +6850,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -6678,6 +6864,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -6734,6 +6924,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenerateTokenResponse"
+                },
+                "example": {
+                  "access_token": "port1/principals/example",
+                  "token_type": "port1/principals/example",
+                  "expires_in": 1
                 }
               }
             }
@@ -6744,6 +6939,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -6753,13 +6952,13 @@
         "x-portos-resource-permission": false
       }
     },
-    "/auth/device_authorization": {
+    "/auth/device-authorization": {
       "post": {
         "tags": [
           "Auth"
         ],
         "summary": "OAuth2 Device Authorization",
-        "description": "This API is used by your device to obtain authorization from the resource owner via a device code or QR code that your device can scan.\n\nSee the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).\n\n\nUses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow.",
+        "description": "This API is used by your device to obtain authorization from the resource owner via a device code or QR code that your device can scan.\n\nSee the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).\n\n\nUses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow. The legacy /auth/device_authorization path remains a compatibility alias.",
         "operationId": "deviceAuthorize",
         "security": [
           {}
@@ -6770,6 +6969,9 @@
             "application/x-www-form-urlencoded": {
               "schema": {
                 "$ref": "#/components/schemas/DeviceAuthorizationRequest"
+              },
+              "example": {
+                "client_id": "dcr_example"
               }
             }
           }
@@ -6781,6 +6983,13 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeviceAuthorizationResponse"
+                },
+                "example": {
+                  "device_code": "port1/principals/example",
+                  "user_code": "port1/principals/example",
+                  "verification_uri": "https://portpowered.com/oauth/device/verify",
+                  "expires_in": 1800,
+                  "interval": 5
                 }
               }
             }
@@ -6791,6 +7000,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -6801,6 +7014,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -6947,6 +7164,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/OAuthClientRegistrationRequest"
+              },
+              "example": {
+                "clientName": "port1/principals/example"
               }
             }
           }
@@ -6958,6 +7178,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateOAuthClientResponse"
+                },
+                "example": {
+                  "clientId": "port1/principals/example",
+                  "clientSecret": "port1/principals/example"
                 }
               }
             }
@@ -7048,6 +7272,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthClient"
+                },
+                "example": {
+                  "clientId": "port1/systems/zero/oauth-clients/1234567890",
+                  "clientName": "port1/principals/example"
                 }
               }
             }
@@ -7186,6 +7414,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateOAuthClientResponse"
+                },
+                "example": {
+                  "clientId": "port1/principals/example"
                 }
               }
             }
@@ -7292,6 +7523,10 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/GenerateOAuthCodeRequest"
+              },
+              "example": {
+                "client_id": "port1/principals/user123/oauth-clients/my-client",
+                "redirect_uri": "https://myapp.com/callback"
               }
             }
           }
@@ -7303,6 +7538,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenerateOAuthCodeResponse"
+                },
+                "example": {
+                  "code": "abc123def456ghi789",
+                  "expiryInSeconds": 600
                 }
               }
             }
@@ -7389,6 +7628,14 @@
                       }
                     }
                   ]
+                },
+                "example": {
+                  "redirect_uris": [
+                    "http://127.0.0.1:8765/callback"
+                  ],
+                  "token_endpoint_auth_method": "none",
+                  "client_id": "dcr_example",
+                  "client_id_issued_at": 1791504000
                 }
               }
             }
@@ -7399,6 +7646,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthProtocolError"
+                },
+                "example": {
+                  "error": "invalid_client_metadata",
+                  "error_description": "Use HTTPS callbacks or an entirely local callback set."
                 }
               }
             }
@@ -7559,6 +7810,10 @@
                     "type": "string"
                   }
                 }
+              },
+              "example": {
+                "request_id": "SERVER_ISSUED_PENDING_REQUEST_ID",
+                "approved": true
               }
             }
           }
@@ -7579,6 +7834,9 @@
                       "format": "uri"
                     }
                   }
+                },
+                "example": {
+                  "redirect_url": "http://127.0.0.1:8765/callback?code=SERVER_ISSUED_CODE&state=ORIGINAL_STATE"
                 }
               }
             }
@@ -7654,6 +7912,13 @@
                       }
                     }
                   }
+                },
+                "example": {
+                  "client_id": "dcr_example",
+                  "client_name": "Example agent",
+                  "redirect_uri": "http://127.0.0.1:8765/callback",
+                  "resource": "https://portos-pilot-api-685761720421.us-west1.run.app",
+                  "scopes": []
                 }
               }
             }
@@ -7686,6 +7951,10 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ValidateOAuthRequestRequest"
+              },
+              "example": {
+                "client_id": "port1/principals/user123/oauth-clients/my-client",
+                "redirect_uri": "https://myapp.com/callback"
               }
             }
           }
@@ -7697,6 +7966,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ValidateOAuthRequestResponse"
+                },
+                "example": {
+                  "clientName": "My OAuth Application",
+                  "scopes": []
                 }
               }
             }
@@ -7740,6 +8013,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/VerifyDeviceResponse"
+                },
+                "example": {
+                  "deviceauth_id": "da_1234567890abcdef",
+                  "client_name": "My OAuth Application",
+                  "client_id": "port1/principals/user123/oauth-clients/my-client",
+                  "status": "pending"
                 }
               }
             }
@@ -7750,6 +8029,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -7760,6 +8043,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -7783,6 +8070,13 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AuthorizeDeviceRequest"
+              },
+              "example": {
+                "user_code": "ABCD-EFGH",
+                "scopes": [
+                  "endpoint:read",
+                  "endpoint:write"
+                ]
               }
             }
           }
@@ -7794,6 +8088,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AuthorizeDeviceResponse"
+                },
+                "example": {
+                  "success": true
                 }
               }
             }
@@ -7804,6 +8101,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -7814,6 +8115,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -7824,6 +8129,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OAuthErrorResponse"
+                },
+                "example": {
+                  "error": "invalid_request",
+                  "error_description": "user_code is required"
                 }
               }
             }
@@ -9094,6 +9403,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FlowNode"
+                },
+                "example": {
+                  "id": "port1/principals/example"
                 }
               }
             }
@@ -9185,6 +9497,9 @@
                     "description": "The ID of the flow node to delete."
                   }
                 }
+              },
+              "example": {
+                "id": "port1/principals/example"
               }
             }
           }
@@ -9945,6 +10260,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Message"
+              },
+              "example": {
+                "body": {}
               }
             }
           }
@@ -10717,6 +11035,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertViewRequest"
+              },
+              "example": {
+                "title": {
+                  "type": "LIGHT",
+                  "value": "port1/principals/example"
+                },
+                "positions": [],
+                "widgets": []
               }
             }
           }
@@ -10849,6 +11175,9 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/View"
+                },
+                "example": {
+                  "id": "port1/principals/example"
                 }
               }
             }
@@ -10957,6 +11286,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpsertViewRequest"
+              },
+              "example": {
+                "title": {
+                  "type": "LIGHT",
+                  "value": "port1/principals/example"
+                },
+                "positions": [],
+                "widgets": []
               }
             }
           }
@@ -11277,6 +11614,10 @@
                     "description": "The Port OS identifier of the flow node to execute"
                   }
                 }
+              },
+              "example": {
+                "flow_id": "port1/principals/example",
+                "node_id": "port1/principals/example"
               }
             }
           }
@@ -11355,6 +11696,10 @@
                     "description": "Optional override for the Tuya authentication API endpoint. Defaults to https://apigw.iotbing.com if not provided.\n"
                   }
                 }
+              },
+              "example": {
+                "accessCode": "port1/principals/example",
+                "clientId": "port1/principals/example"
               }
             }
           }
@@ -11454,6 +11799,11 @@
                     "description": "Optional override for the Tuya authentication API endpoint. Defaults to https://apigw.iotbing.com if not provided.\n"
                   }
                 }
+              },
+              "example": {
+                "loginCode": "port1/principals/example",
+                "userCode": "port1/principals/example",
+                "clientId": "port1/principals/example"
               }
             }
           }
@@ -18837,8 +19187,8 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the endpoint group",
-            "pattern": "^port1\\/principals\\/.*\\/groups\\/.*",
-            "example": "port1/principals/123/groups/456"
+            "pattern": "^port1/[^/]+/[^/]+/endpoint-groups/[^/]+$",
+            "example": "port1/principals/example/endpoint-groups/living-room"
           },
           "name": {
             "$ref": "#/components/schemas/TypeValue",
@@ -18914,13 +19264,13 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the group route",
-            "pattern": "^port1\\/principals\\/.*\\/group-routes\\/.*",
-            "example": "port1/principals/123/group-routes/456"
+            "pattern": "^port1/[^/]+/[^/]+/endpoint-group-routes/[^/]+$",
+            "example": "port1/principals/example/endpoint-group-routes/living-room"
           },
           "associatedGroupId": {
             "type": "string",
             "description": "The ID of the associated endpoint group",
-            "pattern": "^port1\\/principals\\/.*\\/groups\\/.*"
+            "pattern": "^port1/[^/]+/[^/]+/endpoint-groups/[^/]+$"
           },
           "associatedPluginId": {
             "type": "string",
@@ -22358,7 +22708,7 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the principal",
-            "pattern": "^port1\\.principal\\..*"
+            "pattern": "^port1/[^/]+/[^/]+$"
           },
           "ownerId": {
             "type": "string",
@@ -22564,7 +22914,7 @@
           "id": {
             "type": "string",
             "description": "The persisted Port OS route identifier. Synchronized routes can receive a backend-generated, owner-scoped value here even when the discovery payload supplied an explicit route `id`; do not use this field as the stable plugin-owned route identity unless the synchronizing implementation explicitly documents preservation.\n",
-            "pattern": "^port1\\.route\\..*"
+            "pattern": "^port1/[^/]+/[^/]+/routes/[^/]+$"
           },
           "associatedPluginId": {
             "type": "string",
@@ -22685,8 +23035,8 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the endpoint",
-            "pattern": "^port1\\/principals\\/.*\\/endpoints\\/.*",
-            "example": "port1\\principals/123/endpoints/456"
+            "pattern": "^port1/[^/]+/[^/]+/endpoints/[^/]+$",
+            "example": "port1/principals/example/endpoints/light-1"
           },
           "name": {
             "$ref": "#/components/schemas/TypeValue",
@@ -23616,7 +23966,7 @@
           "id": {
             "type": "string",
             "description": "The created plugin ID",
-            "pattern": "^port1\\.plugin\\..*"
+            "pattern": "^port1/[^/]+/[^/]+/plugins/[^/]+$"
           }
         }
       },
@@ -23721,7 +24071,7 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the auth link",
-            "pattern": "^port1\\.authlink\\..*"
+            "pattern": "^port1/[^/]+/[^/]+/auth-links/[^/]+$"
           },
           "ownerId": {
             "type": "string",
@@ -23778,7 +24128,7 @@
         "type": "object",
         "description": "A request denoting the creation of an auth link between a principal and a plugin",
         "required": [
-          "plugin"
+          "authLink"
         ],
         "properties": {
           "authLink": {

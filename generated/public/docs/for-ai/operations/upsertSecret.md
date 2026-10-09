@@ -89,6 +89,12 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertSecretRequest'
+        example:
+          secret:
+            id: port1/principals/example
+            type: LIGHT
+            clientId: port1/principals/example
+            clientSecret: port1/principals/example
   responses:
     '200':
       description: Secret created successfully

@@ -42,6 +42,12 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertAuthLinkRequest'
+        example:
+          authLink:
+            associatedPrincipalId: port1/principals/example
+            associatedPluginId: port1/systems/zero/plugins/example
+            associatedSecrets:
+              - id: port1/principals/example/secrets/plugin-credential
   responses:
     '200':
       description: Auth link created successfully

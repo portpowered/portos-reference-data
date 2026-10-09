@@ -53,6 +53,8 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/UpsertPluginResponse'
+          example:
+            id: port1/principals/example/plugins/example
     '400':
       description: Invalid request payload
     '500':

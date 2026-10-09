@@ -49,6 +49,9 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/EstablishPluginRequest'
+        example:
+          plugin:
+            type: LIGHT
   responses:
     '200':
       description: Plugin established successfully
@@ -56,6 +59,8 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/EstablishPluginResponse'
+          example:
+            pluginId: port1/principals/example
     '400':
       description: Invalid request payload
       content:

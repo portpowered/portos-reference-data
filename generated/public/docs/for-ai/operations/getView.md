@@ -84,6 +84,8 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/View'
+          example:
+            id: port1/principals/example
     '400':
       description: Invalid request payload
       content:

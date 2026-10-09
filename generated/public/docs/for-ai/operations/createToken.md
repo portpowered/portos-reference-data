@@ -58,6 +58,10 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/CreateTokenResponse'
+          example:
+            id: port1/principals/example
+            token: port1/principals/example
+            expires_at: '2026-10-08T12:00:00Z'
     '400':
       description: Invalid request (e.g. invalid subject, malformed body)
     '401':

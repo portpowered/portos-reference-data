@@ -57,6 +57,9 @@ post:
               description: >
                 Optional override for the Tuya authentication API endpoint. Defaults to
                 https://apigw.iotbing.com if not provided.
+        example:
+          accessCode: port1/principals/example
+          clientId: port1/principals/example
   responses:
     '200':
       description: QR code generated successfully

@@ -82,6 +82,8 @@ put:
         application/json:
           schema:
             $ref: '#/components/schemas/UpdateOAuthClientResponse'
+          example:
+            clientId: port1/principals/example
     '400':
       description: Invalid request payload
     '401':

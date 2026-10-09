@@ -69,6 +69,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/RemoveEndpointGroupMembersRequest'
+        example:
+          memberEndpointIds: []
   responses:
     '202':
       description: Members removal accepted

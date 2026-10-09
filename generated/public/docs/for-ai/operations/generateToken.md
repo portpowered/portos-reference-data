@@ -52,7 +52,7 @@ post:
           redirect_uri: http://127.0.0.1:8765/callback
           code: CALLBACK_CODE
           code_verifier: ORIGINAL_RANDOM_PKCE_VERIFIER
-          resource: https://api.portpowered.com
+          resource: https://portos-pilot-api-685761720421.us-west1.run.app
   responses:
     '200':
       description: Token generated successfully

@@ -36,6 +36,10 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertRouteRequest'
+        example:
+          id: port1/principals/example/routes/light-route
+          endpointId: port1/principals/example/endpoints/light-1
+          pluginId: port1/systems/zero/plugins/example
   responses:
     '200':
       description: Route upserted successfully

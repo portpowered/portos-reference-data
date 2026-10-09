@@ -69,6 +69,12 @@ put:
       application/json:
         schema:
           $ref: '#/components/schemas/UpsertViewRequest'
+        example:
+          title:
+            type: LIGHT
+            value: port1/principals/example
+          positions: []
+          widgets: []
   responses:
     '200':
       description: View updated successfully

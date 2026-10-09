@@ -269,7 +269,18 @@ paths:
                       - urn:ietf:params:oauth:grant-type:token-exchange
                       - urn:ietf:params:oauth:grant-type:device_code
               example:
-                key: value
+                issuer: https://portos-pilot-api-685761720421.us-west1.run.app
+                jwks_uri: https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json
+                token_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
+                response_types_supported:
+                  - code
+                subject_types_supported:
+                  - public
+                id_token_signing_alg_values_supported:
+                  - RS256
+                grant_types_supported:
+                  - authorization_code
+                  - refresh_token
       x-portos-delegated: false
       x-portos-resource-permission: false
   /.well-known/oauth-authorization-server:
@@ -293,7 +304,6 @@ paths:
                   - issuer
                   - authorization_endpoint
                   - token_endpoint
-                  - registration_endpoint
                   - revocation_endpoint
                   - scopes_supported
                 properties:
@@ -309,6 +319,7 @@ paths:
                   registration_endpoint:
                     type: string
                     format: uri
+                    description: Advertised when new anonymous registration is enabled; omitted when disabled.
                   revocation_endpoint:
                     type: string
                     format: uri
@@ -333,6 +344,24 @@ paths:
                     type: boolean
                   authorization_response_iss_parameter_supported:
                     type: boolean
+              example:
+                issuer: https://portos-pilot-api-685761720421.us-west1.run.app
+                authorization_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize
+                token_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
+                revocation_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/revoke
+                scopes_supported:
+                  - endpoint:read
+                  - message:send
+                registration_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/register
+                jwks_uri: https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json
+                code_challenge_methods_supported:
+                  - S256
+                token_endpoint_auth_methods_supported:
+                  - none
+                  - client_secret_post
+                  - client_secret_basic
+                client_id_metadata_document_supported: true
+                authorization_response_iss_parameter_supported: true
   /.well-known/jwks.json:
     get:
       operationId: getJWKS
@@ -502,7 +531,7 @@ paths:
             check-token:
               value: ~caller
             check-id:
-              value: port1/user/alice/user/alice
+              value: port1/principals/example
         - name: id
           in: query
           description: The unique identifier of a specific endpoint to retrieve
@@ -511,7 +540,7 @@ paths:
             type: string
           examples:
             endpoint-id:
-              value: port1/user/alice/endpoints/abc-123
+              value: port1/principals/example/endpoints/light-1
         - name: type
           in: query
           description: Filter endpoints by their primary type
@@ -520,7 +549,7 @@ paths:
             type: string
           examples:
             type-filter:
-              value: light
+              value: LIGHT
         - name: serialNumber
           in: query
           description: Filter endpoints by their serial number
@@ -538,7 +567,7 @@ paths:
             type: string
           examples:
             next-token:
-              value: '123'
+              value: OPAQUE_TOKEN_FROM_PREVIOUS_RESPONSE
         - name: maxResults
           in: query
           description: The maximum number of results to return
@@ -578,6 +607,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/EndpointQueryResponse'
               examples: {}
+              example:
+                results:
+                  - id: port1/principals/example/endpoints/light-1
+                    name:
+                      type: PLAIN
+                      value: Office light
+                    type: LIGHT
+                    interfaces: []
+                    ownerId: port1/principals/example
+                    enablement: ENABLED
         '400':
           description: Bad request - missing required parameters
           content:
@@ -628,6 +667,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertEndpointRequest'
+            example:
+              id: port1/principals/example/endpoints/light-1
+              name:
+                type: PLAIN
+                value: Office light
+              type: LIGHT
       responses:
         '200':
           description: Endpoint upserted successfully
@@ -692,7 +737,7 @@ paths:
             schema:
               $ref: '#/components/schemas/DeleteEndpointRequest'
             example:
-              id: port1/principals/user123/resources/abc-123
+              id: port1/principals/example/endpoints/light-1
       responses:
         '200':
           description: Endpoint deleted successfully
@@ -1506,6 +1551,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Simulator'
+              example:
+                device_type: light
+                id: port1.simulator.example
+                name: Example device
             application/vnd.portos.simulator.v2+json:
               schema:
                 $ref: '#/components/schemas/SimulatorV2'
@@ -1866,7 +1915,7 @@ paths:
             schema:
               $ref: '#/components/schemas/DeleteRouteRequest'
             example:
-              id: port1/principals/user123/resources/abc-123
+              id: port1/principals/example/routes/light-route
       responses:
         '200':
           description: Route deleted successfully
@@ -1891,6 +1940,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertRouteRequest'
+            example:
+              id: port1/principals/example/routes/light-route
+              endpointId: port1/principals/example/endpoints/light-1
+              pluginId: port1/systems/zero/plugins/example
       responses:
         '200':
           description: Route upserted successfully
@@ -1927,6 +1980,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SynchronizationRequest'
+            example:
+              routes: []
       responses:
         '200':
           description: Routes synchronized successfully
@@ -2073,6 +2128,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpsertPluginResponse'
+              example:
+                id: port1/principals/example/plugins/example
         '400':
           description: Invalid request payload
         '500':
@@ -2129,6 +2186,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EstablishPluginRequest'
+            example:
+              plugin:
+                type: LIGHT
       responses:
         '200':
           description: Plugin established successfully
@@ -2136,6 +2196,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EstablishPluginResponse'
+              example:
+                pluginId: port1/principals/example
         '400':
           description: Invalid request payload
           content:
@@ -2239,6 +2301,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertAuthLinkRequest'
+            example:
+              authLink:
+                associatedPrincipalId: port1/principals/example
+                associatedPluginId: port1/systems/zero/plugins/example
+                associatedSecrets:
+                  - id: port1/principals/example/secrets/plugin-credential
       responses:
         '200':
           description: Auth link created successfully
@@ -2304,6 +2372,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EstablishAuthLinkRequest'
+            example:
+              pluginId: port1/principals/example
       responses:
         '200':
           description: Auth link established successfully
@@ -2376,6 +2446,8 @@ paths:
                 authLinkId:
                   type: string
                   description: The ID of the auth link to refresh tokens for
+            example:
+              authLinkId: port1/principals/example
       responses:
         '200':
           description: Token refreshed successfully
@@ -2400,6 +2472,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PluginAuthMultifactorExchangeRequest'
+            example:
+              pluginId: port1/principals/example
+              principalId: port1/principals/example
+              pluginAuthenticationData: {}
       responses:
         '202':
           description: Auth link setup started successfully, the operation is ongoing in the background.
@@ -2427,6 +2503,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PluginAuthCodeExchangeRequest'
+            example:
+              pluginId: port1/principals/example
+              principalId: port1/principals/example
+              pluginAuthenticationData: {}
       responses:
         '202':
           description: Plugin auth code exchange started successfully, the operation is ongoing in the background.
@@ -2970,6 +3050,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SetEndpointGroupNameRequest'
+            example:
+              name:
+                type: LIGHT
+                value: port1/principals/example
       responses:
         '202':
           description: Endpoint group name update accepted
@@ -3116,6 +3200,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EndpointGroup'
+              example:
+                id: port1/principals/example/endpoint-groups/living-room
+                name:
+                  type: LIGHT
+                  value: port1/principals/example
+                ownerId: port1/principals/example
+                interfaces: []
+                etag: '"12"'
         '400':
           description: Invalid request payload
           content:
@@ -3313,6 +3405,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AddEndpointGroupMembersRequest'
+            example:
+              memberEndpointIds: []
       responses:
         '202':
           description: Members addition accepted
@@ -3429,6 +3523,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RemoveEndpointGroupMembersRequest'
+            example:
+              memberEndpointIds: []
       responses:
         '202':
           description: Members removal accepted
@@ -3709,6 +3805,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertAccessControlRuleRequest'
+            example:
+              operation: port1/principals/example
+              resource: port1/users/alice/endpoints/thermostat-zero
+              identity: port1/account/john/users/alice
+              effect: ALLOW
       responses:
         '200':
           description: Access control rule upserted successfully
@@ -3796,6 +3897,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetAccessControlRulesResponse'
+              example:
+                results: []
         '500':
           description: Internal server error
           content:
@@ -3828,6 +3931,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EvaluateAccessControlRuleRequest'
+            example:
+              requests: port1/principals/example
       responses:
         '200':
           description: Access control rule evaluated successfully
@@ -3999,6 +4104,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertSecretRequest'
+            example:
+              secret:
+                id: port1/principals/example
+                type: LIGHT
+                clientId: port1/principals/example
+                clientSecret: port1/principals/example
       responses:
         '200':
           description: Secret created successfully
@@ -4140,6 +4251,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertPrincipalRequest'
+            example:
+              items: port1/principals/example
       responses:
         '200':
           description: Principal created successfully
@@ -4221,7 +4334,7 @@ paths:
               redirect_uri: http://127.0.0.1:8765/callback
               code: CALLBACK_CODE
               code_verifier: ORIGINAL_RANDOM_PKCE_VERIFIER
-              resource: https://api.portpowered.com
+              resource: https://portos-pilot-api-685761720421.us-west1.run.app
       responses:
         '200':
           description: Token generated successfully
@@ -4266,6 +4379,9 @@ paths:
                   type: string
                 client_id:
                   type: string
+            example:
+              token: port1/principals/example
+              client_id: dcr_example
       responses:
         '200':
           description: Grant revoked or token was already invalid.
@@ -4396,6 +4512,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateTokenResponse'
+              example:
+                id: port1/principals/example
+                token: port1/principals/example
+                expires_at: '2026-10-08T12:00:00Z'
         '400':
           description: Invalid request (e.g. invalid subject, malformed body)
         '401':
@@ -4451,6 +4571,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidateTokenResponse'
+              example:
+                message: The request could not be completed. Check the supplied parameters and try again.
         '401':
           description: Unauthorized
         '403':
@@ -4494,6 +4616,10 @@ paths:
                   type: string
                   description: |
                     Token type identifier. Must be urn:ietf:params:oauth:token-type:id_token
+            example:
+              anonymous_refresh_token: port1/principals/example
+              subject_token: port1/principals/example
+              subject_token_type: port1/principals/example
       responses:
         '200':
           description: Principal raised successfully
@@ -4501,24 +4627,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GenerateTokenResponse'
+              example:
+                access_token: port1/principals/example
+                token_type: port1/principals/example
+                expires_in: 1
         '400':
           description: Invalid request (malformed form data or invalid parameters)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
         '401':
           description: Invalid grant (anonymous refresh token is not valid)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
         '500':
           description: Internal server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
       x-portos-delegated: false
       x-portos-resource-permission: false
   /auth/callback:
@@ -4558,15 +4697,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GenerateTokenResponse'
+              example:
+                access_token: port1/principals/example
+                token_type: port1/principals/example
+                expires_in: 1
         '400':
           description: Invalid callback data or provider error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
       x-portos-delegated: false
       x-portos-resource-permission: false
-  /auth/device_authorization:
+  /auth/device-authorization:
     post:
       tags:
         - Auth
@@ -4577,7 +4723,7 @@ paths:
         See the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).
 
 
-        Uses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow.
+        Uses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow. The legacy /auth/device_authorization path remains a compatibility alias.
       operationId: deviceAuthorize
       security:
         - {}
@@ -4587,6 +4733,8 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/DeviceAuthorizationRequest'
+            example:
+              client_id: dcr_example
       responses:
         '200':
           description: Device authorization initiated successfully
@@ -4594,18 +4742,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeviceAuthorizationResponse'
+              example:
+                device_code: port1/principals/example
+                user_code: port1/principals/example
+                verification_uri: https://portpowered.com/oauth/device/verify
+                expires_in: 1800
+                interval: 5
         '400':
           description: Invalid request parameters
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
         '500':
           description: Internal server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
       x-portos-delegated: false
       x-portos-resource-permission: false
   /oauth-clients:
@@ -4710,6 +4870,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/OAuthClientRegistrationRequest'
+            example:
+              clientName: port1/principals/example
       responses:
         '200':
           description: OAuth client created successfully
@@ -4717,6 +4879,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateOAuthClientResponse'
+              example:
+                clientId: port1/principals/example
+                clientSecret: port1/principals/example
         '400':
           description: Invalid request payload
         '401':
@@ -4777,6 +4942,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthClient'
+              example:
+                clientId: port1/systems/zero/oauth-clients/1234567890
+                clientName: port1/principals/example
         '400':
           description: Invalid request payload
           content:
@@ -4873,6 +5041,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpdateOAuthClientResponse'
+              example:
+                clientId: port1/principals/example
         '400':
           description: Invalid request payload
         '401':
@@ -4949,6 +5119,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/GenerateOAuthCodeRequest'
+            example:
+              client_id: port1/principals/user123/oauth-clients/my-client
+              redirect_uri: https://myapp.com/callback
       responses:
         '200':
           description: Authorization code generated successfully
@@ -4956,6 +5129,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GenerateOAuthCodeResponse'
+              example:
+                code: abc123def456ghi789
+                expiryInSeconds: 600
         '400':
           description: Invalid request (e.g., invalid client_id, redirect_uri, or scopes)
         '401':
@@ -5024,12 +5200,21 @@ paths:
                       client_id_issued_at:
                         type: integer
                         format: int64
+              example:
+                redirect_uris:
+                  - http://127.0.0.1:8765/callback
+                token_endpoint_auth_method: none
+                client_id: dcr_example
+                client_id_issued_at: 1791504000
         '400':
           description: Invalid metadata, redirect URI, or unapproved software statement.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthProtocolError'
+              example:
+                error: invalid_client_metadata
+                error_description: Use HTTPS callbacks or an entirely local callback set.
         '415':
           description: Use application/json.
         '429':
@@ -5141,6 +5326,9 @@ paths:
                   type: boolean
                 scope:
                   type: string
+            example:
+              request_id: SERVER_ISSUED_PENDING_REQUEST_ID
+              approved: true
       responses:
         '200':
           description: Callback navigation URL containing code or denial and original state.
@@ -5154,6 +5342,8 @@ paths:
                   redirect_url:
                     type: string
                     format: uri
+              example:
+                redirect_url: http://127.0.0.1:8765/callback?code=SERVER_ISSUED_CODE&state=ORIGINAL_STATE
         '400':
           description: Invalid, expired or consumed request.
         '401':
@@ -5207,6 +5397,12 @@ paths:
                     type: array
                     items:
                       type: string
+              example:
+                client_id: dcr_example
+                client_name: Example agent
+                redirect_uri: http://127.0.0.1:8765/callback
+                resource: https://portos-pilot-api-685761720421.us-west1.run.app
+                scopes: []
         '400':
           description: Invalid, expired or consumed request.
         '401':
@@ -5228,6 +5424,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ValidateOAuthRequestRequest'
+            example:
+              client_id: port1/principals/user123/oauth-clients/my-client
+              redirect_uri: https://myapp.com/callback
       responses:
         '200':
           description: Request validated successfully, returns client information
@@ -5235,6 +5434,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidateOAuthRequestResponse'
+              example:
+                clientName: My OAuth Application
+                scopes: []
         '400':
           description: Invalid request (e.g., invalid client_id, redirect_uri, or scopes)
         '500':
@@ -5266,18 +5468,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VerifyDeviceResponse'
+              example:
+                deviceauth_id: da_1234567890abcdef
+                client_name: My OAuth Application
+                client_id: port1/principals/user123/oauth-clients/my-client
+                status: pending
         '400':
           description: Invalid request (e.g., missing or invalid user_code)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
         '500':
           description: Internal server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
       x-portos-delegated: false
       x-portos-resource-permission: false
   /oauth/authorize-device:
@@ -5298,6 +5511,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AuthorizeDeviceRequest'
+            example:
+              user_code: ABCD-EFGH
+              scopes:
+                - endpoint:read
+                - endpoint:write
       responses:
         '200':
           description: Device authorization successful
@@ -5305,24 +5523,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthorizeDeviceResponse'
+              example:
+                success: true
         '400':
           description: Invalid request (e.g., missing user_code, invalid user_code, or invalid scopes)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
         '401':
           description: Unauthorized (missing or invalid authentication token)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
         '500':
           description: Internal server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuthErrorResponse'
+              example:
+                error: invalid_request
+                error_description: user_code is required
       x-portos-delegated: false
       x-portos-resource-permission: false
       security:
@@ -6182,6 +6411,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FlowNode'
+              example:
+                id: port1/principals/example
         '400':
           description: Bad request — invalid request payload or validation failure.
           content:
@@ -6244,6 +6475,8 @@ paths:
                 id:
                   type: string
                   description: The ID of the flow node to delete.
+            example:
+              id: port1/principals/example
       responses:
         '200':
           description: Flow node deleted successfully.
@@ -6805,6 +7038,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Message'
+            example:
+              body: {}
       responses:
         '202':
           description: Message accepted for processing
@@ -7316,6 +7551,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertViewRequest'
+            example:
+              title:
+                type: LIGHT
+                value: port1/principals/example
+              positions: []
+              widgets: []
       responses:
         '201':
           description: View created successfully
@@ -7404,6 +7645,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/View'
+              example:
+                id: port1/principals/example
         '400':
           description: Invalid request payload
           content:
@@ -7476,6 +7719,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpsertViewRequest'
+            example:
+              title:
+                type: LIGHT
+                value: port1/principals/example
+              positions: []
+              widgets: []
       responses:
         '200':
           description: View updated successfully
@@ -7704,6 +7953,9 @@ paths:
                 node_id:
                   type: string
                   description: The Port OS identifier of the flow node to execute
+            example:
+              flow_id: port1/principals/example
+              node_id: port1/principals/example
       responses:
         '200':
           description: Webhook received and flow run triggered (always returned to prevent retries)
@@ -7759,6 +8011,9 @@ paths:
                   type: string
                   description: |
                     Optional override for the Tuya authentication API endpoint. Defaults to https://apigw.iotbing.com if not provided.
+            example:
+              accessCode: port1/principals/example
+              clientId: port1/principals/example
       responses:
         '200':
           description: QR code generated successfully
@@ -7829,6 +8084,10 @@ paths:
                   type: string
                   description: |
                     Optional override for the Tuya authentication API endpoint. Defaults to https://apigw.iotbing.com if not provided.
+            example:
+              loginCode: port1/principals/example
+              userCode: port1/principals/example
+              clientId: port1/principals/example
       responses:
         '200':
           description: Login code validated successfully
@@ -13821,8 +14080,8 @@ components:
         id:
           type: string
           description: The unique identifier for the endpoint group
-          pattern: ^port1\/principals\/.*\/groups\/.*
-          example: port1/principals/123/groups/456
+          pattern: ^port1/[^/]+/[^/]+/endpoint-groups/[^/]+$
+          example: port1/principals/example/endpoint-groups/living-room
         name:
           $ref: '#/components/schemas/TypeValue'
           description: The name of the endpoint group
@@ -13881,12 +14140,12 @@ components:
         id:
           type: string
           description: The unique identifier for the group route
-          pattern: ^port1\/principals\/.*\/group-routes\/.*
-          example: port1/principals/123/group-routes/456
+          pattern: ^port1/[^/]+/[^/]+/endpoint-group-routes/[^/]+$
+          example: port1/principals/example/endpoint-group-routes/living-room
         associatedGroupId:
           type: string
           description: The ID of the associated endpoint group
-          pattern: ^port1\/principals\/.*\/groups\/.*
+          pattern: ^port1/[^/]+/[^/]+/endpoint-groups/[^/]+$
         associatedPluginId:
           type: string
           description: The ID of the associated plugin
@@ -16790,7 +17049,7 @@ components:
         id:
           type: string
           description: The unique identifier for the principal
-          pattern: ^port1\.principal\..*
+          pattern: ^port1/[^/]+/[^/]+$
         ownerId:
           type: string
           description: The owner ID of the principal
@@ -16943,7 +17202,7 @@ components:
           type: string
           description: |
             The persisted Port OS route identifier. Synchronized routes can receive a backend-generated, owner-scoped value here even when the discovery payload supplied an explicit route `id`; do not use this field as the stable plugin-owned route identity unless the synchronizing implementation explicitly documents preservation.
-          pattern: ^port1\.route\..*
+          pattern: ^port1/[^/]+/[^/]+/routes/[^/]+$
         associatedPluginId:
           type: string
           description: The ID of the associated plugin
@@ -17036,8 +17295,8 @@ components:
         id:
           type: string
           description: The unique identifier for the endpoint
-          pattern: ^port1\/principals\/.*\/endpoints\/.*
-          example: port1\principals/123/endpoints/456
+          pattern: ^port1/[^/]+/[^/]+/endpoints/[^/]+$
+          example: port1/principals/example/endpoints/light-1
         name:
           $ref: '#/components/schemas/TypeValue'
           description: The name of the endpoint
@@ -17670,7 +17929,7 @@ components:
         id:
           type: string
           description: The created plugin ID
-          pattern: ^port1\.plugin\..*
+          pattern: ^port1/[^/]+/[^/]+/plugins/[^/]+$
     DeletePluginRequest:
       type: object
       required:
@@ -17743,7 +18002,7 @@ components:
         id:
           type: string
           description: The unique identifier for the auth link
-          pattern: ^port1\.authlink\..*
+          pattern: ^port1/[^/]+/[^/]+/auth-links/[^/]+$
         ownerId:
           type: string
           description: The owner ID of the auth link
@@ -17782,7 +18041,7 @@ components:
       type: object
       description: A request denoting the creation of an auth link between a principal and a plugin
       required:
-        - plugin
+        - authLink
       properties:
         authLink:
           $ref: '#/components/schemas/AuthLink'

@@ -77,6 +77,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/SynchronizationRequest'
+        example:
+          routes: []
   responses:
     '200':
       description: Routes synchronized successfully

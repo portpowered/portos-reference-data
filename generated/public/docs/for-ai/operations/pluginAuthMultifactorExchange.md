@@ -44,6 +44,10 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/PluginAuthMultifactorExchangeRequest'
+        example:
+          pluginId: port1/principals/example
+          principalId: port1/principals/example
+          pluginAuthenticationData: {}
   responses:
     '202':
       description: Auth link setup started successfully, the operation is ongoing in the background.

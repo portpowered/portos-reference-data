@@ -46,6 +46,9 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/ValidateOAuthRequestRequest'
+        example:
+          client_id: port1/principals/user123/oauth-clients/my-client
+          redirect_uri: https://myapp.com/callback
   responses:
     '200':
       description: Request validated successfully, returns client information
@@ -53,6 +56,9 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/ValidateOAuthRequestResponse'
+          example:
+            clientName: My OAuth Application
+            scopes: []
     '400':
       description: Invalid request (e.g., invalid client_id, redirect_uri, or scopes)
     '500':

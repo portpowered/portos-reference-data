@@ -52,6 +52,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/OAuthClientRegistrationRequest'
+        example:
+          clientName: port1/principals/example
   responses:
     '200':
       description: OAuth client created successfully
@@ -59,6 +61,9 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/CreateOAuthClientResponse'
+          example:
+            clientId: port1/principals/example
+            clientSecret: port1/principals/example
     '400':
       description: Invalid request payload
     '401':

@@ -48,6 +48,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/EstablishAuthLinkRequest'
+        example:
+          pluginId: port1/principals/example
   responses:
     '200':
       description: Auth link established successfully

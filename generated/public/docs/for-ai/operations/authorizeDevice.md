@@ -52,6 +52,11 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/AuthorizeDeviceRequest'
+        example:
+          user_code: ABCD-EFGH
+          scopes:
+            - endpoint:read
+            - endpoint:write
   responses:
     '200':
       description: Device authorization successful
@@ -59,24 +64,35 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/AuthorizeDeviceResponse'
+          example:
+            success: true
     '400':
       description: Invalid request (e.g., missing user_code, invalid user_code, or invalid scopes)
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
     '401':
       description: Unauthorized (missing or invalid authentication token)
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
     '500':
       description: Internal server error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/OAuthErrorResponse'
+          example:
+            error: invalid_request
+            error_description: user_code is required
   x-portos-delegated: false
   x-portos-resource-permission: false
   security:

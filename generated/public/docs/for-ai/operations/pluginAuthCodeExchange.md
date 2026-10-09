@@ -43,6 +43,10 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/PluginAuthCodeExchangeRequest'
+        example:
+          pluginId: port1/principals/example
+          principalId: port1/principals/example
+          pluginAuthenticationData: {}
   responses:
     '202':
       description: Plugin auth code exchange started successfully, the operation is ongoing in the background.

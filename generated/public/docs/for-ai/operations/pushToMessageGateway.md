@@ -42,6 +42,8 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/Message'
+        example:
+          body: {}
   responses:
     '202':
       description: Message accepted for processing

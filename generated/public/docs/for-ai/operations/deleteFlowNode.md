@@ -52,6 +52,8 @@ delete:
             id:
               type: string
               description: The ID of the flow node to delete.
+        example:
+          id: port1/principals/example
   responses:
     '200':
       description: Flow node deleted successfully.

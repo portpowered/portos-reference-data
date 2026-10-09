@@ -47,6 +47,9 @@ post:
               type: string
             client_id:
               type: string
+        example:
+          token: port1/principals/example
+          client_id: dcr_example
   responses:
     '200':
       description: Grant revoked or token was already invalid.

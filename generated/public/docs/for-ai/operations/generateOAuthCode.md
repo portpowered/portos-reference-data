@@ -51,6 +51,9 @@ post:
       application/json:
         schema:
           $ref: '#/components/schemas/GenerateOAuthCodeRequest'
+        example:
+          client_id: port1/principals/user123/oauth-clients/my-client
+          redirect_uri: https://myapp.com/callback
   responses:
     '200':
       description: Authorization code generated successfully
@@ -58,6 +61,9 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/GenerateOAuthCodeResponse'
+          example:
+            code: abc123def456ghi789
+            expiryInSeconds: 600
     '400':
       description: Invalid request (e.g., invalid client_id, redirect_uri, or scopes)
     '401':
