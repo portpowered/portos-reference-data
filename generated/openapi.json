@@ -22601,6 +22601,16 @@
             "type": "object",
             "additionalProperties": true,
             "description": "The attribute value payload, structure depends on the attribute schema"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the capability attribute schema used for this value.",
+            "example": "1.0"
+          },
+          "sampledAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Device or provider reported sample time in UTC. Omitted when the source did not report a sample time; fetching the value does not make an unknown or old sample fresh."
           }
         }
       },

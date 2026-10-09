@@ -1,7 +1,8 @@
 {
   "package": "@portos/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.2.0",
+  "version": "0.2.1",
+  "assetSetSHA256": "cdac6e2b6153bc27cb73534a7c44ad0940a4089dc17e5606c2a16e92298cf326",
   "files": [
     {
       "path": "/docs/for-ai/capability-interfaces.md",
@@ -520,8 +521,8 @@
     },
     {
       "path": "/docs/for-ai/guides/quickstart.md",
-      "bytes": 2142,
-      "sha256": "90d69365852dd7aa523e36c7c048c9bf2f1fa4d00df733ce8292cc3c385e812e"
+      "bytes": 2201,
+      "sha256": "840d4a6c81724884ee7038b6b3e0bbd324abb7bf4485c0fe2607d9a7ba3b1836"
     },
     {
       "path": "/docs/for-ai/guides/reading-the-docs.md",
@@ -3345,8 +3346,8 @@
     },
     {
       "path": "/docs/references/openapi.yaml",
-      "bytes": 734435,
-      "sha256": "c706a35f6705e04a502d33be2b658b43977d891906084923e80daca4dc01496f"
+      "bytes": 734847,
+      "sha256": "f2c569f5ee227a7d44399bc0e7535da035b6426e300d67761f27d195f151c010"
     },
     {
       "path": "/llms.txt",

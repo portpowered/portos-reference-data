@@ -1,6 +1,6 @@
 {
   "name": "@portos/reference-data",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "publishConfig": { "access": "public" },
   "repository": { "type": "git", "url": "https://github.com/portpowered/portos-reference-data.git" },

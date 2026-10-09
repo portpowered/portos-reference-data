@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"io/fs"
+	"os"
 	"testing"
 )
 
@@ -25,7 +26,17 @@ func TestEmbeddedReleaseMatchesManifest(t *testing.T) {
 	if err := json.Unmarshal(data, &manifest); err != nil {
 		t.Fatal(err)
 	}
-	if manifest.Version != "0.2.0" || len(manifest.Files) < 100 {
+	packageJSON, err := os.ReadFile("package.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var pkg struct {
+		Version string `json:"version"`
+	}
+	if err := json.Unmarshal(packageJSON, &pkg); err != nil {
+		t.Fatal(err)
+	}
+	if manifest.Version == "" || manifest.Version != pkg.Version || len(manifest.Files) < 100 {
 		t.Fatal("incomplete release manifest")
 	}
 	for _, entry := range manifest.Files {
