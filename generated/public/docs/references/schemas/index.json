@@ -363,6 +363,12 @@
     },
     {
       "kind": "schemas",
+      "name": "BrightnessInterfaceAdjustBrightnessMessage",
+      "path": "/docs/references/schemas/BrightnessInterfaceAdjustBrightnessMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceAdjustBrightnessMessage"
+    },
+    {
+      "kind": "schemas",
       "name": "BrightnessInterfaceBrightnessAttribute",
       "path": "/docs/references/schemas/BrightnessInterfaceBrightnessAttribute.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceBrightnessAttribute"
@@ -2079,6 +2085,12 @@
     },
     {
       "kind": "schemas",
+      "name": "MediaPlayerInterfaceFastForwardMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceFastForwardMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceFastForwardMessage"
+    },
+    {
+      "kind": "schemas",
       "name": "MediaPlayerInterfaceNextMessage",
       "path": "/docs/references/schemas/MediaPlayerInterfaceNextMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceNextMessage"
@@ -2214,6 +2226,12 @@
       "name": "MediaPlaylistInterfaceShufflePlaylistMessage",
       "path": "/docs/references/schemas/MediaPlaylistInterfaceShufflePlaylistMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceShufflePlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaProvider",
+      "path": "/docs/references/schemas/MediaProvider.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaProvider"
     },
     {
       "kind": "schemas",

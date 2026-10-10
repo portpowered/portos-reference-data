@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Media service identifier. A provider enum value does not imply that every endpoint supports that service; use the endpoint's advertised provider lists.",
+  "enum": [
+    "SPOTIFY",
+    "AMAZON_MUSIC",
+    "APPLE_MUSIC",
+    "AUDIBLE",
+    "TUNE_IN",
+    "PANDORA",
+    "IHEART_RADIO",
+    "SIRIUSXM",
+    "DEEZER",
+    "TIDAL",
+    "YOUTUBE",
+    "NETFLIX",
+    "PRIME_VIDEO",
+    "DAILYMOTION"
+  ],
+  "x-enum-varnames": [
+    "MediaProviderSpotify",
+    "MediaProviderAmazonMusic",
+    "MediaProviderAppleMusic",
+    "MediaProviderAudible",
+    "MediaProviderTuneIn",
+    "MediaProviderPandora",
+    "MediaProviderIHeartRadio",
+    "MediaProviderSiriusXM",
+    "MediaProviderDeezer",
+    "MediaProviderTidal",
+    "MediaProviderYouTube",
+    "MediaProviderNetflix",
+    "MediaProviderPrimeVideo",
+    "MediaProviderDailymotion"
+  ]
+}

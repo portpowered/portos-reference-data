@@ -1,1 +1,18 @@
-null
+{
+  "type": "object",
+  "properties": {
+    "supportedInputTypes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "SSML",
+          "CANNED_TTS"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "description": "Speech synthesizers accept a request to speak. Use them to send spoken output to a connected device or integration."
+}

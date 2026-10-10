@@ -1,0 +1,5 @@
+{
+  "description": "Begin provider-defined fast-forward playback. This does not seek by a specific duration; use skip-forward or seek for a known position change.",
+  "type": "object",
+  "additionalProperties": false
+}

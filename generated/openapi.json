@@ -13367,12 +13367,34 @@
         "x-version": "1.0",
         "x-type": "message",
         "x-directionality": "in",
+        "description": "Search for and play media by title or query using a service advertised by the endpoint. Omitting mediaType retains audio search behavior; video-only endpoints may default to video.",
         "type": "object",
         "properties": {
           "query": {
             "type": "string",
-            "description": "Query to search for audio content",
+            "description": "Query to search for media content",
             "minLength": 1
+          },
+          "provider": {
+            "$ref": "#/components/schemas/MediaProvider"
+          },
+          "mediaType": {
+            "type": "string",
+            "enum": [
+              "AUDIO",
+              "VIDEO"
+            ],
+            "description": "Media search domain. The endpoint must advertise support for the selected type.",
+            "x-enum-varnames": [
+              "MediaSearchTypeAudio",
+              "MediaSearchTypeVideo"
+            ]
+          },
+          "timerSeconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 86400,
+            "description": "Optional provider playback timer in seconds."
           }
         },
         "required": [
@@ -14575,6 +14597,7 @@
               "LEFT",
               "RIGHT",
               "SELECT",
+              "HOME",
               "BACK",
               "EXIT",
               "MENU",
@@ -14684,6 +14707,16 @@
         "x-version": "1.0",
         "x-type": "message",
         "x-directionality": "in",
+        "type": "object",
+        "additionalProperties": false
+      },
+      "MediaPlayerInterfaceFastForwardMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+        "x-name": "fast-forward",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Begin provider-defined fast-forward playback. This does not seek by a specific duration; use skip-forward or seek for a known position change.",
         "type": "object",
         "additionalProperties": false
       },
@@ -15127,6 +15160,26 @@
         "required": [
           "brightness"
         ]
+      },
+      "BrightnessInterfaceAdjustBrightnessMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/brightness",
+        "x-name": "adjust-brightness",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Adjust brightness by a signed number of percentage points. The endpoint must advertise this message separately from set-brightness.",
+        "type": "object",
+        "properties": {
+          "brightnessDelta": {
+            "type": "integer",
+            "minimum": -100,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "brightnessDelta"
+        ],
+        "additionalProperties": false
       },
       "MediaSearchInterfaceAudioMediaResultsMessage": {
         "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
@@ -22126,6 +22179,7 @@
                 "LEFT",
                 "RIGHT",
                 "SELECT",
+                "HOME",
                 "BACK",
                 "EXIT",
                 "MENU",
@@ -22222,6 +22276,30 @@
         "description": "Configure media playback, media selection and audio playback. Advertise only the messages implemented by this endpoint.",
         "type": "object",
         "properties": {
+          "supportedAudioProviders": {
+            "type": "array",
+            "uniqueItems": true,
+            "description": "Audio services accepted by search-and-play on this endpoint. These describe command support, not active subscriptions.",
+            "items": {
+              "$ref": "#/components/schemas/MediaProvider"
+            }
+          },
+          "supportedVideoProviders": {
+            "type": "array",
+            "uniqueItems": true,
+            "description": "Video services accepted by search-and-play on this endpoint. These describe command support, not installed applications or active subscriptions.",
+            "items": {
+              "$ref": "#/components/schemas/MediaProvider"
+            }
+          },
+          "defaultAudioProvider": {
+            "$ref": "#/components/schemas/MediaProvider",
+            "description": "Default service for an audio search. Must be in supportedAudioProviders."
+          },
+          "defaultVideoProvider": {
+            "$ref": "#/components/schemas/MediaProvider",
+            "description": "Default service for a video search. Must be in supportedVideoProviders."
+          },
           "supportedPlaybackStates": {
             "type": "array",
             "items": {
@@ -22924,6 +23002,19 @@
         "x-version": "1.0",
         "x-type": "configuration",
         "type": "object",
+        "properties": {
+          "supportedInputTypes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "SSML",
+                "CANNED_TTS"
+              ]
+            }
+          }
+        },
         "additionalProperties": false
       },
       "TemperatureSensorInterfaceConfiguration": {
@@ -27099,6 +27190,42 @@
         },
         "additionalProperties": false
       },
+      "MediaProvider": {
+        "type": "string",
+        "description": "Media service identifier. A provider enum value does not imply that every endpoint supports that service; use the endpoint's advertised provider lists.",
+        "enum": [
+          "SPOTIFY",
+          "AMAZON_MUSIC",
+          "APPLE_MUSIC",
+          "AUDIBLE",
+          "TUNE_IN",
+          "PANDORA",
+          "IHEART_RADIO",
+          "SIRIUSXM",
+          "DEEZER",
+          "TIDAL",
+          "YOUTUBE",
+          "NETFLIX",
+          "PRIME_VIDEO",
+          "DAILYMOTION"
+        ],
+        "x-enum-varnames": [
+          "MediaProviderSpotify",
+          "MediaProviderAmazonMusic",
+          "MediaProviderAppleMusic",
+          "MediaProviderAudible",
+          "MediaProviderTuneIn",
+          "MediaProviderPandora",
+          "MediaProviderIHeartRadio",
+          "MediaProviderSiriusXM",
+          "MediaProviderDeezer",
+          "MediaProviderTidal",
+          "MediaProviderYouTube",
+          "MediaProviderNetflix",
+          "MediaProviderPrimeVideo",
+          "MediaProviderDailymotion"
+        ]
+      },
       "NotificationPayload": {
         "type": "object",
         "description": "Notification payload information",
@@ -27743,11 +27870,17 @@
           "type": {
             "type": "string",
             "enum": [
-              "SSML"
+              "SSML",
+              "CANNED_TTS"
             ]
           },
           "ssml": {
             "type": "string"
+          },
+          "cannedTtsStringId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Provider-defined canned speech identifier; supported only by integrations advertising canned speech."
           }
         }
       },

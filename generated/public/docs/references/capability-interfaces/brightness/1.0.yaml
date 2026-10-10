@@ -5,6 +5,24 @@ description: >-
   Brightness sets how bright a connected device should be and reports its current level. Use it to
   dim a light for the evening or restore a brighter setting for work.
 messages:
+  - name: adjust-brightness
+    description: >-
+      Adjust brightness by a signed number of percentage points. The endpoint must advertise this
+      message separately from set-brightness.
+    directionality: in
+    schema:
+      description: >-
+        Adjust brightness by a signed number of percentage points. The endpoint must advertise this
+        message separately from set-brightness.
+      type: object
+      properties:
+        brightnessDelta:
+          type: integer
+          minimum: -100
+          maximum: 100
+      required:
+        - brightnessDelta
+      additionalProperties: false
   - name: set-brightness
     description: null
     directionality: in

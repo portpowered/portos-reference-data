@@ -2,6 +2,47 @@
   "description": "Media players select media by its Port OS media ID, play supplied audio or a URI, and control playback. Read playback state and use only the commands supported by the connected player.",
   "type": "object",
   "properties": {
+    "supportedAudioProviders": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Audio services accepted by search-and-play on this endpoint. These describe command support, not active subscriptions.",
+      "items": {
+        "type": "string",
+        "description": "Media service identifier. A provider enum value does not imply that every endpoint supports that service; use the endpoint's advertised provider lists.",
+        "enum": [
+          "SPOTIFY",
+          "AMAZON_MUSIC",
+          "APPLE_MUSIC",
+          "AUDIBLE",
+          "TUNE_IN",
+          "PANDORA",
+          "IHEART_RADIO",
+          "SIRIUSXM",
+          "DEEZER",
+          "TIDAL",
+          "YOUTUBE",
+          "NETFLIX",
+          "PRIME_VIDEO",
+          "DAILYMOTION"
+        ]
+      }
+    },
+    "supportedVideoProviders": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Video services accepted by search-and-play on this endpoint. These describe command support, not installed applications or active subscriptions.",
+      "items": {
+        "$ref": "#/properties/supportedAudioProviders/items"
+      }
+    },
+    "defaultAudioProvider": {
+      "$ref": "#/properties/supportedAudioProviders/items",
+      "description": "Default service for an audio search. Must be in supportedAudioProviders."
+    },
+    "defaultVideoProvider": {
+      "$ref": "#/properties/supportedAudioProviders/items",
+      "description": "Default service for a video search. Must be in supportedVideoProviders."
+    },
     "supportedPlaybackStates": {
       "type": "array",
       "items": {

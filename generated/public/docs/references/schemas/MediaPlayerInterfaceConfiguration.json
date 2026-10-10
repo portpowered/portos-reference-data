@@ -7,6 +7,30 @@
   "description": "Configure media playback, media selection and audio playback. Advertise only the messages implemented by this endpoint.",
   "type": "object",
   "properties": {
+    "supportedAudioProviders": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Audio services accepted by search-and-play on this endpoint. These describe command support, not active subscriptions.",
+      "items": {
+        "$ref": "/docs/references/schemas/MediaProvider.json"
+      }
+    },
+    "supportedVideoProviders": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Video services accepted by search-and-play on this endpoint. These describe command support, not installed applications or active subscriptions.",
+      "items": {
+        "$ref": "/docs/references/schemas/MediaProvider.json"
+      }
+    },
+    "defaultAudioProvider": {
+      "$ref": "/docs/references/schemas/MediaProvider.json",
+      "description": "Default service for an audio search. Must be in supportedAudioProviders."
+    },
+    "defaultVideoProvider": {
+      "$ref": "/docs/references/schemas/MediaProvider.json",
+      "description": "Default service for a video search. Must be in supportedVideoProviders."
+    },
     "supportedPlaybackStates": {
       "type": "array",
       "items": {
