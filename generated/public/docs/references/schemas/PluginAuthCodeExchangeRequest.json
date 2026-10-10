@@ -11,6 +11,10 @@
       "type": "string",
       "description": "The ID of the plugin for which we are attempting to exchange the code for an access token for."
     },
+    "authLinkId": {
+      "type": "string",
+      "description": "Optional existing auth link to renew. It must belong to the requester, reference this plugin, and permit auth-link-write; renewal preserves its endpoint and route identities."
+    },
     "principalId": {
       "type": "string",
       "description": "The ID of the principal to exchange the code for an access token for, or alternatively ~self, when the target is the current user principal."

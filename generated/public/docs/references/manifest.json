@@ -1,18 +1,18 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.9",
-  "sourceCommit": "8f044f29f4b4563e169fb53a47571b1ae5fb4e40",
+  "version": "0.4.10",
+  "sourceCommit": "e02053252272d26cc1d606113409c3bb5397412e",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "c589421b655ded76fde3a4c2d5b895ed7032ba02a69e0997f9be669694a5265f",
+  "sourceInputSHA256": "b54cad56e800623146f52e94ee67a7f6e9f8dc6cdd9d431d9876fd706578320e",
   "sourceInputCount": 751,
-  "assetSetSHA256": "8fadae33a75e3b1b2e976e1295f319c9a57559f4471bd5842d4b8e9080700251",
+  "assetSetSHA256": "d130bd85da50bbe10dacbd5424ea2cfcafb5ef4aea62c3a313b25a3e9e958e34",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 21280,
-      "sha256": "d0ed50538f4f1ce2f7ec9d4eb17bb3d713a24252ae8af2fbf91bf447e233462d",
+      "bytes": 21292,
+      "sha256": "054d7dc7479a2589cefb5787446356446982b3366d06c875ad28dddd4c7e10c7",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -7564,8 +7564,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 774870,
-      "sha256": "e458933c1a5be4b2e8853b3c6cbb92ce6804242e482c304760e76358560d9a39",
+      "bytes": 775138,
+      "sha256": "ceaf6184b631a31b87506420aa144de9deff60d6317232b094ef6638f44b4ef2",
       "links": []
     },
     {
@@ -10728,8 +10728,8 @@
     {
       "path": "/docs/references/schemas/PluginAuthCodeExchangeRequest.json",
       "contentType": "application/json",
-      "bytes": 819,
-      "sha256": "f81375dcec73ac0e5a81a8855aa8f66bc157f47f20b4cc456081e64073e10120",
+      "bytes": 1068,
+      "sha256": "3e4a82d7351634537a69b88b0f218dacd4933d3bcc195b9a2cb6e44a70376465",
       "links": []
     },
     {

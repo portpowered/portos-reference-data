@@ -92,7 +92,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /oauth/validate-request](/docs/for-ai/operations/validateOAuthRequest.md) | See session/security contract | — | client_id, code_challenge, code_challenge_method, redirect_uri, scopes |
 | [GET /oauth/verify-device](/docs/for-ai/operations/verifyDevice.md) | Public | query:user_code (required) | — |
 | [GET /ping](/docs/for-ai/operations/ping.md) | Public | — | — |
-| [POST /plugin-auth-code-exchange](/docs/for-ai/operations/pluginAuthCodeExchange.md) | OAuth (no scope) | — | pluginAuthenticationData, pluginId, principalId |
+| [POST /plugin-auth-code-exchange](/docs/for-ai/operations/pluginAuthCodeExchange.md) | OAuth (no scope) | — | authLinkId, pluginAuthenticationData, pluginId, principalId |
 | [POST /plugin-auth-code-link](/docs/for-ai/operations/pluginAuthCodeLink.md) | OAuth (no scope) | — | pluginId, principalId |
 | [POST /plugin-auth-multifactor-exchange](/docs/for-ai/operations/pluginAuthMultifactorExchange.md) | OAuth (no scope) | — | pluginAuthenticationData, pluginId, principalId |
 | [GET /plugins](/docs/for-ai/operations/enumeratePlugins.md) | OAuth (no scope) | query:expand, query:id, query:nextToken, query:maxResults | — |
