@@ -12641,7 +12641,7 @@ components:
       x-name: discover-routes
       x-version: '1.0'
       x-type: message
-      x-directionality: out
+      x-directionality: in
       description: Request to discover routes
       type: object
       additionalProperties: false

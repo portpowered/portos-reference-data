@@ -1,12 +1,12 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.8",
-  "sourceCommit": "dcc81340979ea82078b7ff12e9e5f2ac0da0a82a",
+  "version": "0.4.9",
+  "sourceCommit": "8f044f29f4b4563e169fb53a47571b1ae5fb4e40",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "881d83f196f21e581aed7a286e2505e4567dd5fe53d30fdfe91e06077a34871b",
+  "sourceInputSHA256": "c589421b655ded76fde3a4c2d5b895ed7032ba02a69e0997f9be669694a5265f",
   "sourceInputCount": 751,
-  "assetSetSHA256": "7bc4318522c956e27224439963f3d41655139fd5acbb731eae90b08f4ea2b5d3",
+  "assetSetSHA256": "8fadae33a75e3b1b2e976e1295f319c9a57559f4471bd5842d4b8e9080700251",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1048,8 +1048,8 @@
     {
       "path": "/docs/for-ai/capability-interfaces/route-discovery/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1384,
-      "sha256": "f7527884e89ebe4e2866b26f52a3c5d39b85d5211ff435fb722a3c335c1cd94f",
+      "bytes": 1383,
+      "sha256": "5980697ae4ed3e638a08e151e63b0e710957364f619e80bd9ed08749b7678f33",
       "links": [
         "/docs/references/capability-interfaces/route-discovery/1.0.yaml",
         "/docs/references/capability-interfaces/route-discovery/1.0/messages/add-group-route-members.yaml",
@@ -6696,16 +6696,16 @@
     {
       "path": "/docs/references/capability-interfaces/route-discovery.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 12845,
-      "sha256": "3586ed863294e769a5e4e02dd68f5cc3ef3ad3bbad2afb10628cc8ebc0a1243d",
+      "bytes": 12844,
+      "sha256": "a481a118169b02b17c12756e7f779c5f998a44374217c69f138565f5a49846fe",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/route-discovery/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/route-discovery/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 12845,
-      "sha256": "3586ed863294e769a5e4e02dd68f5cc3ef3ad3bbad2afb10628cc8ebc0a1243d",
+      "bytes": 12844,
+      "sha256": "a481a118169b02b17c12756e7f779c5f998a44374217c69f138565f5a49846fe",
       "links": []
     },
     {
@@ -7564,8 +7564,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 774871,
-      "sha256": "5e904b9960db039b6a2de4680035ba1d6be3d34cea9dd97b9949d6326e0ee989",
+      "bytes": 774870,
+      "sha256": "e458933c1a5be4b2e8853b3c6cbb92ce6804242e482c304760e76358560d9a39",
       "links": []
     },
     {
@@ -11365,8 +11365,8 @@
     {
       "path": "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage.json",
       "contentType": "application/json",
-      "bytes": 341,
-      "sha256": "4bc920d068c8463f9c469383e5a11fb2d823a35c63868d9916df4323649520c0",
+      "bytes": 340,
+      "sha256": "dc1a4fcfc3d4ba9ce5ec0dd01aa5b54cb19c41546eb39b03d0e369a04521f917",
       "links": []
     },
     {
