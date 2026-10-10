@@ -53,8 +53,38 @@ messages:
           type: string
           description: ID of the playlist to retrieve
           minLength: 1
+        maxResults:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+        nextToken:
+          type: string
+          minLength: 1
+          description: Opaque continuation for the same playlist.
       required:
         - playlistId
+      additionalProperties: false
+  - name: list-playlists
+    description: >-
+      List the connected customer's owned or followed playlists; use search-media for catalog
+      search.
+    directionality: in
+    schema:
+      description: >-
+        List the connected customer's owned or followed playlists; use search-media for catalog
+        search.
+      type: object
+      properties:
+        maxResults:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+        nextToken:
+          type: string
+          minLength: 1
+      required: []
       additionalProperties: false
   - name: play-playlist
     description: null
@@ -71,6 +101,160 @@ messages:
           description: Optional target endpoint to play the playlist on
       required:
         - playlistId
+      additionalProperties: false
+  - name: playlist-contents
+    description: A bounded playlist page containing playable tracks or episodes.
+    directionality: out
+    schema:
+      description: A bounded playlist page containing playable tracks or episodes.
+      type: object
+      properties:
+        playlistId:
+          title: MediaId
+          type: string
+          minLength: 1
+          example: portos-media://portpowered.com/spotify/audio/track/Ab123
+          pattern: >-
+            ^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:video:[A-Za-z0-9_-]+)$
+          description: >
+            Exact provider resource identity. The canonical form is
+            portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no
+            URI version. Spotify emits audio track, playlist, album, artist, show and episode
+            identities. Copy an ID returned by search or library discovery; do not send a search
+            phrase as an ID. Legacy providers retain their own input contracts until explicitly
+            migrated. See https://portpowered.com/docs/media.
+        tracks:
+          type: array
+          items:
+            type: object
+            description: Track information
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the track
+                minLength: 1
+              name:
+                type: string
+                description: Track name
+                minLength: 1
+              artists:
+                type: array
+                items:
+                  type: object
+                  description: Artist information
+                  properties:
+                    id:
+                      type: string
+                      description: Unique identifier for the artist
+                      minLength: 1
+                    name:
+                      type: string
+                      description: Artist name
+                      minLength: 1
+                  required:
+                    - id
+                    - name
+                  additionalProperties: false
+                  title: Artist
+                description: Track artists
+              album:
+                description: Track album
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Unique identifier for the album
+                    minLength: 1
+                  name:
+                    type: string
+                    description: Album name
+                    minLength: 1
+                  artists:
+                    type: array
+                    items:
+                      $ref: '#/properties/tracks/items/properties/artists/items'
+                    description: Album artists
+                required:
+                  - id
+                  - name
+                  - artists
+                additionalProperties: false
+                title: Album
+            required:
+              - id
+              - name
+              - artists
+              - album
+            additionalProperties: false
+            title: Track
+        episodes:
+          type: array
+          items:
+            type: object
+            description: Provider-qualified podcast episode with selection metadata.
+            properties:
+              id:
+                $ref: '#/properties/playlistId'
+              name:
+                type: string
+                minLength: 1
+              showId:
+                $ref: '#/properties/playlistId'
+              releaseDate:
+                type: string
+                description: Provider release date; precision can be year, month or day.
+              releaseDatePrecision:
+                type: string
+                description: Provider date precision.
+            required:
+              - id
+              - name
+            additionalProperties: false
+            title: PodcastEpisode
+        nextToken:
+          type: string
+          minLength: 1
+      required:
+        - playlistId
+        - tracks
+        - episodes
+      additionalProperties: false
+  - name: playlists
+    description: A page of the connected customer's playlists with exact resource IDs.
+    directionality: out
+    schema:
+      description: A page of the connected customer's playlists with exact resource IDs.
+      type: object
+      properties:
+        playlists:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the playlist
+                minLength: 1
+              name:
+                type: string
+                description: Playlist name
+                minLength: 1
+              ownerId:
+                type: string
+                description: Provider-scoped owner identity, when supplied by the provider.
+              ownerName:
+                type: string
+                description: Owner display name, useful for distinguishing owned and followed playlists.
+            required:
+              - id
+              - name
+            additionalProperties: false
+            title: Playlist
+        nextToken:
+          type: string
+          minLength: 1
+      required:
+        - playlists
       additionalProperties: false
   - name: remove-from-playlist
     description: null

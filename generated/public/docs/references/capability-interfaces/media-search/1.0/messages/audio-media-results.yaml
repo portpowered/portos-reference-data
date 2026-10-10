@@ -89,12 +89,79 @@ properties:
           type: string
           description: Playlist name
           minLength: 1
+        ownerId:
+          type: string
+          description: Provider-scoped owner identity, when supplied by the provider.
+        ownerName:
+          type: string
+          description: >-
+            Owner display name, useful for distinguishing owned and followed
+            playlists.
       required:
         - id
         - name
       additionalProperties: false
       title: Playlist
     description: Playlist results
+  shows:
+    type: array
+    items:
+      type: object
+      description: Provider-qualified podcast series; read episodes before playback.
+      properties:
+        id:
+          title: MediaId
+          type: string
+          minLength: 1
+          example: portos-media://portpowered.com/spotify/audio/track/Ab123
+          pattern: >-
+            ^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:video:[A-Za-z0-9_-]+)$
+          description: >
+            Exact provider resource identity. The canonical form is
+            portos-media://portpowered.com/provider/media-type/resource-kind/resource-id,
+            with no URI version. Spotify emits audio track, playlist, album,
+            artist, show and episode identities. Copy an ID returned by search
+            or library discovery; do not send a search phrase as an ID. Legacy
+            providers retain their own input contracts until explicitly
+            migrated. See https://portpowered.com/docs/media.
+        name:
+          type: string
+          minLength: 1
+        publisher:
+          type: string
+      required:
+        - id
+        - name
+      additionalProperties: false
+      title: PodcastShow
+  episodes:
+    type: array
+    items:
+      type: object
+      description: Provider-qualified podcast episode with selection metadata.
+      properties:
+        id:
+          $ref: '#/properties/shows/items/properties/id'
+        name:
+          type: string
+          minLength: 1
+        showId:
+          $ref: '#/properties/shows/items/properties/id'
+        releaseDate:
+          type: string
+          description: Provider release date; precision can be year, month or day.
+        releaseDatePrecision:
+          type: string
+          description: Provider date precision.
+      required:
+        - id
+        - name
+      additionalProperties: false
+      title: PodcastEpisode
+  nextToken:
+    type: string
+    minLength: 1
+    description: Opaque continuation for the same search; omit when exhausted.
 required:
   - artists
   - albums

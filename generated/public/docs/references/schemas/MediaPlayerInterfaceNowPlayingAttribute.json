@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "now-playing",
+  "x-version": "1.0",
+  "x-type": "attribute-definition",
+  "description": "Media identity observed on this route. Active false means the provider session is on another target; it does not prove the speaker is silent through other providers.",
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean"
+    },
+    "mediaId": {
+      "$ref": "/docs/references/schemas/MediaId.json"
+    },
+    "contextMediaId": {
+      "$ref": "/docs/references/schemas/MediaId.json"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "active"
+  ],
+  "additionalProperties": false
+}

@@ -1,17 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
-  "x-name": "get-playlist",
+  "x-name": "list-playlists",
   "x-version": "1.0",
   "x-type": "message",
   "x-directionality": "in",
+  "description": "List the connected customer's owned or followed playlists; use search-media for catalog search.",
   "type": "object",
   "properties": {
-    "playlistId": {
-      "type": "string",
-      "description": "ID of the playlist to retrieve",
-      "minLength": 1
-    },
     "maxResults": {
       "type": "integer",
       "minimum": 1,
@@ -20,12 +16,9 @@
     },
     "nextToken": {
       "type": "string",
-      "minLength": 1,
-      "description": "Opaque continuation for the same playlist."
+      "minLength": 1
     }
   },
-  "required": [
-    "playlistId"
-  ],
+  "required": [],
   "additionalProperties": false
 }

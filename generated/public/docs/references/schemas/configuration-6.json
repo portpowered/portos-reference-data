@@ -18,7 +18,9 @@
           "ARTIST",
           "PLAYLIST",
           "GENRE",
-          "YEAR"
+          "YEAR",
+          "SHOW",
+          "EPISODE"
         ],
         "x-enum-varnames": [
           "Configuration6SupportedSearchTypesTrack",
@@ -26,7 +28,9 @@
           "Configuration6SupportedSearchTypesArtist",
           "Configuration6SupportedSearchTypesPlaylist",
           "Configuration6SupportedSearchTypesGenre",
-          "Configuration6SupportedSearchTypesYear"
+          "Configuration6SupportedSearchTypesYear",
+          "Configuration6SupportedSearchTypesShow",
+          "Configuration6SupportedSearchTypesEpisode"
         ]
       },
       "description": "List of supported search types"

@@ -1,6 +1,10 @@
 {
+  "description": "Media identity observed on this route. Active false means the provider session is on another target; it does not prove the speaker is silent through other providers.",
   "type": "object",
   "properties": {
+    "active": {
+      "type": "boolean"
+    },
     "mediaId": {
       "title": "MediaId",
       "type": "string",
@@ -8,10 +12,16 @@
       "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
       "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
       "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+    },
+    "contextMediaId": {
+      "$ref": "#/properties/mediaId"
+    },
+    "name": {
+      "type": "string"
     }
   },
   "required": [
-    "mediaId"
+    "active"
   ],
   "additionalProperties": false
 }

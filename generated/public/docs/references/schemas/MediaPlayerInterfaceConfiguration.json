@@ -7,6 +7,13 @@
   "description": "Configure media playback, media selection and audio playback. Advertise only the messages implemented by this endpoint.",
   "type": "object",
   "properties": {
+    "supportedMediaResources": {
+      "type": "array",
+      "description": "Exact play-media URI combinations accepted by this route. Member or endpoint unions do not imply support by every route.",
+      "items": {
+        "$ref": "/docs/references/schemas/SupportedMediaResource.json"
+      }
+    },
     "supportedAudioProviders": {
       "type": "array",
       "uniqueItems": true,

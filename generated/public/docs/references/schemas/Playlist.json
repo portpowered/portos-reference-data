@@ -11,6 +11,14 @@
       "type": "string",
       "description": "Playlist name",
       "minLength": 1
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "Provider-scoped owner identity, when supplied by the provider."
+    },
+    "ownerName": {
+      "type": "string",
+      "description": "Owner display name, useful for distinguishing owned and followed playlists."
     }
   },
   "required": [

@@ -1,3 +1,6 @@
+description: >-
+  Inspect an exact media resource or traverse an album/show. Use get-playlist
+  for playlist contents.
 type: object
 properties:
   mediaId:
@@ -15,6 +18,15 @@ properties:
       discovery; do not send a search phrase as an ID. Legacy providers retain
       their own input contracts until explicitly migrated. See
       https://portpowered.com/docs/media.
+  maxResults:
+    type: integer
+    minimum: 1
+    maximum: 50
+    default: 20
+  nextToken:
+    type: string
+    minLength: 1
+    description: Opaque continuation for the same resource.
 required:
   - mediaId
 additionalProperties: false

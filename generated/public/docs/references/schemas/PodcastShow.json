@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Provider-qualified podcast series; read episodes before playback.",
+  "properties": {
+    "id": {
+      "$ref": "/docs/references/schemas/MediaId.json"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publisher": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ],
+  "additionalProperties": false
+}

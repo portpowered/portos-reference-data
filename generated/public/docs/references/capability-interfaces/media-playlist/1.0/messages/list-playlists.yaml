@@ -1,0 +1,15 @@
+description: >-
+  List the connected customer's owned or followed playlists; use search-media
+  for catalog search.
+type: object
+properties:
+  maxResults:
+    type: integer
+    minimum: 1
+    maximum: 50
+    default: 20
+  nextToken:
+    type: string
+    minLength: 1
+required: []
+additionalProperties: false

@@ -1,0 +1,35 @@
+description: A page of the connected customer's playlists with exact resource IDs.
+type: object
+properties:
+  playlists:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the playlist
+          minLength: 1
+        name:
+          type: string
+          description: Playlist name
+          minLength: 1
+        ownerId:
+          type: string
+          description: Provider-scoped owner identity, when supplied by the provider.
+        ownerName:
+          type: string
+          description: >-
+            Owner display name, useful for distinguishing owned and followed
+            playlists.
+      required:
+        - id
+        - name
+      additionalProperties: false
+      title: Playlist
+  nextToken:
+    type: string
+    minLength: 1
+required:
+  - playlists
+additionalProperties: false

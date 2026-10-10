@@ -1,16 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
-  "x-name": "get-playlist",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
+  "x-name": "get-media",
   "x-version": "1.0",
   "x-type": "message",
   "x-directionality": "in",
+  "description": "Inspect an exact media resource or traverse an album/show. Use get-playlist for playlist contents.",
   "type": "object",
   "properties": {
-    "playlistId": {
-      "type": "string",
-      "description": "ID of the playlist to retrieve",
-      "minLength": 1
+    "mediaId": {
+      "$ref": "/docs/references/schemas/MediaId.json"
     },
     "maxResults": {
       "type": "integer",
@@ -21,11 +20,11 @@
     "nextToken": {
       "type": "string",
       "minLength": 1,
-      "description": "Opaque continuation for the same playlist."
+      "description": "Opaque continuation for the same resource."
     }
   },
   "required": [
-    "playlistId"
+    "mediaId"
   ],
   "additionalProperties": false
 }

@@ -5,7 +5,9 @@ properties:
     description: Freeform query string
   type:
     type: string
-    description: Supported types, track, album, artist, playlist. Defaults to track
+    description: >-
+      Resource kind: track, album, artist, playlist, show or episode when
+      advertised. Defaults to track
     default: track
   album:
     type: string
@@ -20,6 +22,18 @@ properties:
     description: >-
       Search by year, can only be used when searching albums, years, and tracks.
       You can pass a range like 1990-2000
+  maxResults:
+    type: integer
+    minimum: 1
+    maximum: 50
+    default: 20
+    description: Maximum results on one page.
+  nextToken:
+    type: string
+    minLength: 1
+    description: >-
+      Copy the opaque continuation from the previous result with the same query
+      and filters.
 required:
   - query
 additionalProperties: false

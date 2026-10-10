@@ -2097,6 +2097,12 @@
     },
     {
       "kind": "schemas",
+      "name": "MediaPlayerInterfaceNowPlayingAttribute",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceNowPlayingAttribute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceNowPlayingAttribute"
+    },
+    {
+      "kind": "schemas",
       "name": "MediaPlayerInterfacePauseMessage",
       "path": "/docs/references/schemas/MediaPlayerInterfacePauseMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePauseMessage"
@@ -2211,6 +2217,24 @@
     },
     {
       "kind": "schemas",
+      "name": "MediaPlaylistInterfaceListPlaylistsMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceListPlaylistsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceListPlaylistsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistContentsMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistContentsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistContentsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistsMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistsMessage"
+    },
+    {
+      "kind": "schemas",
       "name": "MediaPlaylistInterfacePlayPlaylistMessage",
       "path": "/docs/references/schemas/MediaPlaylistInterfacePlayPlaylistMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlayPlaylistMessage"
@@ -2244,6 +2268,18 @@
       "name": "MediaSearchInterfaceAudioMediaResultsMessage",
       "path": "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceAudioMediaResultsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceGetMediaMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceGetMediaMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceGetMediaMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceMediaDetailsMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceMediaDetailsMessage"
     },
     {
       "kind": "schemas",
@@ -2790,6 +2826,18 @@
       "name": "PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute",
       "path": "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute"
+    },
+    {
+      "kind": "schemas",
+      "name": "PodcastEpisode",
+      "path": "/docs/references/schemas/PodcastEpisode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PodcastEpisode"
+    },
+    {
+      "kind": "schemas",
+      "name": "PodcastShow",
+      "path": "/docs/references/schemas/PodcastShow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PodcastShow"
     },
     {
       "kind": "schemas",
@@ -3852,6 +3900,12 @@
       "name": "SupportedInput",
       "path": "/docs/references/schemas/SupportedInput.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/SupportedInput"
+    },
+    {
+      "kind": "schemas",
+      "name": "SupportedMediaResource",
+      "path": "/docs/references/schemas/SupportedMediaResource.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SupportedMediaResource"
     },
     {
       "kind": "schemas",

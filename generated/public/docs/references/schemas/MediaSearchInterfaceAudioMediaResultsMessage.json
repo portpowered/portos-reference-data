@@ -34,6 +34,23 @@
         "$ref": "/docs/references/schemas/Playlist.json"
       },
       "description": "Playlist results"
+    },
+    "shows": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PodcastShow.json"
+      }
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PodcastEpisode.json"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque continuation for the same search; omit when exhausted."
     }
   },
   "required": [
