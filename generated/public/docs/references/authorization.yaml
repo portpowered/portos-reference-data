@@ -123,6 +123,9 @@ operations:
       - bearerAuth: []
     delegated: true
     resourcePermissionRequired: true
+    conditionalScopes:
+      groupId:
+        - group:read
   - path: /events
     runtimePath: /events
     method: POST

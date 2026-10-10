@@ -13,6 +13,7 @@ Use [the shared connection guide](/docs/for-ai/guides/connect-agent.md) to selec
 ## Documentation tree: look up what you need
 
 - [Task/component guide directory](/docs/for-ai/guides/index.md): alternatives, not a required reading checklist
+- [Compact API catalog](/docs/for-ai/api-catalog.md): auth context and parameter/key index
 - [REST operation directory](/docs/for-ai/operations/index.md): individual operations and their scopes
 - [Small REST schema files](/docs/for-ai/schemas.md): linked request/response components
 - [Capability directory](/docs/for-ai/capability-interfaces.md): match the discovered namespace and version

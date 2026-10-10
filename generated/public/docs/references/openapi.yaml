@@ -858,7 +858,19 @@ paths:
       operationId: endpointQuery
       tags:
         - Endpoints
-      description: Query for endpoints
+      description: >-
+        Return a bounded page of authorized endpoints matching the shared Query expression,
+        including endpoints shared by other owners. Read permission is evaluated before filtering,
+        pagination and state expansion. See the request schema for supported fields and operators.
+        Use groupId to select members of a readable room/group, then intersect type or declared
+        interfaces to select lights. Group predicates additionally require group:read for delegated
+        OAuth. Repeat the complete query settings and grant when following nextToken; cursors expire
+        after fifteen minutes. Device attributes are returned only when expanded. Report per-target
+        command acceptance and observed state separately; querying a group does not grant permission
+        to control its members.
+      x-portos-conditional-scopes:
+        groupId:
+          - group:read
       requestBody:
         required: true
         content:
@@ -868,8 +880,10 @@ paths:
             example:
               query:
                 match:
-                  key: name
-                  value: test
+                  key: type
+                  value: LIGHT
+              paginationContext:
+                maxResults: 10
       responses:
         '200':
           description: Endpoints retrieved successfully
@@ -879,10 +893,8 @@ paths:
                 $ref: '#/components/schemas/EndpointQueryResponse'
               example:
                 results: []
-                paginationContext:
-                  nextToken: abc123
         '400':
-          description: Bad request - missing required parameters
+          description: Invalid query, unsupported expansion, or invalid/expired/mismatched cursor.
           content:
             application/json:
               schema:
@@ -901,6 +913,36 @@ paths:
                 message: Unauthorized - invalid or missing authentication token
                 code: UNAUTHORIZED
                 family: AUTHENTICATION
+        '403':
+          description: Missing conditional OAuth scope or permission to read a referenced group.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Permission to read the requested group is required.
+                code: FORBIDDEN
+                family: FORBIDDEN
+        '404':
+          description: A referenced group does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Requested group was not found.
+                code: NOT_FOUND
+                family: NOT_FOUND
+        '409':
+          description: A selected disabled endpoint cannot be forcibly refreshed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: endpoint messaging is disabled
+                code: ENDPOINT_DISABLED
+                family: CONFLICT
         '500':
           description: Internal server error
           content:
@@ -18543,18 +18585,59 @@ components:
           description: The value to match on
     EndpointQueryRequest:
       type: object
+      additionalProperties: false
       required:
         - query
       properties:
         query:
           $ref: '#/components/schemas/Query'
+          description: >-
+            A bounded shared Query expression. An empty object selects unfiltered readable
+            inventory. This endpoint supports match, and, or, and not. Scalar match keys are id,
+            name, type, ownerId, manufacturer, model, and enablement. interfaces matches membership
+            in the endpoint's declared interface names; groupId matches membership in a readable
+            endpoint group. Comparisons, patterns, freeform search, unknown keys, ambiguous nodes,
+            expressions deeper than eight levels, or more than 64 nodes return 400. Values are exact
+            strings. Collections hide disabled endpoints unless the expression explicitly filters
+            enablement. Results include readable shared endpoints, regardless of their owner. A
+            groupId predicate additionally requires group:read for delegated OAuth and read
+            permission on that group.
         paginationContext:
-          $ref: '#/components/schemas/PaginationContext'
+          type: object
+          additionalProperties: false
+          properties:
+            maxResults:
+              type: integer
+              minimum: 1
+              maximum: 100
+              default: 10
+              description: Maximum authorized matching endpoints in this page.
+            nextToken:
+              type: string
+              minLength: 1
+              description: >-
+                Opaque server-issued continuation token. Repeat the same query, page size,
+                expansions, forceDeviceQuery setting, and authenticated grant. Modified, expired, or
+                differently bound tokens return 400; restart without nextToken. Follow nextToken
+                until absent, including empty pages.
         expand:
           type: array
-          description: Expansion tokens that request related or computed endpoint fields.
+          uniqueItems: true
+          maxItems: 1
+          description: Optional reported state expansion; only interfaces.attributes is supported.
           items:
             type: string
+            enum:
+              - interfaces.attributes
+            x-enum-exempt: Existing published REST expansion token shared with GET /endpoints.
+        forceDeviceQuery:
+          type: boolean
+          default: false
+          description: >-
+            Refresh reported device attributes for the selected page. Requires expand to contain
+            interfaces.attributes. An accepted command is not proof of device state; inspect the
+            returned sample times and partial errors. Disabled endpoints cannot be forcibly
+            refreshed.
     Simulator:
       description: Legacy string-name application/json projection; default representation remains unchanged.
       allOf:

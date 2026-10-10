@@ -160,7 +160,12 @@
         }
       ],
       "delegated": true,
-      "resourcePermissionRequired": true
+      "resourcePermissionRequired": true,
+      "conditionalScopes": {
+        "groupId": [
+          "group:read"
+        ]
+      }
     },
     {
       "path": "/events",
