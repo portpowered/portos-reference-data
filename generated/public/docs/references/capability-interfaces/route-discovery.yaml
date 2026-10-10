@@ -26,7 +26,7 @@ messages:
           description: List of plugin route IDs to add as members to the group route
   - name: discover-routes
     description: Request to discover routes
-    directionality: out
+    directionality: in
     schema:
       description: Request to discover routes
       type: object

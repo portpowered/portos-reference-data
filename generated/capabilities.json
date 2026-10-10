@@ -7597,7 +7597,7 @@
         {
           "name": "discover-routes",
           "description": "Request to discover routes",
-          "directionality": "out",
+          "directionality": "in",
           "schema": {
             "description": "Request to discover routes",
             "type": "object",
