@@ -14852,6 +14852,90 @@
         ],
         "additionalProperties": false
       },
+      "MediaPlaylistInterfaceListPlaylistsMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
+        "x-name": "list-playlists",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "List the connected customer's owned or followed playlists; use search-media for catalog search.",
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 20
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "MediaPlaylistInterfacePlaylistsMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
+        "x-name": "playlists",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "out",
+        "description": "A page of the connected customer's playlists with exact resource IDs.",
+        "type": "object",
+        "properties": {
+          "playlists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Playlist"
+            }
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "playlists"
+        ],
+        "additionalProperties": false
+      },
+      "MediaPlaylistInterfacePlaylistContentsMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
+        "x-name": "playlist-contents",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "out",
+        "description": "A bounded playlist page containing playable tracks or episodes.",
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Track"
+            }
+          },
+          "episodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PodcastEpisode"
+            }
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "playlistId",
+          "tracks",
+          "episodes"
+        ],
+        "additionalProperties": false
+      },
       "MediaPlaylistInterfaceGetPlaylistMessage": {
         "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
         "x-name": "get-playlist",
@@ -14864,6 +14948,17 @@
             "type": "string",
             "description": "ID of the playlist to retrieve",
             "minLength": 1
+          },
+          "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 20
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque continuation for the same playlist."
           }
         },
         "required": [
@@ -15216,6 +15311,23 @@
               "$ref": "#/components/schemas/Playlist"
             },
             "description": "Playlist results"
+          },
+          "shows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PodcastShow"
+            }
+          },
+          "episodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PodcastEpisode"
+            }
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque continuation for the same search; omit when exhausted."
           }
         },
         "required": [
@@ -15243,6 +15355,77 @@
         ],
         "additionalProperties": false
       },
+      "MediaSearchInterfaceMediaDetailsMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
+        "x-name": "media-details",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "out",
+        "description": "Exact media resource details and a bounded page of its children.",
+        "type": "object",
+        "properties": {
+          "mediaId": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "name": {
+            "type": "string"
+          },
+          "resourceKind": {
+            "type": "string",
+            "description": "Provider resource kind from the media URI."
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Track"
+            }
+          },
+          "episodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PodcastEpisode"
+            }
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "mediaId",
+          "resourceKind"
+        ],
+        "additionalProperties": false
+      },
+      "MediaSearchInterfaceGetMediaMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
+        "x-name": "get-media",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Inspect an exact media resource or traverse an album/show. Use get-playlist for playlist contents.",
+        "type": "object",
+        "properties": {
+          "mediaId": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 20
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque continuation for the same resource."
+          }
+        },
+        "required": [
+          "mediaId"
+        ],
+        "additionalProperties": false
+      },
       "MediaSearchInterfaceSearchMediaMessage": {
         "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
         "x-name": "search-media",
@@ -15257,7 +15440,7 @@
           },
           "type": {
             "type": "string",
-            "description": "Supported types, track, album, artist, playlist. Defaults to track",
+            "description": "Resource kind: track, album, artist, playlist, show or episode when advertised. Defaults to track",
             "default": "track"
           },
           "album": {
@@ -15271,6 +15454,18 @@
           "year": {
             "type": "string",
             "description": "Search by year, can only be used when searching albums, years, and tracks. You can pass a range like 1990-2000"
+          },
+          "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 20,
+            "description": "Maximum results on one page."
+          },
+          "nextToken": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Copy the opaque continuation from the previous result with the same query and filters."
           }
         },
         "required": [
@@ -17938,6 +18133,32 @@
         },
         "required": [
           "value"
+        ],
+        "additionalProperties": false
+      },
+      "MediaPlayerInterfaceNowPlayingAttribute": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+        "x-name": "now-playing",
+        "x-version": "1.0",
+        "x-type": "attribute-definition",
+        "description": "Media identity observed on this route. Active false means the provider session is on another target; it does not prove the speaker is silent through other providers.",
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "mediaId": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "contextMediaId": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "active"
         ],
         "additionalProperties": false
       },
@@ -22276,6 +22497,13 @@
         "description": "Configure media playback, media selection and audio playback. Advertise only the messages implemented by this endpoint.",
         "type": "object",
         "properties": {
+          "supportedMediaResources": {
+            "type": "array",
+            "description": "Exact play-media URI combinations accepted by this route. Member or endpoint unions do not imply support by every route.",
+            "items": {
+              "$ref": "#/components/schemas/SupportedMediaResource"
+            }
+          },
           "supportedAudioProviders": {
             "type": "array",
             "uniqueItems": true,
@@ -23114,7 +23342,9 @@
         "title": "MediaId",
         "type": "string",
         "minLength": 1,
-        "description": "Media IDs are a standardized identifier that Port OS uses to represent media across YouTube, Spotify, and other media providers. See https://portpowered.com/docs/media for the current media identifiers documentation."
+        "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+        "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+        "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
       },
       "PlayableAudio": {
         "type": "object",
@@ -26888,6 +27118,10 @@
           "id": {
             "type": "string",
             "description": "The ID of the target"
+          },
+          "routeId": {
+            "type": "string",
+            "description": "Optional full route or group-route ID belonging to this target. Selects one advertised provider route and preserves that provider for follow-up transport or volume commands."
           }
         }
       },
@@ -27501,47 +27735,33 @@
         },
         "additionalProperties": false
       },
-      "MovementInstruction": {
+      "Playlist": {
         "type": "object",
-        "description": "A movement instruction for remote control",
         "properties": {
-          "velocity": {
-            "type": "number",
-            "description": "Forward/backward speed"
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the playlist",
+            "minLength": 1
           },
-          "omega": {
-            "type": "number",
-            "description": "Angular velocity for turning"
+          "name": {
+            "type": "string",
+            "description": "Playlist name",
+            "minLength": 1
           },
-          "duration": {
-            "type": "integer",
-            "description": "Duration in milliseconds"
+          "ownerId": {
+            "type": "string",
+            "description": "Provider-scoped owner identity, when supplied by the provider."
+          },
+          "ownerName": {
+            "type": "string",
+            "description": "Owner display name, useful for distinguishing owned and followed playlists."
           }
         },
         "required": [
-          "velocity",
-          "omega",
-          "duration"
+          "id",
+          "name"
         ],
         "additionalProperties": false
-      },
-      "CleaningMode": {
-        "type": "string",
-        "description": "Robot vacuum cleaning mode",
-        "enum": [
-          "AUTO",
-          "SPOT",
-          "EDGE",
-          "SINGLE_ROOM",
-          "CUSTOM"
-        ],
-        "x-enum-varnames": [
-          "CleaningModeAuto",
-          "CleaningModeSpot",
-          "CleaningModeEdge",
-          "CleaningModeSingleRoom",
-          "CleaningModeCustom"
-        ]
       },
       "Artist": {
         "type": "object",
@@ -27627,18 +27847,90 @@
         ],
         "additionalProperties": false
       },
-      "Playlist": {
+      "PodcastEpisode": {
         "type": "object",
+        "description": "Provider-qualified podcast episode with selection metadata.",
         "properties": {
           "id": {
-            "type": "string",
-            "description": "Unique identifier for the playlist",
-            "minLength": 1
+            "$ref": "#/components/schemas/MediaId"
           },
           "name": {
             "type": "string",
-            "description": "Playlist name",
             "minLength": 1
+          },
+          "showId": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "releaseDate": {
+            "type": "string",
+            "description": "Provider release date; precision can be year, month or day."
+          },
+          "releaseDatePrecision": {
+            "type": "string",
+            "description": "Provider date precision."
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "MovementInstruction": {
+        "type": "object",
+        "description": "A movement instruction for remote control",
+        "properties": {
+          "velocity": {
+            "type": "number",
+            "description": "Forward/backward speed"
+          },
+          "omega": {
+            "type": "number",
+            "description": "Angular velocity for turning"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration in milliseconds"
+          }
+        },
+        "required": [
+          "velocity",
+          "omega",
+          "duration"
+        ],
+        "additionalProperties": false
+      },
+      "CleaningMode": {
+        "type": "string",
+        "description": "Robot vacuum cleaning mode",
+        "enum": [
+          "AUTO",
+          "SPOT",
+          "EDGE",
+          "SINGLE_ROOM",
+          "CUSTOM"
+        ],
+        "x-enum-varnames": [
+          "CleaningModeAuto",
+          "CleaningModeSpot",
+          "CleaningModeEdge",
+          "CleaningModeSingleRoom",
+          "CleaningModeCustom"
+        ]
+      },
+      "PodcastShow": {
+        "type": "object",
+        "description": "Provider-qualified podcast series; read episodes before playback.",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/MediaId"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publisher": {
+            "type": "string"
           }
         },
         "required": [
@@ -28727,6 +29019,39 @@
         ],
         "additionalProperties": false
       },
+      "SupportedMediaResource": {
+        "title": "SupportedMediaResource",
+        "description": "A provider, media type and resource-kind combination accepted by a control route.",
+        "type": "object",
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/MediaProvider"
+          },
+          "mediaType": {
+            "type": "string",
+            "enum": [
+              "AUDIO",
+              "VIDEO",
+              "IMAGE"
+            ]
+          },
+          "resourceKinds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "description": "Lowercase resource-kind segment from the provider URI."
+            }
+          }
+        },
+        "required": [
+          "provider",
+          "mediaType",
+          "resourceKinds"
+        ],
+        "additionalProperties": false
+      },
       "MeasurementRange": {
         "type": "object",
         "description": "Range of measurement values (min and max)",
@@ -28765,7 +29090,9 @@
                 "ARTIST",
                 "PLAYLIST",
                 "GENRE",
-                "YEAR"
+                "YEAR",
+                "SHOW",
+                "EPISODE"
               ],
               "x-enum-varnames": [
                 "Configuration6SupportedSearchTypesTrack",
@@ -28773,7 +29100,9 @@
                 "Configuration6SupportedSearchTypesArtist",
                 "Configuration6SupportedSearchTypesPlaylist",
                 "Configuration6SupportedSearchTypesGenre",
-                "Configuration6SupportedSearchTypesYear"
+                "Configuration6SupportedSearchTypesYear",
+                "Configuration6SupportedSearchTypesShow",
+                "Configuration6SupportedSearchTypesEpisode"
               ]
             },
             "description": "List of supported search types"

@@ -5,6 +5,17 @@
       "type": "string",
       "description": "ID of the playlist to retrieve",
       "minLength": 1
+    },
+    "maxResults": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque continuation for the same playlist."
     }
   },
   "required": [

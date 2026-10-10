@@ -4421,7 +4421,9 @@
                 "title": "MediaId",
                 "type": "string",
                 "minLength": 1,
-                "description": "Media IDs are a standardized identifier that Port OS uses to represent media across YouTube, Spotify, and other media providers. See https://portpowered.com/docs/media for the current media identifiers documentation."
+                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
               }
             },
             "required": [
@@ -4613,6 +4615,37 @@
       ],
       "attributes": [
         {
+          "name": "now-playing",
+          "description": "Media identity observed on this route. Active false means the provider session is on another target; it does not prove the speaker is silent through other providers.",
+          "schema": {
+            "description": "Media identity observed on this route. Active false means the provider session is on another target; it does not prove the speaker is silent through other providers.",
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean"
+              },
+              "mediaId": {
+                "title": "MediaId",
+                "type": "string",
+                "minLength": 1,
+                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+              },
+              "contextMediaId": {
+                "$ref": "#/properties/mediaId"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "active"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
           "name": "playback-speed",
           "description": null,
           "schema": {
@@ -4660,6 +4693,43 @@
         "description": "Media players select media by its Port OS media ID, play supplied audio or a URI, and control playback. Read playback state and use only the commands supported by the connected player.",
         "type": "object",
         "properties": {
+          "supportedMediaResources": {
+            "type": "array",
+            "description": "Exact play-media URI combinations accepted by this route. Member or endpoint unions do not imply support by every route.",
+            "items": {
+              "title": "SupportedMediaResource",
+              "description": "A provider, media type and resource-kind combination accepted by a control route.",
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "$ref": "#/properties/supportedAudioProviders/items"
+                },
+                "mediaType": {
+                  "type": "string",
+                  "enum": [
+                    "AUDIO",
+                    "VIDEO",
+                    "IMAGE"
+                  ]
+                },
+                "resourceKinds": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "description": "Lowercase resource-kind segment from the provider URI."
+                  }
+                }
+              },
+              "required": [
+                "provider",
+                "mediaType",
+                "resourceKinds"
+              ],
+              "additionalProperties": false
+            }
+          },
           "supportedAudioProviders": {
             "type": "array",
             "uniqueItems": true,
@@ -4879,11 +4949,45 @@
                 "type": "string",
                 "description": "ID of the playlist to retrieve",
                 "minLength": 1
+              },
+              "maxResults": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Opaque continuation for the same playlist."
               }
             },
             "required": [
               "playlistId"
             ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "list-playlists",
+          "description": "List the connected customer's owned or followed playlists; use search-media for catalog search.",
+          "directionality": "in",
+          "schema": {
+            "description": "List the connected customer's owned or followed playlists; use search-media for catalog search.",
+            "type": "object",
+            "properties": {
+              "maxResults": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [],
             "additionalProperties": false
           }
         },
@@ -4906,6 +5010,202 @@
             },
             "required": [
               "playlistId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "playlist-contents",
+          "description": "A bounded playlist page containing playable tracks or episodes.",
+          "directionality": "out",
+          "schema": {
+            "description": "A bounded playlist page containing playable tracks or episodes.",
+            "type": "object",
+            "properties": {
+              "playlistId": {
+                "title": "MediaId",
+                "type": "string",
+                "minLength": 1,
+                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+              },
+              "tracks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Track information",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the track",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Track name",
+                      "minLength": 1
+                    },
+                    "artists": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Artist information",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique identifier for the artist",
+                            "minLength": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Artist name",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "additionalProperties": false,
+                        "title": "Artist"
+                      },
+                      "description": "Track artists"
+                    },
+                    "album": {
+                      "description": "Track album",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Unique identifier for the album",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Album name",
+                          "minLength": 1
+                        },
+                        "artists": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/properties/tracks/items/properties/artists/items"
+                          },
+                          "description": "Album artists"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "artists"
+                      ],
+                      "additionalProperties": false,
+                      "title": "Album"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "artists",
+                    "album"
+                  ],
+                  "additionalProperties": false,
+                  "title": "Track"
+                }
+              },
+              "episodes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Provider-qualified podcast episode with selection metadata.",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/properties/playlistId"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "showId": {
+                      "$ref": "#/properties/playlistId"
+                    },
+                    "releaseDate": {
+                      "type": "string",
+                      "description": "Provider release date; precision can be year, month or day."
+                    },
+                    "releaseDatePrecision": {
+                      "type": "string",
+                      "description": "Provider date precision."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false,
+                  "title": "PodcastEpisode"
+                }
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "playlistId",
+              "tracks",
+              "episodes"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "playlists",
+          "description": "A page of the connected customer's playlists with exact resource IDs.",
+          "directionality": "out",
+          "schema": {
+            "description": "A page of the connected customer's playlists with exact resource IDs.",
+            "type": "object",
+            "properties": {
+              "playlists": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the playlist",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Playlist name",
+                      "minLength": 1
+                    },
+                    "ownerId": {
+                      "type": "string",
+                      "description": "Provider-scoped owner identity, when supplied by the provider."
+                    },
+                    "ownerName": {
+                      "type": "string",
+                      "description": "Owner display name, useful for distinguishing owned and followed playlists."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false,
+                  "title": "Playlist"
+                }
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "playlists"
             ],
             "additionalProperties": false
           }
@@ -5087,6 +5387,14 @@
                       "type": "string",
                       "description": "Playlist name",
                       "minLength": 1
+                    },
+                    "ownerId": {
+                      "type": "string",
+                      "description": "Provider-scoped owner identity, when supplied by the provider."
+                    },
+                    "ownerName": {
+                      "type": "string",
+                      "description": "Owner display name, useful for distinguishing owned and followed playlists."
                     }
                   },
                   "required": [
@@ -5097,6 +5405,74 @@
                   "title": "Playlist"
                 },
                 "description": "Playlist results"
+              },
+              "shows": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Provider-qualified podcast series; read episodes before playback.",
+                  "properties": {
+                    "id": {
+                      "title": "MediaId",
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                      "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                      "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "publisher": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false,
+                  "title": "PodcastShow"
+                }
+              },
+              "episodes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Provider-qualified podcast episode with selection metadata.",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/properties/shows/items/properties/id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "showId": {
+                      "$ref": "#/properties/shows/items/properties/id"
+                    },
+                    "releaseDate": {
+                      "type": "string",
+                      "description": "Provider release date; precision can be year, month or day."
+                    },
+                    "releaseDatePrecision": {
+                      "type": "string",
+                      "description": "Provider date precision."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false,
+                  "title": "PodcastEpisode"
+                }
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Opaque continuation for the same search; omit when exhausted."
               }
             },
             "required": [
@@ -5104,6 +5480,191 @@
               "albums",
               "tracks",
               "playlists"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "get-media",
+          "description": "Inspect an exact media resource or traverse an album/show. Use get-playlist for playlist contents.",
+          "directionality": "in",
+          "schema": {
+            "description": "Inspect an exact media resource or traverse an album/show. Use get-playlist for playlist contents.",
+            "type": "object",
+            "properties": {
+              "mediaId": {
+                "title": "MediaId",
+                "type": "string",
+                "minLength": 1,
+                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+              },
+              "maxResults": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Opaque continuation for the same resource."
+              }
+            },
+            "required": [
+              "mediaId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "media-details",
+          "description": "Exact media resource details and a bounded page of its children.",
+          "directionality": "out",
+          "schema": {
+            "description": "Exact media resource details and a bounded page of its children.",
+            "type": "object",
+            "properties": {
+              "mediaId": {
+                "title": "MediaId",
+                "type": "string",
+                "minLength": 1,
+                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resourceKind": {
+                "type": "string",
+                "description": "Provider resource kind from the media URI."
+              },
+              "tracks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Track information",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the track",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Track name",
+                      "minLength": 1
+                    },
+                    "artists": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Artist information",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique identifier for the artist",
+                            "minLength": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Artist name",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "additionalProperties": false,
+                        "title": "Artist"
+                      },
+                      "description": "Track artists"
+                    },
+                    "album": {
+                      "description": "Track album",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Unique identifier for the album",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Album name",
+                          "minLength": 1
+                        },
+                        "artists": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/properties/tracks/items/properties/artists/items"
+                          },
+                          "description": "Album artists"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "artists"
+                      ],
+                      "additionalProperties": false,
+                      "title": "Album"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "artists",
+                    "album"
+                  ],
+                  "additionalProperties": false,
+                  "title": "Track"
+                }
+              },
+              "episodes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Provider-qualified podcast episode with selection metadata.",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/properties/mediaId"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "showId": {
+                      "$ref": "#/properties/mediaId"
+                    },
+                    "releaseDate": {
+                      "type": "string",
+                      "description": "Provider release date; precision can be year, month or day."
+                    },
+                    "releaseDatePrecision": {
+                      "type": "string",
+                      "description": "Provider date precision."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false,
+                  "title": "PodcastEpisode"
+                }
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "mediaId",
+              "resourceKind"
             ],
             "additionalProperties": false
           }
@@ -5121,7 +5682,7 @@
               },
               "type": {
                 "type": "string",
-                "description": "Supported types, track, album, artist, playlist. Defaults to track",
+                "description": "Resource kind: track, album, artist, playlist, show or episode when advertised. Defaults to track",
                 "default": "track"
               },
               "album": {
@@ -5135,6 +5696,18 @@
               "year": {
                 "type": "string",
                 "description": "Search by year, can only be used when searching albums, years, and tracks. You can pass a range like 1990-2000"
+              },
+              "maxResults": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20,
+                "description": "Maximum results on one page."
+              },
+              "nextToken": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Copy the opaque continuation from the previous result with the same query and filters."
               }
             },
             "required": [
@@ -6563,7 +7136,9 @@
                       "title": "MediaId",
                       "type": "string",
                       "minLength": 1,
-                      "description": "Media IDs are a standardized identifier that Port OS uses to represent media across YouTube, Spotify, and other media providers. See https://portpowered.com/docs/media for the current media identifiers documentation."
+                      "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+                      "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+                      "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
                     },
                     "startedAt": {
                       "type": "string",

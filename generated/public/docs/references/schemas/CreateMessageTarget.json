@@ -12,6 +12,10 @@
     "id": {
       "type": "string",
       "description": "The ID of the target"
+    },
+    "routeId": {
+      "type": "string",
+      "description": "Optional full route or group-route ID belonging to this target. Selects one advertised provider route and preserves that provider for follow-up transport or volume commands."
     }
   }
 }

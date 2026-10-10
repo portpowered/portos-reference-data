@@ -1,5 +1,11 @@
+description: >-
+  Media identity observed on this route. Active false means the provider session
+  is on another target; it does not prove the speaker is silent through other
+  providers.
 type: object
 properties:
+  active:
+    type: boolean
   mediaId:
     title: MediaId
     type: string
@@ -15,6 +21,10 @@ properties:
       discovery; do not send a search phrase as an ID. Legacy providers retain
       their own input contracts until explicitly migrated. See
       https://portpowered.com/docs/media.
+  contextMediaId:
+    $ref: '#/properties/mediaId'
+  name:
+    type: string
 required:
-  - mediaId
+  - active
 additionalProperties: false

@@ -1,0 +1,146 @@
+{
+  "description": "Exact media resource details and a bounded page of its children.",
+  "type": "object",
+  "properties": {
+    "mediaId": {
+      "title": "MediaId",
+      "type": "string",
+      "minLength": 1,
+      "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
+      "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
+      "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+    },
+    "name": {
+      "type": "string"
+    },
+    "resourceKind": {
+      "type": "string",
+      "description": "Provider resource kind from the media URI."
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Track information",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the track",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Track name",
+            "minLength": 1
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Artist information",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique identifier for the artist",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Artist name",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "Artist"
+            },
+            "description": "Track artists"
+          },
+          "album": {
+            "description": "Track album",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the album",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "Album name",
+                "minLength": 1
+              },
+              "artists": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/tracks/items/properties/artists/items"
+                },
+                "description": "Album artists"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "artists"
+            ],
+            "additionalProperties": false,
+            "title": "Album"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "artists",
+          "album"
+        ],
+        "additionalProperties": false,
+        "title": "Track"
+      }
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Provider-qualified podcast episode with selection metadata.",
+        "properties": {
+          "id": {
+            "$ref": "#/properties/mediaId"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "showId": {
+            "$ref": "#/properties/mediaId"
+          },
+          "releaseDate": {
+            "type": "string",
+            "description": "Provider release date; precision can be year, month or day."
+          },
+          "releaseDatePrecision": {
+            "type": "string",
+            "description": "Provider date precision."
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false,
+        "title": "PodcastEpisode"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "mediaId",
+    "resourceKind"
+  ],
+  "additionalProperties": false
+}

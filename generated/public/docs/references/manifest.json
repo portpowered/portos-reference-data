@@ -1,12 +1,12 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.7",
-  "sourceCommit": "e12e7d7b60a72d26c736319f713a4b6a60b5c98f",
+  "version": "0.4.8",
+  "sourceCommit": "dcc81340979ea82078b7ff12e9e5f2ac0da0a82a",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "da11e0bfee011f3745d9c8eec46c985e8abb43bb558ef7a29600fe2d467a678a",
-  "sourceInputCount": 739,
-  "assetSetSHA256": "1394868bb8b47f454d4a0fb177e1d96a86b8fc22e2481e7c58061199a5c8df49",
+  "sourceInputSHA256": "881d83f196f21e581aed7a286e2505e4567dd5fe53d30fdfe91e06077a34871b",
+  "sourceInputCount": 751,
+  "assetSetSHA256": "7bc4318522c956e27224439963f3d41655139fd5acbb731eae90b08f4ea2b5d3",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -757,10 +757,11 @@
     {
       "path": "/docs/for-ai/capability-interfaces/media-player/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3299,
-      "sha256": "425fb376f873d3d3ae701c068eea8aa6bbc9e838897562af0330d42f480543df",
+      "bytes": 3400,
+      "sha256": "1abb106969683f52e28e339fdcafe6480152eb3595286f114a4005ca2cdbe97e",
       "links": [
         "/docs/references/capability-interfaces/media-player/1.0.yaml",
+        "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-speed.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-state.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/messages/audio-stream.yaml",
@@ -785,14 +786,17 @@
     {
       "path": "/docs/for-ai/capability-interfaces/media-playlist/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1340,
-      "sha256": "2cd2b5c35d0969c18f794918ff72902d9002345c91b4c7f60fb6b83db6c07eff",
+      "bytes": 1907,
+      "sha256": "de007dc6ef982b0dcd3b1bc3789da348e464a21b9a150d64c5a656408d47259a",
       "links": [
         "/docs/references/capability-interfaces/media-playlist/1.0.yaml",
         "/docs/references/capability-interfaces/media-playlist/1.0/messages/add-to-playlist.yaml",
         "/docs/references/capability-interfaces/media-playlist/1.0/messages/create-playlist.yaml",
         "/docs/references/capability-interfaces/media-playlist/1.0/messages/get-playlist.yaml",
+        "/docs/references/capability-interfaces/media-playlist/1.0/messages/list-playlists.yaml",
         "/docs/references/capability-interfaces/media-playlist/1.0/messages/play-playlist.yaml",
+        "/docs/references/capability-interfaces/media-playlist/1.0/messages/playlist-contents.yaml",
+        "/docs/references/capability-interfaces/media-playlist/1.0/messages/playlists.yaml",
         "/docs/references/capability-interfaces/media-playlist/1.0/messages/remove-from-playlist.yaml",
         "/docs/references/capability-interfaces/media-playlist/1.0/messages/shuffle-playlist.yaml"
       ]
@@ -800,11 +804,13 @@
     {
       "path": "/docs/for-ai/capability-interfaces/media-search/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 737,
-      "sha256": "161aea75369c2b0582a07f719f1bb299b4532bddf5f0216b406274f9bd27fef5",
+      "bytes": 1112,
+      "sha256": "b93863642f78c93543c1570bf26894850cf3a88b40d5a38b0dc97a56d1b13c3f",
       "links": [
         "/docs/references/capability-interfaces/media-search/1.0.yaml",
         "/docs/references/capability-interfaces/media-search/1.0/messages/audio-media-results.yaml",
+        "/docs/references/capability-interfaces/media-search/1.0/messages/get-media.yaml",
+        "/docs/references/capability-interfaces/media-search/1.0/messages/media-details.yaml",
         "/docs/references/capability-interfaces/media-search/1.0/messages/search-media.yaml"
       ]
     },
@@ -3054,8 +3060,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3937,
-      "sha256": "c2a17a3fb79ed9f9e1eabd369a529f208dbb435ff7b8609d5014dd0e32d5a1b9",
+      "bytes": 3973,
+      "sha256": "c406ddeddbf178d85a414edf62b3cd68b24dd983d432af96436baaa624eec3c9",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3583,8 +3589,8 @@
     {
       "path": "/docs/for-ai/schemas/m-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4545,
-      "sha256": "40ad2a95b0566a9580fbfacacafd30b689a904d6f1e8524b1790eab011204ace",
+      "bytes": 4793,
+      "sha256": "d504faba3eb9a586c93db82031d53c05b4d2e7a7353f2f04772f7c9806fcd815",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/MeasurementRange.json",
@@ -3596,6 +3602,7 @@
         "/docs/references/schemas/MediaPlayerInterfaceConfiguration.json",
         "/docs/references/schemas/MediaPlayerInterfaceFastForwardMessage.json",
         "/docs/references/schemas/MediaPlayerInterfaceNextMessage.json",
+        "/docs/references/schemas/MediaPlayerInterfaceNowPlayingAttribute.json",
         "/docs/references/schemas/MediaPlayerInterfacePauseMessage.json",
         "/docs/references/schemas/MediaPlayerInterfacePlayAudioMessage.json",
         "/docs/references/schemas/MediaPlayerInterfacePlayMediaMessage.json",
@@ -3615,27 +3622,32 @@
         "/docs/references/schemas/MediaPlaylistInterfaceConfiguration.json",
         "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessage.json",
+        "/docs/references/schemas/MediaPlaylistInterfaceListPlaylistsMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfacePlayPlaylistMessage.json",
+        "/docs/references/schemas/MediaPlaylistInterfacePlaylistContentsMessage.json",
+        "/docs/references/schemas/MediaPlaylistInterfacePlaylistsMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfaceShufflePlaylistMessage.json",
         "/docs/references/schemas/MediaProvider.json",
         "/docs/references/schemas/MediaSearchCapabilityInterfaceConfiguration.json",
         "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessage.json",
-        "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessage.json",
-        "/docs/references/schemas/Message.json",
-        "/docs/references/schemas/MessageAuthorizationContext.json",
-        "/docs/references/schemas/MessageContext.json",
-        "/docs/references/schemas/MessageEndpoint.json",
-        "/docs/references/schemas/MessageHeader.json"
+        "/docs/references/schemas/MediaSearchInterfaceGetMediaMessage.json",
+        "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessage.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/m-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1581,
-      "sha256": "c6dad2fae3f89a7ccf7ffda5ee550128dafc67681a03f41675df6bf77f635934",
+      "bytes": 2091,
+      "sha256": "e93438f2ca6527b78a9bdcfbc212097beb0e48f5829ff640003c9c06b56ec0d3",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessage.json",
+        "/docs/references/schemas/Message.json",
+        "/docs/references/schemas/MessageAuthorizationContext.json",
+        "/docs/references/schemas/MessageContext.json",
+        "/docs/references/schemas/MessageEndpoint.json",
+        "/docs/references/schemas/MessageHeader.json",
         "/docs/references/schemas/MessageInterfaceConfiguration.json",
         "/docs/references/schemas/MessageSourceNodeConfiguration.json",
         "/docs/references/schemas/MessageTarget.json",
@@ -3749,14 +3761,16 @@
     {
       "path": "/docs/for-ai/schemas/p-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3182,
-      "sha256": "afa2d0946877c719f5fc1aa94d8a6abadfbca310064a60fb6f9bf3ceca26e200",
+      "bytes": 3326,
+      "sha256": "c60033f08fc097ac6492615dc0808a8fe0840075466e94caf7c83a29a641fc5e",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceConfiguration.json",
         "/docs/references/schemas/PM10ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
         "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceConfiguration.json",
         "/docs/references/schemas/PM25ConcentrationMeasurementInterfaceMeasuredValueAttribute.json",
+        "/docs/references/schemas/PodcastEpisode.json",
+        "/docs/references/schemas/PodcastShow.json",
         "/docs/references/schemas/Position.json",
         "/docs/references/schemas/PowerInterfaceConfiguration.json",
         "/docs/references/schemas/PowerInterfacePowerAttribute.json",
@@ -3982,12 +3996,13 @@
     {
       "path": "/docs/for-ai/schemas/s-3.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 886,
-      "sha256": "fa6da8aad72b293140b2c61f6ef5fc48d3d91161ae6b926c3148752c15c7d136",
+      "bytes": 977,
+      "sha256": "616bd473a67bf325b27b8d839ba43e4d917788dbb741ba8b4ccf19b03942f698",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/SupportedEvent.json",
         "/docs/references/schemas/SupportedInput.json",
+        "/docs/references/schemas/SupportedMediaResource.json",
         "/docs/references/schemas/SynchronizationItemError.json",
         "/docs/references/schemas/SynchronizationRequest.json",
         "/docs/references/schemas/SyntheticEventAccepted.json",
@@ -5727,16 +5742,23 @@
     {
       "path": "/docs/references/capability-interfaces/media-player.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 13163,
-      "sha256": "8bbae7dc8a8cc27f18021c90035d87848f923a1e43046286663f3c78c630b22b",
+      "bytes": 16280,
+      "sha256": "9bcb342b80e1c77f940d245a4cbe6733a03496e87a14f9356b016bb90b7f8861",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-player/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 13163,
-      "sha256": "8bbae7dc8a8cc27f18021c90035d87848f923a1e43046286663f3c78c630b22b",
+      "bytes": 16280,
+      "sha256": "9bcb342b80e1c77f940d245a4cbe6733a03496e87a14f9356b016bb90b7f8861",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 1206,
+      "sha256": "4227b6dabbb5cb00ca4fad75006da60957a8afd30c6710799ec83aedf2c90891",
       "links": []
     },
     {
@@ -5756,8 +5778,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/configuration.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3472,
-      "sha256": "02e7a54fe7364f848dc833b3d3f010caf537107ee63021f76a497cf94b9b7d10",
+      "bytes": 4380,
+      "sha256": "0c5d14b24df2813a711537aa0301d09d3e43e797332adb543700f2661dcbc49a",
       "links": []
     },
     {
@@ -5805,8 +5827,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-media.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 400,
-      "sha256": "6b305fbc69f2ff414cde39afcc5090851a3bdd0985776034abf93ae2c8445d40",
+      "bytes": 915,
+      "sha256": "cc4b097d36d6a1acbeaa812454ee90dd487a55df78ccdb3c492af19bf8a10456",
       "links": []
     },
     {
@@ -5882,16 +5904,16 @@
     {
       "path": "/docs/references/capability-interfaces/media-playlist.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3020,
-      "sha256": "ef6622427e3523994e219c28c18a4034ca1006b03f109c7e4e0779fd68a96dc4",
+      "bytes": 9275,
+      "sha256": "19373eb7f12aa5f7160fe228697008ca597241f215801167fab3c46506ecec68",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-playlist/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-playlist/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3020,
-      "sha256": "ef6622427e3523994e219c28c18a4034ca1006b03f109c7e4e0779fd68a96dc4",
+      "bytes": 9275,
+      "sha256": "19373eb7f12aa5f7160fe228697008ca597241f215801167fab3c46506ecec68",
       "links": []
     },
     {
@@ -5911,8 +5933,15 @@
     {
       "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/get-playlist.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 174,
-      "sha256": "c54be8f0bc04c811a9636dee33bfd631372cc56888354af67e19498572c8f1a8",
+      "bytes": 360,
+      "sha256": "9cd63143d6c35d6ec5fff3c0fb519713efc9a8fbf791d8db597377ed82445c7c",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/list-playlists.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 308,
+      "sha256": "0028fe26045761c649fb213842eb86ce613f9558d1bfc1f5f5d73b519555de7c",
       "links": []
     },
     {
@@ -5920,6 +5949,20 @@
       "contentType": "application/yaml; charset=utf-8",
       "bytes": 267,
       "sha256": "c0238a5e8ac14129ae42dced0319f2d440e8cc4d009ba08d24f8d448dfd1a308",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/playlist-contents.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 3407,
+      "sha256": "bdcccfbdb9ed11020cd29e853cf95c0f0b1473ea25a0e55370d0179dcbc44f67",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/playlists.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 891,
+      "sha256": "7c701feabfcec81764c1a9e5bb42802c61e153edd6aad0e4862ea688e328014a",
       "links": []
     },
     {
@@ -5939,30 +5982,44 @@
     {
       "path": "/docs/references/capability-interfaces/media-search.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4349,
-      "sha256": "71c799b00b0c622a35123c373db29eb1da5fbb34736c7a367f8ef3028265ce8f",
+      "bytes": 13418,
+      "sha256": "09de2995ae83e4cde634a9a13df37dc14bc69910b6ba4d017af4bd2b865a67ea",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-search/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4349,
-      "sha256": "71c799b00b0c622a35123c373db29eb1da5fbb34736c7a367f8ef3028265ce8f",
+      "bytes": 13418,
+      "sha256": "09de2995ae83e4cde634a9a13df37dc14bc69910b6ba4d017af4bd2b865a67ea",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/audio-media-results.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 2305,
-      "sha256": "710d9b76af7d6a5e688f8e06bfe6b6a237ce9279da0fd668b976240ce0873b97",
+      "bytes": 4704,
+      "sha256": "b318e98a21f44d32f9f82d093a4c7ef93507569d84bf36a50e0f3983892698e7",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-search/1.0/messages/get-media.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 1220,
+      "sha256": "804a5dcb3dff652fd5d9a277027e94baba64a64b2c2cdf819f59941fbf0bf2a6",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-search/1.0/messages/media-details.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 3507,
+      "sha256": "f13c26bd38424ddd947e05b393cb68a74c7ef280e51129a690946ccce8a2efd6",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/search-media.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 691,
-      "sha256": "8ae820efe8a833a83ff2326c48f4e6a41f24b5ed83bf9bd169a27c89045041eb",
+      "bytes": 1028,
+      "sha256": "5d3fc54f6a1ae3e7125c422c6c0c11fb423d19df1e38e811406c492fd448c5f7",
       "links": []
     },
     {
@@ -6403,16 +6460,16 @@
     {
       "path": "/docs/references/capability-interfaces/recordings.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4442,
-      "sha256": "b4b6b320a80582d0b0f0f9441da5b154dadacb4b7ea83fb8f39efe6d6779478d",
+      "bytes": 5011,
+      "sha256": "ace464484e7c9b5660a6826c337996fb16653cc37a8f94f91d44bb412186081e",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/recordings/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/recordings/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4442,
-      "sha256": "b4b6b320a80582d0b0f0f9441da5b154dadacb4b7ea83fb8f39efe6d6779478d",
+      "bytes": 5011,
+      "sha256": "ace464484e7c9b5660a6826c337996fb16653cc37a8f94f91d44bb412186081e",
       "links": []
     },
     {
@@ -6446,8 +6503,8 @@
     {
       "path": "/docs/references/capability-interfaces/recordings/1.0/messages/list-recordings-response.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1301,
-      "sha256": "bfc24fb454ed91251dd6b116273e50ad61bd22317e364c2794748a1b68cb6a16",
+      "bytes": 1852,
+      "sha256": "ebae3df63cd8218fec3aef04b0bcd50104c02f3b08f3e8a8fe7e089d4514d055",
       "links": []
     },
     {
@@ -7507,8 +7564,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 766208,
-      "sha256": "555fb39ceb23e0da0cbcc29d3c05dc97b82c9d5db868e4c1086d33f9b7c576ec",
+      "bytes": 774871,
+      "sha256": "5e904b9960db039b6a2de4680035ba1d6be3d34cea9dd97b9949d6326e0ee989",
       "links": []
     },
     {
@@ -8291,8 +8348,8 @@
     {
       "path": "/docs/references/schemas/configuration-6.json",
       "contentType": "application/json",
-      "bytes": 2026,
-      "sha256": "699dff7c31557f707d11459d1db66d8535b4ed127ef9b68a42346b145f533b9e",
+      "bytes": 2172,
+      "sha256": "b79b978a18c012ba3f83673cedcc52aee3b2484bbfeba8215ff0999c315af59d",
       "links": []
     },
     {
@@ -8578,8 +8635,8 @@
     {
       "path": "/docs/references/schemas/CreateMessageTarget.json",
       "contentType": "application/json",
-      "bytes": 321,
-      "sha256": "5d067925d225ae6d29181f750270b88c8bc1226e2ac6d5ff0ef226751537fac8",
+      "bytes": 566,
+      "sha256": "1e5e479c530195f12d8e92538b8816235aeef545418dae7624f19b2d0b01f887",
       "links": []
     },
     {
@@ -9719,8 +9776,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 190874,
-      "sha256": "b985a3400a22a1a27391c92fe7bc13369d853451efd401bcb705faa18b35ed66",
+      "bytes": 193286,
+      "sha256": "54f363336451b76be3ce2d68d4295dbb343c06f2492887a32158003d0b5a2aba",
       "links": []
     },
     {
@@ -9936,8 +9993,8 @@
     {
       "path": "/docs/references/schemas/MediaId.json",
       "contentType": "application/json",
-      "bytes": 356,
-      "sha256": "8d9691af9f63e5067ff9718e689685638af3300b0bb924ebba51d7edf75f23ee",
+      "bytes": 856,
+      "sha256": "9f8f71a6e00ac2fe31433bedde50e6dbe0776ffd9e4c2db7af21ad6144546d8b",
       "links": []
     },
     {
@@ -9957,8 +10014,8 @@
     {
       "path": "/docs/references/schemas/MediaPlayerInterfaceConfiguration.json",
       "contentType": "application/json",
-      "bytes": 4821,
-      "sha256": "10873640a3bd713c03250beb43043f1238afb509ed9a10f0119d2714c4d0f6cd",
+      "bytes": 5125,
+      "sha256": "08fc8c34c0547f16563fa99ac7fd9409ccd52cc7504fc1825885634f7c309c52",
       "links": []
     },
     {
@@ -9973,6 +10030,13 @@
       "contentType": "application/json",
       "bytes": 279,
       "sha256": "24289ed4b9047d77aeead1b77b8d772887dfc153c97c9df93f3623e309354ae3",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaPlayerInterfaceNowPlayingAttribute.json",
+      "contentType": "application/json",
+      "bytes": 767,
+      "sha256": "34a73587ef8dc102fb585dd192a81a4051fc2f06cac5d3508535047c4bd875ec",
       "links": []
     },
     {
@@ -10104,8 +10168,29 @@
     {
       "path": "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessage.json",
       "contentType": "application/json",
-      "bytes": 476,
-      "sha256": "7568e2b6b04627eed4d551e89d17a122e5385d8e079493e9ca98787072192835",
+      "bytes": 727,
+      "sha256": "85ab3a9a7795aa6d58adc2298877fc9ab59082fd09799085794b3500df5e357b",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceListPlaylistsMessage.json",
+      "contentType": "application/json",
+      "bytes": 631,
+      "sha256": "d9332312f33150063f0160023d61b5907a46bccd977207084320901cd831e27f",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistContentsMessage.json",
+      "contentType": "application/json",
+      "bytes": 882,
+      "sha256": "089f4e9dd8666165f4aa9c9c1162f89b98f0aee6d06c349d12d173f9048e7947",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistsMessage.json",
+      "contentType": "application/json",
+      "bytes": 638,
+      "sha256": "f8a5da23bc39d1cb8bef4e32ba5cd38bf071467e92cb5bf69fe9e16cf4f90bce",
       "links": []
     },
     {
@@ -10146,15 +10231,29 @@
     {
       "path": "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessage.json",
       "contentType": "application/json",
-      "bytes": 1061,
-      "sha256": "71aa1f769cd1a0aee54ec8572fe22771f7b5821946f3b015c90a6f8f99f8b93f",
+      "bytes": 1484,
+      "sha256": "5c15d423a2ea0ef6caa47e074b7af1e6f2110796a07611c970313224234f9dbd",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaSearchInterfaceGetMediaMessage.json",
+      "contentType": "application/json",
+      "bytes": 789,
+      "sha256": "43857e450552372fa7ec3447765bbc1bee8b7e5342529620ffa1ce595584eb6a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessage.json",
+      "contentType": "application/json",
+      "bytes": 1024,
+      "sha256": "a920e339f9e273b5f0efcfdc0db0cd0a47740e3fd170f15cd217429708a3634c",
       "links": []
     },
     {
       "path": "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessage.json",
       "contentType": "application/json",
-      "bytes": 1067,
-      "sha256": "3cff26fea3b782c935035eb430ff9bb9df3900df6abdd93ab7a74b253acac157",
+      "bytes": 1446,
+      "sha256": "b1a3c023767cb9fd79bd0182f48152df434723499d3a69db90913cdf9195920c",
       "links": []
     },
     {
@@ -10587,8 +10686,8 @@
     {
       "path": "/docs/references/schemas/Playlist.json",
       "contentType": "application/json",
-      "bytes": 403,
-      "sha256": "f60fce55b3aaa9a41bdb90087825c3266ace9d5ae45f37827e2a1277f357f6cc",
+      "bytes": 686,
+      "sha256": "f4c25d1c5898cc3e2435ab4678bf938b47159b0c52bc517150000f0e5f771bc7",
       "links": []
     },
     {
@@ -10785,6 +10884,20 @@
       "contentType": "application/json",
       "bytes": 523,
       "sha256": "d94a9b22208460c53c644d8bf39ab13256ea55a361bfc8256bddadcd7dfac121",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PodcastEpisode.json",
+      "contentType": "application/json",
+      "bytes": 716,
+      "sha256": "a4b51ecbf15d93f241e04f0e6164b81925626f0430f326f00fd44d546203f987",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PodcastShow.json",
+      "contentType": "application/json",
+      "bytes": 450,
+      "sha256": "5711f61675f2c27265f03ccd198e153e21f0b1324f188b48cea4d2f670c81370",
       "links": []
     },
     {
@@ -12024,6 +12137,13 @@
       "contentType": "application/json",
       "bytes": 673,
       "sha256": "7a932d436e4cb9d332824a29c41199bc2bd929a874bf29c09a6abeeed88d4d7a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/SupportedMediaResource.json",
+      "contentType": "application/json",
+      "bytes": 788,
+      "sha256": "175afcbc0a91009a8b1e940793aac733e81da651b5e0946f5eee40465a2dd5eb",
       "links": []
     },
     {
