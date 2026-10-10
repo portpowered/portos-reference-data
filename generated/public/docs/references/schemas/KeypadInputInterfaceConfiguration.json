@@ -27,6 +27,7 @@
           "LEFT",
           "RIGHT",
           "SELECT",
+          "HOME",
           "BACK",
           "EXIT",
           "MENU",

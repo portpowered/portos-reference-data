@@ -1,10 +1,45 @@
 {
+  "description": "Search for and play media by title or query using a service advertised by the endpoint. Omitting mediaType retains audio search behavior; video-only endpoints may default to video.",
   "type": "object",
   "properties": {
     "query": {
       "type": "string",
-      "description": "Query to search for audio content",
+      "description": "Query to search for media content",
       "minLength": 1
+    },
+    "provider": {
+      "type": "string",
+      "description": "Media service identifier. A provider enum value does not imply that every endpoint supports that service; use the endpoint's advertised provider lists.",
+      "enum": [
+        "SPOTIFY",
+        "AMAZON_MUSIC",
+        "APPLE_MUSIC",
+        "AUDIBLE",
+        "TUNE_IN",
+        "PANDORA",
+        "IHEART_RADIO",
+        "SIRIUSXM",
+        "DEEZER",
+        "TIDAL",
+        "YOUTUBE",
+        "NETFLIX",
+        "PRIME_VIDEO",
+        "DAILYMOTION"
+      ]
+    },
+    "mediaType": {
+      "type": "string",
+      "enum": [
+        "AUDIO",
+        "VIDEO"
+      ],
+      "description": "Media search domain. The endpoint must advertise support for the selected type."
+    },
+    "timerSeconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 86400,
+      "description": "Optional provider playback timer in seconds."
     }
   },
   "required": [

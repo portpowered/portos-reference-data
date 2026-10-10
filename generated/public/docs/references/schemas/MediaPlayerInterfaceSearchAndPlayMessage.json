@@ -5,12 +5,34 @@
   "x-version": "1.0",
   "x-type": "message",
   "x-directionality": "in",
+  "description": "Search for and play media by title or query using a service advertised by the endpoint. Omitting mediaType retains audio search behavior; video-only endpoints may default to video.",
   "type": "object",
   "properties": {
     "query": {
       "type": "string",
-      "description": "Query to search for audio content",
+      "description": "Query to search for media content",
       "minLength": 1
+    },
+    "provider": {
+      "$ref": "/docs/references/schemas/MediaProvider.json"
+    },
+    "mediaType": {
+      "type": "string",
+      "enum": [
+        "AUDIO",
+        "VIDEO"
+      ],
+      "description": "Media search domain. The endpoint must advertise support for the selected type.",
+      "x-enum-varnames": [
+        "MediaSearchTypeAudio",
+        "MediaSearchTypeVideo"
+      ]
+    },
+    "timerSeconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 86400,
+      "description": "Optional provider playback timer in seconds."
     }
   },
   "required": [

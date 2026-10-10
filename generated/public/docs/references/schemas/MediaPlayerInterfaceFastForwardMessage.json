@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "fast-forward",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Begin provider-defined fast-forward playback. This does not seek by a specific duration; use skip-forward or seek for a known position change.",
+  "type": "object",
+  "additionalProperties": false
+}

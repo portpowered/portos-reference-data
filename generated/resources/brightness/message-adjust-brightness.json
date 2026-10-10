@@ -1,0 +1,15 @@
+{
+  "description": "Adjust brightness by a signed number of percentage points. The endpoint must advertise this message separately from set-brightness.",
+  "type": "object",
+  "properties": {
+    "brightnessDelta": {
+      "type": "integer",
+      "minimum": -100,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "brightnessDelta"
+  ],
+  "additionalProperties": false
+}

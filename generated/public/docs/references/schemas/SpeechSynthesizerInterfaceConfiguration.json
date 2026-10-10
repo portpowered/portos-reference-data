@@ -5,5 +5,18 @@
   "x-version": "1.0",
   "x-type": "configuration",
   "type": "object",
+  "properties": {
+    "supportedInputTypes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "SSML",
+          "CANNED_TTS"
+        ]
+      }
+    }
+  },
   "additionalProperties": false
 }

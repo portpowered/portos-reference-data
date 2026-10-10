@@ -23,12 +23,33 @@ messages:
               type: string
               enum:
                 - SSML
+                - CANNED_TTS
             ssml:
               type: string
+            cannedTtsStringId:
+              type: string
+              minLength: 1
+              description: >-
+                Provider-defined canned speech identifier; supported only by integrations
+                advertising canned speech.
           title: SpeechInput
       additionalProperties: false
 attributes: []
-configuration: null
+configuration:
+  type: object
+  properties:
+    supportedInputTypes:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+        enum:
+          - SSML
+          - CANNED_TTS
+  additionalProperties: false
+  description: >-
+    Speech synthesizers accept a request to speak. Use them to send spoken output to a connected
+    device or integration.
 authorization:
   configuration: endpoint:read
   attributes: endpoint:read
