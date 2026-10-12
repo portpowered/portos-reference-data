@@ -72,11 +72,11 @@ get:
         type: string
     - in: query
       name: resource
-      required: true
+      required: false
       schema:
         type: string
         format: uri
-      description: Canonical issuer for REST or issuer/mcp for MCP; discover rather than guess.
+      description: Canonical issuer for REST or issuer/mcp for MCP. Omission defaults to REST.
     - in: query
       name: code_challenge
       required: true

@@ -1128,6 +1128,15 @@
       "resourcePermissionRequired": false
     },
     {
+      "path": "/oauth/authorization-response",
+      "runtimePath": "/oauth/authorization-response",
+      "method": "GET",
+      "operationId": "deliverOAuthAuthorizationResponse",
+      "security": [],
+      "delegated": false,
+      "resourcePermissionRequired": false
+    },
+    {
       "path": "/oauth/validate-request",
       "runtimePath": "/oauth/validate-request",
       "method": "POST",

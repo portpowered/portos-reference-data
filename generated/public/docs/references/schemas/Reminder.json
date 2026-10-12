@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "A reminder and its current provider revision for guarded edits.",
+  "properties": {
+    "reminderId": {
+      "type": "string"
+    },
+    "listId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "revision": {
+      "type": "string",
+      "description": "Omitted when the provider does not supply a revision; writes require it."
+    }
+  },
+  "required": [
+    "reminderId",
+    "listId",
+    "title",
+    "completed"
+  ]
+}

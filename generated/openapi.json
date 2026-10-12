@@ -7835,12 +7835,12 @@
           {
             "in": "query",
             "name": "resource",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
               "format": "uri"
             },
-            "description": "Canonical issuer for REST or issuer/mcp for MCP; discover rather than guess."
+            "description": "Canonical issuer for REST or issuer/mcp for MCP. Omission defaults to REST."
           },
           {
             "in": "query",
@@ -7924,7 +7924,7 @@
         },
         "responses": {
           "200": {
-            "description": "Callback navigation URL containing code or denial and original state.",
+            "description": "One-time browser continuation URL. Navigate the browser to receive a 303 to the registered callback.",
             "content": {
               "application/json": {
                 "schema": {
@@ -7940,7 +7940,7 @@
                   }
                 },
                 "example": {
-                  "redirect_url": "http://127.0.0.1:8765/callback?code=SERVER_ISSUED_CODE&state=ORIGINAL_STATE"
+                  "redirect_url": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID"
                 }
               }
             }
@@ -8032,6 +8032,57 @@
           },
           "401": {
             "description": "User sign-in required."
+          }
+        }
+      }
+    },
+    "/oauth/authorization-response": {
+      "get": {
+        "operationId": "deliverOAuthAuthorizationResponse",
+        "tags": [
+          "Auth"
+        ],
+        "security": [],
+        "x-portos-resource-permission": false,
+        "x-portos-delegated": false,
+        "summary": "Redirect the browser to the approved OAuth callback",
+        "description": "Navigate the browser here using the continuation returned by authenticated\nconsent. The opaque reference expires after two minutes and is consumed once.\nThe server chooses the stored callback; caller-supplied redirect destinations\nare never used. Approval carries code, original state and issuer; denial\ncarries access_denied, original state and issuer. No bearer token is needed.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "request_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "303": {
+            "description": "Navigate with GET to the exact registered callback.",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store"
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-referrer"
+              }
+            }
+          },
+          "400": {
+            "description": "Missing, wrong-stage, expired or consumed continuation reference."
           }
         }
       }
@@ -13361,6 +13412,16 @@
         "type": "object",
         "additionalProperties": false
       },
+      "MediaPlayerInterfaceTransferPlaybackMessage": {
+        "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+        "x-name": "transfer-playback",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Move the current playback session of the destination route's connected provider account to this one destination, preserving playing or paused state and media context. Select an advertised destination route. This affects that account's current session; it does not copy media, restart playback, transfer between providers or accounts, or fan out to group members. Read fresh source and destination state before and after dispatch to verify the move. An unavailable target requires an explicit choice of another destination.",
+        "type": "object",
+        "additionalProperties": false
+      },
       "MediaPlayerInterfaceSearchAndPlayMessage": {
         "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
         "x-name": "search-and-play",
@@ -16706,36 +16767,212 @@
         ],
         "additionalProperties": false
       },
+      "RemindersProviderInterfaceCreateReminderMessage": {
+        "title": "RemindersProviderInterfaceCreateReminderMessage",
+        "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+        "x-name": "create-reminder",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Create a reminder in a discovered list. Creation is sent once; refresh before retrying an uncertain result.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "listId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Discovered list identifier."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Reminder title."
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "listId",
+          "title"
+        ]
+      },
+      "RemindersProviderInterfaceCreateReminderResponseMessage": {
+        "title": "RemindersProviderInterfaceCreateReminderResponseMessage",
+        "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+        "x-name": "create-reminder-response",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "out",
+        "description": "The provider accepted the reminder change.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reminder": {
+            "$ref": "#/components/schemas/Reminder"
+          }
+        },
+        "required": [
+          "reminder"
+        ]
+      },
+      "RemindersProviderInterfaceUpdateReminderMessage": {
+        "title": "RemindersProviderInterfaceUpdateReminderMessage",
+        "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+        "x-name": "update-reminder",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Edit a reminder using its last observed revision; omitted fields are preserved.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reminderId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Reminder identifier."
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Revision from the latest listing."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Replacement title."
+          },
+          "notes": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "reminderId",
+          "revision"
+        ]
+      },
+      "RemindersProviderInterfaceUpdateReminderResponseMessage": {
+        "title": "RemindersProviderInterfaceUpdateReminderResponseMessage",
+        "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+        "x-name": "update-reminder-response",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "out",
+        "description": "The provider accepted the reminder change.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reminder": {
+            "$ref": "#/components/schemas/Reminder"
+          }
+        },
+        "required": [
+          "reminder"
+        ]
+      },
+      "RemindersProviderInterfaceDeleteReminderMessage": {
+        "title": "RemindersProviderInterfaceDeleteReminderMessage",
+        "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+        "x-name": "delete-reminder",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "in",
+        "description": "Soft-delete a reminder using its last observed revision.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reminderId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Reminder identifier."
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Revision from the latest listing."
+          }
+        },
+        "required": [
+          "reminderId",
+          "revision"
+        ]
+      },
+      "RemindersProviderInterfaceDeleteReminderResponseMessage": {
+        "title": "RemindersProviderInterfaceDeleteReminderResponseMessage",
+        "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+        "x-name": "delete-reminder-response",
+        "x-version": "1.0",
+        "x-type": "message",
+        "x-directionality": "out",
+        "description": "The provider accepted soft deletion of the reminder.",
+        "type": "object",
+        "additionalProperties": false
+      },
       "RemindersProviderInterfaceListRemindersMessage": {
+        "title": "RemindersProviderInterfaceListRemindersMessage",
         "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
         "x-name": "list-reminders",
         "x-version": "1.0",
         "x-type": "message",
         "x-directionality": "in",
-        "description": "Request to list reminders from a reminders provider",
+        "description": "List reminder lists and their reminders. Omit listId to enumerate all lists.",
         "type": "object",
-        "additionalProperties": false
+        "additionalProperties": false,
+        "properties": {
+          "listId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "List identifier from a previous listing."
+          },
+          "includeCompleted": {
+            "type": "boolean",
+            "default": false
+          },
+          "cursor": {
+            "type": "string",
+            "description": "Opaque next-page cursor."
+          },
+          "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          }
+        }
       },
       "RemindersProviderInterfaceListRemindersResponseMessage": {
+        "title": "RemindersProviderInterfaceListRemindersResponseMessage",
         "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
         "x-name": "list-reminders-response",
         "x-version": "1.0",
         "x-type": "message",
         "x-directionality": "out",
-        "description": "Response containing a list of reminder lists from a reminders provider",
+        "description": "Reminder lists and one bounded page of reminders.",
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "reminderLists": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ReminderList"
             }
+          },
+          "reminders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reminder"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
           }
         },
         "required": [
-          "reminderLists"
-        ],
-        "additionalProperties": false
+          "reminderLists",
+          "reminders"
+        ]
       },
       "ControlRouteGroupsProviderInterfaceCreateGroupMessage": {
         "x-namespace": "port1/systems/zero/capability-interfaces/control-route-groups-provider",
@@ -18155,6 +18392,11 @@
           },
           "name": {
             "type": "string"
+          },
+          "positionMs": {
+            "description": "Provider-observed position within the current media item in milliseconds. Omitted when unknown. Compare fresh observations with media identity and playback state; a track transition does not prove continuity.",
+            "type": "integer",
+            "minimum": 0
           }
         },
         "required": [
@@ -28379,6 +28621,38 @@
         },
         "required": [
           "albumId"
+        ]
+      },
+      "Reminder": {
+        "type": "object",
+        "additionalProperties": false,
+        "description": "A reminder and its current provider revision for guarded edits.",
+        "properties": {
+          "reminderId": {
+            "type": "string"
+          },
+          "listId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "revision": {
+            "type": "string",
+            "description": "Omitted when the provider does not supply a revision; writes require it."
+          }
+        },
+        "required": [
+          "reminderId",
+          "listId",
+          "title",
+          "completed"
         ]
       },
       "ReminderList": {

@@ -61,7 +61,9 @@ post:
           approved: true
   responses:
     '200':
-      description: Callback navigation URL containing code or denial and original state.
+      description: >-
+        One-time browser continuation URL. Navigate the browser to receive a 303 to the registered
+        callback.
       content:
         application/json:
           schema:
@@ -73,7 +75,8 @@ post:
                 type: string
                 format: uri
           example:
-            redirect_url: http://127.0.0.1:8765/callback?code=SERVER_ISSUED_CODE&state=ORIGINAL_STATE
+            redirect_url: >-
+              https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID
     '400':
       description: Invalid, expired or consumed request.
     '401':

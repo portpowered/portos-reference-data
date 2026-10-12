@@ -79,6 +79,7 @@ Use the operation’s scopes and its resource permission requirements. Public di
 - [GET /oauth/authorize](/docs/for-ai/operations/beginOAuthAuthorization.md)
 - [POST /oauth/authorize](/docs/for-ai/operations/completeOAuthConsent.md)
 - [GET /oauth/authorization-request](/docs/for-ai/operations/getPendingOAuthConsent.md)
+- [GET /oauth/authorization-response](/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md)
 - [POST /oauth/validate-request](/docs/for-ai/operations/validateOAuthRequest.md)
 - [GET /oauth/verify-device](/docs/for-ai/operations/verifyDevice.md)
 - [POST /oauth/authorize-device](/docs/for-ai/operations/authorizeDevice.md)

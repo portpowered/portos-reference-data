@@ -1,0 +1,20 @@
+description: >-
+  Create a reminder in a discovered list. Creation is sent once; refresh before
+  retrying an uncertain result.
+type: object
+additionalProperties: false
+properties:
+  listId:
+    type: string
+    minLength: 1
+    description: Discovered list identifier.
+  title:
+    type: string
+    minLength: 1
+    description: Reminder title.
+  notes:
+    type: string
+required:
+  - listId
+  - title
+title: RemindersProviderInterfaceCreateReminderMessage

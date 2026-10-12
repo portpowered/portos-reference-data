@@ -1,5 +1,26 @@
 {
-  "description": "Request to list reminders from a reminders provider",
+  "description": "List reminder lists and their reminders. Omit listId to enumerate all lists.",
   "type": "object",
-  "additionalProperties": false
+  "additionalProperties": false,
+  "properties": {
+    "listId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "List identifier from a previous listing."
+    },
+    "includeCompleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "cursor": {
+      "type": "string",
+      "description": "Opaque next-page cursor."
+    },
+    "maxResults": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    }
+  },
+  "title": "RemindersProviderInterfaceListRemindersMessage"
 }

@@ -5,19 +5,125 @@ description: >-
   Reminder providers list reminders from a connected account. Use the returned items to give an
   assistant task context or display an existing reminder list.
 messages:
-  - name: list-reminders
-    description: Request to list reminders from a reminders provider
+  - name: create-reminder
+    description: >-
+      Create a reminder in a discovered list. Creation is sent once; refresh before retrying an
+      uncertain result.
     directionality: in
     schema:
-      description: Request to list reminders from a reminders provider
+      description: >-
+        Create a reminder in a discovered list. Creation is sent once; refresh before retrying an
+        uncertain result.
       type: object
       additionalProperties: false
-  - name: list-reminders-response
-    description: Response containing a list of reminder lists from a reminders provider
+      properties:
+        listId:
+          type: string
+          minLength: 1
+          description: Discovered list identifier.
+        title:
+          type: string
+          minLength: 1
+          description: Reminder title.
+        notes:
+          type: string
+      required:
+        - listId
+        - title
+      title: RemindersProviderInterfaceCreateReminderMessage
+  - name: create-reminder-response
+    description: The provider accepted the reminder change.
     directionality: out
     schema:
-      description: Response containing a list of reminder lists from a reminders provider
+      description: The provider accepted the reminder change.
       type: object
+      additionalProperties: false
+      properties:
+        reminder:
+          type: object
+          additionalProperties: false
+          description: A reminder and its current provider revision for guarded edits.
+          properties:
+            reminderId:
+              type: string
+            listId:
+              type: string
+            title:
+              type: string
+            notes:
+              type: string
+            completed:
+              type: boolean
+            revision:
+              type: string
+              description: Omitted when the provider does not supply a revision; writes require it.
+          required:
+            - reminderId
+            - listId
+            - title
+            - completed
+          title: Reminder
+      required:
+        - reminder
+      title: RemindersProviderInterfaceCreateReminderResponseMessage
+  - name: delete-reminder
+    description: Soft-delete a reminder using its last observed revision.
+    directionality: in
+    schema:
+      description: Soft-delete a reminder using its last observed revision.
+      type: object
+      additionalProperties: false
+      properties:
+        reminderId:
+          type: string
+          minLength: 1
+          description: Reminder identifier.
+        revision:
+          type: string
+          minLength: 1
+          description: Revision from the latest listing.
+      required:
+        - reminderId
+        - revision
+      title: RemindersProviderInterfaceDeleteReminderMessage
+  - name: delete-reminder-response
+    description: The provider accepted soft deletion of the reminder.
+    directionality: out
+    schema:
+      description: The provider accepted soft deletion of the reminder.
+      type: object
+      additionalProperties: false
+      title: RemindersProviderInterfaceDeleteReminderResponseMessage
+  - name: list-reminders
+    description: List reminder lists and their reminders. Omit listId to enumerate all lists.
+    directionality: in
+    schema:
+      description: List reminder lists and their reminders. Omit listId to enumerate all lists.
+      type: object
+      additionalProperties: false
+      properties:
+        listId:
+          type: string
+          minLength: 1
+          description: List identifier from a previous listing.
+        includeCompleted:
+          type: boolean
+          default: false
+        cursor:
+          type: string
+          description: Opaque next-page cursor.
+        maxResults:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      title: RemindersProviderInterfaceListRemindersMessage
+  - name: list-reminders-response
+    description: Reminder lists and one bounded page of reminders.
+    directionality: out
+    schema:
+      description: Reminder lists and one bounded page of reminders.
+      type: object
+      additionalProperties: false
       properties:
         reminderLists:
           type: array
@@ -32,9 +138,101 @@ messages:
             required:
               - listId
             title: ReminderList
+        reminders:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            description: A reminder and its current provider revision for guarded edits.
+            properties:
+              reminderId:
+                type: string
+              listId:
+                type: string
+              title:
+                type: string
+              notes:
+                type: string
+              completed:
+                type: boolean
+              revision:
+                type: string
+                description: Omitted when the provider does not supply a revision; writes require it.
+            required:
+              - reminderId
+              - listId
+              - title
+              - completed
+            title: Reminder
+        nextCursor:
+          type: string
       required:
         - reminderLists
+        - reminders
+      title: RemindersProviderInterfaceListRemindersResponseMessage
+  - name: update-reminder
+    description: Edit a reminder using its last observed revision; omitted fields are preserved.
+    directionality: in
+    schema:
+      description: Edit a reminder using its last observed revision; omitted fields are preserved.
+      type: object
       additionalProperties: false
+      properties:
+        reminderId:
+          type: string
+          minLength: 1
+          description: Reminder identifier.
+        revision:
+          type: string
+          minLength: 1
+          description: Revision from the latest listing.
+        title:
+          type: string
+          minLength: 1
+          description: Replacement title.
+        notes:
+          type: string
+        completed:
+          type: boolean
+      required:
+        - reminderId
+        - revision
+      title: RemindersProviderInterfaceUpdateReminderMessage
+  - name: update-reminder-response
+    description: The provider accepted the reminder change.
+    directionality: out
+    schema:
+      description: The provider accepted the reminder change.
+      type: object
+      additionalProperties: false
+      properties:
+        reminder:
+          type: object
+          additionalProperties: false
+          description: A reminder and its current provider revision for guarded edits.
+          properties:
+            reminderId:
+              type: string
+            listId:
+              type: string
+            title:
+              type: string
+            notes:
+              type: string
+            completed:
+              type: boolean
+            revision:
+              type: string
+              description: Omitted when the provider does not supply a revision; writes require it.
+          required:
+            - reminderId
+            - listId
+            - title
+            - completed
+          title: Reminder
+      required:
+        - reminder
+      title: RemindersProviderInterfaceUpdateReminderResponseMessage
 attributes: []
 configuration: null
 authorization:

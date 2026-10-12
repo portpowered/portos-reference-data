@@ -1,0 +1,4 @@
+description: The provider accepted soft deletion of the reminder.
+type: object
+additionalProperties: false
+title: RemindersProviderInterfaceDeleteReminderResponseMessage

@@ -25,6 +25,13 @@ properties:
     $ref: '#/properties/mediaId'
   name:
     type: string
+  positionMs:
+    description: >-
+      Provider-observed position within the current media item in milliseconds.
+      Omitted when unknown. Compare fresh observations with media identity and
+      playback state; a track transition does not prove continuity.
+    type: integer
+    minimum: 0
 required:
   - active
 additionalProperties: false

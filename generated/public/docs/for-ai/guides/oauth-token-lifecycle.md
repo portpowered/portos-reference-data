@@ -28,7 +28,7 @@ const tokens = await tokenResponse.json(); // Store securely; do not print token
 
 Save access_token, refresh_token and returned scope in the connector's secure credential store. Public clients have no client secret. Use Authorization: Bearer <access_token> with REST requests or the MCP HTTP connection, according to that token's resource. A refresh token is never an API credential. [Scopes bound access; resource policies still apply](/docs/for-ai/guides/authorization-rules.md).
 
-Refresh with grant_type=refresh_token, client_id, refresh_token and the original resource at token_endpoint. Scope may stay the same or narrow; it cannot expand. Credentials rotate: store the newly returned refresh token atomically and stop using the previous one. A revoked or reused refresh token must not be retried in a loop. Reauthorize when the grant no longer permits the intended operation.
+Refresh with grant_type=refresh_token, client_id and refresh_token at token_endpoint. The resource parameter is optional for code exchange and refresh: omission inherits the existing grant audience; if supplied, it must match the original resource. Scope may stay the same or narrow; it cannot expand. Credentials rotate: store the newly returned refresh token atomically and stop using the previous one. A revoked or reused refresh token must not be retried in a loop. Reauthorize when the grant no longer permits the intended operation.
 
 Revoke by POSTing application/x-www-form-urlencoded token=<refresh_token>&client_id=<client_id> to revocation_endpoint. Revoked grants stop authorizing both access and refresh requests. Removing a local configuration file alone is not server-side revocation.
 

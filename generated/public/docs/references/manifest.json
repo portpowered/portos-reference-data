@@ -1,18 +1,18 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.10",
-  "sourceCommit": "e02053252272d26cc1d606113409c3bb5397412e",
+  "version": "0.4.11",
+  "sourceCommit": "ac5d716930bc0fc476cc9ee76328dd7824ff510a",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "b54cad56e800623146f52e94ee67a7f6e9f8dc6cdd9d431d9876fd706578320e",
-  "sourceInputCount": 751,
-  "assetSetSHA256": "d130bd85da50bbe10dacbd5424ea2cfcafb5ef4aea62c3a313b25a3e9e958e34",
+  "sourceInputSHA256": "0611cb34e1aa7b1b3a1c936dcd71faa2c03d11f26658a015bc360949631a877f",
+  "sourceInputCount": 765,
+  "assetSetSHA256": "72e084c97dbcbe35f52d426941a8fc05bbdfdd8149d263b7e3381009cb2a5d6b",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 21292,
-      "sha256": "054d7dc7479a2589cefb5787446356446982b3366d06c875ad28dddd4c7e10c7",
+      "bytes": 21428,
+      "sha256": "21277feaf1f819fa52b8dcc7bd6ddfef365c628aa754551dd43f461862de7221",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -46,6 +46,7 @@
         "/docs/for-ai/operations/deleteSimulator.md",
         "/docs/for-ai/operations/deleteSubscription.md",
         "/docs/for-ai/operations/deleteView.md",
+        "/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md",
         "/docs/for-ai/operations/deviceAuthorize.md",
         "/docs/for-ai/operations/endpointGroupsManage.md",
         "/docs/for-ai/operations/endpointQuery.md",
@@ -757,8 +758,8 @@
     {
       "path": "/docs/for-ai/capability-interfaces/media-player/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3400,
-      "sha256": "1abb106969683f52e28e339fdcafe6480152eb3595286f114a4005ca2cdbe97e",
+      "bytes": 4040,
+      "sha256": "88195db57ac2c53fad893495d385e87ce927b1eb7bcc5f7e39a30d696bd56125",
       "links": [
         "/docs/references/capability-interfaces/media-player/1.0.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
@@ -780,7 +781,8 @@
         "/docs/references/capability-interfaces/media-player/1.0/messages/skip-backward.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/messages/skip-forward.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/messages/start-over.yaml",
-        "/docs/references/capability-interfaces/media-player/1.0/messages/stop.yaml"
+        "/docs/references/capability-interfaces/media-player/1.0/messages/stop.yaml",
+        "/docs/references/capability-interfaces/media-player/1.0/messages/transfer-playback.yaml"
       ]
     },
     {
@@ -1006,12 +1008,18 @@
     {
       "path": "/docs/for-ai/capability-interfaces/reminders-provider/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 856,
-      "sha256": "42d24e7cba1bacd3fa2499a5cefe80d742967f05902c4884d85750cfcbdcb121",
+      "bytes": 2015,
+      "sha256": "53638a3cb48264b05df530b7ab97d8ba13684201a40fce64936b2f4c22523eb4",
       "links": [
         "/docs/references/capability-interfaces/reminders-provider/1.0.yaml",
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/create-reminder-response.yaml",
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/create-reminder.yaml",
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/delete-reminder-response.yaml",
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/delete-reminder.yaml",
         "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders-response.yaml",
-        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders.yaml"
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders.yaml",
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/update-reminder-response.yaml",
+        "/docs/references/capability-interfaces/reminders-provider/1.0/messages/update-reminder.yaml"
       ]
     },
     {
@@ -1316,8 +1324,8 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 17581,
-      "sha256": "32616ea9e28a675efe2c2dee51f149eefec2dead1af2b5275b91c3c9bae3a7be",
+      "bytes": 19251,
+      "sha256": "2a2d6823e650ba2e02df86e5f99349cedc6db5c18f5dbe8f246009df22bc55ba",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1491,8 +1499,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-consent-and-callback.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3205,
-      "sha256": "bc22815e582752c38aa905619bc1cb538c3723c24e1bcad11ee607fb73969629",
+      "bytes": 4591,
+      "sha256": "95f0c24d277141c2f54a5aea78e632dab8f15a9cb6bea3613a307b997052418b",
       "links": [
         "/docs/for-ai/guides/oauth-client-registration.md",
         "/docs/for-ai/guides/oauth-discovery.md",
@@ -1502,8 +1510,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2850,
-      "sha256": "588efd7396d2b5b600eb2bd085d1c947afc429fb5f383cc3093734e9ce2a27c7",
+      "bytes": 2994,
+      "sha256": "242df84dca2cb97a6c9a70fc32c8538074b5c7bdc6c7f71ccdca85f6a4f065d2",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
@@ -1513,8 +1521,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-token-lifecycle.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2686,
-      "sha256": "265884b7d4c2c221ec9bdb8cb45347e53185162b5138ca19c2bbd85da607cd1c",
+      "bytes": 2826,
+      "sha256": "e94604b1854b1fb2cdbd24121ba6cdf88cb7ffc171cbf26cba797d7ca97a208b",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1661,7 +1669,7 @@
       "path": "/docs/for-ai/operations/beginOAuthAuthorization.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 2967,
-      "sha256": "83b3d1e0139f0f5107427f6711672cda7a228111637955c3d141d445abe1cef8",
+      "sha256": "135af448dce0193a9785eb4ef9ff029be68a04bcf4fb3d95149b1506fe80399d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -1670,8 +1678,8 @@
     {
       "path": "/docs/for-ai/operations/completeOAuthConsent.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2493,
-      "sha256": "7304a700c053a09ad0098f21b86c43de6e9b1dbb11d5d35689d901c7356eda5d",
+      "bytes": 2605,
+      "sha256": "37386552dbe3cca381a05449c65accec5bcb0b9785c3e8409a4c8c57f6519935",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -1949,6 +1957,16 @@
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/Error.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2286,
+      "sha256": "a238d4283696bde904fe8c780648981d7491d3975b567418229f3a2843d12b24",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md"
       ]
     },
     {
@@ -2473,8 +2491,8 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 9491,
-      "sha256": "7ba4f932af49134fb848294a701a3be6df86131cf0dd70737461dfacc7ca1cbc",
+      "bytes": 9591,
+      "sha256": "6bb76f6d07eebdb445d981d9f6fcdad47de4e7d65869feca078f21bf80e1e078",
       "links": [
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
         "/docs/for-ai/operations/authorizeDevice.md",
@@ -2504,6 +2522,7 @@
         "/docs/for-ai/operations/deleteSimulator.md",
         "/docs/for-ai/operations/deleteSubscription.md",
         "/docs/for-ai/operations/deleteView.md",
+        "/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md",
         "/docs/for-ai/operations/deviceAuthorize.md",
         "/docs/for-ai/operations/endpointGroupsManage.md",
         "/docs/for-ai/operations/endpointQuery.md",
@@ -3060,8 +3079,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3973,
-      "sha256": "c406ddeddbf178d85a414edf62b3cd68b24dd983d432af96436baaa624eec3c9",
+      "bytes": 3988,
+      "sha256": "5a6bf7eb3280f6b08b5f2ec3166700039c6995a5bd32c4390e9f36ae30031eb2",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3589,8 +3608,8 @@
     {
       "path": "/docs/for-ai/schemas/m-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4793,
-      "sha256": "d504faba3eb9a586c93db82031d53c05b4d2e7a7353f2f04772f7c9806fcd815",
+      "bytes": 4801,
+      "sha256": "afd23ec9445d8ff9045f86c62821e7ad50df5433aaff1fe68cd8339770e82d37",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/MeasurementRange.json",
@@ -3618,6 +3637,7 @@
         "/docs/references/schemas/MediaPlayerInterfaceSkipForwardMessage.json",
         "/docs/references/schemas/MediaPlayerInterfaceStartOverMessage.json",
         "/docs/references/schemas/MediaPlayerInterfaceStopMessage.json",
+        "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfaceConfiguration.json",
         "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessage.json",
@@ -3631,17 +3651,17 @@
         "/docs/references/schemas/MediaProvider.json",
         "/docs/references/schemas/MediaSearchCapabilityInterfaceConfiguration.json",
         "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessage.json",
-        "/docs/references/schemas/MediaSearchInterfaceGetMediaMessage.json",
-        "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessage.json"
+        "/docs/references/schemas/MediaSearchInterfaceGetMediaMessage.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/m-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2091,
-      "sha256": "e93438f2ca6527b78a9bdcfbc212097beb0e48f5829ff640003c9c06b56ec0d3",
+      "bytes": 2216,
+      "sha256": "e6a18a5b1b4c0e37da45f3f29e310c8837b53567dea85082c207972f80b5f5cc",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessage.json",
         "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessage.json",
         "/docs/references/schemas/Message.json",
         "/docs/references/schemas/MessageAuthorizationContext.json",
@@ -3810,8 +3830,8 @@
     {
       "path": "/docs/for-ai/schemas/r-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4829,
-      "sha256": "5d81f393f665bacdea224fa170851bf1b02d162934f5c18ef558aa58f90eef45",
+      "bytes": 4951,
+      "sha256": "006fad1b85cf199df7c40e6b6a72a65da1292d23bda885b27d44ca9bdaa24cf2",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/RadioDiagnosticValue.json",
@@ -3827,10 +3847,17 @@
         "/docs/references/schemas/RefrigeratorInterfaceTemperatureAttribute.json",
         "/docs/references/schemas/RelationshipInterface.json",
         "/docs/references/schemas/RelationshipType.json",
+        "/docs/references/schemas/Reminder.json",
         "/docs/references/schemas/ReminderList.json",
         "/docs/references/schemas/RemindersProviderCapabilityInterfaceConfiguration.json",
+        "/docs/references/schemas/RemindersProviderInterfaceCreateReminderMessage.json",
+        "/docs/references/schemas/RemindersProviderInterfaceCreateReminderResponseMessage.json",
+        "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderMessage.json",
+        "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderResponseMessage.json",
         "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessage.json",
         "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessage.json",
+        "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderMessage.json",
+        "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage.json",
         "/docs/references/schemas/RemoteControlInterfaceConfiguration.json",
         "/docs/references/schemas/RemoteControlInterfaceEndSessionMessage.json",
         "/docs/references/schemas/RemoteControlInterfaceMoveMessage.json",
@@ -3846,23 +3873,23 @@
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessage.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleaningModeAttribute.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceConfiguration.json",
-        "/docs/references/schemas/RoboticVacuumCleanerInterfaceOperationalStateAttribute.json",
+        "/docs/references/schemas/RoboticVacuumCleanerInterfaceOperationalStateAttribute.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/r-2.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4258,
+      "sha256": "2fec243a848600dba8093cfc85bc6c7e9b5ff9d875af3bcf70aa27f6d847813c",
+      "links": [
+        "/docs/for-ai/schemas.md",
         "/docs/references/schemas/RoboticVacuumCleanerInterfacePauseMessage.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessage.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessage.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceStartMessage.json",
         "/docs/references/schemas/RoboticVacuumCleanerInterfaceStopMessage.json",
         "/docs/references/schemas/Route.json",
-        "/docs/references/schemas/RouteDiscoveryConfiguration.json"
-      ]
-    },
-    {
-      "path": "/docs/for-ai/schemas/r-2.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 3423,
-      "sha256": "4d1ed4bdd6ba41a769b4f40d289b8be2ac6b00f1afa37d1196251b17ac23230a",
-      "links": [
-        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/RouteDiscoveryConfiguration.json",
         "/docs/references/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessage.json",
         "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage.json",
         "/docs/references/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage.json",
@@ -4129,15 +4156,15 @@
     {
       "path": "/docs/references/authorization.json",
       "contentType": "application/json",
-      "bytes": 38470,
-      "sha256": "d989ea6620017866d148d85cea1b23754c66132e2a91d0263d17a315b3e7066e",
+      "bytes": 38755,
+      "sha256": "327bffc92baedc0686262b6dfa43e5452e0e835416f505b3b87864830547d850",
       "links": []
     },
     {
       "path": "/docs/references/authorization.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 28424,
-      "sha256": "49456bdf5aabc3dfcee05bb1dece7fe89e0d727eecc58bac510943d736a7345e",
+      "bytes": 28654,
+      "sha256": "2cb3025b60a7e691d7387a7d8b8b6dc92c28bc87ba1b7e482e4da3a72506163f",
       "links": []
     },
     {
@@ -5742,23 +5769,23 @@
     {
       "path": "/docs/references/capability-interfaces/media-player.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 16280,
-      "sha256": "9bcb342b80e1c77f940d245a4cbe6733a03496e87a14f9356b016bb90b7f8861",
+      "bytes": 17904,
+      "sha256": "047b66b9bffc0c2710f22c6a0a352073a03ce9d84e34ce6d4e296b3f1a1b253e",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-player/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 16280,
-      "sha256": "9bcb342b80e1c77f940d245a4cbe6733a03496e87a14f9356b016bb90b7f8861",
+      "bytes": 17904,
+      "sha256": "047b66b9bffc0c2710f22c6a0a352073a03ce9d84e34ce6d4e296b3f1a1b253e",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1206,
-      "sha256": "4227b6dabbb5cb00ca4fad75006da60957a8afd30c6710799ec83aedf2c90891",
+      "bytes": 1500,
+      "sha256": "19f6ead8c62446a7769c1f6ece3020e3bc682dc1f1aa898cb9e425d79ce5a867",
       "links": []
     },
     {
@@ -5899,6 +5926,13 @@
       "contentType": "application/yaml; charset=utf-8",
       "bytes": 41,
       "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/messages/transfer-playback.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 594,
+      "sha256": "0b3b694585fc4f482d293588e8af184fb29a58a9fcffc3e6590a2776f951ccca",
       "links": []
     },
     {
@@ -6539,30 +6573,72 @@
     {
       "path": "/docs/references/capability-interfaces/reminders-provider.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1414,
-      "sha256": "eb87e7755b27165dad14f7c95449725ff79d1d6e237b56fb21e7379d3c51d5a2",
+      "bytes": 7576,
+      "sha256": "669cb354479833780baa5dd184eba30643fbe2bf581adf4c6cb9365aac76011e",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/reminders-provider/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/reminders-provider/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1414,
-      "sha256": "eb87e7755b27165dad14f7c95449725ff79d1d6e237b56fb21e7379d3c51d5a2",
+      "bytes": 7576,
+      "sha256": "669cb354479833780baa5dd184eba30643fbe2bf581adf4c6cb9365aac76011e",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/create-reminder-response.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 788,
+      "sha256": "02faf0b055137121b6e08040ced982f790afd4b2f993fb52510a3325ca4ffec1",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/create-reminder.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 458,
+      "sha256": "9d3ffd21db247b7fbe72ab5f778594a98803bb2802368661c722ca38eb2c90bd",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/delete-reminder-response.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 170,
+      "sha256": "cb0da29770918e1f318676c295064d5b682bbdcd325d998253338e320d3ed995",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/delete-reminder.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 399,
+      "sha256": "446c12b417c7ae61a44c3568bfa2437f161157ea0d124b49672e30a77b8a4b21",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders-response.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 417,
-      "sha256": "4835d553621c00b034bc9089f19ab7a7c76cf63fa99f65683f660baa16b81bff",
+      "bytes": 1174,
+      "sha256": "912c8e731c8aab9e1aa3f2d2df918dd2e3f07314ddf29ec68120f053c1d878d3",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/list-reminders.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 106,
-      "sha256": "117ca9d0f57b17974e952ace06cc69278d63599d01926a35f512dff339d4548e",
+      "bytes": 490,
+      "sha256": "4a7b7a26feca73ecd0431f378da2b63e4b39ffa6b61e86a00ef71376c4ba3808",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/update-reminder-response.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 788,
+      "sha256": "162937cd8ef09c53b8fb174b7342f933c4a17eddbe090768d30f9c88f45e7563",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/reminders-provider/1.0/messages/update-reminder.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 565,
+      "sha256": "ccb10f3d2a9bed12b41bbd7f580761736ac4a3a97c7ed615ea74e23f090654c1",
       "links": []
     },
     {
@@ -7564,8 +7640,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 775138,
-      "sha256": "ceaf6184b631a31b87506420aa144de9deff60d6317232b094ef6638f44b4ef2",
+      "bytes": 783218,
+      "sha256": "ee8c07c642b3ed21b12b90238a4ef5634d69954e03cabcadc08cb61fccd00c62",
       "links": []
     },
     {
@@ -9776,8 +9852,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 193286,
-      "sha256": "54f363336451b76be3ce2d68d4295dbb343c06f2492887a32158003d0b5a2aba",
+      "bytes": 195741,
+      "sha256": "c871156b9f2fb29d30806fe507ea84ec709d734aebfe10ae717c008b1f9f3013",
       "links": []
     },
     {
@@ -10035,8 +10111,8 @@
     {
       "path": "/docs/references/schemas/MediaPlayerInterfaceNowPlayingAttribute.json",
       "contentType": "application/json",
-      "bytes": 767,
-      "sha256": "34a73587ef8dc102fb585dd192a81a4051fc2f06cac5d3508535047c4bd875ec",
+      "bytes": 1071,
+      "sha256": "e824c87f096de92cfeef96e03625de250436326501e4867744c425800b571f30",
       "links": []
     },
     {
@@ -10142,6 +10218,13 @@
       "contentType": "application/json",
       "bytes": 279,
       "sha256": "5232538fc59087908b3d9dc2c215837e7e5e0a2187146351bcddba1569000a6f",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessage.json",
+      "contentType": "application/json",
+      "bytes": 835,
+      "sha256": "a2f9b00d60492a185ad9a4f31e3a51476273badc6d8c6f014730ce1bb280d093",
       "links": []
     },
     {
@@ -11167,6 +11250,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/Reminder.json",
+      "contentType": "application/json",
+      "bytes": 681,
+      "sha256": "90d6ce935d3ae6973f38c6703cfe5a012254ee1a5c710f495abe1dd4bbfec1aa",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/ReminderList.json",
       "contentType": "application/json",
       "bytes": 262,
@@ -11181,17 +11271,59 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderMessage.json",
+      "contentType": "application/json",
+      "bytes": 827,
+      "sha256": "84163c9b2b9018bcfcc955760b171062a7116619851f6f9889721877f864bc2e",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderResponseMessage.json",
+      "contentType": "application/json",
+      "bytes": 577,
+      "sha256": "8ad418b89fba687162ef5aea753620a562c20297674a0834969748e6e1d2804a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderMessage.json",
+      "contentType": "application/json",
+      "bytes": 756,
+      "sha256": "844115022a71c858e2f578f25d5153c12286075bee9592532799881ea5ca818e",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderResponseMessage.json",
+      "contentType": "application/json",
+      "bytes": 449,
+      "sha256": "09b7aa259b0202dd67970044851a6fa4fbc1204ce197d7b444511ff47a122def",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessage.json",
       "contentType": "application/json",
-      "bytes": 367,
-      "sha256": "1d4c7bfe5b588b48e7cc222d8ec0bef51778f119d068c8956bc427b788b9b090",
+      "bytes": 878,
+      "sha256": "feb77b7aac019bae05143115caa311fb1e24b78976d6f3c6f239514b3eacae87",
       "links": []
     },
     {
       "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessage.json",
       "contentType": "application/json",
-      "bytes": 598,
-      "sha256": "52a0b255289c4ff65c003f209759ec2fb1182c95140efe1857347324494c460f",
+      "bytes": 844,
+      "sha256": "b85e35977cd6697ab0a13b855fb5096954b5a9bb79608733c17735e452aef429",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderMessage.json",
+      "contentType": "application/json",
+      "bytes": 984,
+      "sha256": "4d2e45c5272acd52a28fe3f1b46f61681729194e0797f4b8c00d141441dba0ef",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage.json",
+      "contentType": "application/json",
+      "bytes": 577,
+      "sha256": "ba60a7b6743105b04218f5b588cbc89fdf2bb8a860814d9c4fe0531baca3eaf1",
       "links": []
     },
     {

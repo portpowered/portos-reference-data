@@ -293,6 +293,25 @@ messages:
     schema:
       type: object
       additionalProperties: false
+  - name: transfer-playback
+    description: >-
+      Move the current playback session of the destination route's connected provider account to
+      this one destination, preserving playing or paused state and media context. Select an
+      advertised destination route. This affects that account's current session; it does not copy
+      media, restart playback, transfer between providers or accounts, or fan out to group members.
+      Read fresh source and destination state before and after dispatch to verify the move. An
+      unavailable target requires an explicit choice of another destination.
+    directionality: in
+    schema:
+      description: >-
+        Move the current playback session of the destination route's connected provider account to
+        this one destination, preserving playing or paused state and media context. Select an
+        advertised destination route. This affects that account's current session; it does not copy
+        media, restart playback, transfer between providers or accounts, or fan out to group
+        members. Read fresh source and destination state before and after dispatch to verify the
+        move. An unavailable target requires an explicit choice of another destination.
+      type: object
+      additionalProperties: false
 attributes:
   - name: now-playing
     description: >-
@@ -324,6 +343,13 @@ attributes:
           $ref: '#/properties/mediaId'
         name:
           type: string
+        positionMs:
+          description: >-
+            Provider-observed position within the current media item in milliseconds. Omitted when
+            unknown. Compare fresh observations with media identity and playback state; a track
+            transition does not prove continuity.
+          type: integer
+          minimum: 0
       required:
         - active
       additionalProperties: false

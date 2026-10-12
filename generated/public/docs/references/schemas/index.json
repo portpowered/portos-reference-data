@@ -2193,6 +2193,12 @@
     },
     {
       "kind": "schemas",
+      "name": "MediaPlayerInterfaceTransferPlaybackMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceTransferPlaybackMessage"
+    },
+    {
+      "kind": "schemas",
       "name": "MediaPlaylistInterfaceAddToPlaylistMessage",
       "path": "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceAddToPlaylistMessage"
@@ -3069,6 +3075,12 @@
     },
     {
       "kind": "schemas",
+      "name": "Reminder",
+      "path": "/docs/references/schemas/Reminder.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Reminder"
+    },
+    {
+      "kind": "schemas",
       "name": "ReminderList",
       "path": "/docs/references/schemas/ReminderList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ReminderList"
@@ -3081,6 +3093,30 @@
     },
     {
       "kind": "schemas",
+      "name": "RemindersProviderInterfaceCreateReminderMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceCreateReminderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceCreateReminderResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceCreateReminderResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceDeleteReminderMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceDeleteReminderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceDeleteReminderResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceDeleteReminderResponseMessage"
+    },
+    {
+      "kind": "schemas",
       "name": "RemindersProviderInterfaceListRemindersMessage",
       "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersMessage"
@@ -3090,6 +3126,18 @@
       "name": "RemindersProviderInterfaceListRemindersResponseMessage",
       "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceUpdateReminderMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceUpdateReminderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceUpdateReminderResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage"
     },
     {
       "kind": "schemas",

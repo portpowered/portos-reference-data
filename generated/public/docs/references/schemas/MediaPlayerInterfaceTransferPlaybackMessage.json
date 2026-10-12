@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "transfer-playback",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Move the current playback session of the destination route's connected provider account to this one destination, preserving playing or paused state and media context. Select an advertised destination route. This affects that account's current session; it does not copy media, restart playback, transfer between providers or accounts, or fan out to group members. Read fresh source and destination state before and after dispatch to verify the move. An unavailable target requires an explicit choice of another destination.",
+  "type": "object",
+  "additionalProperties": false
+}

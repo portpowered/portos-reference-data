@@ -1,0 +1,33 @@
+{
+  "description": "Edit a reminder using its last observed revision; omitted fields are preserved.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "reminderId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Reminder identifier."
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Revision from the latest listing."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Replacement title."
+    },
+    "notes": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "reminderId",
+    "revision"
+  ],
+  "title": "RemindersProviderInterfaceUpdateReminderMessage"
+}

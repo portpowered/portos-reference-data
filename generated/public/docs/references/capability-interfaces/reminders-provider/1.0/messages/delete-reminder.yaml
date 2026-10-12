@@ -1,0 +1,16 @@
+description: Soft-delete a reminder using its last observed revision.
+type: object
+additionalProperties: false
+properties:
+  reminderId:
+    type: string
+    minLength: 1
+    description: Reminder identifier.
+  revision:
+    type: string
+    minLength: 1
+    description: Revision from the latest listing.
+required:
+  - reminderId
+  - revision
+title: RemindersProviderInterfaceDeleteReminderMessage
