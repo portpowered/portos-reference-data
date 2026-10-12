@@ -2,7 +2,7 @@
 
 PUT `/port1/{principalType}/{principalId}/oauth-clients/{clientId}`
 
-
+Update OAuth Client
 
 Updates an existing OAuth client.
 This endpoint allows you to update the configuration of an OAuth client,  such as its name, redirect URIs, grant types, and scopes.
@@ -97,6 +97,7 @@ put:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Update OAuth Client
 ```
 
 ## Linked components

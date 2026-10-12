@@ -2,7 +2,7 @@
 
 POST `/routes`
 
-
+Upsert Route
 
 Creates or updates a route
 
@@ -53,6 +53,7 @@ post:
     - oauth2:
         - endpoint:write
     - bearerAuth: []
+  summary: Upsert Route
 ```
 
 ## Linked components

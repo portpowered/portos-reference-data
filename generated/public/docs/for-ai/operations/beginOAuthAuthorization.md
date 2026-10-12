@@ -46,12 +46,14 @@ get:
       required: true
       schema:
         type: string
+      description: The client_id of the requested resource.
     - in: query
       name: redirect_uri
       required: true
       schema:
         type: string
         format: uri
+      description: The redirect_uri of the requested resource.
     - in: query
       name: response_type
       required: true
@@ -60,16 +62,19 @@ get:
         x-enum-exempt: OAuth 2.0 response_type is the externally defined case-sensitive value code (RFC 6749).
         enum:
           - code
+      description: The response_type of the requested resource.
     - in: query
       name: scope
       required: true
       schema:
         type: string
+      description: The scope of the requested resource.
     - in: query
       name: state
       required: true
       schema:
         type: string
+      description: The state of the requested resource.
     - in: query
       name: resource
       required: false
@@ -82,6 +87,7 @@ get:
       required: true
       schema:
         type: string
+      description: The code_challenge of the requested resource.
     - in: query
       name: code_challenge_method
       required: true
@@ -89,6 +95,7 @@ get:
         type: string
         enum:
           - S256
+      description: The code_challenge_method of the requested resource.
   responses:
     '302':
       description: Navigate to sign-in and pending consent.

@@ -2,7 +2,7 @@
 
 POST `/messages-gateway`
 
-
+Push To Message Gateway
 
 Sends a message to a recipient
 
@@ -56,6 +56,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Push To Message Gateway
 ```
 
 ## Linked components

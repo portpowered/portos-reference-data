@@ -20,6 +20,23 @@ properties:
     type: string
   completed:
     type: boolean
+  dueDate:
+    type: string
+    format: date-time
+    description: >-
+      Exact due instant in RFC3339 with an explicit UTC offset. Omitted on
+      undated reminders.
+  timeZone:
+    type: string
+    description: >-
+      IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly
+      dated reminders.
+  allDay:
+    type: boolean
+    description: Whether the supplied due date represents an all-day reminder.
+  clearDueDate:
+    type: boolean
+    description: Set true to remove the due date. Cannot be combined with dueDate.
 required:
   - reminderId
   - revision

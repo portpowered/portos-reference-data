@@ -1,0 +1,15 @@
+description: Redacted saved authorization status. Contains no pattern, PIN or ciphertext.
+type: object
+required:
+  - requirementId
+  - status
+properties:
+  requirementId:
+    type: string
+  status:
+    type: string
+    enum:
+      - MISSING
+      - CONFIGURED
+      - NEEDS_UPDATE
+additionalProperties: false

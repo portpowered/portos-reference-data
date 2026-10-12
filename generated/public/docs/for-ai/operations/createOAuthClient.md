@@ -2,7 +2,7 @@
 
 POST `/oauth-clients`
 
-
+Create OAuth Client
 
 Creates a new OAuth client registration.
 This endpoint allows you to register a new OAuth client with Port OS.  The client will be assigned a unique client ID and a client secret that  can be used for OAuth authentication flows.
@@ -75,6 +75,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Create OAuth Client
 ```
 
 ## Linked components

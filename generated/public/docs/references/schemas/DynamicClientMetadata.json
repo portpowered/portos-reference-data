@@ -55,8 +55,7 @@
     },
     "scope": {
       "type": "string",
-      "default": "endpoint:read",
-      "description": "Space-separated subset of endpoint:read endpoint:write message:read message:send group:read group:manage subscription:read subscription:write."
+      "description": "Space-separated OAuthScope values accepted by the deployment DCR allowed_scopes policy. Omission selects the first configured scope; defaults to endpoint:read."
     },
     "client_uri": {
       "type": "string",

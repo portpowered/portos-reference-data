@@ -2,7 +2,7 @@
 
 POST `/plugin-auth-multifactor-exchange`
 
-
+Plugin Auth Multifactor Exchange
 
 This API is used to generate a multifactor authentication code for a plugin.  For example, if the plugin requires a third party service to receive an SMS code, this API is used to request for that code. 
 
@@ -60,6 +60,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Plugin Auth Multifactor Exchange
 ```
 
 ## Linked components

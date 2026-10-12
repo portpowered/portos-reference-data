@@ -2,7 +2,7 @@
 
 GET `/auth-links`
 
-
+Enumerate Auth Links
 
 Lists all auth links
 
@@ -95,6 +95,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Enumerate Auth Links
 ```
 
 ## Linked components

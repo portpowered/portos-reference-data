@@ -1,0 +1,18 @@
+description: >-
+  Move one selected file into a folder without overwriting another item. The
+  response returns the new selection for download or further operations.
+type: object
+properties:
+  fileId:
+    type: string
+    minLength: 1
+    description: File selection copied from the current folder listing.
+  folderId:
+    type: string
+    minLength: 1
+    description: Destination folder identifier copied from this provider listing.
+required:
+  - fileId
+  - folderId
+additionalProperties: false
+title: FilesystemProviderInterfaceMoveFileMessage

@@ -2,7 +2,7 @@
 
 DELETE `/plugins`
 
-
+Delete Plugin
 
 Deletes a plugin
 
@@ -56,6 +56,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Delete Plugin
 ```
 
 ## Linked components

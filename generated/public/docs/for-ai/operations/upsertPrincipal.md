@@ -2,7 +2,7 @@
 
 POST `/principals`
 
-
+Upsert Principal
 
 Creates a new principal
 
@@ -62,6 +62,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Upsert Principal
 ```
 
 ## Linked components

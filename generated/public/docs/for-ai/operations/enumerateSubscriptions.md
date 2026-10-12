@@ -2,7 +2,7 @@
 
 GET `/subscriptions`
 
-
+Enumerate Subscriptions
 
 Used to query for subscriptions to an event stream.
 
@@ -92,6 +92,7 @@ get:
     - oauth2:
         - subscription:read
     - bearerAuth: []
+  summary: Enumerate Subscriptions
 ```
 
 ## Linked components

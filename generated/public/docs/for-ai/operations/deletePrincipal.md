@@ -2,7 +2,7 @@
 
 DELETE `/{namespace}/{principalType}/{principalId}`
 
-
+Delete Principal
 
 Deletes a principal
 
@@ -65,6 +65,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Delete Principal
 ```
 
 ## Linked components

@@ -7,8 +7,12 @@
   ],
   "properties": {
     "name": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The new name for the endpoint group as a human readable string or a localizable asset"
+      "description": "The new name for the endpoint group as a human readable string or a localizable asset",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     }
   }
 }

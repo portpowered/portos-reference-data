@@ -1,0 +1,15 @@
+{
+  "description": "Remove a saved endpoint authorization value. Requires endpoint settings permission; camera access will require configuration again.",
+  "type": "object",
+  "required": [
+    "requirementId"
+  ],
+  "properties": {
+    "requirementId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  },
+  "additionalProperties": false
+}

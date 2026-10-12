@@ -2,7 +2,7 @@
 
 POST `/auth-links`
 
-
+Upsert Auth Link
 
 Creates a new auth link
 
@@ -66,6 +66,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Upsert Auth Link
 ```
 
 ## Linked components

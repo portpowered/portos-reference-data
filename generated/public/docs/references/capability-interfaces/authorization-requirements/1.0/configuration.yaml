@@ -1,0 +1,53 @@
+description: >-
+  Authorization requirements declare credentials needed by specific endpoint operations. Customers
+  save, replace or remove their camera pattern in endpoint settings; encrypted endpoint state
+  supplies it automatically to permitted camera requests. Query configuration status without
+  retrieving the credential. Never ask for a pattern in chat or include it in RTC payloads.
+type: object
+required:
+  - requirements
+properties:
+  requirements:
+    type: array
+    items:
+      type: object
+      description: >-
+        Server-owned authorization requirement for exact endpoint operations. Values are configured
+        privately and never reported in endpoint state.
+      required:
+        - id
+        - authorizationType
+        - operations
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        authorizationType:
+          type: string
+          enum:
+            - ROBOROCK_PIN
+        operations:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+              - interfaceName
+              - interfaceVersion
+              - messageNames
+            properties:
+              interfaceName:
+                type: string
+              interfaceVersion:
+                type: string
+              messageNames:
+                type: array
+                minItems: 1
+                uniqueItems: true
+                items:
+                  type: string
+            additionalProperties: false
+      additionalProperties: false
+      title: EndpointAuthorizationRequirement
+additionalProperties: false

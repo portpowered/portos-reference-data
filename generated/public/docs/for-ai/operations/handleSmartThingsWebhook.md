@@ -2,7 +2,7 @@
 
 POST `/webhooks/smartthings`
 
-
+Handle Smart Things Webhook
 
 This is the API endpoint for receiving events from smart things
 
@@ -48,6 +48,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Handle Smart Things Webhook
 ```
 
 ## Linked components

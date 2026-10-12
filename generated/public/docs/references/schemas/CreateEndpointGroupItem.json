@@ -8,8 +8,12 @@
   ],
   "properties": {
     "name": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The display name of the new endpoint group."
+      "description": "The display name of the new endpoint group.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     }
   }
 }

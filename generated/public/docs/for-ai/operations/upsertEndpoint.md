@@ -2,7 +2,7 @@
 
 POST `/endpoints`
 
-
+Upsert Endpoint
 
 Creates or updates an endpoint
 
@@ -55,6 +55,7 @@ post:
     - oauth2:
         - endpoint:write
     - bearerAuth: []
+  summary: Upsert Endpoint
 ```
 
 ## Linked components

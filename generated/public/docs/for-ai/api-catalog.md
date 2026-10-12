@@ -22,20 +22,11 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/add-members](/docs/for-ai/operations/addEndpointGroupMembers.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), header:If-Match (required) | memberEndpointIds |
 | [POST /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/remove-members](/docs/for-ai/operations/removeEndpointGroupMembers.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), header:If-Match (required) | memberEndpointIds |
 | [POST /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/set-name](/docs/for-ai/operations/setEndpointGroupName.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), header:If-Match (required) | name |
-| [DELETE /{namespace}/{principalType}/{principalId}/flow-runs/{runId}](/docs/for-ai/operations/deleteFlowRun.md) | See session/security contract | path:namespace (required), path:principalType (required), path:principalId (required), path:runId (required) | — |
-| [GET /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs](/docs/for-ai/operations/queryFlowRuns.md) | See session/security contract | path:namespace (required), path:principalType (required), path:principalId (required), path:flowId (required), query:pageToken, query:maxResults, query:expand, query:nextToken | — |
-| [POST /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs](/docs/for-ai/operations/createFlowRun.md) | See session/security contract | path:namespace (required), path:principalType (required), path:principalId (required), path:flowId (required) | flowRun |
-| [POST /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs/{runId}/messages](/docs/for-ai/operations/upsertFlowRunMessage.md) | See session/security contract | path:namespace (required), path:principalType (required), path:principalId (required), path:flowId (required), path:runId (required) | message, target |
-| [POST /{namespace}/{principalType}/{principalId}/flows/{flowId}/runs/{runId}/set-status](/docs/for-ai/operations/setFlowRunStatus.md) | See session/security contract | path:namespace (required), path:principalType (required), path:principalId (required), path:flowId (required), path:runId (required) | status |
 | [DELETE /{namespace}/{principalType}/{principalId}/group-routes/{groupId}](/docs/for-ai/operations/deleteGroupRoute.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required) | — |
 | [GET /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/getSubscription.md) | subscription:read | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required), query:expand | — |
 | [PATCH /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/patchSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | name |
 | [DELETE /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/deleteSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/tokens/{tokenId}](/docs/for-ai/operations/invalidateToken.md) | OAuth (no scope) | path:tokenId (required), path:namespace (required), path:principalType (required), path:principalId (required) | — |
-| [GET /{namespace}/{principalType}/{principalId}/views/{viewId}](/docs/for-ai/operations/getView.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:viewId (required), query:expand | — |
-| [PUT /{namespace}/{principalType}/{principalId}/views/{viewId}](/docs/for-ai/operations/updateView.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:viewId (required) | positions, schemaVersion, title, widgets |
-| [DELETE /{namespace}/{principalType}/{principalId}/views/{viewId}](/docs/for-ai/operations/deleteView.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:viewId (required) | — |
-| [DELETE /{principalType}/{principalId}/flows/{flowId}](/docs/for-ai/operations/deleteFlow.md) | See session/security contract | path:principalType (required), path:principalId (required), path:flowId (required) | — |
 | [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md) | OAuth (no scope) | query:owner (required), query:nextToken, query:maxResults, query:expand | — |
 | [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md) | OAuth (no scope) | — | effect, id, identity, operation, resource |
 | [POST /access-control-rules/evaluate](/docs/for-ai/operations/evaluateAccessControlRule.md) | OAuth (no scope) | — | entities, operation, requesterContext, resourceContext |
@@ -67,13 +58,6 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /event-dead-letters/{id}/redrives](/docs/for-ai/operations/redriveEventDeadLetter.md) | See session/security contract | path:id (required) | — |
 | [POST /events](/docs/for-ai/operations/createSyntheticEvent.md) | See session/security contract | — | body, endpoint, header, requestId |
 | [GET /events/receipts/{receiptId}](/docs/for-ai/operations/getEventReceipt.md) | See session/security contract | path:receiptId (required), query:expand | — |
-| [GET /flow-node-specifications](/docs/for-ai/operations/enumerateFlowNodeSpecifications.md) | See session/security contract | query:nextToken, query:maxResults, query:expand | — |
-| [GET /flow-nodes](/docs/for-ai/operations/enumerateFlowNodes.md) | See session/security contract | query:expand, query:nextToken, query:maxResults | — |
-| [POST /flow-nodes](/docs/for-ai/operations/createFlowNode.md) | See session/security contract | — | flow |
-| [DELETE /flow-nodes](/docs/for-ai/operations/deleteFlowNode.md) | See session/security contract | — | id |
-| [GET /flows](/docs/for-ai/operations/queryFlows.md) | See session/security contract | query:owner, query:id, query:nextToken, query:maxResults, query:expand | — |
-| [POST /flows](/docs/for-ai/operations/upsertFlow.md) | See session/security contract | — | flow |
-| [POST /flows/trigger](/docs/for-ai/operations/triggerFlow.md) | See session/security contract | — | flow, triggers |
 | [GET /group-relationships](/docs/for-ai/operations/enumerateGroupRelationships.md) | group:read | query:owner (required), query:groupId, query:routeId, query:endpointId, query:nextToken, query:maxResults, query:expand | — |
 | [GET /group-routes](/docs/for-ai/operations/enumerateGroupRoutes.md) | group:read | query:owner (required), query:nextToken, query:maxResults, query:expand | — |
 | [POST /integration-requests](/docs/for-ai/operations/requestFutureIntegration.md) | Public | — | consent, email, pluginId |
@@ -117,8 +101,6 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /tokens](/docs/for-ai/operations/createToken.md) | OAuth (no scope) | — | expires_in, label, scope, subject |
 | [POST /tuya/qrcode](/docs/for-ai/operations/generateTuyaQrCode.md) | Public | — | accessCode, authenticationUrl, clientId, schema |
 | [POST /tuya/validatetoken](/docs/for-ai/operations/validateTuyaLoginCode.md) | Public | — | authenticationUrl, clientId, loginCode, userCode |
-| [GET /views](/docs/for-ai/operations/enumerateViews.md) | OAuth (no scope) | query:nextToken, query:maxResults, query:expand | — |
-| [POST /views](/docs/for-ai/operations/createView.md) | OAuth (no scope) | — | positions, schemaVersion, title, widgets |
 | [POST /webhooks/github](/docs/for-ai/operations/handleGitHubWebhook.md) | Public | header:X-Hub-Signature-256 (required), header:X-GitHub-Delivery, header:X-GitHub-Event | — |
 | [POST /webhooks/google-cloud-scheduler](/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md) | See session/security contract | — | flow_id, node_id |
 | [POST /webhooks/smartthings](/docs/for-ai/operations/handleSmartThingsWebhook.md) | OAuth (no scope) | — | — |

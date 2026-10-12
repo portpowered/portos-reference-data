@@ -18,8 +18,12 @@
       "example": "port1/principals/example/endpoint-groups/living-room"
     },
     "name": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The name of the endpoint group"
+      "description": "The name of the endpoint group",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "ownerId": {
       "type": "string",

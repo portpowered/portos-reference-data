@@ -2,7 +2,7 @@
 
 DELETE `/port1/{principalType}/{principalId}/oauth-clients/{clientId}`
 
-
+Delete OAuth Client
 
 Deletes an OAuth client.
 This permanently removes the OAuth client and invalidates all associated  tokens. This action cannot be undone.
@@ -77,6 +77,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Delete OAuth Client
 ```
 
 ## Linked components

@@ -2,7 +2,7 @@
 
 DELETE `/{namespace}/{principalType}/{principalId}/tokens/{tokenId}`
 
-
+Invalidate Token
 
 Revokes the token so it can no longer be used for exchange. The token id in the path is the same as the id returned from create/list and as the JWT jti claim. Only the refresh token is revoked; any access tokens already issued from it remain valid until they expire. Only the owner may invalidate a token.
 
@@ -88,6 +88,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Invalidate Token
 ```
 
 ## Linked components

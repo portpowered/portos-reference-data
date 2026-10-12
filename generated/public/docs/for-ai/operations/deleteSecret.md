@@ -2,7 +2,7 @@
 
 DELETE `/port1/{principalType}/{principalId}/secrets/{secretId}`
 
-
+Delete Secret
 
 Deletes a secret
 
@@ -67,6 +67,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Delete Secret
 ```
 
 ## Linked components

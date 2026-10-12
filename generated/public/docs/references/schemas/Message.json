@@ -7,8 +7,12 @@
   ],
   "properties": {
     "context": {
-      "$ref": "/docs/references/schemas/MessageContext.json",
-      "description": "Message context including authorization and input plugin"
+      "description": "Message context including authorization and input plugin",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/MessageContext.json"
+        }
+      ]
     },
     "correlationToken": {
       "type": "string",
@@ -18,12 +22,20 @@
       "$ref": "/docs/references/schemas/MessageType.json"
     },
     "header": {
-      "$ref": "/docs/references/schemas/MessageHeader.json",
-      "description": "Message header with namespace, name, and version"
+      "description": "Message header with namespace, name, and version",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/MessageHeader.json"
+        }
+      ]
     },
     "target": {
-      "$ref": "/docs/references/schemas/MessageTarget.json",
-      "description": "The target of the message"
+      "description": "The target of the message",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/MessageTarget.json"
+        }
+      ]
     },
     "endpoint": {
       "$ref": "/docs/references/schemas/MessageEndpoint.json"

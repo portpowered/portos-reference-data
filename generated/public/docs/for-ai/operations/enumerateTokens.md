@@ -2,7 +2,7 @@
 
 GET `/tokens`
 
-
+Enumerate Tokens
 
 Lists tokens owned by the authenticated principal. A principal may only list tokens they own.
 
@@ -121,6 +121,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Enumerate Tokens
 ```
 
 ## Linked components

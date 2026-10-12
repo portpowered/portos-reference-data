@@ -2,7 +2,7 @@
 
 DELETE `/auth-links`
 
-
+Delete Auth Link
 
 Deletes an auth link
 
@@ -56,6 +56,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Delete Auth Link
 ```
 
 ## Linked components

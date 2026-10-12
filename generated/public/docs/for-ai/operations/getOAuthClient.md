@@ -2,7 +2,7 @@
 
 GET `/port1/{principalType}/{principalId}/oauth-clients/{clientId}`
 
-
+Get OAuth Client
 
 Retrieves details of a specific OAuth client
 
@@ -124,6 +124,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Get OAuth Client
 ```
 
 ## Linked components

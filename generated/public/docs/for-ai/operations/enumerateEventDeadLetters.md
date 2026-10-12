@@ -45,6 +45,7 @@ get:
       required: false
       schema:
         type: string
+      description: Continuation token returned by the previous page.
     - name: maxResults
       in: query
       required: false
@@ -52,6 +53,7 @@ get:
         type: integer
         minimum: 1
         maximum: 1000
+      description: Maximum number of results to return.
     - name: query
       in: query
       required: false

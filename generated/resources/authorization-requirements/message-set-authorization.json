@@ -1,0 +1,22 @@
+{
+  "description": "Set or replace an encrypted endpoint authorization value. Requires endpoint settings permission. Roborock patterns use positions 1–9 in drawing order. Never include this message or its value in public history or diagnostics.",
+  "type": "object",
+  "required": [
+    "requirementId",
+    "value"
+  ],
+  "properties": {
+    "requirementId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "value": {
+      "type": "string",
+      "writeOnly": true,
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "additionalProperties": false
+}

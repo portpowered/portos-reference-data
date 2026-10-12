@@ -2,7 +2,7 @@
 
 POST `/messages`
 
-
+Send Message
 
 Sends a message to a recipient.
 
@@ -279,6 +279,7 @@ post:
     - oauth2:
         - message:send
     - bearerAuth: []
+  summary: Send Message
 ```
 
 ## Linked components

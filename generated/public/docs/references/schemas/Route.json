@@ -38,8 +38,12 @@
       "description": "The ID of the associated endpoint"
     },
     "name": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The name of the route as a human readable string or a localizable asset. This is either a raw string or a localizable asset reference. "
+      "description": "The name of the route as a human readable string or a localizable asset. This is either a raw string or a localizable asset reference. ",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "interfaces": {
       "type": "array",
@@ -61,20 +65,36 @@
       "description": "A set of custom metadata that the plugin uses and attaches to the route, this is meant specifically for the plugin to use."
     },
     "description": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The description of the route as a human readable string or a localizable asset."
+      "description": "The description of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "manufacturer": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The manufacturer of the route as a human readable string or a localizable asset."
+      "description": "The manufacturer of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "model": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The model of the route as a human readable string or a localizable asset."
+      "description": "The model of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "serialNumber": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The serial number of the route as a human readable string or a localizable asset."
+      "description": "The serial number of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     }
   }
 }

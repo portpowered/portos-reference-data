@@ -2,7 +2,7 @@
 
 DELETE `/routes`
 
-
+Delete Route
 
 Deletes a route
 
@@ -51,6 +51,7 @@ delete:
     - oauth2:
         - endpoint:write
     - bearerAuth: []
+  summary: Delete Route
 ```
 
 ## Linked components

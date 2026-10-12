@@ -2,7 +2,7 @@
 
 DELETE `/{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}`
 
-
+Delete Access Control Rule
 
 Delete an access control rule.
 
@@ -75,6 +75,7 @@ delete:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Delete Access Control Rule
 ```
 
 ## Linked components

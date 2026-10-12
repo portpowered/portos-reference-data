@@ -2,7 +2,7 @@
 
 PATCH `/endpoints`
 
-
+Modify Endpoint
 
 Apply endpoint partial metadata, enablement or merge changes in one SQLite transaction. At least one field besides id is required. An empty 202 is returned only after commit; clients may requery metadata. Endpoint updated notifications are best effort. A merge cannot cross owners or silently rewrite unsupported dependencies; conflicts roll back all changes.
 
@@ -70,6 +70,7 @@ patch:
     - oauth2:
         - endpoint:write
     - bearerAuth: []
+  summary: Modify Endpoint
 ```
 
 ## Linked components

@@ -1,0 +1,22 @@
+{
+  "description": "Rename a selected file without overwriting an existing name. Inspect the result and re-list before retrying an uncertain write.",
+  "type": "object",
+  "properties": {
+    "fileId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "File selection copied from the current folder listing."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "New file name, including its extension, without path separators."
+    }
+  },
+  "required": [
+    "fileId",
+    "name"
+  ],
+  "additionalProperties": false,
+  "title": "FilesystemProviderInterfaceRenameFileMessage"
+}

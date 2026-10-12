@@ -1,0 +1,146 @@
+name: authorization-requirements
+namespace: port1/systems/zero/capability-interfaces/authorization-requirements
+version: '1.0'
+description: >-
+  Authorization requirements declare credentials needed by specific endpoint operations. Customers
+  save, replace or remove their camera pattern in endpoint settings; encrypted endpoint state
+  supplies it automatically to permitted camera requests. Query configuration status without
+  retrieving the credential. Never ask for a pattern in chat or include it in RTC payloads.
+messages:
+  - name: authorization-status
+    description: Redacted saved authorization status. Contains no pattern, PIN or ciphertext.
+    directionality: out
+    schema:
+      description: Redacted saved authorization status. Contains no pattern, PIN or ciphertext.
+      type: object
+      required:
+        - requirementId
+        - status
+      properties:
+        requirementId:
+          type: string
+        status:
+          type: string
+          enum:
+            - MISSING
+            - CONFIGURED
+            - NEEDS_UPDATE
+      additionalProperties: false
+  - name: query-authorization
+    description: Read configuration status without retrieving any saved value.
+    directionality: in
+    schema:
+      description: Read configuration status without retrieving any saved value.
+      type: object
+      required:
+        - requirementId
+      properties:
+        requirementId:
+          type: string
+          minLength: 1
+          maxLength: 64
+      additionalProperties: false
+  - name: remove-authorization
+    description: >-
+      Remove a saved endpoint authorization value. Requires endpoint settings permission; camera
+      access will require configuration again.
+    directionality: in
+    schema:
+      description: >-
+        Remove a saved endpoint authorization value. Requires endpoint settings permission; camera
+        access will require configuration again.
+      type: object
+      required:
+        - requirementId
+      properties:
+        requirementId:
+          type: string
+          minLength: 1
+          maxLength: 64
+      additionalProperties: false
+  - name: set-authorization
+    description: >-
+      Set or replace an encrypted endpoint authorization value. Requires endpoint settings
+      permission. Roborock patterns use positions 1–9 in drawing order. Never include this message
+      or its value in public history or diagnostics.
+    directionality: in
+    schema:
+      description: >-
+        Set or replace an encrypted endpoint authorization value. Requires endpoint settings
+        permission. Roborock patterns use positions 1–9 in drawing order. Never include this message
+        or its value in public history or diagnostics.
+      type: object
+      required:
+        - requirementId
+        - value
+      properties:
+        requirementId:
+          type: string
+          minLength: 1
+          maxLength: 64
+        value:
+          type: string
+          writeOnly: true
+          minLength: 1
+          maxLength: 128
+      additionalProperties: false
+attributes: []
+configuration:
+  description: >-
+    Authorization requirements declare credentials needed by specific endpoint operations. Customers
+    save, replace or remove their camera pattern in endpoint settings; encrypted endpoint state
+    supplies it automatically to permitted camera requests. Query configuration status without
+    retrieving the credential. Never ask for a pattern in chat or include it in RTC payloads.
+  type: object
+  required:
+    - requirements
+  properties:
+    requirements:
+      type: array
+      items:
+        type: object
+        description: >-
+          Server-owned authorization requirement for exact endpoint operations. Values are
+          configured privately and never reported in endpoint state.
+        required:
+          - id
+          - authorizationType
+          - operations
+        properties:
+          id:
+            type: string
+            minLength: 1
+            maxLength: 64
+          authorizationType:
+            type: string
+            enum:
+              - ROBOROCK_PIN
+          operations:
+            type: array
+            minItems: 1
+            items:
+              type: object
+              required:
+                - interfaceName
+                - interfaceVersion
+                - messageNames
+              properties:
+                interfaceName:
+                  type: string
+                interfaceVersion:
+                  type: string
+                messageNames:
+                  type: array
+                  minItems: 1
+                  uniqueItems: true
+                  items:
+                    type: string
+              additionalProperties: false
+        additionalProperties: false
+        title: EndpointAuthorizationRequirement
+  additionalProperties: false
+authorization:
+  configuration: endpoint:read
+  attributes: endpoint:read
+  inboundMessages: message:send
+  resourcePermissionRequired: true

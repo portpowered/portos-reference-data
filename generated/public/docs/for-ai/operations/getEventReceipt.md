@@ -47,6 +47,7 @@ get:
       required: true
       schema:
         type: string
+      description: Identifier of the event receipt.
     - name: expand
       in: query
       required: false

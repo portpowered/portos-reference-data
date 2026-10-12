@@ -38,6 +38,7 @@ post:
       required: true
       schema:
         type: string
+      description: Identifier of the requested resource.
   description: >-
     At most three redrives. Revalidates current source mapping, schema, query, destination,
     subscription generation and permissions. Retains occurrence identity, immutable delivery bytes,
