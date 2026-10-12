@@ -2,7 +2,7 @@
 
 GET `/secrets`
 
-
+Enumerate Secrets
 
 Lists all secrets
 
@@ -101,6 +101,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Enumerate Secrets
 ```
 
 ## Linked components

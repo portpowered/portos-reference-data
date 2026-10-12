@@ -2,7 +2,7 @@
 
 GET `/endpoints`
 
-
+Enumerate Endpoints
 
 Lists endpoints for the authenticated user and supports query-API endpoint-state retrieval. To retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live device-backed attribute refresh before the response is returned.
 
@@ -117,7 +117,8 @@ get:
           type: string
       examples:
         deep-interface-attributes:
-          value: interfaces.attributes
+          value:
+            - interfaces.attributes
       style: form
       explode: false
     - name: forceDeviceAttributeQuery
@@ -212,6 +213,7 @@ get:
     - oauth2:
         - endpoint:read
     - bearerAuth: []
+  summary: Enumerate Endpoints
 ```
 
 ## Linked components

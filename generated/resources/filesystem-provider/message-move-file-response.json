@@ -1,0 +1,15 @@
+{
+  "description": "Verified file selection after the operation; use this fileId for subsequent reads or writes.",
+  "type": "object",
+  "properties": {
+    "fileId": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "fileId"
+  ],
+  "additionalProperties": false,
+  "title": "FilesystemProviderInterfaceMoveFileResponseMessage"
+}

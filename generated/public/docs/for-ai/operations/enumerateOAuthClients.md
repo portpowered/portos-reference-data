@@ -2,7 +2,7 @@
 
 GET `/oauth-clients`
 
-
+Enumerate OAuth Clients
 
 Lists all OAuth clients for the authenticated user
 
@@ -109,6 +109,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Enumerate OAuth Clients
 ```
 
 ## Linked components

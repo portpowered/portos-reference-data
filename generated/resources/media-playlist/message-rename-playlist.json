@@ -1,0 +1,21 @@
+{
+  "description": "Rename the selected playlist when the connected account owns it. Does not change visibility or contents.",
+  "type": "object",
+  "properties": {
+    "playlistId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact playlist resource ID copied from this account library."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "New playlist name."
+    }
+  },
+  "required": [
+    "playlistId",
+    "name"
+  ],
+  "additionalProperties": false
+}

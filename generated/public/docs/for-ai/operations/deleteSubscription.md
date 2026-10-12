@@ -2,7 +2,7 @@
 
 DELETE `/{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}`
 
-
+Delete Subscription
 
 Delete a subscription.
 
@@ -70,6 +70,7 @@ delete:
     - oauth2:
         - subscription:write
     - bearerAuth: []
+  summary: Delete Subscription
 ```
 
 ## Linked components

@@ -2,7 +2,7 @@
 
 POST `/subscriptions`
 
-
+Upsert Subscription
 
 Used to upsert a subscription to an event stream.
 
@@ -61,6 +61,7 @@ post:
     - oauth2:
         - subscription:write
     - bearerAuth: []
+  summary: Upsert Subscription
 ```
 
 ## Linked components

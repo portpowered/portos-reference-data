@@ -2,7 +2,7 @@
 
 POST `/endpoint-query`
 
-
+Endpoint Query
 
 Return a bounded page of authorized endpoints matching the shared Query expression, including endpoints shared by other owners. Read permission is evaluated before filtering, pagination and state expansion. See the request schema for supported fields and operators. Use groupId to select members of a readable room/group, then intersect type or declared interfaces to select lights. Group predicates additionally require group:read for delegated OAuth. Repeat the complete query settings and grant when following nextToken; cursors expire after fifteen minutes. Device attributes are returned only when expanded. Report per-target command acceptance and observed state separately; querying a group does not grant permission to control its members.
 
@@ -133,6 +133,7 @@ post:
     - oauth2:
         - endpoint:read
     - bearerAuth: []
+  summary: Endpoint Query
 ```
 
 ## Linked components

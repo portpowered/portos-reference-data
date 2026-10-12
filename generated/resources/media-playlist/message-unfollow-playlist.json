@@ -1,0 +1,15 @@
+{
+  "description": "Remove only the selected playlist from the current account library. This does not permanently delete the provider playlist or change another account library.",
+  "type": "object",
+  "properties": {
+    "playlistId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact playlist resource ID copied from this account library."
+    }
+  },
+  "required": [
+    "playlistId"
+  ],
+  "additionalProperties": false
+}

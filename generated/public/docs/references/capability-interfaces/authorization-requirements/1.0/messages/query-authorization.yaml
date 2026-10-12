@@ -1,0 +1,10 @@
+description: Read configuration status without retrieving any saved value.
+type: object
+required:
+  - requirementId
+properties:
+  requirementId:
+    type: string
+    minLength: 1
+    maxLength: 64
+additionalProperties: false

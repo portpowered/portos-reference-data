@@ -2,7 +2,7 @@
 
 DELETE `/endpoints`
 
-
+Delete Endpoint
 
 Deletes an endpoint
 
@@ -51,6 +51,7 @@ delete:
     - oauth2:
         - endpoint:write
     - bearerAuth: []
+  summary: Delete Endpoint
 ```
 
 ## Linked components

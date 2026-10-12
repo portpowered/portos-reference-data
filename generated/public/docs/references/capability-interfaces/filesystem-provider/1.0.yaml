@@ -132,6 +132,11 @@ messages:
       description: Response containing a list of files and folders from a filesystem provider
       type: object
       properties:
+        folderId:
+          type: string
+          description: >-
+            Current folder identifier, including the provider root when returned. Use it as a
+            destination for upload or move.
         items:
           type: array
           items:
@@ -161,6 +166,82 @@ messages:
       required:
         - items
       additionalProperties: false
+  - name: move-file
+    description: >-
+      Move one selected file into a folder without overwriting another item. The response returns
+      the new selection for download or further operations.
+    directionality: in
+    schema:
+      description: >-
+        Move one selected file into a folder without overwriting another item. The response returns
+        the new selection for download or further operations.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+          description: File selection copied from the current folder listing.
+        folderId:
+          type: string
+          minLength: 1
+          description: Destination folder identifier copied from this provider listing.
+      required:
+        - fileId
+        - folderId
+      additionalProperties: false
+      title: FilesystemProviderInterfaceMoveFileMessage
+  - name: move-file-response
+    description: Verified file selection after the operation; use this fileId for subsequent reads or writes.
+    directionality: out
+    schema:
+      description: Verified file selection after the operation; use this fileId for subsequent reads or writes.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+      required:
+        - fileId
+      additionalProperties: false
+      title: FilesystemProviderInterfaceMoveFileResponseMessage
+  - name: rename-file
+    description: >-
+      Rename a selected file without overwriting an existing name. Inspect the result and re-list
+      before retrying an uncertain write.
+    directionality: in
+    schema:
+      description: >-
+        Rename a selected file without overwriting an existing name. Inspect the result and re-list
+        before retrying an uncertain write.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+          description: File selection copied from the current folder listing.
+        name:
+          type: string
+          minLength: 1
+          description: New file name, including its extension, without path separators.
+      required:
+        - fileId
+        - name
+      additionalProperties: false
+      title: FilesystemProviderInterfaceRenameFileMessage
+  - name: rename-file-response
+    description: Verified file selection after the operation; use this fileId for subsequent reads or writes.
+    directionality: out
+    schema:
+      description: Verified file selection after the operation; use this fileId for subsequent reads or writes.
+      type: object
+      properties:
+        fileId:
+          type: string
+          minLength: 1
+      required:
+        - fileId
+      additionalProperties: false
+      title: FilesystemProviderInterfaceRenameFileResponseMessage
   - name: upload-file
     description: Upload file.
     directionality: in

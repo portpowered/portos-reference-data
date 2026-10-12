@@ -2,7 +2,7 @@
 
 POST `/access-control-rules`
 
-
+Upsert Access Control Rule
 
 Upsert an access control rule.
 
@@ -75,6 +75,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Upsert Access Control Rule
 ```
 
 ## Linked components

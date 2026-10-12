@@ -66,8 +66,9 @@ properties:
             $ref: '#/properties/artists/items'
           description: Track artists
         album:
-          $ref: '#/properties/albums/items'
           description: Track album
+          allOf:
+            - $ref: '#/properties/albums/items'
       required:
         - id
         - name

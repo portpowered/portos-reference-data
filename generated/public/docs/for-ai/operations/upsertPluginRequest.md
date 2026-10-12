@@ -2,7 +2,7 @@
 
 POST `/plugins`
 
-
+Upsert Plugin Request
 
 Creates a new plugin
 
@@ -64,6 +64,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Upsert Plugin Request
 ```
 
 ## Linked components

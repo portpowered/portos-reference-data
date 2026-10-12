@@ -85,8 +85,12 @@
             "description": "Track artists"
           },
           "album": {
-            "$ref": "#/properties/albums/items",
-            "description": "Track album"
+            "description": "Track album",
+            "allOf": [
+              {
+                "$ref": "#/properties/albums/items"
+              }
+            ]
           }
         },
         "required": [

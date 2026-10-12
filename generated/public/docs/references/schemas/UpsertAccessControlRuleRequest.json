@@ -19,11 +19,7 @@
     "operation": {
       "type": "string",
       "description": "The operation to grant access to.  This could be a read, write, delete, etc.  Please see the access controls list specification for all operations and their descriptions. \n",
-      "example": [
-        "port1/systems/zero/operations/flow-read",
-        "port1/systems/zero/operations/endpoint-name-update",
-        "port1/systems/zero/operations/endpoint-delete"
-      ]
+      "example": "port1/systems/zero/operations/endpoint-read"
     },
     "resource": {
       "type": "string",

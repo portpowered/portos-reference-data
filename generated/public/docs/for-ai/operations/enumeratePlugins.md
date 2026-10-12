@@ -2,7 +2,7 @@
 
 GET `/plugins`
 
-
+Enumerate Plugins
 
 Lists all available plugins
 
@@ -97,6 +97,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Enumerate Plugins
 ```
 
 ## Linked components

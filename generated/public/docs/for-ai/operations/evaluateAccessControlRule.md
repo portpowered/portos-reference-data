@@ -2,7 +2,7 @@
 
 POST `/access-control-rules/evaluate`
 
-
+Evaluate Access Control Rule
 
 Evaluate an access control rule.
 
@@ -64,6 +64,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Evaluate Access Control Rule
 ```
 
 ## Linked components

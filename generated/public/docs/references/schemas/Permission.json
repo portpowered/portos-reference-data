@@ -17,8 +17,12 @@
       "description": "The ID of the associated principal"
     },
     "resourceType": {
-      "$ref": "/docs/references/schemas/AuthResourceType.json",
-      "description": "The type of resource this permission grants access to"
+      "description": "The type of resource this permission grants access to",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/AuthResourceType.json"
+        }
+      ]
     },
     "resourceId": {
       "type": "string",

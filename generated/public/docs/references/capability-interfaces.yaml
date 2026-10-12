@@ -27,6 +27,16 @@ interfaces:
       token refresh and authorization reports to follow the connection as it changes.
     schema: /docs/references/capability-interfaces/authorization/1.0.yaml
     guide: /docs/for-ai/capability-interfaces/authorization/1.0.md
+  - id: port1/systems/zero/capability-interfaces/authorization-requirements
+    version: '1.0'
+    description: >-
+      Authorization requirements declare credentials needed by specific endpoint operations.
+      Customers save, replace or remove their camera pattern in endpoint settings; encrypted
+      endpoint state supplies it automatically to permitted camera requests. Query configuration
+      status without retrieving the credential. Never ask for a pattern in chat or include it in RTC
+      payloads.
+    schema: /docs/references/capability-interfaces/authorization-requirements/1.0.yaml
+    guide: /docs/for-ai/capability-interfaces/authorization-requirements/1.0.md
   - id: port1/systems/zero/capability-interfaces/barrier-control
     version: '1.0'
     description: >-

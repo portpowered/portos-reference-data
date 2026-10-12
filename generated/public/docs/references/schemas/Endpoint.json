@@ -20,8 +20,12 @@
       "example": "port1/principals/example/endpoints/light-1"
     },
     "name": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The name of the endpoint"
+      "description": "The name of the endpoint",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "type": {
       "type": "string",
@@ -39,20 +43,36 @@
       "description": "The ID of the owner of the endpoint"
     },
     "description": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The description of the route as a human readable string or a localizable asset."
+      "description": "The description of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "manufacturer": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The manufacturer of the route as a human readable string or a localizable asset."
+      "description": "The manufacturer of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "model": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The model of the route as a human readable string or a localizable asset."
+      "description": "The model of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "serialNumber": {
-      "$ref": "/docs/references/schemas/TypeValue.json",
-      "description": "The serial number of the route as a human readable string or a localizable asset."
+      "description": "The serial number of the route as a human readable string or a localizable asset.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/TypeValue.json"
+        }
+      ]
     },
     "resourceGroups": {
       "type": "array",

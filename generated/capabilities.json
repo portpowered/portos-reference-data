@@ -350,6 +350,175 @@
       "configuration": null
     },
     {
+      "name": "authorization-requirements",
+      "namespace": "port1/systems/zero/capability-interfaces/authorization-requirements",
+      "version": "1.0",
+      "description": "Authorization requirements declare credentials needed by specific endpoint operations. Customers save, replace or remove their camera pattern in endpoint settings; encrypted endpoint state supplies it automatically to permitted camera requests. Query configuration status without retrieving the credential. Never ask for a pattern in chat or include it in RTC payloads.",
+      "messages": [
+        {
+          "name": "authorization-status",
+          "description": "Redacted saved authorization status. Contains no pattern, PIN or ciphertext.",
+          "directionality": "out",
+          "schema": {
+            "description": "Redacted saved authorization status. Contains no pattern, PIN or ciphertext.",
+            "type": "object",
+            "required": [
+              "requirementId",
+              "status"
+            ],
+            "properties": {
+              "requirementId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "MISSING",
+                  "CONFIGURED",
+                  "NEEDS_UPDATE"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "query-authorization",
+          "description": "Read configuration status without retrieving any saved value.",
+          "directionality": "in",
+          "schema": {
+            "description": "Read configuration status without retrieving any saved value.",
+            "type": "object",
+            "required": [
+              "requirementId"
+            ],
+            "properties": {
+              "requirementId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "remove-authorization",
+          "description": "Remove a saved endpoint authorization value. Requires endpoint settings permission; camera access will require configuration again.",
+          "directionality": "in",
+          "schema": {
+            "description": "Remove a saved endpoint authorization value. Requires endpoint settings permission; camera access will require configuration again.",
+            "type": "object",
+            "required": [
+              "requirementId"
+            ],
+            "properties": {
+              "requirementId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "set-authorization",
+          "description": "Set or replace an encrypted endpoint authorization value. Requires endpoint settings permission. Roborock patterns use positions 1–9 in drawing order. Never include this message or its value in public history or diagnostics.",
+          "directionality": "in",
+          "schema": {
+            "description": "Set or replace an encrypted endpoint authorization value. Requires endpoint settings permission. Roborock patterns use positions 1–9 in drawing order. Never include this message or its value in public history or diagnostics.",
+            "type": "object",
+            "required": [
+              "requirementId",
+              "value"
+            ],
+            "properties": {
+              "requirementId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "value": {
+                "type": "string",
+                "writeOnly": true,
+                "minLength": 1,
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      ],
+      "attributes": [],
+      "configuration": {
+        "description": "Authorization requirements declare credentials needed by specific endpoint operations. Customers save, replace or remove their camera pattern in endpoint settings; encrypted endpoint state supplies it automatically to permitted camera requests. Query configuration status without retrieving the credential. Never ask for a pattern in chat or include it in RTC payloads.",
+        "type": "object",
+        "required": [
+          "requirements"
+        ],
+        "properties": {
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Server-owned authorization requirement for exact endpoint operations. Values are configured privately and never reported in endpoint state.",
+              "required": [
+                "id",
+                "authorizationType",
+                "operations"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "authorizationType": {
+                  "type": "string",
+                  "enum": [
+                    "ROBOROCK_PIN"
+                  ]
+                },
+                "operations": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "interfaceName",
+                      "interfaceVersion",
+                      "messageNames"
+                    ],
+                    "properties": {
+                      "interfaceName": {
+                        "type": "string"
+                      },
+                      "interfaceVersion": {
+                        "type": "string"
+                      },
+                      "messageNames": {
+                        "type": "array",
+                        "minItems": 1,
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "title": "EndpointAuthorizationRequirement"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
       "name": "barrier-control",
       "namespace": "port1/systems/zero/capability-interfaces/barrier-control",
       "version": "1.0",
@@ -2879,6 +3048,10 @@
             "description": "Response containing a list of files and folders from a filesystem provider",
             "type": "object",
             "properties": {
+              "folderId": {
+                "type": "string",
+                "description": "Current folder identifier, including the provider root when returned. Use it as a destination for upload or move."
+              },
               "items": {
                 "type": "array",
                 "items": {
@@ -2920,6 +3093,100 @@
               "items"
             ],
             "additionalProperties": false
+          }
+        },
+        {
+          "name": "move-file",
+          "description": "Move one selected file into a folder without overwriting another item. The response returns the new selection for download or further operations.",
+          "directionality": "in",
+          "schema": {
+            "description": "Move one selected file into a folder without overwriting another item. The response returns the new selection for download or further operations.",
+            "type": "object",
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "File selection copied from the current folder listing."
+              },
+              "folderId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Destination folder identifier copied from this provider listing."
+              }
+            },
+            "required": [
+              "fileId",
+              "folderId"
+            ],
+            "additionalProperties": false,
+            "title": "FilesystemProviderInterfaceMoveFileMessage"
+          }
+        },
+        {
+          "name": "move-file-response",
+          "description": "Verified file selection after the operation; use this fileId for subsequent reads or writes.",
+          "directionality": "out",
+          "schema": {
+            "description": "Verified file selection after the operation; use this fileId for subsequent reads or writes.",
+            "type": "object",
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "fileId"
+            ],
+            "additionalProperties": false,
+            "title": "FilesystemProviderInterfaceMoveFileResponseMessage"
+          }
+        },
+        {
+          "name": "rename-file",
+          "description": "Rename a selected file without overwriting an existing name. Inspect the result and re-list before retrying an uncertain write.",
+          "directionality": "in",
+          "schema": {
+            "description": "Rename a selected file without overwriting an existing name. Inspect the result and re-list before retrying an uncertain write.",
+            "type": "object",
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "File selection copied from the current folder listing."
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New file name, including its extension, without path separators."
+              }
+            },
+            "required": [
+              "fileId",
+              "name"
+            ],
+            "additionalProperties": false,
+            "title": "FilesystemProviderInterfaceRenameFileMessage"
+          }
+        },
+        {
+          "name": "rename-file-response",
+          "description": "Verified file selection after the operation; use this fileId for subsequent reads or writes.",
+          "directionality": "out",
+          "schema": {
+            "description": "Verified file selection after the operation; use this fileId for subsequent reads or writes.",
+            "type": "object",
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "fileId"
+            ],
+            "additionalProperties": false,
+            "title": "FilesystemProviderInterfaceRenameFileResponseMessage"
           }
         },
         {
@@ -4779,12 +5046,20 @@
             }
           },
           "defaultAudioProvider": {
-            "$ref": "#/properties/supportedAudioProviders/items",
-            "description": "Default service for an audio search. Must be in supportedAudioProviders."
+            "description": "Default service for an audio search. Must be in supportedAudioProviders.",
+            "allOf": [
+              {
+                "$ref": "#/properties/supportedAudioProviders/items"
+              }
+            ]
           },
           "defaultVideoProvider": {
-            "$ref": "#/properties/supportedAudioProviders/items",
-            "description": "Default service for a video search. Must be in supportedVideoProviders."
+            "description": "Default service for a video search. Must be in supportedVideoProviders.",
+            "allOf": [
+              {
+                "$ref": "#/properties/supportedAudioProviders/items"
+              }
+            ]
           },
           "supportedPlaybackStates": {
             "type": "array",
@@ -4810,23 +5085,28 @@
           },
           "seekRange": {
             "description": "Seek range in seconds",
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "description": "Minimum measured value"
-              },
-              "max": {
-                "type": "number",
-                "description": "Maximum measured value"
+            "allOf": [
+              {
+                "type": "object",
+                "description": "Range of measurement values (min and max)",
+                "properties": {
+                  "min": {
+                    "type": "number",
+                    "description": "Minimum measured value"
+                  },
+                  "max": {
+                    "type": "number",
+                    "description": "Maximum measured value"
+                  }
+                },
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "additionalProperties": false,
+                "title": "MeasurementRange"
               }
-            },
-            "required": [
-              "min",
-              "max"
-            ],
-            "additionalProperties": false,
-            "title": "MeasurementRange"
+            ]
           },
           "supportedMediaTypes": {
             "type": "array",
@@ -5089,33 +5369,38 @@
                     },
                     "album": {
                       "description": "Track album",
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "Unique identifier for the album",
-                          "minLength": 1
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Album name",
-                          "minLength": 1
-                        },
-                        "artists": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/properties/tracks/items/properties/artists/items"
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "description": "Album information",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Unique identifier for the album",
+                              "minLength": 1
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Album name",
+                              "minLength": 1
+                            },
+                            "artists": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/properties/tracks/items/properties/artists/items"
+                              },
+                              "description": "Album artists"
+                            }
                           },
-                          "description": "Album artists"
+                          "required": [
+                            "id",
+                            "name",
+                            "artists"
+                          ],
+                          "additionalProperties": false,
+                          "title": "Album"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "artists"
-                      ],
-                      "additionalProperties": false,
-                      "title": "Album"
+                      ]
                     }
                   },
                   "required": [
@@ -5170,6 +5455,37 @@
               "playlistId",
               "tracks",
               "episodes"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "playlist-mutation-result",
+          "description": "Provider acknowledgement for one playlist mutation. Re-read contents to verify the requested outcome. A partial result must not be retried automatically.",
+          "directionality": "out",
+          "schema": {
+            "description": "Provider acknowledgement for one playlist mutation. Re-read contents to verify the requested outcome. A partial result must not be retried automatically.",
+            "type": "object",
+            "properties": {
+              "playlistId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "snapshotId": {
+                "type": "string",
+                "description": "Provider revision acknowledging the change, when returned."
+              },
+              "applied": {
+                "type": "boolean",
+                "description": "Whether all requested steps were acknowledged. False can mean playlist creation succeeded but initial track insertion did not."
+              },
+              "detail": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "playlistId",
+              "applied"
             ],
             "additionalProperties": false
           }
@@ -5254,6 +5570,32 @@
           }
         },
         {
+          "name": "rename-playlist",
+          "description": "Rename the selected playlist when the connected account owns it. Does not change visibility or contents.",
+          "directionality": "in",
+          "schema": {
+            "description": "Rename the selected playlist when the connected account owns it. Does not change visibility or contents.",
+            "type": "object",
+            "properties": {
+              "playlistId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Exact playlist resource ID copied from this account library."
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New playlist name."
+              }
+            },
+            "required": [
+              "playlistId",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
           "name": "shuffle-playlist",
           "description": null,
           "directionality": "in",
@@ -5264,6 +5606,26 @@
                 "type": "string",
                 "description": "ID of the playlist to shuffle",
                 "minLength": 1
+              }
+            },
+            "required": [
+              "playlistId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "unfollow-playlist",
+          "description": "Remove only the selected playlist from the current account library. This does not permanently delete the provider playlist or change another account library.",
+          "directionality": "in",
+          "schema": {
+            "description": "Remove only the selected playlist from the current account library. This does not permanently delete the provider playlist or change another account library.",
+            "type": "object",
+            "properties": {
+              "playlistId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Exact playlist resource ID copied from this account library."
               }
             },
             "required": [
@@ -5373,8 +5735,12 @@
                       "description": "Track artists"
                     },
                     "album": {
-                      "$ref": "#/properties/albums/items",
-                      "description": "Track album"
+                      "description": "Track album",
+                      "allOf": [
+                        {
+                          "$ref": "#/properties/albums/items"
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -5600,33 +5966,38 @@
                     },
                     "album": {
                       "description": "Track album",
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "Unique identifier for the album",
-                          "minLength": 1
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Album name",
-                          "minLength": 1
-                        },
-                        "artists": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/properties/tracks/items/properties/artists/items"
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "description": "Album information",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Unique identifier for the album",
+                              "minLength": 1
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Album name",
+                              "minLength": 1
+                            },
+                            "artists": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/properties/tracks/items/properties/artists/items"
+                              },
+                              "description": "Album artists"
+                            }
                           },
-                          "description": "Album artists"
+                          "required": [
+                            "id",
+                            "name",
+                            "artists"
+                          ],
+                          "additionalProperties": false,
+                          "title": "Album"
                         }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "artists"
-                      ],
-                      "additionalProperties": false,
-                      "title": "Album"
+                      ]
                     }
                   },
                   "required": [
@@ -7244,6 +7615,19 @@
               },
               "notes": {
                 "type": "string"
+              },
+              "dueDate": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+              },
+              "timeZone": {
+                "type": "string",
+                "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+              },
+              "allDay": {
+                "type": "boolean",
+                "description": "Whether the supplied due date represents an all-day reminder."
               }
             },
             "required": [
@@ -7281,6 +7665,19 @@
                   },
                   "completed": {
                     "type": "boolean"
+                  },
+                  "dueDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+                  },
+                  "timeZone": {
+                    "type": "string",
+                    "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+                  },
+                  "allDay": {
+                    "type": "boolean",
+                    "description": "Whether the supplied due date represents an all-day reminder."
                   },
                   "revision": {
                     "type": "string",
@@ -7421,6 +7818,19 @@
                     "completed": {
                       "type": "boolean"
                     },
+                    "dueDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+                    },
+                    "timeZone": {
+                      "type": "string",
+                      "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+                    },
+                    "allDay": {
+                      "type": "boolean",
+                      "description": "Whether the supplied due date represents an all-day reminder."
+                    },
                     "revision": {
                       "type": "string",
                       "description": "Omitted when the provider does not supply a revision; writes require it."
@@ -7475,6 +7885,23 @@
               },
               "completed": {
                 "type": "boolean"
+              },
+              "dueDate": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+              },
+              "timeZone": {
+                "type": "string",
+                "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+              },
+              "allDay": {
+                "type": "boolean",
+                "description": "Whether the supplied due date represents an all-day reminder."
+              },
+              "clearDueDate": {
+                "type": "boolean",
+                "description": "Set true to remove the due date. Cannot be combined with dueDate."
               }
             },
             "required": [
@@ -7512,6 +7939,19 @@
                   },
                   "completed": {
                     "type": "boolean"
+                  },
+                  "dueDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+                  },
+                  "timeZone": {
+                    "type": "string",
+                    "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+                  },
+                  "allDay": {
+                    "type": "boolean",
+                    "description": "Whether the supplied due date represents an all-day reminder."
                   },
                   "revision": {
                     "type": "string",
@@ -8370,10 +8810,7 @@
                 "maximum": 3600,
                 "default": 60,
                 "examples": [
-                  {
-                    "value": 60,
-                    "description": "1 minute"
-                  }
+                  60
                 ]
               },
               "autoAnswer": {

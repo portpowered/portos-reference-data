@@ -2,7 +2,7 @@
 
 POST `/plugin-auth-code-exchange`
 
-
+Plugin Auth Code Exchange
 
 This API is used to exchange a code for an access token for a plugin. This is done as often times, the plugin requires a backend service to exchange the code for an access token.
 
@@ -59,6 +59,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Plugin Auth Code Exchange
 ```
 
 ## Linked components

@@ -16,8 +16,12 @@
           "description": "The web URI where requests should be dispatched to"
         },
         "oauthConnectionData": {
-          "$ref": "/docs/references/schemas/OAuth2ConnectionData.json",
-          "description": "OAuth2 connection data for the webservice plugin"
+          "description": "OAuth2 connection data for the webservice plugin",
+          "allOf": [
+            {
+              "$ref": "/docs/references/schemas/OAuth2ConnectionData.json"
+            }
+          ]
         }
       }
     }

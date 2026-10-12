@@ -68,11 +68,13 @@ properties:
     items:
       $ref: '#/properties/supportedAudioProviders/items'
   defaultAudioProvider:
-    $ref: '#/properties/supportedAudioProviders/items'
     description: Default service for an audio search. Must be in supportedAudioProviders.
+    allOf:
+      - $ref: '#/properties/supportedAudioProviders/items'
   defaultVideoProvider:
-    $ref: '#/properties/supportedAudioProviders/items'
     description: Default service for a video search. Must be in supportedVideoProviders.
+    allOf:
+      - $ref: '#/properties/supportedAudioProviders/items'
   supportedPlaybackStates:
     type: array
     items:
@@ -92,19 +94,21 @@ properties:
     description: Supported playback speeds (e.g., 0.5, 1.0, 1.5, 2.0)
   seekRange:
     description: Seek range in seconds
-    type: object
-    properties:
-      min:
-        type: number
-        description: Minimum measured value
-      max:
-        type: number
-        description: Maximum measured value
-    required:
-      - min
-      - max
-    additionalProperties: false
-    title: MeasurementRange
+    allOf:
+      - type: object
+        description: Range of measurement values (min and max)
+        properties:
+          min:
+            type: number
+            description: Minimum measured value
+          max:
+            type: number
+            description: Maximum measured value
+        required:
+          - min
+          - max
+        additionalProperties: false
+        title: MeasurementRange
   supportedMediaTypes:
     type: array
     items:

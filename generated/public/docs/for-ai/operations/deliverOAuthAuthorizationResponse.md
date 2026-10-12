@@ -44,6 +44,7 @@ get:
   parameters:
     - in: query
       name: request_id
+      description: Opaque, single-use continuation reference returned by authenticated consent.
       required: true
       schema:
         type: string

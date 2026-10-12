@@ -11,8 +11,12 @@
       ],
       "properties": {
         "oauthConnectionData": {
-          "$ref": "/docs/references/schemas/OAuth2ConnectionData.json",
-          "description": "OAuth2 connection data for the HTTP plugin"
+          "description": "OAuth2 connection data for the HTTP plugin",
+          "allOf": [
+            {
+              "$ref": "/docs/references/schemas/OAuth2ConnectionData.json"
+            }
+          ]
         }
       }
     }

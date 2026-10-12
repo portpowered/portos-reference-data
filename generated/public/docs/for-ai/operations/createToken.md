@@ -2,7 +2,7 @@
 
 POST `/tokens`
 
-
+Create Token
 
 Creates a token (JWT) for token exchange. The caller becomes the owner. The raw JWT is returned only once at creation; the client must store it securely. Use the OAuth /auth/token endpoint with grant_type refresh_token to exchange this JWT for an access token. Subject may be ~self (current user) or another principal if policy allows.
 
@@ -75,6 +75,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Create Token
 ```
 
 ## Linked components

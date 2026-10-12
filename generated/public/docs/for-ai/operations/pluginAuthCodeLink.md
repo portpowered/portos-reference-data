@@ -2,7 +2,7 @@
 
 POST `/plugin-auth-code-link`
 
-
+Plugin Auth Code Link
 
 Start code-based linking. Private vendor codes and tokens are retained on the server. Complete through plugin-auth-code-exchange using pluginAuthenticationData.sessionId.
 
@@ -71,6 +71,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Plugin Auth Code Link
 ```
 
 ## Linked components

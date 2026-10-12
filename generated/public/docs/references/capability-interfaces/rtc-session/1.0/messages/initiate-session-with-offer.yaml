@@ -66,8 +66,7 @@ properties:
     maximum: 3600
     default: 60
     examples:
-      - value: 60
-        description: 1 minute
+      - 60
   autoAnswer:
     type: boolean
 additionalProperties: false

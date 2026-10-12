@@ -77,8 +77,9 @@ messages:
                   $ref: '#/properties/artists/items'
                 description: Track artists
               album:
-                $ref: '#/properties/albums/items'
                 description: Track album
+                allOf:
+                  - $ref: '#/properties/albums/items'
             required:
               - id
               - name
@@ -275,27 +276,29 @@ messages:
                 description: Track artists
               album:
                 description: Track album
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Unique identifier for the album
-                    minLength: 1
-                  name:
-                    type: string
-                    description: Album name
-                    minLength: 1
-                  artists:
-                    type: array
-                    items:
-                      $ref: '#/properties/tracks/items/properties/artists/items'
-                    description: Album artists
-                required:
-                  - id
-                  - name
-                  - artists
-                additionalProperties: false
-                title: Album
+                allOf:
+                  - type: object
+                    description: Album information
+                    properties:
+                      id:
+                        type: string
+                        description: Unique identifier for the album
+                        minLength: 1
+                      name:
+                        type: string
+                        description: Album name
+                        minLength: 1
+                      artists:
+                        type: array
+                        items:
+                          $ref: '#/properties/tracks/items/properties/artists/items'
+                        description: Album artists
+                    required:
+                      - id
+                      - name
+                      - artists
+                    additionalProperties: false
+                    title: Album
             required:
               - id
               - name

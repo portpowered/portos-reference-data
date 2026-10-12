@@ -12,8 +12,12 @@
       "description": "The ID of the entity"
     },
     "type": {
-      "$ref": "/docs/references/schemas/AuthResourceType.json",
-      "description": "The type of the entity"
+      "description": "The type of the entity",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/AuthResourceType.json"
+        }
+      ]
     },
     "owner": {
       "type": "string",

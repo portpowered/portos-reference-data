@@ -7,12 +7,20 @@
   ],
   "properties": {
     "target": {
-      "$ref": "/docs/references/schemas/CreateMessageTarget.json",
-      "description": "The target of the message"
+      "description": "The target of the message",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/CreateMessageTarget.json"
+        }
+      ]
     },
     "message": {
-      "$ref": "/docs/references/schemas/Message.json",
-      "description": "The message to send"
+      "description": "The message to send",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/Message.json"
+        }
+      ]
     },
     "responseType": {
       "$ref": "/docs/references/schemas/CreateMessageRequestResponseType.json"

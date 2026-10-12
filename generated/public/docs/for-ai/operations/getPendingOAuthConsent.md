@@ -45,6 +45,7 @@ get:
       required: true
       schema:
         type: string
+      description: The request_id of the requested resource.
   responses:
     '200':
       description: Pending consent details. Response is not cacheable.

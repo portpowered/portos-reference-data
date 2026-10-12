@@ -2,7 +2,7 @@
 
 POST `/messages/send`
 
-
+Send Message Legacy Alias
 
 Compatibility alias for POST /messages. Sends a message to a recipient.
 
@@ -283,6 +283,7 @@ post:
     - oauth2:
         - message:send
     - bearerAuth: []
+  summary: Send Message Legacy Alias
 ```
 
 ## Linked components

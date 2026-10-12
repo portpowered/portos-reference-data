@@ -3,8 +3,12 @@
   "type": "object",
   "properties": {
     "authorization": {
-      "$ref": "/docs/references/schemas/MessageAuthorizationContext.json",
-      "description": "Authorization context for the message"
+      "description": "Authorization context for the message",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/MessageAuthorizationContext.json"
+        }
+      ]
     },
     "inputPlugin": {
       "$ref": "/docs/references/schemas/PluginType.json"

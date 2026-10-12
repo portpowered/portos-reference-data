@@ -2,7 +2,7 @@
 
 POST `/secrets`
 
-
+Upsert Secret
 
 Create a secret, which is a special type of data that is secured. 
 Secrets are special data that can be very dangerous to use, and so is put in a special database. 
@@ -113,6 +113,7 @@ post:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Upsert Secret
 ```
 
 ## Linked components

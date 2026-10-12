@@ -159,27 +159,29 @@ messages:
                 description: Track artists
               album:
                 description: Track album
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Unique identifier for the album
-                    minLength: 1
-                  name:
-                    type: string
-                    description: Album name
-                    minLength: 1
-                  artists:
-                    type: array
-                    items:
-                      $ref: '#/properties/tracks/items/properties/artists/items'
-                    description: Album artists
-                required:
-                  - id
-                  - name
-                  - artists
-                additionalProperties: false
-                title: Album
+                allOf:
+                  - type: object
+                    description: Album information
+                    properties:
+                      id:
+                        type: string
+                        description: Unique identifier for the album
+                        minLength: 1
+                      name:
+                        type: string
+                        description: Album name
+                        minLength: 1
+                      artists:
+                        type: array
+                        items:
+                          $ref: '#/properties/tracks/items/properties/artists/items'
+                        description: Album artists
+                    required:
+                      - id
+                      - name
+                      - artists
+                    additionalProperties: false
+                    title: Album
             required:
               - id
               - name
@@ -218,6 +220,34 @@ messages:
         - playlistId
         - tracks
         - episodes
+      additionalProperties: false
+  - name: playlist-mutation-result
+    description: >-
+      Provider acknowledgement for one playlist mutation. Re-read contents to verify the requested
+      outcome. A partial result must not be retried automatically.
+    directionality: out
+    schema:
+      description: >-
+        Provider acknowledgement for one playlist mutation. Re-read contents to verify the requested
+        outcome. A partial result must not be retried automatically.
+      type: object
+      properties:
+        playlistId:
+          type: string
+          minLength: 1
+        snapshotId:
+          type: string
+          description: Provider revision acknowledging the change, when returned.
+        applied:
+          type: boolean
+          description: >-
+            Whether all requested steps were acknowledged. False can mean playlist creation
+            succeeded but initial track insertion did not.
+        detail:
+          type: string
+      required:
+        - playlistId
+        - applied
       additionalProperties: false
   - name: playlists
     description: A page of the connected customer's playlists with exact resource IDs.
@@ -276,6 +306,29 @@ messages:
         - playlistId
         - trackIndex
       additionalProperties: false
+  - name: rename-playlist
+    description: >-
+      Rename the selected playlist when the connected account owns it. Does not change visibility or
+      contents.
+    directionality: in
+    schema:
+      description: >-
+        Rename the selected playlist when the connected account owns it. Does not change visibility
+        or contents.
+      type: object
+      properties:
+        playlistId:
+          type: string
+          minLength: 1
+          description: Exact playlist resource ID copied from this account library.
+        name:
+          type: string
+          minLength: 1
+          description: New playlist name.
+      required:
+        - playlistId
+        - name
+      additionalProperties: false
   - name: shuffle-playlist
     description: null
     directionality: in
@@ -286,6 +339,24 @@ messages:
           type: string
           description: ID of the playlist to shuffle
           minLength: 1
+      required:
+        - playlistId
+      additionalProperties: false
+  - name: unfollow-playlist
+    description: >-
+      Remove only the selected playlist from the current account library. This does not permanently
+      delete the provider playlist or change another account library.
+    directionality: in
+    schema:
+      description: >-
+        Remove only the selected playlist from the current account library. This does not
+        permanently delete the provider playlist or change another account library.
+      type: object
+      properties:
+        playlistId:
+          type: string
+          minLength: 1
+          description: Exact playlist resource ID copied from this account library.
       required:
         - playlistId
       additionalProperties: false

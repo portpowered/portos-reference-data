@@ -38,6 +38,7 @@ delete:
       required: true
       schema:
         type: string
+      description: Identifier of the requested resource.
   description: >-
     Idempotent diagnostic deletion. Does not alter subscription identity or emit an event.
 

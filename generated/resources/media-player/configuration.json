@@ -73,12 +73,20 @@
       }
     },
     "defaultAudioProvider": {
-      "$ref": "#/properties/supportedAudioProviders/items",
-      "description": "Default service for an audio search. Must be in supportedAudioProviders."
+      "description": "Default service for an audio search. Must be in supportedAudioProviders.",
+      "allOf": [
+        {
+          "$ref": "#/properties/supportedAudioProviders/items"
+        }
+      ]
     },
     "defaultVideoProvider": {
-      "$ref": "#/properties/supportedAudioProviders/items",
-      "description": "Default service for a video search. Must be in supportedVideoProviders."
+      "description": "Default service for a video search. Must be in supportedVideoProviders.",
+      "allOf": [
+        {
+          "$ref": "#/properties/supportedAudioProviders/items"
+        }
+      ]
     },
     "supportedPlaybackStates": {
       "type": "array",
@@ -104,23 +112,28 @@
     },
     "seekRange": {
       "description": "Seek range in seconds",
-      "type": "object",
-      "properties": {
-        "min": {
-          "type": "number",
-          "description": "Minimum measured value"
-        },
-        "max": {
-          "type": "number",
-          "description": "Maximum measured value"
+      "allOf": [
+        {
+          "type": "object",
+          "description": "Range of measurement values (min and max)",
+          "properties": {
+            "min": {
+              "type": "number",
+              "description": "Minimum measured value"
+            },
+            "max": {
+              "type": "number",
+              "description": "Maximum measured value"
+            }
+          },
+          "required": [
+            "min",
+            "max"
+          ],
+          "additionalProperties": false,
+          "title": "MeasurementRange"
         }
-      },
-      "required": [
-        "min",
-        "max"
-      ],
-      "additionalProperties": false,
-      "title": "MeasurementRange"
+      ]
     },
     "supportedMediaTypes": {
       "type": "array",

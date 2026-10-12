@@ -1,6 +1,11 @@
 description: Response containing a list of files and folders from a filesystem provider
 type: object
 properties:
+  folderId:
+    type: string
+    description: >-
+      Current folder identifier, including the provider root when returned. Use
+      it as a destination for upload or move.
   items:
     type: array
     items:

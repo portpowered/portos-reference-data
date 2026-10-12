@@ -2,7 +2,7 @@
 
 GET `/principals`
 
-
+Enumerate Principals
 
 Lists all principals
 
@@ -95,6 +95,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Enumerate Principals
 ```
 
 ## Linked components

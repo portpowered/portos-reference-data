@@ -2,7 +2,7 @@
 
 GET `/access-control-rules`
 
-
+Get Access Control Rules
 
 Get all access control rules.
 
@@ -106,6 +106,7 @@ get:
   security:
     - oauth2: []
     - bearerAuth: []
+  summary: Get Access Control Rules
 ```
 
 ## Linked components
