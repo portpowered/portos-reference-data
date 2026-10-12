@@ -48,7 +48,7 @@ get:
       schema:
         type: string
   responses:
-    '303':
+    '302':
       description: Navigate with GET to the exact registered callback.
       headers:
         Location:

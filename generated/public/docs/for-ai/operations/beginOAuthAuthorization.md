@@ -90,7 +90,7 @@ get:
         enum:
           - S256
   responses:
-    '303':
+    '302':
       description: Navigate to sign-in and pending consent.
       headers:
         Location:

@@ -5698,7 +5698,7 @@ paths:
             enum:
               - S256
       responses:
-        '303':
+        '302':
           description: Navigate to sign-in and pending consent.
           headers:
             Location:
@@ -5745,7 +5745,7 @@ paths:
       responses:
         '200':
           description: >-
-            One-time browser continuation URL. Navigate the browser to receive a 303 to the
+            One-time browser continuation URL. Navigate the browser to receive a 302 to the
             registered callback.
           content:
             application/json:
@@ -5845,7 +5845,7 @@ paths:
           schema:
             type: string
       responses:
-        '303':
+        '302':
           description: Navigate with GET to the exact registered callback.
           headers:
             Location:

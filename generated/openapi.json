@@ -7863,7 +7863,7 @@
           }
         ],
         "responses": {
-          "303": {
+          "302": {
             "description": "Navigate to sign-in and pending consent.",
             "headers": {
               "Location": {
@@ -7924,7 +7924,7 @@
         },
         "responses": {
           "200": {
-            "description": "One-time browser continuation URL. Navigate the browser to receive a 303 to the registered callback.",
+            "description": "One-time browser continuation URL. Navigate the browser to receive a 302 to the registered callback.",
             "content": {
               "application/json": {
                 "schema": {
@@ -8058,7 +8058,7 @@
           }
         ],
         "responses": {
-          "303": {
+          "302": {
             "description": "Navigate with GET to the exact registered callback.",
             "headers": {
               "Location": {

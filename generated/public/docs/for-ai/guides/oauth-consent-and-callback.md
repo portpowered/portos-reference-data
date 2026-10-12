@@ -41,8 +41,8 @@ authorizationURL.search = new URLSearchParams({
 The user signs in on Port OS and reviews the requested permissions. Pause for the user; an agent must not approve its own grant, request passwords or manufacture a production sign-in identity. Local functional tests substitute an existing signed fixture identity at this boundary without changing production sign-in.
 
 After approval, the consent page navigates to a one-time Port OS continuation.
-That endpoint returns HTTP 303 See Other with the exact registered callback in
-Location, carrying code, original state and iss. Denial uses the same 303 handoff
+That endpoint returns HTTP 302 Found with the exact registered callback in
+Location, carrying code, original state and iss. Denial uses the same 302 handoff
 with access_denied instead of a code. The authenticated consent fetch returns
 200 JSON only for the intermediate continuation; it must be followed by document
 navigation, not another fetch. Continuations expire after two minutes and are
@@ -56,7 +56,7 @@ continuation references or credentials into shared chat or logs. Continue with
 
 For hosted-client acceptance, preserve the browser network log and approve a
 fresh request. Verify the document request to /oauth/authorization-response
-returns 303, the next GET reaches the registered client callback, and the client
+returns 302, the next GET reaches the registered client callback, and the client
 posts its code and original PKCE verifier to the discovered token endpoint.
 Repeat with Deny and verify access_denied without a code. Backend functional and
 website browser tests cover these boundaries against an isolated callback;

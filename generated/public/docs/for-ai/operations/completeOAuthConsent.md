@@ -62,7 +62,7 @@ post:
   responses:
     '200':
       description: >-
-        One-time browser continuation URL. Navigate the browser to receive a 303 to the registered
+        One-time browser continuation URL. Navigate the browser to receive a 302 to the registered
         callback.
       content:
         application/json:
