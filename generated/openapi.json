@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api.portoperatingsystem.lol",
+      "url": "https://api.portoperatingsystem.com",
       "description": "Pilot API. Discover its canonical OAuth issuer and resource before authorization."
     },
     {

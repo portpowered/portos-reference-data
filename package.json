@@ -1,6 +1,6 @@
 {
   "name": "@portpowered/reference-data",
-  "version": "0.4.14",
+  "version": "0.4.15",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -23,6 +23,6 @@
     "./resources/*": "./generated/resources/*"
   },
   "scripts": {
-    "check": "node scripts/validate-public-assets.mjs"
+    "check": "bun scripts/validate-public-assets.mjs"
   }
 }

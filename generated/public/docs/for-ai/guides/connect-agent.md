@@ -6,7 +6,7 @@ For a new REST connection, read the [complete authentication walkthrough](/docs/
 
 Copy this prompt into a client that can retrieve public documents:
 
-> Read https://app.portoperatingsystem.lol/docs/for-ai/guides/connect-agent.md. Discover Port OS authentication, choose REST or MCP and a registration method supported by this client, and help me connect. Pause for me to sign in and approve the requested access, then list only devices I can access. Do not claim device control until its result is observed.
+> Read https://portoperatingsystem.com/docs/for-ai/guides/connect-agent.md. Discover Port OS authentication, choose REST or MCP and a registration method supported by this client, and help me connect. Pause for me to sign in and approve the requested access, then list only devices I can access. Do not claim device control until its result is observed.
 
 | Component | Input | Result |
 | --- | --- | --- |

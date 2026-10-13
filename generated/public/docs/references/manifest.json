@@ -1,12 +1,12 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.14",
-  "sourceCommit": "e78516092e33ebd70b084a54d3acf471f551eb6e",
+  "version": "0.4.15",
+  "sourceCommit": "59230d4f39be6adf86718f6d4d34dda655303f03",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "c0f15dcfbd7d666ea783c12409d8f919fa6d3a03c8ad3fdefe26f7c7f5535c7f",
+  "sourceInputSHA256": "2cecbb5a4ecd705c0aabac2ddb9f84eb6a55c8801d2f32c0e9bf2775630fd9c1",
   "sourceInputCount": 792,
-  "assetSetSHA256": "423492edcd202e65feebaa6ec25681a07bad8b8795fd3455f134787d0ee627de",
+  "assetSetSHA256": "5b1039e0d54e8380e2fd4269b639ddb2277d92d25458f646a76651831a89e0e2",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1318,8 +1318,8 @@
     {
       "path": "/docs/for-ai/guides/adding-devices.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 881,
-      "sha256": "d7b274bf09e93f38c108309c0ff568ce055d0748acad6421eb1cc9317bab7467",
+      "bytes": 873,
+      "sha256": "c9f4725aa6648890cb16bba72e8bf1cd246f266ea056c1fff5ea459d6660083d",
       "links": [
         "/docs/for-ai/guides/first-setup.md",
         "/docs/for-ai/guides/troubleshooting.md"
@@ -1328,8 +1328,8 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19247,
-      "sha256": "9ed31b5adeb2149677cae9225b0161fb5d407161533d10293c85abda34ac7aa2",
+      "bytes": 19317,
+      "sha256": "0efd6abed02b7f20d7880e6a587a41ce2ddf2989d5b3f446e70e90219070f880",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1371,8 +1371,8 @@
     {
       "path": "/docs/for-ai/guides/connect-agent.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2919,
-      "sha256": "5aa9459297c58a1b648b2385a546b25814567c4bdbaef30ab03ffe909f73d391",
+      "bytes": 2915,
+      "sha256": "a2df90b8c73167d3e9897396ef8a8b51c0b428d3c96fe15da92af6bbf9089eb2",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
@@ -1514,8 +1514,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2994,
-      "sha256": "242df84dca2cb97a6c9a70fc32c8538074b5c7bdc6c7f71ccdca85f6a4f065d2",
+      "bytes": 3064,
+      "sha256": "e53caff251249e82b619facc6e0511f30f076a2d12bce8ee45dd8ca5b7552023",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
@@ -6862,7 +6862,7 @@
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
       "bytes": 443314,
-      "sha256": "12c832cf75368d75b351774aefb874d7be28d8ce25f4db1d635915aef900295c",
+      "sha256": "84c99734709788b051d5c8d9267e954413adcd4a633b6cde65c820a625e16544",
       "links": []
     },
     {

@@ -6,7 +6,7 @@ info:
     The Portos API is for turning on lights, playing music on your speaker, and managing your
     devices.
 servers:
-  - url: https://api.portoperatingsystem.lol
+  - url: https://api.portoperatingsystem.com
     description: Pilot API. Discover its canonical OAuth issuer and resource before authorization.
   - url: http://localhost
 security:

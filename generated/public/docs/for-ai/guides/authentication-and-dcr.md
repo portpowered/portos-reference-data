@@ -18,14 +18,14 @@ Read [authorization rules](/docs/for-ai/guides/authorization-rules.md) for scope
 
 ## Discover the OAuth server and choose REST or MCP
 
-This discovery step is shared by every client. The deployed pilot API is https://api.portoperatingsystem.lol. Fetch its /.well-known/oauth-authorization-server document anonymously. Read issuer, authorization_endpoint, token_endpoint, registration_endpoint, revocation_endpoint and scopes_supported. Use the returned endpoints exactly. An alias can advertise a different canonical Cloud Run issuer; do not substitute the alias into token audiences.
+This discovery step is shared by every client. The API is https://api.portoperatingsystem.com and the authorization server is https://auth.portoperatingsystem.com. Fetch the API's /.well-known/oauth-authorization-server document anonymously. Read issuer, authorization_endpoint, token_endpoint, registration_endpoint, revocation_endpoint and scopes_supported. Use the returned auth endpoints exactly. The issuer and API resource have different origins; do not use the auth issuer as the API destination or token audience.
 
 | Interface | API destination | OAuth resource |
 | --- | --- | --- |
-| REST | The returned issuer, plus the documented operation path | The exact returned issuer |
-| MCP | The returned issuer plus /mcp, Streamable HTTP | The resource returned by /.well-known/oauth-protected-resource/mcp, normally issuer plus /mcp |
+| REST | https://api.portoperatingsystem.com plus the documented operation path | https://api.portoperatingsystem.com |
+| MCP | https://api.portoperatingsystem.com/mcp, Streamable HTTP | The resource returned by /.well-known/oauth-protected-resource/mcp |
 
-An MCP connector can start at https://api.portoperatingsystem.lol/mcp and follow its WWW-Authenticate resource_metadata URL. Fetch that public metadata and the authorization server it names. MCP initialization alone does not prove that the account's devices are accessible. Never use a REST token on MCP or an MCP token on REST.
+An MCP connector can start at https://api.portoperatingsystem.com/mcp and follow its WWW-Authenticate resource_metadata URL. Fetch that public metadata and the authorization server it names. MCP initialization alone does not prove that the account's devices are accessible. Never use a REST token on MCP or an MCP token on REST.
 
 Choose the transport before authorizing. Omitting resource at authorization selects REST. Supply the discovered resource explicitly to select MCP. Code exchange and refresh may omit resource and inherit the grant audience; an explicit resource must stay unchanged. If a REST request fails because you authorized the MCP resource (or the reverse), obtain a new user authorization for the correct resource. Refresh cannot change the token's audience.
 
@@ -35,17 +35,17 @@ See [scopes and resource rules](/docs/for-ai/guides/authorization-rules.md). Aut
 
 ### Carry discovery values into every request
 
-This JavaScript fragment initializes a REST connection. Keep `authorizationServer` and `resource` for the consent and token examples; the API alias is only the discovery starting point.
+This JavaScript fragment initializes a REST connection. Keep `authorizationServer` and `resource` for the consent and token examples; the API base is the protected resource, independently of the discovered auth issuer.
 
 ```javascript
-const response = await fetch('https://api.portoperatingsystem.lol/.well-known/oauth-authorization-server');
+const apiBase = 'https://api.portoperatingsystem.com';
+const response = await fetch(apiBase + '/.well-known/oauth-authorization-server');
 if (!response.ok) throw new Error('OAuth discovery failed');
 const authorizationServer = await response.json();
-const resource = authorizationServer.issuer;
-const apiBase = authorizationServer.issuer;
+const resource = apiBase;
 ```
 
-For MCP, assign `resource` from the protected-resource metadata's `resource` field instead. Do not replace either value with the hostname you started from. A wrong `resource` can produce an `invalid_target` error callback even when client registration succeeded.
+For MCP, assign `resource` from the protected-resource metadata's `resource` field instead. Keep the auth issuer separate from the API resource. A wrong `resource` can produce an `invalid_target` error callback even when client registration succeeded.
 
 Canonical component: [Discover the OAuth server and choose REST or MCP](/docs/for-ai/guides/oauth-discovery.md).
 
