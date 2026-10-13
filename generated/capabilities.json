@@ -485,6 +485,7 @@
                   "minItems": 1,
                   "items": {
                     "type": "object",
+                    "description": "Exact interface messages covered by an endpoint authorization requirement.",
                     "required": [
                       "interfaceName",
                       "interfaceVersion",
@@ -506,7 +507,8 @@
                         }
                       }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "title": "EndpointAuthorizationOperation"
                   }
                 }
               },
@@ -4891,6 +4893,55 @@
         }
       ],
       "attributes": [
+        {
+          "name": "current-content",
+          "description": "Currently selected media metadata. Report only metadata supplied by the media provider; omission means unknown, not an empty playback session.",
+          "schema": {
+            "description": "Currently selected media metadata. Report only metadata supplied by the media provider; omission means unknown, not an empty playback session.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "object",
+                "description": "Metadata for the media currently selected by a provider.",
+                "properties": {
+                  "mediaId": {
+                    "type": "string",
+                    "description": "Provider media identifier for the selected content."
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Display title supplied by the media provider."
+                  },
+                  "artist": {
+                    "type": "string",
+                    "description": "Artist or creator supplied by the media provider."
+                  },
+                  "artworkUrl": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "HTTP or HTTPS URL of provider artwork. Consumers must treat this as untrusted display data, never executable content."
+                  },
+                  "durationSeconds": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Reported duration of the selected media in seconds."
+                  },
+                  "positionSeconds": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Observed playback position in seconds; not a command acknowledgement."
+                  }
+                },
+                "additionalProperties": false,
+                "title": "MediaCurrentContent"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
         {
           "name": "now-playing",
           "description": "Media identity observed on this route. Active false means the provider session is on another target; it does not prove the speaker is silent through other providers.",
@@ -9930,12 +9981,6 @@
           "directionality": "in",
           "schema": {
             "type": "object",
-            "properties": {
-              "preferOnDemandSnapshot": {
-                "type": "boolean",
-                "default": false
-              }
-            },
             "additionalProperties": false
           }
         },

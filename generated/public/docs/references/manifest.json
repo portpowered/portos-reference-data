@@ -1,12 +1,12 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.13",
-  "sourceCommit": "efc3e1918ac4275830a357bca8788ba3d32424d0",
+  "version": "0.4.14",
+  "sourceCommit": "e78516092e33ebd70b084a54d3acf471f551eb6e",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "050bbce25bfbec169d4b40976271fe3f08421f8c7bd2068065b8e246a96286ca",
-  "sourceInputCount": 790,
-  "assetSetSHA256": "ea189d1d6a309b459d93eaff1800787da77f9e7616cc06cce55fe38d9d2ca6f5",
+  "sourceInputSHA256": "c0f15dcfbd7d666ea783c12409d8f919fa6d3a03c8ad3fdefe26f7c7f5535c7f",
+  "sourceInputCount": 792,
+  "assetSetSHA256": "423492edcd202e65feebaa6ec25681a07bad8b8795fd3455f134787d0ee627de",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -758,10 +758,11 @@
     {
       "path": "/docs/for-ai/capability-interfaces/media-player/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4040,
-      "sha256": "88195db57ac2c53fad893495d385e87ce927b1eb7bcc5f7e39a30d696bd56125",
+      "bytes": 4149,
+      "sha256": "d159abf816d86250237be7001a9c8c68a601282f8520026b6394427254c26aa9",
       "links": [
         "/docs/references/capability-interfaces/media-player/1.0.yaml",
+        "/docs/references/capability-interfaces/media-player/1.0/attributes/current-content.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-speed.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-state.yaml",
@@ -3420,23 +3421,23 @@
     {
       "path": "/docs/references/capability-interfaces/authorization-requirements.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4974,
-      "sha256": "55fe4650610bce0eda1a6af2bc932b6f7e0943b3ce61862e3aa83711e654ae56",
+      "bytes": 5128,
+      "sha256": "4b447fd2b884402d31f73ac202305df73991fe87c186eca5fd1f7182f9d4999b",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/authorization-requirements/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/authorization-requirements/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4974,
-      "sha256": "55fe4650610bce0eda1a6af2bc932b6f7e0943b3ce61862e3aa83711e654ae56",
+      "bytes": 5128,
+      "sha256": "4b447fd2b884402d31f73ac202305df73991fe87c186eca5fd1f7182f9d4999b",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/authorization-requirements/1.0/configuration.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1640,
-      "sha256": "d2b96f5fc7d0898eb73768697aeae0306d13475226e8297c8826a83c0690bf7b",
+      "bytes": 1790,
+      "sha256": "8190e640db1ca89c6a7ed89be9388f18f6b525c53687d56ad7d5c88328a033c7",
       "links": []
     },
     {
@@ -4961,16 +4962,23 @@
     {
       "path": "/docs/references/capability-interfaces/media-player.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 18068,
-      "sha256": "8db7fbb7a3a0f1c14ded4453dfc05f79284b00a85fdc57ce5772a7c6ab274689",
+      "bytes": 19745,
+      "sha256": "fcc5d6cefac461a421ba0e02ad62c091030f333116a8fc70db3c9b759d489df9",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-player/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 18068,
-      "sha256": "8db7fbb7a3a0f1c14ded4453dfc05f79284b00a85fdc57ce5772a7c6ab274689",
+      "bytes": 19745,
+      "sha256": "fcc5d6cefac461a421ba0e02ad62c091030f333116a8fc70db3c9b759d489df9",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/current-content.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 1242,
+      "sha256": "69c6575938b74439fef006307dc0a5323551e9cce3b3bb19a9c5388175cc7477",
       "links": []
     },
     {
@@ -6349,16 +6357,16 @@
     {
       "path": "/docs/references/capability-interfaces/snapshot.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1258,
-      "sha256": "de298fdbf194e8ba10a916356cf8a0f77840cbb02025c667ee66bdf250880e63",
+      "bytes": 1159,
+      "sha256": "255aec657652ab0c25a2df5ddd6304cc2bce834bd957a6fb1f707bf4c3488d3f",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/snapshot/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/snapshot/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1258,
-      "sha256": "de298fdbf194e8ba10a916356cf8a0f77840cbb02025c667ee66bdf250880e63",
+      "bytes": 1159,
+      "sha256": "255aec657652ab0c25a2df5ddd6304cc2bce834bd957a6fb1f707bf4c3488d3f",
       "links": []
     },
     {
@@ -6371,8 +6379,8 @@
     {
       "path": "/docs/references/capability-interfaces/snapshot/1.0/messages/get-snapshot.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 116,
-      "sha256": "ec8d114e2ddce673b942608af03a50ec719524b5be0c3bd6cd2b7fa45de48d51",
+      "bytes": 41,
+      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b",
       "links": []
     },
     {

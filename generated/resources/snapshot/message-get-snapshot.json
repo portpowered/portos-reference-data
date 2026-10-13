@@ -1,10 +1,4 @@
 {
   "type": "object",
-  "properties": {
-    "preferOnDemandSnapshot": {
-      "type": "boolean",
-      "default": false
-    }
-  },
   "additionalProperties": false
 }

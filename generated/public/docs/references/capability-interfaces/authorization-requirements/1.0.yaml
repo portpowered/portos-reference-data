@@ -120,6 +120,7 @@ configuration:
             minItems: 1
             items:
               type: object
+              description: Exact interface messages covered by an endpoint authorization requirement.
               required:
                 - interfaceName
                 - interfaceVersion
@@ -136,6 +137,7 @@ configuration:
                   items:
                     type: string
               additionalProperties: false
+              title: EndpointAuthorizationOperation
         additionalProperties: false
         title: EndpointAuthorizationRequirement
   additionalProperties: false

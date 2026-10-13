@@ -10,10 +10,6 @@ messages:
     directionality: in
     schema:
       type: object
-      properties:
-        preferOnDemandSnapshot:
-          type: boolean
-          default: false
       additionalProperties: false
   - name: get-snapshot-response
     description: null
