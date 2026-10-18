@@ -84,6 +84,8 @@ tags:
   - name: Endpoint Groups
     description: |
       An endpoint group is a way to group a set of endpoints.
+  - name: Relationships
+    description: Typed relationships between port resources.
   - name: Endpoint Group Routes
     description: |
       An endpoint group route is a way for a gropu of devices to be controlled at the same time.
@@ -212,79 +214,6 @@ paths:
               example: pong
       x-portos-delegated: false
       x-portos-resource-permission: false
-  /.well-known/openid-configuration:
-    get:
-      operationId: getOpenIDConfiguration
-      tags:
-        - Infrastructure
-      summary: OpenID Connect discovery
-      description: >
-        Returns the OpenID Connect discovery document as defined by the OpenID Connect Discovery 1.0
-        specification. This endpoint is publicly accessible and does not require authentication.
-      security: []
-      responses:
-        '200':
-          description: OpenID Connect configuration retrieved successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  issuer:
-                    type: string
-                    description: The issuer identifier
-                    example: https://portpowered.com
-                  jwks_uri:
-                    type: string
-                    description: URL of the JSON Web Key Set document
-                    example: https://portpowered.com/.well-known/jwks.json
-                  token_endpoint:
-                    type: string
-                    description: URL of the token endpoint
-                    example: https://portpowered.com/auth/token
-                  response_types_supported:
-                    type: array
-                    items:
-                      type: string
-                    example:
-                      - code
-                  subject_types_supported:
-                    type: array
-                    items:
-                      type: string
-                    example:
-                      - public
-                  id_token_signing_alg_values_supported:
-                    type: array
-                    items:
-                      type: string
-                    example:
-                      - RS256
-                  grant_types_supported:
-                    type: array
-                    items:
-                      type: string
-                    example:
-                      - authorization_code
-                      - client_credentials
-                      - refresh_token
-                      - urn:ietf:params:oauth:grant-type:token-exchange
-                      - urn:ietf:params:oauth:grant-type:device_code
-              example:
-                issuer: https://portos-pilot-api-685761720421.us-west1.run.app
-                jwks_uri: https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json
-                token_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
-                response_types_supported:
-                  - code
-                subject_types_supported:
-                  - public
-                id_token_signing_alg_values_supported:
-                  - RS256
-                grant_types_supported:
-                  - authorization_code
-                  - refresh_token
-      x-portos-delegated: false
-      x-portos-resource-permission: false
   /.well-known/oauth-authorization-server:
     get:
       operationId: getOAuthAuthorizationServerMetadata
@@ -296,8 +225,8 @@ paths:
       x-portos-resource-permission: false
       description: >-
         Discover the canonical issuer and endpoints for the deployed environment. Public REST grants
-        use issuer as resource; MCP grants use issuer/mcp. Only allowlisted CIMD identifiers are
-        accepted. Registration is anonymous; device access requires user consent.
+        use issuer as resource; MCP grants use issuer/mcp. CIMD client IDs must be public HTTPS
+        metadata URLs. Registration is anonymous; device access requires user consent.
       responses:
         '200':
           description: Authorization server metadata.
@@ -519,18 +448,24 @@ paths:
       tags:
         - Endpoints
       description: >-
-        Lists endpoints for the authenticated user and supports query-API endpoint-state retrieval.
-        To retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together
-        with `expand=interfaces.attributes`. That expansion populates each returned endpoint's
+        Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber
+        filters remain within that caller-owned scope. An explicit owner can select another owner's
+        endpoints when they are readable by the caller. An exact id lookup takes precedence over
+        owner, type, serialNumber, and enablement filters; it can return a readable shared endpoint,
+        including disabled endpoint metadata, but still requires endpoint-read permission. To
+        retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with
+        `expand=interfaces.attributes`. That expansion populates each returned endpoint's
         `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true`
-        to force a live device-backed attribute refresh before the response is returned.
+        to force a live device-backed attribute refresh before the response is returned. The filters
+        and pagination use the shared authorized endpoint query service.
       parameters:
         - name: enablement
           in: query
           description: >-
-            Collection visibility. Defaults to ENABLED. Use '*' to include all authorized endpoints,
-            or DISABLED to list hidden endpoints. Exact id metadata reads ignore this filter; live
-            messaging remains blocked for disabled endpoints.
+            Collection visibility within the selected owner scope. Defaults to ENABLED. Use '*' to
+            include both enabled and disabled endpoints, or DISABLED to list disabled endpoints. An
+            exact id metadata read ignores this filter and can return a disabled endpoint when
+            readable; live messaging remains blocked for disabled endpoints.
           schema:
             type: string
             enum:
@@ -540,8 +475,9 @@ paths:
         - name: owner
           in: query
           description: >-
-            The owner of the endpoints to get. Use '~caller' to get endpoints for the authenticated
-            user
+            Owner of the endpoints to get. Defaults to the authenticated user's endpoints. Use
+            '~caller' to make that scope explicit; another owner can be selected only for endpoints
+            readable by the caller.
           required: false
           schema:
             type: string
@@ -552,7 +488,10 @@ paths:
               value: port1/principals/example
         - name: id
           in: query
-          description: The unique identifier of a specific endpoint to retrieve
+          description: >-
+            The unique identifier of a specific endpoint to retrieve. When provided, this exact-ID
+            filter takes precedence over owner, type, serialNumber and enablement filters. It can
+            return a shared or disabled endpoint when the caller has endpoint-read permission.
           required: false
           schema:
             type: string
@@ -579,19 +518,25 @@ paths:
               value: SN-12345
         - name: nextToken
           in: query
-          description: The next token to get the next page of results
+          description: >-
+            Opaque server-issued continuation token. Repeat the same selection, page size,
+            expansion, force-refresh setting and authenticated grant. Modified, expired or
+            differently bound tokens return 400; restart without nextToken.
           required: false
           schema:
             type: string
+            minLength: 1
           examples:
             next-token:
               value: OPAQUE_TOKEN_FROM_PREVIOUS_RESPONSE
         - name: maxResults
           in: query
-          description: The maximum number of results to return
+          description: The maximum number of results to return, from 1 through 100.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
           examples:
             max-results:
               value: 10
@@ -605,8 +550,12 @@ paths:
           required: false
           schema:
             type: array
+            uniqueItems: true
+            maxItems: 1
             items:
               type: string
+              enum:
+                - interfaces.attributes
           examples:
             deep-interface-attributes:
               value:
@@ -618,7 +567,8 @@ paths:
           description: >-
             Forces a live device-backed attribute refresh for endpoint-state queries. This flag is
             only applied when `expand` includes `interfaces.attributes`. Send `true` to force the
-            refresh; absent, invalid, or `false` values fall back to the non-forced query behavior.
+            refresh; absent or `false` values use stored state. Invalid values, or `true` without
+            the required expansion, return 400.
           required: false
           schema:
             type: boolean
@@ -671,7 +621,7 @@ paths:
                         ownerId: port1/principals/example
                         enablement: ENABLED
         '400':
-          description: Bad request - missing required parameters
+          description: Missing or malformed endpoint query parameters
           content:
             application/json:
               schema:
@@ -817,15 +767,19 @@ paths:
       tags:
         - Endpoints
       description: >-
-        Return a bounded page of authorized endpoints matching the shared Query expression,
-        including endpoints shared by other owners. Read permission is evaluated before filtering,
-        pagination and state expansion. See the request schema for supported fields and operators.
-        Use groupId to select members of a readable room/group, then intersect type or declared
-        interfaces to select lights. Group predicates additionally require group:read for delegated
-        OAuth. Repeat the complete query settings and grant when following nextToken; cursors expire
-        after fifteen minutes. Device attributes are returned only when expanded. Report per-target
-        command acceptance and observed state separately; querying a group does not grant permission
-        to control its members.
+        Return a bounded page of authorized endpoints matching the shared Query expression. An empty
+        query and filters such as type or interfaces default to enabled endpoints owned by the
+        caller. An explicit ownerId, groupId, or required exact id selector can include readable
+        endpoints owned by others; endpoint-read permission is still required for each result.
+        Collections exclude disabled endpoints unless enablement is filtered, while a query that
+        requires specific exact endpoint IDs can return disabled endpoint metadata without an
+        enablement filter. See the request schema for supported fields and operators. Use groupId to
+        select members of a readable room/group, then intersect type or declared interfaces to
+        select lights. Group predicates additionally require group:read for delegated OAuth. Repeat
+        the complete query settings and grant when following nextToken; cursors expire after fifteen
+        minutes. Device attributes are returned only when expanded. Report per-target command
+        acceptance and observed state separately; querying a group does not grant permission to
+        control its members.
       x-portos-conditional-scopes:
         groupId:
           - group:read
@@ -1964,10 +1918,11 @@ paths:
       operationId: getRoutes
       summary: Get Routes
       description: >
-        API to enumerate the routes that a principal has permissions to. The returned route `id` is
-        the persisted Port OS route identifier. For routes created through synchronization, use
-        `associatedPluginRouteId` to match the stable plugin-owned or fixture route identity from
-        the discovery payload.
+        Lists routes owned by the authenticated caller by default. Supplying an owner selects that
+        owner's routes, subject to the caller's route-read permissions. The default page size is 10
+        and the maximum is 100. The returned route `id` is the persisted Port OS route identifier.
+        For routes created through synchronization, use `associatedPluginRouteId` to match the
+        stable plugin-owned or fixture route identity from the discovery payload.
       responses:
         '200':
           description: OK
@@ -1979,6 +1934,16 @@ paths:
                 results: []
                 paginationContext:
                   nextToken: abc123
+        '400':
+          description: Invalid query parameter, including an invalid maxResults value or pagination token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: maxResults must be between 1 and 100; choose a value in that range and retry.
+                code: BAD_REQUEST
+                family: BAD_REQUEST
         '500':
           description: Internal server error
           content:
@@ -1990,6 +1955,19 @@ paths:
                 code: INTERNAL
                 family: INTERNAL_SERVER_ERROR
       parameters:
+        - name: owner
+          in: query
+          description: >-
+            Owner whose routes to list. Defaults to the authenticated caller when omitted. A
+            different owner is permitted only for routes the caller can read.
+          required: false
+          schema:
+            type: string
+          examples:
+            caller:
+              value: ~caller
+            specific-owner:
+              value: port1/principals/user123
         - name: expand
           in: query
           description: Expansion tokens that request related or computed fields for each result.
@@ -2015,10 +1993,15 @@ paths:
               value: abc123
         - name: maxResults
           in: query
-          description: Maximum number of results to return.
+          description: >-
+            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
+            accepted.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
           examples:
             page-size:
               value: 50
@@ -2348,10 +2331,10 @@ paths:
         - Plugins
       summary: Establish or update a plugin registration
       description: >-
-        Registers a new plugin or updates an existing one. Supports three plugin types: local
-        (running on the server instance), webservice (HTTP-based remote plugins with OAuth
-        credentials), and Apple Push Notification (APNS-based plugins). Associated secrets (OAuth
-        client credentials or APNS tokens) are stored alongside the plugin registration.
+        Registers a new plugin or updates an existing one. Supports two plugin types: webservice
+        (HTTP-based remote plugins with OAuth credentials) and Apple Push Notification (APNS-based
+        plugins). Associated secrets (OAuth client credentials or APNS tokens) are stored alongside
+        the plugin registration.
 
 
 
@@ -2778,6 +2761,307 @@ paths:
         - oauth2: []
         - bearerAuth: []
       summary: Plugin Auth Code Link
+  /plugin-oauth-authorizations:
+    post:
+      operationId: beginPluginOAuthAuthorization
+      tags:
+        - Plugins
+      summary: Begin plugin OAuth authorization
+      description: >-
+        Starts a state-managed provider connection for the authenticated principal. Requires the
+        existing plugin-auth-code-exchange permission and, for renewal, auth-link-write on the exact
+        selected connection. The configured provider and host must support the state-managed flow.
+        Client credentials, scope, issuer, PKCE material and principal cannot be supplied by the
+        caller.
+
+        The attempt expires after five minutes. The exact original URL/expiry may be replayed under
+        the same Idempotency-Key for 24 hours, even after attempt expiry. Begin with a fresh key to
+        obtain a new attempt; replay never extends it. Current authorization and renewal eligibility
+        are checked before replay.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      security:
+        - oauth2: []
+        - bearerAuth: []
+      x-portos-delegated: false
+      x-portos-resource-permission: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PluginOAuthAuthorizationRequest'
+            example:
+              pluginId: port1/systems/zero/plugins/9d21576b-e2fe-4d6a-99ab-4fc969a08d53
+              redirectUri: https://auth.portoperatingsystem.com/plugins
+      responses:
+        '200':
+          description: Authorization attempt persisted; the account is not connected yet.
+          headers:
+            Cache-Control:
+              description: Authorization responses must not be cached.
+              schema:
+                type: string
+                enum:
+                  - no-store
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginOAuthAuthorizationResponse'
+              example:
+                authorizationUrl: >-
+                  https://api.sonos.com/login/v3/oauth?client_id=example&response_type=code&state=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                expiresAt: '2026-10-16T12:05:00Z'
+        '400':
+          description: Malformed request, unsupported configuration or missing/invalid Idempotency-Key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: BAD_REQUEST
+                code: BAD_REQUEST
+                message: Authorization request is invalid; start connecting again
+        '401':
+          description: Authentication required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: UNAUTHORIZED
+                code: UNAUTHORIZED
+                message: Sign in before connecting this provider
+        '403':
+          description: Current plugin or renewal permission denied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: FORBIDDEN
+                code: FORBIDDEN
+                message: You do not have permission to connect this provider
+        '404':
+          description: Selected plugin or renewal connection no longer exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: NOT_FOUND
+                code: NOT_FOUND
+                message: The selected connection no longer exists; choose another connection
+        '409':
+          description: A request with the same Idempotency-Key is still in flight.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: CONFLICT
+                code: IDEMPOTENCY_KEY_IN_FLIGHT
+                message: >-
+                  Authorization is in progress or uncertain; start a new authorization if no
+                  committed result is available
+        '422':
+          description: Idempotency-Key was used with a different payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: UNPROCESSABLE_ENTITY
+                code: IDEMPOTENCY_KEY_REUSED
+                message: Idempotency-Key has a different request body; use a new key
+        '500':
+          description: Host authorization storage failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: INTERNAL_SERVER_ERROR
+                code: INTERNAL
+                message: Authorization could not be saved; retry with the same request key
+        '503':
+          description: Authorization service is unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: SERVICE_UNAVAILABLE
+                code: SERVICE_UNAVAILABLE
+                message: Authorization is unavailable; retry with the same request key
+  /plugin-oauth-authorization-completions:
+    post:
+      operationId: completePluginOAuthAuthorization
+      tags:
+        - Plugins
+      summary: Complete plugin OAuth authorization
+      description: >-
+        Completes a state-managed connection for the authenticated principal using the exact plugin,
+        new/renewal intent and redirect from its begin request. Requires the existing
+        plugin-auth-code-exchange permission and, for renewal, auth-link-write on the selected
+        connection. Current eligibility is checked before replaying a committed response.
+
+        One transaction consumes state and commits an exchange-started fence before contacting the
+        provider. Credential/connection installation and the nonsecret completion receipt then
+        commit together. A successful response means that installation committed; it does not prove
+        device discovery or playback.
+
+        Retry a transport failure with the same complete payload and Idempotency-Key. A committed
+        result is replayed for 24 hours. An exchange-started or uncertain result returns 409 and
+        cannot be repaired by another key or token exchange; start a fresh authorization instead.
+        Vendor failure never rearms consumed state. Callback code and state must not be logged or
+        placed in URL paths.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      security:
+        - oauth2: []
+        - bearerAuth: []
+      x-portos-delegated: false
+      x-portos-resource-permission: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PluginOAuthCompletionRequest'
+            example:
+              pluginId: port1/systems/zero/plugins/9d21576b-e2fe-4d6a-99ab-4fc969a08d53
+              redirectUri: https://auth.portoperatingsystem.com/plugins
+              code: provider-code-example
+              state: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      responses:
+        '200':
+          description: Connection installation committed, or its committed response was replayed.
+          headers:
+            Cache-Control:
+              description: Authorization responses must not be cached.
+              schema:
+                type: string
+                enum:
+                  - no-store
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginOAuthCompletionResponse'
+              example:
+                authLinkId: port1/principals/example/auth-links/installed-connection
+        '400':
+          description: Malformed request, invalid/expired state or missing/invalid Idempotency-Key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: BAD_REQUEST
+                code: BAD_REQUEST
+                message: Authorization request is invalid; start connecting again
+        '401':
+          description: Authentication required or provider authorization credentials rejected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: UNAUTHORIZED
+                code: UNAUTHORIZED
+                message: Sign in before connecting this provider
+        '403':
+          description: Current plugin or renewal permission denied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: FORBIDDEN
+                code: FORBIDDEN
+                message: You do not have permission to connect this provider
+        '404':
+          description: Selected plugin or renewal connection no longer exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: NOT_FOUND
+                code: NOT_FOUND
+                message: The selected connection no longer exists; choose another connection
+        '409':
+          description: An exchange is in progress or uncertain; do not exchange again.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: CONFLICT
+                code: IDEMPOTENCY_KEY_IN_FLIGHT
+                message: >-
+                  Authorization is in progress or uncertain; start a new authorization if no
+                  committed result is available
+        '422':
+          description: Idempotency-Key was used with a different payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: UNPROCESSABLE_ENTITY
+                code: IDEMPOTENCY_KEY_REUSED
+                message: Idempotency-Key has a different request body; use a new key
+        '429':
+          description: Provider authorization is rate limited.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: TOO_MANY_REQUESTS
+                code: TOO_MANY_REQUESTS
+                message: Provider authorization is rate limited; try again later
+        '500':
+          description: Host storage or installation failed; retry with the same request key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: INTERNAL_SERVER_ERROR
+                code: INTERNAL
+                message: Authorization could not be saved; retry with the same request key
+        '502':
+          description: Provider returned an invalid authorization response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: PROVIDER_BAD_RESPONSE
+                code: INVALID_PROVIDER_RESPONSE
+                message: Provider authorization returned an invalid response; start connecting again
+        '503':
+          description: Provider or authorization service is unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: SERVICE_UNAVAILABLE
+                code: SERVICE_UNAVAILABLE
+                message: Authorization is unavailable; retry with the same request key
+        '504':
+          description: Provider authorization timed out; start a fresh authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                family: PROVIDER_TIMEOUT
+                code: PROVIDER_TIMEOUT
+                message: Provider authorization timed out; start a fresh authorization
   /endpoint-groups:
     get:
       operationId: enumerateEndpointGroups
@@ -2802,12 +3086,13 @@ paths:
               - ENABLED
               - DISABLED
               - '*'
+            default: ENABLED
         - name: owner
           in: query
           description: >-
-            The owner of the endpoint groups to get. Use '~caller' to get endpoint groups for the
-            authenticated user
-          required: true
+            Owner whose endpoint groups to get. Defaults to the authenticated caller when omitted.
+            Use '~caller' as an explicit alias for the authenticated user.
+          required: false
           schema:
             type: string
           examples:
@@ -2826,10 +3111,15 @@ paths:
               value: '123'
         - name: maxResults
           in: query
-          description: The maximum number of results to return
+          description: >-
+            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
+            accepted.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
           examples:
             max-results:
               value: 10
@@ -3124,17 +3414,16 @@ paths:
                 family: INTERNAL_SERVER_ERROR
       x-portos-delegated: true
       x-portos-resource-permission: true
-  /group-relationships:
+  /relationships:
     get:
       tags:
-        - Endpoint Group Routes
-      operationId: enumerateGroupRelationships
-      summary: List group relationships
+        - Relationships
+      operationId: enumerateRelationships
+      summary: List relationships
       description: >
-        Read-only enumeration of provider-reported relationships (`IS_PART_OF`, `CAN_CONTROL`,
-        `LOCATED_IN`) between routes and group routes the caller is authorized to read.
-        Relationships are managed by plugin discovery only. Optionally filter by a group, route or
-        group route, or endpoint.
+        Read-only enumeration of typed relationships between endpoints, routes, groups and group
+        routes. Both vertices must be readable by the caller. Defaults to caller-owned relationships
+        with a bounded page. Provider discovery and group membership operations manage the edges.
       security:
         - oauth2:
             - group:read
@@ -3142,8 +3431,10 @@ paths:
       parameters:
         - name: owner
           in: query
-          description: The owner of the relationships to get. Use '~caller' for the authenticated user
-          required: true
+          description: >-
+            Owner whose relationships to get. Defaults to the authenticated caller when omitted. Use
+            '~caller' as an explicit alias for the authenticated user.
+          required: false
           schema:
             type: string
           examples:
@@ -3151,7 +3442,7 @@ paths:
               value: ~caller
         - name: groupId
           in: query
-          description: Only relationships with a vertex in this endpoint group (redirects are followed)
+          description: Relationships touching this group or a group route belonging to it.
           required: false
           schema:
             type: string
@@ -3169,13 +3460,31 @@ paths:
               value: port1/principals/user123/group-routes/abc
         - name: endpointId
           in: query
-          description: Only relationships whose route vertex belongs to this endpoint
+          description: Relationships touching this endpoint or a route belonging to it.
           required: false
           schema:
             type: string
           examples:
             endpoint:
               value: port1/principals/user123/endpoints/robot
+        - name: vertexId
+          in: query
+          description: Relationships touching this exact resource ID.
+          required: false
+          schema:
+            type: string
+        - name: parentId
+          in: query
+          description: Relationships with a route or group-route vertex belonging to this resource ID.
+          required: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Only relationships of this type.
+          required: false
+          schema:
+            $ref: '#/components/schemas/RelationshipType'
         - name: nextToken
           in: query
           description: The next token to get the next page of results
@@ -3187,10 +3496,15 @@ paths:
               value: '123'
         - name: maxResults
           in: query
-          description: The maximum number of results to return
+          description: >-
+            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
+            accepted.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
           examples:
             max-results:
               value: 10
@@ -3210,22 +3524,24 @@ paths:
                 - metadata
       responses:
         '200':
-          description: Group relationships retrieved successfully
+          description: Relationships retrieved successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnumerateGroupRelationshipsResponse'
+                $ref: '#/components/schemas/EnumerateRelationshipsResponse'
               example:
                 results:
-                  - id: port1/principals/user123/group-relationships/rel-1
+                  - id: port1/principals/user123/relationships/rel-1
                     ownerId: port1/principals/user123
                     type: CAN_CONTROL
                     source:
-                      routeId: port1/principals/user123/routes/robot
-                      endpointId: port1/principals/user123/endpoints/robot
+                      kind: ROUTE
+                      id: port1/principals/user123/routes/robot
+                      parentId: port1/principals/user123/endpoints/robot
                     target:
-                      groupRouteId: port1/principals/user123/group-routes/room-18
-                      groupId: port1/principals/user123/endpoint-groups/kitchen
+                      kind: GROUP_ROUTE
+                      id: port1/principals/user123/group-routes/room-18
+                      parentId: port1/principals/user123/endpoint-groups/kitchen
                     interfaces:
                       - name: port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
                         version: '1.0'
@@ -3462,7 +3778,9 @@ paths:
           description: >-
             Asks each provider for fresh values of the group routes before the response is returned.
             Only applied when `expand` includes `interfaces.attributes`. Absent, invalid or `false`
-            values return the stored values.
+            values return the stored values. A forced read includes only attributes refreshed by
+            that request. If any provider fails, the request returns `500 DEEP_QUERY_FAILED` instead
+            of presenting stored values as fresh.
           required: false
           schema:
             type: boolean
@@ -3914,9 +4232,9 @@ paths:
         - name: owner
           in: query
           description: >-
-            The owner of the group routes to get. Use '~caller' to get group routes for the
-            authenticated user
-          required: true
+            Owner whose group routes to get. Defaults to the authenticated caller when omitted. Use
+            '~caller' as an explicit alias for the authenticated user.
+          required: false
           schema:
             type: string
           examples:
@@ -3935,10 +4253,15 @@ paths:
               value: '123'
         - name: maxResults
           in: query
-          description: The maximum number of results to return
+          description: >-
+            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
+            accepted.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
           examples:
             max-results:
               value: 10
@@ -4155,7 +4478,10 @@ paths:
         - Access Control Rules
       operationId: getAccessControlRules
       description: >-
-        Get all access control rules.
+        Get access-control rules owned by the authenticated caller by default. Supplying an owner
+        selects that owner's rules, and an ID selects one rule; results remain subject to the
+        caller's access-control-rule-read permissions. The default page size is 10 and the maximum
+        page size is 100.
 
 
 
@@ -4164,8 +4490,10 @@ paths:
       parameters:
         - name: owner
           in: query
-          description: The owner of the access control rules to get
-          required: true
+          description: >-
+            Owner whose access-control rules to get. Defaults to the authenticated caller unless an
+            ID is supplied. A different owner requires read permission for each returned rule.
+          required: false
           schema:
             type: string
           examples:
@@ -4173,9 +4501,20 @@ paths:
               value: ~caller
             check-id:
               value: port1/user/alice/user/alice
+        - name: id
+          in: query
+          description: >-
+            Exact access-control rule identifier to retrieve. The result is included only when the
+            caller has read permission.
+          required: false
+          schema:
+            type: string
+          examples:
+            check-id:
+              value: port1/user/alice/access-control-rules/123
         - name: nextToken
           in: query
-          description: The next token to get the next page of results
+          description: Opaque cursor token returned by a previous query response.
           required: false
           schema:
             type: string
@@ -4184,10 +4523,14 @@ paths:
               value: '123'
         - name: maxResults
           in: query
-          description: The maximum number of results to return
+          description: >-
+            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
+            accepted.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
           examples:
             max-results:
               value: 1
@@ -4214,6 +4557,26 @@ paths:
                 $ref: '#/components/schemas/GetAccessControlRulesResponse'
               example:
                 results: []
+        '400':
+          description: Invalid owner, ID, page size, or pagination token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: maxResults must be between 1 and 100
+                code: BAD_REQUEST
+                family: BAD_REQUEST
+        '401':
+          description: Authentication is required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: unauthorized
+                code: UNAUTHORIZED
+                family: UNAUTHORIZED
         '500':
           description: Internal server error
           content:
@@ -4516,7 +4879,10 @@ paths:
       tags:
         - Principals
       description: >-
-        Lists all principals
+        Lists principals owned by the authenticated caller by default. Supplying an owner selects
+        that owner's principals, subject to the caller's principal-read permissions. Supplying an ID
+        selects a single principal, subject to the same permission check. The default page size is
+        10 and the maximum page size is 100.
 
 
         Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
@@ -4532,6 +4898,26 @@ paths:
                 results: []
                 paginationContext:
                   nextToken: abc123
+        '400':
+          description: Invalid owner, ID, page size, or pagination token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: maxResults must be between 1 and 100
+                code: BAD_REQUEST
+                family: BAD_REQUEST
+        '401':
+          description: Authentication is required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: unauthorized
+                code: UNAUTHORIZED
+                family: UNAUTHORIZED
         '500':
           description: Internal server error
           content:
@@ -4543,6 +4929,31 @@ paths:
                 code: INTERNAL
                 family: INTERNAL_SERVER_ERROR
       parameters:
+        - name: owner
+          in: query
+          description: >-
+            Owner whose principals to list. Defaults to the authenticated caller when ID is not
+            supplied. A different owner requires principal-read permission for each returned
+            principal.
+          required: false
+          schema:
+            type: string
+          examples:
+            caller:
+              value: ~caller
+            specific-owner:
+              value: port1/principals/user123
+        - name: id
+          in: query
+          description: >-
+            Exact principal identifier to retrieve. The result is included only when the caller has
+            principal-read permission.
+          required: false
+          schema:
+            type: string
+          examples:
+            specific-principal:
+              value: port1/principals/user123
         - name: expand
           in: query
           description: Expansion tokens that request related or computed fields for each result.
@@ -4568,10 +4979,14 @@ paths:
               value: abc123
         - name: maxResults
           in: query
-          description: Maximum number of results to return.
+          description: >-
+            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
+            accepted.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
           examples:
             page-size:
               value: 50
@@ -4843,10 +5258,14 @@ paths:
       tags:
         - Tokens
       description: >-
-        Creates a token (JWT) for token exchange. The caller becomes the owner. The raw JWT is
-        returned only once at creation; the client must store it securely. Use the OAuth /auth/token
-        endpoint with grant_type refresh_token to exchange this JWT for an access token. Subject may
-        be ~self (current user) or another principal if policy allows.
+        Creates an expiring, revocable bearer access key for the caller. The raw JWT is returned
+        only once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth
+        consent, or API for automation (the default). Website keys cannot have restricted scopes,
+        expire within seven days and require an existing Google or Apple account session to create.
+        Vended and delegated credentials cannot create independent replacement keys. Website keys
+        cannot be refreshed or exchanged for identity sessions. OAuth connections approved with a
+        website key are independently revocable. Subject must be ~self or the authenticated
+        principal's own identifier.
 
 
 
@@ -4859,9 +5278,9 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateTokenRequest'
             example:
-              name:
-                type: PLAIN
-                value: My Resource
+              purpose: WEBSITE_LOGIN
+              label: Plugin reviewer
+              expires_in: 86400
       responses:
         '200':
           description: Token created successfully. The raw JWT is returned only once.
@@ -4893,10 +5312,11 @@ paths:
       tags:
         - Tokens
       description: >-
-        Revokes the token so it can no longer be used for exchange. The token id in the path is the
-        same as the id returned from create/list and as the JWT jti claim. Only the refresh token is
-        revoked; any access tokens already issued from it remain valid until they expire. Only the
-        owner may invalidate a token.
+        Revokes the access key's active record so subsequent website and API requests using that
+        bearer are rejected. The token ID is the ID returned by create/list and carried in its JWT
+        jti claim. Only the owner may revoke it. OAuth connections explicitly approved with a
+        website key are independent grants and must be revoked separately. Legacy credentials
+        already exchanged into other tokens retain their own expiration and revocation behavior.
 
 
 
@@ -5635,7 +6055,7 @@ paths:
       x-portos-resource-permission: false
       summary: Open user consent for a resource-bound public client
       description: |
-        Browser entry for registered DCR or allowlisted CIMD clients. Redirects to the
+        Browser entry for registered DCR or CIMD clients. Redirects to the
         sign-in and consent UI. The client must start its registered callback listener
         first, generate random state and an S256 challenge, and wait for the user.
         Validate callback state and iss before exchanging the code. CIMD client IDs
@@ -6540,8 +6960,11 @@ paths:
       tags:
         - Subscriptions
       operationId: enumerateSubscriptions
-      description: |
-        Used to query for subscriptions to an event stream.
+      description: >-
+        Lists subscriptions owned by the authenticated caller when owner is omitted. Supplying owner
+        selects that owner's subscriptions, filtered by the caller's SubscriptionRead permissions.
+        Supplying id selects the exact subscription and still applies its read permission. The
+        default page size is 10 and the maximum is 100; results use nextToken pagination.
       responses:
         '200':
           description: OK
@@ -6553,6 +6976,40 @@ paths:
                 results: []
                 paginationContext:
                   nextToken: abc123
+        '400':
+          description: Invalid query parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: maxResults must be between 1 and 100; choose a value in that range and retry.
+                code: BAD_REQUEST
+                family: BAD_REQUEST
+        '401':
+          description: Unauthorized — invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: >-
+                  The authentication token is missing or invalid; sign in with a valid token and
+                  retry.
+                code: UNAUTHORIZED
+                family: AUTHENTICATION
+        '403':
+          description: Forbidden — insufficient permissions for the requested owner.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: >-
+                  You cannot read subscriptions for the requested owner; choose an owner you can
+                  access or request read permission.
+                code: INSUFFICIENT_PERMISSIONS
+                family: PERMISSION
         '500':
           description: Internal server error
           content:
@@ -6564,6 +7021,20 @@ paths:
                 code: INTERNAL
                 family: INTERNAL_SERVER_ERROR
       parameters:
+        - name: id
+          in: query
+          description: Exact subscription ID to retrieve, subject to the caller's read permission.
+          required: false
+          schema:
+            type: string
+        - name: owner
+          in: query
+          description: >-
+            Owner whose subscriptions to list. Defaults to the authenticated caller when omitted. A
+            different owner is permitted only for subscriptions the caller can read.
+          required: false
+          schema:
+            type: string
         - name: expand
           in: query
           description: Expansion tokens that request related or computed fields for each result.
@@ -6589,10 +7060,12 @@ paths:
               value: abc123
         - name: maxResults
           in: query
-          description: Maximum number of results to return.
+          description: Maximum number of results to return. Defaults to 10 and cannot exceed 100.
           required: false
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
           examples:
             page-size:
               value: 50
@@ -7296,11 +7769,11 @@ components:
           authorizationUrl: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize
           tokenUrl: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
           scopes:
-            endpoint:read: Read authorized endpoints and capability state.
-            endpoint:write: Manage authorized endpoints and routes.
+            endpoint:read: View authorized devices, connected services and their state.
+            endpoint:write: Manage authorized devices, connected services and provider connections.
             message:read: Read authorized messages.
             message:send: Dispatch capability messages to authorized targets.
-            group:read: Read authorized groups and membership.
+            group:read: View authorized rooms, device groups and their members.
             group:manage: Manage authorized groups and membership.
             subscription:read: Read authorized subscriptions.
             subscription:write: Manage authorized subscriptions.
@@ -7359,7 +7832,9 @@ components:
   schemas:
     IntegrationRequest:
       type: object
-      description: Email and explicit consent for updates about a selected future integration.
+      description: >-
+        Email and explicit consent for updates about a future integration. Custom requests also
+        require the manufacturer or device name.
       additionalProperties: false
       required:
         - email
@@ -7372,24 +7847,107 @@ components:
           maxLength: 254
         pluginId:
           type: string
-          x-enum-exempt: plugin identifiers
-          enum:
-            - port1/systems/zero/plugins/715b7b85-311f-4851-8430-88bbac6dd3e7
-            - port1/systems/zero/plugins/f9a10d98-abf9-40ed-8400-a2ab0210fdfd
-            - port1/systems/zero/plugins/9d21576b-e2fe-4d6a-99ab-4fc969a08d54
-            - muse
-            - vscode
-            - grok
-            - goose
-            - openclaw
-            - hermes
-            - codex
-            - cline
-            - slack
+          description: >-
+            Stable provider ID from the device catalog or supported AI client ID. The server accepts
+            only registered waitlist identities.
+        manufacturer:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: >-
+            Manufacturer or device to add. Required only for the Custom provider
+            (port1/systems/zero/plugins/50161180-0a4a-483d-8e31-24ff480615cf); omit for all other
+            providers.
         consent:
           type: boolean
           enum:
             - true
+    PluginTokenResult:
+      type: object
+      description: Provider credentials returned by a plugin auth handler to its host.
+      additionalProperties: false
+      required:
+        - access_token
+        - token_type
+        - expires_in
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+          description: Seconds until the access token expires.
+        customMetadata:
+          type: object
+          additionalProperties: true
+          x-go-type-skip-optional-pointer: true
+          description: Opaque plugin-owned metadata persisted alongside the credentials.
+        refresh_token:
+          type: string
+          x-go-type-skip-optional-pointer: true
+    PluginTokenRefreshRequest:
+      type: object
+      description: Credentials supplied to a plugin for a token refresh.
+      additionalProperties: false
+      required:
+        - authLinkId
+        - refreshToken
+        - accessToken
+        - scopes
+      properties:
+        authLinkId:
+          type: string
+        refreshToken:
+          type: string
+        accessToken:
+          type: string
+        customMetadata:
+          type: object
+          additionalProperties: true
+          x-go-type-skip-optional-pointer: true
+        scopes:
+          type: string
+    PluginTokenRefreshResponse:
+      type: object
+      description: Credentials returned by a plugin refresh operation.
+      additionalProperties: false
+      required:
+        - accessToken
+        - refreshToken
+        - expiresIn
+        - scopes
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+        expiresIn:
+          type: integer
+          format: int64
+          description: Seconds until the access token expires.
+        scopes:
+          type: string
+        customMetadata:
+          type: object
+          additionalProperties: true
+          x-go-type-skip-optional-pointer: true
+    PluginInvocationContext:
+      type: object
+      description: >-
+        Host-verified identity for one plugin invocation. Plugins obtain this from an injected host
+        resolver, not from untrusted request fields.
+      additionalProperties: false
+      required:
+        - principalId
+      properties:
+        principalId:
+          type: string
+          description: Port OS principal for the authenticated invocation.
+        authLinkId:
+          type: string
+          x-go-type-skip-optional-pointer: true
+          description: Auth link selected for the invocation, when one exists.
     SyntheticEventEndpoint:
       type: object
       additionalProperties: false
@@ -7926,6 +8484,24 @@ components:
           items:
             $ref: '#/components/schemas/Error'
       description: Paginated simulator results using the opt-in vendor name-value projection.
+    CameraInterfaceEventImageResponseMessage:
+      x-namespace: port1/systems/zero/capability-interfaces/camera
+      x-name: event-image-response
+      x-version: '1.0'
+      x-type: message
+      x-directionality: out
+      description: Event image URL and provider token returned for a get-event-image request.
+      type: object
+      additionalProperties: false
+      required:
+        - url
+        - token
+      properties:
+        url:
+          type: string
+          format: uri
+        token:
+          type: string
     Subscription:
       type: object
       description: A subscription is a way to listen to events
@@ -8001,8 +8577,9 @@ components:
           description: The ID of the auth link
         routes:
           type: array
+          maxItems: 1000
           items:
-            $ref: '#/components/schemas/Route'
+            $ref: '#/components/schemas/ProviderDiscoveredRoute'
           description: >
             List of routes to synchronize. Route `id` values supplied here are not the stable plugin
             capability lookup surface after synchronization; match enumerated routes by
@@ -8029,6 +8606,17 @@ components:
         - pluginRouteId
         - name
       properties:
+        pluginProfileId:
+          type: string
+          minLength: 1
+          description: Stable group-route profile ID selected from the registered V2 plugin declaration.
+        ontologicalTypes:
+          type: array
+          items:
+            type: string
+          description: >-
+            Actual classifications of the native group route, constrained by its selected plugin
+            profile for V2 discovery.
         pluginRouteId:
           type: string
           minLength: 1
@@ -8058,7 +8646,7 @@ components:
     PluginDiscoveryRelationship:
       type: object
       description: >
-        A provider-reported relationship between routes and group routes. Identity is `externalId`
+        A provider-reported relationship between typed port resources. Identity is `externalId`
         within the reporting plugin and auth link; resubmitting the same `externalId` updates the
         relationship. Omission from a later synchronization is not a deletion instruction.
       additionalProperties: false
@@ -8090,8 +8678,8 @@ components:
       type: object
       description: >
         One end of a discovered relationship, addressed by plugin-owned identity within the
-        reporting plugin and auth link. Exactly one of `pluginRouteId` (a route) or
-        `groupPluginRouteId` (a group route) must be set.
+        reporting plugin and auth link. Exactly one of `pluginRouteId` (a route),
+        `groupPluginRouteId` (a group route), `endpointId` or `groupId` must be set.
       additionalProperties: false
       minProperties: 1
       maxProperties: 1
@@ -8104,22 +8692,32 @@ components:
           type: string
           minLength: 1
           description: The plugin route ID of a group route reported in the same or an earlier synchronization.
+        endpointId:
+          type: string
+          minLength: 1
+          description: The full ID of an endpoint owned by the reporting principal.
+        groupId:
+          type: string
+          minLength: 1
+          description: The full ID of a group owned by the reporting principal.
     RelationshipType:
       type: string
       description: >
-        Typed relationship between provider routes and group routes. `IS_PART_OF`: a group route is
-        contained in a parent group route (spatial hierarchy, acyclic). `CAN_CONTROL`: an endpoint
-        route can act on a group route with the listed interface messages; it never grants
-        authorization. `LOCATED_IN`: an endpoint route is currently observed inside a group route;
-        it is an observation, not membership.
+        Typed relationship between port resources. `IS_PART_OF`: a resource is contained in a parent
+        resource (acyclic). `CAN_CONTROL`: an endpoint or route can act on another resource with the
+        listed interface messages; it never grants authorization. `LOCATED_IN`: an endpoint route is
+        currently observed inside a group route; it is an observation, not membership. `MEMBER_OF`:
+        an endpoint belongs to a group.
       enum:
         - IS_PART_OF
         - CAN_CONTROL
         - LOCATED_IN
+        - MEMBER_OF
       x-enum-varnames:
         - RelationshipTypeIsPartOf
         - RelationshipTypeCanControl
         - RelationshipTypeLocatedIn
+        - RelationshipTypeMemberOf
     RelationshipInterface:
       type: object
       description: >
@@ -8142,11 +8740,11 @@ components:
           example: '1.0'
         messages:
           type: array
-          minItems: 1
           uniqueItems: true
           description: >-
-            Message names of the interface the relationship applies to. Omitted means every message
-            of the interface.
+            Message names of the interface the relationship applies to. An explicit empty array
+            applies to no messages. Omission retains every message supported by the source
+            interface.
           items:
             type: string
             minLength: 1
@@ -8334,6 +8932,7 @@ components:
         - SUBSCRIPTION_IDENTITY_IMMUTABLE
         - UNSUPPORTED_MEDIA_TYPE
         - EVENT_PAYLOAD_TOO_LARGE
+        - REQUEST_BODY_TOO_LARGE
         - EVENT_IDENTITY_CONFLICT
         - EVENT_INGRESS_QUOTA_EXCEEDED
         - EVENT_RECEIPT_EXPIRED
@@ -8346,6 +8945,8 @@ components:
         - UNKNOWN_INTERFACE
         - INVALID_CONFIGURATION
         - INVALID_ATTRIBUTE
+        - INVALID_PROVIDER_MESSAGE
+        - UNDECLARED_CAPABILITY
         - PLUGIN_ROUTE_ID_CONFLICT
         - UNRESOLVED_REFERENCE
         - INVALID_RELATIONSHIP
@@ -8544,6 +9145,15 @@ components:
         - ownerId
         - interfaces
       properties:
+        pluginProfileId:
+          type: string
+          minLength: 1
+          description: Stable profile ID selected from the registered plugin declaration.
+        ontologicalTypes:
+          type: array
+          items:
+            type: string
+          description: Actual classifications of this native group route.
         id:
           type: string
           description: The unique identifier for the group route
@@ -9084,11 +9694,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BatchItemError'
-    GroupRelationship:
+    Relationship:
       type: object
       description: >
-        A typed relationship between routes and group routes, as reported by a provider through
-        discovery. Read-only through the REST API.
+        A typed relationship between port resources. Provider discovery and group membership
+        operations manage relationships; the REST collection is read-only.
       additionalProperties: false
       required:
         - id
@@ -9109,44 +9719,57 @@ components:
         type:
           $ref: '#/components/schemas/RelationshipType'
         source:
-          $ref: '#/components/schemas/GroupRelationshipVertex'
+          $ref: '#/components/schemas/RelationshipVertex'
         target:
-          $ref: '#/components/schemas/GroupRelationshipVertex'
+          $ref: '#/components/schemas/RelationshipVertex'
         interfaces:
           type: array
           items:
             $ref: '#/components/schemas/RelationshipInterface'
           description: Interface applicability, when declared.
-    GroupRelationshipVertex:
+    RelationshipVertex:
       type: object
-      description: >
-        One end of a relationship in application terms. A route vertex carries `routeId` and its
-        `endpointId`; a group-route vertex carries `groupRouteId` and its canonical `groupId` (after
-        following merges).
+      description: >-
+        A typed resource at one end of a relationship. Route parents are endpoints; group-route
+        parents are groups.
       additionalProperties: false
+      required:
+        - kind
+        - id
       properties:
-        routeId:
+        kind:
+          $ref: '#/components/schemas/RelationshipVertexKind'
+        id:
           type: string
-          description: The Port OS route ID, for a route vertex.
-        endpointId:
+          description: The full Port OS ID of this resource.
+        parentId:
           type: string
-          description: The endpoint the route belongs to, for a route vertex.
-        groupRouteId:
-          type: string
-          description: The Port OS group route ID, for a group-route vertex.
-        groupId:
-          type: string
-          description: The canonical endpoint group the group route belongs to, for a group-route vertex.
-    EnumerateGroupRelationshipsResponse:
+          description: >-
+            The full endpoint or group ID for a route or group-route vertex. Omitted for endpoint
+            and group vertices.
+    RelationshipVertexKind:
+      type: string
+      description: The resource kind addressed by a relationship vertex.
+      enum:
+        - ENDPOINT
+        - ROUTE
+        - GROUP
+        - GROUP_ROUTE
+      x-enum-varnames:
+        - RelationshipVertexKindEndpoint
+        - RelationshipVertexKindRoute
+        - RelationshipVertexKindGroup
+        - RelationshipVertexKindGroupRoute
+    EnumerateRelationshipsResponse:
       type: object
-      description: Paginated response containing group relationships visible to the caller.
+      description: Paginated response containing relationships visible to the caller.
       required:
         - results
       properties:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/GroupRelationship'
+            $ref: '#/components/schemas/Relationship'
         paginationContext:
           $ref: '#/components/schemas/PaginationContext'
         errors:
@@ -9989,12 +10612,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApplicationInterfaceMessage'
-          description: List of messages supported by the interface
+          description: >-
+            Supported message subset. An explicit empty array declares no supported messages.
+            Omission retains legacy catalog-default behavior.
         attributes:
           type: array
           items:
             $ref: '#/components/schemas/ApplicationInterfaceAttribute'
-          description: List of attributes supported by the interface
+          description: >-
+            Supported attribute subset. An explicit empty array declares no supported attributes.
+            Omission retains legacy catalog-default behavior.
         configuration:
           type: object
           additionalProperties: true
@@ -10132,18 +10759,19 @@ components:
         messages:
           type: array
           nullable: true
-          minItems: 1
           description: >-
-            Supported inbound message subset for the declared interface version. Omission or null
-            retains the interface's full message contract; a supplied array must be nonempty and
-            contain distinct canonical names for implemented messages.
+            Supported inbound message subset for the declared interface version. An explicit empty
+            array declares no supported messages. A supplied array contains distinct canonical names
+            for implemented messages. Omission or null retains legacy catalog-default behavior.
           items:
             $ref: '#/components/schemas/ApplicationInterfaceMessage'
         attributes:
           type: array
           items:
             $ref: '#/components/schemas/ApplicationInterfaceAttribute'
-          description: Supported attribute subset. An omitted or empty list retains catalog-default behavior.
+          description: >-
+            Supported attribute subset. An explicit empty array declares no supported attributes.
+            Omission retains legacy catalog-default behavior.
         configuration:
           type: object
           additionalProperties: true
@@ -10160,13 +10788,21 @@ components:
         - interfaces
         - ontologicalTypes
       properties:
+        pluginProfileId:
+          type: string
+          minLength: 1
+          description: >-
+            Stable profile ID selected from the registered plugin declaration. Required for V2
+            plugin discovery; retained with the route for admission and presentation.
         id:
           type: string
           description: >
             The persisted Port OS route identifier. Synchronized routes can receive a
             backend-generated, owner-scoped value here even when the discovery payload supplied an
             explicit route `id`; do not use this field as the stable plugin-owned route identity
-            unless the synchronizing implementation explicitly documents preservation.
+            unless the synchronizing implementation explicitly documents preservation. Provider
+            discovery and synchronization input use ProviderDiscoveredRoute, whose optional advisory
+            ID does not carry this persisted-identity rule.
           pattern: ^port1/[^/]+/[^/]+/routes/[^/]+$
         associatedPluginId:
           type: string
@@ -10189,7 +10825,7 @@ components:
         name:
           description: >-
             The name of the route as a human readable string or a localizable asset. This is either
-            a raw string or a localizable asset reference. 
+            a raw string or a localizable asset reference.
           allOf:
             - $ref: '#/components/schemas/TypeValue'
         interfaces:
@@ -10441,16 +11077,19 @@ components:
       properties:
         query:
           description: >-
-            A bounded shared Query expression. An empty object selects unfiltered readable
-            inventory. This endpoint supports match, and, or, and not. Scalar match keys are id,
-            name, type, ownerId, manufacturer, model, and enablement. interfaces matches membership
-            in the endpoint's declared interface names; groupId matches membership in a readable
-            endpoint group. Comparisons, patterns, freeform search, unknown keys, ambiguous nodes,
-            expressions deeper than eight levels, or more than 64 nodes return 400. Values are exact
-            strings. Collections hide disabled endpoints unless the expression explicitly filters
-            enablement. Results include readable shared endpoints, regardless of their owner. A
-            groupId predicate additionally requires group:read for delegated OAuth and read
-            permission on that group.
+            A bounded shared Query expression. By default, an empty object and filters such as type
+            or interfaces select enabled endpoints owned by the caller. An explicit ownerId,
+            groupId, or required exact id selector can include readable endpoints owned by others;
+            endpoint-read permission is still required for every result. This endpoint supports
+            match, and, or, and not. Scalar match keys are id, name, type, ownerId, manufacturer,
+            model, serialNumber, and enablement. interfaces matches membership in the endpoint's
+            declared interface names; groupId matches membership in a readable endpoint group.
+            Comparisons, patterns, freeform search, unknown keys, ambiguous nodes, expressions
+            deeper than eight levels, or more than 64 nodes return 400. Values are exact strings.
+            Collections exclude disabled endpoints unless the expression filters enablement. A query
+            that requires specific exact endpoint IDs can also return disabled endpoint metadata
+            without an enablement filter, subject to endpoint-read permission. A groupId predicate
+            additionally requires group:read for delegated OAuth and read permission on that group.
           allOf:
             - $ref: '#/components/schemas/Query'
         paginationContext:
@@ -10611,7 +11250,125 @@ components:
         - WEBSERVICE
         - APPLE_PUSH_NOTIFICATION
         - HOSTED_COMPUTE
-        - LOCAL
+    associatedPluginRouteId:
+      type: string
+      description: >
+        The stable plugin-owned route identifier associated with this Port OS route. For
+        synchronized plugin capability contracts and fixture parity checks, use this field to match
+        a route from enumeration back to the discovery payload.
+    externalId:
+      type: string
+      description: The external ID of the route given by the reporting system
+    pluginProfileId:
+      type: string
+      minLength: 1
+      description: >-
+        Stable profile ID selected from the registered plugin declaration. Required for V2 plugin
+        discovery; retained with the route for admission and presentation.
+    interfaces:
+      type: array
+      items:
+        $ref: '#/components/schemas/RouteInterface'
+      description: >-
+        List of interfaces supported by the route. These denote what the route is capable of
+        performing such as turning off/on, etc.
+    ontologicalTypes:
+      type: array
+      items:
+        type: string
+      description: >-
+        List of ontological types for the route. These are used mostly for customers to know what an
+        endpoint is, like if its a lightbulb, or a speaker, etc.
+    name:
+      description: >-
+        The name of the route as a human readable string or a localizable asset. This is either a
+        raw string or a localizable asset reference.
+      allOf:
+        - $ref: '#/components/schemas/TypeValue'
+    description:
+      description: The description of the route as a human readable string or a localizable asset.
+      allOf:
+        - $ref: '#/components/schemas/TypeValue'
+    manufacturer:
+      description: The manufacturer of the route as a human readable string or a localizable asset.
+      allOf:
+        - $ref: '#/components/schemas/TypeValue'
+    model:
+      description: The model of the route as a human readable string or a localizable asset.
+      allOf:
+        - $ref: '#/components/schemas/TypeValue'
+    serialNumber:
+      description: The serial number of the route as a human readable string or a localizable asset.
+      allOf:
+        - $ref: '#/components/schemas/TypeValue'
+    pluginCustomMetadata:
+      type: object
+      additionalProperties: true
+      description: >-
+        A set of custom metadata that the plugin uses and attaches to the route, this is meant
+        specifically for the plugin to use.
+    associatedPluginId:
+      type: string
+      description: The ID of the associated plugin
+    associatedAuthLinkId:
+      type: string
+      description: The ID of the associated auth link
+    associatedEndpointId:
+      type: string
+      description: The ID of the associated endpoint
+    ProviderDiscoveredRoute:
+      type: object
+      x-go-type: Route
+      description: >
+        Provider input before host synchronization assigns persisted route identity and ownership.
+        Canonical provider facts reuse Route property definitions. The Go projection deliberately
+        retains the existing Route wire adapter for plugin compatibility; canonical validation uses
+        this input schema, not persisted Route. Host identity fields may be omitted or empty in
+        legacy Route serialization and never establish authenticated publisher or installation
+        authority. Nonempty id and associatedEndpointId may select an existing authorized route
+        during scoped rediscovery; newly created routes and endpoints receive host-assigned IDs.
+      required:
+        - associatedPluginRouteId
+        - interfaces
+        - ontologicalTypes
+      properties:
+        associatedPluginRouteId:
+          allOf:
+            - $ref: '#/components/schemas/associatedPluginRouteId'
+          minLength: 1
+        externalId:
+          $ref: '#/components/schemas/externalId'
+        pluginProfileId:
+          $ref: '#/components/schemas/pluginProfileId'
+        interfaces:
+          $ref: '#/components/schemas/interfaces'
+        ontologicalTypes:
+          $ref: '#/components/schemas/ontologicalTypes'
+        name:
+          $ref: '#/components/schemas/name'
+        description:
+          $ref: '#/components/schemas/description'
+        manufacturer:
+          $ref: '#/components/schemas/manufacturer'
+        model:
+          $ref: '#/components/schemas/model'
+        serialNumber:
+          $ref: '#/components/schemas/serialNumber'
+        pluginCustomMetadata:
+          $ref: '#/components/schemas/pluginCustomMetadata'
+        id:
+          type: string
+          description: >-
+            Advisory legacy value, including empty. Together with associatedEndpointId it may select
+            an existing route within the authenticated scope. New persisted IDs are assigned by the
+            host and validated by the separate persisted Route schema.
+        associatedPluginId:
+          $ref: '#/components/schemas/associatedPluginId'
+        associatedAuthLinkId:
+          $ref: '#/components/schemas/associatedAuthLinkId'
+        associatedEndpointId:
+          $ref: '#/components/schemas/associatedEndpointId'
+      additionalProperties: false
     PluginAuthorization:
       type: object
       required:
@@ -10675,8 +11432,8 @@ components:
           type: string
           description: >-
             OAuth2 client secret. Only included when the caller explicitly requests
-            expand=oauth.clientSecret and only for direct-variant plugins (never exposed for
-            backend-proxy variants). Used by the website to complete PKCE token exchanges
+            expand=oauth.clientSecret and only for DIRECT plugins. Never exposed for BACKEND_PROXY
+            or STATE_MANAGED. Used by the website to complete direct PKCE token exchanges
             client-side.
         authorizeUrl:
           type: string
@@ -10703,13 +11460,18 @@ components:
           enum:
             - DIRECT
             - BACKEND_PROXY
+            - STATE_MANAGED
           x-enum-varnames:
             - OAuthVariantDirect
             - OAuthVariantBackendProxy
+            - OAuthVariantStateManaged
           description: >-
-            OAuth flow variant. "DIRECT" means the website performs the full PKCE token exchange
-            client-side. "BACKEND_PROXY" means the website sends the authorization code to the Port
-            OS backend, which exchanges it for tokens on behalf of the user.
+            OAuth flow variant. DIRECT performs the PKCE token exchange client-side. BACKEND_PROXY
+            sends the authorization code to the legacy backend exchange. STATE_MANAGED uses POST
+            /plugin-oauth-authorizations followed by POST /plugin-oauth-authorization-completions.
+            The server owns state, provider configuration and credential installation; the client
+            never exchanges tokens or supplies client credentials. This variant is advertised only
+            when the configured state-managed host flow is ready.
     PluginMetadataMultifactorField:
       type: object
       required:
@@ -10927,13 +11689,6 @@ components:
               description: OAuth2 connection data for the hosted compute plugin
               allOf:
                 - $ref: '#/components/schemas/OAuth2ConnectionData'
-    LocalPlugin:
-      allOf:
-        - $ref: '#/components/schemas/BasePlugin'
-        - type: object
-          description: >-
-            A locally-registered plugin (e.g. YouTube, Chromecast) that runs within the platform and
-            requires no external transport connection.
     Plugin:
       oneOf:
         - $ref: '#/components/schemas/WebsocketPlugin'
@@ -10941,7 +11696,6 @@ components:
         - $ref: '#/components/schemas/WebservicePlugin'
         - $ref: '#/components/schemas/ApplePushNotificationPlugin'
         - $ref: '#/components/schemas/HostedComputePlugin'
-        - $ref: '#/components/schemas/LocalPlugin'
       discriminator:
         propertyName: type
         mapping:
@@ -10950,7 +11704,6 @@ components:
           WEBSERVICE: '#/components/schemas/WebservicePlugin'
           APPLE_PUSH_NOTIFICATION: '#/components/schemas/ApplePushNotificationPlugin'
           HOSTED_COMPUTE: '#/components/schemas/HostedComputePlugin'
-          LOCAL: '#/components/schemas/LocalPlugin'
     PluginsList:
       type: array
       items:
@@ -11021,16 +11774,13 @@ components:
             type:
               type: string
               description: |
-                The plugin type (e.g. local, webservice, applePushNotification)
+                The plugin type (e.g. webservice, applePushNotification)
             applePushNotificationPlugin:
               type: object
               description: Configuration for Apple Push Notification plugins
             webservicePlugin:
               type: object
               description: Configuration for HTTP-based remote plugins
-            localPlugin:
-              type: object
-              description: Configuration for plugins running on the server instance
             clientCredentials:
               type: object
               description: OAuth client credentials for webservice plugins
@@ -11265,6 +12015,120 @@ components:
           type: integer
           minimum: 1
           description: Session lifetime in seconds. Expired sessions require starting again.
+    PortosIdentifier:
+      type: string
+      description: A Portos identifier is a unique identifier for a resource.
+      example: port1/user/alice/endpoint/thermostat-zero
+    PluginOAuthAuthorizationRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - pluginId
+        - redirectUri
+      properties:
+        pluginId:
+          allOf:
+            - $ref: '#/components/schemas/PortosIdentifier'
+            - type: string
+              minLength: 1
+              maxLength: 2048
+          description: Exact canonical registered plugin instance ID; aliases are rejected.
+        authLinkId:
+          allOf:
+            - $ref: '#/components/schemas/PortosIdentifier'
+            - type: string
+              minLength: 1
+              maxLength: 2048
+          description: >-
+            Existing connection to renew. Omit for a new connection. It must belong to the
+            authenticated principal, reference this plugin and permit auth-link-write. Renewal
+            preserves the connection and its endpoint/route identities.
+        redirectUri:
+          type: string
+          format: uri
+          minLength: 1
+          maxLength: 2048
+          description: Exact HTTPS callback from the server-configured allowlist.
+    PluginOAuthAuthorizationResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - authorizationUrl
+        - expiresAt
+      properties:
+        authorizationUrl:
+          type: string
+          format: uri
+          description: >-
+            Provider authorization URL containing private one-use state. Navigate to it without
+            logging or publishing it. Receiving this URL does not connect the account; credentials
+            are installed only by successful completion.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Expiry of the original authorization attempt, unchanged by replay.
+    pluginId:
+      allOf:
+        - $ref: '#/components/schemas/PortosIdentifier'
+        - type: string
+          minLength: 1
+          maxLength: 2048
+      description: Exact canonical registered plugin instance ID; aliases are rejected.
+    authLinkId:
+      allOf:
+        - $ref: '#/components/schemas/PortosIdentifier'
+        - type: string
+          minLength: 1
+          maxLength: 2048
+      description: >-
+        Existing connection to renew. Omit for a new connection. It must belong to the authenticated
+        principal, reference this plugin and permit auth-link-write. Renewal preserves the
+        connection and its endpoint/route identities.
+    redirectUri:
+      type: string
+      format: uri
+      minLength: 1
+      maxLength: 2048
+      description: Exact HTTPS callback from the server-configured allowlist.
+    PluginOAuthCompletionRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - pluginId
+        - redirectUri
+        - code
+        - state
+      properties:
+        pluginId:
+          $ref: '#/components/schemas/pluginId'
+        authLinkId:
+          $ref: '#/components/schemas/authLinkId'
+        redirectUri:
+          $ref: '#/components/schemas/redirectUri'
+        code:
+          type: string
+          minLength: 1
+          maxLength: 4096
+          description: Provider authorization code; never persisted or logged by Port OS.
+        state:
+          type: string
+          minLength: 43
+          maxLength: 43
+          pattern: ^[A-Za-z0-9_-]{43}$
+          description: >-
+            Exact one-use state returned by the provider. The server also checks canonical encoding,
+            expiry and the authenticated principal, plugin, connection intent, redirect and current
+            provider configuration.
+    PluginOAuthCompletionResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - authLinkId
+      properties:
+        authLinkId:
+          allOf:
+            - $ref: '#/components/schemas/authLinkId'
+          description: Canonical ID of the committed connection, including a newly created connection.
     EndpointGroupsList:
       type: array
       items:
@@ -11770,10 +12634,23 @@ components:
         scope:
           type: string
           description: Granted space-separated scopes.
+    TokenPurpose:
+      type: string
+      enum:
+        - API
+        - WEBSITE_LOGIN
+      default: API
+      description: >-
+        API keys authenticate automation. WEBSITE_LOGIN keys grant full account website sign-in and
+        explicit OAuth consent, cannot have restricted scopes, and must be created through an
+        existing account sign-in. Keys expire and can be revoked; OAuth connections approved with a
+        website key are revoked separately.
     TokenListItem:
       type: object
       description: A token in a list response (no raw JWT).
       properties:
+        purpose:
+          $ref: '#/components/schemas/TokenPurpose'
         id:
           type: string
           description: Token identifier (same as JWT jti).
@@ -11817,16 +12694,22 @@ components:
             $ref: '#/components/schemas/Error'
     CreateTokenRequest:
       type: object
-      description: Request body for creating a token (JWT) for token exchange.
+      description: Create an expiring, revocable access key for API use or website sign-in.
+      additionalProperties: false
       properties:
+        purpose:
+          $ref: '#/components/schemas/TokenPurpose'
         subject:
           type: string
           description: >
             Identity for the token. Use ~self for the current user (resolved to the authenticated
-            principal at create time). May be another principal path if policy allows.
+            principal at create time), or that same principal's full path. Other principals are
+            rejected.
         expires_in:
           type: integer
-          description: Lifetime of the token in seconds. Optional; defaults to 3600 (1 hour).
+          description: >-
+            Lifetime in seconds, default 3600. Website sign-in keys require a positive lifetime of
+            at most 604800 (seven days).
         scope:
           type: string
           description: >
@@ -12435,10 +13318,17 @@ components:
       enum:
         - SYNC
         - FIRE_FORGET
-      description: How to handle the request, default is asynchronous
+        - AUTO
+      description: >
+        How to handle the request. AUTO resolves the actual selected route's current plugin
+        declaration: synchronous operations wait for a correlated response; asynchronous and
+        fire-and-forget operations return dispatch acceptance without claiming device execution.
+        Legacy integrations retain synchronous behavior in AUTO mode. Omission retains the existing
+        FIRE_FORGET default.
       x-enum-varnames:
         - SyncResponseType
         - FireForgetResponseType
+        - AutoResponseType
     CreateMessageRequest:
       type: object
       required:
@@ -12506,3 +13396,9 @@ components:
       properties:
         result:
           $ref: '#/components/schemas/UpsertSubscriptionResult'
+x-portos-plugin-contracts:
+  - PluginTokenResult
+  - PluginTokenRefreshRequest
+  - PluginTokenRefreshResponse
+  - PluginInvocationContext
+  - CameraInterfaceEventImageResponseMessage

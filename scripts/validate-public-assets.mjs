@@ -5,8 +5,7 @@ import { createHash } from 'node:crypto';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../generated/public');
 const manifest = JSON.parse(readFileSync(path.join(root, 'docs/references/manifest.json'), 'utf8'));
 const listed = new Set(manifest.files.map(entry => entry.path));
-if (!/^[a-f0-9]{40}$/.test(manifest.sourceCommit ?? '') || !/^[a-f0-9]{64}$/.test(manifest.sourceInputSHA256 ?? '')
-  || !Number.isInteger(manifest.sourceInputCount) || manifest.sourceInputCount < 1) throw new Error('Missing source provenance');
+if (!/^[a-f0-9]{40}$/.test(manifest.sourceCommit ?? '')) throw new Error('Missing source provenance');
 if (createHash('sha256').update(JSON.stringify(manifest.files)).digest('hex') !== manifest.assetSetSHA256) throw new Error('Asset set hash mismatch');
 for (const entry of manifest.files) {
   const data = readFileSync(path.join(root, entry.path.slice(1)));

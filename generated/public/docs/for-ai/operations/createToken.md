@@ -4,7 +4,7 @@ POST `/tokens`
 
 Create Token
 
-Creates a token (JWT) for token exchange. The caller becomes the owner. The raw JWT is returned only once at creation; the client must store it securely. Use the OAuth /auth/token endpoint with grant_type refresh_token to exchange this JWT for an access token. Subject may be ~self (current user) or another principal if policy allows.
+Creates an expiring, revocable bearer access key for the caller. The raw JWT is returned only once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth consent, or API for automation (the default). Website keys cannot have restricted scopes, expire within seven days and require an existing Google or Apple account session to create. Vended and delegated credentials cannot create independent replacement keys. Website keys cannot be refreshed or exchanged for identity sessions. OAuth connections approved with a website key are independently revocable. Subject must be ~self or the authenticated principal's own identifier.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -32,10 +32,13 @@ post:
   tags:
     - Tokens
   description: >-
-    Creates a token (JWT) for token exchange. The caller becomes the owner. The raw JWT is returned
-    only once at creation; the client must store it securely. Use the OAuth /auth/token endpoint
-    with grant_type refresh_token to exchange this JWT for an access token. Subject may be ~self
-    (current user) or another principal if policy allows.
+    Creates an expiring, revocable bearer access key for the caller. The raw JWT is returned only
+    once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth consent, or
+    API for automation (the default). Website keys cannot have restricted scopes, expire within
+    seven days and require an existing Google or Apple account session to create. Vended and
+    delegated credentials cannot create independent replacement keys. Website keys cannot be
+    refreshed or exchanged for identity sessions. OAuth connections approved with a website key are
+    independently revocable. Subject must be ~self or the authenticated principal's own identifier.
 
 
 
@@ -48,9 +51,9 @@ post:
         schema:
           $ref: /docs/references/schemas/CreateTokenRequest.json
         example:
-          name:
-            type: PLAIN
-            value: My Resource
+          purpose: WEBSITE_LOGIN
+          label: Plugin reviewer
+          expires_in: 86400
   responses:
     '200':
       description: Token created successfully. The raw JWT is returned only once.

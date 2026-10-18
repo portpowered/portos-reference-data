@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "authorizationUrl",
+    "expiresAt"
+  ],
+  "properties": {
+    "authorizationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Provider authorization URL containing private one-use state. Navigate to it without logging or publishing it. Receiving this URL does not connect the account; credentials are installed only by successful completion."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Expiry of the original authorization attempt, unchanged by replay."
+    }
+  }
+}

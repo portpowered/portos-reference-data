@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "/docs/references/schemas/RouteInterface.json"
+  },
+  "description": "List of interfaces supported by the route. These denote what the route is capable of performing such as turning off/on, etc."
+}

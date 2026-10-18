@@ -4,7 +4,7 @@ POST `/endpoint-query`
 
 Endpoint Query
 
-Return a bounded page of authorized endpoints matching the shared Query expression, including endpoints shared by other owners. Read permission is evaluated before filtering, pagination and state expansion. See the request schema for supported fields and operators. Use groupId to select members of a readable room/group, then intersect type or declared interfaces to select lights. Group predicates additionally require group:read for delegated OAuth. Repeat the complete query settings and grant when following nextToken; cursors expire after fifteen minutes. Device attributes are returned only when expanded. Report per-target command acceptance and observed state separately; querying a group does not grant permission to control its members.
+Return a bounded page of authorized endpoints matching the shared Query expression. An empty query and filters such as type or interfaces default to enabled endpoints owned by the caller. An explicit ownerId, groupId, or required exact id selector can include readable endpoints owned by others; endpoint-read permission is still required for each result. Collections exclude disabled endpoints unless enablement is filtered, while a query that requires specific exact endpoint IDs can return disabled endpoint metadata without an enablement filter. See the request schema for supported fields and operators. Use groupId to select members of a readable room/group, then intersect type or declared interfaces to select lights. Group predicates additionally require group:read for delegated OAuth. Repeat the complete query settings and grant when following nextToken; cursors expire after fifteen minutes. Device attributes are returned only when expanded. Report per-target command acceptance and observed state separately; querying a group does not grant permission to control its members.
 
 ## Authorization
 
@@ -33,15 +33,18 @@ post:
   tags:
     - Endpoints
   description: >-
-    Return a bounded page of authorized endpoints matching the shared Query expression, including
-    endpoints shared by other owners. Read permission is evaluated before filtering, pagination and
-    state expansion. See the request schema for supported fields and operators. Use groupId to
-    select members of a readable room/group, then intersect type or declared interfaces to select
-    lights. Group predicates additionally require group:read for delegated OAuth. Repeat the
-    complete query settings and grant when following nextToken; cursors expire after fifteen
-    minutes. Device attributes are returned only when expanded. Report per-target command acceptance
-    and observed state separately; querying a group does not grant permission to control its
-    members.
+    Return a bounded page of authorized endpoints matching the shared Query expression. An empty
+    query and filters such as type or interfaces default to enabled endpoints owned by the caller.
+    An explicit ownerId, groupId, or required exact id selector can include readable endpoints owned
+    by others; endpoint-read permission is still required for each result. Collections exclude
+    disabled endpoints unless enablement is filtered, while a query that requires specific exact
+    endpoint IDs can return disabled endpoint metadata without an enablement filter. See the request
+    schema for supported fields and operators. Use groupId to select members of a readable
+    room/group, then intersect type or declared interfaces to select lights. Group predicates
+    additionally require group:read for delegated OAuth. Repeat the complete query settings and
+    grant when following nextToken; cursors expire after fifteen minutes. Device attributes are
+    returned only when expanded. Report per-target command acceptance and observed state separately;
+    querying a group does not grant permission to control its members.
   x-portos-conditional-scopes:
     groupId:
       - group:read

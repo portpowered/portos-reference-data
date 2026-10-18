@@ -3,11 +3,13 @@
   "type": "string",
   "enum": [
     "SYNC",
-    "FIRE_FORGET"
+    "FIRE_FORGET",
+    "AUTO"
   ],
-  "description": "How to handle the request, default is asynchronous",
+  "description": "How to handle the request. AUTO resolves the actual selected route's current plugin declaration: synchronous operations wait for a correlated response; asynchronous and fire-and-forget operations return dispatch acceptance without claiming device execution. Legacy integrations retain synchronous behavior in AUTO mode. Omission retains the existing FIRE_FORGET default.\n",
   "x-enum-varnames": [
     "SyncResponseType",
-    "FireForgetResponseType"
+    "FireForgetResponseType",
+    "AutoResponseType"
   ]
 }

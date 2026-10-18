@@ -13,7 +13,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "The plugin type (e.g. local, webservice, applePushNotification)\n"
+          "description": "The plugin type (e.g. webservice, applePushNotification)\n"
         },
         "applePushNotificationPlugin": {
           "type": "object",
@@ -22,10 +22,6 @@
         "webservicePlugin": {
           "type": "object",
           "description": "Configuration for HTTP-based remote plugins"
-        },
-        "localPlugin": {
-          "type": "object",
-          "description": "Configuration for plugins running on the server instance"
         },
         "clientCredentials": {
           "type": "object",

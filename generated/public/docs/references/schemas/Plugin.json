@@ -15,9 +15,6 @@
     },
     {
       "$ref": "/docs/references/schemas/HostedComputePlugin.json"
-    },
-    {
-      "$ref": "/docs/references/schemas/LocalPlugin.json"
     }
   ],
   "discriminator": {
@@ -27,8 +24,7 @@
       "HTTP": "/docs/references/schemas/HttpPlugin.json",
       "WEBSERVICE": "/docs/references/schemas/WebservicePlugin.json",
       "APPLE_PUSH_NOTIFICATION": "/docs/references/schemas/ApplePushNotificationPlugin.json",
-      "HOSTED_COMPUTE": "/docs/references/schemas/HostedComputePlugin.json",
-      "LOCAL": "/docs/references/schemas/LocalPlugin.json"
+      "HOSTED_COMPUTE": "/docs/references/schemas/HostedComputePlugin.json"
     }
   }
 }

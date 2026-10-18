@@ -11,6 +11,19 @@
       "type": "string",
       "description": "Optional title for display or logging purposes"
     },
+    "sourceType": {
+      "description": "URI transport semantics. Omission retains FILE behavior. LIVE_STREAM requires explicit live source support on the selected route; it must not be interpreted as a finite clip.",
+      "allOf": [
+        {
+          "type": "string",
+          "description": "Transport source kind for play-uri. FILE is finite externally hosted audio; LIVE_STREAM is continuous live audio and requires explicit route support. Neither value resolves a catalog provider identity.",
+          "enum": [
+            "FILE",
+            "LIVE_STREAM"
+          ]
+        }
+      ]
+    },
     "offsetInMilliseconds": {
       "type": "integer",
       "description": "Playback start position in milliseconds",

@@ -5,6 +5,22 @@ description: >-
   Cameras provide streaming, event images, and camera controls. Start a stream, adjust pan and tilt
   when supported, or configure motion detection for the view you need.
 messages:
+  - name: event-image-response
+    description: Event image URL and provider token returned for a get-event-image request.
+    directionality: out
+    schema:
+      description: Event image URL and provider token returned for a get-event-image request.
+      type: object
+      additionalProperties: false
+      required:
+        - url
+        - token
+      properties:
+        url:
+          type: string
+          format: uri
+        token:
+          type: string
   - name: get-event-image
     description: null
     directionality: in

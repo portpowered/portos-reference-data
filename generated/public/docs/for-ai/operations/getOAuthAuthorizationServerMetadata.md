@@ -4,7 +4,7 @@ GET `/.well-known/oauth-authorization-server`
 
 Discover OAuth and DCR endpoints
 
-Discover the canonical issuer and endpoints for the deployed environment. Public REST grants use issuer as resource; MCP grants use issuer/mcp. Only allowlisted CIMD identifiers are accepted. Registration is anonymous; device access requires user consent.
+Discover the canonical issuer and endpoints for the deployed environment. Public REST grants use issuer as resource; MCP grants use issuer/mcp. CIMD client IDs must be public HTTPS metadata URLs. Registration is anonymous; device access requires user consent.
 
 ## Authorization
 
@@ -32,8 +32,8 @@ get:
   x-portos-resource-permission: false
   description: >-
     Discover the canonical issuer and endpoints for the deployed environment. Public REST grants use
-    issuer as resource; MCP grants use issuer/mcp. Only allowlisted CIMD identifiers are accepted.
-    Registration is anonymous; device access requires user consent.
+    issuer as resource; MCP grants use issuer/mcp. CIMD client IDs must be public HTTPS metadata
+    URLs. Registration is anonymous; device access requires user consent.
   responses:
     '200':
       description: Authorization server metadata.

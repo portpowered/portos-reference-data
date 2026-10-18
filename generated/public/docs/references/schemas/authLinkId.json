@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/PortosIdentifier.json"
+    },
+    {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    }
+  ],
+  "description": "Existing connection to renew. Omit for a new connection. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Renewal preserves the connection and its endpoint/route identities."
+}

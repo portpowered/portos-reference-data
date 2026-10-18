@@ -14,6 +14,8 @@ For delegated REST grants, Port OS verifies token signature, expiry, issuer, RES
 | Read subscriptions | subscription:read |
 | Create/update/delete subscriptions | subscription:write |
 
+MCP uses the same scopes as the REST operation that does the same work. Listing, inspecting or discovering subscribable events (`subscription_list`, `subscription_inspect`, `events/list`) needs subscription:read. Subscribing, unsubscribing, cancelling or relabelling (`events/subscribe`, `events/unsubscribe`, `subscription_cancel`, `subscription_label_edit`) needs subscription:write. Subscribing to a device's events does not need endpoint:read; whether the principal may see the source endpoint is a resource rule. Task guides and capability reference documents need only a valid MCP token. A call without the needed scope gets 403 `insufficient_scope` naming the scope to request. An MCP connection approved before these scopes existed must be re-approved to get them; its existing event deliveries continue.
+
 Other operations are outside the anonymous DCR device profile and fail closed. [Operation pages](/docs/for-ai/operations/index.md) expose exact credential alternatives and resource requirements. [Machine-readable authorization metadata](/docs/references/authorization.yaml) links the contract.
 
 The existing resource engine converts principal, action, resource and entity data into Cedar requests. Default owner rules and applicable sharing/conditional rules are evaluated; only an Allow outcome admits access. The typed operation IDs come from Port OS's policy action catalog, not invented dotted action names. Owning an endpoint does not override a delegated token's missing scope.

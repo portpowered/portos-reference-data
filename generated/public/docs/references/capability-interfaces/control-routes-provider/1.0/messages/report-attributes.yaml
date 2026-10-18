@@ -7,7 +7,10 @@ properties:
     type: array
     items:
       type: object
-      description: A control route report item with cookies and attributes
+      description: >-
+        A control route report request with cookies and optional attribute
+        selections. Omitted or empty attributes request all supported
+        attributes.
       properties:
         associatedPluginRouteId:
           type: string
@@ -18,34 +21,28 @@ properties:
           type: array
           items:
             type: object
+            description: >-
+              The exact identity of an attribute requested from a provider,
+              without an observed value.
             properties:
               namespace:
                 type: string
-                description: The namespace of the attribute
+                minLength: 1
               name:
                 type: string
-                description: The name of the attribute
+                minLength: 1
               version:
                 type: string
-                description: The version of the attribute
-              value:
-                type: object
-                description: The value of the attribute
-              sampledAt:
-                type: string
-                format: date-time
-                description: >-
-                  Actual observation time in UTC; omit when unknown. Request
-                  time is not a sample time.
+                minLength: 1
             required:
               - namespace
               - name
               - version
-              - value
-            title: AttributeSchema
+            additionalProperties: false
+            title: AttributeSelection
       required:
         - associatedPluginRouteId
-        - attributes
+      additionalProperties: false
       title: ControlRouteReportItem
 required:
   - items

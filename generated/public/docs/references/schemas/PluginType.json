@@ -6,7 +6,6 @@
     "HTTP",
     "WEBSERVICE",
     "APPLE_PUSH_NOTIFICATION",
-    "HOSTED_COMPUTE",
-    "LOCAL"
+    "HOSTED_COMPUTE"
   ]
 }

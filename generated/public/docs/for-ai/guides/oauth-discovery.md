@@ -1,6 +1,6 @@
 # Discover the OAuth server and choose REST or MCP
 
-This discovery step is shared by every client. The API is https://api.portoperatingsystem.com and the authorization server is https://auth.portoperatingsystem.com. Fetch the API's /.well-known/oauth-authorization-server document anonymously. Read issuer, authorization_endpoint, token_endpoint, registration_endpoint, revocation_endpoint and scopes_supported. Use the returned auth endpoints exactly. The issuer and API resource have different origins; do not use the auth issuer as the API destination or token audience.
+This discovery step is shared by every client. The API is https://api.portoperatingsystem.com and the authorization server is https://auth.portoperatingsystem.com. Fetch the API's /.well-known/oauth-authorization-server document anonymously. Read issuer, authorization_endpoint, token_endpoint, registration_endpoint, revocation_endpoint and scopes_supported. Use the returned auth endpoints exactly. The issuer and API resource have different origins; do not use the auth issuer as the API destination or token audience. Port OS exposes OAuth authorization-server metadata here; it does not advertise OpenID Connect discovery or issue OpenID Connect ID tokens.
 
 | Interface | API destination | OAuth resource |
 | --- | --- | --- |

@@ -4,7 +4,7 @@ POST `/plugins/establish`
 
 Establish or update a plugin registration
 
-Registers a new plugin or updates an existing one. Supports three plugin types: local (running on the server instance), webservice (HTTP-based remote plugins with OAuth credentials), and Apple Push Notification (APNS-based plugins). Associated secrets (OAuth client credentials or APNS tokens) are stored alongside the plugin registration.
+Registers a new plugin or updates an existing one. Supports two plugin types: webservice (HTTP-based remote plugins with OAuth credentials) and Apple Push Notification (APNS-based plugins). Associated secrets (OAuth client credentials or APNS tokens) are stored alongside the plugin registration.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -32,10 +32,10 @@ post:
     - Plugins
   summary: Establish or update a plugin registration
   description: >-
-    Registers a new plugin or updates an existing one. Supports three plugin types: local (running
-    on the server instance), webservice (HTTP-based remote plugins with OAuth credentials), and
-    Apple Push Notification (APNS-based plugins). Associated secrets (OAuth client credentials or
-    APNS tokens) are stored alongside the plugin registration.
+    Registers a new plugin or updates an existing one. Supports two plugin types: webservice
+    (HTTP-based remote plugins with OAuth credentials) and Apple Push Notification (APNS-based
+    plugins). Associated secrets (OAuth client credentials or APNS tokens) are stored alongside the
+    plugin registration.
 
 
 

@@ -75,6 +75,30 @@
     },
     {
       "kind": "schemas",
+      "name": "associatedAuthLinkId",
+      "path": "/docs/references/schemas/associatedAuthLinkId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/associatedAuthLinkId"
+    },
+    {
+      "kind": "schemas",
+      "name": "associatedEndpointId",
+      "path": "/docs/references/schemas/associatedEndpointId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/associatedEndpointId"
+    },
+    {
+      "kind": "schemas",
+      "name": "associatedPluginId",
+      "path": "/docs/references/schemas/associatedPluginId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/associatedPluginId"
+    },
+    {
+      "kind": "schemas",
+      "name": "associatedPluginRouteId",
+      "path": "/docs/references/schemas/associatedPluginRouteId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/associatedPluginRouteId"
+    },
+    {
+      "kind": "schemas",
       "name": "AttributeState",
       "path": "/docs/references/schemas/AttributeState.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AttributeState"
@@ -84,6 +108,12 @@
       "name": "AuthLink",
       "path": "/docs/references/schemas/AuthLink.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthLink"
+    },
+    {
+      "kind": "schemas",
+      "name": "authLinkId",
+      "path": "/docs/references/schemas/authLinkId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/authLinkId"
     },
     {
       "kind": "schemas",
@@ -144,6 +174,12 @@
       "name": "BatchResponseStatus",
       "path": "/docs/references/schemas/BatchResponseStatus.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/BatchResponseStatus"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceEventImageResponseMessage",
+      "path": "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceEventImageResponseMessage"
     },
     {
       "kind": "schemas",
@@ -252,6 +288,12 @@
       "name": "DeleteSimulatorRequest",
       "path": "/docs/references/schemas/DeleteSimulatorRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/DeleteSimulatorRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "description",
+      "path": "/docs/references/schemas/description.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/description"
     },
     {
       "kind": "schemas",
@@ -435,12 +477,6 @@
     },
     {
       "kind": "schemas",
-      "name": "EnumerateGroupRelationshipsResponse",
-      "path": "/docs/references/schemas/EnumerateGroupRelationshipsResponse.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateGroupRelationshipsResponse"
-    },
-    {
-      "kind": "schemas",
       "name": "EnumerateGroupRoutesResponse",
       "path": "/docs/references/schemas/EnumerateGroupRoutesResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateGroupRoutesResponse"
@@ -462,6 +498,12 @@
       "name": "EnumeratePrincipalsResponse",
       "path": "/docs/references/schemas/EnumeratePrincipalsResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/EnumeratePrincipalsResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnumerateRelationshipsResponse",
+      "path": "/docs/references/schemas/EnumerateRelationshipsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateRelationshipsResponse"
     },
     {
       "kind": "schemas",
@@ -597,6 +639,12 @@
     },
     {
       "kind": "schemas",
+      "name": "externalId",
+      "path": "/docs/references/schemas/externalId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/externalId"
+    },
+    {
+      "kind": "schemas",
       "name": "GenerateOAuthCodeRequest",
       "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthCodeRequest"
@@ -624,18 +672,6 @@
       "name": "GetAccessControlRulesResponse",
       "path": "/docs/references/schemas/GetAccessControlRulesResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/GetAccessControlRulesResponse"
-    },
-    {
-      "kind": "schemas",
-      "name": "GroupRelationship",
-      "path": "/docs/references/schemas/GroupRelationship.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRelationship"
-    },
-    {
-      "kind": "schemas",
-      "name": "GroupRelationshipVertex",
-      "path": "/docs/references/schemas/GroupRelationshipVertex.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/GroupRelationshipVertex"
     },
     {
       "kind": "schemas",
@@ -675,15 +711,21 @@
     },
     {
       "kind": "schemas",
+      "name": "interfaces",
+      "path": "/docs/references/schemas/interfaces.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/interfaces"
+    },
+    {
+      "kind": "schemas",
       "name": "InvalidateTokenResponse",
       "path": "/docs/references/schemas/InvalidateTokenResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/InvalidateTokenResponse"
     },
     {
       "kind": "schemas",
-      "name": "LocalPlugin",
-      "path": "/docs/references/schemas/LocalPlugin.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/LocalPlugin"
+      "name": "manufacturer",
+      "path": "/docs/references/schemas/manufacturer.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/manufacturer"
     },
     {
       "kind": "schemas",
@@ -747,9 +789,21 @@
     },
     {
       "kind": "schemas",
+      "name": "model",
+      "path": "/docs/references/schemas/model.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/model"
+    },
+    {
+      "kind": "schemas",
       "name": "ModifyEndpointRequest",
       "path": "/docs/references/schemas/ModifyEndpointRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ModifyEndpointRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "name",
+      "path": "/docs/references/schemas/name.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/name"
     },
     {
       "kind": "schemas",
@@ -810,6 +864,12 @@
       "name": "OauthTokenSecret",
       "path": "/docs/references/schemas/OauthTokenSecret.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/OauthTokenSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "ontologicalTypes",
+      "path": "/docs/references/schemas/ontologicalTypes.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ontologicalTypes"
     },
     {
       "kind": "schemas",
@@ -879,6 +939,12 @@
     },
     {
       "kind": "schemas",
+      "name": "pluginCustomMetadata",
+      "path": "/docs/references/schemas/pluginCustomMetadata.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/pluginCustomMetadata"
+    },
+    {
+      "kind": "schemas",
       "name": "PluginDiscoveryRelationship",
       "path": "/docs/references/schemas/PluginDiscoveryRelationship.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginDiscoveryRelationship"
@@ -894,6 +960,18 @@
       "name": "PluginEntry",
       "path": "/docs/references/schemas/PluginEntry.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginEntry"
+    },
+    {
+      "kind": "schemas",
+      "name": "pluginId",
+      "path": "/docs/references/schemas/pluginId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/pluginId"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginInvocationContext",
+      "path": "/docs/references/schemas/PluginInvocationContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginInvocationContext"
     },
     {
       "kind": "schemas",
@@ -915,15 +993,69 @@
     },
     {
       "kind": "schemas",
+      "name": "PluginOAuthAuthorizationRequest",
+      "path": "/docs/references/schemas/PluginOAuthAuthorizationRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginOAuthAuthorizationRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginOAuthAuthorizationResponse",
+      "path": "/docs/references/schemas/PluginOAuthAuthorizationResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginOAuthAuthorizationResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginOAuthCompletionRequest",
+      "path": "/docs/references/schemas/PluginOAuthCompletionRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginOAuthCompletionRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginOAuthCompletionResponse",
+      "path": "/docs/references/schemas/PluginOAuthCompletionResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginOAuthCompletionResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "pluginProfileId",
+      "path": "/docs/references/schemas/pluginProfileId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/pluginProfileId"
+    },
+    {
+      "kind": "schemas",
       "name": "PluginsList",
       "path": "/docs/references/schemas/PluginsList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginsList"
     },
     {
       "kind": "schemas",
+      "name": "PluginTokenRefreshRequest",
+      "path": "/docs/references/schemas/PluginTokenRefreshRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginTokenRefreshRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginTokenRefreshResponse",
+      "path": "/docs/references/schemas/PluginTokenRefreshResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginTokenRefreshResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginTokenResult",
+      "path": "/docs/references/schemas/PluginTokenResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginTokenResult"
+    },
+    {
+      "kind": "schemas",
       "name": "PluginType",
       "path": "/docs/references/schemas/PluginType.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginType"
+    },
+    {
+      "kind": "schemas",
+      "name": "PortosIdentifier",
+      "path": "/docs/references/schemas/PortosIdentifier.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PortosIdentifier"
     },
     {
       "kind": "schemas",
@@ -939,6 +1071,12 @@
     },
     {
       "kind": "schemas",
+      "name": "ProviderDiscoveredRoute",
+      "path": "/docs/references/schemas/ProviderDiscoveredRoute.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ProviderDiscoveredRoute"
+    },
+    {
+      "kind": "schemas",
       "name": "Query",
       "path": "/docs/references/schemas/Query.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/Query"
@@ -951,6 +1089,18 @@
     },
     {
       "kind": "schemas",
+      "name": "redirectUri",
+      "path": "/docs/references/schemas/redirectUri.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/redirectUri"
+    },
+    {
+      "kind": "schemas",
+      "name": "Relationship",
+      "path": "/docs/references/schemas/Relationship.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Relationship"
+    },
+    {
+      "kind": "schemas",
       "name": "RelationshipInterface",
       "path": "/docs/references/schemas/RelationshipInterface.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/RelationshipInterface"
@@ -960,6 +1110,18 @@
       "name": "RelationshipType",
       "path": "/docs/references/schemas/RelationshipType.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/RelationshipType"
+    },
+    {
+      "kind": "schemas",
+      "name": "RelationshipVertex",
+      "path": "/docs/references/schemas/RelationshipVertex.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RelationshipVertex"
+    },
+    {
+      "kind": "schemas",
+      "name": "RelationshipVertexKind",
+      "path": "/docs/references/schemas/RelationshipVertexKind.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RelationshipVertexKind"
     },
     {
       "kind": "schemas",
@@ -1026,6 +1188,12 @@
       "name": "SecretsList",
       "path": "/docs/references/schemas/SecretsList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/SecretsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "serialNumber",
+      "path": "/docs/references/schemas/serialNumber.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/serialNumber"
     },
     {
       "kind": "schemas",
@@ -1128,6 +1296,12 @@
       "name": "TokenListItem",
       "path": "/docs/references/schemas/TokenListItem.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/TokenListItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "TokenPurpose",
+      "path": "/docs/references/schemas/TokenPurpose.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TokenPurpose"
     },
     {
       "kind": "schemas",

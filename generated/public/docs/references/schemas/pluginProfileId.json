@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "minLength": 1,
+  "description": "Stable profile ID selected from the registered plugin declaration. Required for V2 plugin discovery; retained with the route for admission and presentation."
+}

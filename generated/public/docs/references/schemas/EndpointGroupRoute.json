@@ -12,6 +12,18 @@
     "interfaces"
   ],
   "properties": {
+    "pluginProfileId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable profile ID selected from the registered plugin declaration."
+    },
+    "ontologicalTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Actual classifications of this native group route."
+    },
     "id": {
       "type": "string",
       "description": "The unique identifier for the group route",

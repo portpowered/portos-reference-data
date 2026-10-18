@@ -4,7 +4,7 @@ GET `/oauth/authorize`
 
 Open user consent for a resource-bound public client
 
-Browser entry for registered DCR or allowlisted CIMD clients. Redirects to the
+Browser entry for registered DCR or CIMD clients. Redirects to the
 sign-in and consent UI. The client must start its registered callback listener
 first, generate random state and an S256 challenge, and wait for the user.
 Validate callback state and iss before exchanging the code. CIMD client IDs
@@ -35,7 +35,7 @@ get:
   x-portos-resource-permission: false
   summary: Open user consent for a resource-bound public client
   description: |
-    Browser entry for registered DCR or allowlisted CIMD clients. Redirects to the
+    Browser entry for registered DCR or CIMD clients. Redirects to the
     sign-in and consent UI. The client must start its registered callback listener
     first, generate random state and an S256 challenge, and wait for the user.
     Validate callback state and iss before exchanging the code. CIMD client IDs

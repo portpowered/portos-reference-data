@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "A set of custom metadata that the plugin uses and attaches to the route, this is meant specifically for the plugin to use."
+}

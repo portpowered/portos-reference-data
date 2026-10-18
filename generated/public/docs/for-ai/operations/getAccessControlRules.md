@@ -4,7 +4,7 @@ GET `/access-control-rules`
 
 Get Access Control Rules
 
-Get all access control rules.
+Get access-control rules owned by the authenticated caller by default. Supplying an owner selects that owner's rules, and an ID selects one rule; results remain subject to the caller's access-control-rule-read permissions. The default page size is 10 and the maximum page size is 100.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -32,7 +32,10 @@ get:
     - Access Control Rules
   operationId: getAccessControlRules
   description: >-
-    Get all access control rules.
+    Get access-control rules owned by the authenticated caller by default. Supplying an owner
+    selects that owner's rules, and an ID selects one rule; results remain subject to the caller's
+    access-control-rule-read permissions. The default page size is 10 and the maximum page size is
+    100.
 
 
 
@@ -41,8 +44,10 @@ get:
   parameters:
     - name: owner
       in: query
-      description: The owner of the access control rules to get
-      required: true
+      description: >-
+        Owner whose access-control rules to get. Defaults to the authenticated caller unless an ID
+        is supplied. A different owner requires read permission for each returned rule.
+      required: false
       schema:
         type: string
       examples:
@@ -50,9 +55,20 @@ get:
           value: ~caller
         check-id:
           value: port1/user/alice/user/alice
+    - name: id
+      in: query
+      description: >-
+        Exact access-control rule identifier to retrieve. The result is included only when the
+        caller has read permission.
+      required: false
+      schema:
+        type: string
+      examples:
+        check-id:
+          value: port1/user/alice/access-control-rules/123
     - name: nextToken
       in: query
-      description: The next token to get the next page of results
+      description: Opaque cursor token returned by a previous query response.
       required: false
       schema:
         type: string
@@ -61,10 +77,12 @@ get:
           value: '123'
     - name: maxResults
       in: query
-      description: The maximum number of results to return
+      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
       required: false
       schema:
         type: integer
+        minimum: 1
+        maximum: 100
       examples:
         max-results:
           value: 1
@@ -91,6 +109,26 @@ get:
             $ref: /docs/references/schemas/GetAccessControlRulesResponse.json
           example:
             results: []
+    '400':
+      description: Invalid owner, ID, page size, or pagination token
+      content:
+        application/json:
+          schema:
+            $ref: /docs/references/schemas/Error.json
+          example:
+            message: maxResults must be between 1 and 100
+            code: BAD_REQUEST
+            family: BAD_REQUEST
+    '401':
+      description: Authentication is required
+      content:
+        application/json:
+          schema:
+            $ref: /docs/references/schemas/Error.json
+          example:
+            message: unauthorized
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '500':
       description: Internal server error
       content:

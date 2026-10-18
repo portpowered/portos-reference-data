@@ -788,6 +788,29 @@
       "description": "Cameras provide streaming, event images, and camera controls. Start a stream, adjust pan and tilt when supported, or configure motion detection for the view you need.",
       "messages": [
         {
+          "name": "event-image-response",
+          "description": "Event image URL and provider token returned for a get-event-image request.",
+          "directionality": "out",
+          "schema": {
+            "description": "Event image URL and provider token returned for a get-event-image request.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "token"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "token": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
           "name": "get-event-image",
           "description": null,
           "directionality": "in",
@@ -1918,7 +1941,7 @@
         {
           "name": "acknowledged",
           "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, but not necessarily that it did anything.  Consider this to happen on any infrared based device (TV remotes), where no ack is feasible.",
-          "directionality": "in",
+          "directionality": "out",
           "schema": {
             "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, but not necessarily that it did anything.  Consider this to happen on any infrared based device (TV remotes), where no ack is feasible.",
             "type": "object",
@@ -1928,7 +1951,7 @@
         {
           "name": "attribute-report",
           "description": "Response to report attributes of a control route",
-          "directionality": "in",
+          "directionality": "out",
           "schema": {
             "description": "Response to report attributes of a control route",
             "type": "object",
@@ -1976,6 +1999,36 @@
                           "value"
                         ],
                         "title": "AttributeSchema"
+                      }
+                    },
+                    "unavailableAttributes": {
+                      "type": "array",
+                      "description": "Exact attributes freshly found unavailable by a successful correlated native-group report-attributes read. Presence, including an empty list, is unsupported for endpoint, capability-query, proactive or uncorrelated reports. These identities carry no value or sample time; omission is not an unavailable acknowledgement. Upgrade consuming hosts before providers emit this field.",
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "description": "The exact identity of an attribute requested from a provider, without an observed value.",
+                        "properties": {
+                          "namespace": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "version": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "namespace",
+                          "name",
+                          "version"
+                        ],
+                        "additionalProperties": false,
+                        "title": "AttributeSelection"
                       }
                     }
                   },
@@ -2025,7 +2078,7 @@
         {
           "name": "deferred-response",
           "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, and that a confirmation of the result will be sent later on.  We generate this message when the device is expected to respond some time later on, and we need to wait for the result.  For the default behavior, we expect to wait up to a minute to handle low powered devices.",
-          "directionality": "in",
+          "directionality": "out",
           "schema": {
             "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, and that a confirmation of the result will be sent later on.  We generate this message when the device is expected to respond some time later on, and we need to wait for the result.  For the default behavior, we expect to wait up to a minute to handle low powered devices.",
             "type": "object",
@@ -2035,7 +2088,7 @@
         {
           "name": "error-dispatch",
           "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, and that the result was not successful.",
-          "directionality": "in",
+          "directionality": "out",
           "schema": {
             "description": "Response to acknowledge a message was dispatched, it confirms that a message was dispatched, and that the result was not successful.",
             "type": "object",
@@ -2079,7 +2132,7 @@
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "description": "A control route report item with cookies and attributes",
+                  "description": "A control route report request with cookies and optional attribute selections. Omitted or empty attributes request all supported attributes.",
                   "properties": {
                     "associatedPluginRouteId": {
                       "type": "string"
@@ -2092,43 +2145,35 @@
                       "type": "array",
                       "items": {
                         "type": "object",
+                        "description": "The exact identity of an attribute requested from a provider, without an observed value.",
                         "properties": {
                           "namespace": {
                             "type": "string",
-                            "description": "The namespace of the attribute"
+                            "minLength": 1
                           },
                           "name": {
                             "type": "string",
-                            "description": "The name of the attribute"
+                            "minLength": 1
                           },
                           "version": {
                             "type": "string",
-                            "description": "The version of the attribute"
-                          },
-                          "value": {
-                            "type": "object",
-                            "description": "The value of the attribute"
-                          },
-                          "sampledAt": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Actual observation time in UTC; omit when unknown. Request time is not a sample time."
+                            "minLength": 1
                           }
                         },
                         "required": [
                           "namespace",
                           "name",
-                          "version",
-                          "value"
+                          "version"
                         ],
-                        "title": "AttributeSchema"
+                        "additionalProperties": false,
+                        "title": "AttributeSelection"
                       }
                     }
                   },
                   "required": [
-                    "associatedPluginRouteId",
-                    "attributes"
+                    "associatedPluginRouteId"
                   ],
+                  "additionalProperties": false,
                   "title": "ControlRouteReportItem"
                 }
               }
@@ -2142,7 +2187,7 @@
         {
           "name": "successful-dispatch",
           "description": "Response to acknowledge a message was successfully dispatched, it confirms that a message was dispatched, and that the result was successful.",
-          "directionality": "in",
+          "directionality": "out",
           "schema": {
             "description": "Response to acknowledge a message was successfully dispatched, it confirms that a message was dispatched, and that the result was successful.",
             "type": "object",
@@ -4690,9 +4735,9 @@
                 "title": "MediaId",
                 "type": "string",
                 "minLength": 1,
-                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
               }
             },
             "required": [
@@ -4726,6 +4771,19 @@
               "title": {
                 "type": "string",
                 "description": "Optional title for display or logging purposes"
+              },
+              "sourceType": {
+                "description": "URI transport semantics. Omission retains FILE behavior. LIVE_STREAM requires explicit live source support on the selected route; it must not be interpreted as a finite clip.",
+                "allOf": [
+                  {
+                    "type": "string",
+                    "description": "Transport source kind for play-uri. FILE is finite externally hosted audio; LIVE_STREAM is continuous live audio and requires explicit route support. Neither value resolves a catalog provider identity.",
+                    "enum": [
+                      "FILE",
+                      "LIVE_STREAM"
+                    ]
+                  }
+                ]
               },
               "offsetInMilliseconds": {
                 "type": "integer",
@@ -4894,6 +4952,94 @@
       ],
       "attributes": [
         {
+          "name": "clip-status",
+          "description": "Latest admitted vendor observation for the latest physical-player clip attempt. This is separate from ordinary group playback. Missing, expired or revoked observations are unavailable, never inferred completion. Command acceptance alone supplies no value; physical clips do not support pause or resume.",
+          "schema": {
+            "description": "Latest admitted vendor observation for the latest physical-player clip attempt. This is separate from ordinary group playback. Missing, expired or revoked observations are unavailable, never inferred completion. Command acceptance alone supplies no value; physical clips do not support pause or resume.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "object",
+                "description": "Bounded passive telemetry for an exactly correlated physical-player command. This observation cannot authorize controls, retry playback or establish audible delivery.",
+                "properties": {
+                  "attemptId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "pattern": "^[^\\x00-\\x1F\\x7F-\\x9F]+$",
+                    "description": "Port OS correlation for the latest admitted command, not a vendor media identifier or authorization token."
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "Vendor-reported physical clip lifecycle. SCHEDULED is command acceptance and is excluded. Unknown values and silence do not imply DONE.",
+                    "enum": [
+                      "ACTIVE",
+                      "DONE",
+                      "ERROR",
+                      "DISMISSED",
+                      "INTERRUPTED"
+                    ]
+                  },
+                  "errorCode": {
+                    "type": "string",
+                    "description": "Allowlisted Sonos clip error identifier. Omit unrecognized codes and vendor error text rather than exposing arbitrary payloads.",
+                    "enum": [
+                      "ERROR_AUDIO_CLIP_ID_NOT_FOUND",
+                      "ERROR_AUDIO_CLIP_MEDIA_ERROR",
+                      "ERROR_AUDIO_CLIP_PAUSE_CONTENT_FAILED"
+                    ]
+                  },
+                  "provenance": {
+                    "type": "object",
+                    "description": "Assurance of passive Sonos telemetry. Header authentication, exact issued-command correlation and ordering do not authenticate the event body. This is never proof of audible delivery or authority for automatic controls.",
+                    "properties": {
+                      "integration": {
+                        "type": "string",
+                        "enum": [
+                          "SONOS"
+                        ],
+                        "description": "Integration that supplied the observation."
+                      },
+                      "assurance": {
+                        "type": "string",
+                        "enum": [
+                          "PASSIVE_HEADER_AUTH"
+                        ],
+                        "description": "Signed headers were verified against configured application credentials; the body remains unsigned."
+                      },
+                      "payloadIntegrity": {
+                        "type": "boolean",
+                        "enum": [
+                          false
+                        ],
+                        "description": "Always false because Sonos does not sign the callback payload."
+                      }
+                    },
+                    "required": [
+                      "integration",
+                      "assurance",
+                      "payloadIntegrity"
+                    ],
+                    "additionalProperties": false,
+                    "title": "MediaClipProvenance"
+                  }
+                },
+                "required": [
+                  "attemptId",
+                  "status",
+                  "provenance"
+                ],
+                "additionalProperties": false,
+                "title": "MediaClipObservation"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
           "name": "current-content",
           "description": "Currently selected media metadata. Report only metadata supplied by the media provider; omission means unknown, not an empty playback session.",
           "schema": {
@@ -4907,6 +5053,46 @@
                   "mediaId": {
                     "type": "string",
                     "description": "Provider media identifier for the selected content."
+                  },
+                  "nativeIdentity": {
+                    "type": "object",
+                    "description": "Observed Sonos music-service coordinates for the current item, scoped to the reporting route and authorized connection. This identity is not a portable catalog ID, playable URL or authorization to play content. Preserve opaque values exactly; do not decode or log them.",
+                    "required": [
+                      "integration",
+                      "objectId"
+                    ],
+                    "properties": {
+                      "integration": {
+                        "type": "string",
+                        "enum": [
+                          "SONOS"
+                        ],
+                        "description": "Integration defining this native identity format, independent of the source catalog provider."
+                      },
+                      "serviceId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 20,
+                        "pattern": "^[^\\x00-\\x1F\\x7F-\\x9F]+$",
+                        "description": "Exact service identifier reported by Sonos, when present."
+                      },
+                      "objectId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "pattern": "^[^\\x00-\\x1F\\x7F-\\x9F]+$",
+                        "description": "Exact opaque content identifier reported by Sonos, including its original case and percent escapes."
+                      },
+                      "accountId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 13,
+                        "pattern": "^[^\\x00-\\x1F\\x7F-\\x9F]+$",
+                        "description": "Exact Sonos music-service account coordinate, when present. This is not a credential and must not authorize subsequent playback by itself."
+                      }
+                    },
+                    "additionalProperties": false,
+                    "title": "MediaSonosNativeIdentity"
                   },
                   "title": {
                     "type": "string",
@@ -4956,9 +5142,9 @@
                 "title": "MediaId",
                 "type": "string",
                 "minLength": 1,
-                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
               },
               "contextMediaId": {
                 "$ref": "#/properties/mediaId"
@@ -5212,12 +5398,39 @@
             "type": "boolean",
             "description": "Whether the endpoint can play an audio URI."
           },
+          "supportedURISourceTypes": {
+            "type": "array",
+            "uniqueItems": true,
+            "description": "Exact source kinds accepted by play-uri on this route. With URI support, omission retains legacy FILE-only behavior; an empty list admits none. LIVE_STREAM must be explicitly listed. This does not resolve provider catalog identities.",
+            "items": {
+              "type": "string",
+              "description": "Transport source kind for play-uri. FILE is finite externally hosted audio; LIVE_STREAM is continuous live audio and requires explicit route support. Neither value resolves a catalog provider identity.",
+              "enum": [
+                "FILE",
+                "LIVE_STREAM"
+              ]
+            }
+          },
           "supportedAudioMimeTypes": {
             "type": "array",
             "description": "Audio MIME types accepted by play-audio. Advertise play-audio only when audio output is supported.",
             "items": {
               "type": "string"
             }
+          },
+          "maxAudioDurationSeconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 86400,
+            "description": "Maximum encoded duration accepted by play-audio. Longer inputs are rejected without truncation."
+          },
+          "audioPlaybackMode": {
+            "type": "string",
+            "enum": [
+              "CLIP",
+              "QUEUE"
+            ],
+            "description": "CLIP means finite immediate play-audio playback, which may interrupt or duck current content. QUEUE means finite controllable play-audio playback that replaces the current playback session. Neither mode appends to an existing queue, resolves a provider track, or establishes a live stream."
           }
         },
         "additionalProperties": false,
@@ -5372,9 +5585,9 @@
                 "title": "MediaId",
                 "type": "string",
                 "minLength": 1,
-                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
               },
               "tracks": {
                 "type": "array",
@@ -5419,7 +5632,7 @@
                       "description": "Track artists"
                     },
                     "album": {
-                      "description": "Track album",
+                      "description": "Track album when supplied by the provider. Omitted for sources such as YouTube videos that do not supply album metadata.",
                       "allOf": [
                         {
                           "type": "object",
@@ -5457,8 +5670,7 @@
                   "required": [
                     "id",
                     "name",
-                    "artists",
-                    "album"
+                    "artists"
                   ],
                   "additionalProperties": false,
                   "title": "Track"
@@ -5786,7 +5998,7 @@
                       "description": "Track artists"
                     },
                     "album": {
-                      "description": "Track album",
+                      "description": "Track album when supplied by the provider. Omitted for sources such as YouTube videos that do not supply album metadata.",
                       "allOf": [
                         {
                           "$ref": "#/properties/albums/items"
@@ -5797,8 +6009,7 @@
                   "required": [
                     "id",
                     "name",
-                    "artists",
-                    "album"
+                    "artists"
                   ],
                   "additionalProperties": false,
                   "title": "Track"
@@ -5848,9 +6059,9 @@
                       "title": "MediaId",
                       "type": "string",
                       "minLength": 1,
-                      "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                      "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                      "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                      "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                      "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                      "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
                     },
                     "name": {
                       "type": "string",
@@ -5928,9 +6139,9 @@
                 "title": "MediaId",
                 "type": "string",
                 "minLength": 1,
-                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
               },
               "maxResults": {
                 "type": "integer",
@@ -5962,9 +6173,9 @@
                 "title": "MediaId",
                 "type": "string",
                 "minLength": 1,
-                "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
               },
               "name": {
                 "type": "string"
@@ -6016,7 +6227,7 @@
                       "description": "Track artists"
                     },
                     "album": {
-                      "description": "Track album",
+                      "description": "Track album when supplied by the provider. Omitted for sources such as YouTube videos that do not supply album metadata.",
                       "allOf": [
                         {
                           "type": "object",
@@ -6054,8 +6265,7 @@
                   "required": [
                     "id",
                     "name",
-                    "artists",
-                    "album"
+                    "artists"
                   ],
                   "additionalProperties": false,
                   "title": "Track"
@@ -7573,9 +7783,9 @@
                       "title": "MediaId",
                       "type": "string",
                       "minLength": 1,
-                      "example": "portos-media://portpowered.com/spotify/audio/track/Ab123",
-                      "pattern": "^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:video:[A-Za-z0-9_-]+)$",
-                      "description": "Exact provider resource identity. The canonical form is portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portpowered.com/docs/media.\n"
+                      "example": "portos-media://portoperatingsystem.com/spotify/audio/track/Ab123",
+                      "pattern": "^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\\s]|%[0-9A-Fa-f]{2})+|https?://[^\\s]+|portos://[^\\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$",
+                      "description": "Exact provider resource identity. The canonical form is portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id, with no URI version. Spotify emits audio track, playlist, album, artist, show and episode identities. The prior portpowered.com authority remains readable. YouTube and YouTube Music share provider youtube, with video/video and video/channel resource kinds. Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same canonical resources. Copy an ID returned by search or library discovery; do not send a search phrase as an ID. Legacy providers retain their own input contracts until explicitly migrated. See https://portoperatingsystem.com/docs/media.\n"
                     },
                     "startedAt": {
                       "type": "string",
@@ -8405,56 +8615,164 @@
         },
         {
           "name": "route-discovery-report",
-          "description": "Report of discovered routes, group routes and their relationships. Decodes to the same model as SynchronizationRequest.",
+          "description": "Provider report of discovered routes, group routes and their relationships. Plugin and auth-link identity come from the authenticated publisher context.",
           "directionality": "out",
           "schema": {
-            "description": "Report of discovered routes, group routes and their relationships. Decodes to the same model as SynchronizationRequest.",
+            "description": "Provider report of discovered routes, group routes and their relationships. Plugin and auth-link identity come from the authenticated publisher context.",
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "pluginIdentity": {
+                "type": "object",
+                "description": "Identifies a plugin client by its type and unique identifier.",
+                "required": [
+                  "pluginType",
+                  "pluginId"
+                ],
+                "properties": {
+                  "pluginType": {
+                    "type": "string",
+                    "enum": [
+                      "WEBSOCKET",
+                      "HTTP",
+                      "WEBSERVICE",
+                      "APPLE_PUSH_NOTIFICATION",
+                      "HOSTED_COMPUTE"
+                    ]
+                  },
+                  "pluginId": {
+                    "type": "string",
+                    "description": "The ID of the plugin"
+                  }
+                },
+                "title": "ClientIdentity"
+              },
+              "authLinkIdentity": {
+                "type": "string",
+                "description": "The ID of the auth link the routes were discovered for."
+              },
               "routes": {
                 "type": "array",
+                "maxItems": 1000,
                 "items": {
                   "type": "object",
-                  "description": "A discovered route",
+                  "description": "Provider input before host synchronization assigns persisted route identity and ownership. Canonical provider facts reuse Route property definitions. The Go projection deliberately retains the existing Route wire adapter for plugin compatibility; canonical validation uses this input schema, not persisted Route. Host identity fields may be omitted or empty in legacy Route serialization and never establish authenticated publisher or installation authority. Nonempty id and associatedEndpointId may select an existing authorized route during scoped rediscovery; newly created routes and endpoints receive host-assigned IDs.\n",
+                  "required": [
+                    "associatedPluginRouteId",
+                    "interfaces",
+                    "ontologicalTypes"
+                  ],
                   "properties": {
-                    "pluginRouteId": {
-                      "type": "string",
-                      "description": "The external ID of the route"
+                    "associatedPluginRouteId": {
+                      "allOf": [
+                        {
+                          "type": "string",
+                          "description": "The stable plugin-owned route identifier associated with this Port OS route. For synchronized plugin capability contracts and fixture parity checks, use this field to match a route from enumeration back to the discovery payload.\n"
+                        }
+                      ],
+                      "minLength": 1
                     },
-                    "name": {
+                    "externalId": {
                       "type": "string",
-                      "description": "The name of the route"
+                      "description": "The external ID of the route given by the reporting system"
                     },
-                    "description": {
+                    "pluginProfileId": {
                       "type": "string",
-                      "description": "The description of the route"
-                    },
-                    "type": {
-                      "type": "string",
-                      "description": "The type of the route that has been discovered"
+                      "minLength": 1,
+                      "description": "Stable profile ID selected from the registered plugin declaration. Required for V2 plugin discovery; retained with the route for admission and presentation."
                     },
                     "interfaces": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "description": "A reference to a route interface",
-                        "properties": {
-                          "namespace": {
-                            "type": "string",
-                            "description": "The name of the interface"
-                          },
-                          "version": {
-                            "type": "string",
-                            "description": "The version of the interface"
+                        "$ref": "#/properties/groupRoutes/items/properties/interfaces/items"
+                      },
+                      "description": "List of interfaces supported by the route. These denote what the route is capable of performing such as turning off/on, etc."
+                    },
+                    "ontologicalTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of ontological types for the route. These are used mostly for customers to know what an endpoint is, like if its a lightbulb, or a speaker, etc."
+                    },
+                    "name": {
+                      "description": "The name of the route as a human readable string or a localizable asset. This is either a raw string or a localizable asset reference.",
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "value"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "description": "The type identifier of the name value, defined as plain when not defined."
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "the raw value of a plain name."
+                            }
                           }
-                        },
-                        "title": "RouteInterfaceRef"
-                      }
+                        }
+                      ]
+                    },
+                    "description": {
+                      "description": "The description of the route as a human readable string or a localizable asset.",
+                      "allOf": [
+                        {
+                          "$ref": "#/properties/routes/items/properties/name/allOf/0"
+                        }
+                      ]
+                    },
+                    "manufacturer": {
+                      "description": "The manufacturer of the route as a human readable string or a localizable asset.",
+                      "allOf": [
+                        {
+                          "$ref": "#/properties/routes/items/properties/name/allOf/0"
+                        }
+                      ]
+                    },
+                    "model": {
+                      "description": "The model of the route as a human readable string or a localizable asset.",
+                      "allOf": [
+                        {
+                          "$ref": "#/properties/routes/items/properties/name/allOf/0"
+                        }
+                      ]
+                    },
+                    "serialNumber": {
+                      "description": "The serial number of the route as a human readable string or a localizable asset.",
+                      "allOf": [
+                        {
+                          "$ref": "#/properties/routes/items/properties/name/allOf/0"
+                        }
+                      ]
+                    },
+                    "pluginCustomMetadata": {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "description": "A set of custom metadata that the plugin uses and attaches to the route, this is meant specifically for the plugin to use."
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Advisory legacy value, including empty. Together with associatedEndpointId it may select an existing route within the authenticated scope. New persisted IDs are assigned by the host and validated by the separate persisted Route schema."
+                    },
+                    "associatedPluginId": {
+                      "type": "string",
+                      "description": "The ID of the associated plugin"
+                    },
+                    "associatedAuthLinkId": {
+                      "type": "string",
+                      "description": "The ID of the associated auth link"
+                    },
+                    "associatedEndpointId": {
+                      "type": "string",
+                      "description": "The ID of the associated endpoint"
                     }
                   },
                   "additionalProperties": false,
-                  "title": "DiscoveredRoute"
+                  "title": "ProviderDiscoveredRoute"
                 }
               },
               "groupRoutes": {
@@ -8467,6 +8785,18 @@
                     "name"
                   ],
                   "properties": {
+                    "pluginProfileId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "Stable group-route profile ID selected from the registered V2 plugin declaration."
+                    },
+                    "ontologicalTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Actual classifications of the native group route, constrained by its selected plugin profile for V2 discovery."
+                    },
                     "pluginRouteId": {
                       "type": "string",
                       "minLength": 1,
@@ -8495,8 +8825,7 @@
                           "messages": {
                             "type": "array",
                             "nullable": true,
-                            "minItems": 1,
-                            "description": "Supported inbound message subset for the declared interface version. Omission or null retains the interface's full message contract; a supplied array must be nonempty and contain distinct canonical names for implemented messages.",
+                            "description": "Supported inbound message subset for the declared interface version. An explicit empty array declares no supported messages. A supplied array contains distinct canonical names for implemented messages. Omission or null retains legacy catalog-default behavior.",
                             "items": {
                               "type": "object",
                               "required": [
@@ -8531,7 +8860,7 @@
                               },
                               "title": "ApplicationInterfaceAttribute"
                             },
-                            "description": "Supported attribute subset. An omitted or empty list retains catalog-default behavior."
+                            "description": "Supported attribute subset. An explicit empty array declares no supported attributes. Omission retains legacy catalog-default behavior."
                           },
                           "configuration": {
                             "type": "object",
@@ -8564,7 +8893,7 @@
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "description": "A provider-reported relationship between routes and group routes. Identity is `externalId` within the reporting plugin and auth link; resubmitting the same `externalId` updates the relationship. Omission from a later synchronization is not a deletion instruction.\n",
+                  "description": "A provider-reported relationship between typed port resources. Identity is `externalId` within the reporting plugin and auth link; resubmitting the same `externalId` updates the relationship. Omission from a later synchronization is not a deletion instruction.\n",
                   "additionalProperties": false,
                   "required": [
                     "externalId",
@@ -8580,16 +8909,17 @@
                     },
                     "type": {
                       "type": "string",
-                      "description": "Typed relationship between provider routes and group routes. `IS_PART_OF`: a group route is contained in a parent group route (spatial hierarchy, acyclic). `CAN_CONTROL`: an endpoint route can act on a group route with the listed interface messages; it never grants authorization. `LOCATED_IN`: an endpoint route is currently observed inside a group route; it is an observation, not membership.\n",
+                      "description": "Typed relationship between port resources. `IS_PART_OF`: a resource is contained in a parent resource (acyclic). `CAN_CONTROL`: an endpoint or route can act on another resource with the listed interface messages; it never grants authorization. `LOCATED_IN`: an endpoint route is currently observed inside a group route; it is an observation, not membership. `MEMBER_OF`: an endpoint belongs to a group.\n",
                       "enum": [
                         "IS_PART_OF",
                         "CAN_CONTROL",
-                        "LOCATED_IN"
+                        "LOCATED_IN",
+                        "MEMBER_OF"
                       ]
                     },
                     "source": {
                       "type": "object",
-                      "description": "One end of a discovered relationship, addressed by plugin-owned identity within the reporting plugin and auth link. Exactly one of `pluginRouteId` (a route) or `groupPluginRouteId` (a group route) must be set.\n",
+                      "description": "One end of a discovered relationship, addressed by plugin-owned identity within the reporting plugin and auth link. Exactly one of `pluginRouteId` (a route), `groupPluginRouteId` (a group route), `endpointId` or `groupId` must be set.\n",
                       "additionalProperties": false,
                       "minProperties": 1,
                       "maxProperties": 1,
@@ -8603,6 +8933,16 @@
                           "type": "string",
                           "minLength": 1,
                           "description": "The plugin route ID of a group route reported in the same or an earlier synchronization."
+                        },
+                        "endpointId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "The full ID of an endpoint owned by the reporting principal."
+                        },
+                        "groupId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "The full ID of a group owned by the reporting principal."
                         }
                       },
                       "title": "PluginDiscoveryRelationshipVertex"
@@ -8637,9 +8977,8 @@
                           },
                           "messages": {
                             "type": "array",
-                            "minItems": 1,
                             "uniqueItems": true,
-                            "description": "Message names of the interface the relationship applies to. Omitted means every message of the interface.",
+                            "description": "Message names of the interface the relationship applies to. An explicit empty array applies to no messages. Omission retains every message supported by the source interface.",
                             "items": {
                               "type": "string",
                               "minLength": 1

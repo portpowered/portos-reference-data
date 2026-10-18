@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "description": "Email and explicit consent for updates about a selected future integration.",
+  "description": "Email and explicit consent for updates about a future integration. Custom requests also require the manufacturer or device name.",
   "additionalProperties": false,
   "required": [
     "email",
@@ -16,21 +16,13 @@
     },
     "pluginId": {
       "type": "string",
-      "x-enum-exempt": "plugin identifiers",
-      "enum": [
-        "port1/systems/zero/plugins/715b7b85-311f-4851-8430-88bbac6dd3e7",
-        "port1/systems/zero/plugins/f9a10d98-abf9-40ed-8400-a2ab0210fdfd",
-        "port1/systems/zero/plugins/9d21576b-e2fe-4d6a-99ab-4fc969a08d54",
-        "muse",
-        "vscode",
-        "grok",
-        "goose",
-        "openclaw",
-        "hermes",
-        "codex",
-        "cline",
-        "slack"
-      ]
+      "description": "Stable provider ID from the device catalog or supported AI client ID. The server accepts only registered waitlist identities."
+    },
+    "manufacturer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Manufacturer or device to add. Required only for the Custom provider (port1/systems/zero/plugins/50161180-0a4a-483d-8e31-24ff480615cf); omit for all other providers."
     },
     "consent": {
       "type": "boolean",

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/camera",
+  "x-name": "event-image-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Event image URL and provider token returned for a get-event-image request.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "url",
+    "token"
+  ],
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "token": {
+      "type": "string"
+    }
+  }
+}

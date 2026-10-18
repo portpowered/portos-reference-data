@@ -1,15 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "description": "Request body for creating a token (JWT) for token exchange.",
+  "description": "Create an expiring, revocable access key for API use or website sign-in.",
+  "additionalProperties": false,
   "properties": {
+    "purpose": {
+      "$ref": "/docs/references/schemas/TokenPurpose.json"
+    },
     "subject": {
       "type": "string",
-      "description": "Identity for the token. Use ~self for the current user (resolved to the authenticated principal at create time). May be another principal path if policy allows.\n"
+      "description": "Identity for the token. Use ~self for the current user (resolved to the authenticated principal at create time), or that same principal's full path. Other principals are rejected.\n"
     },
     "expires_in": {
       "type": "integer",
-      "description": "Lifetime of the token in seconds. Optional; defaults to 3600 (1 hour)."
+      "description": "Lifetime in seconds, default 3600. Website sign-in keys require a positive lifetime of at most 604800 (seven days)."
     },
     "scope": {
       "type": "string",

@@ -14,7 +14,6 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /.well-known/oauth-authorization-server](/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md) | Public | — | — |
 | [GET /.well-known/oauth-protected-resource](/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md) | Public | — | — |
 | [GET /.well-known/oauth-protected-resource/mcp](/docs/for-ai/operations/getMCPOAuthProtectedResourceMetadata.md) | Public | — | — |
-| [GET /.well-known/openid-configuration](/docs/for-ai/operations/getOpenIDConfiguration.md) | Public | — | — |
 | [DELETE /{namespace}/{principalType}/{principalId}](/docs/for-ai/operations/deletePrincipal.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required) | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}](/docs/for-ai/operations/deleteAccessControlRule.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:ruleId (required) | — |
 | [GET /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}](/docs/for-ai/operations/getEndpointGroup.md) | group:read | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), query:expand, query:forceDeviceAttributeQuery | — |
@@ -27,7 +26,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [PATCH /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/patchSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | name |
 | [DELETE /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/deleteSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/tokens/{tokenId}](/docs/for-ai/operations/invalidateToken.md) | OAuth (no scope) | path:tokenId (required), path:namespace (required), path:principalType (required), path:principalId (required) | — |
-| [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md) | OAuth (no scope) | query:owner (required), query:nextToken, query:maxResults, query:expand | — |
+| [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md) | OAuth (no scope) | query:owner, query:id, query:nextToken, query:maxResults, query:expand | — |
 | [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md) | OAuth (no scope) | — | effect, id, identity, operation, resource |
 | [POST /access-control-rules/evaluate](/docs/for-ai/operations/evaluateAccessControlRule.md) | OAuth (no scope) | — | entities, operation, requesterContext, resourceContext |
 | [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:expand, query:nextToken, query:maxResults | — |
@@ -41,7 +40,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /auth/revoke](/docs/for-ai/operations/revokeOAuthGrant.md) | Public | — | client_id, token |
 | [POST /auth/token](/docs/for-ai/operations/generateToken.md) | Public | — | client_id, client_secret, code, code_verifier, grant_type, redirect_uri, refresh_token, resource, scope |
 | [POST /discovery](/docs/for-ai/operations/synchronizeRoutes.md) | See session/security contract | — | authLinkIdentity, groupRoutes, pluginIdentity, relationships, routes |
-| [GET /endpoint-groups](/docs/for-ai/operations/enumerateEndpointGroups.md) | group:read | query:enablement, query:owner (required), query:nextToken, query:maxResults, query:expand, query:forceDeviceAttributeQuery | — |
+| [GET /endpoint-groups](/docs/for-ai/operations/enumerateEndpointGroups.md) | group:read | query:enablement, query:owner, query:nextToken, query:maxResults, query:expand, query:forceDeviceAttributeQuery | — |
 | [POST /endpoint-groups](/docs/for-ai/operations/createEndpointGroup.md) | group:manage | — | item |
 | [POST /endpoint-groups-manage](/docs/for-ai/operations/endpointGroupsManage.md) | group:manage | header:Idempotency-Key (required) | operations, validateOnly |
 | [POST /endpoint-query](/docs/for-ai/operations/endpointQuery.md) | endpoint:read; groupId: group:read | — | expand, forceDeviceQuery, paginationContext, query |
@@ -58,9 +57,8 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /event-dead-letters/{id}/redrives](/docs/for-ai/operations/redriveEventDeadLetter.md) | See session/security contract | path:id (required) | — |
 | [POST /events](/docs/for-ai/operations/createSyntheticEvent.md) | See session/security contract | — | body, endpoint, header, requestId |
 | [GET /events/receipts/{receiptId}](/docs/for-ai/operations/getEventReceipt.md) | See session/security contract | path:receiptId (required), query:expand | — |
-| [GET /group-relationships](/docs/for-ai/operations/enumerateGroupRelationships.md) | group:read | query:owner (required), query:groupId, query:routeId, query:endpointId, query:nextToken, query:maxResults, query:expand | — |
-| [GET /group-routes](/docs/for-ai/operations/enumerateGroupRoutes.md) | group:read | query:owner (required), query:nextToken, query:maxResults, query:expand | — |
-| [POST /integration-requests](/docs/for-ai/operations/requestFutureIntegration.md) | Public | — | consent, email, pluginId |
+| [GET /group-routes](/docs/for-ai/operations/enumerateGroupRoutes.md) | group:read | query:owner, query:nextToken, query:maxResults, query:expand | — |
+| [POST /integration-requests](/docs/for-ai/operations/requestFutureIntegration.md) | Public | — | consent, email, manufacturer, pluginId |
 | [POST /messages](/docs/for-ai/operations/sendMessage.md) | message:send | — | message, responseType, target |
 | [POST /messages-gateway](/docs/for-ai/operations/pushToMessageGateway.md) | OAuth (no scope) | — | auth-token, body, context, correlationToken, endpoint, header, ownerId, secrets, target, type |
 | [POST /messages/send](/docs/for-ai/operations/sendMessageLegacyAlias.md) | message:send | — | message, responseType, target |
@@ -80,6 +78,8 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /plugin-auth-code-exchange](/docs/for-ai/operations/pluginAuthCodeExchange.md) | OAuth (no scope) | — | authLinkId, pluginAuthenticationData, pluginId, principalId |
 | [POST /plugin-auth-code-link](/docs/for-ai/operations/pluginAuthCodeLink.md) | OAuth (no scope) | — | pluginId, principalId |
 | [POST /plugin-auth-multifactor-exchange](/docs/for-ai/operations/pluginAuthMultifactorExchange.md) | OAuth (no scope) | — | pluginAuthenticationData, pluginId, principalId |
+| [POST /plugin-oauth-authorization-completions](/docs/for-ai/operations/completePluginOAuthAuthorization.md) | OAuth (no scope) | header:Idempotency-Key (required) | authLinkId, code, pluginId, redirectUri, state |
+| [POST /plugin-oauth-authorizations](/docs/for-ai/operations/beginPluginOAuthAuthorization.md) | OAuth (no scope) | header:Idempotency-Key (required) | authLinkId, pluginId, redirectUri |
 | [GET /plugins](/docs/for-ai/operations/enumeratePlugins.md) | OAuth (no scope) | query:expand, query:id, query:nextToken, query:maxResults | — |
 | [POST /plugins](/docs/for-ai/operations/upsertPluginRequest.md) | OAuth (no scope) | — | applePushNotificationSecret, plugin, secretReferenceId |
 | [DELETE /plugins](/docs/for-ai/operations/deletePlugin.md) | OAuth (no scope) | — | id |
@@ -88,17 +88,18 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [PUT /port1/{principalType}/{principalId}/oauth-clients/{clientId}](/docs/for-ai/operations/updateOAuthClient.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required) | allowedOrigins, clientName, clientUri, clientUriLocalized, contacts, grantTypes, jwks, jwksUri, logoUri, logoUriLocalized, policyUri, policyUriLocalized, redirectUris, responseTypes, scope, scopes, softwareId, softwareVersion, tokenEndpointAuthMethod, tokenEndpointAuthSigningAlg, tosUri, tosUriLocalized |
 | [DELETE /port1/{principalType}/{principalId}/oauth-clients/{clientId}](/docs/for-ai/operations/deleteOAuthClient.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required) | — |
 | [DELETE /port1/{principalType}/{principalId}/secrets/{secretId}](/docs/for-ai/operations/deleteSecret.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:secretId (required) | — |
-| [GET /principals](/docs/for-ai/operations/enumeratePrincipals.md) | OAuth (no scope) | query:expand, query:nextToken, query:maxResults | — |
+| [GET /principals](/docs/for-ai/operations/enumeratePrincipals.md) | OAuth (no scope) | query:owner, query:id, query:expand, query:nextToken, query:maxResults | — |
 | [POST /principals](/docs/for-ai/operations/upsertPrincipal.md) | OAuth (no scope) | — | item |
-| [GET /routes](/docs/for-ai/operations/getRoutes.md) | endpoint:read | query:expand, query:nextToken, query:maxResults | — |
+| [GET /relationships](/docs/for-ai/operations/enumerateRelationships.md) | group:read | query:owner, query:groupId, query:routeId, query:endpointId, query:vertexId, query:parentId, query:type, query:nextToken, query:maxResults, query:expand | — |
+| [GET /routes](/docs/for-ai/operations/getRoutes.md) | endpoint:read | query:owner, query:expand, query:nextToken, query:maxResults | — |
 | [POST /routes](/docs/for-ai/operations/upsertRoute.md) | endpoint:write | — | endpointId, id, interfaces, metadata, pluginId |
 | [DELETE /routes](/docs/for-ai/operations/deleteRoute.md) | endpoint:write | — | id |
 | [GET /secrets](/docs/for-ai/operations/enumerateSecrets.md) | OAuth (no scope) | query:id, query:owner, query:nextToken, query:maxResults, query:expand | — |
 | [POST /secrets](/docs/for-ai/operations/upsertSecret.md) | OAuth (no scope) | — | secret |
-| [GET /subscriptions](/docs/for-ai/operations/enumerateSubscriptions.md) | subscription:read | query:expand, query:nextToken, query:maxResults | — |
+| [GET /subscriptions](/docs/for-ai/operations/enumerateSubscriptions.md) | subscription:read | query:id, query:owner, query:expand, query:nextToken, query:maxResults | — |
 | [POST /subscriptions](/docs/for-ai/operations/upsertSubscription.md) | subscription:write | — | subscription |
 | [GET /tokens](/docs/for-ai/operations/enumerateTokens.md) | OAuth (no scope) | query:nextToken, query:maxResults, query:expand | — |
-| [POST /tokens](/docs/for-ai/operations/createToken.md) | OAuth (no scope) | — | expires_in, label, scope, subject |
+| [POST /tokens](/docs/for-ai/operations/createToken.md) | OAuth (no scope) | — | expires_in, label, purpose, scope, subject |
 | [POST /tuya/qrcode](/docs/for-ai/operations/generateTuyaQrCode.md) | Public | — | accessCode, authenticationUrl, clientId, schema |
 | [POST /tuya/validatetoken](/docs/for-ai/operations/validateTuyaLoginCode.md) | Public | — | authenticationUrl, clientId, loginCode, userCode |
 | [POST /webhooks/github](/docs/for-ai/operations/handleGitHubWebhook.md) | Public | header:X-Hub-Signature-256 (required), header:X-GitHub-Delivery, header:X-GitHub-Event | — |

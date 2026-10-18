@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "description": "A typed relationship between routes and group routes, as reported by a provider through discovery. Read-only through the REST API.\n",
+  "description": "A typed relationship between port resources. Provider discovery and group membership operations manage relationships; the REST collection is read-only.\n",
   "additionalProperties": false,
   "required": [
     "id",
@@ -27,10 +27,10 @@
       "$ref": "/docs/references/schemas/RelationshipType.json"
     },
     "source": {
-      "$ref": "/docs/references/schemas/GroupRelationshipVertex.json"
+      "$ref": "/docs/references/schemas/RelationshipVertex.json"
     },
     "target": {
-      "$ref": "/docs/references/schemas/GroupRelationshipVertex.json"
+      "$ref": "/docs/references/schemas/RelationshipVertex.json"
     },
     "interfaces": {
       "type": "array",

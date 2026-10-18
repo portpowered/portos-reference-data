@@ -28,15 +28,6 @@
       "resourcePermissionRequired": false
     },
     {
-      "path": "/.well-known/openid-configuration",
-      "runtimePath": "/.well-known/openid-configuration",
-      "method": "GET",
-      "operationId": "getOpenIDConfiguration",
-      "security": [],
-      "delegated": false,
-      "resourcePermissionRequired": false
-    },
-    {
       "path": "/.well-known/oauth-authorization-server",
       "runtimePath": "/.well-known/oauth-authorization-server",
       "method": "GET",
@@ -535,6 +526,38 @@
       "resourcePermissionRequired": true
     },
     {
+      "path": "/plugin-oauth-authorizations",
+      "runtimePath": "/plugin-oauth-authorizations",
+      "method": "POST",
+      "operationId": "beginPluginOAuthAuthorization",
+      "security": [
+        {
+          "oauth2": []
+        },
+        {
+          "bearerAuth": []
+        }
+      ],
+      "delegated": false,
+      "resourcePermissionRequired": true
+    },
+    {
+      "path": "/plugin-oauth-authorization-completions",
+      "runtimePath": "/plugin-oauth-authorization-completions",
+      "method": "POST",
+      "operationId": "completePluginOAuthAuthorization",
+      "security": [
+        {
+          "oauth2": []
+        },
+        {
+          "bearerAuth": []
+        }
+      ],
+      "delegated": false,
+      "resourcePermissionRequired": true
+    },
+    {
       "path": "/endpoint-groups",
       "runtimePath": "/endpoint-groups",
       "method": "GET",
@@ -589,10 +612,10 @@
       "resourcePermissionRequired": true
     },
     {
-      "path": "/group-relationships",
-      "runtimePath": "/group-relationships",
+      "path": "/relationships",
+      "runtimePath": "/relationships",
       "method": "GET",
-      "operationId": "enumerateGroupRelationships",
+      "operationId": "enumerateRelationships",
       "security": [
         {
           "oauth2": [

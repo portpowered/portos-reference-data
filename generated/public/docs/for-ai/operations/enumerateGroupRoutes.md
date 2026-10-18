@@ -41,9 +41,9 @@ get:
     - name: owner
       in: query
       description: >-
-        The owner of the group routes to get. Use '~caller' to get group routes for the
-        authenticated user
-      required: true
+        Owner whose group routes to get. Defaults to the authenticated caller when omitted. Use
+        '~caller' as an explicit alias for the authenticated user.
+      required: false
       schema:
         type: string
       examples:
@@ -62,10 +62,13 @@ get:
           value: '123'
     - name: maxResults
       in: query
-      description: The maximum number of results to return
+      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
       required: false
       schema:
         type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
       examples:
         max-results:
           value: 10

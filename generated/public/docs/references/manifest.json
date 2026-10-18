@@ -1,18 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.15",
-  "sourceCommit": "59230d4f39be6adf86718f6d4d34dda655303f03",
+  "version": "0.4.16",
+  "sourceCommit": "36c06173f6dd2ee3e52cad51fdf3bcd44410fae0",
   "sourceInputState": "committed",
-  "sourceInputSHA256": "2cecbb5a4ecd705c0aabac2ddb9f84eb6a55c8801d2f32c0e9bf2775630fd9c1",
-  "sourceInputCount": 792,
-  "assetSetSHA256": "5b1039e0d54e8380e2fd4269b639ddb2277d92d25458f646a76651831a89e0e2",
+  "assetSetSHA256": "e75cca4a8cbe34a78c81991462569655f750e6cceb6c7e83925a82c11291190b",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 17706,
-      "sha256": "8df90cfe81df9462c9c63ad944387dce40f3d0ff000d5a015851c437b4321689",
+      "bytes": 18076,
+      "sha256": "583f4eae4a6e7350d1d2bba4ff30614e8454636e1d568d4f255a7a6b9b8cb6f4",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -21,7 +19,9 @@
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
         "/docs/for-ai/operations/authorizeDevice.md",
         "/docs/for-ai/operations/beginOAuthAuthorization.md",
+        "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
         "/docs/for-ai/operations/completeOAuthConsent.md",
+        "/docs/for-ai/operations/completePluginOAuthAuthorization.md",
         "/docs/for-ai/operations/createEndpointGroup.md",
         "/docs/for-ai/operations/createOAuthClient.md",
         "/docs/for-ai/operations/createSyntheticEvent.md",
@@ -47,11 +47,11 @@
         "/docs/for-ai/operations/enumerateEndpointGroups.md",
         "/docs/for-ai/operations/enumerateEndpoints.md",
         "/docs/for-ai/operations/enumerateEventDeadLetters.md",
-        "/docs/for-ai/operations/enumerateGroupRelationships.md",
         "/docs/for-ai/operations/enumerateGroupRoutes.md",
         "/docs/for-ai/operations/enumerateOAuthClients.md",
         "/docs/for-ai/operations/enumeratePlugins.md",
         "/docs/for-ai/operations/enumeratePrincipals.md",
+        "/docs/for-ai/operations/enumerateRelationships.md",
         "/docs/for-ai/operations/enumerateSecrets.md",
         "/docs/for-ai/operations/enumerateSimulators.md",
         "/docs/for-ai/operations/enumerateSubscriptions.md",
@@ -72,7 +72,6 @@
         "/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md",
         "/docs/for-ai/operations/getOAuthClient.md",
         "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
-        "/docs/for-ai/operations/getOpenIDConfiguration.md",
         "/docs/for-ai/operations/getPendingOAuthConsent.md",
         "/docs/for-ai/operations/getRoutes.md",
         "/docs/for-ai/operations/getSubscription.md",
@@ -325,11 +324,12 @@
     {
       "path": "/docs/for-ai/capability-interfaces/camera/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1267,
-      "sha256": "a20c8daf2be995d391635984a103d42ff7c374ad16edd3587f8431fc60922146",
+      "bytes": 1460,
+      "sha256": "ccd9cbf5d78b9e0116c29d1866b5200c157af03ece78d84ed2d83ede27907118",
       "links": [
         "/docs/references/capability-interfaces/camera/1.0.yaml",
         "/docs/references/capability-interfaces/camera/1.0/attributes/motion-detection-enabled.yaml",
+        "/docs/references/capability-interfaces/camera/1.0/messages/event-image-response.yaml",
         "/docs/references/capability-interfaces/camera/1.0/messages/get-event-image.yaml",
         "/docs/references/capability-interfaces/camera/1.0/messages/ptz-control.yaml",
         "/docs/references/capability-interfaces/camera/1.0/messages/set-motion-detection.yaml",
@@ -468,8 +468,8 @@
     {
       "path": "/docs/for-ai/capability-interfaces/control-routes-provider/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2551,
-      "sha256": "7c483ffca5e9896c770b7c1231b07329271c093070c9872b84db11b4e3be0044",
+      "bytes": 2556,
+      "sha256": "ac42cd9d564556e9ba9ca732238a05a365b79492007f6e8b9221719664f56940",
       "links": [
         "/docs/references/capability-interfaces/control-routes-provider/1.0.yaml",
         "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/acknowledged.yaml",
@@ -758,10 +758,11 @@
     {
       "path": "/docs/for-ai/capability-interfaces/media-player/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4149,
-      "sha256": "d159abf816d86250237be7001a9c8c68a601282f8520026b6394427254c26aa9",
+      "bytes": 4250,
+      "sha256": "e3b8659b235a68161998a488d6828a8b8ff1f9574cad72a49abc0193946264eb",
       "links": [
         "/docs/references/capability-interfaces/media-player/1.0.yaml",
+        "/docs/references/capability-interfaces/media-player/1.0/attributes/clip-status.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/current-content.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
         "/docs/references/capability-interfaces/media-player/1.0/attributes/playback-speed.yaml",
@@ -1060,8 +1061,8 @@
     {
       "path": "/docs/for-ai/capability-interfaces/route-discovery/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1383,
-      "sha256": "5980697ae4ed3e638a08e151e63b0e710957364f619e80bd9ed08749b7678f33",
+      "bytes": 1416,
+      "sha256": "44191a936ee0fc33cb78ed2c52e5d867050740f09ceb522c92073d4001705b62",
       "links": [
         "/docs/references/capability-interfaces/route-discovery/1.0.yaml",
         "/docs/references/capability-interfaces/route-discovery/1.0/messages/add-group-route-members.yaml",
@@ -1316,6 +1317,13 @@
       ]
     },
     {
+      "path": "/docs/for-ai/guides/access-key-sign-in.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2358,
+      "sha256": "a8c35a6d9460c7e619030e1190b27777745d5057cd4fb1da5626cb8dcfc595fb",
+      "links": []
+    },
+    {
       "path": "/docs/for-ai/guides/adding-devices.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 873,
@@ -1328,8 +1336,8 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19317,
-      "sha256": "0efd6abed02b7f20d7880e6a587a41ce2ddf2989d5b3f446e70e90219070f880",
+      "bytes": 20229,
+      "sha256": "dcb220c249f76a727bf195221383bcf3f0b58bc4475a4d4e5cfd0fa29ce90f13",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1349,8 +1357,8 @@
     {
       "path": "/docs/for-ai/guides/authorization-rules.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2603,
-      "sha256": "4640f3a479ba2910681ec5c28d34a2e7934f834b9818668f6460486e88e609e5",
+      "bytes": 3417,
+      "sha256": "d2d3a13aee61e562251bfe0d4f569c480b4d3729239fede609315a9085d63215",
       "links": [
         "/docs/for-ai/guides/troubleshooting.md",
         "/docs/for-ai/operations/index.md",
@@ -1403,6 +1411,31 @@
       ]
     },
     {
+      "path": "/docs/for-ai/guides/endpoint-permissions.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1429,
+      "sha256": "03f5dd2867ed4b8764967e43014ac2c735fe9e152fd5e7406969f765ae276682",
+      "links": [
+        "/docs/for-ai/guides/authorization-rules.md",
+        "/docs/for-ai/operations/getAccessControlRules.md",
+        "/docs/for-ai/operations/upsertAccessControlRule.md"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/guides/events-and-capabilities.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3477,
+      "sha256": "384320889bd71bb65ae0905c4e3b301b40bc16ca61cbec6abd9e37313550e82a",
+      "links": [
+        "/docs/for-ai/capability-interfaces.md",
+        "/docs/for-ai/guides/authorization-rules.md",
+        "/docs/for-ai/guides/connect-agent.md",
+        "/docs/for-ai/guides/using-the-api.md",
+        "/docs/for-ai/operations/enumerateEndpoints.md",
+        "/docs/for-ai/operations/sendMessage.md"
+      ]
+    },
+    {
       "path": "/docs/for-ai/guides/first-setup.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 871,
@@ -1416,9 +1449,10 @@
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2190,
-      "sha256": "936e643766ce6a3c245a03f91b8a1b74087ce4cfa237e6f94e8e0939e92a6720",
+      "bytes": 3524,
+      "sha256": "4f69a44b7831e54a078be18f5e1bef0aabbc897b2d784a70e1e596290754a939",
       "links": [
+        "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
@@ -1426,18 +1460,35 @@
         "/docs/for-ai/guides/connect-agent.md",
         "/docs/for-ai/guides/connect-grok.md",
         "/docs/for-ai/guides/connect-muse.md",
+        "/docs/for-ai/guides/endpoint-permissions.md",
+        "/docs/for-ai/guides/events-and-capabilities.md",
         "/docs/for-ai/guides/first-setup.md",
         "/docs/for-ai/guides/lighting.md",
         "/docs/for-ai/guides/managing-devices.md",
         "/docs/for-ai/guides/managing-groups.md",
+        "/docs/for-ai/guides/managing-simulators.md",
         "/docs/for-ai/guides/media.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
         "/docs/for-ai/guides/oauth-consent-and-callback.md",
         "/docs/for-ai/guides/oauth-discovery.md",
+        "/docs/for-ai/guides/oauth-setup.md",
         "/docs/for-ai/guides/oauth-token-lifecycle.md",
         "/docs/for-ai/guides/port-os-concepts.md",
         "/docs/for-ai/guides/quickstart.md",
         "/docs/for-ai/guides/reading-the-docs.md",
+        "/docs/for-ai/guides/skill-connected-home.md",
+        "/docs/for-ai/guides/skill-setup.md",
+        "/docs/for-ai/guides/task-battery.md",
+        "/docs/for-ai/guides/task-cameras.md",
+        "/docs/for-ai/guides/task-discovery.md",
+        "/docs/for-ai/guides/task-files.md",
+        "/docs/for-ai/guides/task-find-phone.md",
+        "/docs/for-ai/guides/task-index.md",
+        "/docs/for-ai/guides/task-lighting.md",
+        "/docs/for-ai/guides/task-media.md",
+        "/docs/for-ai/guides/task-reminders.md",
+        "/docs/for-ai/guides/task-rooms.md",
+        "/docs/for-ai/guides/task-temperature.md",
         "/docs/for-ai/guides/thermostats.md",
         "/docs/for-ai/guides/troubleshooting.md",
         "/docs/for-ai/guides/using-the-api.md",
@@ -1447,8 +1498,8 @@
     {
       "path": "/docs/for-ai/guides/lighting.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2462,
-      "sha256": "4630b0541a7b9de1c605d4bbf9dee7946a0889ca0eb364c628a9878f868e27fe",
+      "bytes": 2529,
+      "sha256": "8b1cca82dc87f9e558e860a676ee3b47a09ea91858d9e343afc66a52b5b1aafb",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authorization-rules.md",
@@ -1479,6 +1530,13 @@
       ]
     },
     {
+      "path": "/docs/for-ai/guides/managing-simulators.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1100,
+      "sha256": "0d06957d6b59b44e8e934254edbf687fb4badebe0dcfe5a4683f328d09968684",
+      "links": []
+    },
+    {
       "path": "/docs/for-ai/guides/media.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 722,
@@ -1491,8 +1549,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-client-registration.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3490,
-      "sha256": "df91de30ed9c51fc655229f3946779bcd48d32634af4222d083d4bd37504a489",
+      "bytes": 3448,
+      "sha256": "4880267cb352dace78e44e65e0437add162ec3c91570b3489cdc0bce651f3c9e",
       "links": [
         "/docs/for-ai/guides/oauth-consent-and-callback.md",
         "/docs/for-ai/guides/oauth-discovery.md",
@@ -1514,12 +1572,29 @@
     {
       "path": "/docs/for-ai/guides/oauth-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3064,
-      "sha256": "e53caff251249e82b619facc6e0511f30f076a2d12bce8ee45dd8ca5b7552023",
+      "bytes": 3204,
+      "sha256": "f9da377757ae6a5f3099565232e7f7dcae915cdaba28b8a4c465627605a9c15e",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/oauth-client-registration.md",
         "/docs/for-ai/guides/oauth-consent-and-callback.md"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/guides/oauth-setup.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 11293,
+      "sha256": "fe3bfb05483c0ade8177b444e5e6a8b703812567b2bf47dfe3d62e33142f5cbd",
+      "links": [
+        "/docs/for-ai/guides/authorization-rules.md",
+        "/docs/for-ai/guides/first-setup.md",
+        "/docs/for-ai/guides/oauth-client-registration.md",
+        "/docs/for-ai/guides/oauth-consent-and-callback.md",
+        "/docs/for-ai/guides/oauth-discovery.md",
+        "/docs/for-ai/guides/oauth-token-lifecycle.md",
+        "/docs/for-ai/guides/troubleshooting.md",
+        "/docs/for-ai/operations/generateToken.md",
+        "/docs/for-ai/operations/revokeOAuthGrant.md"
       ]
     },
     {
@@ -1549,8 +1624,8 @@
     {
       "path": "/docs/for-ai/guides/quickstart.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3180,
-      "sha256": "a230400fa9f48bd5b629bad119bf079cbdf2faabee6270137ae0e9b2fa0b0fce",
+      "bytes": 3510,
+      "sha256": "31cd7ad181d00f56a7f6878146b8d51047b75b1ac483bcdfe3c5f417e05072aa",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/capability-interfaces/power/1.0.md",
@@ -1559,6 +1634,7 @@
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
         "/docs/for-ai/guides/lighting.md",
+        "/docs/for-ai/operations/endpointQuery.md",
         "/docs/for-ai/operations/enumerateEndpoints.md",
         "/docs/for-ai/operations/sendMessage.md",
         "/docs/references/capability-interfaces/power/1.0/messages/turn-on.yaml"
@@ -1576,6 +1652,97 @@
         "/docs/for-ai/index.md",
         "/docs/references/openapi.yaml"
       ]
+    },
+    {
+      "path": "/docs/for-ai/guides/skill-connected-home.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3479,
+      "sha256": "c271b779a3446e007afbce419084477719104b7bcf7eefc6fc6f832c833fc21a",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/skill-setup.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1706,
+      "sha256": "b1a15003dcb1a79a86ad44ad8f7adc2b3eb27723330329bbe225a3ef1edaaa8c",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-battery.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1900,
+      "sha256": "5bf9987f3f78e7a959c660263adb93d52faf415ac17abdcd6c995c88911d5833",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-cameras.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3436,
+      "sha256": "17744d38be2f9a3cf43e22edd6f5e08264fb06d64e13e30a4328651f8ce2d326",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-discovery.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2818,
+      "sha256": "aa7a691675af96f86d128f25d38db6e8ee8039d984b81d0dee7317b69fd3ff60",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-files.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5100,
+      "sha256": "9129001116c1336330f8d487a6a9c7b912fc9a331691ea9ac1fa223949b38673",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-find-phone.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1992,
+      "sha256": "45ecad33b94c4f596a2316828a8c48651605f7ac4a1f2fc7d15d5e7f323ecf5b",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-index.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3400,
+      "sha256": "8a621f9f28858a968359b2f8ed76fe0f8d6d7b7c740d21d61344313200ce66f8",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-lighting.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1649,
+      "sha256": "c5206f6291024ca022298f53683ba295eca782f46355e7b018cfea9dbd35f65d",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-media.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3350,
+      "sha256": "06454421adbfbe14b9052e49b84c0a4b1235e3a60b3c4a487c7ee31456a348eb",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-reminders.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3049,
+      "sha256": "ecd1a667497c821192840404baf2f515f0fa612da3d0f1e0ae444ad4318d56fc",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-rooms.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4397,
+      "sha256": "128ee08a7dfc2d76d3b1ef683252e5ea82e46af68752b90b0f858d64939eecf2",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/task-temperature.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1564,
+      "sha256": "c8a1b6345b7be6bcff3340d8708ccd3a6886df36dbb0ed2b276b7b6e2bf5543f",
+      "links": []
     },
     {
       "path": "/docs/for-ai/guides/thermostats.md",
@@ -1600,14 +1767,13 @@
     {
       "path": "/docs/for-ai/guides/using-the-api.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2995,
-      "sha256": "13207d4668ca60055c5edc4ab4b9f582abdb5a676c9edaacc5c92c054672819d",
+      "bytes": 3524,
+      "sha256": "421ac56e3929a2f34725b2d42f3efa69c09a44ba55d3a8922947ceb90af2e00f",
       "links": [
         "/docs/for-ai/api-catalog.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/lighting.md",
-        "/docs/for-ai/operations/endpointQuery.md",
         "/docs/for-ai/operations/index.md",
         "/docs/references/openapi.yaml"
       ]
@@ -1615,8 +1781,8 @@
     {
       "path": "/docs/for-ai/guides/vacuums.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 700,
-      "sha256": "fe620f2a41b8aa83b976b471fe369d98cedd4782ed057caf9507dd0c8f6e605c",
+      "bytes": 2506,
+      "sha256": "b2a16e82a1633072ec85e0f71221cb983fa35787c79686c438b015965552d466",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/using-the-api.md"
@@ -1672,11 +1838,25 @@
     {
       "path": "/docs/for-ai/operations/beginOAuthAuthorization.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3403,
-      "sha256": "01b6d7e552045eec12d6ee80d268abddba85890545621128ae727e133350bea5",
+      "bytes": 3379,
+      "sha256": "d6ee881ff3be0465de8f1436d7e01e1281de61f08004e7df684ff272f9a22bfc",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 6624,
+      "sha256": "5712ca65abcc5ff66fe2f60899888e346c78d6aae9352a6f48731973876c4473",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/IdempotencyKey.json",
+        "/docs/references/schemas/Error.json",
+        "/docs/references/schemas/PluginOAuthAuthorizationRequest.json",
+        "/docs/references/schemas/PluginOAuthAuthorizationResponse.json"
       ]
     },
     {
@@ -1687,6 +1867,20 @@
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/operations/completePluginOAuthAuthorization.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 8570,
+      "sha256": "bb1f4aaf967111b977b0fda53b11711a7ac1a8e519e0898d9f705ada6e8c4d53",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/IdempotencyKey.json",
+        "/docs/references/schemas/Error.json",
+        "/docs/references/schemas/PluginOAuthCompletionRequest.json",
+        "/docs/references/schemas/PluginOAuthCompletionResponse.json"
       ]
     },
     {
@@ -1731,8 +1925,8 @@
     {
       "path": "/docs/for-ai/operations/createToken.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2755,
-      "sha256": "974dc79936df7cfb6ecfd4f5808116c2a667cf9e0b62b959aa4a5966c4c8e4a6",
+      "bytes": 3422,
+      "sha256": "7d18355c91136c5990503521d996cfd0fb82bd133e084371121ada7a5188479f",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1920,8 +2114,8 @@
     {
       "path": "/docs/for-ai/operations/endpointQuery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5239,
-      "sha256": "c75b467056524ebdabf212d53ad9b524a9418267e9d045d1ee2b059981533af0",
+      "bytes": 5937,
+      "sha256": "1de6428c275b81b4d53f6f4779a4bb4208deed4342d2321496a45f587f0a6283",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1945,8 +2139,8 @@
     {
       "path": "/docs/for-ai/operations/enumerateEndpointGroups.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4876,
-      "sha256": "83133226bcf8d86c3bfba6ca3c80f45c8b02cfed63a64302e7559e547d068d5d",
+      "bytes": 5060,
+      "sha256": "d8d06aa24128a46768dafa0cb06b09e2f6e9ee10dd395768e3720c6b17eb6ecc",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1957,8 +2151,8 @@
     {
       "path": "/docs/for-ai/operations/enumerateEndpoints.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 7827,
-      "sha256": "11234f563521a8c157c3cf49d75608c223e2f4aa0e21d6d7278366ad4987e4bf",
+      "bytes": 9600,
+      "sha256": "8f2f369783330e858f024adef98ffd778482450550a9bdb9f780381c682618da",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1980,22 +2174,10 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/enumerateGroupRelationships.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 5768,
-      "sha256": "4f63d0bfad55d19559dfa1b6d127cde977265f3b956d05aaeb63e60ea3391472",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/EnumerateGroupRelationshipsResponse.json",
-        "/docs/references/schemas/Error.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/operations/enumerateGroupRoutes.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3803,
-      "sha256": "cd8eacd6c2da1fb540d470aba5a41acfc7bb57dae30dedd6beb13a1c4a9c5ba3",
+      "bytes": 3965,
+      "sha256": "4675510a92a8dd5b76e03de765accff93354ed22d294d476eb1391eaac3d6e5a",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2030,13 +2212,26 @@
     {
       "path": "/docs/for-ai/operations/enumeratePrincipals.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2670,
-      "sha256": "20a756a4d02e654b6e182dcea016c7bf2c1cb1e08a2a10df155f4456404ae939",
+      "bytes": 4732,
+      "sha256": "45551251e22198af8f8fe89af480d61328c525db6e238837fb25f73b4244bc19",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/EnumeratePrincipalsResponse.json",
         "/docs/references/schemas/Error.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/operations/enumerateRelationships.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 6503,
+      "sha256": "d19c4f47b7c2109565fb9d148302280ad83c44e88d584586682bdd08869a40a8",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/EnumerateRelationshipsResponse.json",
+        "/docs/references/schemas/Error.json",
+        "/docs/references/schemas/RelationshipType.json"
       ]
     },
     {
@@ -2067,8 +2262,8 @@
     {
       "path": "/docs/for-ai/operations/enumerateSubscriptions.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2481,
-      "sha256": "a6f4cff97faeb545f6166b94c97db8cf6cd5afef675d3f90b538edbf5f85c630",
+      "bytes": 4853,
+      "sha256": "389241754dd633df65088c8448d6afb1c75c03d43f649a8e774c5005e3a31d98",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2104,8 +2299,8 @@
     {
       "path": "/docs/for-ai/operations/establishPlugin.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3092,
-      "sha256": "40bb798299ed5c33932c9e237a5d0767f7838b9ef4d10c62715d954a3e4d1568",
+      "bytes": 3006,
+      "sha256": "fd298cc67884d6b881a324dd501acd5ee102b5ec045491a8b013f3144e2e4957",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2164,8 +2359,8 @@
     {
       "path": "/docs/for-ai/operations/getAccessControlRules.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2978,
-      "sha256": "9f5b51bcf2074ea93345b152939a681a7b6684eca613e9d1fcdb9498b69a6f5a",
+      "bytes": 4704,
+      "sha256": "6655e04d1926c0c53f0ea44d42313879f49c5228e58afd37704c9a4f0bdcf248",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2176,8 +2371,8 @@
     {
       "path": "/docs/for-ai/operations/getEndpointGroup.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4935,
-      "sha256": "f2b5a26f21c9fde2fef1e28a301cc878f45c744c5c713f4085a95307c9db67f7",
+      "bytes": 5130,
+      "sha256": "9650da344908fdfd379e1b2f8fcc9188768a999071ffc88c2d63ee91fbeb3376",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2243,8 +2438,8 @@
     {
       "path": "/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3999,
-      "sha256": "c7a24a50167cc576cafa7d843019a522427943b7771330f356cc796ec817bb9e",
+      "bytes": 4007,
+      "sha256": "dd587bb0c43125e703655c62949aedd8d38385711e6d5c763a58a9692231928d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2273,16 +2468,6 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/getOpenIDConfiguration.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 3431,
-      "sha256": "ae49873408d455554f62bcab805898715820aa67c83f624e9e10177761f5a3fd",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md"
-      ]
-    },
-    {
       "path": "/docs/for-ai/operations/getPendingOAuthConsent.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 2681,
@@ -2295,8 +2480,8 @@
     {
       "path": "/docs/for-ai/operations/getRoutes.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2846,
-      "sha256": "4b3e5223f77fd6844d962d0fd1c90dedcd73ddb5a117554c662924a677d18de2",
+      "bytes": 4056,
+      "sha256": "8376c6cf71f0c560409efe4e14261b99b175a6dc0f439134829e57a3482326ff",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2363,13 +2548,15 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 7988,
-      "sha256": "b7e51f96624c7885dbf30026d71ace9838f9e592a782afd5f7df1da8c9d5df6d",
+      "bytes": 8090,
+      "sha256": "e8c941d34080eb435facbc1c5335df0aeb20ceb19e9c725fadab46bcd056c073",
       "links": [
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
         "/docs/for-ai/operations/authorizeDevice.md",
         "/docs/for-ai/operations/beginOAuthAuthorization.md",
+        "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
         "/docs/for-ai/operations/completeOAuthConsent.md",
+        "/docs/for-ai/operations/completePluginOAuthAuthorization.md",
         "/docs/for-ai/operations/createEndpointGroup.md",
         "/docs/for-ai/operations/createOAuthClient.md",
         "/docs/for-ai/operations/createSyntheticEvent.md",
@@ -2395,11 +2582,11 @@
         "/docs/for-ai/operations/enumerateEndpointGroups.md",
         "/docs/for-ai/operations/enumerateEndpoints.md",
         "/docs/for-ai/operations/enumerateEventDeadLetters.md",
-        "/docs/for-ai/operations/enumerateGroupRelationships.md",
         "/docs/for-ai/operations/enumerateGroupRoutes.md",
         "/docs/for-ai/operations/enumerateOAuthClients.md",
         "/docs/for-ai/operations/enumeratePlugins.md",
         "/docs/for-ai/operations/enumeratePrincipals.md",
+        "/docs/for-ai/operations/enumerateRelationships.md",
         "/docs/for-ai/operations/enumerateSecrets.md",
         "/docs/for-ai/operations/enumerateSimulators.md",
         "/docs/for-ai/operations/enumerateSubscriptions.md",
@@ -2420,7 +2607,6 @@
         "/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md",
         "/docs/for-ai/operations/getOAuthClient.md",
         "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
-        "/docs/for-ai/operations/getOpenIDConfiguration.md",
         "/docs/for-ai/operations/getPendingOAuthConsent.md",
         "/docs/for-ai/operations/getRoutes.md",
         "/docs/for-ai/operations/getSubscription.md",
@@ -2465,8 +2651,8 @@
     {
       "path": "/docs/for-ai/operations/invalidateToken.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3073,
-      "sha256": "229713847c9cf71251500f8ddadbcef4395e4f28c39d934214ed2e4dc13b72b7",
+      "bytes": 3347,
+      "sha256": "1be9c574d11767e002e9769d9e676c270cb9f0398959a99ac870872196eb40ba",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2846,8 +3032,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2205,
-      "sha256": "f922ee36b94e9fc2a466f582dcf07522c6c7dff44e2ce0fb302b4a2cedca9003",
+      "bytes": 2221,
+      "sha256": "080293e78785dc437ea04c5a4e8187590917196c7ee1a92496a0fee3e2d94759",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -2859,8 +3045,8 @@
         "/docs/for-ai/schemas/g-1.md",
         "/docs/for-ai/schemas/h-1.md",
         "/docs/for-ai/schemas/i-1.md",
-        "/docs/for-ai/schemas/l-1.md",
         "/docs/for-ai/schemas/m-1.md",
+        "/docs/for-ai/schemas/n-1.md",
         "/docs/for-ai/schemas/o-1.md",
         "/docs/for-ai/schemas/p-1.md",
         "/docs/for-ai/schemas/q-1.md",
@@ -2876,8 +3062,8 @@
     {
       "path": "/docs/for-ai/schemas/a-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1836,
-      "sha256": "1392ba4d904de8619426717f2f62a3a4ab83750c616ac1c99f23f20c13c7e071",
+      "bytes": 2253,
+      "sha256": "5672d5828343bf656ab57c495f0f2ded26a59f962615af66a734d7ca6e9ec9a3",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/AccessControlEntity.json",
@@ -2898,7 +3084,12 @@
         "/docs/references/schemas/AuthLinksList.json",
         "/docs/references/schemas/AuthResourceType.json",
         "/docs/references/schemas/AuthorizeDeviceRequest.json",
-        "/docs/references/schemas/AuthorizeDeviceResponse.json"
+        "/docs/references/schemas/AuthorizeDeviceResponse.json",
+        "/docs/references/schemas/associatedAuthLinkId.json",
+        "/docs/references/schemas/associatedEndpointId.json",
+        "/docs/references/schemas/associatedPluginId.json",
+        "/docs/references/schemas/associatedPluginRouteId.json",
+        "/docs/references/schemas/authLinkId.json"
       ]
     },
     {
@@ -2918,10 +3109,11 @@
     {
       "path": "/docs/for-ai/schemas/c-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1310,
-      "sha256": "e323c61938d9f5f5a228de921e49a4d7c8f82dfa6766b309d2fde08d044c69fe",
+      "bytes": 1437,
+      "sha256": "380267f6d6512c373e47b419750a5c600ae1236c82c19a9dc069695efc6504bb",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
         "/docs/references/schemas/ClientIdentity.json",
         "/docs/references/schemas/CreateEndpointGroupItem.json",
         "/docs/references/schemas/CreateEndpointGroupRequest.json",
@@ -2940,8 +3132,8 @@
     {
       "path": "/docs/for-ai/schemas/d-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 932,
-      "sha256": "dc74046ced43acce02d0c7e02a6eb70593a39d22950a63783ff07cfce12d19a4",
+      "bytes": 1001,
+      "sha256": "68d9f6b4a53d640c4593d40f7b5724386bd8ed6f2dfdf79c8ebfac0fe9a573f4",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/DeleteAuthLinkRequest.json",
@@ -2952,14 +3144,15 @@
         "/docs/references/schemas/DeviceAuthorizationRequest.json",
         "/docs/references/schemas/DeviceAuthorizationResponse.json",
         "/docs/references/schemas/DeviceInterface.json",
-        "/docs/references/schemas/DynamicClientMetadata.json"
+        "/docs/references/schemas/DynamicClientMetadata.json",
+        "/docs/references/schemas/description.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/e-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3903,
-      "sha256": "4b7d6bb182b7a34b8b2889a1da609aa47a7ab11f0d7fc38266c25d6f6c53f565",
+      "bytes": 3893,
+      "sha256": "dc0240b17d0230dccb28b5cc30edf4597fd1f32b174740d8b5c504117fbb2f55",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/Enablement.json",
@@ -2988,11 +3181,11 @@
         "/docs/references/schemas/EndpointsList.json",
         "/docs/references/schemas/EnumerateAuthLinksResponse.json",
         "/docs/references/schemas/EnumerateEndpointGroupsResponse.json",
-        "/docs/references/schemas/EnumerateGroupRelationshipsResponse.json",
         "/docs/references/schemas/EnumerateGroupRoutesResponse.json",
         "/docs/references/schemas/EnumerateOAuthClientsResponse.json",
         "/docs/references/schemas/EnumeratePluginsResponse.json",
         "/docs/references/schemas/EnumeratePrincipalsResponse.json",
+        "/docs/references/schemas/EnumerateRelationshipsResponse.json",
         "/docs/references/schemas/EnumerateRoutesResponse.json",
         "/docs/references/schemas/EnumerateSecretsResponse.json",
         "/docs/references/schemas/EnumerateSubscriptionsResponse.json",
@@ -3007,8 +3200,8 @@
     {
       "path": "/docs/for-ai/schemas/e-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1413,
-      "sha256": "d0fcef6849a4ece0ce42f80b6a20634c25c9098c175dfa43e4a9c360fb97712a",
+      "bytes": 1480,
+      "sha256": "d46e34fda9cd6a219ea7c178491afec0e1c03ce75eaa4d586629144a4093c892",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/headers/ETag.json",
@@ -3024,14 +3217,15 @@
         "/docs/references/schemas/EventDeliverySummary.json",
         "/docs/references/schemas/EventReceipt.json",
         "/docs/references/schemas/EventReceiptDeliveryCounts.json",
-        "/docs/references/schemas/EventRedriveResult.json"
+        "/docs/references/schemas/EventRedriveResult.json",
+        "/docs/references/schemas/externalId.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/g-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1015,
-      "sha256": "d12f041c6238ab07bd14459af08741dd267438271f22c1c34e89c895c895e3d5",
+      "bytes": 841,
+      "sha256": "8e49abba73b3b553fe8514ef2e6a22f1cfc4d2a6dae488a9ab961fe761694754",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/GenerateOAuthCodeRequest.json",
@@ -3039,8 +3233,6 @@
         "/docs/references/schemas/GenerateTokenRequest.json",
         "/docs/references/schemas/GenerateTokenResponse.json",
         "/docs/references/schemas/GetAccessControlRulesResponse.json",
-        "/docs/references/schemas/GroupRelationship.json",
-        "/docs/references/schemas/GroupRelationshipVertex.json",
         "/docs/references/schemas/GroupRoute.json",
         "/docs/references/schemas/GroupRouteAttributeState.json",
         "/docs/references/schemas/GroupRoutesList.json"
@@ -3060,31 +3252,22 @@
     {
       "path": "/docs/for-ai/schemas/i-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 453,
-      "sha256": "8c5e15dd68b4db8abbb2dc895691ca32d180ccaa04fde89158d220255429339f",
+      "bytes": 520,
+      "sha256": "28502f298dead4efb390a979cf0d9d3a47ad87fb0231146310d3bdc0a7205959",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/parameters/IdempotencyKey.json",
         "/docs/references/parameters/IfMatch.json",
         "/docs/references/schemas/IntegrationRequest.json",
-        "/docs/references/schemas/InvalidateTokenResponse.json"
-      ]
-    },
-    {
-      "path": "/docs/for-ai/schemas/l-1.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 198,
-      "sha256": "1c9ad3ae4b459dec641464c08f2b4ea82199ae3c768d91a49fd3ec70f5888e77",
-      "links": [
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/LocalPlugin.json"
+        "/docs/references/schemas/InvalidateTokenResponse.json",
+        "/docs/references/schemas/interfaces.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/m-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1032,
-      "sha256": "2fdb449a916b088f14ab5a4f65f9332d920d7bc7d08d73e7bac5220a96722771",
+      "bytes": 1160,
+      "sha256": "99788bc8b198380a83cf385ff9f2d6b504da33209247042cc6ca20b966912459",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/Message.json",
@@ -3097,14 +3280,26 @@
         "/docs/references/schemas/MessageTargetGroupRouteReference.json",
         "/docs/references/schemas/MessageTargetType.json",
         "/docs/references/schemas/MessageType.json",
-        "/docs/references/schemas/ModifyEndpointRequest.json"
+        "/docs/references/schemas/ModifyEndpointRequest.json",
+        "/docs/references/schemas/manufacturer.json",
+        "/docs/references/schemas/model.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/schemas/n-1.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 184,
+      "sha256": "53a5e14495f4fec79e6139a3a40ae7efb0b6e6b82fc4e0e936702f03b6774ca4",
+      "links": [
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/name.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/o-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 979,
-      "sha256": "21e341effe9f27efd8ac99727305b93a4628a5d1b23be2253e3f01665a36043b",
+      "bytes": 1058,
+      "sha256": "90968c7d5d6c1f4b842797a22cc600d280b0f8b13e621224d1b4f9b80a0bcd98",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/OAuth2ConnectionData.json",
@@ -3116,14 +3311,15 @@
         "/docs/references/schemas/OAuthProtocolError.json",
         "/docs/references/schemas/OAuthScope.json",
         "/docs/references/schemas/OauthClientCredentialSecret.json",
-        "/docs/references/schemas/OauthTokenSecret.json"
+        "/docs/references/schemas/OauthTokenSecret.json",
+        "/docs/references/schemas/ontologicalTypes.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/p-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1978,
-      "sha256": "16de62771f51effb6851d10ef96920e4363f5077d4a677ae8806b77c9e4d056f",
+      "bytes": 3175,
+      "sha256": "8facced1ffc7629eaf5992cabb891969ab148ed535ed41687bc1c38e9ad8ffc4",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/PaginationContext.json",
@@ -3140,13 +3336,26 @@
         "/docs/references/schemas/PluginDiscoveryRelationship.json",
         "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json",
         "/docs/references/schemas/PluginEntry.json",
+        "/docs/references/schemas/PluginInvocationContext.json",
         "/docs/references/schemas/PluginMetadataMultifactor.json",
         "/docs/references/schemas/PluginMetadataMultifactorField.json",
         "/docs/references/schemas/PluginMetadataOAuth.json",
+        "/docs/references/schemas/PluginOAuthAuthorizationRequest.json",
+        "/docs/references/schemas/PluginOAuthAuthorizationResponse.json",
+        "/docs/references/schemas/PluginOAuthCompletionRequest.json",
+        "/docs/references/schemas/PluginOAuthCompletionResponse.json",
+        "/docs/references/schemas/PluginTokenRefreshRequest.json",
+        "/docs/references/schemas/PluginTokenRefreshResponse.json",
+        "/docs/references/schemas/PluginTokenResult.json",
         "/docs/references/schemas/PluginType.json",
         "/docs/references/schemas/PluginsList.json",
+        "/docs/references/schemas/PortosIdentifier.json",
         "/docs/references/schemas/Principal.json",
-        "/docs/references/schemas/PrincipalsList.json"
+        "/docs/references/schemas/PrincipalsList.json",
+        "/docs/references/schemas/ProviderDiscoveredRoute.json",
+        "/docs/references/schemas/pluginCustomMetadata.json",
+        "/docs/references/schemas/pluginId.json",
+        "/docs/references/schemas/pluginProfileId.json"
       ]
     },
     {
@@ -3163,12 +3372,15 @@
     {
       "path": "/docs/for-ai/schemas/r-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1046,
-      "sha256": "155651e8d671c36758e4cbca07dcac7eb2808e93648e732c4ea2b97939713970",
+      "bytes": 1360,
+      "sha256": "b928e952b422a14a631a32b37de496b0cf2584f2ef7b30191c8057f1e99a2916",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/Relationship.json",
         "/docs/references/schemas/RelationshipInterface.json",
         "/docs/references/schemas/RelationshipType.json",
+        "/docs/references/schemas/RelationshipVertex.json",
+        "/docs/references/schemas/RelationshipVertexKind.json",
         "/docs/references/schemas/RemoveEndpointGroupMembersRequest.json",
         "/docs/references/schemas/ResourceGroup.json",
         "/docs/references/schemas/ResourceGroupMember.json",
@@ -3177,14 +3389,15 @@
         "/docs/references/schemas/ResourceGroupResourceType.json",
         "/docs/references/schemas/Route.json",
         "/docs/references/schemas/RouteInterface.json",
-        "/docs/references/schemas/RoutesList.json"
+        "/docs/references/schemas/RoutesList.json",
+        "/docs/references/schemas/redirectUri.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/s-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1562,
-      "sha256": "cc15c3cfcbab78a2309cc09107a2ac2a6a9f340bf7937a8daf9e12c0b1e62574",
+      "bytes": 1633,
+      "sha256": "cdf3b91acfa920bba589758198afb06b61e987b8af51530c95da0ed51e658ef9",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/Secret.json",
@@ -3203,18 +3416,20 @@
         "/docs/references/schemas/SyntheticEventAccepted.json",
         "/docs/references/schemas/SyntheticEventEndpoint.json",
         "/docs/references/schemas/SyntheticEventHeader.json",
-        "/docs/references/schemas/SyntheticEventRequest.json"
+        "/docs/references/schemas/SyntheticEventRequest.json",
+        "/docs/references/schemas/serialNumber.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/t-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 332,
-      "sha256": "a82a8dee9d37f8f07afeeb9f2815d272f14a0a33a4e4773b36caaaa01a21f492",
+      "bytes": 403,
+      "sha256": "d0fbd4ba7ab0fcb569df84371e0dfb720914aa83a4cfe53a6a8a79d6eaa21fea",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/TokenList.json",
         "/docs/references/schemas/TokenListItem.json",
+        "/docs/references/schemas/TokenPurpose.json",
         "/docs/references/schemas/TypeValue.json"
       ]
     },
@@ -3271,15 +3486,15 @@
     {
       "path": "/docs/references/authorization.json",
       "contentType": "application/json",
-      "bytes": 32514,
-      "sha256": "727dfa506f65282652122b1c435396c9d0fcebcd7365cdd9424a9760b0efaf70",
+      "bytes": 32994,
+      "sha256": "9a9ff70845547e16b259b2d5a021efd8072e4fa0c8d7bf6f283f977ce7e2f686",
       "links": []
     },
     {
       "path": "/docs/references/authorization.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 24104,
-      "sha256": "e13abe05f9950b77fdd66983a5277276a9acce0e0489b6a57f70f71191f800db",
+      "bytes": 24473,
+      "sha256": "a7b0cc7f16a898b94c4f90f3dc4ee51a72e4433d75c883895e51a1419a595a08",
       "links": []
     },
     {
@@ -3644,16 +3859,16 @@
     {
       "path": "/docs/references/capability-interfaces/camera.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3424,
-      "sha256": "bfe0a46ad905078927067839dbd1a3069e334ff74ccba8c813b5ca321e8841b2",
+      "bytes": 3890,
+      "sha256": "ab8f7e5dc7fbf3557fa479b2a9a666459eb82272a41bfcd893a2ad4c55db94fa",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/camera/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/camera/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3424,
-      "sha256": "bfe0a46ad905078927067839dbd1a3069e334ff74ccba8c813b5ca321e8841b2",
+      "bytes": 3890,
+      "sha256": "ab8f7e5dc7fbf3557fa479b2a9a666459eb82272a41bfcd893a2ad4c55db94fa",
       "links": []
     },
     {
@@ -3668,6 +3883,13 @@
       "contentType": "application/yaml; charset=utf-8",
       "bytes": 699,
       "sha256": "726dcc4a01769020165e05f11185de7ea191b0312332ddd16e326627a4599e88",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/camera/1.0/messages/event-image-response.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 235,
+      "sha256": "209526f8cd066741ea234808613e34a1d8220e544dcbe350b16afe13c39799c5",
       "links": []
     },
     {
@@ -4090,16 +4312,16 @@
     {
       "path": "/docs/references/capability-interfaces/control-routes-provider.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 8628,
-      "sha256": "c34a0ec468416a57342cacc8db2c7d66429f9ed0792c04fadcbfd4dccb3a7e4c",
+      "bytes": 9807,
+      "sha256": "d7b78e45e18ea94af62351a8b657731a1656d2f3e32bc821f6b2304bd1554d6d",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/control-routes-provider/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/control-routes-provider/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 8628,
-      "sha256": "c34a0ec468416a57342cacc8db2c7d66429f9ed0792c04fadcbfd4dccb3a7e4c",
+      "bytes": 9807,
+      "sha256": "d7b78e45e18ea94af62351a8b657731a1656d2f3e32bc821f6b2304bd1554d6d",
       "links": []
     },
     {
@@ -4112,8 +4334,8 @@
     {
       "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/attribute-report.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1383,
-      "sha256": "012571bc3c71427484128cc573367084ca6913526de94fe3a93c332bb459f384",
+      "bytes": 2564,
+      "sha256": "ec16f026c375a45680bca3d668925069c1659584b60cbb058f13ca15a9ec8afa",
       "links": []
     },
     {
@@ -4140,8 +4362,8 @@
     {
       "path": "/docs/references/capability-interfaces/control-routes-provider/1.0/messages/report-attributes.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1512,
-      "sha256": "bb1970095f5d0de3a16f181ea26f04fa68842bfea8069d7f772f01378aad32d4",
+      "bytes": 1369,
+      "sha256": "95ea97a2bf25b9781237b6f39b75df9b1a07d451ed281b7e9dd8661a206d9dbf",
       "links": []
     },
     {
@@ -4962,30 +5184,37 @@
     {
       "path": "/docs/references/capability-interfaces/media-player.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 19745,
-      "sha256": "fcc5d6cefac461a421ba0e02ad62c091030f333116a8fc70db3c9b759d489df9",
+      "bytes": 28015,
+      "sha256": "c65bc7bbd4f96f8dc5406a56571342a1f1edd5aafc28a3c819ecc77dbc1c7d84",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-player/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 19745,
-      "sha256": "fcc5d6cefac461a421ba0e02ad62c091030f333116a8fc70db3c9b759d489df9",
+      "bytes": 28015,
+      "sha256": "c65bc7bbd4f96f8dc5406a56571342a1f1edd5aafc28a3c819ecc77dbc1c7d84",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/clip-status.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 2852,
+      "sha256": "3d4238fd3e02dd54a502f1059f0e25c80a8def68a17c5dcdae59a634d84954fa",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/current-content.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1242,
-      "sha256": "69c6575938b74439fef006307dc0a5323551e9cce3b3bb19a9c5388175cc7477",
+      "bytes": 2893,
+      "sha256": "7141668c33c4a238cd3d0a6153d6b06f9409ab7ba6ea897ba5c885c90f5a76b3",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1500,
-      "sha256": "19f6ead8c62446a7769c1f6ece3020e3bc682dc1f1aa898cb9e425d79ce5a867",
+      "bytes": 1836,
+      "sha256": "6846f63470dd11dbd5dc50ab43d54fc4497a07795658121796ac5a4d76b4b5de",
       "links": []
     },
     {
@@ -5005,8 +5234,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/configuration.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4536,
-      "sha256": "21f07e3bd7005afa557b187f4da993f1c981877f82383061d015559b606cbda5",
+      "bytes": 5816,
+      "sha256": "17afc7c4552d847fdd03a6fa7ac8bb2bf531b1defb222211247b2705ecb0abb2",
       "links": []
     },
     {
@@ -5054,15 +5283,15 @@
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-media.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 915,
-      "sha256": "cc4b097d36d6a1acbeaa812454ee90dd487a55df78ccdb3c492af19bf8a10456",
+      "bytes": 1251,
+      "sha256": "8157b10081b0324053df8fea6a5841aed56503b073460a32e1386bb8d4c881d3",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-uri.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 402,
-      "sha256": "d9bbfba7ecf7e7648676263ed81a07c35ad815b09c4172ec5d656504785e62da",
+      "bytes": 972,
+      "sha256": "719d5edf8e346215d0f3f485be39ea5bb57608e3ff86f574adf3b8e8cad12559",
       "links": []
     },
     {
@@ -5138,16 +5367,16 @@
     {
       "path": "/docs/references/capability-interfaces/media-playlist.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 11879,
-      "sha256": "2273f1c43a3d6700085150200726c58d4d9dd9da36c47c31b0481ff003fa8602",
+      "bytes": 12359,
+      "sha256": "5a2a351f756f2e614b287dbc1755c75a0c5089b71195471734480be8377f1b91",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-playlist/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-playlist/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 11879,
-      "sha256": "2273f1c43a3d6700085150200726c58d4d9dd9da36c47c31b0481ff003fa8602",
+      "bytes": 12359,
+      "sha256": "5a2a351f756f2e614b287dbc1755c75a0c5089b71195471734480be8377f1b91",
       "links": []
     },
     {
@@ -5188,8 +5417,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/playlist-contents.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3553,
-      "sha256": "7eccca2e286534a0eadf18dc1272ee8490260c428149ea9f96bb5632525f5d51",
+      "bytes": 4009,
+      "sha256": "b254979d39b1016e5b5eaa02a9e82ca37cc3cfa98d4af08a708941774cb26194",
       "links": []
     },
     {
@@ -5237,37 +5466,37 @@
     {
       "path": "/docs/references/capability-interfaces/media-search.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 13603,
-      "sha256": "cd865c96a89e87cc5368d47a726f937605903919b586efe241d59f7cf190b19b",
+      "bytes": 14953,
+      "sha256": "178bbc3f4890c8238c137d52133f9723e893fef9d276628c8e31fcaad9356c9c",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-search/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 13603,
-      "sha256": "cd865c96a89e87cc5368d47a726f937605903919b586efe241d59f7cf190b19b",
+      "bytes": 14953,
+      "sha256": "178bbc3f4890c8238c137d52133f9723e893fef9d276628c8e31fcaad9356c9c",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/audio-media-results.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4725,
-      "sha256": "d958ab657d539cdf679196b7c60b5c52a1440c0d066cf32a8d26e050744b3760",
+      "bytes": 5211,
+      "sha256": "48a46a0dd54a78468f0794b2844e4860224c2391686f2777f6280762c896a3c5",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/get-media.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1220,
-      "sha256": "804a5dcb3dff652fd5d9a277027e94baba64a64b2c2cdf819f59941fbf0bf2a6",
+      "bytes": 1556,
+      "sha256": "1fa04491feb172268d63e81364804dce5de728ccec94609bc082a41411a53265",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/media-details.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 3653,
-      "sha256": "616d4ab299d4d8b8a3c816f9d433b3f030b8741149fd1d218aa30ef2bc029f89",
+      "bytes": 4109,
+      "sha256": "55f2c1eb05de32c7a1e12be8614622e9b8fee86ca40af203247e4da504a7f041",
       "links": []
     },
     {
@@ -5715,16 +5944,16 @@
     {
       "path": "/docs/references/capability-interfaces/recordings.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 5011,
-      "sha256": "ace464484e7c9b5660a6826c337996fb16653cc37a8f94f91d44bb412186081e",
+      "bytes": 5401,
+      "sha256": "1d35f471f6e40afc89bbcc8744de8f38996024e2a30ac6c48773edecd59898bc",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/recordings/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/recordings/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 5011,
-      "sha256": "ace464484e7c9b5660a6826c337996fb16653cc37a8f94f91d44bb412186081e",
+      "bytes": 5401,
+      "sha256": "1d35f471f6e40afc89bbcc8744de8f38996024e2a30ac6c48773edecd59898bc",
       "links": []
     },
     {
@@ -5758,8 +5987,8 @@
     {
       "path": "/docs/references/capability-interfaces/recordings/1.0/messages/list-recordings-response.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1852,
-      "sha256": "ebae3df63cd8218fec3aef04b0bcd50104c02f3b08f3e8a8fe7e089d4514d055",
+      "bytes": 2218,
+      "sha256": "ff37c5ee4a2f61350edf507f8e3ec6b7a0e8a10669a26c80587d96869b01b65e",
       "links": []
     },
     {
@@ -5993,16 +6222,16 @@
     {
       "path": "/docs/references/capability-interfaces/route-discovery.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 12844,
-      "sha256": "a481a118169b02b17c12756e7f779c5f998a44374217c69f138565f5a49846fe",
+      "bytes": 18880,
+      "sha256": "bbdd532aa7b556dadacf72c3402ee1b3bab5d0f3a0e32234e8783b70a8c59ead",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/route-discovery/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/route-discovery/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 12844,
-      "sha256": "a481a118169b02b17c12756e7f779c5f998a44374217c69f138565f5a49846fe",
+      "bytes": 18880,
+      "sha256": "bbdd532aa7b556dadacf72c3402ee1b3bab5d0f3a0e32234e8783b70a8c59ead",
       "links": []
     },
     {
@@ -6029,8 +6258,8 @@
     {
       "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/route-discovery-report.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 8528,
-      "sha256": "17db7c7c769d27b01d8af0164b27e1377947d941b4c971a473a90789fd165ec4",
+      "bytes": 14129,
+      "sha256": "05606f66cb1194b39a7872fca4ccb596dc6355ed6cb0c5cad5a54743d79dcc59",
       "links": []
     },
     {
@@ -6861,8 +7090,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 443314,
-      "sha256": "84c99734709788b051d5c8d9267e954413adcd4a633b6cde65c820a625e16544",
+      "bytes": 480177,
+      "sha256": "5df756d3a1199a17d675dd9d636439465f5671b8eb8b318d9857ba6066847cfb",
       "links": []
     },
     {
@@ -6945,8 +7174,8 @@
     {
       "path": "/docs/references/schemas/ApplicationInterface.json",
       "contentType": "application/json",
-      "bytes": 954,
-      "sha256": "29925afd897de0303d9632a457b51d60fbef7689b04a05e61e02627125d8c811",
+      "bytes": 1132,
+      "sha256": "9d27ff3c979f051976cbfe151ddf9b449076952aa109e8f64464db695a32c320",
       "links": []
     },
     {
@@ -6964,6 +7193,34 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/associatedAuthLinkId.json",
+      "contentType": "application/json",
+      "bytes": 134,
+      "sha256": "16bd78ef69098cb01f713c2ea2ef1c2378bced0eb583e9b65db8e3e8a13d2c6d",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/associatedEndpointId.json",
+      "contentType": "application/json",
+      "bytes": 133,
+      "sha256": "1bc69ffda1e895eb464c42a4bbe1529ad0f70e36f27d51ce60f11ffd5cb1b91f",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/associatedPluginId.json",
+      "contentType": "application/json",
+      "bytes": 131,
+      "sha256": "a49217e5a9da6f8301322b4847a6f9881b5e200c2c6e885d96bb225614851e96",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/associatedPluginRouteId.json",
+      "contentType": "application/json",
+      "bytes": 330,
+      "sha256": "07a2a612d1ad5a453b8c2beae4844414a9b83787d4bb1f1199db4936115b6d04",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/AttributeState.json",
       "contentType": "application/json",
       "bytes": 1108,
@@ -6975,6 +7232,13 @@
       "contentType": "application/json",
       "bytes": 950,
       "sha256": "cbec37f80e3dee0ce86d2a12f117ef0f147a0c1aaf6dce3d627f9ae891e0bf4a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/authLinkId.json",
+      "contentType": "application/json",
+      "bytes": 477,
+      "sha256": "d57f4e761b4abbc211e4aae29a65b1183e9b6ca8a606841962a270a4cedddf1f",
       "links": []
     },
     {
@@ -7048,6 +7312,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
+      "contentType": "application/json",
+      "bytes": 562,
+      "sha256": "d96f1b949e2a3fded6d4d11cc16eedb49869f46d1c72092cb0568578e1565fe9",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/ClientIdentity.json",
       "contentType": "application/json",
       "bytes": 414,
@@ -7085,8 +7356,8 @@
     {
       "path": "/docs/references/schemas/CreateMessageRequestResponseType.json",
       "contentType": "application/json",
-      "bytes": 278,
-      "sha256": "61b5847a4b7b2f90fb91cc540990a100131f9abe706798189a03dc913b2f4b50",
+      "bytes": 636,
+      "sha256": "d2d0b9d774b31687723e7f1331335221d68feb1a715a54431d5910d4c50352d8",
       "links": []
     },
     {
@@ -7120,8 +7391,8 @@
     {
       "path": "/docs/references/schemas/CreateTokenRequest.json",
       "contentType": "application/json",
-      "bytes": 879,
-      "sha256": "bc498276eb8dad65103b0c4061b52e85634baf7dde562418d1601d6fc558474e",
+      "bytes": 1072,
+      "sha256": "c2958e32c1a36a7bfd32c66f3d71b6f059ab0d968d096221ce2705d586472b49",
       "links": []
     },
     {
@@ -7171,6 +7442,13 @@
       "contentType": "application/json",
       "bytes": 379,
       "sha256": "a60be407716b0cb53c0c5e8fefe2ce2b99672ea1976641a0e58c66a86513c2b5",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/description.json",
+      "contentType": "application/json",
+      "bytes": 245,
+      "sha256": "0e57c99b64e287d8ff8ba40c29de086a8dd70b4517144c0fde703ad092459ae7",
       "links": []
     },
     {
@@ -7246,8 +7524,8 @@
     {
       "path": "/docs/references/schemas/EndpointGroupRoute.json",
       "contentType": "application/json",
-      "bytes": 2119,
-      "sha256": "541497ec880e4f61b13d34638a9edd403da70647a62b645290ab76c7440eb8b8",
+      "bytes": 2468,
+      "sha256": "d6f820b3bd19555afeb604f06d0d95f797274a9c8301c44230fbb70211ac8bc7",
       "links": []
     },
     {
@@ -7344,8 +7622,8 @@
     {
       "path": "/docs/references/schemas/EndpointQueryRequest.json",
       "contentType": "application/json",
-      "bytes": 2607,
-      "sha256": "439c213c09dedfecb9a8ca94b0d946185f9a23c0893ab89f3e9d1ba0487c4522",
+      "bytes": 2930,
+      "sha256": "04e6a305ecc4edca0224b06d9e7c4dd6c450082e502bf5871e1d6f7482cdb022",
       "links": []
     },
     {
@@ -7384,13 +7662,6 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/EnumerateGroupRelationshipsResponse.json",
-      "contentType": "application/json",
-      "bytes": 680,
-      "sha256": "b65ae2c0ee95c17993c9544f225099830bee03a47332dc3d4d74d03bc00862e4",
-      "links": []
-    },
-    {
       "path": "/docs/references/schemas/EnumerateGroupRoutesResponse.json",
       "contentType": "application/json",
       "bytes": 618,
@@ -7416,6 +7687,13 @@
       "contentType": "application/json",
       "bytes": 534,
       "sha256": "cdad4abcad9ad96304653bc00232190ffcf1604cb7275b8e029b5a10cc35b742",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/EnumerateRelationshipsResponse.json",
+      "contentType": "application/json",
+      "bytes": 669,
+      "sha256": "879ecc57cb7eeb07619f678d69ec29266bbbba461e8a73c008be7fe4b3209de6",
       "links": []
     },
     {
@@ -7456,8 +7734,8 @@
     {
       "path": "/docs/references/schemas/ErrorCode.json",
       "contentType": "application/json",
-      "bytes": 2729,
-      "sha256": "d4c6bf538134c83fea98af99cf0c42158d19dc6c13a9590edb0e68258a11242f",
+      "bytes": 2820,
+      "sha256": "e184ab92c7b24e25d32c62c4bee5649483613c6845712952ecd051b14cb07c3b",
       "links": []
     },
     {
@@ -7498,8 +7776,8 @@
     {
       "path": "/docs/references/schemas/EstablishPluginRequest.json",
       "contentType": "application/json",
-      "bytes": 1547,
-      "sha256": "feb9280d835d214361e2ec8ced93236bab368b59ec14ffc202c306a1824070f9",
+      "bytes": 1392,
+      "sha256": "93c45431be9597f4a79c86ee01b168cdca34d7a256f5b146cd8eea1ef3484d2d",
       "links": []
     },
     {
@@ -7573,6 +7851,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/externalId.json",
+      "contentType": "application/json",
+      "bytes": 158,
+      "sha256": "96a897e1bdc8672d2e9cc450394c6eb325dd3dab75e76715fc637a101e552e8c",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
       "contentType": "application/json",
       "bytes": 1236,
@@ -7608,24 +7893,10 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/GroupRelationship.json",
-      "contentType": "application/json",
-      "bytes": 1173,
-      "sha256": "f7239c3dccba8ddb74246344800fcfcbe0847b4c73474397a6e1179bb5ff869a",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/GroupRelationshipVertex.json",
-      "contentType": "application/json",
-      "bytes": 883,
-      "sha256": "4f94c9576bf12cb6ec494fa71ef915f44b59d0be54c98cf1629c4659ddf9dcb0",
-      "links": []
-    },
-    {
       "path": "/docs/references/schemas/GroupRoute.json",
       "contentType": "application/json",
-      "bytes": 1426,
-      "sha256": "46ce175c07272a601eaa100e561e716cf7a04b9743097a1d91545de4b3c4eee5",
+      "bytes": 1850,
+      "sha256": "21bba2167267296bf2ac80e154ec7daa82e251666aafd9c277129c66962c98b6",
       "links": []
     },
     {
@@ -7659,15 +7930,22 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 50578,
-      "sha256": "99bc8b3c4df44b631437b276c25df06ccf659a06d083cc9e2adac8e97fcbac8c",
+      "bytes": 57164,
+      "sha256": "738672d84e1ef4b5402c3c6f68b3f9c852ce9177fb59c62c71e0745e7bed09ca",
       "links": []
     },
     {
       "path": "/docs/references/schemas/IntegrationRequest.json",
       "contentType": "application/json",
-      "bytes": 972,
-      "sha256": "9a1d92f608debcb39df3f9e204821a1bf5ebaaa7f9d193795e0d586ac73798d8",
+      "bytes": 1013,
+      "sha256": "0b1a48389e17695c0ef2389de7b737d1d11a4720aaf0408ed4315ba51a1bda2c",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/interfaces.json",
+      "contentType": "application/json",
+      "bytes": 300,
+      "sha256": "79994085de46e17bfdfe15aeed5c35652eef3c9f98d3b4642e8d0edb728c4edb",
       "links": []
     },
     {
@@ -7678,10 +7956,10 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/LocalPlugin.json",
+      "path": "/docs/references/schemas/manufacturer.json",
       "contentType": "application/json",
-      "bytes": 338,
-      "sha256": "6b62dd1af813c46a0d3764c87b9ab6bc9596032a5ec88c7b20a8a633d6bde174",
+      "bytes": 246,
+      "sha256": "9b7a8446b4d68d7ad52dfc8bdc594b347de142977d70b0ac768207ff450ba577",
       "links": []
     },
     {
@@ -7755,10 +8033,24 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/model.json",
+      "contentType": "application/json",
+      "bytes": 239,
+      "sha256": "32312935b194c3e258f498f7961cbac379c2439b3ae1bb99e3ef0d2fb4a31df8",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/ModifyEndpointRequest.json",
       "contentType": "application/json",
       "bytes": 908,
       "sha256": "42a62d9df41258670800b8fda8bb55d3b5cca8d847c2f2814e3caf9c7b510922",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/name.json",
+      "contentType": "application/json",
+      "bytes": 300,
+      "sha256": "3ced941c876a98cd826fa0186e8fde55b8a3bee5b71b5c72a9639a7ad5c00832",
       "links": []
     },
     {
@@ -7832,6 +8124,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/ontologicalTypes.json",
+      "contentType": "application/json",
+      "bytes": 287,
+      "sha256": "e67a44a0637c8416347372fcfcff90c8c3de9fd148b2afd8e0453e1e1df6ecb9",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/PaginationContext.json",
       "contentType": "application/json",
       "bytes": 348,
@@ -7862,8 +8161,8 @@
     {
       "path": "/docs/references/schemas/Plugin.json",
       "contentType": "application/json",
-      "bytes": 1037,
-      "sha256": "1791c7d908f8e8646eb8e3e5af37360f7ff71331954afd16dc375991fdfaef8b",
+      "bytes": 906,
+      "sha256": "63503f88c1aab58525127824a0847f5d33129530cce869fca1d7375e05f87689",
       "links": []
     },
     {
@@ -7909,17 +8208,24 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/pluginCustomMetadata.json",
+      "contentType": "application/json",
+      "bytes": 254,
+      "sha256": "89a95db78e58887f76ec77854381cb628a6f951e6abd87cbceefb5b85c3cf0ed",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/PluginDiscoveryRelationship.json",
       "contentType": "application/json",
-      "bytes": 1243,
-      "sha256": "6667182bc90c4050c1c55cabf7cde8247f6e88ad54e44c463a613ddeb29585c1",
+      "bytes": 1240,
+      "sha256": "77244675ae499a31c0a41e0ba4674bd36ed698a9b770e0ebd782b6c822ee94cf",
       "links": []
     },
     {
       "path": "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json",
       "contentType": "application/json",
-      "bytes": 785,
-      "sha256": "0bcea9a358df62806f7e2170287ae3e8822be69538cadcff2c2351df18f1e9f3",
+      "bytes": 1117,
+      "sha256": "0eda8b092109e3bcd85d413a56a292a5fd030ab627cbed256cc55f7ac3036109",
       "links": []
     },
     {
@@ -7927,6 +8233,20 @@
       "contentType": "application/json",
       "bytes": 910,
       "sha256": "e3e82f926c3202593e28d04599ed2e68fb97e4696589e391b2bc0e8a497199cd",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/pluginId.json",
+      "contentType": "application/json",
+      "bytes": 324,
+      "sha256": "ed9951540d33363b6a667dee72c79a452247dd25f5b0091c4be1b5b299a18675",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginInvocationContext.json",
+      "contentType": "application/json",
+      "bytes": 634,
+      "sha256": "f312379b263cbebbfab4e8035306fe676920dc50f42621e36a3d22df381bcd75",
       "links": []
     },
     {
@@ -7946,8 +8266,43 @@
     {
       "path": "/docs/references/schemas/PluginMetadataOAuth.json",
       "contentType": "application/json",
-      "bytes": 1736,
-      "sha256": "06dcd2ab3d913e91097d3d1b6b3d79f239f54ed46134c2af2c6c8749aa7b7f2e",
+      "bytes": 2047,
+      "sha256": "41f69988aff0e892422a5ceffc331853e256de3b493d8181da5cef0f262bc27c",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginOAuthAuthorizationRequest.json",
+      "contentType": "application/json",
+      "bytes": 1214,
+      "sha256": "c0ec46899469e6e51310de99799d68d3c7fc2a75315b4789696633b5330d0134",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginOAuthAuthorizationResponse.json",
+      "contentType": "application/json",
+      "bytes": 683,
+      "sha256": "fc88adfebf41693196c7dfb57a045fe8d2f5cd7beb70aa0429fce83bb9e18e82",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginOAuthCompletionRequest.json",
+      "contentType": "application/json",
+      "bytes": 1002,
+      "sha256": "bef0ebc90de10fe849f2dd1fa983ada31bfd507f648bfd44a57b66f76084a33a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginOAuthCompletionResponse.json",
+      "contentType": "application/json",
+      "bytes": 409,
+      "sha256": "16fde8bcc065a1dda3acd482a5bfd591a8efbd311ee128839cf059975cc1f96f",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/pluginProfileId.json",
+      "contentType": "application/json",
+      "bytes": 274,
+      "sha256": "84c9ede27de8cc5dd68956c9878796f8f86409ec8bc8461abec35b00d6445b80",
       "links": []
     },
     {
@@ -7958,10 +8313,38 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/PluginTokenRefreshRequest.json",
+      "contentType": "application/json",
+      "bytes": 635,
+      "sha256": "818e4de81be658baec52792a35d682825c4349a5364d0dac4487b0487d421ca2",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginTokenRefreshResponse.json",
+      "contentType": "application/json",
+      "bytes": 721,
+      "sha256": "2b9962161d74f01c16fdd150ca18652b3b81fc9d1e65be27c9c5b4b2f64a5768",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginTokenResult.json",
+      "contentType": "application/json",
+      "bytes": 842,
+      "sha256": "80026cebe9031abd4dc54d86d6b4d08d27d79bf059d9b656ce5e8d25ecf3a809",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/PluginType.json",
       "contentType": "application/json",
-      "bytes": 208,
-      "sha256": "42815e1b0ae819db1598ef4ed730d18d12210c1979fe2a58f9d203c3cadcfd42",
+      "bytes": 195,
+      "sha256": "bf11bd502876f16521f3d24e05911ba3d4f64fb1608663399bb891528d4bd7f1",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PortosIdentifier.json",
+      "contentType": "application/json",
+      "bytes": 216,
+      "sha256": "25ea635c4bbfcedbd14a20fa14082845af41518768a2b1cf8f81dd972cfb185f",
       "links": []
     },
     {
@@ -7979,6 +8362,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/ProviderDiscoveredRoute.json",
+      "contentType": "application/json",
+      "bytes": 2559,
+      "sha256": "9f69a663442c32a10a0731ae3d4afb934a8d0d28d0d0d70136c92a95c31d5ae4",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/Query.json",
       "contentType": "application/json",
       "bytes": 1628,
@@ -7993,17 +8383,45 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/redirectUri.json",
+      "contentType": "application/json",
+      "bytes": 216,
+      "sha256": "54856b3d53a7be9c3e9cb4ac2390ad2c07ced5145fd36448b80cb713dd7e7bdf",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/Relationship.json",
+      "contentType": "application/json",
+      "bytes": 1184,
+      "sha256": "c38b067d1810b0b1884579059ced7f6d5c84d71e1150729a839ce6d052c08929",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/RelationshipInterface.json",
       "contentType": "application/json",
-      "bytes": 1056,
-      "sha256": "67718726f49219e34fb1128fe0054fb81e4a2a30ec7f567f9940926878872727",
+      "bytes": 1103,
+      "sha256": "561e0f5f51da30efda47f6c2430addd1f044ae1d80634bdabc703eacb0456d99",
       "links": []
     },
     {
       "path": "/docs/references/schemas/RelationshipType.json",
       "contentType": "application/json",
-      "bytes": 693,
-      "sha256": "4142d1dc61e74629fe9a63c6c08facd7ccb75450ce59a5e1b3c10243f1f12c18",
+      "bytes": 750,
+      "sha256": "eb0cf73a9fed8128734b67dce86670ce1da7cbe3c7f42e3cd3771c26aceaefe7",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RelationshipVertex.json",
+      "contentType": "application/json",
+      "bytes": 676,
+      "sha256": "66fdc57f7fccd0d5735a85dcef5ac92861d12bbe36ae3faf995b212ca6329437",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/RelationshipVertexKind.json",
+      "contentType": "application/json",
+      "bytes": 405,
+      "sha256": "c54b4b7d833e422d6de6b9e2e07c300f6f414f1062c9b3179fc08a19d3e095f4",
       "links": []
     },
     {
@@ -8051,15 +8469,15 @@
     {
       "path": "/docs/references/schemas/Route.json",
       "contentType": "application/json",
-      "bytes": 3585,
-      "sha256": "567b6ce94ad0bd6e22a09eeb6c899d4ace4dc0c63f716320b05fc52df8d0ba17",
+      "bytes": 3988,
+      "sha256": "9e4172cd64b104bc832e6878dde9854f7ec532d0819f0ad027257ea124bab30e",
       "links": []
     },
     {
       "path": "/docs/references/schemas/RouteInterface.json",
       "contentType": "application/json",
-      "bytes": 1197,
-      "sha256": "30533788a9d6d3e2ac992f35a25c2cfff39d322c45163858fb85f33bc7885645",
+      "bytes": 1255,
+      "sha256": "63345caa2618ee38a460e812daa26c2413da0783bf5618e3ce1fc933605bbeb4",
       "links": []
     },
     {
@@ -8081,6 +8499,13 @@
       "contentType": "application/json",
       "bytes": 147,
       "sha256": "db6f358eb1e6d03a563a08063d52ae7ceead15bd050651dbe9caa01de3380900",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/serialNumber.json",
+      "contentType": "application/json",
+      "bytes": 247,
+      "sha256": "bcce86eedbbadc8a3a3fb8a596bd5f38961b36ff50db53074f81ac9b55f6e824",
       "links": []
     },
     {
@@ -8156,8 +8581,8 @@
     {
       "path": "/docs/references/schemas/SynchronizationRequest.json",
       "contentType": "application/json",
-      "bytes": 1886,
-      "sha256": "4b474cda228bb4da51703c1e0a99dc4bb59b86ff2e9b634433c405cd7d725ef4",
+      "bytes": 1928,
+      "sha256": "500fb3d7ebb2d21d927677a4d31069df1c6f62be3a6ca8f28503535a267a3576",
       "links": []
     },
     {
@@ -8198,8 +8623,15 @@
     {
       "path": "/docs/references/schemas/TokenListItem.json",
       "contentType": "application/json",
-      "bytes": 1002,
-      "sha256": "89533e91483a59d2a5d12ef2fe308062ef74eff38332fc2503202b1339d8f156",
+      "bytes": 1085,
+      "sha256": "da60f28a5c83c2df18ba5047f97c30f182900244a2c6037cc6c4e724a106c016",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/TokenPurpose.json",
+      "contentType": "application/json",
+      "bytes": 473,
+      "sha256": "bcb7a56fe3d66442f26d1d6c70761e78c1fa7290bcf6f615f52051f7e762e5f1",
       "links": []
     },
     {

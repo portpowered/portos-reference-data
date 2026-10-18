@@ -7,6 +7,18 @@
     "name"
   ],
   "properties": {
+    "pluginProfileId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable group-route profile ID selected from the registered V2 plugin declaration."
+    },
+    "ontologicalTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Actual classifications of the native group route, constrained by its selected plugin profile for V2 discovery."
+    },
     "pluginRouteId": {
       "type": "string",
       "minLength": 1,

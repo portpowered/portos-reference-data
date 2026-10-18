@@ -1,19 +1,19 @@
-# enumerateGroupRelationships
+# enumerateRelationships
 
-GET `/group-relationships`
+GET `/relationships`
 
-List group relationships
+List relationships
 
-Read-only enumeration of provider-reported relationships (`IS_PART_OF`, `CAN_CONTROL`, `LOCATED_IN`) between routes and group routes the caller is authorized to read. Relationships are managed by plugin discovery only. Optionally filter by a group, route or group route, or endpoint.
+Read-only enumeration of typed relationships between endpoints, routes, groups and group routes. Both vertices must be readable by the caller. Defaults to caller-owned relationships with a bounded page. Provider discovery and group membership operations manage the edges.
 
 
 ## Authorization
 
 ```yaml
-path: /group-relationships
-runtimePath: /group-relationships
+path: /relationships
+runtimePath: /relationships
 method: GET
-operationId: enumerateGroupRelationships
+operationId: enumerateRelationships
 security:
   - oauth2:
       - group:read
@@ -25,17 +25,16 @@ resourcePermissionRequired: true
 ## Complete operation contract
 
 ```yaml
-path: /group-relationships
+path: /relationships
 get:
   tags:
-    - Endpoint Group Routes
-  operationId: enumerateGroupRelationships
-  summary: List group relationships
+    - Relationships
+  operationId: enumerateRelationships
+  summary: List relationships
   description: >
-    Read-only enumeration of provider-reported relationships (`IS_PART_OF`, `CAN_CONTROL`,
-    `LOCATED_IN`) between routes and group routes the caller is authorized to read. Relationships
-    are managed by plugin discovery only. Optionally filter by a group, route or group route, or
-    endpoint.
+    Read-only enumeration of typed relationships between endpoints, routes, groups and group routes.
+    Both vertices must be readable by the caller. Defaults to caller-owned relationships with a
+    bounded page. Provider discovery and group membership operations manage the edges.
   security:
     - oauth2:
         - group:read
@@ -43,8 +42,10 @@ get:
   parameters:
     - name: owner
       in: query
-      description: The owner of the relationships to get. Use '~caller' for the authenticated user
-      required: true
+      description: >-
+        Owner whose relationships to get. Defaults to the authenticated caller when omitted. Use
+        '~caller' as an explicit alias for the authenticated user.
+      required: false
       schema:
         type: string
       examples:
@@ -52,7 +53,7 @@ get:
           value: ~caller
     - name: groupId
       in: query
-      description: Only relationships with a vertex in this endpoint group (redirects are followed)
+      description: Relationships touching this group or a group route belonging to it.
       required: false
       schema:
         type: string
@@ -70,13 +71,31 @@ get:
           value: port1/principals/user123/group-routes/abc
     - name: endpointId
       in: query
-      description: Only relationships whose route vertex belongs to this endpoint
+      description: Relationships touching this endpoint or a route belonging to it.
       required: false
       schema:
         type: string
       examples:
         endpoint:
           value: port1/principals/user123/endpoints/robot
+    - name: vertexId
+      in: query
+      description: Relationships touching this exact resource ID.
+      required: false
+      schema:
+        type: string
+    - name: parentId
+      in: query
+      description: Relationships with a route or group-route vertex belonging to this resource ID.
+      required: false
+      schema:
+        type: string
+    - name: type
+      in: query
+      description: Only relationships of this type.
+      required: false
+      schema:
+        $ref: /docs/references/schemas/RelationshipType.json
     - name: nextToken
       in: query
       description: The next token to get the next page of results
@@ -88,10 +107,13 @@ get:
           value: '123'
     - name: maxResults
       in: query
-      description: The maximum number of results to return
+      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
       required: false
       schema:
         type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
       examples:
         max-results:
           value: 10
@@ -111,22 +133,24 @@ get:
             - metadata
   responses:
     '200':
-      description: Group relationships retrieved successfully
+      description: Relationships retrieved successfully
       content:
         application/json:
           schema:
-            $ref: /docs/references/schemas/EnumerateGroupRelationshipsResponse.json
+            $ref: /docs/references/schemas/EnumerateRelationshipsResponse.json
           example:
             results:
-              - id: port1/principals/user123/group-relationships/rel-1
+              - id: port1/principals/user123/relationships/rel-1
                 ownerId: port1/principals/user123
                 type: CAN_CONTROL
                 source:
-                  routeId: port1/principals/user123/routes/robot
-                  endpointId: port1/principals/user123/endpoints/robot
+                  kind: ROUTE
+                  id: port1/principals/user123/routes/robot
+                  parentId: port1/principals/user123/endpoints/robot
                 target:
-                  groupRouteId: port1/principals/user123/group-routes/room-18
-                  groupId: port1/principals/user123/endpoint-groups/kitchen
+                  kind: GROUP_ROUTE
+                  id: port1/principals/user123/group-routes/room-18
+                  parentId: port1/principals/user123/endpoint-groups/kitchen
                 interfaces:
                   - name: port1/systems/zero/capability-interfaces/robotic-vacuum-cleaner
                     version: '1.0'
@@ -180,7 +204,8 @@ get:
 
 ## Linked components
 
-- [EnumerateGroupRelationshipsResponse.json](/docs/references/schemas/EnumerateGroupRelationshipsResponse.json)
+- [EnumerateRelationshipsResponse.json](/docs/references/schemas/EnumerateRelationshipsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
+- [RelationshipType.json](/docs/references/schemas/RelationshipType.json)
 
 Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

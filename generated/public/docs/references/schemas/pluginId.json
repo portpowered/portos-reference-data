@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "/docs/references/schemas/PortosIdentifier.json"
+    },
+    {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    }
+  ],
+  "description": "Exact canonical registered plugin instance ID; aliases are rejected."
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A typed resource at one end of a relationship. Route parents are endpoints; group-route parents are groups.",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "id"
+  ],
+  "properties": {
+    "kind": {
+      "$ref": "/docs/references/schemas/RelationshipVertexKind.json"
+    },
+    "id": {
+      "type": "string",
+      "description": "The full Port OS ID of this resource."
+    },
+    "parentId": {
+      "type": "string",
+      "description": "The full endpoint or group ID for a route or group-route vertex. Omitted for endpoint and group vertices."
+    }
+  }
+}

@@ -1,9 +1,9 @@
 scopes:
-  endpoint:read: Read authorized endpoints and capability state.
-  endpoint:write: Manage authorized endpoints and routes.
+  endpoint:read: View authorized devices, connected services and their state.
+  endpoint:write: Manage authorized devices, connected services and provider connections.
   message:read: Read authorized messages.
   message:send: Dispatch capability messages to authorized targets.
-  group:read: Read authorized groups and membership.
+  group:read: View authorized rooms, device groups and their members.
   group:manage: Manage authorized groups and membership.
   subscription:read: Read authorized subscriptions.
   subscription:write: Manage authorized subscriptions.
@@ -35,13 +35,6 @@ operations:
     runtimePath: /metrics
     method: GET
     operationId: getMetrics
-    security: []
-    delegated: false
-    resourcePermissionRequired: false
-  - path: /.well-known/openid-configuration
-    runtimePath: /.well-known/openid-configuration
-    method: GET
-    operationId: getOpenIDConfiguration
     security: []
     delegated: false
     resourcePermissionRequired: false
@@ -341,6 +334,24 @@ operations:
       - bearerAuth: []
     delegated: false
     resourcePermissionRequired: true
+  - path: /plugin-oauth-authorizations
+    runtimePath: /plugin-oauth-authorizations
+    method: POST
+    operationId: beginPluginOAuthAuthorization
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /plugin-oauth-authorization-completions
+    runtimePath: /plugin-oauth-authorization-completions
+    method: POST
+    operationId: completePluginOAuthAuthorization
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
   - path: /endpoint-groups
     runtimePath: /endpoint-groups
     method: GET
@@ -371,10 +382,10 @@ operations:
       - bearerAuth: []
     delegated: true
     resourcePermissionRequired: true
-  - path: /group-relationships
-    runtimePath: /group-relationships
+  - path: /relationships
+    runtimePath: /relationships
     method: GET
-    operationId: enumerateGroupRelationships
+    operationId: enumerateRelationships
     security:
       - oauth2:
           - group:read

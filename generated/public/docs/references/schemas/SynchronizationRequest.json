@@ -15,8 +15,9 @@
     },
     "routes": {
       "type": "array",
+      "maxItems": 1000,
       "items": {
-        "$ref": "/docs/references/schemas/Route.json"
+        "$ref": "/docs/references/schemas/ProviderDiscoveredRoute.json"
       },
       "description": "List of routes to synchronize. Route `id` values supplied here are not the stable plugin capability lookup surface after synchronization; match enumerated routes by `associatedPluginRouteId`.\n"
     },

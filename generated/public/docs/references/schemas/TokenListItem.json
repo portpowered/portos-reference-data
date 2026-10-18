@@ -3,6 +3,9 @@
   "type": "object",
   "description": "A token in a list response (no raw JWT).",
   "properties": {
+    "purpose": {
+      "$ref": "/docs/references/schemas/TokenPurpose.json"
+    },
     "id": {
       "type": "string",
       "description": "Token identifier (same as JWT jti)."

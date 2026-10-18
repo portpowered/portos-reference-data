@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "description": "Paginated response containing group relationships visible to the caller.",
+  "description": "Paginated response containing relationships visible to the caller.",
   "required": [
     "results"
   ],
@@ -9,7 +9,7 @@
     "results": {
       "type": "array",
       "items": {
-        "$ref": "/docs/references/schemas/GroupRelationship.json"
+        "$ref": "/docs/references/schemas/Relationship.json"
       }
     },
     "paginationContext": {

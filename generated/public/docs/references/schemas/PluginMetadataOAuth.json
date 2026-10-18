@@ -8,7 +8,7 @@
     },
     "clientSecret": {
       "type": "string",
-      "description": "OAuth2 client secret. Only included when the caller explicitly requests expand=oauth.clientSecret and only for direct-variant plugins (never exposed for backend-proxy variants). Used by the website to complete PKCE token exchanges client-side."
+      "description": "OAuth2 client secret. Only included when the caller explicitly requests expand=oauth.clientSecret and only for DIRECT plugins. Never exposed for BACKEND_PROXY or STATE_MANAGED. Used by the website to complete direct PKCE token exchanges client-side."
     },
     "authorizeUrl": {
       "type": "string",
@@ -37,13 +37,15 @@
       "type": "string",
       "enum": [
         "DIRECT",
-        "BACKEND_PROXY"
+        "BACKEND_PROXY",
+        "STATE_MANAGED"
       ],
       "x-enum-varnames": [
         "OAuthVariantDirect",
-        "OAuthVariantBackendProxy"
+        "OAuthVariantBackendProxy",
+        "OAuthVariantStateManaged"
       ],
-      "description": "OAuth flow variant. \"DIRECT\" means the website performs the full PKCE token exchange client-side. \"BACKEND_PROXY\" means the website sends the authorization code to the Port OS backend, which exchanges it for tokens on behalf of the user."
+      "description": "OAuth flow variant. DIRECT performs the PKCE token exchange client-side. BACKEND_PROXY sends the authorization code to the legacy backend exchange. STATE_MANAGED uses POST /plugin-oauth-authorizations followed by POST /plugin-oauth-authorization-completions. The server owns state, provider configuration and credential installation; the client never exchanges tokens or supplies client credentials. This variant is advertised only when the configured state-managed host flow is ready."
     }
   }
 }

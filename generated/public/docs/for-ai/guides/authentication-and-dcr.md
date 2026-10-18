@@ -18,7 +18,7 @@ Read [authorization rules](/docs/for-ai/guides/authorization-rules.md) for scope
 
 ## Discover the OAuth server and choose REST or MCP
 
-This discovery step is shared by every client. The API is https://api.portoperatingsystem.com and the authorization server is https://auth.portoperatingsystem.com. Fetch the API's /.well-known/oauth-authorization-server document anonymously. Read issuer, authorization_endpoint, token_endpoint, registration_endpoint, revocation_endpoint and scopes_supported. Use the returned auth endpoints exactly. The issuer and API resource have different origins; do not use the auth issuer as the API destination or token audience.
+This discovery step is shared by every client. The API is https://api.portoperatingsystem.com and the authorization server is https://auth.portoperatingsystem.com. Fetch the API's /.well-known/oauth-authorization-server document anonymously. Read issuer, authorization_endpoint, token_endpoint, registration_endpoint, revocation_endpoint and scopes_supported. Use the returned auth endpoints exactly. The issuer and API resource have different origins; do not use the auth issuer as the API destination or token audience. Port OS exposes OAuth authorization-server metadata here; it does not advertise OpenID Connect discovery or issue OpenID Connect ID tokens.
 
 | Interface | API destination | OAuth resource |
 | --- | --- | --- |
@@ -69,9 +69,9 @@ The registration fingerprint is SHA-256 of compact canonical JSON with sorted ob
 
 Default quotas are 1,000 new registrations per rolling day and 10,000 retained registrations. Reuse does not consume new-registration quota. A quota failure returns 429 with Retry-After. An operator can disable new registrations without retiring existing grants. Read the [registration operation](/docs/for-ai/operations/registerDynamicOAuthClient.md) for exact request, response and error schemas.
 
-### CIMD: allowlisted metadata clients
+### CIMD: metadata clients
 
-A supported CIMD client uses its allowlisted HTTPS metadata URL as client_id instead of posting a DCR request. Port OS retrieves and validates that client metadata, including its exact callbacks and public PKCE profile. Arbitrary metadata URLs and redirects from the metadata fetch are not supported. If your metadata URL is not allowlisted, arrange onboarding or use DCR if your client supports it. Do not pretend another client's metadata URL belongs to you.
+A CIMD client uses its HTTPS metadata URL as client_id instead of posting a DCR request. Any HTTPS metadata URL is accepted. Port OS retrieves and validates that client metadata on every authorization attempt, including its exact HTTPS callbacks and public PKCE profile. Loopback, private and link-local metadata hosts and redirects from the metadata fetch are refused. Do not pretend another client's metadata URL belongs to you.
 
 Client_name, software_id, software_version and client_uri remain unverified claims. No trusted software-statement issuer is configured; software_statement is rejected. A registration called Muse or Grok does not establish a verified vendor integration or gain additional permissions. Static confidential clients retain their separately configured client authentication method.
 
@@ -196,6 +196,8 @@ For delegated REST grants, Port OS verifies token signature, expiry, issuer, RES
 | Manage group membership | group:manage |
 | Read subscriptions | subscription:read |
 | Create/update/delete subscriptions | subscription:write |
+
+MCP uses the same scopes as the REST operation that does the same work. Listing, inspecting or discovering subscribable events (`subscription_list`, `subscription_inspect`, `events/list`) needs subscription:read. Subscribing, unsubscribing, cancelling or relabelling (`events/subscribe`, `events/unsubscribe`, `subscription_cancel`, `subscription_label_edit`) needs subscription:write. Subscribing to a device's events does not need endpoint:read; whether the principal may see the source endpoint is a resource rule. Task guides and capability reference documents need only a valid MCP token. A call without the needed scope gets 403 `insufficient_scope` naming the scope to request. An MCP connection approved before these scopes existed must be re-approved to get them; its existing event deliveries continue.
 
 Other operations are outside the anonymous DCR device profile and fail closed. [Operation pages](/docs/for-ai/operations/index.md) expose exact credential alternatives and resource requirements. [Machine-readable authorization metadata](/docs/references/authorization.yaml) links the contract.
 

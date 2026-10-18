@@ -10,6 +10,49 @@ properties:
       mediaId:
         type: string
         description: Provider media identifier for the selected content.
+      nativeIdentity:
+        type: object
+        description: >-
+          Observed Sonos music-service coordinates for the current item, scoped
+          to the reporting route and authorized connection. This identity is not
+          a portable catalog ID, playable URL or authorization to play content.
+          Preserve opaque values exactly; do not decode or log them.
+        required:
+          - integration
+          - objectId
+        properties:
+          integration:
+            type: string
+            enum:
+              - SONOS
+            description: >-
+              Integration defining this native identity format, independent of
+              the source catalog provider.
+          serviceId:
+            type: string
+            minLength: 1
+            maxLength: 20
+            pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+            description: Exact service identifier reported by Sonos, when present.
+          objectId:
+            type: string
+            minLength: 1
+            maxLength: 256
+            pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+            description: >-
+              Exact opaque content identifier reported by Sonos, including its
+              original case and percent escapes.
+          accountId:
+            type: string
+            minLength: 1
+            maxLength: 13
+            pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+            description: >-
+              Exact Sonos music-service account coordinate, when present. This
+              is not a credential and must not authorize subsequent playback by
+              itself.
+        additionalProperties: false
+        title: MediaSonosNativeIdentity
       title:
         type: string
         description: Display title supplied by the media provider.

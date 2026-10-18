@@ -152,6 +152,22 @@ properties:
   supportsPlayURI:
     type: boolean
     description: Whether the endpoint can play an audio URI.
+  supportedURISourceTypes:
+    type: array
+    uniqueItems: true
+    description: >-
+      Exact source kinds accepted by play-uri on this route. With URI support, omission retains
+      legacy FILE-only behavior; an empty list admits none. LIVE_STREAM must be explicitly listed.
+      This does not resolve provider catalog identities.
+    items:
+      type: string
+      description: >-
+        Transport source kind for play-uri. FILE is finite externally hosted audio; LIVE_STREAM is
+        continuous live audio and requires explicit route support. Neither value resolves a catalog
+        provider identity.
+      enum:
+        - FILE
+        - LIVE_STREAM
   supportedAudioMimeTypes:
     type: array
     description: >-
@@ -159,5 +175,22 @@ properties:
       supported.
     items:
       type: string
+  maxAudioDurationSeconds:
+    type: integer
+    minimum: 1
+    maximum: 86400
+    description: >-
+      Maximum encoded duration accepted by play-audio. Longer inputs are rejected without
+      truncation.
+  audioPlaybackMode:
+    type: string
+    enum:
+      - CLIP
+      - QUEUE
+    description: >-
+      CLIP means finite immediate play-audio playback, which may interrupt or duck current content.
+      QUEUE means finite controllable play-audio playback that replaces the current playback
+      session. Neither mode appends to an existing queue, resolves a provider track, or establishes
+      a live stream.
 additionalProperties: false
 title: MediaPlayerInterfaceConfiguration

@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "description": "List of ontological types for the route. These are used mostly for customers to know what an endpoint is, like if its a lightbulb, or a speaker, etc."
+}

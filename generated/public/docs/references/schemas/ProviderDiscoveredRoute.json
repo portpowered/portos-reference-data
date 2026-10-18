@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "x-go-type": "Route",
+  "description": "Provider input before host synchronization assigns persisted route identity and ownership. Canonical provider facts reuse Route property definitions. The Go projection deliberately retains the existing Route wire adapter for plugin compatibility; canonical validation uses this input schema, not persisted Route. Host identity fields may be omitted or empty in legacy Route serialization and never establish authenticated publisher or installation authority. Nonempty id and associatedEndpointId may select an existing authorized route during scoped rediscovery; newly created routes and endpoints receive host-assigned IDs.\n",
+  "required": [
+    "associatedPluginRouteId",
+    "interfaces",
+    "ontologicalTypes"
+  ],
+  "properties": {
+    "associatedPluginRouteId": {
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/associatedPluginRouteId.json"
+        }
+      ],
+      "minLength": 1
+    },
+    "externalId": {
+      "$ref": "/docs/references/schemas/externalId.json"
+    },
+    "pluginProfileId": {
+      "$ref": "/docs/references/schemas/pluginProfileId.json"
+    },
+    "interfaces": {
+      "$ref": "/docs/references/schemas/interfaces.json"
+    },
+    "ontologicalTypes": {
+      "$ref": "/docs/references/schemas/ontologicalTypes.json"
+    },
+    "name": {
+      "$ref": "/docs/references/schemas/name.json"
+    },
+    "description": {
+      "$ref": "/docs/references/schemas/description.json"
+    },
+    "manufacturer": {
+      "$ref": "/docs/references/schemas/manufacturer.json"
+    },
+    "model": {
+      "$ref": "/docs/references/schemas/model.json"
+    },
+    "serialNumber": {
+      "$ref": "/docs/references/schemas/serialNumber.json"
+    },
+    "pluginCustomMetadata": {
+      "$ref": "/docs/references/schemas/pluginCustomMetadata.json"
+    },
+    "id": {
+      "type": "string",
+      "description": "Advisory legacy value, including empty. Together with associatedEndpointId it may select an existing route within the authenticated scope. New persisted IDs are assigned by the host and validated by the separate persisted Route schema."
+    },
+    "associatedPluginId": {
+      "$ref": "/docs/references/schemas/associatedPluginId.json"
+    },
+    "associatedAuthLinkId": {
+      "$ref": "/docs/references/schemas/associatedAuthLinkId.json"
+    },
+    "associatedEndpointId": {
+      "$ref": "/docs/references/schemas/associatedEndpointId.json"
+    }
+  },
+  "additionalProperties": false
+}

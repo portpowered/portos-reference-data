@@ -144,16 +144,19 @@ messages:
           title: MediaId
           type: string
           minLength: 1
-          example: portos-media://portpowered.com/spotify/audio/track/Ab123
+          example: portos-media://portoperatingsystem.com/spotify/audio/track/Ab123
           pattern: >-
-            ^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:video:[A-Za-z0-9_-]+)$
+            ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$
           description: >
             Exact provider resource identity. The canonical form is
-            portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no
-            URI version. Spotify emits audio track, playlist, album, artist, show and episode
-            identities. Copy an ID returned by search or library discovery; do not send a search
-            phrase as an ID. Legacy providers retain their own input contracts until explicitly
-            migrated. See https://portpowered.com/docs/media.
+            portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id,
+            with no URI version. Spotify emits audio track, playlist, album, artist, show and
+            episode identities. The prior portpowered.com authority remains readable. YouTube and
+            YouTube Music share provider youtube, with video/video and video/channel resource kinds.
+            Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same
+            canonical resources. Copy an ID returned by search or library discovery; do not send a
+            search phrase as an ID. Legacy providers retain their own input contracts until
+            explicitly migrated. See https://portoperatingsystem.com/docs/media.
       required:
         - mediaId
       additionalProperties: false
@@ -177,6 +180,19 @@ messages:
         title:
           type: string
           description: Optional title for display or logging purposes
+        sourceType:
+          description: >-
+            URI transport semantics. Omission retains FILE behavior. LIVE_STREAM requires explicit
+            live source support on the selected route; it must not be interpreted as a finite clip.
+          allOf:
+            - type: string
+              description: >-
+                Transport source kind for play-uri. FILE is finite externally hosted audio;
+                LIVE_STREAM is continuous live audio and requires explicit route support. Neither
+                value resolves a catalog provider identity.
+              enum:
+                - FILE
+                - LIVE_STREAM
         offsetInMilliseconds:
           type: integer
           description: Playback start position in milliseconds
@@ -313,6 +329,93 @@ messages:
       type: object
       additionalProperties: false
 attributes:
+  - name: clip-status
+    description: >-
+      Latest admitted vendor observation for the latest physical-player clip attempt. This is
+      separate from ordinary group playback. Missing, expired or revoked observations are
+      unavailable, never inferred completion. Command acceptance alone supplies no value; physical
+      clips do not support pause or resume.
+    schema:
+      description: >-
+        Latest admitted vendor observation for the latest physical-player clip attempt. This is
+        separate from ordinary group playback. Missing, expired or revoked observations are
+        unavailable, never inferred completion. Command acceptance alone supplies no value; physical
+        clips do not support pause or resume.
+      type: object
+      properties:
+        value:
+          type: object
+          description: >-
+            Bounded passive telemetry for an exactly correlated physical-player command. This
+            observation cannot authorize controls, retry playback or establish audible delivery.
+          properties:
+            attemptId:
+              type: string
+              minLength: 1
+              maxLength: 2048
+              pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+              description: >-
+                Port OS correlation for the latest admitted command, not a vendor media identifier
+                or authorization token.
+            status:
+              type: string
+              description: >-
+                Vendor-reported physical clip lifecycle. SCHEDULED is command acceptance and is
+                excluded. Unknown values and silence do not imply DONE.
+              enum:
+                - ACTIVE
+                - DONE
+                - ERROR
+                - DISMISSED
+                - INTERRUPTED
+            errorCode:
+              type: string
+              description: >-
+                Allowlisted Sonos clip error identifier. Omit unrecognized codes and vendor error
+                text rather than exposing arbitrary payloads.
+              enum:
+                - ERROR_AUDIO_CLIP_ID_NOT_FOUND
+                - ERROR_AUDIO_CLIP_MEDIA_ERROR
+                - ERROR_AUDIO_CLIP_PAUSE_CONTENT_FAILED
+            provenance:
+              type: object
+              description: >-
+                Assurance of passive Sonos telemetry. Header authentication, exact issued-command
+                correlation and ordering do not authenticate the event body. This is never proof of
+                audible delivery or authority for automatic controls.
+              properties:
+                integration:
+                  type: string
+                  enum:
+                    - SONOS
+                  description: Integration that supplied the observation.
+                assurance:
+                  type: string
+                  enum:
+                    - PASSIVE_HEADER_AUTH
+                  description: >-
+                    Signed headers were verified against configured application credentials; the
+                    body remains unsigned.
+                payloadIntegrity:
+                  type: boolean
+                  enum:
+                    - false
+                  description: Always false because Sonos does not sign the callback payload.
+              required:
+                - integration
+                - assurance
+                - payloadIntegrity
+              additionalProperties: false
+              title: MediaClipProvenance
+          required:
+            - attemptId
+            - status
+            - provenance
+          additionalProperties: false
+          title: MediaClipObservation
+      required:
+        - value
+      additionalProperties: false
   - name: current-content
     description: >-
       Currently selected media metadata. Report only metadata supplied by the media provider;
@@ -330,6 +433,48 @@ attributes:
             mediaId:
               type: string
               description: Provider media identifier for the selected content.
+            nativeIdentity:
+              type: object
+              description: >-
+                Observed Sonos music-service coordinates for the current item, scoped to the
+                reporting route and authorized connection. This identity is not a portable catalog
+                ID, playable URL or authorization to play content. Preserve opaque values exactly;
+                do not decode or log them.
+              required:
+                - integration
+                - objectId
+              properties:
+                integration:
+                  type: string
+                  enum:
+                    - SONOS
+                  description: >-
+                    Integration defining this native identity format, independent of the source
+                    catalog provider.
+                serviceId:
+                  type: string
+                  minLength: 1
+                  maxLength: 20
+                  pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+                  description: Exact service identifier reported by Sonos, when present.
+                objectId:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+                  description: >-
+                    Exact opaque content identifier reported by Sonos, including its original case
+                    and percent escapes.
+                accountId:
+                  type: string
+                  minLength: 1
+                  maxLength: 13
+                  pattern: ^[^\x00-\x1F\x7F-\x9F]+$
+                  description: >-
+                    Exact Sonos music-service account coordinate, when present. This is not a
+                    credential and must not authorize subsequent playback by itself.
+              additionalProperties: false
+              title: MediaSonosNativeIdentity
             title:
               type: string
               description: Display title supplied by the media provider.
@@ -371,16 +516,19 @@ attributes:
           title: MediaId
           type: string
           minLength: 1
-          example: portos-media://portpowered.com/spotify/audio/track/Ab123
+          example: portos-media://portoperatingsystem.com/spotify/audio/track/Ab123
           pattern: >-
-            ^(portos-media://portpowered[.]com/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:video:[A-Za-z0-9_-]+)$
+            ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$
           description: >
             Exact provider resource identity. The canonical form is
-            portos-media://portpowered.com/provider/media-type/resource-kind/resource-id, with no
-            URI version. Spotify emits audio track, playlist, album, artist, show and episode
-            identities. Copy an ID returned by search or library discovery; do not send a search
-            phrase as an ID. Legacy providers retain their own input contracts until explicitly
-            migrated. See https://portpowered.com/docs/media.
+            portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id,
+            with no URI version. Spotify emits audio track, playlist, album, artist, show and
+            episode identities. The prior portpowered.com authority remains readable. YouTube and
+            YouTube Music share provider youtube, with video/video and video/channel resource kinds.
+            Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same
+            canonical resources. Copy an ID returned by search or library discovery; do not send a
+            search phrase as an ID. Legacy providers retain their own input contracts until
+            explicitly migrated. See https://portoperatingsystem.com/docs/media.
         contextMediaId:
           $ref: '#/properties/mediaId'
         name:
@@ -580,6 +728,22 @@ configuration:
     supportsPlayURI:
       type: boolean
       description: Whether the endpoint can play an audio URI.
+    supportedURISourceTypes:
+      type: array
+      uniqueItems: true
+      description: >-
+        Exact source kinds accepted by play-uri on this route. With URI support, omission retains
+        legacy FILE-only behavior; an empty list admits none. LIVE_STREAM must be explicitly listed.
+        This does not resolve provider catalog identities.
+      items:
+        type: string
+        description: >-
+          Transport source kind for play-uri. FILE is finite externally hosted audio; LIVE_STREAM is
+          continuous live audio and requires explicit route support. Neither value resolves a
+          catalog provider identity.
+        enum:
+          - FILE
+          - LIVE_STREAM
     supportedAudioMimeTypes:
       type: array
       description: >-
@@ -587,6 +751,23 @@ configuration:
         supported.
       items:
         type: string
+    maxAudioDurationSeconds:
+      type: integer
+      minimum: 1
+      maximum: 86400
+      description: >-
+        Maximum encoded duration accepted by play-audio. Longer inputs are rejected without
+        truncation.
+    audioPlaybackMode:
+      type: string
+      enum:
+        - CLIP
+        - QUEUE
+      description: >-
+        CLIP means finite immediate play-audio playback, which may interrupt or duck current
+        content. QUEUE means finite controllable play-audio playback that replaces the current
+        playback session. Neither mode appends to an existing queue, resolves a provider track, or
+        establishes a live stream.
   additionalProperties: false
   title: MediaPlayerInterfaceConfiguration
 authorization:

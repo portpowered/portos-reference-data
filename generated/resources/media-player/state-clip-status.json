@@ -1,0 +1,84 @@
+{
+  "description": "Latest admitted vendor observation for the latest physical-player clip attempt. This is separate from ordinary group playback. Missing, expired or revoked observations are unavailable, never inferred completion. Command acceptance alone supplies no value; physical clips do not support pause or resume.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "object",
+      "description": "Bounded passive telemetry for an exactly correlated physical-player command. This observation cannot authorize controls, retry playback or establish audible delivery.",
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "^[^\\x00-\\x1F\\x7F-\\x9F]+$",
+          "description": "Port OS correlation for the latest admitted command, not a vendor media identifier or authorization token."
+        },
+        "status": {
+          "type": "string",
+          "description": "Vendor-reported physical clip lifecycle. SCHEDULED is command acceptance and is excluded. Unknown values and silence do not imply DONE.",
+          "enum": [
+            "ACTIVE",
+            "DONE",
+            "ERROR",
+            "DISMISSED",
+            "INTERRUPTED"
+          ]
+        },
+        "errorCode": {
+          "type": "string",
+          "description": "Allowlisted Sonos clip error identifier. Omit unrecognized codes and vendor error text rather than exposing arbitrary payloads.",
+          "enum": [
+            "ERROR_AUDIO_CLIP_ID_NOT_FOUND",
+            "ERROR_AUDIO_CLIP_MEDIA_ERROR",
+            "ERROR_AUDIO_CLIP_PAUSE_CONTENT_FAILED"
+          ]
+        },
+        "provenance": {
+          "type": "object",
+          "description": "Assurance of passive Sonos telemetry. Header authentication, exact issued-command correlation and ordering do not authenticate the event body. This is never proof of audible delivery or authority for automatic controls.",
+          "properties": {
+            "integration": {
+              "type": "string",
+              "enum": [
+                "SONOS"
+              ],
+              "description": "Integration that supplied the observation."
+            },
+            "assurance": {
+              "type": "string",
+              "enum": [
+                "PASSIVE_HEADER_AUTH"
+              ],
+              "description": "Signed headers were verified against configured application credentials; the body remains unsigned."
+            },
+            "payloadIntegrity": {
+              "type": "boolean",
+              "enum": [
+                false
+              ],
+              "description": "Always false because Sonos does not sign the callback payload."
+            }
+          },
+          "required": [
+            "integration",
+            "assurance",
+            "payloadIntegrity"
+          ],
+          "additionalProperties": false,
+          "title": "MediaClipProvenance"
+        }
+      },
+      "required": [
+        "attemptId",
+        "status",
+        "provenance"
+      ],
+      "additionalProperties": false,
+      "title": "MediaClipObservation"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

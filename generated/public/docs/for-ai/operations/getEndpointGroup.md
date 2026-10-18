@@ -87,7 +87,9 @@ get:
       description: >-
         Asks each provider for fresh values of the group routes before the response is returned.
         Only applied when `expand` includes `interfaces.attributes`. Absent, invalid or `false`
-        values return the stored values.
+        values return the stored values. A forced read includes only attributes refreshed by that
+        request. If any provider fails, the request returns `500 DEEP_QUERY_FAILED` instead of
+        presenting stored values as fresh.
       required: false
       schema:
         type: boolean

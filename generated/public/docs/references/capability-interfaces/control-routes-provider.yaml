@@ -10,7 +10,7 @@ messages:
       Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
       but not necessarily that it did anything.  Consider this to happen on any infrared based
       device (TV remotes), where no ack is feasible.
-    directionality: in
+    directionality: out
     schema:
       description: >-
         Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
@@ -20,7 +20,7 @@ messages:
       additionalProperties: false
   - name: attribute-report
     description: Response to report attributes of a control route
-    directionality: in
+    directionality: out
     schema:
       description: Response to report attributes of a control route
       type: object
@@ -62,6 +62,36 @@ messages:
                     - version
                     - value
                   title: AttributeSchema
+              unavailableAttributes:
+                type: array
+                description: >-
+                  Exact attributes freshly found unavailable by a successful correlated native-group
+                  report-attributes read. Presence, including an empty list, is unsupported for
+                  endpoint, capability-query, proactive or uncorrelated reports. These identities
+                  carry no value or sample time; omission is not an unavailable acknowledgement.
+                  Upgrade consuming hosts before providers emit this field.
+                uniqueItems: true
+                items:
+                  type: object
+                  description: >-
+                    The exact identity of an attribute requested from a provider, without an
+                    observed value.
+                  properties:
+                    namespace:
+                      type: string
+                      minLength: 1
+                    name:
+                      type: string
+                      minLength: 1
+                    version:
+                      type: string
+                      minLength: 1
+                  required:
+                    - namespace
+                    - name
+                    - version
+                  additionalProperties: false
+                  title: AttributeSelection
             required:
               - associatedPluginRouteId
               - attributes
@@ -99,7 +129,7 @@ messages:
       and that a confirmation of the result will be sent later on.  We generate this message when
       the device is expected to respond some time later on, and we need to wait for the result.  For
       the default behavior, we expect to wait up to a minute to handle low powered devices.
-    directionality: in
+    directionality: out
     schema:
       description: >-
         Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
@@ -112,7 +142,7 @@ messages:
     description: >-
       Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
       and that the result was not successful.
-    directionality: in
+    directionality: out
     schema:
       description: >-
         Response to acknowledge a message was dispatched, it confirms that a message was dispatched,
@@ -158,7 +188,9 @@ messages:
           type: array
           items:
             type: object
-            description: A control route report item with cookies and attributes
+            description: >-
+              A control route report request with cookies and optional attribute selections. Omitted
+              or empty attributes request all supported attributes.
             properties:
               associatedPluginRouteId:
                 type: string
@@ -169,34 +201,28 @@ messages:
                 type: array
                 items:
                   type: object
+                  description: >-
+                    The exact identity of an attribute requested from a provider, without an
+                    observed value.
                   properties:
                     namespace:
                       type: string
-                      description: The namespace of the attribute
+                      minLength: 1
                     name:
                       type: string
-                      description: The name of the attribute
+                      minLength: 1
                     version:
                       type: string
-                      description: The version of the attribute
-                    value:
-                      type: object
-                      description: The value of the attribute
-                    sampledAt:
-                      type: string
-                      format: date-time
-                      description: >-
-                        Actual observation time in UTC; omit when unknown. Request time is not a
-                        sample time.
+                      minLength: 1
                   required:
                     - namespace
                     - name
                     - version
-                    - value
-                  title: AttributeSchema
+                  additionalProperties: false
+                  title: AttributeSelection
             required:
               - associatedPluginRouteId
-              - attributes
+            additionalProperties: false
             title: ControlRouteReportItem
       required:
         - items
@@ -205,7 +231,7 @@ messages:
     description: >-
       Response to acknowledge a message was successfully dispatched, it confirms that a message was
       dispatched, and that the result was successful.
-    directionality: in
+    directionality: out
     schema:
       description: >-
         Response to acknowledge a message was successfully dispatched, it confirms that a message

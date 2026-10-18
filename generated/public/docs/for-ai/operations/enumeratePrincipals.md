@@ -4,7 +4,7 @@ GET `/principals`
 
 Enumerate Principals
 
-Lists all principals
+Lists principals owned by the authenticated caller by default. Supplying an owner selects that owner's principals, subject to the caller's principal-read permissions. Supplying an ID selects a single principal, subject to the same permission check. The default page size is 10 and the maximum page size is 100.
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
 
@@ -31,7 +31,10 @@ get:
   tags:
     - Principals
   description: >-
-    Lists all principals
+    Lists principals owned by the authenticated caller by default. Supplying an owner selects that
+    owner's principals, subject to the caller's principal-read permissions. Supplying an ID selects
+    a single principal, subject to the same permission check. The default page size is 10 and the
+    maximum page size is 100.
 
 
     Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
@@ -47,6 +50,26 @@ get:
             results: []
             paginationContext:
               nextToken: abc123
+    '400':
+      description: Invalid owner, ID, page size, or pagination token
+      content:
+        application/json:
+          schema:
+            $ref: /docs/references/schemas/Error.json
+          example:
+            message: maxResults must be between 1 and 100
+            code: BAD_REQUEST
+            family: BAD_REQUEST
+    '401':
+      description: Authentication is required
+      content:
+        application/json:
+          schema:
+            $ref: /docs/references/schemas/Error.json
+          example:
+            message: unauthorized
+            code: UNAUTHORIZED
+            family: UNAUTHORIZED
     '500':
       description: Internal server error
       content:
@@ -58,6 +81,30 @@ get:
             code: INTERNAL
             family: INTERNAL_SERVER_ERROR
   parameters:
+    - name: owner
+      in: query
+      description: >-
+        Owner whose principals to list. Defaults to the authenticated caller when ID is not
+        supplied. A different owner requires principal-read permission for each returned principal.
+      required: false
+      schema:
+        type: string
+      examples:
+        caller:
+          value: ~caller
+        specific-owner:
+          value: port1/principals/user123
+    - name: id
+      in: query
+      description: >-
+        Exact principal identifier to retrieve. The result is included only when the caller has
+        principal-read permission.
+      required: false
+      schema:
+        type: string
+      examples:
+        specific-principal:
+          value: port1/principals/user123
     - name: expand
       in: query
       description: Expansion tokens that request related or computed fields for each result.
@@ -83,10 +130,12 @@ get:
           value: abc123
     - name: maxResults
       in: query
-      description: Maximum number of results to return.
+      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
       required: false
       schema:
         type: integer
+        minimum: 1
+        maximum: 100
       examples:
         page-size:
           value: 50

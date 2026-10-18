@@ -1,0 +1,5 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "The stable plugin-owned route identifier associated with this Port OS route. For synchronized plugin capability contracts and fixture parity checks, use this field to match a route from enumeration back to the discovery payload.\n"
+}

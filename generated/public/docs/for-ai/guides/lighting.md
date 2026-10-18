@@ -4,7 +4,7 @@ Start with authorized endpoint discovery and inspect capability declarations. A 
 
 For one bulb, read its power/brightness/color message schemas in [the capability directory](/docs/for-ai/capability-interfaces.md). Use the exact namespace, version, message name, units and constraints returned. [The quickstart](/docs/for-ai/guides/quickstart.md) shows the generic dispatch envelope.
 
-For “all lights,” use [endpointQuery](/docs/for-ai/operations/endpointQuery.md): POST /endpoint-query with endpoint:read. Its results include readable shared endpoints from other owners. Start with the LIGHT and LIGHTBULB types below, then limit the results to the user's requested home or group.
+For “all lights,” use [endpointQuery](/docs/for-ai/operations/endpointQuery.md) with endpoint:read and the LIGHT/LIGHTBULB type filters below. Type-only queries default to the caller's endpoints. To include a shared endpoint, add an explicit owner or endpoint ID selector; a group selector can include shared members after group:read and group access are checked.
 
 ```json
 {

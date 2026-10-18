@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "authLinkId"
+  ],
+  "properties": {
+    "authLinkId": {
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/authLinkId.json"
+        }
+      ],
+      "description": "Canonical ID of the committed connection, including a newly created connection."
+    }
+  }
+}

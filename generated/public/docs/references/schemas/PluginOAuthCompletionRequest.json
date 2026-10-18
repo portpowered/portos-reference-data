@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pluginId",
+    "redirectUri",
+    "code",
+    "state"
+  ],
+  "properties": {
+    "pluginId": {
+      "$ref": "/docs/references/schemas/pluginId.json"
+    },
+    "authLinkId": {
+      "$ref": "/docs/references/schemas/authLinkId.json"
+    },
+    "redirectUri": {
+      "$ref": "/docs/references/schemas/redirectUri.json"
+    },
+    "code": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "description": "Provider authorization code; never persisted or logged by Port OS."
+    },
+    "state": {
+      "type": "string",
+      "minLength": 43,
+      "maxLength": 43,
+      "pattern": "^[A-Za-z0-9_-]{43}$",
+      "description": "Exact one-use state returned by the provider. The server also checks canonical encoding, expiry and the authenticated principal, plugin, connection intent, redirect and current provider configuration."
+    }
+  }
+}

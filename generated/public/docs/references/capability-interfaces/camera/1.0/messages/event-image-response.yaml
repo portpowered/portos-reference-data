@@ -1,0 +1,12 @@
+description: Event image URL and provider token returned for a get-event-image request.
+type: object
+additionalProperties: false
+required:
+  - url
+  - token
+properties:
+  url:
+    type: string
+    format: uri
+  token:
+    type: string

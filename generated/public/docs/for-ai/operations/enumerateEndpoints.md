@@ -4,7 +4,7 @@ GET `/endpoints`
 
 Enumerate Endpoints
 
-Lists endpoints for the authenticated user and supports query-API endpoint-state retrieval. To retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live device-backed attribute refresh before the response is returned.
+Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber filters remain within that caller-owned scope. An explicit owner can select another owner's endpoints when they are readable by the caller. An exact id lookup takes precedence over owner, type, serialNumber, and enablement filters; it can return a readable shared endpoint, including disabled endpoint metadata, but still requires endpoint-read permission. To retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live device-backed attribute refresh before the response is returned. The filters and pagination use the shared authorized endpoint query service.
 
 ## Authorization
 
@@ -30,18 +30,24 @@ get:
   tags:
     - Endpoints
   description: >-
-    Lists endpoints for the authenticated user and supports query-API endpoint-state retrieval. To
-    retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with
+    Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber
+    filters remain within that caller-owned scope. An explicit owner can select another owner's
+    endpoints when they are readable by the caller. An exact id lookup takes precedence over owner,
+    type, serialNumber, and enablement filters; it can return a readable shared endpoint, including
+    disabled endpoint metadata, but still requires endpoint-read permission. To retrieve deep
+    endpoint state for a specific endpoint, send `id=<endpoint-id>` together with
     `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes`
     array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live
-    device-backed attribute refresh before the response is returned.
+    device-backed attribute refresh before the response is returned. The filters and pagination use
+    the shared authorized endpoint query service.
   parameters:
     - name: enablement
       in: query
       description: >-
-        Collection visibility. Defaults to ENABLED. Use '*' to include all authorized endpoints, or
-        DISABLED to list hidden endpoints. Exact id metadata reads ignore this filter; live
-        messaging remains blocked for disabled endpoints.
+        Collection visibility within the selected owner scope. Defaults to ENABLED. Use '*' to
+        include both enabled and disabled endpoints, or DISABLED to list disabled endpoints. An
+        exact id metadata read ignores this filter and can return a disabled endpoint when readable;
+        live messaging remains blocked for disabled endpoints.
       schema:
         type: string
         enum:
@@ -50,7 +56,10 @@ get:
           - '*'
     - name: owner
       in: query
-      description: The owner of the endpoints to get. Use '~caller' to get endpoints for the authenticated user
+      description: >-
+        Owner of the endpoints to get. Defaults to the authenticated user's endpoints. Use '~caller'
+        to make that scope explicit; another owner can be selected only for endpoints readable by
+        the caller.
       required: false
       schema:
         type: string
@@ -61,7 +70,10 @@ get:
           value: port1/principals/example
     - name: id
       in: query
-      description: The unique identifier of a specific endpoint to retrieve
+      description: >-
+        The unique identifier of a specific endpoint to retrieve. When provided, this exact-ID
+        filter takes precedence over owner, type, serialNumber and enablement filters. It can return
+        a shared or disabled endpoint when the caller has endpoint-read permission.
       required: false
       schema:
         type: string
@@ -88,19 +100,25 @@ get:
           value: SN-12345
     - name: nextToken
       in: query
-      description: The next token to get the next page of results
+      description: >-
+        Opaque server-issued continuation token. Repeat the same selection, page size, expansion,
+        force-refresh setting and authenticated grant. Modified, expired or differently bound tokens
+        return 400; restart without nextToken.
       required: false
       schema:
         type: string
+        minLength: 1
       examples:
         next-token:
           value: OPAQUE_TOKEN_FROM_PREVIOUS_RESPONSE
     - name: maxResults
       in: query
-      description: The maximum number of results to return
+      description: The maximum number of results to return, from 1 through 100.
       required: false
       schema:
         type: integer
+        minimum: 1
+        maximum: 100
       examples:
         max-results:
           value: 10
@@ -113,8 +131,12 @@ get:
       required: false
       schema:
         type: array
+        uniqueItems: true
+        maxItems: 1
         items:
           type: string
+          enum:
+            - interfaces.attributes
       examples:
         deep-interface-attributes:
           value:
@@ -126,7 +148,8 @@ get:
       description: >-
         Forces a live device-backed attribute refresh for endpoint-state queries. This flag is only
         applied when `expand` includes `interfaces.attributes`. Send `true` to force the refresh;
-        absent, invalid, or `false` values fall back to the non-forced query behavior.
+        absent or `false` values use stored state. Invalid values, or `true` without the required
+        expansion, return 400.
       required: false
       schema:
         type: boolean
@@ -178,7 +201,7 @@ get:
                     ownerId: port1/principals/example
                     enablement: ENABLED
     '400':
-      description: Bad request - missing required parameters
+      description: Missing or malformed endpoint query parameters
       content:
         application/json:
           schema:

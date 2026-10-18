@@ -12,9 +12,14 @@
     "ontologicalTypes"
   ],
   "properties": {
+    "pluginProfileId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable profile ID selected from the registered plugin declaration. Required for V2 plugin discovery; retained with the route for admission and presentation."
+    },
     "id": {
       "type": "string",
-      "description": "The persisted Port OS route identifier. Synchronized routes can receive a backend-generated, owner-scoped value here even when the discovery payload supplied an explicit route `id`; do not use this field as the stable plugin-owned route identity unless the synchronizing implementation explicitly documents preservation.\n",
+      "description": "The persisted Port OS route identifier. Synchronized routes can receive a backend-generated, owner-scoped value here even when the discovery payload supplied an explicit route `id`; do not use this field as the stable plugin-owned route identity unless the synchronizing implementation explicitly documents preservation. Provider discovery and synchronization input use ProviderDiscoveredRoute, whose optional advisory ID does not carry this persisted-identity rule.\n",
       "pattern": "^port1/[^/]+/[^/]+/routes/[^/]+$"
     },
     "associatedPluginId": {
@@ -38,7 +43,7 @@
       "description": "The ID of the associated endpoint"
     },
     "name": {
-      "description": "The name of the route as a human readable string or a localizable asset. This is either a raw string or a localizable asset reference. ",
+      "description": "The name of the route as a human readable string or a localizable asset. This is either a raw string or a localizable asset reference.",
       "allOf": [
         {
           "$ref": "/docs/references/schemas/TypeValue.json"

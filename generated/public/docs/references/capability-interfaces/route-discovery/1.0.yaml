@@ -52,49 +52,143 @@ messages:
           description: List of plugin route IDs to remove as members from the group route
   - name: route-discovery-report
     description: >-
-      Report of discovered routes, group routes and their relationships. Decodes to the same model
-      as SynchronizationRequest.
+      Provider report of discovered routes, group routes and their relationships. Plugin and
+      auth-link identity come from the authenticated publisher context.
     directionality: out
     schema:
       description: >-
-        Report of discovered routes, group routes and their relationships. Decodes to the same model
-        as SynchronizationRequest.
+        Provider report of discovered routes, group routes and their relationships. Plugin and
+        auth-link identity come from the authenticated publisher context.
       type: object
       additionalProperties: false
       properties:
+        pluginIdentity:
+          type: object
+          description: Identifies a plugin client by its type and unique identifier.
+          required:
+            - pluginType
+            - pluginId
+          properties:
+            pluginType:
+              type: string
+              enum:
+                - WEBSOCKET
+                - HTTP
+                - WEBSERVICE
+                - APPLE_PUSH_NOTIFICATION
+                - HOSTED_COMPUTE
+            pluginId:
+              type: string
+              description: The ID of the plugin
+          title: ClientIdentity
+        authLinkIdentity:
+          type: string
+          description: The ID of the auth link the routes were discovered for.
         routes:
           type: array
+          maxItems: 1000
           items:
             type: object
-            description: A discovered route
+            description: >
+              Provider input before host synchronization assigns persisted route identity and
+              ownership. Canonical provider facts reuse Route property definitions. The Go
+              projection deliberately retains the existing Route wire adapter for plugin
+              compatibility; canonical validation uses this input schema, not persisted Route. Host
+              identity fields may be omitted or empty in legacy Route serialization and never
+              establish authenticated publisher or installation authority. Nonempty id and
+              associatedEndpointId may select an existing authorized route during scoped
+              rediscovery; newly created routes and endpoints receive host-assigned IDs.
+            required:
+              - associatedPluginRouteId
+              - interfaces
+              - ontologicalTypes
             properties:
-              pluginRouteId:
+              associatedPluginRouteId:
+                allOf:
+                  - type: string
+                    description: >
+                      The stable plugin-owned route identifier associated with this Port OS route.
+                      For synchronized plugin capability contracts and fixture parity checks, use
+                      this field to match a route from enumeration back to the discovery payload.
+                minLength: 1
+              externalId:
                 type: string
-                description: The external ID of the route
-              name:
+                description: The external ID of the route given by the reporting system
+              pluginProfileId:
                 type: string
-                description: The name of the route
-              description:
-                type: string
-                description: The description of the route
-              type:
-                type: string
-                description: The type of the route that has been discovered
+                minLength: 1
+                description: >-
+                  Stable profile ID selected from the registered plugin declaration. Required for V2
+                  plugin discovery; retained with the route for admission and presentation.
               interfaces:
                 type: array
                 items:
-                  type: object
-                  description: A reference to a route interface
-                  properties:
-                    namespace:
-                      type: string
-                      description: The name of the interface
-                    version:
-                      type: string
-                      description: The version of the interface
-                  title: RouteInterfaceRef
+                  $ref: '#/properties/groupRoutes/items/properties/interfaces/items'
+                description: >-
+                  List of interfaces supported by the route. These denote what the route is capable
+                  of performing such as turning off/on, etc.
+              ontologicalTypes:
+                type: array
+                items:
+                  type: string
+                description: >-
+                  List of ontological types for the route. These are used mostly for customers to
+                  know what an endpoint is, like if its a lightbulb, or a speaker, etc.
+              name:
+                description: >-
+                  The name of the route as a human readable string or a localizable asset. This is
+                  either a raw string or a localizable asset reference.
+                allOf:
+                  - type: object
+                    required:
+                      - type
+                      - value
+                    properties:
+                      type:
+                        type: string
+                        description: The type identifier of the name value, defined as plain when not defined.
+                      value:
+                        type: string
+                        description: the raw value of a plain name.
+              description:
+                description: The description of the route as a human readable string or a localizable asset.
+                allOf:
+                  - $ref: '#/properties/routes/items/properties/name/allOf/0'
+              manufacturer:
+                description: The manufacturer of the route as a human readable string or a localizable asset.
+                allOf:
+                  - $ref: '#/properties/routes/items/properties/name/allOf/0'
+              model:
+                description: The model of the route as a human readable string or a localizable asset.
+                allOf:
+                  - $ref: '#/properties/routes/items/properties/name/allOf/0'
+              serialNumber:
+                description: The serial number of the route as a human readable string or a localizable asset.
+                allOf:
+                  - $ref: '#/properties/routes/items/properties/name/allOf/0'
+              pluginCustomMetadata:
+                type: object
+                additionalProperties: true
+                description: >-
+                  A set of custom metadata that the plugin uses and attaches to the route, this is
+                  meant specifically for the plugin to use.
+              id:
+                type: string
+                description: >-
+                  Advisory legacy value, including empty. Together with associatedEndpointId it may
+                  select an existing route within the authenticated scope. New persisted IDs are
+                  assigned by the host and validated by the separate persisted Route schema.
+              associatedPluginId:
+                type: string
+                description: The ID of the associated plugin
+              associatedAuthLinkId:
+                type: string
+                description: The ID of the associated auth link
+              associatedEndpointId:
+                type: string
+                description: The ID of the associated endpoint
             additionalProperties: false
-            title: DiscoveredRoute
+            title: ProviderDiscoveredRoute
         groupRoutes:
           type: array
           items:
@@ -107,6 +201,17 @@ messages:
               - pluginRouteId
               - name
             properties:
+              pluginProfileId:
+                type: string
+                minLength: 1
+                description: Stable group-route profile ID selected from the registered V2 plugin declaration.
+              ontologicalTypes:
+                type: array
+                items:
+                  type: string
+                description: >-
+                  Actual classifications of the native group route, constrained by its selected
+                  plugin profile for V2 discovery.
               pluginRouteId:
                 type: string
                 minLength: 1
@@ -132,12 +237,11 @@ messages:
                     messages:
                       type: array
                       nullable: true
-                      minItems: 1
                       description: >-
-                        Supported inbound message subset for the declared interface version.
-                        Omission or null retains the interface's full message contract; a supplied
-                        array must be nonempty and contain distinct canonical names for implemented
-                        messages.
+                        Supported inbound message subset for the declared interface version. An
+                        explicit empty array declares no supported messages. A supplied array
+                        contains distinct canonical names for implemented messages. Omission or null
+                        retains legacy catalog-default behavior.
                       items:
                         type: object
                         required:
@@ -165,8 +269,8 @@ messages:
                             additionalProperties: true
                         title: ApplicationInterfaceAttribute
                       description: >-
-                        Supported attribute subset. An omitted or empty list retains catalog-default
-                        behavior.
+                        Supported attribute subset. An explicit empty array declares no supported
+                        attributes. Omission retains legacy catalog-default behavior.
                     configuration:
                       type: object
                       additionalProperties: true
@@ -191,7 +295,7 @@ messages:
           items:
             type: object
             description: >
-              A provider-reported relationship between routes and group routes. Identity is
+              A provider-reported relationship between typed port resources. Identity is
               `externalId` within the reporting plugin and auth link; resubmitting the same
               `externalId` updates the relationship. Omission from a later synchronization is not a
               deletion instruction.
@@ -209,21 +313,23 @@ messages:
               type:
                 type: string
                 description: >
-                  Typed relationship between provider routes and group routes. `IS_PART_OF`: a group
-                  route is contained in a parent group route (spatial hierarchy, acyclic).
-                  `CAN_CONTROL`: an endpoint route can act on a group route with the listed
-                  interface messages; it never grants authorization. `LOCATED_IN`: an endpoint route
-                  is currently observed inside a group route; it is an observation, not membership.
+                  Typed relationship between port resources. `IS_PART_OF`: a resource is contained
+                  in a parent resource (acyclic). `CAN_CONTROL`: an endpoint or route can act on
+                  another resource with the listed interface messages; it never grants
+                  authorization. `LOCATED_IN`: an endpoint route is currently observed inside a
+                  group route; it is an observation, not membership. `MEMBER_OF`: an endpoint
+                  belongs to a group.
                 enum:
                   - IS_PART_OF
                   - CAN_CONTROL
                   - LOCATED_IN
+                  - MEMBER_OF
               source:
                 type: object
                 description: >
                   One end of a discovered relationship, addressed by plugin-owned identity within
-                  the reporting plugin and auth link. Exactly one of `pluginRouteId` (a route) or
-                  `groupPluginRouteId` (a group route) must be set.
+                  the reporting plugin and auth link. Exactly one of `pluginRouteId` (a route),
+                  `groupPluginRouteId` (a group route), `endpointId` or `groupId` must be set.
                 additionalProperties: false
                 minProperties: 1
                 maxProperties: 1
@@ -240,6 +346,14 @@ messages:
                     description: >-
                       The plugin route ID of a group route reported in the same or an earlier
                       synchronization.
+                  endpointId:
+                    type: string
+                    minLength: 1
+                    description: The full ID of an endpoint owned by the reporting principal.
+                  groupId:
+                    type: string
+                    minLength: 1
+                    description: The full ID of a group owned by the reporting principal.
                 title: PluginDiscoveryRelationshipVertex
               target:
                 $ref: '#/properties/relationships/items/properties/source'
@@ -271,11 +385,11 @@ messages:
                       example: '1.0'
                     messages:
                       type: array
-                      minItems: 1
                       uniqueItems: true
                       description: >-
-                        Message names of the interface the relationship applies to. Omitted means
-                        every message of the interface.
+                        Message names of the interface the relationship applies to. An explicit
+                        empty array applies to no messages. Omission retains every message supported
+                        by the source interface.
                       items:
                         type: string
                         minLength: 1

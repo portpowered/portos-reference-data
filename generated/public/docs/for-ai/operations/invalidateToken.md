@@ -4,7 +4,7 @@ DELETE `/{namespace}/{principalType}/{principalId}/tokens/{tokenId}`
 
 Invalidate Token
 
-Revokes the token so it can no longer be used for exchange. The token id in the path is the same as the id returned from create/list and as the JWT jti claim. Only the refresh token is revoked; any access tokens already issued from it remain valid until they expire. Only the owner may invalidate a token.
+Revokes the access key's active record so subsequent website and API requests using that bearer are rejected. The token ID is the ID returned by create/list and carried in its JWT jti claim. Only the owner may revoke it. OAuth connections explicitly approved with a website key are independent grants and must be revoked separately. Legacy credentials already exchanged into other tokens retain their own expiration and revocation behavior.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -32,10 +32,11 @@ delete:
   tags:
     - Tokens
   description: >-
-    Revokes the token so it can no longer be used for exchange. The token id in the path is the same
-    as the id returned from create/list and as the JWT jti claim. Only the refresh token is revoked;
-    any access tokens already issued from it remain valid until they expire. Only the owner may
-    invalidate a token.
+    Revokes the access key's active record so subsequent website and API requests using that bearer
+    are rejected. The token ID is the ID returned by create/list and carried in its JWT jti claim.
+    Only the owner may revoke it. OAuth connections explicitly approved with a website key are
+    independent grants and must be revoked separately. Legacy credentials already exchanged into
+    other tokens retain their own expiration and revocation behavior.
 
 
 

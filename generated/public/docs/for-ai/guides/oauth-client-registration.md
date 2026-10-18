@@ -18,8 +18,8 @@ The registration fingerprint is SHA-256 of compact canonical JSON with sorted ob
 
 Default quotas are 1,000 new registrations per rolling day and 10,000 retained registrations. Reuse does not consume new-registration quota. A quota failure returns 429 with Retry-After. An operator can disable new registrations without retiring existing grants. Read the [registration operation](/docs/for-ai/operations/registerDynamicOAuthClient.md) for exact request, response and error schemas.
 
-## CIMD: allowlisted metadata clients
+## CIMD: metadata clients
 
-A supported CIMD client uses its allowlisted HTTPS metadata URL as client_id instead of posting a DCR request. Port OS retrieves and validates that client metadata, including its exact callbacks and public PKCE profile. Arbitrary metadata URLs and redirects from the metadata fetch are not supported. If your metadata URL is not allowlisted, arrange onboarding or use DCR if your client supports it. Do not pretend another client's metadata URL belongs to you.
+A CIMD client uses its HTTPS metadata URL as client_id instead of posting a DCR request. Any HTTPS metadata URL is accepted. Port OS retrieves and validates that client metadata on every authorization attempt, including its exact HTTPS callbacks and public PKCE profile. Loopback, private and link-local metadata hosts and redirects from the metadata fetch are refused. Do not pretend another client's metadata URL belongs to you.
 
 Client_name, software_id, software_version and client_uri remain unverified claims. No trusted software-statement issuer is configured; software_statement is rejected. A registration called Muse or Grok does not establish a verified vendor integration or gain additional permissions. Static confidential clients retain their separately configured client authentication method.
