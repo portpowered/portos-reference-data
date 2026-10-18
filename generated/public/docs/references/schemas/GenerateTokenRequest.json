@@ -18,6 +18,26 @@
       "type": "string",
       "description": "Required for confidential clients. Public DCR/CIMD clients omit this field and use PKCE."
     },
+    "subject_token": {
+      "type": "string",
+      "description": "Identity token to exchange; required for urn:ietf:params:oauth:grant-type:token-exchange."
+    },
+    "subject_token_type": {
+      "type": "string",
+      "description": "Subject token type; use urn:ietf:params:oauth:token-type:id_token for identity token exchange."
+    },
+    "requested_token_type": {
+      "type": "string",
+      "description": "Requested token type for identity token exchange."
+    },
+    "audience": {
+      "type": "string",
+      "description": "Target audience for identity token exchange."
+    },
+    "device_code": {
+      "type": "string",
+      "description": "Device code; required for urn:ietf:params:oauth:grant-type:device_code."
+    },
     "code": {
       "type": "string",
       "description": "Authorization code; required when grant_type is authorization_code."

@@ -38,7 +38,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /auth/device-authorization](/docs/for-ai/operations/deviceAuthorize.md) | See session/security contract | — | client_id, scope |
 | [POST /auth/raise](/docs/for-ai/operations/raiseAnonymousPrincipal.md) | Public | — | anonymous_refresh_token, subject_token, subject_token_type |
 | [POST /auth/revoke](/docs/for-ai/operations/revokeOAuthGrant.md) | Public | — | client_id, token |
-| [POST /auth/token](/docs/for-ai/operations/generateToken.md) | Public | — | client_id, client_secret, code, code_verifier, grant_type, redirect_uri, refresh_token, resource, scope |
+| [POST /auth/token](/docs/for-ai/operations/generateToken.md) | Public | — | audience, client_id, client_secret, code, code_verifier, device_code, grant_type, redirect_uri, refresh_token, requested_token_type, resource, scope, subject_token, subject_token_type |
 | [POST /discovery](/docs/for-ai/operations/synchronizeRoutes.md) | See session/security contract | — | authLinkIdentity, groupRoutes, pluginIdentity, relationships, routes |
 | [GET /endpoint-groups](/docs/for-ai/operations/enumerateEndpointGroups.md) | group:read | query:enablement, query:owner, query:nextToken, query:maxResults, query:expand, query:forceDeviceAttributeQuery | — |
 | [POST /endpoint-groups](/docs/for-ai/operations/createEndpointGroup.md) | group:manage | — | item |

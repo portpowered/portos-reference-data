@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.0",
-  "sourceCommit": "2b8853eac19045c6a99c6a323aca6aa4d1aa44c3",
+  "version": "0.5.1",
+  "sourceCommit": "c6abcbd311f7fe036d885b1685b8666eef73d0ac",
   "sourceInputState": "committed",
-  "assetSetSHA256": "565a6a4e070fd5a02eea45b8495a180be1dafdc9f000fa261d08252ba13d23de",
+  "assetSetSHA256": "1185910be21a7e3dd07c1649b4fea0fd89234c4b477eacb061aa62f9dd2ce7a4",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 18076,
-      "sha256": "583f4eae4a6e7350d1d2bba4ff30614e8454636e1d568d4f255a7a6b9b8cb6f4",
+      "bytes": 18156,
+      "sha256": "b1f557056520f3e7bef097910c56a8084a84dc212068f71dcf32387fbc70ab31",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -7092,8 +7092,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 480643,
-      "sha256": "e1941cf77e2c4fe38af171b8440e63e2a687bb66ba9b2bf7344b02b083d07669",
+      "bytes": 481399,
+      "sha256": "cc7654591cd10543060af5291db968f2bcc044428cb7e9fbd6bffc4d158f0ba7",
       "links": []
     },
     {
@@ -7890,8 +7890,8 @@
     {
       "path": "/docs/references/schemas/GenerateTokenRequest.json",
       "contentType": "application/json",
-      "bytes": 1683,
-      "sha256": "f7f78f4f05181ad030e13e20f50539538beba2c6b4d6729f06dbf67ba3b0fa6f",
+      "bytes": 2425,
+      "sha256": "b020f91fa2a035d7f0e0d1f541544ba80ce7d9bec770f1cb153acebeee57d360",
       "links": []
     },
     {
