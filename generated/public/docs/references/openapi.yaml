@@ -5807,8 +5807,9 @@ paths:
         This endpoint allows you to update the configuration of an OAuth client,  such as its name,
         redirect URIs, grant types, and scopes.
 
-        Note: The client secret cannot be updated through this endpoint. If you  need to rotate the
-        client secret, you should create a new client.
+        Note: The client secret cannot be updated through this endpoint. To rotate a secret,
+        generate an additional secret through the client's secrets child collection and revoke the
+        old secret after migrating consumers.
 
 
 
@@ -5916,6 +5917,207 @@ paths:
         - oauth2: []
         - bearerAuth: []
       summary: Delete OAuth Client
+  /port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets:
+    get:
+      operationId: listOAuthClientSecrets
+      tags:
+        - Clients
+      summary: List OAuth Client Secrets
+      description: >-
+        Lists active masked secrets for the selected OAuth client. Plaintext and hashes are never
+        returned.
+      parameters:
+        - name: principalType
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: principalId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List OAuth Client Secrets response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOAuthClientSecretsResponse'
+        '400':
+          description: Invalid request path.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Authentication required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: The caller cannot read or manage the selected OAuth client.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: OAuth client or secret not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-portos-delegated: false
+      x-portos-resource-permission: true
+      security:
+        - oauth2: []
+        - bearerAuth: []
+    post:
+      operationId: generateOAuthClientSecret
+      tags:
+        - Clients
+      summary: Generate OAuth Client Secret
+      description: >-
+        Creates an additional secret and returns its plaintext once. Existing secrets remain active
+        until explicitly revoked.
+      parameters:
+        - name: principalType
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: principalId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Generate OAuth Client Secret response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateOAuthClientSecretResponse'
+        '400':
+          description: Invalid request path.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Authentication required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: The caller cannot read or manage the selected OAuth client.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: OAuth client or secret not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-portos-delegated: false
+      x-portos-resource-permission: true
+      security:
+        - oauth2: []
+        - bearerAuth: []
+  /port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets/{secretId}:
+    delete:
+      operationId: revokeOAuthClientSecret
+      tags:
+        - Clients
+      summary: Revoke OAuth Client Secret
+      description: >-
+        Permanently revokes one secret belonging to the selected OAuth client. Other secrets remain
+        active.
+      parameters:
+        - name: principalType
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: principalId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: secretId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Revoke OAuth Client Secret response.
+        '400':
+          description: Invalid request path.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Authentication required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: The caller cannot read or manage the selected OAuth client.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: OAuth client or secret not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-portos-delegated: false
+      x-portos-resource-permission: true
+      security:
+        - oauth2: []
+        - bearerAuth: []
   /oauth/generate-code:
     post:
       operationId: generateOAuthCode
@@ -10550,6 +10752,51 @@ components:
         clientId:
           type: string
           description: The updated OAuth client ID
+    OAuthClientSecretInfo:
+      type: object
+      description: Active masked OAuth client secret metadata. No plaintext or hash is returned.
+      required:
+        - id
+        - clientId
+        - maskedPreview
+        - createdAt
+      properties:
+        id:
+          type: string
+          description: Opaque child identifier scoped to the selected OAuth client.
+        clientId:
+          type: string
+          description: Full OAuth client identifier.
+        maskedPreview:
+          type: string
+          description: Masked preview that cannot be used to authenticate.
+        createdAt:
+          type: string
+          description: Creation timestamp, or an empty string when not recorded.
+    ListOAuthClientSecretsResponse:
+      type: object
+      required:
+        - secrets
+      properties:
+        secrets:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClientSecretInfo'
+    GenerateOAuthClientSecretResponse:
+      type: object
+      description: >-
+        New OAuth client secret returned once. Plaintext must not be retained in ordinary client
+        metadata.
+      required:
+        - secretId
+        - clientSecret
+      properties:
+        secretId:
+          type: string
+          description: Opaque child identifier scoped to the selected OAuth client.
+        clientSecret:
+          type: string
+          description: Plaintext client secret returned once.
     Enablement:
       type: string
       description: >
@@ -11915,12 +12162,26 @@ components:
           type: object
           description: OAuth token credentials
           properties:
+            type:
+              type: string
+              enum:
+                - OAUTH2_TOKENS
+              description: Native OAuth token secret discriminator.
             accessToken:
               type: string
             refreshToken:
               type: string
             expiresIn:
               type: integer
+            scopes:
+              type: string
+              description: Granted provider scopes, preserved with the OAuth credentials.
+            customMetadata:
+              type: object
+              additionalProperties: true
+              description: >-
+                Opaque provider-owned credential metadata, such as the Tuya endpoint and account
+                identifiers.
         usernamePassword:
           type: object
           description: Username and password credentials
@@ -11932,6 +12193,12 @@ components:
         apiKey:
           type: string
           description: API key for service authentication (e.g. OpenRouter)
+        endpointUrl:
+          type: string
+          format: uri
+          description: >-
+            Optional custom endpoint URL stored with an API-key connection for an OpenAI-compatible
+            provider.
     EstablishAuthLinkResponse:
       type: object
       required:

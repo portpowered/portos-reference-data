@@ -1091,6 +1091,54 @@
       "resourcePermissionRequired": true
     },
     {
+      "path": "/port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets",
+      "runtimePath": "/{namespace}/{principalType}/{principalId}/oauth-clients/{clientId}/secrets",
+      "method": "GET",
+      "operationId": "listOAuthClientSecrets",
+      "security": [
+        {
+          "oauth2": []
+        },
+        {
+          "bearerAuth": []
+        }
+      ],
+      "delegated": false,
+      "resourcePermissionRequired": true
+    },
+    {
+      "path": "/port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets",
+      "runtimePath": "/{namespace}/{principalType}/{principalId}/oauth-clients/{clientId}/secrets",
+      "method": "POST",
+      "operationId": "generateOAuthClientSecret",
+      "security": [
+        {
+          "oauth2": []
+        },
+        {
+          "bearerAuth": []
+        }
+      ],
+      "delegated": false,
+      "resourcePermissionRequired": true
+    },
+    {
+      "path": "/port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets/{secretId}",
+      "runtimePath": "/{namespace}/{principalType}/{principalId}/oauth-clients/{clientId}/secrets/{secretId}",
+      "method": "DELETE",
+      "operationId": "revokeOAuthClientSecret",
+      "security": [
+        {
+          "oauth2": []
+        },
+        {
+          "bearerAuth": []
+        }
+      ],
+      "delegated": false,
+      "resourcePermissionRequired": true
+    },
+    {
       "path": "/oauth/generate-code",
       "runtimePath": "/oauth/generate-code",
       "method": "POST",

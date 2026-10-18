@@ -657,6 +657,12 @@
     },
     {
       "kind": "schemas",
+      "name": "GenerateOAuthClientSecretResponse",
+      "path": "/docs/references/schemas/GenerateOAuthClientSecretResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthClientSecretResponse"
+    },
+    {
+      "kind": "schemas",
       "name": "GenerateOAuthCodeRequest",
       "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthCodeRequest"
@@ -732,6 +738,12 @@
       "name": "InvalidateTokenResponse",
       "path": "/docs/references/schemas/InvalidateTokenResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/InvalidateTokenResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "ListOAuthClientSecretsResponse",
+      "path": "/docs/references/schemas/ListOAuthClientSecretsResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ListOAuthClientSecretsResponse"
     },
     {
       "kind": "schemas",
@@ -840,6 +852,12 @@
       "name": "OAuthClientRegistrationRequest",
       "path": "/docs/references/schemas/OAuthClientRegistrationRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/OAuthClientRegistrationRequest"
+    },
+    {
+      "kind": "schemas",
+      "name": "OAuthClientSecretInfo",
+      "path": "/docs/references/schemas/OAuthClientSecretInfo.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/OAuthClientSecretInfo"
     },
     {
       "kind": "schemas",

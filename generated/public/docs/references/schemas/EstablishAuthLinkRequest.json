@@ -21,6 +21,13 @@
       "type": "object",
       "description": "OAuth token credentials",
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "OAUTH2_TOKENS"
+          ],
+          "description": "Native OAuth token secret discriminator."
+        },
         "accessToken": {
           "type": "string"
         },
@@ -29,6 +36,15 @@
         },
         "expiresIn": {
           "type": "integer"
+        },
+        "scopes": {
+          "type": "string",
+          "description": "Granted provider scopes, preserved with the OAuth credentials."
+        },
+        "customMetadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Opaque provider-owned credential metadata, such as the Tuya endpoint and account identifiers."
         }
       }
     },
@@ -47,6 +63,11 @@
     "apiKey": {
       "type": "string",
       "description": "API key for service authentication (e.g. OpenRouter)"
+    },
+    "endpointUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional custom endpoint URL stored with an API-key connection for an OpenAI-compatible provider."
     }
   }
 }

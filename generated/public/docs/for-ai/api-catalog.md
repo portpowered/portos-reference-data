@@ -32,7 +32,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:expand, query:nextToken, query:maxResults | — |
 | [POST /auth-links](/docs/for-ai/operations/upsertAuthLink.md) | OAuth (no scope) | — | authLink |
 | [DELETE /auth-links](/docs/for-ai/operations/deleteAuthLink.md) | OAuth (no scope) | — | id |
-| [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, oauthTokens, pluginId, usernamePassword |
+| [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, endpointUrl, oauthTokens, pluginId, usernamePassword |
 | [POST /auth-links/refresh](/docs/for-ai/operations/refreshAuthLinkToken.md) | See session/security contract | — | authLinkId |
 | [POST /auth/callback](/docs/for-ai/operations/handleOAuthCallback.md) | Public | — | code, id_token, state, user |
 | [POST /auth/device-authorization](/docs/for-ai/operations/deviceAuthorize.md) | See session/security contract | — | client_id, scope |
@@ -87,6 +87,9 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /port1/{principalType}/{principalId}/oauth-clients/{clientId}](/docs/for-ai/operations/getOAuthClient.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required), query:expand | — |
 | [PUT /port1/{principalType}/{principalId}/oauth-clients/{clientId}](/docs/for-ai/operations/updateOAuthClient.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required) | allowedOrigins, clientName, clientUri, clientUriLocalized, contacts, grantTypes, jwks, jwksUri, logoUri, logoUriLocalized, policyUri, policyUriLocalized, redirectUris, responseTypes, scope, scopes, softwareId, softwareVersion, tokenEndpointAuthMethod, tokenEndpointAuthSigningAlg, tosUri, tosUriLocalized |
 | [DELETE /port1/{principalType}/{principalId}/oauth-clients/{clientId}](/docs/for-ai/operations/deleteOAuthClient.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required) | — |
+| [GET /port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets](/docs/for-ai/operations/listOAuthClientSecrets.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required) | — |
+| [POST /port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets](/docs/for-ai/operations/generateOAuthClientSecret.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required) | — |
+| [DELETE /port1/{principalType}/{principalId}/oauth-clients/{clientId}/secrets/{secretId}](/docs/for-ai/operations/revokeOAuthClientSecret.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:clientId (required), path:secretId (required) | — |
 | [DELETE /port1/{principalType}/{principalId}/secrets/{secretId}](/docs/for-ai/operations/deleteSecret.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:secretId (required) | — |
 | [GET /principals](/docs/for-ai/operations/enumeratePrincipals.md) | OAuth (no scope) | query:owner, query:id, query:expand, query:nextToken, query:maxResults | — |
 | [POST /principals](/docs/for-ai/operations/upsertPrincipal.md) | OAuth (no scope) | — | item |

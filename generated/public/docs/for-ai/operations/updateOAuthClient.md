@@ -6,7 +6,7 @@ Update OAuth Client
 
 Updates an existing OAuth client.
 This endpoint allows you to update the configuration of an OAuth client,  such as its name, redirect URIs, grant types, and scopes.
-Note: The client secret cannot be updated through this endpoint. If you  need to rotate the client secret, you should create a new client.
+Note: The client secret cannot be updated through this endpoint. To rotate a secret, generate an additional secret through the client's secrets child collection and revoke the old secret after migrating consumers.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -39,8 +39,9 @@ put:
     This endpoint allows you to update the configuration of an OAuth client,  such as its name,
     redirect URIs, grant types, and scopes.
 
-    Note: The client secret cannot be updated through this endpoint. If you  need to rotate the
-    client secret, you should create a new client.
+    Note: The client secret cannot be updated through this endpoint. To rotate a secret, generate an
+    additional secret through the client's secrets child collection and revoke the old secret after
+    migrating consumers.
 
 
 
