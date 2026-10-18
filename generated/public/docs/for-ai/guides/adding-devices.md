@@ -1,6 +1,6 @@
 # Add devices through provider linking
 
-Read the public [integration catalog](https://portoperatingsystem.com/integrations/) and [Connect device](https://portoperatingsystem.com/connect-device/) pages. Match the provider by its exact name, then inspect supported capabilities, prerequisites, limitations and current availability before asking the user to sign in.
+Read the public [plugin catalog](https://portoperatingsystem.com/plugins/). Match the provider by its exact name, then inspect supported capabilities, prerequisites, limitations and current availability before asking the user to sign in.
 
 Devices enter Port OS through a plugin/provider account link. The user performs sign-in/consent on the provider and Port OS pages; an agent must not ask for their password. After linking, enumerate authorized endpoints and inspect actual capabilities. Catalog availability does not guarantee every vendor device implements every action.
 

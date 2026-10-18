@@ -18,7 +18,7 @@
         "array",
         "null"
       ],
-      "description": "Supported inbound message subset for the declared interface version. An explicit empty array declares no supported messages. A supplied array contains distinct canonical names for implemented messages. Omission or null retains legacy catalog-default behavior.",
+      "description": "Supported inbound message subset for the declared interface version. An omitted or empty list declares no supported messages; null also declares none. A supplied array contains distinct canonical names for implemented messages.",
       "items": {
         "$ref": "/docs/references/schemas/ApplicationInterfaceMessage.json"
       }
@@ -28,7 +28,7 @@
       "items": {
         "$ref": "/docs/references/schemas/ApplicationInterfaceAttribute.json"
       },
-      "description": "Supported attribute subset. An explicit empty array declares no supported attributes. Omission retains legacy catalog-default behavior."
+      "description": "Supported attribute subset. An omitted or empty list declares no supported attributes."
     },
     "configuration": {
       "type": "object",

@@ -11,21 +11,31 @@ last modified: 2026, october, 9
 
 Canonical inputs in the application repository are `docs/user-guides/`, `api/ci/`, `api/openapi-main.yaml` and its modular references. `api/cif/` and `api/openapi.yaml` are bundled projections. Generation reuses the existing capability normalizer, preserving the application's generated catalog contract. Install the website dependencies before generating this package.
 
+Agent skills are authored in `docs/agent-skills/*/SKILL.md`. The existing task
+guides are authored in `backend/internal/services/documentation/guides/internal/core/content/`;
+the `setup.md` and `connected-home.md` files there are generated skill copies.
+`reference:generate` synchronizes the skills into both plugin packages and the
+MCP embed before publishing the original Markdown as `skill-*` and `task-*`
+public guides. All of these inputs participate in source provenance. Backend
+embedding, pre-review and plugin packaging reject independently edited skill
+copies. See the [publishing worksheet](../../docs/design/cloud-plugin-publishing-worksheet.md)
+for the ownership map and publisher decisions.
+
 1. Change the canonical reference resources.
-2. Record the input snapshot with `bun packages/reference-data/scripts/source-provenance.mjs --record <full-commit>` from the repository root, then run `bun run reference:generate` from `website/`.
+2. Record the source commit with `bun packages/reference-data/scripts/source-provenance.mjs --record <full-commit>` from the repository root, then run `bun run reference:generate` from `website/`.
 3. Run `bun run reference:check` to verify generated data. The website production build also runs this check.
 
 The documentation package omits generated descriptions beginning with `Schema for`, while preserving useful field descriptions and all validation properties. `descriptions.json` supplies capability introductions independently of validation rules. Edit it for concise customer-facing copy, then regenerate.
 
 Never edit generated JSON manually. Regeneration removes obsolete resources when capabilities or members are removed or renamed.
 
-The manifest records the canonical input snapshot's `sourceCommit`, aggregate `sourceInputSHA256`, input count and state. Input hashing normalizes text to LF and does not publish internal source filenames. Local development can record inputs modified from the base commit; publication requires `sourceInputState: committed`. After committing canonical changes, record that commit and regenerate before preparing the public tag. This keeps ordinary builds possible before publication and avoids embedding a self-referential release commit. Default-version aliases explicitly record `aliasOf` and have exactly the canonical file's bytes; Markdown `links` describe navigation relationships.
+The manifest records the canonical input snapshot's `sourceCommit` and `sourceInputState`; inputs are identified by that revision, never by a content hash, and drift is found by regenerating and diffing. Local development can record inputs modified from the base commit; publication requires `sourceInputState: committed`. After committing canonical changes, record that commit and regenerate before preparing the public tag. This keeps ordinary builds possible before publication and avoids embedding a self-referential release commit. Default-version aliases explicitly record `aliasOf` and have exactly the canonical file's bytes; Markdown `links` describe navigation relationships.
 
 ## Private REST contracts
 
 For future internal REST endpoints, put the boolean extension `x-internal: true` on the canonical OpenAPI path item or individual operation. Annotate internal component schemas (or individual properties) the same way. An omitted annotation or `x-internal: false` retains the current public behavior. A private path hides all its operations; a private operation leaves its public siblings available.
 
-Generation parses the bundled YAML with `js-yaml` and applies one structured public projection before producing the JSON export, raw OpenAPI YAML, operation guides and authorization inventories. The website and backend public assets consume this projection, and the legacy website `/docs/agents/api.md` overview uses the same filter. Canonical contracts remain available to internal code generation. This annotation controls documentation publication; runtime authentication and authorization still apply independently.
+Generation parses the bundled YAML with `js-yaml` and applies one structured public projection before producing the JSON export, raw OpenAPI YAML, operation guides and authorization inventories. The static website assets and backend runtime schema consumers use this projection, and the legacy website `/docs/agents/api.md` overview uses the same filter. Canonical contracts remain available to internal code generation. This annotation controls documentation publication; runtime authentication and authorization still apply independently.
 
 Public references to removed components, including discriminator mappings and security requirements, fail generation. Move the reference behind an internal operation or provide a separate public schema; do not publish a dangling reference. Literal examples are customer data, not annotation containers. `bun run reference:check` runs exclusion and reference-integrity tests and checks generated bytes before a website release. The raw YAML is serialized from the same filtered document, with a regression checking the parsed exported bytes directly.
 

@@ -4,7 +4,7 @@ Start with [the REST operation directory](/docs/for-ai/operations/index.md) and 
 
 ## Find a component by name
 
-- [AccessControlEntity – AuthResourceType](/docs/for-ai/schemas/a-1.md) (24 components)
+- [AccessControlEntity – AuthResourceType](/docs/for-ai/schemas/a-1.md) (26 components)
 - [BasePlugin – BatchResponseStatus](/docs/for-ai/schemas/b-1.md) (5 components)
 - [CameraInterfaceEventImageResponseMessage – CustomPluginSecret](/docs/for-ai/schemas/c-1.md) (14 components)
 - [DeleteAuthLinkRequest – DynamicClientMetadata](/docs/for-ai/schemas/d-1.md) (10 components)

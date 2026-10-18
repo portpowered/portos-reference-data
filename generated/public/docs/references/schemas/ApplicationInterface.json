@@ -18,14 +18,14 @@
       "items": {
         "$ref": "/docs/references/schemas/ApplicationInterfaceMessage.json"
       },
-      "description": "Supported message subset. An explicit empty array declares no supported messages. Omission retains legacy catalog-default behavior."
+      "description": "Supported message subset. An omitted or empty list declares no supported messages."
     },
     "attributes": {
       "type": "array",
       "items": {
         "$ref": "/docs/references/schemas/ApplicationInterfaceAttribute.json"
       },
-      "description": "Supported attribute subset. An explicit empty array declares no supported attributes. Omission retains legacy catalog-default behavior."
+      "description": "Supported attribute subset. An omitted or empty list declares no supported attributes."
     },
     "configuration": {
       "type": "object",

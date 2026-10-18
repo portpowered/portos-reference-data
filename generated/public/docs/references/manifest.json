@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.4.16",
-  "sourceCommit": "36c06173f6dd2ee3e52cad51fdf3bcd44410fae0",
+  "version": "0.5.0",
+  "sourceCommit": "2b8853eac19045c6a99c6a323aca6aa4d1aa44c3",
   "sourceInputState": "committed",
-  "assetSetSHA256": "e75cca4a8cbe34a78c81991462569655f750e6cceb6c7e83925a82c11291190b",
+  "assetSetSHA256": "565a6a4e070fd5a02eea45b8495a180be1dafdc9f000fa261d08252ba13d23de",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1326,8 +1326,8 @@
     {
       "path": "/docs/for-ai/guides/adding-devices.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 873,
-      "sha256": "c9f4725aa6648890cb16bba72e8bf1cd246f266ea056c1fff5ea459d6660083d",
+      "bytes": 787,
+      "sha256": "3e79e6372abad45e91c2af2681083168e75e02f0a3af0a2339202f8d6303c7af",
       "links": [
         "/docs/for-ai/guides/first-setup.md",
         "/docs/for-ai/guides/troubleshooting.md"
@@ -3033,7 +3033,7 @@
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 2221,
-      "sha256": "080293e78785dc437ea04c5a4e8187590917196c7ee1a92496a0fee3e2d94759",
+      "sha256": "6aa83f7ad50701bca210874875394b5035b870002eeff220a445f968240b701f",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3062,8 +3062,8 @@
     {
       "path": "/docs/for-ai/schemas/a-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2253,
-      "sha256": "5672d5828343bf656ab57c495f0f2ded26a59f962615af66a734d7ca6e9ec9a3",
+      "bytes": 2449,
+      "sha256": "3e42ca17f5592769981f612ab3f476d41b068bba4e36dc11c5785452fb830878",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/AccessControlEntity.json",
@@ -3078,6 +3078,8 @@
         "/docs/references/schemas/ApplicationInterface.json",
         "/docs/references/schemas/ApplicationInterfaceAttribute.json",
         "/docs/references/schemas/ApplicationInterfaceMessage.json",
+        "/docs/references/schemas/AttributeAutoUpdateFrequency.json",
+        "/docs/references/schemas/AttributeRetrievability.json",
         "/docs/references/schemas/AttributeState.json",
         "/docs/references/schemas/AuthLink.json",
         "/docs/references/schemas/AuthLinkSecret.json",
@@ -6222,16 +6224,16 @@
     {
       "path": "/docs/references/capability-interfaces/route-discovery.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 18880,
-      "sha256": "bbdd532aa7b556dadacf72c3402ee1b3bab5d0f3a0e32234e8783b70a8c59ead",
+      "bytes": 18799,
+      "sha256": "79cfbbd3706868c5ee96682db4e42c79288c42d904f7cf80abcc61803ec4bf56",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/route-discovery/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/route-discovery/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 18880,
-      "sha256": "bbdd532aa7b556dadacf72c3402ee1b3bab5d0f3a0e32234e8783b70a8c59ead",
+      "bytes": 18799,
+      "sha256": "79cfbbd3706868c5ee96682db4e42c79288c42d904f7cf80abcc61803ec4bf56",
       "links": []
     },
     {
@@ -6258,8 +6260,8 @@
     {
       "path": "/docs/references/capability-interfaces/route-discovery/1.0/messages/route-discovery-report.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 14129,
-      "sha256": "05606f66cb1194b39a7872fca4ccb596dc6355ed6cb0c5cad5a54743d79dcc59",
+      "bytes": 14012,
+      "sha256": "a27dd7604f5c9f084953dcbe7520ac9da188faad3baedc2c42120eec466eb97b",
       "links": []
     },
     {
@@ -7090,8 +7092,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 480177,
-      "sha256": "5df756d3a1199a17d675dd9d636439465f5671b8eb8b318d9857ba6066847cfb",
+      "bytes": 480643,
+      "sha256": "e1941cf77e2c4fe38af171b8440e63e2a687bb66ba9b2bf7344b02b083d07669",
       "links": []
     },
     {
@@ -7174,8 +7176,8 @@
     {
       "path": "/docs/references/schemas/ApplicationInterface.json",
       "contentType": "application/json",
-      "bytes": 1132,
-      "sha256": "9d27ff3c979f051976cbfe151ddf9b449076952aa109e8f64464db695a32c320",
+      "bytes": 1034,
+      "sha256": "e8df425f5e2cd1fe8a32e29c67b45ba8d643388f4daa05089c0d3ecf088efb27",
       "links": []
     },
     {
@@ -7221,10 +7223,24 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/AttributeAutoUpdateFrequency.json",
+      "contentType": "application/json",
+      "bytes": 270,
+      "sha256": "276f786cd92ac68ec8a53a1c815fc2ee104959d17a96454fec9983ae4debbf68",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AttributeRetrievability.json",
+      "contentType": "application/json",
+      "bytes": 219,
+      "sha256": "4d75c12f3e567d68c5b64c1ce807097c56f692dff4207a545afe2a37728d47cf",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/AttributeState.json",
       "contentType": "application/json",
-      "bytes": 1108,
-      "sha256": "5b707032a13238c2d8f24078de39dbc13f31fdd8d581304b369f31e01c23d2a8",
+      "bytes": 1430,
+      "sha256": "91153e4c4958ce68dc4cb94f06a0b5a465aa169ecc9374547e528508da7204cd",
       "links": []
     },
     {
@@ -7930,8 +7946,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 57164,
-      "sha256": "738672d84e1ef4b5402c3c6f68b3f9c852ce9177fb59c62c71e0745e7bed09ca",
+      "bytes": 57663,
+      "sha256": "092aef8b4878f78e353320c20ddbbe15f45c8164502ef2fdd43f538a0d976ffb",
       "links": []
     },
     {
@@ -8476,8 +8492,8 @@
     {
       "path": "/docs/references/schemas/RouteInterface.json",
       "contentType": "application/json",
-      "bytes": 1255,
-      "sha256": "63345caa2618ee38a460e812daa26c2413da0783bf5618e3ce1fc933605bbeb4",
+      "bytes": 1174,
+      "sha256": "b9db255e6775bf7088f4e9e16c57acb0f83a2a71eec99fe83d8b43fd75385f63",
       "links": []
     },
     {

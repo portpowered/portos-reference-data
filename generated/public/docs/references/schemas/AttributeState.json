@@ -4,7 +4,8 @@
   "required": [
     "namespace",
     "name",
-    "value"
+    "retrievability",
+    "autoUpdateFrequency"
   ],
   "properties": {
     "namespace": {
@@ -16,6 +17,15 @@
       "type": "string",
       "description": "The name of the attribute within the namespace",
       "example": "power-state"
+    },
+    "retrievability": {
+      "$ref": "/docs/references/schemas/AttributeRetrievability.json"
+    },
+    "autoUpdateFrequency": {
+      "$ref": "/docs/references/schemas/AttributeAutoUpdateFrequency.json"
+    },
+    "error": {
+      "$ref": "/docs/references/schemas/Error.json"
     },
     "value": {
       "type": "object",

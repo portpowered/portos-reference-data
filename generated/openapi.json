@@ -13739,14 +13739,14 @@
             "items": {
               "$ref": "#/components/schemas/ApplicationInterfaceMessage"
             },
-            "description": "Supported message subset. An explicit empty array declares no supported messages. Omission retains legacy catalog-default behavior."
+            "description": "Supported message subset. An omitted or empty list declares no supported messages."
           },
           "attributes": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApplicationInterfaceAttribute"
             },
-            "description": "Supported attribute subset. An explicit empty array declares no supported attributes. Omission retains legacy catalog-default behavior."
+            "description": "Supported attribute subset. An omitted or empty list declares no supported attributes."
           },
           "configuration": {
             "type": "object",
@@ -13938,7 +13938,7 @@
           "messages": {
             "type": "array",
             "nullable": true,
-            "description": "Supported inbound message subset for the declared interface version. An explicit empty array declares no supported messages. A supplied array contains distinct canonical names for implemented messages. Omission or null retains legacy catalog-default behavior.",
+            "description": "Supported inbound message subset for the declared interface version. An omitted or empty list declares no supported messages; null also declares none. A supplied array contains distinct canonical names for implemented messages.",
             "items": {
               "$ref": "#/components/schemas/ApplicationInterfaceMessage"
             }
@@ -13948,7 +13948,7 @@
             "items": {
               "$ref": "#/components/schemas/ApplicationInterfaceAttribute"
             },
-            "description": "Supported attribute subset. An explicit empty array declares no supported attributes. Omission retains legacy catalog-default behavior."
+            "description": "Supported attribute subset. An omitted or empty list declares no supported attributes."
           },
           "configuration": {
             "type": "object",
@@ -14061,12 +14061,32 @@
           }
         }
       },
+      "AttributeRetrievability": {
+        "type": "string",
+        "description": "Whether the serving route supports retrieving this attribute.",
+        "enum": [
+          "RETRIEVABLE",
+          "NOT_RETRIEVABLE"
+        ]
+      },
+      "AttributeAutoUpdateFrequency": {
+        "type": "string",
+        "description": "Declared frequency at which the serving route automatically updates this attribute.",
+        "enum": [
+          "REALTIME",
+          "MINUTES",
+          "HOURLY",
+          "DAILY",
+          "NEVER"
+        ]
+      },
       "AttributeState": {
         "type": "object",
         "required": [
           "namespace",
           "name",
-          "value"
+          "retrievability",
+          "autoUpdateFrequency"
         ],
         "properties": {
           "namespace": {
@@ -14078,6 +14098,15 @@
             "type": "string",
             "description": "The name of the attribute within the namespace",
             "example": "power-state"
+          },
+          "retrievability": {
+            "$ref": "#/components/schemas/AttributeRetrievability"
+          },
+          "autoUpdateFrequency": {
+            "$ref": "#/components/schemas/AttributeAutoUpdateFrequency"
+          },
+          "error": {
+            "$ref": "#/components/schemas/Error"
           },
           "value": {
             "type": "object",

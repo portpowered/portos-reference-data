@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Declared frequency at which the serving route automatically updates this attribute.",
+  "enum": [
+    "REALTIME",
+    "MINUTES",
+    "HOURLY",
+    "DAILY",
+    "NEVER"
+  ]
+}

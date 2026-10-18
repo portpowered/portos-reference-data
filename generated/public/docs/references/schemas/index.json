@@ -99,6 +99,18 @@
     },
     {
       "kind": "schemas",
+      "name": "AttributeAutoUpdateFrequency",
+      "path": "/docs/references/schemas/AttributeAutoUpdateFrequency.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AttributeAutoUpdateFrequency"
+    },
+    {
+      "kind": "schemas",
+      "name": "AttributeRetrievability",
+      "path": "/docs/references/schemas/AttributeRetrievability.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AttributeRetrievability"
+    },
+    {
+      "kind": "schemas",
       "name": "AttributeState",
       "path": "/docs/references/schemas/AttributeState.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AttributeState"
