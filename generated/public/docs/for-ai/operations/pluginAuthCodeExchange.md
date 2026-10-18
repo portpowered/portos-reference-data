@@ -49,7 +49,11 @@ post:
           pluginAuthenticationData: {}
   responses:
     '202':
-      description: Plugin auth code exchange started successfully, the operation is ongoing in the background.
+      description: Provider code exchanged and credentials committed to the returned connection.
+      content:
+        application/json:
+          schema:
+            $ref: /docs/references/schemas/PluginOAuthCompletionResponse.json
     '400':
       description: Invalid request payload
     '500':
@@ -65,5 +69,6 @@ post:
 ## Linked components
 
 - [PluginAuthCodeExchangeRequest.json](/docs/references/schemas/PluginAuthCodeExchangeRequest.json)
+- [PluginOAuthCompletionResponse.json](/docs/references/schemas/PluginOAuthCompletionResponse.json)
 
 Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

@@ -3636,7 +3636,14 @@
         },
         "responses": {
           "202": {
-            "description": "Plugin auth code exchange started successfully, the operation is ongoing in the background."
+            "description": "Provider code exchanged and credentials committed to the returned connection.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PluginOAuthCompletionResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid request payload"
@@ -15988,6 +15995,41 @@
           }
         }
       },
+      "PortosIdentifier": {
+        "type": "string",
+        "description": "A Portos identifier is a unique identifier for a resource.",
+        "example": "port1/user/alice/endpoint/thermostat-zero"
+      },
+      "authLinkId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PortosIdentifier"
+          },
+          {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        ],
+        "description": "Existing connection to renew. Omit for a new connection. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Renewal preserves the connection and its endpoint/route identities."
+      },
+      "PluginOAuthCompletionResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "authLinkId"
+        ],
+        "properties": {
+          "authLinkId": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/authLinkId"
+              }
+            ],
+            "description": "Canonical ID of the committed connection, including a newly created connection."
+          }
+        }
+      },
       "PluginAuthCodeLinkRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -16040,11 +16082,6 @@
             "description": "Session lifetime in seconds. Expired sessions require starting again."
           }
         }
-      },
-      "PortosIdentifier": {
-        "type": "string",
-        "description": "A Portos identifier is a unique identifier for a resource.",
-        "example": "port1/user/alice/endpoint/thermostat-zero"
       },
       "PluginOAuthAuthorizationRequest": {
         "type": "object",
@@ -16122,19 +16159,6 @@
         ],
         "description": "Exact canonical registered plugin instance ID; aliases are rejected."
       },
-      "authLinkId": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PortosIdentifier"
-          },
-          {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 2048
-          }
-        ],
-        "description": "Existing connection to renew. Omit for a new connection. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Renewal preserves the connection and its endpoint/route identities."
-      },
       "redirectUri": {
         "type": "string",
         "format": "uri",
@@ -16173,23 +16197,6 @@
             "maxLength": 43,
             "pattern": "^[A-Za-z0-9_-]{43}$",
             "description": "Exact one-use state returned by the provider. The server also checks canonical encoding, expiry and the authenticated principal, plugin, connection intent, redirect and current provider configuration."
-          }
-        }
-      },
-      "PluginOAuthCompletionResponse": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "authLinkId"
-        ],
-        "properties": {
-          "authLinkId": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/authLinkId"
-              }
-            ],
-            "description": "Canonical ID of the committed connection, including a newly created connection."
           }
         }
       },
@@ -17158,6 +17165,11 @@
           "redirect_uri"
         ],
         "properties": {
+          "resource": {
+            "type": "string",
+            "format": "uri",
+            "description": "Optional OAuth resource indicator preserved from the validated authorization request."
+          },
           "client_id": {
             "type": "string",
             "description": "OAuth client identifier",
@@ -17318,6 +17330,11 @@
           "redirect_uri"
         ],
         "properties": {
+          "resource": {
+            "type": "string",
+            "format": "uri",
+            "description": "Optional OAuth resource indicator whose audience binding is validated with the authorization request."
+          },
           "client_id": {
             "type": "string",
             "description": "OAuth client identifier",

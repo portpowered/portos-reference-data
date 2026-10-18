@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.2",
-  "sourceCommit": "a6f3aca4a7eb013336d8b57acc522441851e78f3",
+  "version": "0.5.3",
+  "sourceCommit": "5a74f8b63b3619f0532fab810e6fdd13ce2a8014",
   "sourceInputState": "committed",
-  "assetSetSHA256": "29367ceddd6d64a2e7d5318e6af981dc58e1ad5afb79816a7053dbe7e703f3d4",
+  "assetSetSHA256": "72ff235611e0946548c596c55e2c8ce74be5286a50cbace27bc15125a00cf8a0",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 18943,
-      "sha256": "f0172e7f1e610a88a87e8aea9592a8bbf63e3a9b3df316a1afa8553246e8bd9a",
+      "bytes": 18963,
+      "sha256": "2e12636500b5dbee0725f66ae90ae8d8bd7af7a3171f4e0b8bc7d1902b45104d",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -2726,12 +2726,13 @@
     {
       "path": "/docs/for-ai/operations/pluginAuthCodeExchange.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2164,
-      "sha256": "968dc0493e1df565af3642679668fe159ba29a9f9c9c2fdc798771b785e32798",
+      "bytes": 2387,
+      "sha256": "71d3cef442d62f1d09dd7bae8f1979abfe0df5b944ad458b572d75e3c3c02494",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/PluginAuthCodeExchangeRequest.json"
+        "/docs/references/schemas/PluginAuthCodeExchangeRequest.json",
+        "/docs/references/schemas/PluginOAuthCompletionResponse.json"
       ]
     },
     {
@@ -7146,8 +7147,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 489725,
-      "sha256": "1d30d58d8365f4bf63ba2b94ac4ecce77c1ad6632f7c1c1ed9dcbecc99fc8a64",
+      "bytes": 490217,
+      "sha256": "d709147e20e52a103b254714d6b933534a6685696d8797c29facccc02f123ceb",
       "links": []
     },
     {
@@ -7937,8 +7938,8 @@
     {
       "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
       "contentType": "application/json",
-      "bytes": 1236,
-      "sha256": "6892585cacc9c996cf0893cf88af63606b3008f85c2f6332de0f1f0d6ced63d8",
+      "bytes": 1417,
+      "sha256": "e1fe7b5066f4e6ae1249def03647c385fb07e5a229d1c03f2020a8bd5c6e7c18",
       "links": []
     },
     {
@@ -8861,8 +8862,8 @@
     {
       "path": "/docs/references/schemas/ValidateOAuthRequestRequest.json",
       "contentType": "application/json",
-      "bytes": 1127,
-      "sha256": "80b23c41a61e5e3209141fbe28ad33df2013d8c34d3cd904bc015dcd18d9b9a5",
+      "bytes": 1324,
+      "sha256": "ca60f8a413803f412e960a4bd9eb12efeb5cd59f00de793a66d28049d7816cb1",
       "links": []
     },
     {

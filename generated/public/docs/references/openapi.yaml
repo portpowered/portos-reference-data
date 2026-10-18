@@ -2701,9 +2701,11 @@ paths:
               pluginAuthenticationData: {}
       responses:
         '202':
-          description: >-
-            Plugin auth code exchange started successfully, the operation is ongoing in the
-            background.
+          description: Provider code exchanged and credentials committed to the returned connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginOAuthCompletionResponse'
         '400':
           description: Invalid request payload
         '500':
@@ -12256,6 +12258,30 @@ components:
           description: >-
             The data to exchange the code with. This is opaque data that is bespoke to the plugin
             and the plugin's authentication flow.
+    PortosIdentifier:
+      type: string
+      description: A Portos identifier is a unique identifier for a resource.
+      example: port1/user/alice/endpoint/thermostat-zero
+    authLinkId:
+      allOf:
+        - $ref: '#/components/schemas/PortosIdentifier'
+        - type: string
+          minLength: 1
+          maxLength: 2048
+      description: >-
+        Existing connection to renew. Omit for a new connection. It must belong to the authenticated
+        principal, reference this plugin and permit auth-link-write. Renewal preserves the
+        connection and its endpoint/route identities.
+    PluginOAuthCompletionResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - authLinkId
+      properties:
+        authLinkId:
+          allOf:
+            - $ref: '#/components/schemas/authLinkId'
+          description: Canonical ID of the committed connection, including a newly created connection.
     PluginAuthCodeLinkRequest:
       type: object
       additionalProperties: false
@@ -12298,10 +12324,6 @@ components:
           type: integer
           minimum: 1
           description: Session lifetime in seconds. Expired sessions require starting again.
-    PortosIdentifier:
-      type: string
-      description: A Portos identifier is a unique identifier for a resource.
-      example: port1/user/alice/endpoint/thermostat-zero
     PluginOAuthAuthorizationRequest:
       type: object
       additionalProperties: false
@@ -12357,16 +12379,6 @@ components:
           minLength: 1
           maxLength: 2048
       description: Exact canonical registered plugin instance ID; aliases are rejected.
-    authLinkId:
-      allOf:
-        - $ref: '#/components/schemas/PortosIdentifier'
-        - type: string
-          minLength: 1
-          maxLength: 2048
-      description: >-
-        Existing connection to renew. Omit for a new connection. It must belong to the authenticated
-        principal, reference this plugin and permit auth-link-write. Renewal preserves the
-        connection and its endpoint/route identities.
     redirectUri:
       type: string
       format: uri
@@ -12402,16 +12414,6 @@ components:
             Exact one-use state returned by the provider. The server also checks canonical encoding,
             expiry and the authenticated principal, plugin, connection intent, redirect and current
             provider configuration.
-    PluginOAuthCompletionResponse:
-      type: object
-      additionalProperties: false
-      required:
-        - authLinkId
-      properties:
-        authLinkId:
-          allOf:
-            - $ref: '#/components/schemas/authLinkId'
-          description: Canonical ID of the committed connection, including a newly created connection.
     EndpointGroupsList:
       type: array
       items:
@@ -13150,6 +13152,10 @@ components:
         - client_id
         - redirect_uri
       properties:
+        resource:
+          type: string
+          format: uri
+          description: Optional OAuth resource indicator preserved from the validated authorization request.
         client_id:
           type: string
           description: OAuth client identifier
@@ -13281,6 +13287,12 @@ components:
         - client_id
         - redirect_uri
       properties:
+        resource:
+          type: string
+          format: uri
+          description: >-
+            Optional OAuth resource indicator whose audience binding is validated with the
+            authorization request.
         client_id:
           type: string
           description: OAuth client identifier
