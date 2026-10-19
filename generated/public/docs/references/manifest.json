@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.3",
-  "sourceCommit": "5a74f8b63b3619f0532fab810e6fdd13ce2a8014",
+  "version": "0.5.4",
+  "sourceCommit": "177fae082a01b4392d382b99fdbebbfdc964b210",
   "sourceInputState": "committed",
-  "assetSetSHA256": "72ff235611e0946548c596c55e2c8ce74be5286a50cbace27bc15125a00cf8a0",
+  "assetSetSHA256": "c6f1deaee7253524a848c04920b47b819b228ebde4c8daa8e478e63254fe52c0",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1659,8 +1659,8 @@
     {
       "path": "/docs/for-ai/guides/skill-connected-home.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3479,
-      "sha256": "c271b779a3446e007afbce419084477719104b7bcf7eefc6fc6f832c833fc21a",
+      "bytes": 3497,
+      "sha256": "489b8fc6754ad5dd05f1f731896bbc1b97e708e4c298c1ca1ad848969136acd8",
       "links": []
     },
     {
@@ -1687,64 +1687,64 @@
     {
       "path": "/docs/for-ai/guides/task-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2818,
-      "sha256": "aa7a691675af96f86d128f25d38db6e8ee8039d984b81d0dee7317b69fd3ff60",
+      "bytes": 2815,
+      "sha256": "ff96914ebd9fa6bb16f2f6b5fed6fd7405a6638fe604728c9284cfe4488e4336",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-files.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5100,
-      "sha256": "9129001116c1336330f8d487a6a9c7b912fc9a331691ea9ac1fa223949b38673",
+      "bytes": 5101,
+      "sha256": "a8ea9f0599a4dab2270105dfe400d6325a908f27580015e8c1d3ce1cd77da539",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-find-phone.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1992,
-      "sha256": "45ecad33b94c4f596a2316828a8c48651605f7ac4a1f2fc7d15d5e7f323ecf5b",
+      "bytes": 1969,
+      "sha256": "172c4cc4189223689d2f26ca81a8c1056b773038d95cb7481d1f5f30a785ab30",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3400,
-      "sha256": "8a621f9f28858a968359b2f8ed76fe0f8d6d7b7c740d21d61344313200ce66f8",
+      "bytes": 3531,
+      "sha256": "2692864f5e0a0eb6b0d5f61213795c5891de9728215bcd2f01c801407abb900a",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-lighting.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1649,
-      "sha256": "c5206f6291024ca022298f53683ba295eca782f46355e7b018cfea9dbd35f65d",
+      "bytes": 1634,
+      "sha256": "b324fa6e96035b3f20f81a27f4ac5707645183e3b23263d78a0752d12f8b9873",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-media.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3350,
-      "sha256": "06454421adbfbe14b9052e49b84c0a4b1235e3a60b3c4a487c7ee31456a348eb",
+      "bytes": 3372,
+      "sha256": "752a4985fccc8ed46faf6a4d2d0003942b299a23ead9ba5c4a37ad5ac39a0103",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-reminders.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3049,
-      "sha256": "ecd1a667497c821192840404baf2f515f0fa612da3d0f1e0ae444ad4318d56fc",
+      "bytes": 3024,
+      "sha256": "8dcf420274f0b826176fc8421703027889c8295dec2a3dfdc8218dc74c1d5a93",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-rooms.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4397,
-      "sha256": "128ee08a7dfc2d76d3b1ef683252e5ea82e46af68752b90b0f858d64939eecf2",
+      "bytes": 4446,
+      "sha256": "9e0c5230d13b05de6dac9a20672cb97e819e69a02ef8c16fb7cefb5dbd9fead3",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-temperature.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1564,
-      "sha256": "c8a1b6345b7be6bcff3340d8708ccd3a6886df36dbb0ed2b276b7b6e2bf5543f",
+      "bytes": 1577,
+      "sha256": "b192ae62f3b8602260f119dfe22d1d779badb6e0e88a5f722558a3ef308e8b67",
       "links": []
     },
     {

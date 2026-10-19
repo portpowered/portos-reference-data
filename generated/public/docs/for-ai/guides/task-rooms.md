@@ -2,7 +2,7 @@
 
 Use group_query for room/floor/home membership and parentPath. Use endpoint_query for the requested robot vacuum or other controller and its controllableGroups. Clarify ambiguous rooms/robots; rooms with the same name in different homes are different targets.
 
-Read exact endpoint/group command schemas. For robotic vacuum clean-room, send control to the robot endpoint whose controllableGroups contains the requested room, using copied groupIds in the declared payload. Check the robotic-vacuum-cleaner interface configuration: multiple groupIds require supportsMultiRoomCleaning=true. If it is absent or false, select one room. Do not send cleaning to a room endpoint or invent a second action path. Other group controls require that the selected authorized group route advertises the message.
+Read the documented payload fields for the exact declared endpoint/group command. For robotic vacuum clean-room, send control to the robot endpoint whose controllableGroups contains the requested room, using copied groupIds in the declared payload. Check the robotic-vacuum-cleaner interface configuration: multiple groupIds require supportsMultiRoomCleaning=true. If it is absent or false, select one room. Do not send cleaning to a room endpoint or invent a second action path. Other group controls require that the selected authorized group route advertises the message.
 
 After acceptance verify relevant available fresh observations. Acceptance is not proof that cleaning finished. Do not automatically repeat state-changing commands or report missing state as success. Rename, membership, enablement and merge operations use group_manage/endpoint_manage as a separately authorized metadata task.
 
@@ -17,7 +17,7 @@ After acceptance verify relevant available fresh observations. Acceptance is not
 
 - [ ] Keep one robot and provider route throughout the session. start-session acknowledges the native start command; its acknowledgement alone does not establish movement readiness.
 - [ ] Advanced callers using explicit start-session/move must verify native manual/remote state and error code zero, allow five seconds of startup settling, then check native readiness again once before moving. A projected RUNNING observation alone cannot distinguish manual mode from cleaning. When native readiness cannot be verified, use unary-move, which owns these checks.
-- [ ] Send each bounded move once with an increasing non-negative seqNum; begin a new session at 1. Copy the exact payload schema instead of guessing units or field names.
+- [ ] Send each bounded move once with an increasing non-negative seqNum; begin a new session at 1. Use the exact documented payload fields instead of guessing units or field names.
 - [ ] stop-session stops movement; end-session exits remote-control mode. Explicit callers own cleanup: stop when feedback is lost or an outcome is uncertain, then end the session even after a failed/canceled operation, using a separate bounded cleanup context where applicable. Neither command requests docking.
 - [ ] Do not leave an explicit session active or mix direct move commands with a unary-move session. After cleanup, use the declared return-to-dock command if requested and verify fresh docking/charging state.
 

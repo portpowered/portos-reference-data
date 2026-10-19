@@ -19,7 +19,7 @@ temperature, lighting, cameras, rooms, media, battery, find-phone, files or remi
 These are the same Markdown guides published on the website and exposed as MCP
 resources at portos://guides/{topic}. When references are unavailable, read
 portos://guides/index with resources/read. The guides explain capability selection,
-schemas, verification and operation limits; do not invent commands from product names.
+documented payload fields, verification and operation limits; do not invent commands from product names.
 
 Use host-listed account labels to choose the likely authorized home-device
 connection. If discovery misses a device, check relevant authorized connections

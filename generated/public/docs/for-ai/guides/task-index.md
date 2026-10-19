@@ -17,9 +17,9 @@ Read the guide that matches the user's task before an unfamiliar workflow. Use M
 | Play on Echo Dot Max/Alexa; pause the song; lower volume; manage my playlist | portos://guides/media | media |
 | Find a room/group; vacuum a room; move Roborock, explore the house or return home | portos://guides/rooms | rooms |
 
-Use endpoint_query for discovery and observations, control for declared commands, endpoint_manage/group_manage for metadata changes. Do not send outboundMessages as commands. Read payload schemas with an exact endpointId and includeSchemas=true; capability reference resources are portos://capability-interfaces/{name}/{version}.
+Use endpoint_query for discovery and observations, control for declared commands, endpoint_manage/group_manage for metadata changes. Do not send outboundMessages as commands. Use documented payload fields for the declared command; the backend validates requests. Capability reference resources at portos://capability-interfaces/{name}/{version} publish interface declarations and reference documentation. Do not depend on runtime command input schemas.
 
-Read only the relevant guide, rather than all guides or every capability schema. If tools or descriptions are cached from an older connection, the host may need to refresh its connection/discovery. Explain a missing tool honestly; never invent its arguments or fabricate a result.
+Read only the relevant guide, rather than all guides or the entire capability reference. If tools or descriptions are cached from an older connection, the host may need to refresh its connection/discovery. Explain a missing tool honestly; never invent its arguments or fabricate a result.
 
 When several authorized connections exist, use their account labels and read-only discovery to find the relevant library/device before claiming it is missing. IDs belong to the account that returned them; keep that association for later reads and control. If several accounts match a requested write, clarify the intended account. Instructions do not authorize new connections or broader permissions.
 
