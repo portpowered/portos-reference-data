@@ -855,13 +855,6 @@ operations:
       - bearerAuth: []
     delegated: false
     resourcePermissionRequired: true
-  - path: /webhooks/github
-    runtimePath: /webhooks/github
-    method: POST
-    operationId: handleGitHubWebhook
-    security: []
-    delegated: false
-    resourcePermissionRequired: false
   - path: /webhooks/google-cloud-scheduler
     runtimePath: /webhooks/google-cloud-scheduler
     method: POST

@@ -105,6 +105,5 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /tokens](/docs/for-ai/operations/createToken.md) | OAuth (no scope) | — | expires_in, label, purpose, scope, subject |
 | [POST /tuya/qrcode](/docs/for-ai/operations/generateTuyaQrCode.md) | Public | — | accessCode, authenticationUrl, clientId, schema |
 | [POST /tuya/validatetoken](/docs/for-ai/operations/validateTuyaLoginCode.md) | Public | — | authenticationUrl, clientId, loginCode, userCode |
-| [POST /webhooks/github](/docs/for-ai/operations/handleGitHubWebhook.md) | Public | header:X-Hub-Signature-256 (required), header:X-GitHub-Delivery, header:X-GitHub-Event | — |
 | [POST /webhooks/google-cloud-scheduler](/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md) | See session/security contract | — | flow_id, node_id |
 | [POST /webhooks/smartthings](/docs/for-ai/operations/handleSmartThingsWebhook.md) | OAuth (no scope) | — | — |

@@ -96,7 +96,6 @@ Use the operation’s scopes and its resource permission requirements. Public di
 - [PATCH /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/patchSubscription.md)
 - [DELETE /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/deleteSubscription.md)
 - [POST /webhooks/smartthings](/docs/for-ai/operations/handleSmartThingsWebhook.md)
-- [POST /webhooks/github](/docs/for-ai/operations/handleGitHubWebhook.md)
 - [POST /webhooks/google-cloud-scheduler](/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md)
 - [POST /tuya/qrcode](/docs/for-ai/operations/generateTuyaQrCode.md)
 - [POST /tuya/validatetoken](/docs/for-ai/operations/validateTuyaLoginCode.md)

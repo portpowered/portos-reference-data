@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.4",
-  "sourceCommit": "177fae082a01b4392d382b99fdbebbfdc964b210",
+  "version": "0.5.5",
+  "sourceCommit": "a53973a7fb952398c92c182aefa7d3757ec27595",
   "sourceInputState": "committed",
-  "assetSetSHA256": "c6f1deaee7253524a848c04920b47b819b228ebde4c8daa8e478e63254fe52c0",
+  "assetSetSHA256": "19dc23973f37cdc3acbf38c53bc9c0938f6c333502407d07219e1537f5da1ad5",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 18963,
-      "sha256": "2e12636500b5dbee0725f66ae90ae8d8bd7af7a3171f4e0b8bc7d1902b45104d",
+      "bytes": 18783,
+      "sha256": "5dea83f0b5cd94572c2d4ee5ae97dd573767dc0dca6d85b636f1bc4d32d211f4",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -76,7 +76,6 @@
         "/docs/for-ai/operations/getPendingOAuthConsent.md",
         "/docs/for-ai/operations/getRoutes.md",
         "/docs/for-ai/operations/getSubscription.md",
-        "/docs/for-ai/operations/handleGitHubWebhook.md",
         "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
         "/docs/for-ai/operations/handleOAuthCallback.md",
         "/docs/for-ai/operations/handleSmartThingsWebhook.md",
@@ -2517,17 +2516,6 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/handleGitHubWebhook.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 3289,
-      "sha256": "c914385f174d863fdeda2358d7564680a880155e32210cae8a708fa9f62fdbee",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/Error.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 3200,
@@ -2563,8 +2551,8 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8496,
-      "sha256": "e24edc6bebd5f15989cfa6f785c6dd3edc6447f799e95fb6a4caa64d57f53f50",
+      "bytes": 8422,
+      "sha256": "79ed19aaf7bd2c2bb7814541c3d985d7e07a1bc882000e444e015c440589bb89",
       "links": [
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
         "/docs/for-ai/operations/authorizeDevice.md",
@@ -2626,7 +2614,6 @@
         "/docs/for-ai/operations/getPendingOAuthConsent.md",
         "/docs/for-ai/operations/getRoutes.md",
         "/docs/for-ai/operations/getSubscription.md",
-        "/docs/for-ai/operations/handleGitHubWebhook.md",
         "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
         "/docs/for-ai/operations/handleOAuthCallback.md",
         "/docs/for-ai/operations/handleSmartThingsWebhook.md",
@@ -3543,15 +3530,15 @@
     {
       "path": "/docs/references/authorization.json",
       "contentType": "application/json",
-      "bytes": 34395,
-      "sha256": "6448f7dab2d8d073dc1c66e5a3010c9fdbff48b486d2558728a00526ae00f92f",
+      "bytes": 34149,
+      "sha256": "a8d6a9c2fc3e0416b64f0c9712ce17ea564dd775966fe759c3b56b1294fc5b3f",
       "links": []
     },
     {
       "path": "/docs/references/authorization.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 25568,
-      "sha256": "1fe94097fb99541de80ed203dc314df735371b95d7f79d38007f904f906c0c22",
+      "bytes": 25377,
+      "sha256": "f8a4fe55a10dc330741b59d3ec980bd782f372083d45b8fa1ac16b4d31c86086",
       "links": []
     },
     {
@@ -7147,8 +7134,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 490217,
-      "sha256": "d709147e20e52a103b254714d6b933534a6685696d8797c29facccc02f123ceb",
+      "bytes": 487661,
+      "sha256": "6acc541dd3c3f3f883f376619ad8b651f50d834fbc3bf35aee71b9f26507159d",
       "links": []
     },
     {
