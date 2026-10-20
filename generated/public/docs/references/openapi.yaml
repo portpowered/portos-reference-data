@@ -7810,92 +7810,6 @@ components:
           type: boolean
           enum:
             - true
-    PluginTokenResult:
-      type: object
-      description: Provider credentials returned by a plugin auth handler to its host.
-      additionalProperties: false
-      required:
-        - access_token
-        - token_type
-        - expires_in
-      properties:
-        access_token:
-          type: string
-        token_type:
-          type: string
-        expires_in:
-          type: integer
-          description: Seconds until the access token expires.
-        customMetadata:
-          type: object
-          additionalProperties: true
-          x-go-type-skip-optional-pointer: true
-          description: Opaque plugin-owned metadata persisted alongside the credentials.
-        refresh_token:
-          type: string
-          x-go-type-skip-optional-pointer: true
-    PluginTokenRefreshRequest:
-      type: object
-      description: Credentials supplied to a plugin for a token refresh.
-      additionalProperties: false
-      required:
-        - authLinkId
-        - refreshToken
-        - accessToken
-        - scopes
-      properties:
-        authLinkId:
-          type: string
-        refreshToken:
-          type: string
-        accessToken:
-          type: string
-        customMetadata:
-          type: object
-          additionalProperties: true
-          x-go-type-skip-optional-pointer: true
-        scopes:
-          type: string
-    PluginTokenRefreshResponse:
-      type: object
-      description: Credentials returned by a plugin refresh operation.
-      additionalProperties: false
-      required:
-        - accessToken
-        - refreshToken
-        - expiresIn
-        - scopes
-      properties:
-        accessToken:
-          type: string
-        refreshToken:
-          type: string
-        expiresIn:
-          type: integer
-          format: int64
-          description: Seconds until the access token expires.
-        scopes:
-          type: string
-        customMetadata:
-          type: object
-          additionalProperties: true
-          x-go-type-skip-optional-pointer: true
-    PluginInvocationContext:
-      type: object
-      description: >-
-        Host-verified identity for one plugin invocation. Plugins obtain this from an injected host
-        resolver, not from untrusted request fields.
-      additionalProperties: false
-      required:
-        - principalId
-      properties:
-        principalId:
-          type: string
-          description: Port OS principal for the authenticated invocation.
-        authLinkId:
-          type: string
-          x-go-type-skip-optional-pointer: true
-          description: Auth link selected for the invocation, when one exists.
     SyntheticEventEndpoint:
       type: object
       additionalProperties: false
@@ -8432,24 +8346,6 @@ components:
           items:
             $ref: '#/components/schemas/Error'
       description: Paginated simulator results using the opt-in vendor name-value projection.
-    CameraInterfaceEventImageResponseMessage:
-      x-namespace: port1/systems/zero/capability-interfaces/camera
-      x-name: event-image-response
-      x-version: '1.0'
-      x-type: message
-      x-directionality: out
-      description: Event image URL and provider token returned for a get-event-image request.
-      type: object
-      additionalProperties: false
-      required:
-        - url
-        - token
-      properties:
-        url:
-          type: string
-          format: uri
-        token:
-          type: string
     Subscription:
       type: object
       description: A subscription is a way to listen to events

@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.8",
-  "sourceCommit": "919d959a823d1244999a83f72ef0ff0ab73f4256",
+  "version": "0.5.9",
+  "sourceCommit": "09e519024f3a6d2e6fd6e159a4ba237b2a888ed8",
   "sourceInputState": "committed",
-  "assetSetSHA256": "67909153db8d201197352bf9642f7ce2a0d5f2587f1b43e3cdeae43ada04c613",
+  "assetSetSHA256": "1e5de8b3b8f044459314be22a2d57a5d0131131361f605304f255486ae08ff00",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -3118,8 +3118,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2242,
-      "sha256": "fe27942752902969ebcd75b19ec722bf079fea79f09b8b450e1700d6b460e5a8",
+      "bytes": 2216,
+      "sha256": "d8a205163dc447adce556b7ecd896f1baa74b5869522d92429a0dc0488a610dd",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3205,11 +3205,10 @@
     {
       "path": "/docs/for-ai/schemas/c-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1536,
-      "sha256": "672952996c30cbc11979c23357d55dae94d2023cedd0873b5d112c9699c2ae19",
+      "bytes": 1409,
+      "sha256": "32e94cd26189ba4400915107818fe49cf9ad62e03c0b26869f6ed8e2b3514e7f",
       "links": [
         "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
         "/docs/references/schemas/ClientIdentity.json",
         "/docs/references/schemas/CreateAuthLinkDraftRequest.json",
         "/docs/references/schemas/CreateEndpointGroupItem.json",
@@ -3431,8 +3430,8 @@
     {
       "path": "/docs/for-ai/schemas/p-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3363,
-      "sha256": "307021b538e11dcdb827074011510caccf8b455bf00e45264370b1f7cd423743",
+      "bytes": 2993,
+      "sha256": "cbd0f868dcd037c16f6457f39951c4bd95fd6a37787f338cbb9aa4cf03072bbf",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/PaginationContext.json",
@@ -3450,7 +3449,6 @@
         "/docs/references/schemas/PluginDiscoveryRelationship.json",
         "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json",
         "/docs/references/schemas/PluginEntry.json",
-        "/docs/references/schemas/PluginInvocationContext.json",
         "/docs/references/schemas/PluginMetadataMultifactor.json",
         "/docs/references/schemas/PluginMetadataMultifactorField.json",
         "/docs/references/schemas/PluginMetadataOAuth.json",
@@ -3459,9 +3457,6 @@
         "/docs/references/schemas/PluginOAuthCompletionRequest.json",
         "/docs/references/schemas/PluginOAuthCompletionResponse.json",
         "/docs/references/schemas/PluginRegionalization.json",
-        "/docs/references/schemas/PluginTokenRefreshRequest.json",
-        "/docs/references/schemas/PluginTokenRefreshResponse.json",
-        "/docs/references/schemas/PluginTokenResult.json",
         "/docs/references/schemas/PluginType.json",
         "/docs/references/schemas/PluginsList.json",
         "/docs/references/schemas/PortosIdentifier.json",
@@ -7194,8 +7189,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 488797,
-      "sha256": "d2f7d2ef095fed2541b0e86e77fad1aa1382a337ac59545098e2529f93162fb5",
+      "bytes": 485656,
+      "sha256": "2853b5a8c7b8285a24ac4ee38d515377175b4be0c8bb5fea5ff4aad05d607a0e",
       "links": []
     },
     {
@@ -7518,13 +7513,6 @@
       "contentType": "application/json",
       "bytes": 450,
       "sha256": "c05f4e3d4ab9e1b30c6e6baeac49658888cb8e1c074da08415ab65f409105dc6",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
-      "contentType": "application/json",
-      "bytes": 562,
-      "sha256": "d96f1b949e2a3fded6d4d11cc16eedb49869f46d1c72092cb0568578e1565fe9",
       "links": []
     },
     {
@@ -8146,8 +8134,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 61523,
-      "sha256": "25d77dbe82edd1eb71b8907d24552449c92ffcddaea4c3d9ef78ae334687e870",
+      "bytes": 60265,
+      "sha256": "0282df0262bd699476972309ffa6e2c5c0c40c7c782084cfa4dbd353d40c4dfc",
       "links": []
     },
     {
@@ -8480,13 +8468,6 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/PluginInvocationContext.json",
-      "contentType": "application/json",
-      "bytes": 634,
-      "sha256": "f312379b263cbebbfab4e8035306fe676920dc50f42621e36a3d22df381bcd75",
-      "links": []
-    },
-    {
       "path": "/docs/references/schemas/PluginMetadataMultifactor.json",
       "contentType": "application/json",
       "bytes": 317,
@@ -8554,27 +8535,6 @@
       "contentType": "application/json",
       "bytes": 147,
       "sha256": "31842c4515086d1436196d53deddb12c52a535c3bb7ab6c28013bb623e8f9dfb",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/PluginTokenRefreshRequest.json",
-      "contentType": "application/json",
-      "bytes": 635,
-      "sha256": "818e4de81be658baec52792a35d682825c4349a5364d0dac4487b0487d421ca2",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/PluginTokenRefreshResponse.json",
-      "contentType": "application/json",
-      "bytes": 721,
-      "sha256": "2b9962161d74f01c16fdd150ca18652b3b81fc9d1e65be27c9c5b4b2f64a5768",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/PluginTokenResult.json",
-      "contentType": "application/json",
-      "bytes": 842,
-      "sha256": "80026cebe9031abd4dc54d86d6b4d08d27d79bf059d9b656ce5e8d25ecf3a809",
       "links": []
     },
     {

@@ -1,6 +1,6 @@
 {
   "name": "@portpowered/reference-data",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -13,6 +13,7 @@
   "files": [
     "generated",
     "README.md",
+    "scripts/public-hosts.mjs",
     "scripts/validate-public-assets.mjs"
   ],
   "exports": {

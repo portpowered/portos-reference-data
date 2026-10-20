@@ -237,12 +237,6 @@
     },
     {
       "kind": "schemas",
-      "name": "CameraInterfaceEventImageResponseMessage",
-      "path": "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceEventImageResponseMessage"
-    },
-    {
-      "kind": "schemas",
       "name": "ClientIdentity",
       "path": "/docs/references/schemas/ClientIdentity.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ClientIdentity"
@@ -1053,12 +1047,6 @@
     },
     {
       "kind": "schemas",
-      "name": "PluginInvocationContext",
-      "path": "/docs/references/schemas/PluginInvocationContext.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/PluginInvocationContext"
-    },
-    {
-      "kind": "schemas",
       "name": "PluginMetadataMultifactor",
       "path": "/docs/references/schemas/PluginMetadataMultifactor.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginMetadataMultifactor"
@@ -1116,24 +1104,6 @@
       "name": "PluginsList",
       "path": "/docs/references/schemas/PluginsList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginsList"
-    },
-    {
-      "kind": "schemas",
-      "name": "PluginTokenRefreshRequest",
-      "path": "/docs/references/schemas/PluginTokenRefreshRequest.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/PluginTokenRefreshRequest"
-    },
-    {
-      "kind": "schemas",
-      "name": "PluginTokenRefreshResponse",
-      "path": "/docs/references/schemas/PluginTokenRefreshResponse.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/PluginTokenRefreshResponse"
-    },
-    {
-      "kind": "schemas",
-      "name": "PluginTokenResult",
-      "path": "/docs/references/schemas/PluginTokenResult.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/PluginTokenResult"
     },
     {
       "kind": "schemas",
