@@ -38,6 +38,11 @@
         "$ref": "/docs/references/schemas/AccessControlRuleCondition.json"
       },
       "description": "Conditions on the operation context that must all match for the rule to apply. Omitting conditions means the rule has none."
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Optional operator-supplied reason recorded in the audit log for this change."
     }
   }
 }

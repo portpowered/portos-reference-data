@@ -63,6 +63,13 @@ delete:
       schema:
         type: string
       description: The ID of the access control rule to delete
+    - name: reason
+      required: false
+      in: query
+      schema:
+        type: string
+        maxLength: 500
+      description: Optional operator-supplied reason recorded in the audit log for this deletion.
   responses:
     '200':
       description: Access control rule deleted successfully

@@ -6618,6 +6618,16 @@
               "type": "string"
             },
             "description": "The ID of the access control rule to delete"
+          },
+          {
+            "name": "reason",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 500
+            },
+            "description": "Optional operator-supplied reason recorded in the audit log for this deletion."
           }
         ],
         "responses": {
@@ -13136,6 +13146,10 @@
           },
           "tokenEndpointAuthSigningAlg": {
             "type": "string",
+            "enum": [
+              "RS256",
+              "ES256"
+            ],
             "description": "A string containing a JWS signing algorithm (alg value) that MUST be used for signing the JWT used to authenticate the client at the token endpoint for the \"private_key_jwt\" and \"client_secret_jwt\" authentication methods. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
           },
           "scope": {
@@ -13204,7 +13218,21 @@
           },
           "jwks": {
             "type": "object",
-            "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+            "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n",
+            "required": [
+              "keys"
+            ],
+            "properties": {
+              "keys": {
+                "type": "array",
+                "maxItems": 10,
+                "description": "The JSON Web Keys (RFC 7517) of the set.",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
           },
           "softwareId": {
             "type": "string",
@@ -13333,6 +13361,10 @@
           },
           "tokenEndpointAuthSigningAlg": {
             "type": "string",
+            "enum": [
+              "RS256",
+              "ES256"
+            ],
             "description": "A string containing a JWS signing algorithm (alg value) that MUST be used for signing the JWT used to authenticate the client at the token endpoint for the \"private_key_jwt\" and \"client_secret_jwt\" authentication methods. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
           },
           "scopes": {
@@ -13393,7 +13425,21 @@
           },
           "jwks": {
             "type": "object",
-            "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+            "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n",
+            "required": [
+              "keys"
+            ],
+            "properties": {
+              "keys": {
+                "type": "array",
+                "maxItems": 10,
+                "description": "The JSON Web Keys (RFC 7517) of the set.",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
           },
           "softwareId": {
             "type": "string",
@@ -13497,6 +13543,10 @@
           },
           "tokenEndpointAuthSigningAlg": {
             "type": "string",
+            "enum": [
+              "RS256",
+              "ES256"
+            ],
             "description": "A string containing a JWS signing algorithm (alg value) that MUST be used for signing the JWT used to authenticate the client at the token endpoint for the \"private_key_jwt\" and \"client_secret_jwt\" authentication methods. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
           },
           "scopes": {
@@ -13557,7 +13607,21 @@
           },
           "jwks": {
             "type": "object",
-            "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n"
+            "description": "The client's JSON Web Key Set document value, which contains the client's public keys. This parameter is intended to be used by clients that cannot use the \"jwks_uri\" parameter, such as native clients that cannot host public URLs. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n",
+            "required": [
+              "keys"
+            ],
+            "properties": {
+              "keys": {
+                "type": "array",
+                "maxItems": 10,
+                "description": "The JSON Web Keys (RFC 7517) of the set.",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
           },
           "softwareId": {
             "type": "string",
@@ -16493,6 +16557,11 @@
               "$ref": "#/components/schemas/AccessControlRuleCondition"
             },
             "description": "Conditions on the operation context that must all match for the rule to apply. Omitting conditions means the rule has none."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Optional operator-supplied reason recorded in the audit log for this change."
           }
         }
       },
@@ -17011,6 +17080,18 @@
           "scope": {
             "type": "string",
             "description": "Optional narrower subset during refresh; cannot add scopes."
+          },
+          "client_assertion": {
+            "type": "string",
+            "maxLength": 8192,
+            "description": "Signed JWT proving client identity (RFC 7523); required with client_assertion_type for private_key_jwt clients using the client_credentials grant.\n"
+          },
+          "client_assertion_type": {
+            "type": "string",
+            "enum": [
+              "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
+            ],
+            "description": "Must be urn:ietf:params:oauth:client-assertion-type:jwt-bearer when client_assertion is set."
           }
         }
       },

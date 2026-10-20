@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.10",
-  "sourceCommit": "77ea95285ffb7f5576a9b717f513d548fc70beea",
+  "version": "0.5.11",
+  "sourceCommit": "84776b332f610d142592089e0d6c883a34b4647c",
   "sourceInputState": "committed",
-  "assetSetSHA256": "67909153db8d201197352bf9642f7ce2a0d5f2587f1b43e3cdeae43ada04c613",
+  "assetSetSHA256": "24b0c3bda094832b3c0783802c80eadd59f1eeabd7b1f2c238f588076a5b6b3c",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19032,
-      "sha256": "0aaf060a8bd3afa5ccb2c394d04a10485bff23044d2dec9688ce381bbc65b53f",
+      "bytes": 19095,
+      "sha256": "3682ea3e38fe62fb9b826f807791497e98043f39b7a8103b169fc3fc0bb675a1",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -1965,8 +1965,8 @@
     {
       "path": "/docs/for-ai/operations/deleteAccessControlRule.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2227,
-      "sha256": "24092235e0c0796bcf0ddb9fef7aca406681111f0f960b7f7f45adfa429fcbab",
+      "bytes": 2440,
+      "sha256": "798b4ae206b1ceb0ab984700a6d1e0c69ef9045f54f3e98581367b35bf21fdec",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -7194,8 +7194,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 488797,
-      "sha256": "d2f7d2ef095fed2541b0e86e77fad1aa1382a337ac59545098e2529f93162fb5",
+      "bytes": 490802,
+      "sha256": "a53b612dba658cc3b71afebd25117ac56fd90386d8d86268b3c41e2ca957e889",
       "links": []
     },
     {
@@ -8090,8 +8090,8 @@
     {
       "path": "/docs/references/schemas/GenerateTokenRequest.json",
       "contentType": "application/json",
-      "bytes": 2425,
-      "sha256": "b020f91fa2a035d7f0e0d1f541544ba80ce7d9bec770f1cb153acebeee57d360",
+      "bytes": 2947,
+      "sha256": "7de6121b30b6c6439d042fcf1804ddf44821519ed62718a84c725c34e4bc8c38",
       "links": []
     },
     {
@@ -8286,8 +8286,8 @@
     {
       "path": "/docs/references/schemas/OAuthClient.json",
       "contentType": "application/json",
-      "bytes": 10087,
-      "sha256": "5b78ac0a857774916ccd1e1d305bf1e39d14fb43d1b8b4f92dc60d5b8aefaeb6",
+      "bytes": 10474,
+      "sha256": "7a195e9aa9a794cdf56cf1e9686a01e20004ebc5701851938d52cb5e56d99f03",
       "links": []
     },
     {
@@ -8300,8 +8300,8 @@
     {
       "path": "/docs/references/schemas/OAuthClientRegistrationRequest.json",
       "contentType": "application/json",
-      "bytes": 9144,
-      "sha256": "7baf15c7fc3c9022e2248acbfcecf7b9b410ad55017227924f473059c619e42f",
+      "bytes": 9531,
+      "sha256": "a7475cf7e7aa3e4244578b5c63bdea2f9d4ad0fd21f8be10cb4c45ae855d0dde",
       "links": []
     },
     {
@@ -8321,8 +8321,8 @@
     {
       "path": "/docs/references/schemas/OAuthClientUpdateRequest.json",
       "contentType": "application/json",
-      "bytes": 8919,
-      "sha256": "783722ff378e55304b1549ee7fc216ee3dd3e8ba1bf03163d2e859b08c056c50",
+      "bytes": 9306,
+      "sha256": "54a8230aef5b69aa4ccbfc42b60e4470087f7563758a1051358315fcd580a6a8",
       "links": []
     },
     {
@@ -8902,8 +8902,8 @@
     {
       "path": "/docs/references/schemas/UpsertAccessControlRuleRequest.json",
       "contentType": "application/json",
-      "bytes": 2004,
-      "sha256": "358e86be44ef56cfa8210cb0230cbbab97aecced8c9fb92be78b7c2235309846",
+      "bytes": 2175,
+      "sha256": "364b100466b688283c249c0b37dd4c26d864cae84e6ba50ea8dabb89443be991",
       "links": []
     },
     {

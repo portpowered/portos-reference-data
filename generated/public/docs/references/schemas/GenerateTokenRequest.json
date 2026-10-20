@@ -62,6 +62,18 @@
     "scope": {
       "type": "string",
       "description": "Optional narrower subset during refresh; cannot add scopes."
+    },
+    "client_assertion": {
+      "type": "string",
+      "maxLength": 8192,
+      "description": "Signed JWT proving client identity (RFC 7523); required with client_assertion_type for private_key_jwt clients using the client_credentials grant.\n"
+    },
+    "client_assertion_type": {
+      "type": "string",
+      "enum": [
+        "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
+      ],
+      "description": "Must be urn:ietf:params:oauth:client-assertion-type:jwt-bearer when client_assertion is set."
     }
   }
 }
