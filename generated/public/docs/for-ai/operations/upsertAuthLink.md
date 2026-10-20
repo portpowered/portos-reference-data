@@ -48,6 +48,7 @@ post:
             associatedPluginId: port1/systems/zero/plugins/example
             associatedSecrets:
               - id: port1/principals/example/secrets/plugin-credential
+                role: PROVIDER_TOKEN
   responses:
     '200':
       description: Auth link created successfully

@@ -3247,6 +3247,30 @@
         },
         "parameters": [
           {
+            "name": "status",
+            "in": "query",
+            "description": "Collection visibility. Defaults to CONNECTED. Use DRAFT to list incomplete drafts, or '*' to include all authorized auth links. Exact id reads ignore this filter.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DRAFT",
+                "CONNECTED",
+                "*"
+              ],
+              "default": "CONNECTED"
+            }
+          },
+          {
+            "name": "pluginId",
+            "in": "query",
+            "description": "Only return auth links for this plugin.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "expand",
             "in": "query",
             "description": "Expansion tokens that request related or computed fields for each result.",
@@ -3327,7 +3351,8 @@
                   "associatedPluginId": "port1/systems/zero/plugins/example",
                   "associatedSecrets": [
                     {
-                      "id": "port1/principals/example/secrets/plugin-credential"
+                      "id": "port1/principals/example/secrets/plugin-credential",
+                      "role": "PROVIDER_TOKEN"
                     }
                   ]
                 }
@@ -3409,6 +3434,422 @@
           }
         ],
         "summary": "Delete Auth Link"
+      }
+    },
+    "/auth-link-drafts": {
+      "post": {
+        "operationId": "createAuthLinkDraft",
+        "tags": [
+          "Auth Links"
+        ],
+        "summary": "Create an auth link draft",
+        "description": "Creates a DRAFT auth link for a plugin authorization variant and regionalization. A draft holds the customer-owned OAuth client and provider configuration while the customer completes setup; it is not usable by endpoints until the provider connection is established. Requires the plugin-establish-link permission, evaluated with the variant and regionalization as operation context. The same Idempotency-Key and payload replays the committed response.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAuthLinkDraftRequest"
+              },
+              "example": {
+                "pluginId": "port1/systems/zero/plugins/b220efd5-d59e-44cb-8ecd-57a98d4df48b",
+                "authorizationVariantId": "google-nest-customer-oauth",
+                "regionalizationId": "global",
+                "providerConfiguration": {
+                  "nestDeviceAccess": {
+                    "projectId": "example-project-id"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Draft auth link created",
+            "headers": {
+              "ETag": {
+                "$ref": "#/components/headers/ETag"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthLink"
+                },
+                "example": {
+                  "id": "port1/principals/user123/auth-links/abc-123",
+                  "status": "DRAFT",
+                  "associatedPluginId": "port1/systems/zero/plugins/b220efd5-d59e-44cb-8ecd-57a98d4df48b",
+                  "authorizationVariantId": "google-nest-customer-oauth",
+                  "regionalizationId": "global",
+                  "associatedSecrets": [],
+                  "etag": "\"1\"",
+                  "readiness": {
+                    "state": "INCOMPLETE",
+                    "missingSecretRoles": [
+                      "OAUTH_CLIENT"
+                    ],
+                    "missingConfiguration": []
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid request payload",
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Insufficient permissions",
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The Idempotency-Key request is still in flight",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Conflict",
+                  "code": "CONFLICT",
+                  "family": "CONFLICT"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The Idempotency-Key was already used with a different payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Idempotency-Key reused with a different payload",
+                  "code": "UNPROCESSABLE_ENTITY",
+                  "family": "UNPROCESSABLE_ENTITY"
+                }
+              }
+            }
+          }
+        },
+        "x-portos-delegated": false,
+        "x-portos-resource-permission": true,
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/auth-links/oauth-client-credentials": {
+      "get": {
+        "operationId": "enumerateAuthLinkClientCredentials",
+        "tags": [
+          "Auth Links"
+        ],
+        "summary": "Enumerate reusable OAuth client credentials",
+        "description": "Lists metadata of the caller's own OAuth client secrets that the caller's auth links for the plugin reference, never the secret values. Only links the caller may read are considered. The list is self-scoped and needs no plugin-establish-link permission.",
+        "parameters": [
+          {
+            "name": "pluginId",
+            "in": "query",
+            "required": true,
+            "description": "The plugin whose OAuth client credentials to list.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxResults",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "nextToken",
+            "in": "query",
+            "required": false,
+            "description": "Opaque cursor token returned by a previous response.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OAuth client credentials retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthLinkClientCredentialSummaries"
+                },
+                "example": {
+                  "results": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Invalid request payload",
+                  "code": "BAD_REQUEST",
+                  "family": "BAD_REQUEST"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Insufficient permissions",
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
+                }
+              }
+            }
+          }
+        },
+        "x-portos-delegated": false,
+        "x-portos-resource-permission": true,
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/{namespace}/{principalType}/{principalId}/auth-links/{authLinkId}/update-draft": {
+      "post": {
+        "operationId": "updateAuthLinkDraft",
+        "tags": [
+          "Auth Links"
+        ],
+        "summary": "Update an auth link draft",
+        "description": "Updates a DRAFT auth link. Omitted fields are unchanged. The link must still be a DRAFT and the If-Match etag must match its current version; the wildcard If-Match: * is not accepted. Requires the plugin-establish-link permission, evaluated with the variant and regionalization as operation context.",
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The namespace of the principal"
+          },
+          {
+            "name": "principalType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The type of principal"
+          },
+          {
+            "name": "principalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the principal"
+          },
+          {
+            "name": "authLinkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the auth link"
+          },
+          {
+            "$ref": "#/components/parameters/IfMatch"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAuthLinkDraftRequest"
+              },
+              "example": {
+                "regionalizationId": "global"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Draft auth link updated",
+            "headers": {
+              "ETag": {
+                "$ref": "#/components/headers/ETag"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthLink"
+                },
+                "example": {
+                  "id": "port1/principals/user123/auth-links/abc-123",
+                  "status": "DRAFT",
+                  "associatedPluginId": "port1/systems/zero/plugins/b220efd5-d59e-44cb-8ecd-57a98d4df48b",
+                  "authorizationVariantId": "google-nest-customer-oauth",
+                  "regionalizationId": "global",
+                  "associatedSecrets": [],
+                  "etag": "\"1\"",
+                  "readiness": {
+                    "state": "INCOMPLETE",
+                    "missingSecretRoles": [
+                      "OAUTH_CLIENT"
+                    ],
+                    "missingConfiguration": []
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Insufficient permissions",
+                  "code": "FORBIDDEN",
+                  "family": "FORBIDDEN"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Auth link not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Resource not found",
+                  "code": "NOT_FOUND",
+                  "family": "NOT_FOUND"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The auth link is not a DRAFT",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "Conflict",
+                  "code": "CONFLICT",
+                  "family": "CONFLICT"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "The If-Match etag does not match the current auth link version; re-read the link and retry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "auth link etag does not match; re-read the auth link and retry",
+                  "code": "PRECONDITION_FAILED",
+                  "family": "PRECONDITION_FAILED"
+                }
+              }
+            }
+          },
+          "428": {
+            "description": "The If-Match header is missing, or is the wildcard *; send the etag of the draft you last read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "message": "If-Match header is required; send the auth link etag",
+                  "code": "PRECONDITION_REQUIRED",
+                  "family": "PRECONDITION_REQUIRED"
+                }
+              }
+            }
+          }
+        },
+        "x-portos-delegated": false,
+        "x-portos-resource-permission": true,
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/auth-links/establish": {
@@ -3671,7 +4112,7 @@
         "tags": [
           "Plugins"
         ],
-        "description": "Start code-based linking. Private vendor codes and tokens are retained on the server. Complete through plugin-auth-code-exchange using pluginAuthenticationData.sessionId.\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
+        "description": "Start code-based linking. Private vendor codes and tokens are retained on the server. Requires the plugin-establish-link permission. Complete the link with the plugin auth code exchange operation, using pluginAuthenticationData.sessionId.\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
         "requestBody": {
           "required": true,
           "content": {
@@ -3736,7 +4177,7 @@
           "Plugins"
         ],
         "summary": "Begin plugin OAuth authorization",
-        "description": "Starts a state-managed provider connection for the authenticated principal. Requires the existing plugin-auth-code-exchange permission and, for renewal, auth-link-write on the exact selected connection. The configured provider and host must support the state-managed flow. Client credentials, scope, issuer, PKCE material and principal cannot be supplied by the caller.\nThe attempt expires after five minutes. The exact original URL/expiry may be replayed under the same Idempotency-Key for 24 hours, even after attempt expiry. Begin with a fresh key to obtain a new attempt; replay never extends it. Current authorization and renewal eligibility are checked before replay.",
+        "description": "Starts a state-managed provider connection for the authenticated principal. Requires the plugin-establish-link permission and, for renewal, auth-link-write on the exact selected connection. The configured provider and host must support the state-managed flow. Client credentials, scope, issuer, PKCE material and principal cannot be supplied by the caller.\nThe attempt expires after five minutes. The exact original URL/expiry may be replayed under the same Idempotency-Key for 24 hours, even after attempt expiry. Begin with a fresh key to obtain a new attempt; replay never extends it. Current authorization and renewal eligibility are checked before replay.",
         "parameters": [
           {
             "$ref": "#/components/parameters/IdempotencyKey"
@@ -3922,7 +4363,7 @@
           "Plugins"
         ],
         "summary": "Complete plugin OAuth authorization",
-        "description": "Completes a state-managed connection for the authenticated principal using the exact plugin, new/renewal intent and redirect from its begin request. Requires the existing plugin-auth-code-exchange permission and, for renewal, auth-link-write on the selected connection. Current eligibility is checked before replaying a committed response.\nOne transaction consumes state and commits an exchange-started fence before contacting the provider. Credential/connection installation and the nonsecret completion receipt then commit together. A successful response means that installation committed; it does not prove device discovery or playback.\nRetry a transport failure with the same complete payload and Idempotency-Key. A committed result is replayed for 24 hours. An exchange-started or uncertain result returns 409 and cannot be repaired by another key or token exchange; start a fresh authorization instead. Vendor failure never rearms consumed state. Callback code and state must not be logged or placed in URL paths.",
+        "description": "Completes a state-managed connection for the authenticated principal using the exact plugin, new/renewal intent and redirect from its begin request. Requires the plugin-establish-link permission and, for renewal, auth-link-write on the selected connection. Current eligibility is checked before replaying a committed response.\nOne transaction consumes state and commits an exchange-started fence before contacting the provider. Credential/connection installation and the nonsecret completion receipt then commit together. A successful response means that installation committed; it does not prove device discovery or playback.\nRetry a transport failure with the same complete payload and Idempotency-Key. A committed result is replayed for 24 hours. An exchange-started or uncertain result returns 409 and cannot be repaired by another key or token exchange; start a fresh authorization instead. Vendor failure never rearms consumed state. Callback code and state must not be logged or placed in URL paths.",
         "parameters": [
           {
             "$ref": "#/components/parameters/IdempotencyKey"
@@ -6282,6 +6723,38 @@
               "check-id": {
                 "value": "port1/user/alice/access-control-rules/123"
               }
+            }
+          },
+          {
+            "name": "operation",
+            "in": "query",
+            "description": "Exact operation to match. Only rules whose operation equals this value are returned.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "establish-link": {
+                "value": "port1/systems/zero/operations/plugin-establish-link"
+              }
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "description": "Exact resource to match. Only rules whose resource equals this value are returned.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identity",
+            "in": "query",
+            "description": "Exact identity to match. Only rules whose identity equals this value are returned.",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -15215,6 +15688,96 @@
           }
         }
       },
+      "AuthLinkSecretRole": {
+        "type": "string",
+        "description": "The role a secret plays within an auth link.",
+        "enum": [
+          "OAUTH_CLIENT",
+          "PROVIDER_TOKEN",
+          "API_KEY",
+          "PERSONAL_ACCESS_TOKEN",
+          "USERNAME_PASSWORD",
+          "PUSH_CREDENTIALS",
+          "UNCLASSIFIED"
+        ]
+      },
+      "PluginAuthorizationVariant": {
+        "type": "object",
+        "description": "One way of authorizing a plugin, and what it needs from the customer.",
+        "required": [
+          "id",
+          "credentialSource",
+          "regionalizations",
+          "secretRoles",
+          "providerConfiguration"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The variant ID."
+          },
+          "credentialSource": {
+            "type": "string",
+            "description": "Whether Port OS or the customer owns the OAuth client.",
+            "enum": [
+              "PORT_OS",
+              "CUSTOMER"
+            ]
+          },
+          "regionalizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of the regionalizations this variant supports."
+          },
+          "secretRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthLinkSecretRole"
+            },
+            "description": "Secret roles a link of this variant needs."
+          },
+          "providerConfiguration": {
+            "type": "string",
+            "description": "The provider configuration this variant requires.",
+            "enum": [
+              "NONE",
+              "NEST_DEVICE_ACCESS"
+            ]
+          },
+          "guideSection": {
+            "type": "string",
+            "description": "Anchor of the documentation section describing how to set this variant up."
+          }
+        }
+      },
+      "PluginRegionalization": {
+        "type": "object",
+        "description": "A provider region and its endpoints.",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "endpoints": {
+            "type": "object",
+            "properties": {
+              "apiUrl": {
+                "type": "string"
+              },
+              "authorizeUrl": {
+                "type": "string"
+              },
+              "tokenUrl": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
       "BasePlugin": {
         "type": "object",
         "required": [
@@ -15307,6 +15870,20 @@
               "$ref": "#/components/schemas/PluginCapabilityInterface"
             },
             "description": "Capability interfaces from plugin metadata (populated when expand=metadata)"
+          },
+          "authorizationVariants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PluginAuthorizationVariant"
+            },
+            "description": "Authorization variants the plugin supports (populated when expand=metadata)"
+          },
+          "regionalizations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PluginRegionalization"
+            },
+            "description": "Regionalizations the plugin supports (populated when expand=metadata)"
           }
         }
       },
@@ -15663,12 +16240,77 @@
       "AuthLinkSecret": {
         "type": "object",
         "required": [
-          "id"
+          "id",
+          "role"
         ],
         "properties": {
           "id": {
             "type": "string",
             "description": "The unique identifier for the secret"
+          },
+          "role": {
+            "$ref": "#/components/schemas/AuthLinkSecretRole"
+          }
+        }
+      },
+      "AuthLinkStatus": {
+        "type": "string",
+        "description": "Lifecycle state of an auth link. A DRAFT is incomplete and not yet usable by endpoints.",
+        "enum": [
+          "DRAFT",
+          "CONNECTED"
+        ]
+      },
+      "AuthLinkProviderConfiguration": {
+        "type": "object",
+        "description": "Provider-specific, non-secret configuration of an auth link.",
+        "additionalProperties": false,
+        "properties": {
+          "nestDeviceAccess": {
+            "type": "object",
+            "description": "Google Nest Device Access configuration.",
+            "additionalProperties": false,
+            "properties": {
+              "projectId": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9-]{1,128}$",
+                "description": "The Device Access project ID."
+              }
+            }
+          }
+        }
+      },
+      "AuthLinkReadiness": {
+        "type": "object",
+        "description": "Whether an auth link has everything its authorization variant requires.",
+        "readOnly": true,
+        "required": [
+          "state",
+          "missingSecretRoles",
+          "missingConfiguration"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "READY",
+              "INCOMPLETE",
+              "NEEDS_REPAIR"
+            ]
+          },
+          "missingSecretRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthLinkSecretRole"
+            },
+            "description": "Secret roles the variant requires that the link does not have."
+          },
+          "missingConfiguration": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Names of required provider configuration fields that are not set."
           }
         }
       },
@@ -15701,6 +16343,28 @@
           },
           "owner": {
             "$ref": "#/components/schemas/Principal"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthLinkStatus"
+          },
+          "authorizationVariantId": {
+            "type": "string",
+            "description": "The plugin authorization variant the link uses"
+          },
+          "regionalizationId": {
+            "type": "string",
+            "description": "The plugin regionalization the link targets"
+          },
+          "providerConfiguration": {
+            "$ref": "#/components/schemas/AuthLinkProviderConfiguration"
+          },
+          "etag": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The quoted strong entity tag of the auth link, for If-Match"
+          },
+          "readiness": {
+            "$ref": "#/components/schemas/AuthLinkReadiness"
           }
         }
       },
@@ -15764,6 +16428,190 @@
           "id": {
             "type": "string",
             "description": "The auth link ID to delete"
+          }
+        }
+      },
+      "CreateAuthLinkDraftRequest": {
+        "type": "object",
+        "description": "Create a draft auth link for a plugin authorization variant.",
+        "additionalProperties": false,
+        "required": [
+          "pluginId",
+          "authorizationVariantId",
+          "regionalizationId"
+        ],
+        "properties": {
+          "pluginId": {
+            "type": "string",
+            "description": "The plugin the link is for."
+          },
+          "authorizationVariantId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+            "maxLength": 63,
+            "description": "The plugin authorization variant the link uses."
+          },
+          "regionalizationId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+            "maxLength": 63,
+            "description": "The plugin regionalization the link targets."
+          },
+          "providerConfiguration": {
+            "$ref": "#/components/schemas/AuthLinkProviderConfiguration"
+          },
+          "oauthClient": {
+            "description": "The customer OAuth client, either an existing secret or new client credentials.",
+            "oneOf": [
+              {
+                "type": "object",
+                "title": "ExistingOAuthClient",
+                "additionalProperties": false,
+                "required": [
+                  "secretId"
+                ],
+                "properties": {
+                  "secretId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "description": "An existing OAuth client secret owned by the caller."
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "title": "NewOAuthClient",
+                "additionalProperties": false,
+                "required": [
+                  "clientId",
+                  "clientSecret"
+                ],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048
+                  },
+                  "clientSecret": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "writeOnly": true
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "AuthLinkClientCredentialSummary": {
+        "type": "object",
+        "description": "A reusable customer OAuth client, without its secret.",
+        "required": [
+          "id",
+          "type",
+          "clientId",
+          "updatedAt",
+          "etag"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The secret ID of the client credential."
+          },
+          "type": {
+            "type": "string",
+            "description": "The secret type."
+          },
+          "clientId": {
+            "type": "string",
+            "description": "The OAuth client ID."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "etag": {
+            "type": "string",
+            "description": "The quoted strong entity tag of the credential."
+          }
+        }
+      },
+      "AuthLinkClientCredentialSummaries": {
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthLinkClientCredentialSummary"
+            }
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Opaque cursor for the next page; absent on the last page."
+          }
+        }
+      },
+      "UpdateAuthLinkDraftRequest": {
+        "type": "object",
+        "description": "Update a draft auth link. Omitted fields are unchanged.",
+        "additionalProperties": false,
+        "properties": {
+          "regionalizationId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+            "maxLength": 63,
+            "description": "The plugin regionalization the link targets."
+          },
+          "providerConfiguration": {
+            "$ref": "#/components/schemas/AuthLinkProviderConfiguration"
+          },
+          "oauthClient": {
+            "description": "The customer OAuth client, either an existing secret or new client credentials.",
+            "oneOf": [
+              {
+                "type": "object",
+                "title": "ExistingOAuthClient",
+                "additionalProperties": false,
+                "required": [
+                  "secretId"
+                ],
+                "properties": {
+                  "secretId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "description": "An existing OAuth client secret owned by the caller."
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "title": "NewOAuthClient",
+                "additionalProperties": false,
+                "required": [
+                  "clientId",
+                  "clientSecret"
+                ],
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048
+                  },
+                  "clientSecret": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "writeOnly": true
+                  }
+                }
+              }
+            ]
           }
         }
       },
@@ -16213,6 +17061,48 @@
           "DENY"
         ]
       },
+      "AccessControlConditionKey": {
+        "type": "string",
+        "description": "The operation-context attribute a rule condition compares against.",
+        "enum": [
+          "AUTH_VARIANT",
+          "REGIONALIZATION",
+          "TARGET_OPERATION",
+          "TARGET_IDENTITY_KIND"
+        ]
+      },
+      "AccessControlConditionComparator": {
+        "type": "string",
+        "description": "How a rule condition compares the context attribute with its value.",
+        "enum": [
+          "EQUALS"
+        ]
+      },
+      "AccessControlRuleCondition": {
+        "type": "object",
+        "description": "A condition that must hold on the operation context for the rule to apply. A rule applies only when all of its conditions match.",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "comparator",
+          "value"
+        ],
+        "properties": {
+          "key": {
+            "$ref": "#/components/schemas/AccessControlConditionKey"
+          },
+          "comparator": {
+            "$ref": "#/components/schemas/AccessControlConditionComparator"
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "The value the context attribute is compared with.",
+            "example": "google-nest-customer-oauth"
+          }
+        }
+      },
       "AccessControlRule": {
         "type": "object",
         "required": [
@@ -16220,7 +17110,8 @@
           "resource",
           "identity",
           "effect",
-          "owner"
+          "owner",
+          "conditions"
         ],
         "properties": {
           "id": {
@@ -16250,6 +17141,14 @@
             "type": "string",
             "description": "The owner of the access control rule",
             "example": "port1/account/john"
+          },
+          "conditions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "$ref": "#/components/schemas/AccessControlRuleCondition"
+            },
+            "description": "Conditions on the operation context that must all match for the rule to apply. Always returned, possibly empty."
           }
         }
       },
@@ -16308,6 +17207,14 @@
             "type": "string",
             "description": "The identity to grant access to. This could be a user, a role, a group, etc. You can define this as either a class of identities, or a specific identity.\nExamples: - port1/account/john/users/alice grants access to alice - port1/account/john/users/* grants access to all users owned by john - * just grants access to all identities\n",
             "example": "port1/account/john/users/alice"
+          },
+          "conditions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "$ref": "#/components/schemas/AccessControlRuleCondition"
+            },
+            "description": "Conditions on the operation context that must all match for the rule to apply. Omitting conditions means the rule has none."
           }
         }
       },
@@ -16379,6 +17286,39 @@
           }
         }
       },
+      "AccessControlOperationContext": {
+        "type": "object",
+        "description": "Attributes of the requested operation that rule conditions are evaluated against.",
+        "additionalProperties": false,
+        "properties": {
+          "authVariant": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+            "maxLength": 63,
+            "description": "The plugin authorization variant ID being established."
+          },
+          "regionalization": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+            "maxLength": 63,
+            "description": "The plugin regionalization ID being established."
+          },
+          "targetOperation": {
+            "type": "string",
+            "maxLength": 200,
+            "pattern": "^port1/systems/zero/operations/([a-z0-9][a-z0-9-]{0,127}|\\*)$",
+            "description": "The operation a rule being created or changed grants."
+          },
+          "targetIdentityKind": {
+            "type": "string",
+            "description": "Whether the identity of a rule being created or changed is an exact identity or a wildcard.",
+            "enum": [
+              "EXACT",
+              "WILDCARD"
+            ]
+          }
+        }
+      },
       "EvaluateAccessControlRuleRequest": {
         "type": "object",
         "description": "Evaluate whether or not a request is allowed to be performed.",
@@ -16400,6 +17340,9 @@
           },
           "operation": {
             "type": "string"
+          },
+          "operationContext": {
+            "$ref": "#/components/schemas/AccessControlOperationContext"
           }
         }
       },
@@ -16442,6 +17385,11 @@
           },
           "owner": {
             "$ref": "#/components/schemas/Principal"
+          },
+          "etag": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The quoted strong entity tag of the secret, derived from its stored version"
           }
         }
       },

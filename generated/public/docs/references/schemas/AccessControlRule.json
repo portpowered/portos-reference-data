@@ -6,7 +6,8 @@
     "resource",
     "identity",
     "effect",
-    "owner"
+    "owner",
+    "conditions"
   ],
   "properties": {
     "id": {
@@ -36,6 +37,14 @@
       "type": "string",
       "description": "The owner of the access control rule",
       "example": "port1/account/john"
+    },
+    "conditions": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "$ref": "/docs/references/schemas/AccessControlRuleCondition.json"
+      },
+      "description": "Conditions on the operation context that must all match for the rule to apply. Always returned, possibly empty."
     }
   }
 }

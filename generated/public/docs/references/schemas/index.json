@@ -3,9 +3,27 @@
   "components": [
     {
       "kind": "schemas",
+      "name": "AccessControlConditionComparator",
+      "path": "/docs/references/schemas/AccessControlConditionComparator.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlConditionComparator"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlConditionKey",
+      "path": "/docs/references/schemas/AccessControlConditionKey.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlConditionKey"
+    },
+    {
+      "kind": "schemas",
       "name": "AccessControlEntity",
       "path": "/docs/references/schemas/AccessControlEntity.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlEntity"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlOperationContext",
+      "path": "/docs/references/schemas/AccessControlOperationContext.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlOperationContext"
     },
     {
       "kind": "schemas",
@@ -24,6 +42,12 @@
       "name": "AccessControlRule",
       "path": "/docs/references/schemas/AccessControlRule.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRule"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlRuleCondition",
+      "path": "/docs/references/schemas/AccessControlRuleCondition.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRuleCondition"
     },
     {
       "kind": "schemas",
@@ -123,9 +147,33 @@
     },
     {
       "kind": "schemas",
+      "name": "AuthLinkClientCredentialSummaries",
+      "path": "/docs/references/schemas/AuthLinkClientCredentialSummaries.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkClientCredentialSummaries"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinkClientCredentialSummary",
+      "path": "/docs/references/schemas/AuthLinkClientCredentialSummary.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkClientCredentialSummary"
+    },
+    {
+      "kind": "schemas",
       "name": "authLinkId",
       "path": "/docs/references/schemas/authLinkId.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/authLinkId"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinkProviderConfiguration",
+      "path": "/docs/references/schemas/AuthLinkProviderConfiguration.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkProviderConfiguration"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinkReadiness",
+      "path": "/docs/references/schemas/AuthLinkReadiness.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkReadiness"
     },
     {
       "kind": "schemas",
@@ -135,9 +183,21 @@
     },
     {
       "kind": "schemas",
+      "name": "AuthLinkSecretRole",
+      "path": "/docs/references/schemas/AuthLinkSecretRole.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkSecretRole"
+    },
+    {
+      "kind": "schemas",
       "name": "AuthLinksList",
       "path": "/docs/references/schemas/AuthLinksList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinksList"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinkStatus",
+      "path": "/docs/references/schemas/AuthLinkStatus.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkStatus"
     },
     {
       "kind": "schemas",
@@ -198,6 +258,12 @@
       "name": "ClientIdentity",
       "path": "/docs/references/schemas/ClientIdentity.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ClientIdentity"
+    },
+    {
+      "kind": "schemas",
+      "name": "CreateAuthLinkDraftRequest",
+      "path": "/docs/references/schemas/CreateAuthLinkDraftRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CreateAuthLinkDraftRequest"
     },
     {
       "kind": "schemas",
@@ -963,6 +1029,12 @@
     },
     {
       "kind": "schemas",
+      "name": "PluginAuthorizationVariant",
+      "path": "/docs/references/schemas/PluginAuthorizationVariant.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginAuthorizationVariant"
+    },
+    {
+      "kind": "schemas",
       "name": "PluginCapabilityInterface",
       "path": "/docs/references/schemas/PluginCapabilityInterface.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PluginCapabilityInterface"
@@ -1050,6 +1122,12 @@
       "name": "pluginProfileId",
       "path": "/docs/references/schemas/pluginProfileId.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/pluginProfileId"
+    },
+    {
+      "kind": "schemas",
+      "name": "PluginRegionalization",
+      "path": "/docs/references/schemas/PluginRegionalization.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PluginRegionalization"
     },
     {
       "kind": "schemas",
@@ -1338,6 +1416,12 @@
       "name": "TypeValue",
       "path": "/docs/references/schemas/TypeValue.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/TypeValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "UpdateAuthLinkDraftRequest",
+      "path": "/docs/references/schemas/UpdateAuthLinkDraftRequest.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/UpdateAuthLinkDraftRequest"
     },
     {
       "kind": "schemas",

@@ -4,7 +4,7 @@ POST `/plugin-oauth-authorization-completions`
 
 Complete plugin OAuth authorization
 
-Completes a state-managed connection for the authenticated principal using the exact plugin, new/renewal intent and redirect from its begin request. Requires the existing plugin-auth-code-exchange permission and, for renewal, auth-link-write on the selected connection. Current eligibility is checked before replaying a committed response.
+Completes a state-managed connection for the authenticated principal using the exact plugin, new/renewal intent and redirect from its begin request. Requires the plugin-establish-link permission and, for renewal, auth-link-write on the selected connection. Current eligibility is checked before replaying a committed response.
 One transaction consumes state and commits an exchange-started fence before contacting the provider. Credential/connection installation and the nonsecret completion receipt then commit together. A successful response means that installation committed; it does not prove device discovery or playback.
 Retry a transport failure with the same complete payload and Idempotency-Key. A committed result is replayed for 24 hours. An exchange-started or uncertain result returns 409 and cannot be repaired by another key or token exchange; start a fresh authorization instead. Vendor failure never rearms consumed state. Callback code and state must not be logged or placed in URL paths.
 
@@ -33,9 +33,9 @@ post:
   summary: Complete plugin OAuth authorization
   description: >-
     Completes a state-managed connection for the authenticated principal using the exact plugin,
-    new/renewal intent and redirect from its begin request. Requires the existing
-    plugin-auth-code-exchange permission and, for renewal, auth-link-write on the selected
-    connection. Current eligibility is checked before replaying a committed response.
+    new/renewal intent and redirect from its begin request. Requires the plugin-establish-link
+    permission and, for renewal, auth-link-write on the selected connection. Current eligibility is
+    checked before replaying a committed response.
 
     One transaction consumes state and commits an exchange-started fence before contacting the
     provider. Credential/connection installation and the nonsecret completion receipt then commit

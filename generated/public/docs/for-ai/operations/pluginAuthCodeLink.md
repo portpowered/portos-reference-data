@@ -4,7 +4,7 @@ POST `/plugin-auth-code-link`
 
 Plugin Auth Code Link
 
-Start code-based linking. Private vendor codes and tokens are retained on the server. Complete through plugin-auth-code-exchange using pluginAuthenticationData.sessionId.
+Start code-based linking. Private vendor codes and tokens are retained on the server. Requires the plugin-establish-link permission. Complete the link with the plugin auth code exchange operation, using pluginAuthenticationData.sessionId.
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
 
@@ -31,8 +31,9 @@ post:
   tags:
     - Plugins
   description: >-
-    Start code-based linking. Private vendor codes and tokens are retained on the server. Complete
-    through plugin-auth-code-exchange using pluginAuthenticationData.sessionId.
+    Start code-based linking. Private vendor codes and tokens are retained on the server. Requires
+    the plugin-establish-link permission. Complete the link with the plugin auth code exchange
+    operation, using pluginAuthenticationData.sessionId.
 
 
     Requires a signed user/session or the existing authenticated client flow. The anonymous DCR

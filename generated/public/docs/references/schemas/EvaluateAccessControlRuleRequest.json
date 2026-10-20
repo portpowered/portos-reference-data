@@ -20,6 +20,9 @@
     },
     "operation": {
       "type": "string"
+    },
+    "operationContext": {
+      "$ref": "/docs/references/schemas/AccessControlOperationContext.json"
     }
   }
 }

@@ -30,6 +30,14 @@
       "type": "string",
       "description": "The identity to grant access to. This could be a user, a role, a group, etc. You can define this as either a class of identities, or a specific identity.\nExamples: - port1/account/john/users/alice grants access to alice - port1/account/john/users/* grants access to all users owned by john - * just grants access to all identities\n",
       "example": "port1/account/john/users/alice"
+    },
+    "conditions": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "$ref": "/docs/references/schemas/AccessControlRuleCondition.json"
+      },
+      "description": "Conditions on the operation context that must all match for the rule to apply. Omitting conditions means the rule has none."
     }
   }
 }

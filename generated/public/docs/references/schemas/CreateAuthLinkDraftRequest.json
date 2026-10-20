@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Create a draft auth link for a plugin authorization variant.",
+  "additionalProperties": false,
+  "required": [
+    "pluginId",
+    "authorizationVariantId",
+    "regionalizationId"
+  ],
+  "properties": {
+    "pluginId": {
+      "type": "string",
+      "description": "The plugin the link is for."
+    },
+    "authorizationVariantId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+      "maxLength": 63,
+      "description": "The plugin authorization variant the link uses."
+    },
+    "regionalizationId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+      "maxLength": 63,
+      "description": "The plugin regionalization the link targets."
+    },
+    "providerConfiguration": {
+      "$ref": "/docs/references/schemas/AuthLinkProviderConfiguration.json"
+    },
+    "oauthClient": {
+      "description": "The customer OAuth client, either an existing secret or new client credentials.",
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "ExistingOAuthClient",
+          "additionalProperties": false,
+          "required": [
+            "secretId"
+          ],
+          "properties": {
+            "secretId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "description": "An existing OAuth client secret owned by the caller."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "NewOAuthClient",
+          "additionalProperties": false,
+          "required": [
+            "clientId",
+            "clientSecret"
+          ],
+          "properties": {
+            "clientId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "clientSecret": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "writeOnly": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

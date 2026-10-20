@@ -16,6 +16,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /.well-known/oauth-protected-resource/mcp](/docs/for-ai/operations/getMCPOAuthProtectedResourceMetadata.md) | Public | — | — |
 | [DELETE /{namespace}/{principalType}/{principalId}](/docs/for-ai/operations/deletePrincipal.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required) | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}](/docs/for-ai/operations/deleteAccessControlRule.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:ruleId (required) | — |
+| [POST /{namespace}/{principalType}/{principalId}/auth-links/{authLinkId}/update-draft](/docs/for-ai/operations/updateAuthLinkDraft.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:authLinkId (required), header:If-Match (required) | oauthClient, providerConfiguration, regionalizationId |
 | [GET /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}](/docs/for-ai/operations/getEndpointGroup.md) | group:read | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), query:expand, query:forceDeviceAttributeQuery | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}](/docs/for-ai/operations/deleteEndpointGroup.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), header:If-Match (required) | — |
 | [POST /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/add-members](/docs/for-ai/operations/addEndpointGroupMembers.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), header:If-Match (required) | memberEndpointIds |
@@ -26,13 +27,15 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [PATCH /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/patchSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | name |
 | [DELETE /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/deleteSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/tokens/{tokenId}](/docs/for-ai/operations/invalidateToken.md) | OAuth (no scope) | path:tokenId (required), path:namespace (required), path:principalType (required), path:principalId (required) | — |
-| [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md) | OAuth (no scope) | query:owner, query:id, query:nextToken, query:maxResults, query:expand | — |
-| [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md) | OAuth (no scope) | — | effect, id, identity, operation, resource |
-| [POST /access-control-rules/evaluate](/docs/for-ai/operations/evaluateAccessControlRule.md) | OAuth (no scope) | — | entities, operation, requesterContext, resourceContext |
-| [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:expand, query:nextToken, query:maxResults | — |
+| [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md) | OAuth (no scope) | query:owner, query:id, query:operation, query:resource, query:identity, query:nextToken, query:maxResults, query:expand | — |
+| [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md) | OAuth (no scope) | — | conditions, effect, id, identity, operation, resource |
+| [POST /access-control-rules/evaluate](/docs/for-ai/operations/evaluateAccessControlRule.md) | OAuth (no scope) | — | entities, operation, operationContext, requesterContext, resourceContext |
+| [POST /auth-link-drafts](/docs/for-ai/operations/createAuthLinkDraft.md) | OAuth (no scope) | header:Idempotency-Key (required) | authorizationVariantId, oauthClient, pluginId, providerConfiguration, regionalizationId |
+| [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:status, query:pluginId, query:expand, query:nextToken, query:maxResults | — |
 | [POST /auth-links](/docs/for-ai/operations/upsertAuthLink.md) | OAuth (no scope) | — | authLink |
 | [DELETE /auth-links](/docs/for-ai/operations/deleteAuthLink.md) | OAuth (no scope) | — | id |
 | [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, endpointUrl, oauthTokens, pluginId, usernamePassword |
+| [GET /auth-links/oauth-client-credentials](/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md) | OAuth (no scope) | query:pluginId (required), query:maxResults, query:nextToken | — |
 | [POST /auth-links/refresh](/docs/for-ai/operations/refreshAuthLinkToken.md) | See session/security contract | — | authLinkId |
 | [POST /auth/callback](/docs/for-ai/operations/handleOAuthCallback.md) | Public | — | code, id_token, state, user |
 | [POST /auth/device-authorization](/docs/for-ai/operations/deviceAuthorize.md) | See session/security contract | — | client_id, scope |

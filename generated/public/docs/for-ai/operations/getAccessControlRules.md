@@ -66,6 +66,27 @@ get:
       examples:
         check-id:
           value: port1/user/alice/access-control-rules/123
+    - name: operation
+      in: query
+      description: Exact operation to match. Only rules whose operation equals this value are returned.
+      required: false
+      schema:
+        type: string
+      examples:
+        establish-link:
+          value: port1/systems/zero/operations/plugin-establish-link
+    - name: resource
+      in: query
+      description: Exact resource to match. Only rules whose resource equals this value are returned.
+      required: false
+      schema:
+        type: string
+    - name: identity
+      in: query
+      description: Exact identity to match. Only rules whose identity equals this value are returned.
+      required: false
+      schema:
+        type: string
     - name: nextToken
       in: query
       description: Opaque cursor token returned by a previous query response.

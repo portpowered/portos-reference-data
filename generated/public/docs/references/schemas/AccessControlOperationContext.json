@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Attributes of the requested operation that rule conditions are evaluated against.",
+  "additionalProperties": false,
+  "properties": {
+    "authVariant": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+      "maxLength": 63,
+      "description": "The plugin authorization variant ID being established."
+    },
+    "regionalization": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+      "maxLength": 63,
+      "description": "The plugin regionalization ID being established."
+    },
+    "targetOperation": {
+      "type": "string",
+      "maxLength": 200,
+      "pattern": "^port1/systems/zero/operations/([a-z0-9][a-z0-9-]{0,127}|\\*)$",
+      "description": "The operation a rule being created or changed grants."
+    },
+    "targetIdentityKind": {
+      "type": "string",
+      "description": "Whether the identity of a rule being created or changed is an exact identity or a wildcard.",
+      "enum": [
+        "EXACT",
+        "WILDCARD"
+      ]
+    }
+  }
+}

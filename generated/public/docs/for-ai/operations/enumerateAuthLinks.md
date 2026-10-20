@@ -58,6 +58,25 @@ get:
             code: INTERNAL
             family: INTERNAL_SERVER_ERROR
   parameters:
+    - name: status
+      in: query
+      description: >-
+        Collection visibility. Defaults to CONNECTED. Use DRAFT to list incomplete drafts, or '*' to
+        include all authorized auth links. Exact id reads ignore this filter.
+      required: false
+      schema:
+        type: string
+        enum:
+          - DRAFT
+          - CONNECTED
+          - '*'
+        default: CONNECTED
+    - name: pluginId
+      in: query
+      description: Only return auth links for this plugin.
+      required: false
+      schema:
+        type: string
     - name: expand
       in: query
       description: Expansion tokens that request related or computed fields for each result.

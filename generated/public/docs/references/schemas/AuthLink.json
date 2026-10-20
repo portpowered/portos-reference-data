@@ -28,6 +28,28 @@
     },
     "owner": {
       "$ref": "/docs/references/schemas/Principal.json"
+    },
+    "status": {
+      "$ref": "/docs/references/schemas/AuthLinkStatus.json"
+    },
+    "authorizationVariantId": {
+      "type": "string",
+      "description": "The plugin authorization variant the link uses"
+    },
+    "regionalizationId": {
+      "type": "string",
+      "description": "The plugin regionalization the link targets"
+    },
+    "providerConfiguration": {
+      "$ref": "/docs/references/schemas/AuthLinkProviderConfiguration.json"
+    },
+    "etag": {
+      "type": "string",
+      "readOnly": true,
+      "description": "The quoted strong entity tag of the auth link, for If-Match"
+    },
+    "readiness": {
+      "$ref": "/docs/references/schemas/AuthLinkReadiness.json"
     }
   }
 }

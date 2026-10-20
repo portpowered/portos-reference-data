@@ -291,6 +291,35 @@ operations:
       - bearerAuth: []
     delegated: false
     resourcePermissionRequired: true
+  - path: /auth-link-drafts
+    runtimePath: /auth-link-drafts
+    method: POST
+    operationId: createAuthLinkDraft
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: /auth-links/oauth-client-credentials
+    runtimePath: /auth-links/oauth-client-credentials
+    method: GET
+    operationId: enumerateAuthLinkClientCredentials
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
+  - path: >-
+      /{namespace}/{principalType}/{principalId}/auth-links/{authLinkId}/update-draft
+    runtimePath: >-
+      /{namespace}/{principalType}/{principalId}/auth-links/{authLinkId}/update-draft
+    method: POST
+    operationId: updateAuthLinkDraft
+    security:
+      - oauth2: []
+      - bearerAuth: []
+    delegated: false
+    resourcePermissionRequired: true
   - path: /auth-links/establish
     runtimePath: /auth-links/establish
     method: POST

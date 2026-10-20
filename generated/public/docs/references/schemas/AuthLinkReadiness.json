@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Whether an auth link has everything its authorization variant requires.",
+  "readOnly": true,
+  "required": [
+    "state",
+    "missingSecretRoles",
+    "missingConfiguration"
+  ],
+  "properties": {
+    "state": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "INCOMPLETE",
+        "NEEDS_REPAIR"
+      ]
+    },
+    "missingSecretRoles": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AuthLinkSecretRole.json"
+      },
+      "description": "Secret roles the variant requires that the link does not have."
+    },
+    "missingConfiguration": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Names of required provider configuration fields that are not set."
+    }
+  }
+}

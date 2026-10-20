@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.5",
-  "sourceCommit": "a53973a7fb952398c92c182aefa7d3757ec27595",
+  "version": "0.5.6",
+  "sourceCommit": "9d2ea6c54c108bc3c32944d230dc1bed43bc56d2",
   "sourceInputState": "committed",
-  "assetSetSHA256": "19dc23973f37cdc3acbf38c53bc9c0938f6c333502407d07219e1537f5da1ad5",
+  "assetSetSHA256": "7efb893d4c2121715bf801beb52c62d4d9fdb234968bbff844f6e5ec7df9412c",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 18783,
-      "sha256": "5dea83f0b5cd94572c2d4ee5ae97dd573767dc0dca6d85b636f1bc4d32d211f4",
+      "bytes": 19670,
+      "sha256": "004b2e0518a8501eff5546f5c7080bffb39c80403a15299b336daa6e0b50dd21",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -22,6 +22,7 @@
         "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
         "/docs/for-ai/operations/completeOAuthConsent.md",
         "/docs/for-ai/operations/completePluginOAuthAuthorization.md",
+        "/docs/for-ai/operations/createAuthLinkDraft.md",
         "/docs/for-ai/operations/createEndpointGroup.md",
         "/docs/for-ai/operations/createOAuthClient.md",
         "/docs/for-ai/operations/createSyntheticEvent.md",
@@ -43,6 +44,7 @@
         "/docs/for-ai/operations/deviceAuthorize.md",
         "/docs/for-ai/operations/endpointGroupsManage.md",
         "/docs/for-ai/operations/endpointQuery.md",
+        "/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md",
         "/docs/for-ai/operations/enumerateAuthLinks.md",
         "/docs/for-ai/operations/enumerateEndpointGroups.md",
         "/docs/for-ai/operations/enumerateEndpoints.md",
@@ -100,6 +102,7 @@
         "/docs/for-ai/operations/sendMessageLegacyAlias.md",
         "/docs/for-ai/operations/setEndpointGroupName.md",
         "/docs/for-ai/operations/synchronizeRoutes.md",
+        "/docs/for-ai/operations/updateAuthLinkDraft.md",
         "/docs/for-ai/operations/updateOAuthClient.md",
         "/docs/for-ai/operations/upsertAccessControlRule.md",
         "/docs/for-ai/operations/upsertAuthLink.md",
@@ -1850,8 +1853,8 @@
     {
       "path": "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 6624,
-      "sha256": "5712ca65abcc5ff66fe2f60899888e346c78d6aae9352a6f48731973876c4473",
+      "bytes": 6598,
+      "sha256": "e8d78a2d86ac766b026226875710d1746f0af1486c96018643d122400657e7be",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1874,8 +1877,8 @@
     {
       "path": "/docs/for-ai/operations/completePluginOAuthAuthorization.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8570,
-      "sha256": "bb1f4aaf967111b977b0fda53b11711a7ac1a8e519e0898d9f705ada6e8c4d53",
+      "bytes": 8544,
+      "sha256": "d70ac84caa8de535bd2b5b5e59dfb1788aa0429592ddfef4061ec63da4da317d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1883,6 +1886,21 @@
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/PluginOAuthCompletionRequest.json",
         "/docs/references/schemas/PluginOAuthCompletionResponse.json"
+      ]
+    },
+    {
+      "path": "/docs/for-ai/operations/createAuthLinkDraft.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4634,
+      "sha256": "8f80eeb4fa2fee63d89b1f72d41a59c353ceeca64e90ed2af73e9b852f2fa35d",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/headers/ETag.json",
+        "/docs/references/parameters/IdempotencyKey.json",
+        "/docs/references/schemas/AuthLink.json",
+        "/docs/references/schemas/CreateAuthLinkDraftRequest.json",
+        "/docs/references/schemas/Error.json"
       ]
     },
     {
@@ -2127,10 +2145,22 @@
       ]
     },
     {
+      "path": "/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3040,
+      "sha256": "2567a2f9162f8e3f18da4906f85c7d678043474194ec2ac6b9bbd385b1275944",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/AuthLinkClientCredentialSummaries.json",
+        "/docs/references/schemas/Error.json"
+      ]
+    },
+    {
       "path": "/docs/for-ai/operations/enumerateAuthLinks.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2664,
-      "sha256": "fec6465e2afaf936e5f09a51404cca7b27a3e3e204fa539578f978967d139e83",
+      "bytes": 3207,
+      "sha256": "c979d088ca57b303f03b3e42c85b3d0b8c387648b923c944c377ce599a255273",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2373,8 +2403,8 @@
     {
       "path": "/docs/for-ai/operations/getAccessControlRules.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4704,
-      "sha256": "6655e04d1926c0c53f0ea44d42313879f49c5228e58afd37704c9a4f0bdcf248",
+      "bytes": 5404,
+      "sha256": "c6364746320fdc2e1e4edba5ce46042461ac6a437f418d43842fd440c319be79",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2551,8 +2581,8 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8422,
-      "sha256": "79ed19aaf7bd2c2bb7814541c3d985d7e07a1bc882000e444e015c440589bb89",
+      "bytes": 8742,
+      "sha256": "c3593f961e56e9ec4f7112c52ab6aa8cba04da4aea9fd0fffbb19c279ebf7509",
       "links": [
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
         "/docs/for-ai/operations/authorizeDevice.md",
@@ -2560,6 +2590,7 @@
         "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
         "/docs/for-ai/operations/completeOAuthConsent.md",
         "/docs/for-ai/operations/completePluginOAuthAuthorization.md",
+        "/docs/for-ai/operations/createAuthLinkDraft.md",
         "/docs/for-ai/operations/createEndpointGroup.md",
         "/docs/for-ai/operations/createOAuthClient.md",
         "/docs/for-ai/operations/createSyntheticEvent.md",
@@ -2581,6 +2612,7 @@
         "/docs/for-ai/operations/deviceAuthorize.md",
         "/docs/for-ai/operations/endpointGroupsManage.md",
         "/docs/for-ai/operations/endpointQuery.md",
+        "/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md",
         "/docs/for-ai/operations/enumerateAuthLinks.md",
         "/docs/for-ai/operations/enumerateEndpointGroups.md",
         "/docs/for-ai/operations/enumerateEndpoints.md",
@@ -2638,6 +2670,7 @@
         "/docs/for-ai/operations/sendMessageLegacyAlias.md",
         "/docs/for-ai/operations/setEndpointGroupName.md",
         "/docs/for-ai/operations/synchronizeRoutes.md",
+        "/docs/for-ai/operations/updateAuthLinkDraft.md",
         "/docs/for-ai/operations/updateOAuthClient.md",
         "/docs/for-ai/operations/upsertAccessControlRule.md",
         "/docs/for-ai/operations/upsertAuthLink.md",
@@ -2725,8 +2758,8 @@
     {
       "path": "/docs/for-ai/operations/pluginAuthCodeLink.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2616,
-      "sha256": "033852a4cae802d6a6a87b423758410d5570a9810288f2096dcefd38ba1d7db0",
+      "bytes": 2756,
+      "sha256": "5a4dfafd96dd89da3730dce717e46abc7ea5dcbe5cb6719847b5dda9e424c509",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2902,6 +2935,21 @@
       ]
     },
     {
+      "path": "/docs/for-ai/operations/updateAuthLinkDraft.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5310,
+      "sha256": "456b29276ef7bc70fae97c2eacdd9ca9a4fd0846c595555d7f67177e97a89361",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/headers/ETag.json",
+        "/docs/references/parameters/IfMatch.json",
+        "/docs/references/schemas/AuthLink.json",
+        "/docs/references/schemas/Error.json",
+        "/docs/references/schemas/UpdateAuthLinkDraftRequest.json"
+      ]
+    },
+    {
       "path": "/docs/for-ai/operations/updateOAuthClient.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 3494,
@@ -2929,8 +2977,8 @@
     {
       "path": "/docs/for-ai/operations/upsertAuthLink.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2077,
-      "sha256": "58ed63c89bf8de47275515b844231ae1dc78f9623b491d5e4efd4899f31635ff",
+      "bytes": 2114,
+      "sha256": "a6b2aa03b3e71d9f115c81a34300ddcad0741bcc57f9dc26ee12666340b531b9",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -3061,8 +3109,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2344,
-      "sha256": "a2257ceeca09546fded08e463158828299e17a2ca5d245ecb4155525fe32fbf4",
+      "bytes": 2358,
+      "sha256": "04a1b996d9715e5c8d6bd9fb9039c144a4ee7137234547f8d15f38190ea2a3d1",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3092,14 +3140,18 @@
     {
       "path": "/docs/for-ai/schemas/a-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2449,
-      "sha256": "3e42ca17f5592769981f612ab3f476d41b068bba4e36dc11c5785452fb830878",
+      "bytes": 3427,
+      "sha256": "978899e6832c6cdc861d42092703dcdb6cecfab6eac467ce49820262769ab9f8",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/AccessControlConditionComparator.json",
+        "/docs/references/schemas/AccessControlConditionKey.json",
         "/docs/references/schemas/AccessControlEntity.json",
+        "/docs/references/schemas/AccessControlOperationContext.json",
         "/docs/references/schemas/AccessControlRequesterContext.json",
         "/docs/references/schemas/AccessControlResourceContext.json",
         "/docs/references/schemas/AccessControlRule.json",
+        "/docs/references/schemas/AccessControlRuleCondition.json",
         "/docs/references/schemas/AccessControlRuleEffect.json",
         "/docs/references/schemas/AddEndpointGroupMembersRequest.json",
         "/docs/references/schemas/ApiKeySecret.json",
@@ -3112,7 +3164,13 @@
         "/docs/references/schemas/AttributeRetrievability.json",
         "/docs/references/schemas/AttributeState.json",
         "/docs/references/schemas/AuthLink.json",
+        "/docs/references/schemas/AuthLinkClientCredentialSummaries.json",
+        "/docs/references/schemas/AuthLinkClientCredentialSummary.json",
+        "/docs/references/schemas/AuthLinkProviderConfiguration.json",
+        "/docs/references/schemas/AuthLinkReadiness.json",
         "/docs/references/schemas/AuthLinkSecret.json",
+        "/docs/references/schemas/AuthLinkSecretRole.json",
+        "/docs/references/schemas/AuthLinkStatus.json",
         "/docs/references/schemas/AuthLinksList.json",
         "/docs/references/schemas/AuthResourceType.json",
         "/docs/references/schemas/AuthorizeDeviceRequest.json",
@@ -3141,12 +3199,13 @@
     {
       "path": "/docs/for-ai/schemas/c-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1437,
-      "sha256": "380267f6d6512c373e47b419750a5c600ae1236c82c19a9dc069695efc6504bb",
+      "bytes": 1536,
+      "sha256": "672952996c30cbc11979c23357d55dae94d2023cedd0873b5d112c9699c2ae19",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
         "/docs/references/schemas/ClientIdentity.json",
+        "/docs/references/schemas/CreateAuthLinkDraftRequest.json",
         "/docs/references/schemas/CreateEndpointGroupItem.json",
         "/docs/references/schemas/CreateEndpointGroupRequest.json",
         "/docs/references/schemas/CreateEndpointGroupResponse.json",
@@ -3362,8 +3421,8 @@
     {
       "path": "/docs/for-ai/schemas/p-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3175,
-      "sha256": "8facced1ffc7629eaf5992cabb891969ab148ed535ed41687bc1c38e9ad8ffc4",
+      "bytes": 3363,
+      "sha256": "307021b538e11dcdb827074011510caccf8b455bf00e45264370b1f7cd423743",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/PaginationContext.json",
@@ -3376,6 +3435,7 @@
         "/docs/references/schemas/PluginAuthCodeLinkResponse.json",
         "/docs/references/schemas/PluginAuthMultifactorExchangeRequest.json",
         "/docs/references/schemas/PluginAuthorization.json",
+        "/docs/references/schemas/PluginAuthorizationVariant.json",
         "/docs/references/schemas/PluginCapabilityInterface.json",
         "/docs/references/schemas/PluginDiscoveryRelationship.json",
         "/docs/references/schemas/PluginDiscoveryRelationshipVertex.json",
@@ -3388,6 +3448,7 @@
         "/docs/references/schemas/PluginOAuthAuthorizationResponse.json",
         "/docs/references/schemas/PluginOAuthCompletionRequest.json",
         "/docs/references/schemas/PluginOAuthCompletionResponse.json",
+        "/docs/references/schemas/PluginRegionalization.json",
         "/docs/references/schemas/PluginTokenRefreshRequest.json",
         "/docs/references/schemas/PluginTokenRefreshResponse.json",
         "/docs/references/schemas/PluginTokenResult.json",
@@ -3480,10 +3541,11 @@
     {
       "path": "/docs/for-ai/schemas/u-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1799,
-      "sha256": "d0aaf9b274cc195c1fc0a9eb262dc483df7c83e38edb53e72d4ac083d4426a9f",
+      "bytes": 1898,
+      "sha256": "e97017115ed883f7b935f72d3a3b28b6a0127eb3a16fb5748304369257f8ba07",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/UpdateAuthLinkDraftRequest.json",
         "/docs/references/schemas/UpdateOAuthClientResponse.json",
         "/docs/references/schemas/UpsertAccessControlRuleRequest.json",
         "/docs/references/schemas/UpsertAccessControlRuleResponse.json",
@@ -3530,15 +3592,15 @@
     {
       "path": "/docs/references/authorization.json",
       "contentType": "application/json",
-      "bytes": 34149,
-      "sha256": "a8d6a9c2fc3e0416b64f0c9712ce17ea564dd775966fe759c3b56b1294fc5b3f",
+      "bytes": 35360,
+      "sha256": "1a0c0b2cfe3052d78463641d55504eb5a1dd869e0ef6fe5f6e96d82b4b73b340",
       "links": []
     },
     {
       "path": "/docs/references/authorization.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 25377,
-      "sha256": "f8a4fe55a10dc330741b59d3ec980bd782f372083d45b8fa1ac16b4d31c86086",
+      "bytes": 26264,
+      "sha256": "c7fac5ecfc2a27bc1470f306679d66a4a5e02f85f8086b0fbcbfa4e6f6db2362",
       "links": []
     },
     {
@@ -7134,8 +7196,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 487661,
-      "sha256": "6acc541dd3c3f3f883f376619ad8b651f50d834fbc3bf35aee71b9f26507159d",
+      "bytes": 511574,
+      "sha256": "18b85e91051fb58cb548767d00cc8bc03acc28906881f8efa8af1ebff6767866",
       "links": []
     },
     {
@@ -7153,10 +7215,31 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/AccessControlConditionComparator.json",
+      "contentType": "application/json",
+      "bytes": 197,
+      "sha256": "a33cf8487d47db56d83fd271807a98c2a7d05f7619abd1b28ed10ddc7fb04e6d",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AccessControlConditionKey.json",
+      "contentType": "application/json",
+      "bytes": 277,
+      "sha256": "4f3608283c0b1b4dad472e1dfaad448ec34e000307fe04be935e0f6532937ccd",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/AccessControlEntity.json",
       "contentType": "application/json",
       "bytes": 657,
       "sha256": "eab12bb3afca1b9428bfeeccb7535ef6a238ffdbd645c8e8bad3a7e3b60b5fd4",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AccessControlOperationContext.json",
+      "contentType": "application/json",
+      "bytes": 1107,
+      "sha256": "f4fce37270247b05cc17d08a8f3ab270b06cd4504777a7d096a9f3f2a6497f45",
       "links": []
     },
     {
@@ -7176,8 +7259,15 @@
     {
       "path": "/docs/references/schemas/AccessControlRule.json",
       "contentType": "application/json",
-      "bytes": 1185,
-      "sha256": "c66f4586a61838d9a77e0d671aefa937ed054eabf219dcfddcd64c566d81dbd8",
+      "bytes": 1510,
+      "sha256": "e7785f33faf5e80436d7bf6353ff78466b1617c69c3f52cfd17adff39ea4d211",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AccessControlRuleCondition.json",
+      "contentType": "application/json",
+      "bytes": 755,
+      "sha256": "d515f944f9a9f422496556f95458492e66f66b877a2190251cbe26c30a2f0d51",
       "links": []
     },
     {
@@ -7288,8 +7378,22 @@
     {
       "path": "/docs/references/schemas/AuthLink.json",
       "contentType": "application/json",
-      "bytes": 950,
-      "sha256": "cbec37f80e3dee0ce86d2a12f117ef0f147a0c1aaf6dce3d627f9ae891e0bf4a",
+      "bytes": 1648,
+      "sha256": "9b9563edd8bab084343e89f1531fe56ec4656a132cc754b20b8dbaccc609078b",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthLinkClientCredentialSummaries.json",
+      "contentType": "application/json",
+      "bytes": 419,
+      "sha256": "c26c333b0bfa17d1d9e6f5804f699c0ea0aff66ff8a35d67d0837d06a3d9542d",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthLinkClientCredentialSummary.json",
+      "contentType": "application/json",
+      "bytes": 740,
+      "sha256": "83775305152a6f33baf9c90b9b8ffc8e579a55434de1f17f3374370c566ad25c",
       "links": []
     },
     {
@@ -7300,10 +7404,31 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/AuthLinkProviderConfiguration.json",
+      "contentType": "application/json",
+      "bytes": 568,
+      "sha256": "de2fe8ef58f9f40a63700a1128c468b16df5b50424db27022fc9e29d4c2ace1e",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthLinkReadiness.json",
+      "contentType": "application/json",
+      "bytes": 869,
+      "sha256": "e6993c51c7e1a559149cae0469472f117a2b981afdfb48be7bc614cb482f45d7",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/AuthLinkSecret.json",
       "contentType": "application/json",
-      "bytes": 234,
-      "sha256": "990b6f25eb0a8861b29ed925ceeedebb37f6196fd156de225bec83552ccee0a3",
+      "bytes": 332,
+      "sha256": "795b582349efe462210b9eac9264199ba464fd6d9b9aa4009cd45a692ce7939a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthLinkSecretRole.json",
+      "contentType": "application/json",
+      "bytes": 315,
+      "sha256": "d7fd32b2f6ccd5874ef60947de7391e5d7960f787183f1dc1c4203b3f34e5da7",
       "links": []
     },
     {
@@ -7311,6 +7436,13 @@
       "contentType": "application/json",
       "bytes": 149,
       "sha256": "8905d65ec6228d3ada65a98138315d2fdf61f242dc26a7478b9f594938ddffc5",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthLinkStatus.json",
+      "contentType": "application/json",
+      "bytes": 233,
+      "sha256": "a07806552ad5319fe7f51a47ccf1cb8f2667759a8ae796399d8bd0e14000afc3",
       "links": []
     },
     {
@@ -7337,15 +7469,15 @@
     {
       "path": "/docs/references/schemas/BasePlugin.json",
       "contentType": "application/json",
-      "bytes": 2806,
-      "sha256": "2355be63a55757421d51637360e959b25d49865682131deb2620795c8319db42",
+      "bytes": 3312,
+      "sha256": "cbf724693fa40390dc21e016661905a321ad027aefdbfb3e1a3d3f7c29edd8dd",
       "links": []
     },
     {
       "path": "/docs/references/schemas/BaseSecret.json",
       "contentType": "application/json",
-      "bytes": 506,
-      "sha256": "991b6421d80d1a81fa607630ceea4390bcd1c26cd68308781627cdb124c10bf7",
+      "bytes": 674,
+      "sha256": "29c6f8f7dafb664e312228ab70b4ec30c5aa75422806cb2f7ef2737c3089fc29",
       "links": []
     },
     {
@@ -7381,6 +7513,13 @@
       "contentType": "application/json",
       "bytes": 414,
       "sha256": "3b93c292058c87f9987792cf0645d4680b37944781882b9eca3c772a5e34cc12",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/CreateAuthLinkDraftRequest.json",
+      "contentType": "application/json",
+      "bytes": 2082,
+      "sha256": "c71b1fbae263cff825af9032ab26e353f30b637b61f253e203aa88cc295c541e",
       "links": []
     },
     {
@@ -7848,8 +7987,8 @@
     {
       "path": "/docs/references/schemas/EvaluateAccessControlRuleRequest.json",
       "contentType": "application/json",
-      "bytes": 625,
-      "sha256": "8ff5197789f84dddab2cab5354ed1233330f716604b42dbe3d7b3e6cee9969b3",
+      "bytes": 734,
+      "sha256": "2a65444f73307df9f4f0f609c0f6c7ce0f34e2efba11e88f5c485b1716021cf0",
       "links": []
     },
     {
@@ -7995,8 +8134,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 58434,
-      "sha256": "1d9c87a0b548e4da6036da65a35a1db3f7e695de3987526573e55b3c4fb28e14",
+      "bytes": 61915,
+      "sha256": "fa9594d00eef2f9aa2647c3bb23c0c4dc880f34179efef816036bb7103c9d0bf",
       "links": []
     },
     {
@@ -8280,6 +8419,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/PluginAuthorizationVariant.json",
+      "contentType": "application/json",
+      "bytes": 1344,
+      "sha256": "0af6c75f58c562d2f8d818761e24bf7f35499b886d2a357834b4e352a2652b96",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/PluginCapabilityInterface.json",
       "contentType": "application/json",
       "bytes": 342,
@@ -8382,6 +8528,13 @@
       "contentType": "application/json",
       "bytes": 274,
       "sha256": "84c9ede27de8cc5dd68956c9878796f8f86409ec8bc8461abec35b00d6445b80",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/PluginRegionalization.json",
+      "contentType": "application/json",
+      "bytes": 491,
+      "sha256": "9bbb9cd1877c4a160789f875b8ee0c60fe8d6a9bd8921a0fec78a9031019b305",
       "links": []
     },
     {
@@ -8721,6 +8874,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/UpdateAuthLinkDraftRequest.json",
+      "contentType": "application/json",
+      "bytes": 1683,
+      "sha256": "2f540a7b33a13591a7aca42a00cf9cd2c1399c8e4c670a6694cd3c22b0cf90b1",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/UpdateOAuthClientResponse.json",
       "contentType": "application/json",
       "bytes": 320,
@@ -8730,8 +8890,8 @@
     {
       "path": "/docs/references/schemas/UpsertAccessControlRuleRequest.json",
       "contentType": "application/json",
-      "bytes": 1685,
-      "sha256": "da8e709111471a004d1f644d385f1e5ad47615570875e750d6fdcb402ff81107",
+      "bytes": 2004,
+      "sha256": "358e86be44ef56cfa8210cb0230cbbab97aecced8c9fb92be78b7c2235309846",
       "links": []
     },
     {

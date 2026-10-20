@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "The operation-context attribute a rule condition compares against.",
+  "enum": [
+    "AUTH_VARIANT",
+    "REGIONALIZATION",
+    "TARGET_OPERATION",
+    "TARGET_IDENTITY_KIND"
+  ]
+}

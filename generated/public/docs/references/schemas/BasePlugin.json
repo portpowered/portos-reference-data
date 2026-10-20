@@ -91,6 +91,20 @@
         "$ref": "/docs/references/schemas/PluginCapabilityInterface.json"
       },
       "description": "Capability interfaces from plugin metadata (populated when expand=metadata)"
+    },
+    "authorizationVariants": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PluginAuthorizationVariant.json"
+      },
+      "description": "Authorization variants the plugin supports (populated when expand=metadata)"
+    },
+    "regionalizations": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PluginRegionalization.json"
+      },
+      "description": "Regionalizations the plugin supports (populated when expand=metadata)"
     }
   }
 }

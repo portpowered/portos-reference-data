@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "One way of authorizing a plugin, and what it needs from the customer.",
+  "required": [
+    "id",
+    "credentialSource",
+    "regionalizations",
+    "secretRoles",
+    "providerConfiguration"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The variant ID."
+    },
+    "credentialSource": {
+      "type": "string",
+      "description": "Whether Port OS or the customer owns the OAuth client.",
+      "enum": [
+        "PORT_OS",
+        "CUSTOMER"
+      ]
+    },
+    "regionalizations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of the regionalizations this variant supports."
+    },
+    "secretRoles": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AuthLinkSecretRole.json"
+      },
+      "description": "Secret roles a link of this variant needs."
+    },
+    "providerConfiguration": {
+      "type": "string",
+      "description": "The provider configuration this variant requires.",
+      "enum": [
+        "NONE",
+        "NEST_DEVICE_ACCESS"
+      ]
+    },
+    "guideSection": {
+      "type": "string",
+      "description": "Anchor of the documentation section describing how to set this variant up."
+    }
+  }
+}

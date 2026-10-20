@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Provider-specific, non-secret configuration of an auth link.",
+  "additionalProperties": false,
+  "properties": {
+    "nestDeviceAccess": {
+      "type": "object",
+      "description": "Google Nest Device Access configuration.",
+      "additionalProperties": false,
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]{1,128}$",
+          "description": "The Device Access project ID."
+        }
+      }
+    }
+  }
+}

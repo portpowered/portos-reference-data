@@ -4,7 +4,7 @@ POST `/plugin-oauth-authorizations`
 
 Begin plugin OAuth authorization
 
-Starts a state-managed provider connection for the authenticated principal. Requires the existing plugin-auth-code-exchange permission and, for renewal, auth-link-write on the exact selected connection. The configured provider and host must support the state-managed flow. Client credentials, scope, issuer, PKCE material and principal cannot be supplied by the caller.
+Starts a state-managed provider connection for the authenticated principal. Requires the plugin-establish-link permission and, for renewal, auth-link-write on the exact selected connection. The configured provider and host must support the state-managed flow. Client credentials, scope, issuer, PKCE material and principal cannot be supplied by the caller.
 The attempt expires after five minutes. The exact original URL/expiry may be replayed under the same Idempotency-Key for 24 hours, even after attempt expiry. Begin with a fresh key to obtain a new attempt; replay never extends it. Current authorization and renewal eligibility are checked before replay.
 
 ## Authorization
@@ -32,9 +32,9 @@ post:
   summary: Begin plugin OAuth authorization
   description: >-
     Starts a state-managed provider connection for the authenticated principal. Requires the
-    existing plugin-auth-code-exchange permission and, for renewal, auth-link-write on the exact
-    selected connection. The configured provider and host must support the state-managed flow.
-    Client credentials, scope, issuer, PKCE material and principal cannot be supplied by the caller.
+    plugin-establish-link permission and, for renewal, auth-link-write on the exact selected
+    connection. The configured provider and host must support the state-managed flow. Client
+    credentials, scope, issuer, PKCE material and principal cannot be supplied by the caller.
 
     The attempt expires after five minutes. The exact original URL/expiry may be replayed under the
     same Idempotency-Key for 24 hours, even after attempt expiry. Begin with a fresh key to obtain a
