@@ -201,6 +201,12 @@
     },
     {
       "kind": "schemas",
+      "name": "AuthorizationVariantEvents",
+      "path": "/docs/references/schemas/AuthorizationVariantEvents.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationVariantEvents"
+    },
+    {
+      "kind": "schemas",
       "name": "AuthResourceType",
       "path": "/docs/references/schemas/AuthResourceType.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthResourceType"

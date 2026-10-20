@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.11",
-  "sourceCommit": "84776b332f610d142592089e0d6c883a34b4647c",
+  "version": "0.5.12",
+  "sourceCommit": "2ac8334db979391a04cfa398d84c5a261313f748",
   "sourceInputState": "committed",
-  "assetSetSHA256": "24b0c3bda094832b3c0783802c80eadd59f1eeabd7b1f2c238f588076a5b6b3c",
+  "assetSetSHA256": "7eff9bda5a96d8c662146513e3737905ba572171878a50403359c04763f3a621",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1446,10 +1446,17 @@
       ]
     },
     {
+      "path": "/docs/for-ai/guides/google-nest.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5426,
+      "sha256": "6a879e05728abf253454581a2eaa8bac5534bbe21aafb7553a9a3d594c81f50e",
+      "links": []
+    },
+    {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3742,
-      "sha256": "c5863a1986085d4d8c85c37e6c55ebc3bd16c2cc4b63107d4199cccfba069192",
+      "bytes": 3862,
+      "sha256": "49069a89c02d141cffce9e1997ad0d8e6f3a3531cb646b59a291e181737f2710",
       "links": [
         "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
@@ -1462,6 +1469,7 @@
         "/docs/for-ai/guides/endpoint-permissions.md",
         "/docs/for-ai/guides/events-and-capabilities.md",
         "/docs/for-ai/guides/first-setup.md",
+        "/docs/for-ai/guides/google-nest.md",
         "/docs/for-ai/guides/lighting.md",
         "/docs/for-ai/guides/managing-devices.md",
         "/docs/for-ai/guides/managing-groups.md",
@@ -1479,6 +1487,7 @@
         "/docs/for-ai/guides/sign-in-and-connect-accounts.md",
         "/docs/for-ai/guides/skill-connected-home.md",
         "/docs/for-ai/guides/skill-setup.md",
+        "/docs/for-ai/guides/smartthings.md",
         "/docs/for-ai/guides/spotify.md",
         "/docs/for-ai/guides/task-battery.md",
         "/docs/for-ai/guides/task-cameras.md",
@@ -1684,6 +1693,13 @@
       "contentType": "text/plain; charset=utf-8",
       "bytes": 1706,
       "sha256": "b1a15003dcb1a79a86ad44ad8f7adc2b3eb27723330329bbe225a3ef1edaaa8c",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/smartthings.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4211,
+      "sha256": "bc86a5041b3000a28bf17e66c2fd1d7b286d527e8f95a52e4ff3c3cd1638f514",
       "links": []
     },
     {
@@ -3119,7 +3135,7 @@
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 2242,
-      "sha256": "fe27942752902969ebcd75b19ec722bf079fea79f09b8b450e1700d6b460e5a8",
+      "sha256": "1bc052bf53e93edc58f99c6aad7c67ec77894e49da23273e82886e93d206ae9f",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3148,8 +3164,8 @@
     {
       "path": "/docs/for-ai/schemas/a-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3243,
-      "sha256": "474a3733e76c01eb7db51268e20a1c9729d8e7fb52c87b1a77e7ce844fd133ec",
+      "bytes": 3342,
+      "sha256": "98d994e28650af17f308eb36ee87423916c30c746b81de54a7d5249e4af01106",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/AccessControlConditionComparator.json",
@@ -3181,6 +3197,7 @@
         "/docs/references/schemas/AuthLinkStatus.json",
         "/docs/references/schemas/AuthLinksList.json",
         "/docs/references/schemas/AuthResourceType.json",
+        "/docs/references/schemas/AuthorizationVariantEvents.json",
         "/docs/references/schemas/associatedAuthLinkId.json",
         "/docs/references/schemas/associatedEndpointId.json",
         "/docs/references/schemas/associatedPluginId.json",
@@ -7194,8 +7211,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 490802,
-      "sha256": "a53b612dba658cc3b71afebd25117ac56fd90386d8d86268b3c41e2ca957e889",
+      "bytes": 491490,
+      "sha256": "a7fef42ec842c3f167f4a4bd0498e0b0d59705324c527edca889ed0ab960f1a3",
       "links": []
     },
     {
@@ -7476,6 +7493,13 @@
       "contentType": "application/json",
       "bytes": 233,
       "sha256": "a07806552ad5319fe7f51a47ccf1cb8f2667759a8ae796399d8bd0e14000afc3",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthorizationVariantEvents.json",
+      "contentType": "application/json",
+      "bytes": 322,
+      "sha256": "4de5993a3289fbe26069b9b49c232397b92329099b68307ab2ccf80429989851",
       "links": []
     },
     {
@@ -8146,8 +8170,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 61523,
-      "sha256": "25d77dbe82edd1eb71b8907d24552449c92ffcddaea4c3d9ef78ae334687e870",
+      "bytes": 61774,
+      "sha256": "6fcf7483c2a7d59c16fe3aa17a1cedca7577211b254fa6a8f2478bdfeafb2bb0",
       "links": []
     },
     {
@@ -8433,8 +8457,8 @@
     {
       "path": "/docs/references/schemas/PluginAuthorizationVariant.json",
       "contentType": "application/json",
-      "bytes": 1344,
-      "sha256": "0af6c75f58c562d2f8d818761e24bf7f35499b886d2a357834b4e352a2652b96",
+      "bytes": 1454,
+      "sha256": "bf5225703b8f570d60981f843a0d7b3cc8f9c36c75027b072d54e781f1620a64",
       "links": []
     },
     {
@@ -8482,8 +8506,8 @@
     {
       "path": "/docs/references/schemas/PluginInvocationContext.json",
       "contentType": "application/json",
-      "bytes": 634,
-      "sha256": "f312379b263cbebbfab4e8035306fe676920dc50f42621e36a3d22df381bcd75",
+      "bytes": 947,
+      "sha256": "c9d6a5d8aa4a9720cd2d24b4dfc68ba6f453b740d78bb5c9df1e45bb8656aef2",
       "links": []
     },
     {

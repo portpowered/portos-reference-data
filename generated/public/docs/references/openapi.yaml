@@ -7903,6 +7903,12 @@ components:
           type: string
           x-go-type-skip-optional-pointer: true
           description: Auth link selected for the invocation, when one exists.
+        authorizationVariantId:
+          type: string
+          x-go-type-skip-optional-pointer: true
+          description: Authorization variant of the selected auth link, when one exists.
+        providerConfiguration:
+          $ref: '#/components/schemas/AuthLinkProviderConfiguration'
     SyntheticEventEndpoint:
       type: object
       additionalProperties: false
@@ -11591,6 +11597,15 @@ components:
         - USERNAME_PASSWORD
         - PUSH_CREDENTIALS
         - UNCLASSIFIED
+    AuthorizationVariantEvents:
+      type: string
+      description: Whether links of this variant deliver proactive events.
+      enum:
+        - SUPPORTED
+        - UNSUPPORTED
+      x-enum-varnames:
+        - AuthorizationVariantEventsSupported
+        - AuthorizationVariantEventsUnsupported
     PluginAuthorizationVariant:
       type: object
       description: One way of authorizing a plugin, and what it needs from the customer.
@@ -11600,6 +11615,7 @@ components:
         - regionalizations
         - secretRoles
         - providerConfiguration
+        - events
       properties:
         id:
           type: string
@@ -11629,6 +11645,8 @@ components:
         guideSection:
           type: string
           description: Anchor of the documentation section describing how to set this variant up.
+        events:
+          $ref: '#/components/schemas/AuthorizationVariantEvents'
     PluginRegionalization:
       type: object
       description: A provider region and its endpoints.

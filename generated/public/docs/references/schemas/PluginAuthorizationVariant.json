@@ -7,7 +7,8 @@
     "credentialSource",
     "regionalizations",
     "secretRoles",
-    "providerConfiguration"
+    "providerConfiguration",
+    "events"
   ],
   "properties": {
     "id": {
@@ -47,6 +48,9 @@
     "guideSection": {
       "type": "string",
       "description": "Anchor of the documentation section describing how to set this variant up."
+    },
+    "events": {
+      "$ref": "/docs/references/schemas/AuthorizationVariantEvents.json"
     }
   }
 }

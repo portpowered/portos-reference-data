@@ -15,6 +15,14 @@
       "type": "string",
       "x-go-type-skip-optional-pointer": true,
       "description": "Auth link selected for the invocation, when one exists."
+    },
+    "authorizationVariantId": {
+      "type": "string",
+      "x-go-type-skip-optional-pointer": true,
+      "description": "Authorization variant of the selected auth link, when one exists."
+    },
+    "providerConfiguration": {
+      "$ref": "/docs/references/schemas/AuthLinkProviderConfiguration.json"
     }
   }
 }

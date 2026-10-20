@@ -14,6 +14,9 @@ const loopback = new Set(['127.0.0.1', '0.0.0.0', '::1', '[::1]']);
 const standards = new Set(['json-schema.org', 'datatracker.ietf.org', 'www.rfc-editor.org', 'spec.openapis.org']);
 const providers = new Set([
   'developer.spotify.com',
+  'console.cloud.google.com',
+  'console.nest.google.com',
+  'developer.smartthings.com',
   'api.sonos.com',
   'apigw.iotbing.com',
   'www.amazon.com',
