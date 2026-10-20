@@ -14,3 +14,10 @@
 - [OpenAPI](/docs/references/openapi.yaml)
 - [Capabilities](/docs/for-ai/capability-interfaces.md)
 - [Authorization](/docs/for-ai/guides/authorization-rules.md)
+
+## Blog
+
+- [All posts](/blog/): articles on connecting AI assistants to devices; the guides above stay canonical.
+- [RSS feed](/blog/rss.xml)
+- [How the Port OS MCP integration works](/blog/how-the-port-os-mcp-integration-works/): A high-level look at how an AI client discovers your devices, asks for permission and sends commands through Port OS over MCP.
+- [What is Port OS? Connect your AI assistant to your devices](/blog/what-is-port-os/): Port OS gives AI assistants like ChatGPT and Claude one permissioned interface to your connected devices, instead of one integration per vendor.

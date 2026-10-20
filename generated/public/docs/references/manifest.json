@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.13",
-  "sourceCommit": "1c459dd30d729f388eceff5a278d2c37656dd102",
+  "version": "0.5.14",
+  "sourceCommit": "77afd03e31379002dca3dd175bc58ea2bb2f20e6",
   "sourceInputState": "committed",
-  "assetSetSHA256": "ecf9f9a7f000c39e2536c21975e225a470376c0023dc29ea503a7f54cd0e97ab",
+  "assetSetSHA256": "5d1469cdfd5d5c4c2731d951f34091cbe761f8fa2676e939afa4c9019f1b0819",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -9059,9 +9059,13 @@
     {
       "path": "/llms.txt",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 648,
-      "sha256": "c8de30ce6ca8003490f292f4730c96c045679ab95cae1b679b112515c7881140",
+      "bytes": 1240,
+      "sha256": "768514a130eb2ab472932fe8e0cf5eb00e1f33bae4e98d34023527049f366408",
       "links": [
+        "/blog/",
+        "/blog/how-the-port-os-mcp-integration-works/",
+        "/blog/rss.xml",
+        "/blog/what-is-port-os/",
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
