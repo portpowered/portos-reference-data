@@ -12642,6 +12642,7 @@
           "INVALID_PROVIDER_RESPONSE",
           "OUTCOME_UNKNOWN",
           "PRECONDITION_FAILED",
+          "AUTH_LINK_NOT_READY",
           "PRECONDITION_REQUIRED",
           "IDEMPOTENCY_KEY_REQUIRED",
           "IDEMPOTENCY_KEY_REUSED",
@@ -16765,7 +16766,7 @@
             "maxLength": 2048
           }
         ],
-        "description": "Existing connection to renew. Omit for a new connection. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Renewal preserves the connection and its endpoint/route identities."
+        "description": "Existing auth link to authorize: a DRAFT is activated in place (same ID), a CONNECTED link is renewed. Omit only for plugins with a single authorization variant. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Activation and renewal preserve the link and its endpoint/route identities."
       },
       "PluginOAuthCompletionResponse": {
         "type": "object",
@@ -16869,7 +16870,7 @@
                 "maxLength": 2048
               }
             ],
-            "description": "Existing connection to renew. Omit for a new connection. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Renewal preserves the connection and its endpoint/route identities."
+            "description": "Existing auth link to authorize: a DRAFT is activated in place (same ID), a CONNECTED link is renewed. Omit only for plugins with a single authorization variant. It must belong to the authenticated principal, reference this plugin and permit auth-link-write. Activation and renewal preserve the link and its endpoint/route identities."
           },
           "redirectUri": {
             "type": "string",

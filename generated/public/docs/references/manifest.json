@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.6",
-  "sourceCommit": "9d2ea6c54c108bc3c32944d230dc1bed43bc56d2",
+  "version": "0.5.7",
+  "sourceCommit": "ebf3d7e71fc1265ae5b00ff6090c3650e7dab893",
   "sourceInputState": "committed",
-  "assetSetSHA256": "7efb893d4c2121715bf801beb52c62d4d9fdb234968bbff844f6e5ec7df9412c",
+  "assetSetSHA256": "b29168fe03c542ca8223ff4578ea864f1f6610c096ddaa39e25ddd412461f945",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1454,8 +1454,8 @@
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3524,
-      "sha256": "4f69a44b7831e54a078be18f5e1bef0aabbc897b2d784a70e1e596290754a939",
+      "bytes": 3576,
+      "sha256": "2e1d1206a52a2da368b5757c2f2ff514b4da3264bd5cbf3287d028af7043747a",
       "links": [
         "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
@@ -1483,6 +1483,7 @@
         "/docs/for-ai/guides/reading-the-docs.md",
         "/docs/for-ai/guides/skill-connected-home.md",
         "/docs/for-ai/guides/skill-setup.md",
+        "/docs/for-ai/guides/spotify.md",
         "/docs/for-ai/guides/task-battery.md",
         "/docs/for-ai/guides/task-cameras.md",
         "/docs/for-ai/guides/task-discovery.md",
@@ -1670,6 +1671,13 @@
       "contentType": "text/plain; charset=utf-8",
       "bytes": 1706,
       "sha256": "b1a15003dcb1a79a86ad44ad8f7adc2b3eb27723330329bbe225a3ef1edaaa8c",
+      "links": []
+    },
+    {
+      "path": "/docs/for-ai/guides/spotify.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4756,
+      "sha256": "2c0496e32385b3b0bafb83e293953e4a20a48e81d46e62b3998a5464daf9ed05",
       "links": []
     },
     {
@@ -7196,8 +7204,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 511574,
-      "sha256": "18b85e91051fb58cb548767d00cc8bc03acc28906881f8efa8af1ebff6767866",
+      "bytes": 511850,
+      "sha256": "45e3fa624d36084244b2868f268700628374745622ed47ca8a9982e6bc6a5fa9",
       "links": []
     },
     {
@@ -7399,8 +7407,8 @@
     {
       "path": "/docs/references/schemas/authLinkId.json",
       "contentType": "application/json",
-      "bytes": 477,
-      "sha256": "d57f4e761b4abbc211e4aae29a65b1183e9b6ca8a606841962a270a4cedddf1f",
+      "bytes": 590,
+      "sha256": "4261c79e97acc6d581de39358b59789ab37e45db0582d92b7f6db3552ba3dbd9",
       "links": []
     },
     {
@@ -7931,8 +7939,8 @@
     {
       "path": "/docs/references/schemas/ErrorCode.json",
       "contentType": "application/json",
-      "bytes": 2820,
-      "sha256": "e184ab92c7b24e25d32c62c4bee5649483613c6845712952ecd051b14cb07c3b",
+      "bytes": 2847,
+      "sha256": "8ddb0e3d2c54665f406ee508ddd1c78e9e6b1d333f336690f24a060564327859",
       "links": []
     },
     {
@@ -8498,8 +8506,8 @@
     {
       "path": "/docs/references/schemas/PluginOAuthAuthorizationRequest.json",
       "contentType": "application/json",
-      "bytes": 1214,
-      "sha256": "c0ec46899469e6e51310de99799d68d3c7fc2a75315b4789696633b5330d0134",
+      "bytes": 1327,
+      "sha256": "6867db112121b2b5c1462340eb776ad0d1efa705761f96f2a1ebaed1a311da33",
       "links": []
     },
     {

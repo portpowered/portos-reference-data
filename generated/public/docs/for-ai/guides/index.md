@@ -26,6 +26,7 @@ This is a directory, not a required reading checklist. For a new REST connection
 - [Port OS concepts](/docs/for-ai/guides/port-os-concepts.md)
 - [Verify the connection and control one light](/docs/for-ai/guides/quickstart.md)
 - [Reading the Port OS documentation](/docs/for-ai/guides/reading-the-docs.md)
+- [Connect Spotify](/docs/for-ai/guides/spotify.md)
 - [Control thermostat settings](/docs/for-ai/guides/thermostats.md)
 - [Recover from connection and device failures](/docs/for-ai/guides/troubleshooting.md)
 - [Using the REST API](/docs/for-ai/guides/using-the-api.md)
