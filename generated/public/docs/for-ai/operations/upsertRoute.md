@@ -4,7 +4,7 @@ POST `/routes`
 
 Upsert Route
 
-Creates or updates a route
+Creates or updates a route.
 
 ## Authorization
 
@@ -29,7 +29,7 @@ post:
   operationId: upsertRoute
   tags:
     - Routes
-  description: Creates or updates a route
+  description: Creates or updates a route.
   requestBody:
     required: true
     content:

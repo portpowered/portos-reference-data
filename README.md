@@ -27,6 +27,8 @@ for the ownership map and publisher decisions.
 
 The documentation package omits generated descriptions beginning with `Schema for`, while preserving useful field descriptions and all validation properties. `descriptions.json` supplies capability introductions independently of validation rules. Edit it for concise customer-facing copy, then regenerate.
 
+`generated/` is grouped by consumer: `openapi/openapi.json`, `capabilities/capabilities.json`, `guides/guides.json`, `resources/<capability>/*.json` and the byte-for-byte public tree in `public/`. The package export names (`./openapi`, `./capabilities`, `./guides`, `./resources/*`, `./public/*`) are the stable contract; import through them, never through a `generated/` path. The Go module embeds and serves only `generated/public`, so that directory must not move without an `assets.go` change.
+
 Never edit generated JSON manually. Regeneration removes obsolete resources when capabilities or members are removed or renamed.
 
 The manifest records the canonical input snapshot's `sourceCommit` and `sourceInputState`; inputs are identified by that revision, never by a content hash, and drift is found by regenerating and diffing. Local development can record inputs modified from the base commit; publication requires `sourceInputState: committed`. After committing canonical changes, record that commit and regenerate before preparing the public tag. This keeps ordinary builds possible before publication and avoids embedding a self-referential release commit. Default-version aliases explicitly record `aliasOf` and have exactly the canonical file's bytes; Markdown `links` describe navigation relationships.

@@ -4,7 +4,7 @@ DELETE `/routes`
 
 Delete Route
 
-Deletes a route
+Deletes a route.
 
 ## Authorization
 
@@ -29,7 +29,7 @@ delete:
   operationId: deleteRoute
   tags:
     - Routes
-  description: Deletes a route
+  description: Deletes a route.
   requestBody:
     required: true
     content:

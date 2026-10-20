@@ -4,7 +4,10 @@ POST `/endpoint-groups-manage`
 
 Manage endpoint groups atomically
 
-Applies a bounded list (max 20) of static endpoint group management operations (`CREATE_GROUP`, `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`, `REMOVE_MEMBERS`, `MERGE_INTO`) atomically in one transaction. Every operation that modifies an existing group carries the group's `etag`, which is compared inside the transaction. Item outcomes are returned with HTTP 200 in a `status`/`results`/`errors` envelope correlated by `requestId`; non-200 statuses are reserved for request-level failures. `Idempotency-Key` is required unless `validateOnly` is true; a committed response is replayed for 24 hours for the same principal, key and payload. Physical control is never part of this request; use `POST /messages`.
+Applies a bounded list (max 20) of endpoint group management operations atomically in one transaction.
+The operations are `CREATE_GROUP`, `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`, `REMOVE_MEMBERS` and `MERGE_INTO`. Every operation that modifies an existing group carries the group's `etag`, which is compared inside the transaction.
+Item outcomes are returned with HTTP 200 in a `status`/`results`/`errors` envelope correlated by `requestId`; non-200 statuses are reserved for request-level failures. `Idempotency-Key` is required unless `validateOnly` is true; a committed response is replayed for 24 hours for the same principal, key and payload.
+Physical control is never part of this request; use `POST /messages`.
 
 
 ## Authorization
@@ -32,14 +35,19 @@ post:
     - Endpoint Groups
   summary: Manage endpoint groups atomically
   description: >
-    Applies a bounded list (max 20) of static endpoint group management operations (`CREATE_GROUP`,
-    `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`, `REMOVE_MEMBERS`, `MERGE_INTO`) atomically in one
-    transaction. Every operation that modifies an existing group carries the group's `etag`, which
-    is compared inside the transaction. Item outcomes are returned with HTTP 200 in a
-    `status`/`results`/`errors` envelope correlated by `requestId`; non-200 statuses are reserved
-    for request-level failures. `Idempotency-Key` is required unless `validateOnly` is true; a
-    committed response is replayed for 24 hours for the same principal, key and payload. Physical
-    control is never part of this request; use `POST /messages`.
+    Applies a bounded list (max 20) of endpoint group management operations atomically in one
+    transaction.
+
+    The operations are `CREATE_GROUP`, `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`, `REMOVE_MEMBERS`
+    and `MERGE_INTO`. Every operation that modifies an existing group carries the group's `etag`,
+    which is compared inside the transaction.
+
+    Item outcomes are returned with HTTP 200 in a `status`/`results`/`errors` envelope correlated by
+    `requestId`; non-200 statuses are reserved for request-level failures. `Idempotency-Key` is
+    required unless `validateOnly` is true; a committed response is replayed for 24 hours for the
+    same principal, key and payload.
+
+    Physical control is never part of this request; use `POST /messages`.
   security:
     - oauth2:
         - group:manage

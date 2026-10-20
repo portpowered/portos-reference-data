@@ -4,7 +4,7 @@ POST `/{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/add-m
 
 Add members to an endpoint group
 
-Adds one or more endpoint members to an existing endpoint group
+Adds one or more endpoint members to an existing endpoint group.
 
 ## Authorization
 
@@ -32,7 +32,7 @@ post:
   tags:
     - Endpoint Groups
   summary: Add members to an endpoint group
-  description: Adds one or more endpoint members to an existing endpoint group
+  description: Adds one or more endpoint members to an existing endpoint group.
   security:
     - oauth2:
         - group:manage

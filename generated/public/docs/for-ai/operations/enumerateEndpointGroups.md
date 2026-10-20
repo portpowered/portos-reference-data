@@ -4,7 +4,7 @@ GET `/endpoint-groups`
 
 List endpoint groups
 
-Lists all available endpoint groups for the authenticated user
+Lists all available endpoint groups for the authenticated user.
 
 ## Authorization
 
@@ -30,7 +30,7 @@ get:
   tags:
     - Endpoint Groups
   summary: List endpoint groups
-  description: Lists all available endpoint groups for the authenticated user
+  description: Lists all available endpoint groups for the authenticated user.
   security:
     - oauth2:
         - group:read

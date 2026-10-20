@@ -4,7 +4,7 @@ POST `/endpoint-groups`
 
 Create an endpoint group
 
-Creates a new endpoint group
+Creates a new endpoint group.
 
 ## Authorization
 
@@ -30,7 +30,7 @@ post:
   tags:
     - Endpoint Groups
   summary: Create an endpoint group
-  description: Creates a new endpoint group
+  description: Creates a new endpoint group.
   security:
     - oauth2:
         - group:manage

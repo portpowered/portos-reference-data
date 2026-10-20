@@ -1,6 +1,6 @@
 {
   "name": "@portpowered/reference-data",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -17,9 +17,9 @@
     "scripts/validate-public-assets.mjs"
   ],
   "exports": {
-    "./capabilities": "./generated/capabilities.json",
-    "./openapi": "./generated/openapi.json",
-    "./guides": "./generated/guides.json",
+    "./capabilities": "./generated/capabilities/capabilities.json",
+    "./openapi": "./generated/openapi/openapi.json",
+    "./guides": "./generated/guides/guides.json",
     "./public/*": "./generated/public/*",
     "./resources/*": "./generated/resources/*"
   },

@@ -4,7 +4,7 @@ DELETE `/endpoints`
 
 Delete Endpoint
 
-Deletes an endpoint
+Deletes an endpoint.
 
 ## Authorization
 
@@ -29,7 +29,7 @@ delete:
   operationId: deleteEndpoint
   tags:
     - Endpoints
-  description: Deletes an endpoint
+  description: Deletes an endpoint.
   requestBody:
     required: true
     content:

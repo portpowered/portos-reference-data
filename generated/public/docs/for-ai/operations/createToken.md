@@ -4,7 +4,9 @@ POST `/tokens`
 
 Create Token
 
-Creates an expiring, revocable bearer access key for the caller. The raw JWT is returned only once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth consent, or API for automation (the default). Website keys cannot have restricted scopes, expire within seven days and require an existing Google or Apple account session to create. Vended and delegated credentials cannot create independent replacement keys. Website keys cannot be refreshed or exchanged for identity sessions. OAuth connections approved with a website key are independently revocable. Subject must be ~self or the authenticated principal's own identifier.
+Creates an expiring, revocable bearer access key for the caller.
+The raw JWT is returned only once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth consent, or API for automation (the default). Subject must be ~self or the authenticated principal's own identifier.
+Website keys cannot have restricted scopes, expire within seven days and require an existing Google or Apple account session to create. Vended and delegated credentials cannot create independent replacement keys. Website keys cannot be refreshed or exchanged for identity sessions. OAuth connections approved with a website key are independently revocable.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -32,13 +34,16 @@ post:
   tags:
     - Tokens
   description: >-
-    Creates an expiring, revocable bearer access key for the caller. The raw JWT is returned only
-    once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth consent, or
-    API for automation (the default). Website keys cannot have restricted scopes, expire within
-    seven days and require an existing Google or Apple account session to create. Vended and
-    delegated credentials cannot create independent replacement keys. Website keys cannot be
-    refreshed or exchanged for identity sessions. OAuth connections approved with a website key are
-    independently revocable. Subject must be ~self or the authenticated principal's own identifier.
+    Creates an expiring, revocable bearer access key for the caller.
+
+    The raw JWT is returned only once. Use purpose WEBSITE_LOGIN for full-account website sign-in
+    and explicit OAuth consent, or API for automation (the default). Subject must be ~self or the
+    authenticated principal's own identifier.
+
+    Website keys cannot have restricted scopes, expire within seven days and require an existing
+    Google or Apple account session to create. Vended and delegated credentials cannot create
+    independent replacement keys. Website keys cannot be refreshed or exchanged for identity
+    sessions. OAuth connections approved with a website key are independently revocable.
 
 
 

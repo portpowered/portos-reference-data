@@ -1,3 +1,6 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import path from 'node:path';
+
 // Public output must not name hosts that customers cannot use. An internal Cloud Run host
 // (`*.run.app`), a retired domain (`portpowered.com`) or a stray TLD (`*.lol`) in an example is
 // copied into SDKs and agent prompts, so generation fails instead of publishing it.
@@ -43,4 +46,22 @@ export function disallowedHosts(text) {
     if (!isAllowedHost(host)) found.add(host.replace(/\.+$/, ''));
   }
   return [...found].sort();
+}
+
+// Source contracts that reach customers without passing through generated output (the MCP
+// catalog and event protocol schemas under `api/mcp`) obey the same host rule. Returns
+// `path: host` entries, relative to `directory`, for every file naming a disallowed host.
+export function disallowedHostsInTree(directory) {
+  const found = [];
+  const visit = current => {
+    for (const entry of readdirSync(current, { withFileTypes: true })) {
+      const filename = path.join(current, entry.name);
+      if (entry.isDirectory()) visit(filename);
+      else for (const host of disallowedHosts(readFileSync(filename, 'utf8'))) {
+        found.push(`${path.relative(directory, filename).replaceAll('\\', '/')}: ${host}`);
+      }
+    }
+  };
+  visit(directory);
+  return found.sort();
 }

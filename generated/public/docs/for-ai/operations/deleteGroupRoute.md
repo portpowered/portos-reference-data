@@ -4,7 +4,7 @@ DELETE `/{namespace}/{principalType}/{principalId}/group-routes/{groupId}`
 
 Delete a group route
 
-Deletes a group route by ID
+Deletes a group route by ID.
 
 ## Authorization
 
@@ -30,7 +30,7 @@ delete:
   tags:
     - Endpoint Group Routes
   summary: Delete a group route
-  description: Deletes a group route by ID
+  description: Deletes a group route by ID.
   security:
     - oauth2:
         - group:manage

@@ -4,7 +4,7 @@ POST `/{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/remov
 
 Remove members from an endpoint group
 
-Removes one or more endpoint members from an existing endpoint group
+Removes one or more endpoint members from an existing endpoint group.
 
 ## Authorization
 
@@ -32,7 +32,7 @@ post:
   tags:
     - Endpoint Groups
   summary: Remove members from an endpoint group
-  description: Removes one or more endpoint members from an existing endpoint group
+  description: Removes one or more endpoint members from an existing endpoint group.
   security:
     - oauth2:
         - group:manage

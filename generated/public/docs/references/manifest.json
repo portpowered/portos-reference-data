@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.12",
-  "sourceCommit": "2ac8334db979391a04cfa398d84c5a261313f748",
+  "version": "0.5.13",
+  "sourceCommit": "1c459dd30d729f388eceff5a278d2c37656dd102",
   "sourceInputState": "committed",
-  "assetSetSHA256": "7eff9bda5a96d8c662146513e3737905ba572171878a50403359c04763f3a621",
+  "assetSetSHA256": "ecf9f9a7f000c39e2536c21975e225a470376c0023dc29ea503a7f54cd0e97ab",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1853,8 +1853,8 @@
     {
       "path": "/docs/for-ai/operations/addEndpointGroupMembers.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4756,
-      "sha256": "5b2f413deec370c1b5c918aa500143016574c22e98288fd0a47487a6a8d353ad",
+      "bytes": 4758,
+      "sha256": "8681ce676d4cb484f90b260e4f0b09bc43e5b94e70ad4b374c9f1fc34ea661c6",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1930,8 +1930,8 @@
     {
       "path": "/docs/for-ai/operations/createEndpointGroup.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3054,
-      "sha256": "6cbe971f41ee7500e3afd426bf5d90e7bf2c9ed06011d582b14252dd989033eb",
+      "bytes": 3056,
+      "sha256": "e9ddd43f771336d249d171b5e770f41262cd70608809a2c5d28c3b68fcfe306a",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -1969,8 +1969,8 @@
     {
       "path": "/docs/for-ai/operations/createToken.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3422,
-      "sha256": "7d18355c91136c5990503521d996cfd0fb82bd133e084371121ada7a5188479f",
+      "bytes": 3428,
+      "sha256": "0252f8855fae605601842f5893ebed5e2aff74fcd0489f4ffe4989a169451c6e",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2002,8 +2002,8 @@
     {
       "path": "/docs/for-ai/operations/deleteEndpoint.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1309,
-      "sha256": "37d99547a4f19b7fd4da9f59cb6efda40d50725104112a2cd4d3ec65450d9a56",
+      "bytes": 1311,
+      "sha256": "c5a1437eb43aee54fa15ee0d4f13e9394918bbfa193c48a5c3bb3c746094b315",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2036,8 +2036,8 @@
     {
       "path": "/docs/for-ai/operations/deleteGroupRoute.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3284,
-      "sha256": "57615f59111d00843232168ee7929326925254d3e3260199ec69431a06251acd",
+      "bytes": 3286,
+      "sha256": "1f6a4e01b0c34f69933cb138a583b67cc4f49d97fa5b3e3e11d4ed594819a180",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2078,8 +2078,8 @@
     {
       "path": "/docs/for-ai/operations/deleteRoute.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1260,
-      "sha256": "c2dd51b295764298210b4a9d76e73e2944283a85738d39495c7b6dc6828b78fd",
+      "bytes": 1262,
+      "sha256": "5f920f00a1f3866cb0ac34b1bcbc0d9dfa30b052b443e9fc6527fcd952acc0ba",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2144,8 +2144,8 @@
     {
       "path": "/docs/for-ai/operations/endpointGroupsManage.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 6696,
-      "sha256": "21ffe2389413cb00f5bcd3c5bf4c1fb35e911cfcadac795bbad78201e3c79d44",
+      "bytes": 6735,
+      "sha256": "306a13a46ee74d36aa5083bf6295a155b3ec5cf94f96a731374f264fb28c6c47",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2158,8 +2158,8 @@
     {
       "path": "/docs/for-ai/operations/endpointQuery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5937,
-      "sha256": "1de6428c275b81b4d53f6f4779a4bb4208deed4342d2321496a45f587f0a6283",
+      "bytes": 5944,
+      "sha256": "9e9935be0d48b8cc747ee2247351befa0343e36a18d6357bc3fccf356b4d1efe",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2198,8 +2198,8 @@
     {
       "path": "/docs/for-ai/operations/enumerateEndpointGroups.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4210,
-      "sha256": "983acdb007dcf0b31b01887859d85a15958acd003267602a01e0aa76743ce12b",
+      "bytes": 4212,
+      "sha256": "3c12436b79ab704e5002bccdf0b43abdb5eafbe56b080bbe86ff235ef4978faf",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2887,8 +2887,8 @@
     {
       "path": "/docs/for-ai/operations/removeEndpointGroupMembers.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4805,
-      "sha256": "506429d12a3f24ccceeb8552c97ced92ee46407851cd0f3d5668b2a2d411f32b",
+      "bytes": 4807,
+      "sha256": "0ba660fb90d0a5a485a2c1c06a5d6ea1c21f714bfaf717edc7973470fcc8fae6",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2960,8 +2960,8 @@
     {
       "path": "/docs/for-ai/operations/setEndpointGroupName.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4702,
-      "sha256": "10408e651315771953ae42bd9536278f73a01cf7065eb6f8799c155ca3b01e9d",
+      "bytes": 4704,
+      "sha256": "59da5b4cba748013c7d3f7b4efc426a68a59f195147a84663de70f6f2b59b102",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2974,8 +2974,8 @@
     {
       "path": "/docs/for-ai/operations/synchronizeRoutes.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8097,
-      "sha256": "da7dd3d361e3dcd9ab124cc9c6f78d4a9e40afc7ebbe6fd30ae7e511a8d7a12b",
+      "bytes": 8101,
+      "sha256": "e528686fd65bd2d68c1c8a6647c20fb14f6e3d2e3575d79fd0e7825a50b13d42",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -3038,8 +3038,8 @@
     {
       "path": "/docs/for-ai/operations/upsertEndpoint.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1420,
-      "sha256": "8642e6c211f54c1bf704cca4d94b0442cee8199df6c93a63a7f48f57fd24717d",
+      "bytes": 1422,
+      "sha256": "8b58e27333c8a3ccbc07b04531b3ccef38f07e3ccb533b90247db647cb49e692",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -3073,8 +3073,8 @@
     {
       "path": "/docs/for-ai/operations/upsertRoute.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1397,
-      "sha256": "1de76c72b9e0f77f36a0843b2b2956c964e5ef88642c393821a9594d961a4737",
+      "bytes": 1399,
+      "sha256": "4993567357299b0bcc853091d6008f03983757d5bf07b23e7a66f46ac08a473d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -7211,8 +7211,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 491490,
-      "sha256": "a7fef42ec842c3f167f4a4bd0498e0b0d59705324c527edca889ed0ab960f1a3",
+      "bytes": 491530,
+      "sha256": "b43fd0cb3071d12831b4dfdb9dbb2851f2b82f6fadf5162d5f3011ea5de48136",
       "links": []
     },
     {

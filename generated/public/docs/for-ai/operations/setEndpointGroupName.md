@@ -4,7 +4,7 @@ POST `/{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}/set-n
 
 Set endpoint group name
 
-Sets the name of an endpoint group
+Sets the name of an endpoint group.
 
 ## Authorization
 
@@ -30,7 +30,7 @@ post:
   tags:
     - Endpoint Groups
   summary: Set endpoint group name
-  description: Sets the name of an endpoint group
+  description: Sets the name of an endpoint group.
   security:
     - oauth2:
         - group:manage

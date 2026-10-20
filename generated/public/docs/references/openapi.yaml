@@ -679,7 +679,7 @@ paths:
       operationId: upsertEndpoint
       tags:
         - Endpoints
-      description: Creates or updates an endpoint
+      description: Creates or updates an endpoint.
       requestBody:
         required: true
         content:
@@ -756,7 +756,7 @@ paths:
       operationId: deleteEndpoint
       tags:
         - Endpoints
-      description: Deletes an endpoint
+      description: Deletes an endpoint.
       requestBody:
         required: true
         content:
@@ -785,19 +785,22 @@ paths:
       tags:
         - Endpoints
       description: >-
-        Return a bounded page of authorized endpoints matching the shared Query expression. An empty
-        query and filters such as type or interfaces default to enabled endpoints owned by the
-        caller. An explicit ownerId, groupId, or required exact id selector can include readable
+        Return a bounded page of authorized endpoints matching the shared Query expression.
+
+        An empty query and filters such as type or interfaces default to enabled endpoints owned by
+        the caller. An explicit ownerId, groupId, or required exact id selector can include readable
         endpoints owned by others; endpoint-read permission is still required for each result.
         Collections exclude disabled endpoints unless enablement is filtered, while a query that
         requires specific exact endpoint IDs can return disabled endpoint metadata without an
-        enablement filter. See the request schema for supported fields and operators. Use groupId to
-        select members of a readable room/group, then intersect type or declared interfaces to
-        select lights. Group predicates additionally require group:read for delegated OAuth. Repeat
-        the complete query settings and grant when following nextToken; cursors expire after fifteen
-        minutes. Device attributes are returned only when expanded. Report per-target command
-        acceptance and observed state separately; querying a group does not grant permission to
-        control its members.
+        enablement filter. See the request schema for supported fields and operators.
+
+        Use groupId to select members of a readable room/group, then intersect type or declared
+        interfaces to select lights. Group predicates additionally require group:read for delegated
+        OAuth. Repeat the complete query settings and grant when following nextToken; cursors expire
+        after fifteen minutes. Device attributes are returned only when expanded.
+
+        Report per-target command acceptance and observed state separately; querying a group does
+        not grant permission to control its members.
       x-portos-conditional-scopes:
         groupId:
           - group:read
@@ -1964,7 +1967,7 @@ paths:
       operationId: deleteRoute
       tags:
         - Routes
-      description: Deletes a route
+      description: Deletes a route.
       requestBody:
         required: true
         content:
@@ -1991,7 +1994,7 @@ paths:
       operationId: upsertRoute
       tags:
         - Routes
-      description: Creates or updates a route
+      description: Creates or updates a route.
       requestBody:
         required: true
         content:
@@ -2023,15 +2026,16 @@ paths:
       summary: Synchronize Plugin Routes via Discovery
       operationId: synchronizeRoutes
       description: >-
-        Triggers route synchronization for a plugin. When a plugin connected to Port OS wants to
-        report the routes available on it, it dispatches a discovery payload. The server reconciles
-        the reported routes with its internal state. For newly persisted synchronized routes, the
-        server can assign a backend-generated, owner-scoped Port OS route `id`; a client-supplied
-        route `id` in the discovery payload is advisory and is not the stable lookup surface for
-        plugin capability parity. Consumers that need to match synchronized plugin or fixture routes
-        after enumeration should use `associatedPluginRouteId`, which preserves the plugin-owned
-        route identity.
+        Triggers route synchronization for a plugin.
 
+        When a plugin connected to Port OS wants to report the routes available on it, it dispatches
+        a discovery payload. The server reconciles the reported routes with its internal state.
+
+        For newly persisted synchronized routes, the server can assign a backend-generated,
+        owner-scoped Port OS route `id`; a client-supplied route `id` in the discovery payload is
+        advisory and is not the stable lookup surface for plugin capability parity. Consumers that
+        need to match synchronized plugin or fixture routes after enumeration should use
+        `associatedPluginRouteId`, which preserves the plugin-owned route identity.
 
         Every route and group-route interface must name a capability interface and exact version
         from the capability-interface library, its `configuration` must conform to that interface's
@@ -2040,21 +2044,20 @@ paths:
         schema. Any nonconforming item rejects the whole request with 400; `errors` lists every
         rejected item keyed by `pluginRouteId`. Nothing is persisted.
 
-
         Group routes and relationships are keyed by plugin-owned identity within the plugin and auth
         link and are created or updated, never removed because they are omitted. A `pluginRouteId`
         must be unique across routes and group routes (`PLUGIN_ROUTE_ID_CONFLICT`). Group-route
         members and relationship vertices must resolve to routes or group routes of the same plugin
-        and auth link, committed or in the same request (`UNRESOLVED_REFERENCE`). `IS_PART_OF` joins
-        two group routes and is acyclic (`RELATIONSHIP_CYCLE`) with at most one parent per group
-        route (`MULTIPLE_PARENTS`); `CAN_CONTROL` and `LOCATED_IN` join a route to a group route;
-        self-edges and other shapes are `INVALID_RELATIONSHIP`. Only `CAN_CONTROL` carries
-        `interfaces`, which must name interfaces and inbound messages the source route declares
-        (`MESSAGE_UNSUPPORTED`). Relationship items are keyed by `relationshipExternalId`. A newly
-        reported group route creates its own endpoint group named after it; rediscovery keeps group
-        IDs, merges and user renames.
+        and auth link, committed or in the same request (`UNRESOLVED_REFERENCE`).
 
+        `IS_PART_OF` joins two group routes and is acyclic (`RELATIONSHIP_CYCLE`) with at most one
+        parent per group route (`MULTIPLE_PARENTS`); `CAN_CONTROL` and `LOCATED_IN` join a route to
+        a group route; self-edges and other shapes are `INVALID_RELATIONSHIP`. Only `CAN_CONTROL`
+        carries `interfaces`, which must name interfaces and inbound messages the source route
+        declares (`MESSAGE_UNSUPPORTED`). Relationship items are keyed by `relationshipExternalId`.
 
+        A newly reported group route creates its own endpoint group named after it; rediscovery
+        keeps group IDs, merges and user renames.
 
         Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
         delegated device profile cannot invoke this operation.
@@ -3293,7 +3296,7 @@ paths:
       tags:
         - Endpoint Groups
       summary: List endpoint groups
-      description: Lists all available endpoint groups for the authenticated user
+      description: Lists all available endpoint groups for the authenticated user.
       security:
         - oauth2:
             - group:read
@@ -3393,7 +3396,7 @@ paths:
       tags:
         - Endpoint Groups
       summary: Create an endpoint group
-      description: Creates a new endpoint group
+      description: Creates a new endpoint group.
       security:
         - oauth2:
             - group:manage
@@ -3470,15 +3473,19 @@ paths:
         - Endpoint Groups
       summary: Manage endpoint groups atomically
       description: >
-        Applies a bounded list (max 20) of static endpoint group management operations
-        (`CREATE_GROUP`, `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`, `REMOVE_MEMBERS`, `MERGE_INTO`)
-        atomically in one transaction. Every operation that modifies an existing group carries the
-        group's `etag`, which is compared inside the transaction. Item outcomes are returned with
-        HTTP 200 in a `status`/`results`/`errors` envelope correlated by `requestId`; non-200
-        statuses are reserved for request-level failures. `Idempotency-Key` is required unless
-        `validateOnly` is true; a committed response is replayed for 24 hours for the same
-        principal, key and payload. Physical control is never part of this request; use `POST
-        /messages`.
+        Applies a bounded list (max 20) of endpoint group management operations atomically in one
+        transaction.
+
+        The operations are `CREATE_GROUP`, `DELETE_GROUP`, `SET_NAME`, `ADD_MEMBERS`,
+        `REMOVE_MEMBERS` and `MERGE_INTO`. Every operation that modifies an existing group carries
+        the group's `etag`, which is compared inside the transaction.
+
+        Item outcomes are returned with HTTP 200 in a `status`/`results`/`errors` envelope
+        correlated by `requestId`; non-200 statuses are reserved for request-level failures.
+        `Idempotency-Key` is required unless `validateOnly` is true; a committed response is
+        replayed for 24 hours for the same principal, key and payload.
+
+        Physical control is never part of this request; use `POST /messages`.
       security:
         - oauth2:
             - group:manage
@@ -3733,7 +3740,7 @@ paths:
       tags:
         - Endpoint Groups
       summary: Set endpoint group name
-      description: Sets the name of an endpoint group
+      description: Sets the name of an endpoint group.
       security:
         - oauth2:
             - group:manage
@@ -4112,7 +4119,7 @@ paths:
       tags:
         - Endpoint Groups
       summary: Add members to an endpoint group
-      description: Adds one or more endpoint members to an existing endpoint group
+      description: Adds one or more endpoint members to an existing endpoint group.
       security:
         - oauth2:
             - group:manage
@@ -4235,7 +4242,7 @@ paths:
       tags:
         - Endpoint Groups
       summary: Remove members from an endpoint group
-      description: Removes one or more endpoint members from an existing endpoint group
+      description: Removes one or more endpoint members from an existing endpoint group.
       security:
         - oauth2:
             - group:manage
@@ -4428,7 +4435,7 @@ paths:
       tags:
         - Endpoint Group Routes
       summary: Delete a group route
-      description: Deletes a group route by ID
+      description: Deletes a group route by ID.
       security:
         - oauth2:
             - group:manage
@@ -5280,14 +5287,16 @@ paths:
       tags:
         - Tokens
       description: >-
-        Creates an expiring, revocable bearer access key for the caller. The raw JWT is returned
-        only once. Use purpose WEBSITE_LOGIN for full-account website sign-in and explicit OAuth
-        consent, or API for automation (the default). Website keys cannot have restricted scopes,
-        expire within seven days and require an existing Google or Apple account session to create.
-        Vended and delegated credentials cannot create independent replacement keys. Website keys
-        cannot be refreshed or exchanged for identity sessions. OAuth connections approved with a
-        website key are independently revocable. Subject must be ~self or the authenticated
-        principal's own identifier.
+        Creates an expiring, revocable bearer access key for the caller.
+
+        The raw JWT is returned only once. Use purpose WEBSITE_LOGIN for full-account website
+        sign-in and explicit OAuth consent, or API for automation (the default). Subject must be
+        ~self or the authenticated principal's own identifier.
+
+        Website keys cannot have restricted scopes, expire within seven days and require an existing
+        Google or Apple account session to create. Vended and delegated credentials cannot create
+        independent replacement keys. Website keys cannot be refreshed or exchanged for identity
+        sessions. OAuth connections approved with a website key are independently revocable.
 
 
 

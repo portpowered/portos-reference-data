@@ -4,7 +4,7 @@ POST `/endpoints`
 
 Upsert Endpoint
 
-Creates or updates an endpoint
+Creates or updates an endpoint.
 
 ## Authorization
 
@@ -29,7 +29,7 @@ post:
   operationId: upsertEndpoint
   tags:
     - Endpoints
-  description: Creates or updates an endpoint
+  description: Creates or updates an endpoint.
   requestBody:
     required: true
     content:
