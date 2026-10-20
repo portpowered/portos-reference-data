@@ -29,7 +29,7 @@ path: /oauth/authorization-request
 get:
   operationId: getPendingOAuthConsent
   tags:
-    - Auth
+    - OAuth flows
   summary: Read a pending request for the signed-in consent page
   description: |
     Returns server-stored consent details to the authenticated website. Descriptive
@@ -78,7 +78,7 @@ get:
             client_id: dcr_example
             client_name: Example agent
             redirect_uri: http://127.0.0.1:8765/callback
-            resource: https://portos-pilot-api-685761720421.us-west1.run.app
+            resource: https://api.portoperatingsystem.com
             scopes: []
     '400':
       description: Invalid, expired or consumed request.

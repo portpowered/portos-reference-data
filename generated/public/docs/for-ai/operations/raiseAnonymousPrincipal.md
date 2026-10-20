@@ -26,7 +26,7 @@ path: /auth/raise
 post:
   operationId: raiseAnonymousPrincipal
   tags:
-    - Auth
+    - Principals
   summary: Merge anonymous principal into real identity
   description: >
     Merges an anonymous principal into a real identity by exchanging an anonymous refresh token and

@@ -8,7 +8,7 @@ Use supported start/stop/mode schemas and full IDs. Spatial cleaning targets the
 
 - [ ] Select a room on the robot's map to highlight it. Select it again to deselect it, or use Clear to remove all selections. Selecting a room does not send a command.
 - [ ] Select several rooms only when the robotic-vacuum-cleaner configuration advertises `supportsMultiRoomCleaning: true`; otherwise selection is limited to one room. Only groups the robot can clean are selectable.
-- [ ] Use Clean selected to send one `clean-room` command to the robot with the selected canonical `groupIds`. Check fresh state afterward; request acceptance does not establish completed cleaning.
+- [ ] Use Clean selected to send one `clean-room` command to the robot with the `groupIds` of the selected rooms. Check fresh state afterward; request acceptance does not establish completed cleaning.
 
 ## Start and end remote movement
 

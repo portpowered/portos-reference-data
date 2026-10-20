@@ -6,6 +6,7 @@
     "ENABLED",
     "DISABLED"
   ],
+  "default": "ENABLED",
   "x-enum-varnames": [
     "EnablementENABLED",
     "EnablementDISABLED"

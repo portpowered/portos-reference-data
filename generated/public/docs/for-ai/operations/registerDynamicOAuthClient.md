@@ -39,7 +39,7 @@ path: /oauth/register
 post:
   operationId: registerDynamicOAuthClient
   tags:
-    - Auth
+    - OAuth flows
   summary: Register a public OAuth client
   security: []
   x-portos-delegated: false

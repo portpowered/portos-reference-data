@@ -37,32 +37,14 @@ get:
     Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
     delegated device profile cannot invoke this operation.
   parameters:
-    - name: nextToken
-      in: query
-      description: The next token to get the next page of results
-      required: false
-      schema:
-        type: string
+    - $ref: /docs/references/parameters/NextTokenQuery.json
     - name: maxResults
       in: query
       description: The maximum number of results to return
       required: false
       schema:
         type: integer
-    - name: expand
-      in: query
-      description: Expansion tokens that request related or computed fields for each result.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: false
-      examples:
-        include-related:
-          value:
-            - metadata
+    - $ref: /docs/references/parameters/ExpandQuery.json
   responses:
     '200':
       description: OAuth clients retrieved successfully
@@ -114,6 +96,8 @@ get:
 
 ## Linked components
 
+- [ExpandQuery.json](/docs/references/parameters/ExpandQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
 - [EnumerateOAuthClientsResponse.json](/docs/references/schemas/EnumerateOAuthClientsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

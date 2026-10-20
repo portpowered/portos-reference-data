@@ -72,11 +72,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /oauth/authorization-response](/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md) | Public | query:request_id (required) | — |
 | [GET /oauth/authorize](/docs/for-ai/operations/beginOAuthAuthorization.md) | Public | query:client_id (required), query:redirect_uri (required), query:response_type (required), query:scope (required), query:state (required), query:resource, query:code_challenge (required), query:code_challenge_method (required) | — |
 | [POST /oauth/authorize](/docs/for-ai/operations/completeOAuthConsent.md) | See session/security contract | — | approved, request_id, scope |
-| [POST /oauth/authorize-device](/docs/for-ai/operations/authorizeDevice.md) | OAuth (no scope) | — | scopes, user_code |
-| [POST /oauth/generate-code](/docs/for-ai/operations/generateOAuthCode.md) | OAuth (no scope) | — | client_id, code_challenge, code_challenge_method, redirect_uri, resource, scopes, state |
 | [POST /oauth/register](/docs/for-ai/operations/registerDynamicOAuthClient.md) | Public | — | client_name, client_uri, grant_types, redirect_uris, response_types, scope, software_id, software_statement, software_version, token_endpoint_auth_method |
-| [POST /oauth/validate-request](/docs/for-ai/operations/validateOAuthRequest.md) | See session/security contract | — | client_id, code_challenge, code_challenge_method, redirect_uri, resource, scopes |
-| [GET /oauth/verify-device](/docs/for-ai/operations/verifyDevice.md) | Public | query:user_code (required) | — |
 | [GET /ping](/docs/for-ai/operations/ping.md) | Public | — | — |
 | [POST /plugin-auth-code-exchange](/docs/for-ai/operations/pluginAuthCodeExchange.md) | OAuth (no scope) | — | authLinkId, pluginAuthenticationData, pluginId, principalId |
 | [POST /plugin-auth-code-link](/docs/for-ai/operations/pluginAuthCodeLink.md) | OAuth (no scope) | — | pluginId, principalId |

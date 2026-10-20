@@ -1,0 +1,17 @@
+{
+  "name": "owner",
+  "in": "query",
+  "required": false,
+  "description": "Filter the results by the owner of the resource.\n\nDefaults to the authenticated caller's resources when omitted. Use '~caller'\nto make that scope explicit.\n\nAnother owner can be selected only for resources the caller can read.\n",
+  "schema": {
+    "type": "string"
+  },
+  "examples": {
+    "caller": {
+      "value": "~caller"
+    },
+    "principal": {
+      "value": "port1/principals/example"
+    }
+  }
+}

@@ -4,7 +4,7 @@ First identify the failure boundary: documentation retrieval, registration, user
 
 | Symptom | Next step |
 | --- | --- |
-| Guide returns a login page/app shell | Use the canonical raw Markdown/index link; report publication failure |
+| Guide returns a login page/app shell | Use the raw Markdown link from the guide index; report the broken link to support |
 | DCR invalid metadata | Correct callback, auth method, supported grants/scopes; do not invent a secret |
 | Callback state/issuer mismatch | Stop; discard the response and restart authorization securely |
 | Token expired | Refresh with the same client/resource or ask for renewed user consent |

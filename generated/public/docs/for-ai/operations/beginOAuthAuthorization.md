@@ -30,7 +30,7 @@ path: /oauth/authorize
 get:
   operationId: beginOAuthAuthorization
   tags:
-    - Auth
+    - OAuth flows
   security: []
   x-portos-resource-permission: false
   summary: Open user consent for a resource-bound public client

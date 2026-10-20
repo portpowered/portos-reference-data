@@ -29,7 +29,7 @@ resourcePermissionRequired: true
 path: /access-control-rules
 post:
   tags:
-    - Access Control Rules
+    - Access control
   operationId: upsertAccessControlRule
   description: >-
     Upsert an access control rule.

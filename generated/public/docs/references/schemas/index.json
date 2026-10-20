@@ -201,18 +201,6 @@
     },
     {
       "kind": "schemas",
-      "name": "AuthorizeDeviceRequest",
-      "path": "/docs/references/schemas/AuthorizeDeviceRequest.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizeDeviceRequest"
-    },
-    {
-      "kind": "schemas",
-      "name": "AuthorizeDeviceResponse",
-      "path": "/docs/references/schemas/AuthorizeDeviceResponse.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizeDeviceResponse"
-    },
-    {
-      "kind": "schemas",
       "name": "AuthResourceType",
       "path": "/docs/references/schemas/AuthResourceType.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthResourceType"
@@ -402,6 +390,12 @@
       "name": "Enablement",
       "path": "/docs/references/schemas/Enablement.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/Enablement"
+    },
+    {
+      "kind": "schemas",
+      "name": "EnablementFilter",
+      "path": "/docs/references/schemas/EnablementFilter.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EnablementFilter"
     },
     {
       "kind": "schemas",
@@ -726,18 +720,6 @@
       "name": "GenerateOAuthClientSecretResponse",
       "path": "/docs/references/schemas/GenerateOAuthClientSecretResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthClientSecretResponse"
-    },
-    {
-      "kind": "schemas",
-      "name": "GenerateOAuthCodeRequest",
-      "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthCodeRequest"
-    },
-    {
-      "kind": "schemas",
-      "name": "GenerateOAuthCodeResponse",
-      "path": "/docs/references/schemas/GenerateOAuthCodeResponse.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/GenerateOAuthCodeResponse"
     },
     {
       "kind": "schemas",
@@ -1533,24 +1515,6 @@
     },
     {
       "kind": "schemas",
-      "name": "ValidateOAuthRequestRequest",
-      "path": "/docs/references/schemas/ValidateOAuthRequestRequest.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/ValidateOAuthRequestRequest"
-    },
-    {
-      "kind": "schemas",
-      "name": "ValidateOAuthRequestResponse",
-      "path": "/docs/references/schemas/ValidateOAuthRequestResponse.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/ValidateOAuthRequestResponse"
-    },
-    {
-      "kind": "schemas",
-      "name": "VerifyDeviceResponse",
-      "path": "/docs/references/schemas/VerifyDeviceResponse.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/VerifyDeviceResponse"
-    },
-    {
-      "kind": "schemas",
       "name": "WebservicePlugin",
       "path": "/docs/references/schemas/WebservicePlugin.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/WebservicePlugin"
@@ -1563,6 +1527,18 @@
     },
     {
       "kind": "parameters",
+      "name": "EnablementQuery",
+      "path": "/docs/references/parameters/EnablementQuery.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/EnablementQuery"
+    },
+    {
+      "kind": "parameters",
+      "name": "ExpandQuery",
+      "path": "/docs/references/parameters/ExpandQuery.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/ExpandQuery"
+    },
+    {
+      "kind": "parameters",
       "name": "IdempotencyKey",
       "path": "/docs/references/parameters/IdempotencyKey.json",
       "source": "/docs/references/openapi.yaml#/components/parameters/IdempotencyKey"
@@ -1572,6 +1548,24 @@
       "name": "IfMatch",
       "path": "/docs/references/parameters/IfMatch.json",
       "source": "/docs/references/openapi.yaml#/components/parameters/IfMatch"
+    },
+    {
+      "kind": "parameters",
+      "name": "MaxResultsQuery",
+      "path": "/docs/references/parameters/MaxResultsQuery.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/MaxResultsQuery"
+    },
+    {
+      "kind": "parameters",
+      "name": "NextTokenQuery",
+      "path": "/docs/references/parameters/NextTokenQuery.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/NextTokenQuery"
+    },
+    {
+      "kind": "parameters",
+      "name": "OwnerQuery",
+      "path": "/docs/references/parameters/OwnerQuery.json",
+      "source": "/docs/references/openapi.yaml#/components/parameters/OwnerQuery"
     },
     {
       "kind": "headers",

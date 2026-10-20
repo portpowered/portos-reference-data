@@ -26,7 +26,7 @@ path: /auth/callback
 post:
   operationId: handleOAuthCallback
   tags:
-    - Auth
+    - OAuth flows
   summary: OAuth provider callback
   description: >
     Handles callbacks from OAuth providers (Apple, Google, etc.) that do not support PKCE or have

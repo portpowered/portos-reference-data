@@ -26,7 +26,7 @@ path: /.well-known/jwks.json
 get:
   operationId: getJWKS
   tags:
-    - Infrastructure
+    - OAuth flows
   summary: JSON Web Key Set
   description: >
     Returns the JSON Web Key Set (JWKS) containing the public keys used to verify JWT signatures.

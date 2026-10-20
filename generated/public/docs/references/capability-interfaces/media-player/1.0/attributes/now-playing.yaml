@@ -17,9 +17,9 @@ properties:
       Exact provider resource identity. The canonical form is
       portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id,
       with no URI version. Spotify emits audio track, playlist, album, artist,
-      show and episode identities. The prior portpowered.com authority remains
-      readable. YouTube and YouTube Music share provider youtube, with
-      video/video and video/channel resource kinds. Legacy youtube:video:ID and
+      show and episode identities. The prior authority remains readable. YouTube
+      and YouTube Music share provider youtube, with video/video and
+      video/channel resource kinds. Legacy youtube:video:ID and
       youtube:channel:ID identities normalize to the same canonical resources.
       Copy an ID returned by search or library discovery; do not send a search
       phrase as an ID. Legacy providers retain their own input contracts until

@@ -28,7 +28,7 @@ path: /oauth/authorize
 post:
   operationId: completeOAuthConsent
   tags:
-    - Auth
+    - OAuth flows
   security:
     - bearerAuth: []
   x-portos-resource-permission: false
@@ -76,7 +76,7 @@ post:
                 format: uri
           example:
             redirect_url: >-
-              https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID
+              https://auth.portoperatingsystem.com/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID
     '400':
       description: Invalid, expired or consumed request.
     '401':

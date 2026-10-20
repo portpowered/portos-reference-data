@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Which resources a collection returns by enablement. ENABLED returns resources\nPort OS is using, DISABLED returns the ones the customer turned off, and '*'\nreturns both.\n",
+  "enum": [
+    "ENABLED",
+    "DISABLED",
+    "*"
+  ],
+  "default": "ENABLED",
+  "x-enum-varnames": [
+    "EnablementFilterENABLED",
+    "EnablementFilterDISABLED",
+    "EnablementFilterAll"
+  ]
+}

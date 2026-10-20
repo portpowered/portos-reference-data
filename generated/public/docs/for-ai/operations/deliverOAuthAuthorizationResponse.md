@@ -30,7 +30,7 @@ path: /oauth/authorization-response
 get:
   operationId: deliverOAuthAuthorizationResponse
   tags:
-    - Auth
+    - OAuth flows
   security: []
   x-portos-resource-permission: false
   x-portos-delegated: false

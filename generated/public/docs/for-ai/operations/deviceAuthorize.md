@@ -30,7 +30,7 @@ resourcePermissionRequired: false
 path: /auth/device-authorization
 post:
   tags:
-    - Auth
+    - OAuth flows
   summary: OAuth2 Device Authorization
   description: >-
     This API is used by your device to obtain authorization from the resource owner via a device
@@ -67,7 +67,7 @@ post:
           example:
             device_code: port1/principals/example
             user_code: port1/principals/example
-            verification_uri: https://portpowered.com/oauth/device/verify
+            verification_uri: https://portoperatingsystem.com/oauth/device/verify
             expires_in: 1800
             interval: 5
     '400':

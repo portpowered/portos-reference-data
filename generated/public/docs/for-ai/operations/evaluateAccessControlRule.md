@@ -29,7 +29,7 @@ resourcePermissionRequired: true
 path: /access-control-rules/evaluate
 post:
   tags:
-    - Access Control Rules
+    - Access control
   operationId: evaluateAccessControlRule
   description: >-
     Evaluate an access control rule.

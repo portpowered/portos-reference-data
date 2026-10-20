@@ -25,7 +25,7 @@ path: /auth/revoke
 post:
   operationId: revokeOAuthGrant
   tags:
-    - Auth
+    - Tokens
   summary: Revoke a delegated REST or MCP grant
   security: []
   x-portos-delegated: false

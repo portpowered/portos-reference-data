@@ -40,17 +40,7 @@ get:
         - group:read
     - bearerAuth: []
   parameters:
-    - name: owner
-      in: query
-      description: >-
-        Owner whose relationships to get. Defaults to the authenticated caller when omitted. Use
-        '~caller' as an explicit alias for the authenticated user.
-      required: false
-      schema:
-        type: string
-      examples:
-        check-token:
-          value: ~caller
+    - $ref: /docs/references/parameters/OwnerQuery.json
     - name: groupId
       in: query
       description: Relationships touching this group or a group route belonging to it.
@@ -96,41 +86,9 @@ get:
       required: false
       schema:
         $ref: /docs/references/schemas/RelationshipType.json
-    - name: nextToken
-      in: query
-      description: The next token to get the next page of results
-      required: false
-      schema:
-        type: string
-      examples:
-        next-token:
-          value: '123'
-    - name: maxResults
-      in: query
-      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 10
-      examples:
-        max-results:
-          value: 10
-    - name: expand
-      in: query
-      description: Expansion tokens that request related or computed fields for each result.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: false
-      examples:
-        include-related:
-          value:
-            - metadata
+    - $ref: /docs/references/parameters/NextTokenQuery.json
+    - $ref: /docs/references/parameters/MaxResultsQuery.json
+    - $ref: /docs/references/parameters/ExpandQuery.json
   responses:
     '200':
       description: Relationships retrieved successfully
@@ -204,6 +162,10 @@ get:
 
 ## Linked components
 
+- [ExpandQuery.json](/docs/references/parameters/ExpandQuery.json)
+- [MaxResultsQuery.json](/docs/references/parameters/MaxResultsQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
+- [OwnerQuery.json](/docs/references/parameters/OwnerQuery.json)
 - [EnumerateRelationshipsResponse.json](/docs/references/schemas/EnumerateRelationshipsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 - [RelationshipType.json](/docs/references/schemas/RelationshipType.json)

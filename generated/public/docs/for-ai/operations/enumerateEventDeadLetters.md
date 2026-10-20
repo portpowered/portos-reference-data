@@ -40,12 +40,7 @@ get:
     Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
     delegated device profile cannot invoke this operation.
   parameters:
-    - name: nextToken
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Continuation token returned by the previous page.
+    - $ref: /docs/references/parameters/NextTokenQuery.json
     - name: maxResults
       in: query
       required: false
@@ -144,6 +139,7 @@ get:
 
 ## Linked components
 
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
 - [Error.json](/docs/references/schemas/Error.json)
 - [EventDeadLetterQueryResponse.json](/docs/references/schemas/EventDeadLetterQueryResponse.json)
 - [Query.json](/docs/references/schemas/Query.json)

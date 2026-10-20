@@ -94,48 +94,10 @@ get:
       required: false
       schema:
         type: string
-    - name: owner
-      in: query
-      description: >-
-        Owner whose subscriptions to list. Defaults to the authenticated caller when omitted. A
-        different owner is permitted only for subscriptions the caller can read.
-      required: false
-      schema:
-        type: string
-    - name: expand
-      in: query
-      description: Expansion tokens that request related or computed fields for each result.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: false
-      examples:
-        include-related:
-          value:
-            - metadata
-    - name: nextToken
-      in: query
-      description: Opaque cursor token returned by a previous query response.
-      required: false
-      schema:
-        type: string
-      examples:
-        next-page:
-          value: abc123
-    - name: maxResults
-      in: query
-      description: Maximum number of results to return. Defaults to 10 and cannot exceed 100.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-      examples:
-        page-size:
-          value: 50
+    - $ref: /docs/references/parameters/OwnerQuery.json
+    - $ref: /docs/references/parameters/ExpandQuery.json
+    - $ref: /docs/references/parameters/NextTokenQuery.json
+    - $ref: /docs/references/parameters/MaxResultsQuery.json
   x-portos-delegated: true
   x-portos-resource-permission: true
   security:
@@ -147,6 +109,10 @@ get:
 
 ## Linked components
 
+- [ExpandQuery.json](/docs/references/parameters/ExpandQuery.json)
+- [MaxResultsQuery.json](/docs/references/parameters/MaxResultsQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
+- [OwnerQuery.json](/docs/references/parameters/OwnerQuery.json)
 - [EnumerateSubscriptionsResponse.json](/docs/references/schemas/EnumerateSubscriptionsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

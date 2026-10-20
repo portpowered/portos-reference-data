@@ -29,7 +29,7 @@ resourcePermissionRequired: true
 path: /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}
 delete:
   tags:
-    - Access Control Rules
+    - Access control
   operationId: deleteAccessControlRule
   description: >-
     Delete an access control rule.

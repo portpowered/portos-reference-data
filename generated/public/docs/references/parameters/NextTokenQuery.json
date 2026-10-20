@@ -1,0 +1,9 @@
+{
+  "name": "nextToken",
+  "in": "query",
+  "required": false,
+  "description": "Opaque token for the next page of results.\n\nPass the continuation token returned by the previous response, unchanged.\nOmit it to start from the first page.\n",
+  "schema": {
+    "type": "string"
+  }
+}

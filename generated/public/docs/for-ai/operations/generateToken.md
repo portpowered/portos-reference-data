@@ -4,6 +4,12 @@ POST `/auth/token`
 
 OAuth2 Token Endpoint
 
+This API is used to generate OAuth2 tokens.
+
+The current OAuth token endpoint supports:
+1. Refresh token grants.
+2. Authorization code token grants.
+
 Public DCR/CIMD clients exchange authorization_code with client_id, redirect_uri,
 code_verifier and the same resource as the consent request. No client_secret is
 issued. Refresh these grants with grant_type refresh_token, client_id, rotating
@@ -31,9 +37,15 @@ path: /auth/token
 post:
   operationId: generateToken
   tags:
-    - Auth
+    - Tokens
   summary: OAuth2 Token Endpoint
   description: |
+    This API is used to generate OAuth2 tokens.
+
+    The current OAuth token endpoint supports:
+    1. Refresh token grants.
+    2. Authorization code token grants.
+
     Public DCR/CIMD clients exchange authorization_code with client_id, redirect_uri,
     code_verifier and the same resource as the consent request. No client_secret is
     issued. Refresh these grants with grant_type refresh_token, client_id, rotating
@@ -52,7 +64,7 @@ post:
           redirect_uri: http://127.0.0.1:8765/callback
           code: CALLBACK_CODE
           code_verifier: ORIGINAL_RANDOM_PKCE_VERIFIER
-          resource: https://portos-pilot-api-685761720421.us-west1.run.app
+          resource: https://api.portoperatingsystem.com
   responses:
     '200':
       description: Token generated successfully

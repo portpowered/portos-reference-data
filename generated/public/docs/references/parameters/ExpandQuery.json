@@ -1,0 +1,14 @@
+{
+  "name": "expand",
+  "in": "query",
+  "required": false,
+  "description": "Expansion tokens that request related or computed fields for each result.\n\nWhen omitted, the response contains only the default, shallower set of\nfields for each result.\n",
+  "style": "form",
+  "explode": false,
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "string"
+    }
+  }
+}

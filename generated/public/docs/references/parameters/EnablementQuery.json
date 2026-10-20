@@ -1,0 +1,9 @@
+{
+  "name": "enablement",
+  "in": "query",
+  "required": false,
+  "description": "Filter the results by enablement.\n\nEnablement is a customer setting that stops Port OS from using a resource\nwithout deleting it. Port OS uses it in place of deletion because it cannot\ndelete a device on the provider's side.\n\nDefaults to ENABLED. Use DISABLED to list only disabled resources, or '*' to\ninclude both enabled and disabled resources.\n\nLooking up a resource by its exact id ignores this filter.\n",
+  "schema": {
+    "$ref": "/docs/references/schemas/EnablementFilter.json"
+  }
+}

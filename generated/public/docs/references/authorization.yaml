@@ -726,15 +726,6 @@ operations:
       - bearerAuth: []
     delegated: false
     resourcePermissionRequired: true
-  - path: /oauth/generate-code
-    runtimePath: /oauth/generate-code
-    method: POST
-    operationId: generateOAuthCode
-    security:
-      - oauth2: []
-      - bearerAuth: []
-    delegated: false
-    resourcePermissionRequired: false
   - path: /oauth/register
     runtimePath: /oauth/register
     method: POST
@@ -770,30 +761,6 @@ operations:
     method: GET
     operationId: deliverOAuthAuthorizationResponse
     security: []
-    delegated: false
-    resourcePermissionRequired: false
-  - path: /oauth/validate-request
-    runtimePath: /oauth/validate-request
-    method: POST
-    operationId: validateOAuthRequest
-    security:
-      - bearerAuth: []
-    delegated: false
-    resourcePermissionRequired: false
-  - path: /oauth/verify-device
-    runtimePath: /oauth/verify-device
-    method: GET
-    operationId: verifyDevice
-    security: []
-    delegated: false
-    resourcePermissionRequired: false
-  - path: /oauth/authorize-device
-    runtimePath: /oauth/authorize-device
-    method: POST
-    operationId: authorizeDevice
-    security:
-      - oauth2: []
-      - bearerAuth: []
     delegated: false
     resourcePermissionRequired: false
   - path: /messages

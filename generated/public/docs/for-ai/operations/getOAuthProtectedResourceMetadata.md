@@ -26,7 +26,7 @@ path: /.well-known/oauth-protected-resource
 get:
   operationId: getOAuthProtectedResourceMetadata
   tags:
-    - Infrastructure
+    - OAuth flows
   summary: OAuth protected resource metadata
   description: >
     Returns OAuth 2.0 Protected Resource Metadata as defined by RFC 9728. This endpoint is publicly
@@ -43,14 +43,14 @@ get:
               resource:
                 type: string
                 description: The protected resource identifier
-                example: https://portpowered.com/mcp
+                example: https://api.portoperatingsystem.com/mcp
               authorization_servers:
                 type: array
                 items:
                   type: string
                 description: Authorization servers that can issue tokens for this resource
                 example:
-                  - https://portpowered.com
+                  - https://auth.portoperatingsystem.com
               scopes_supported:
                 type: array
                 items:

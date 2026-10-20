@@ -4,7 +4,28 @@ GET `/endpoints`
 
 Enumerate Endpoints
 
-Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber filters remain within that caller-owned scope. An explicit owner can select another owner's endpoints when they are readable by the caller. An exact id lookup takes precedence over owner, type, serialNumber, and enablement filters; it can return a readable shared endpoint, including disabled endpoint metadata, but still requires endpoint-read permission. To retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live device-backed attribute refresh before the response is returned. The filters and pagination use the shared authorized endpoint query service.
+List the endpoints that a customer has access to. For example, you
+enumerate to list the customer's lights, vacuums, or similar devices.
+
+Endpoints contain information such as:
+  1. The endpoint's name, description, and other top-level data.
+  2. The capabilities the endpoint has, like power, camera, etc.
+  3. The state of the endpoint.
+
+Usage of the API is controlled by the query parameters. By default it
+lists enabled endpoints owned by the authenticated user. Type and
+serialNumber filters stay within that scope. An explicit owner can select
+another owner's endpoints when the caller can read them.
+
+An exact id lookup takes precedence over the owner, type, serialNumber, and
+enablement filters. It can return a readable shared endpoint, including a
+disabled one, but still requires endpoint-read permission.
+
+To retrieve the state of a specific endpoint, send `id=<endpoint-id>`
+together with `expand=interfaces.attributes`. Add
+`forceDeviceAttributeQuery=true` to refresh that state from the device
+before the response is returned.
+
 
 ## Authorization
 
@@ -29,45 +50,31 @@ get:
   operationId: enumerateEndpoints
   tags:
     - Endpoints
-  description: >-
-    Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber
-    filters remain within that caller-owned scope. An explicit owner can select another owner's
-    endpoints when they are readable by the caller. An exact id lookup takes precedence over owner,
-    type, serialNumber, and enablement filters; it can return a readable shared endpoint, including
-    disabled endpoint metadata, but still requires endpoint-read permission. To retrieve deep
-    endpoint state for a specific endpoint, send `id=<endpoint-id>` together with
-    `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes`
-    array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live
-    device-backed attribute refresh before the response is returned. The filters and pagination use
-    the shared authorized endpoint query service.
+  description: |
+    List the endpoints that a customer has access to. For example, you
+    enumerate to list the customer's lights, vacuums, or similar devices.
+
+    Endpoints contain information such as:
+      1. The endpoint's name, description, and other top-level data.
+      2. The capabilities the endpoint has, like power, camera, etc.
+      3. The state of the endpoint.
+
+    Usage of the API is controlled by the query parameters. By default it
+    lists enabled endpoints owned by the authenticated user. Type and
+    serialNumber filters stay within that scope. An explicit owner can select
+    another owner's endpoints when the caller can read them.
+
+    An exact id lookup takes precedence over the owner, type, serialNumber, and
+    enablement filters. It can return a readable shared endpoint, including a
+    disabled one, but still requires endpoint-read permission.
+
+    To retrieve the state of a specific endpoint, send `id=<endpoint-id>`
+    together with `expand=interfaces.attributes`. Add
+    `forceDeviceAttributeQuery=true` to refresh that state from the device
+    before the response is returned.
   parameters:
-    - name: enablement
-      in: query
-      description: >-
-        Collection visibility within the selected owner scope. Defaults to ENABLED. Use '*' to
-        include both enabled and disabled endpoints, or DISABLED to list disabled endpoints. An
-        exact id metadata read ignores this filter and can return a disabled endpoint when readable;
-        live messaging remains blocked for disabled endpoints.
-      schema:
-        type: string
-        enum:
-          - ENABLED
-          - DISABLED
-          - '*'
-    - name: owner
-      in: query
-      description: >-
-        Owner of the endpoints to get. Defaults to the authenticated user's endpoints. Use '~caller'
-        to make that scope explicit; another owner can be selected only for endpoints readable by
-        the caller.
-      required: false
-      schema:
-        type: string
-      examples:
-        check-token:
-          value: ~caller
-        check-id:
-          value: port1/principals/example
+    - $ref: /docs/references/parameters/EnablementQuery.json
+    - $ref: /docs/references/parameters/OwnerQuery.json
     - name: id
       in: query
       description: >-
@@ -124,10 +131,13 @@ get:
           value: 10
     - name: expand
       in: query
-      description: >-
-        Comma-separated expansion tokens. Use `interfaces.attributes` to populate each endpoint's
-        `attributes` array with deep interface attribute state. When omitted, the response keeps the
-        default shallow endpoint shape and does not populate deep attribute payloads.
+      description: |
+        Expand determines what data we retrieve for each endpoint.
+
+        Use `interfaces.attributes` to populate each endpoint's `attributes`
+        array so you can, for example, find their states.
+
+        When omitted, the response returns only a limited set of data.
       required: false
       schema:
         type: array
@@ -145,11 +155,17 @@ get:
       explode: false
     - name: forceDeviceAttributeQuery
       in: query
-      description: >-
-        Forces a live device-backed attribute refresh for endpoint-state queries. This flag is only
-        applied when `expand` includes `interfaces.attributes`. Send `true` to force the refresh;
-        absent or `false` values use stored state. Invalid values, or `true` without the required
-        expansion, return 400.
+      description: |
+        Forces a live device-backed attribute refresh for endpoint-state
+        queries.
+
+        This makes Port OS call into the device to get its data, if the device
+        provider does not update the state automatically.
+
+        This flag is only applied when `expand` includes
+        `interfaces.attributes`. Send `true` to force the refresh; absent or
+        `false` values use stored state. Invalid values, or `true` without
+        the required expansion, return 400.
       required: false
       schema:
         type: boolean
@@ -241,6 +257,8 @@ get:
 
 ## Linked components
 
+- [EnablementQuery.json](/docs/references/parameters/EnablementQuery.json)
+- [OwnerQuery.json](/docs/references/parameters/OwnerQuery.json)
 - [EndpointQueryResponse.json](/docs/references/schemas/EndpointQueryResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

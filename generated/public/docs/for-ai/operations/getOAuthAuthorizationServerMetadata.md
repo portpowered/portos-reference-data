@@ -25,7 +25,7 @@ path: /.well-known/oauth-authorization-server
 get:
   operationId: getOAuthAuthorizationServerMetadata
   tags:
-    - Infrastructure
+    - OAuth flows
   summary: Discover OAuth and DCR endpoints
   security: []
   x-portos-delegated: false
@@ -86,15 +86,15 @@ get:
               authorization_response_iss_parameter_supported:
                 type: boolean
           example:
-            issuer: https://portos-pilot-api-685761720421.us-west1.run.app
-            authorization_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize
-            token_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
-            revocation_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/revoke
+            issuer: https://auth.portoperatingsystem.com
+            authorization_endpoint: https://auth.portoperatingsystem.com/oauth/authorize
+            token_endpoint: https://auth.portoperatingsystem.com/auth/token
+            revocation_endpoint: https://auth.portoperatingsystem.com/auth/revoke
             scopes_supported:
               - endpoint:read
               - message:send
-            registration_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/register
-            jwks_uri: https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json
+            registration_endpoint: https://auth.portoperatingsystem.com/oauth/register
+            jwks_uri: https://auth.portoperatingsystem.com/.well-known/jwks.json
             code_challenge_methods_supported:
               - S256
             token_endpoint_auth_methods_supported:

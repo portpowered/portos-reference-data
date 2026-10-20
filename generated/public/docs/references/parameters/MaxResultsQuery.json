@@ -1,0 +1,12 @@
+{
+  "name": "maxResults",
+  "in": "query",
+  "required": false,
+  "description": "Maximum number of results to return in one page.\n\nDefaults to 10. Values from 1 through 100 are accepted.\n",
+  "schema": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 100,
+    "default": 10
+  }
+}

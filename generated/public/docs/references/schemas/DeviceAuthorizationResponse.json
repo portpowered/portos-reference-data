@@ -20,12 +20,12 @@
     "verification_uri": {
       "type": "string",
       "description": "The URI where the user should enter the user code",
-      "example": "https://portpowered.com/oauth/device/verify"
+      "example": "https://portoperatingsystem.com/oauth/device/verify"
     },
     "verification_uri_complete": {
       "type": "string",
       "description": "The complete URI including the user code (optional, for convenience)",
-      "example": "https://portpowered.com/oauth/device/verify?user_code=ABC123"
+      "example": "https://portoperatingsystem.com/oauth/device/verify?user_code=ABC123"
     },
     "expires_in": {
       "type": "integer",

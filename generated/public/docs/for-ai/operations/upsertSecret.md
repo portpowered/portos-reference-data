@@ -16,7 +16,7 @@ This secret is stored in portos with a unique resource identifier for a storage 
 
 For example, maybe you have client credentials or something that is a generic json blob. 
 
-i.e. https://api.portpowered.com/storage/secrets/portos1.secret.<UUID>
+i.e. https://api.portoperatingsystem.com/storage/secrets/portos1.secret.<UUID>
 
 ### Tokens
 A specialized type of secret is a OAUTH token secret. This secret is often used to access plugins, so 
@@ -69,7 +69,7 @@ post:
     For example, maybe you have client credentials or something that is a generic json blob. 
 
 
-    i.e. https://api.portpowered.com/storage/secrets/portos1.secret.<UUID>
+    i.e. https://api.portoperatingsystem.com/storage/secrets/portos1.secret.<UUID>
 
 
     ### Tokens

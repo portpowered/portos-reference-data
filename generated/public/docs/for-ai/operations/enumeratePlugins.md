@@ -53,15 +53,7 @@ get:
       required: false
       schema:
         type: string
-    - name: nextToken
-      in: query
-      description: Opaque cursor token returned by a previous query response.
-      required: false
-      schema:
-        type: string
-      examples:
-        next-page:
-          value: abc123
+    - $ref: /docs/references/parameters/NextTokenQuery.json
     - name: maxResults
       in: query
       description: Maximum number of results to return.
@@ -102,6 +94,7 @@ get:
 
 ## Linked components
 
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
 - [EnumeratePluginsResponse.json](/docs/references/schemas/EnumeratePluginsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

@@ -13,24 +13,68 @@ security:
   - oauth2: []
   - bearerAuth: []
 tags:
-  - name: Auth
-    description: >
-      Port OS requires authorization to perform calls against port OS. 
+  - name: OAuth flows
+    description: |
+      Use OAuth flows to sign a person or an agent in to Port OS and get an
+      access token for the other APIs.
 
+      Port OS requires authorization for calls against its APIs. It uses OAuth
+      to issue the tokens that authorize those calls, and it supports
+      extensions that let agents connect automatically: Dynamic Client
+      Registration, client information metadata documents, PKCE and others.
 
-      Port OS uses OAuth to get tokens that you can use to call into 
+      This section covers discovery metadata, client registration, authorize
+      and consent, and the callback that returns the authorization code.
+      Registration alone grants no access to resources. Operation scopes
+      restrict delegated authority in addition to the permission rules for
+      principals and resources.
+  - name: Tokens
+    description: |
+      Use tokens when you already have credentials and need an access token,
+      or when you want to manage the long-lived tokens you hand to a CLI,
+      device automation or agent.
 
-      Port OS APIs. 
+      Tokens are JWTs vended by principals for token exchange. A principal may
+      create tokens, and list and delete the tokens it owns. The raw JWT is
+      returned only once at creation. Exchange it at the OAuth token endpoint
+      for an access token, then refresh or revoke the grant there.
+  - name: Principals
+    description: |
+      Use principals when you manage who can act in Port OS.
 
+      Principals are people, endpoints, or organizations. They can perform
+      actions on resources, and can be granted permissions to access
+      resources.
+  - name: Secrets
+    description: |
+      Use secrets to store a credential that Port OS needs to keep for you, such
+      as a key a plugin uses to call a provider.
 
-      Public agents compose the shared discovery, DCR/CIMD registration, consent/callback, token
-      lifecycle and authorization rules from [the agent authentication
-      guide](https://app.portoperatingsystem.lol/docs/for-ai/guides/connect-agent.md). Registration
-      alone grants no resource access. Operation scopes restrict delegated authority in addition to
-      the existing principal/resource permission rules.
+      A secret is a type of storage credential.
+  - name: Clients
+    description: |
+      Use clients when you build an application that signs in to Port OS with
+      OAuth and need to register it, rotate its secrets, or remove it.
+
+      Clients are applications that can interact with Port OS.
+  - name: Access control
+    description: |
+      Use access control to decide who can do what with a resource.
+
+      Rules grant or deny permissions on a resource to principals. You can also
+      evaluate a rule to check what a principal is allowed to do.
   - name: Endpoints
     description: |
-      An endpoint is a resource that can be acted upon. An example is a phone, TV or web server.
+      An endpoint is a device or service you can act on, such as a phone, TV,
+      lightbulb or vacuum.
+
+      Customers interact with endpoints whenever they want to control their
+      lights or find where their phone is.
+
+      Endpoints declare a set of capabilities. These capabilities denote what
+      functions an endpoint has. For example, an endpoint that declares the
+      power interface can be turned on and off. Similarly, the capability tells
+      customers they can check whether the device is on or off.
   - name: Messages
     description: |
       Port OS allows you to send messages to things. 
@@ -42,18 +86,6 @@ tags:
       messenger, an MQTT connection, or anything else.
 
       Messages sent to endpoints are propagated through plugins.
-  - name: Principals
-    description: >
-      Identities are people, endpoints, or organizations. They can perform actions on resources, and
-      can be granted permissions to access to resources.
-  - name: Secrets
-    description: |
-      A secret is a type of storage credential
-  - name: Tokens
-    description: >
-      Tokens are JWTs vended by principals for token exchange. A principal may create tokens (e.g.
-      for CLIs, device automations, or agents), list and delete tokens they own. The raw JWT is
-      returned only once at creation; exchange it at the OAuth token endpoint for an access token.
   - name: Routes
     description: >
       A route is a part of an endpoint that denotes what types of interfaces the endpoint can
@@ -78,9 +110,6 @@ tags:
   - name: Auth Links
     description: |
       Auth Links are a way to link an endpoint to a plugin.
-  - name: Clients
-    description: |
-      Clients are applications that can interact with Port OS.
   - name: Endpoint Groups
     description: |
       An endpoint group is a way to group a set of endpoints.
@@ -95,15 +124,10 @@ tags:
       interact with the Tuya IoT platform to generate QR codes and validate login tokens for linking
       Tuya accounts.
   - name: Infrastructure
-    description: >
-      Health checks, metrics, and well-known discovery endpoints. These are public endpoints that do
-      not require authentication.
+    description: |
+      Health checks and metrics. These are public endpoints that do not require authentication.
   - name: Events
     description: Operations for events.
-  - name: Access Control Rules
-    description: Operations for access control rules.
-  - name: Internal
-    description: Operations for internal.
   - name: Webhooks
     description: Operations for webhooks.
 paths:
@@ -218,7 +242,7 @@ paths:
     get:
       operationId: getOAuthAuthorizationServerMetadata
       tags:
-        - Infrastructure
+        - OAuth flows
       summary: Discover OAuth and DCR endpoints
       security: []
       x-portos-delegated: false
@@ -279,15 +303,15 @@ paths:
                   authorization_response_iss_parameter_supported:
                     type: boolean
               example:
-                issuer: https://portos-pilot-api-685761720421.us-west1.run.app
-                authorization_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize
-                token_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
-                revocation_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/auth/revoke
+                issuer: https://auth.portoperatingsystem.com
+                authorization_endpoint: https://auth.portoperatingsystem.com/oauth/authorize
+                token_endpoint: https://auth.portoperatingsystem.com/auth/token
+                revocation_endpoint: https://auth.portoperatingsystem.com/auth/revoke
                 scopes_supported:
                   - endpoint:read
                   - message:send
-                registration_endpoint: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/register
-                jwks_uri: https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json
+                registration_endpoint: https://auth.portoperatingsystem.com/oauth/register
+                jwks_uri: https://auth.portoperatingsystem.com/.well-known/jwks.json
                 code_challenge_methods_supported:
                   - S256
                 token_endpoint_auth_methods_supported:
@@ -298,7 +322,7 @@ paths:
     get:
       operationId: getJWKS
       tags:
-        - Infrastructure
+        - OAuth flows
       summary: JSON Web Key Set
       description: >
         Returns the JSON Web Key Set (JWKS) containing the public keys used to verify JWT
@@ -347,7 +371,7 @@ paths:
     get:
       operationId: getOAuthProtectedResourceMetadata
       tags:
-        - Infrastructure
+        - OAuth flows
       summary: OAuth protected resource metadata
       description: >
         Returns OAuth 2.0 Protected Resource Metadata as defined by RFC 9728. This endpoint is
@@ -364,14 +388,14 @@ paths:
                   resource:
                     type: string
                     description: The protected resource identifier
-                    example: https://portpowered.com/mcp
+                    example: https://api.portoperatingsystem.com/mcp
                   authorization_servers:
                     type: array
                     items:
                       type: string
                     description: Authorization servers that can issue tokens for this resource
                     example:
-                      - https://portpowered.com
+                      - https://auth.portoperatingsystem.com
                   scopes_supported:
                     type: array
                     items:
@@ -396,7 +420,7 @@ paths:
     get:
       operationId: getMCPOAuthProtectedResourceMetadata
       tags:
-        - Infrastructure
+        - OAuth flows
       summary: MCP OAuth protected resource metadata
       description: >
         Returns OAuth 2.0 Protected Resource Metadata for the MCP endpoint as defined by RFC 9728.
@@ -414,14 +438,14 @@ paths:
                   resource:
                     type: string
                     description: The protected resource identifier
-                    example: https://portpowered.com/mcp
+                    example: https://api.portoperatingsystem.com/mcp
                   authorization_servers:
                     type: array
                     items:
                       type: string
                     description: Authorization servers that can issue tokens for this resource
                     example:
-                      - https://portpowered.com
+                      - https://auth.portoperatingsystem.com
                   scopes_supported:
                     type: array
                     items:
@@ -447,45 +471,31 @@ paths:
       operationId: enumerateEndpoints
       tags:
         - Endpoints
-      description: >-
-        Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber
-        filters remain within that caller-owned scope. An explicit owner can select another owner's
-        endpoints when they are readable by the caller. An exact id lookup takes precedence over
-        owner, type, serialNumber, and enablement filters; it can return a readable shared endpoint,
-        including disabled endpoint metadata, but still requires endpoint-read permission. To
-        retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with
-        `expand=interfaces.attributes`. That expansion populates each returned endpoint's
-        `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true`
-        to force a live device-backed attribute refresh before the response is returned. The filters
-        and pagination use the shared authorized endpoint query service.
+      description: |
+        List the endpoints that a customer has access to. For example, you
+        enumerate to list the customer's lights, vacuums, or similar devices.
+
+        Endpoints contain information such as:
+          1. The endpoint's name, description, and other top-level data.
+          2. The capabilities the endpoint has, like power, camera, etc.
+          3. The state of the endpoint.
+
+        Usage of the API is controlled by the query parameters. By default it
+        lists enabled endpoints owned by the authenticated user. Type and
+        serialNumber filters stay within that scope. An explicit owner can select
+        another owner's endpoints when the caller can read them.
+
+        An exact id lookup takes precedence over the owner, type, serialNumber, and
+        enablement filters. It can return a readable shared endpoint, including a
+        disabled one, but still requires endpoint-read permission.
+
+        To retrieve the state of a specific endpoint, send `id=<endpoint-id>`
+        together with `expand=interfaces.attributes`. Add
+        `forceDeviceAttributeQuery=true` to refresh that state from the device
+        before the response is returned.
       parameters:
-        - name: enablement
-          in: query
-          description: >-
-            Collection visibility within the selected owner scope. Defaults to ENABLED. Use '*' to
-            include both enabled and disabled endpoints, or DISABLED to list disabled endpoints. An
-            exact id metadata read ignores this filter and can return a disabled endpoint when
-            readable; live messaging remains blocked for disabled endpoints.
-          schema:
-            type: string
-            enum:
-              - ENABLED
-              - DISABLED
-              - '*'
-        - name: owner
-          in: query
-          description: >-
-            Owner of the endpoints to get. Defaults to the authenticated user's endpoints. Use
-            '~caller' to make that scope explicit; another owner can be selected only for endpoints
-            readable by the caller.
-          required: false
-          schema:
-            type: string
-          examples:
-            check-token:
-              value: ~caller
-            check-id:
-              value: port1/principals/example
+        - $ref: '#/components/parameters/EnablementQuery'
+        - $ref: '#/components/parameters/OwnerQuery'
         - name: id
           in: query
           description: >-
@@ -542,11 +552,13 @@ paths:
               value: 10
         - name: expand
           in: query
-          description: >-
-            Comma-separated expansion tokens. Use `interfaces.attributes` to populate each
-            endpoint's `attributes` array with deep interface attribute state. When omitted, the
-            response keeps the default shallow endpoint shape and does not populate deep attribute
-            payloads.
+          description: |
+            Expand determines what data we retrieve for each endpoint.
+
+            Use `interfaces.attributes` to populate each endpoint's `attributes`
+            array so you can, for example, find their states.
+
+            When omitted, the response returns only a limited set of data.
           required: false
           schema:
             type: array
@@ -564,10 +576,16 @@ paths:
           explode: false
         - name: forceDeviceAttributeQuery
           in: query
-          description: >-
-            Forces a live device-backed attribute refresh for endpoint-state queries. This flag is
-            only applied when `expand` includes `interfaces.attributes`. Send `true` to force the
-            refresh; absent or `false` values use stored state. Invalid values, or `true` without
+          description: |
+            Forces a live device-backed attribute refresh for endpoint-state
+            queries.
+
+            This makes Port OS call into the device to get its data, if the device
+            provider does not update the state automatically.
+
+            This flag is only applied when `expand` includes
+            `interfaces.attributes`. Send `true` to force the refresh; absent or
+            `false` values use stored state. Invalid values, or `true` without
             the required expansion, return 400.
           required: false
           schema:
@@ -1164,12 +1182,7 @@ paths:
         Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
         delegated device profile cannot invoke this operation.
       parameters:
-        - name: nextToken
-          in: query
-          required: false
-          schema:
-            type: string
-          description: Continuation token returned by the previous page.
+        - $ref: '#/components/parameters/NextTokenQuery'
         - name: maxResults
           in: query
           required: false
@@ -1785,17 +1798,7 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: owner
-          in: query
-          description: >-
-            The owner of the simulators to retrieve. Defaults to the authenticated caller when not
-            specified.
-          required: false
-          schema:
-            type: string
-          examples:
-            caller:
-              value: ~caller
+        - $ref: '#/components/parameters/OwnerQuery'
         - name: maxResults
           in: query
           description: The maximum number of results to return
@@ -1807,28 +1810,8 @@ paths:
           examples:
             max-results:
               value: 10
-        - name: nextToken
-          in: query
-          description: >-
-            An opaque token to retrieve the next page of results. Returned in the paginationContext
-            of a previous response.
-          required: false
-          schema:
-            type: string
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: Simulators retrieved successfully
@@ -1968,43 +1951,9 @@ paths:
               value: ~caller
             specific-owner:
               value: port1/principals/user123
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
-        - name: nextToken
-          in: query
-          description: Opaque cursor token returned by a previous query response.
-          required: false
-          schema:
-            type: string
-          examples:
-            next-page:
-              value: abc123
-        - name: maxResults
-          in: query
-          description: >-
-            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
-            accepted.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 10
-          examples:
-            page-size:
-              value: 50
+        - $ref: '#/components/parameters/ExpandQuery'
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
       x-portos-delegated: true
       x-portos-resource-permission: true
       security:
@@ -2209,15 +2158,7 @@ paths:
           required: false
           schema:
             type: string
-        - name: nextToken
-          in: query
-          description: Opaque cursor token returned by a previous query response.
-          required: false
-          schema:
-            type: string
-          examples:
-            next-page:
-              value: abc123
+        - $ref: '#/components/parameters/NextTokenQuery'
         - name: maxResults
           in: query
           description: Maximum number of results to return.
@@ -2434,29 +2375,8 @@ paths:
           required: false
           schema:
             type: string
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
-        - name: nextToken
-          in: query
-          description: Opaque cursor token returned by a previous query response.
-          required: false
-          schema:
-            type: string
-          examples:
-            next-page:
-              value: abc123
+        - $ref: '#/components/parameters/ExpandQuery'
+        - $ref: '#/components/parameters/NextTokenQuery'
         - name: maxResults
           in: query
           description: Maximum number of results to return.
@@ -2666,12 +2586,7 @@ paths:
             type: integer
             minimum: 1
             maximum: 100
-        - name: nextToken
-          in: query
-          required: false
-          description: Opaque cursor token returned by a previous response.
-          schema:
-            type: string
+        - $ref: '#/components/parameters/NextTokenQuery'
       responses:
         '200':
           description: OAuth client credentials retrieved successfully
@@ -3384,55 +3299,10 @@ paths:
             - group:read
         - bearerAuth: []
       parameters:
-        - name: enablement
-          in: query
-          description: >-
-            Collection visibility. Defaults to ENABLED. Use '*' to include all authorized groups, or
-            DISABLED to list hidden groups. Exact id reads ignore this filter; disabled groups still
-            cannot be targeted by messages.
-          schema:
-            type: string
-            enum:
-              - ENABLED
-              - DISABLED
-              - '*'
-            default: ENABLED
-        - name: owner
-          in: query
-          description: >-
-            Owner whose endpoint groups to get. Defaults to the authenticated caller when omitted.
-            Use '~caller' as an explicit alias for the authenticated user.
-          required: false
-          schema:
-            type: string
-          examples:
-            check-token:
-              value: ~caller
-            check-id:
-              value: port1/user/alice/user/alice
-        - name: nextToken
-          in: query
-          description: The next token to get the next page of results
-          required: false
-          schema:
-            type: string
-          examples:
-            next-token:
-              value: '123'
-        - name: maxResults
-          in: query
-          description: >-
-            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
-            accepted.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 10
-          examples:
-            max-results:
-              value: 10
+        - $ref: '#/components/parameters/EnablementQuery'
+        - $ref: '#/components/parameters/OwnerQuery'
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
         - name: expand
           in: query
           description: >-
@@ -3739,17 +3609,7 @@ paths:
             - group:read
         - bearerAuth: []
       parameters:
-        - name: owner
-          in: query
-          description: >-
-            Owner whose relationships to get. Defaults to the authenticated caller when omitted. Use
-            '~caller' as an explicit alias for the authenticated user.
-          required: false
-          schema:
-            type: string
-          examples:
-            check-token:
-              value: ~caller
+        - $ref: '#/components/parameters/OwnerQuery'
         - name: groupId
           in: query
           description: Relationships touching this group or a group route belonging to it.
@@ -3795,43 +3655,9 @@ paths:
           required: false
           schema:
             $ref: '#/components/schemas/RelationshipType'
-        - name: nextToken
-          in: query
-          description: The next token to get the next page of results
-          required: false
-          schema:
-            type: string
-          examples:
-            next-token:
-              value: '123'
-        - name: maxResults
-          in: query
-          description: >-
-            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
-            accepted.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 10
-          examples:
-            max-results:
-              value: 10
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: Relationships retrieved successfully
@@ -4539,56 +4365,10 @@ paths:
             - group:read
         - bearerAuth: []
       parameters:
-        - name: owner
-          in: query
-          description: >-
-            Owner whose group routes to get. Defaults to the authenticated caller when omitted. Use
-            '~caller' as an explicit alias for the authenticated user.
-          required: false
-          schema:
-            type: string
-          examples:
-            check-token:
-              value: ~caller
-            check-id:
-              value: port1/user/alice/user/alice
-        - name: nextToken
-          in: query
-          description: The next token to get the next page of results
-          required: false
-          schema:
-            type: string
-          examples:
-            next-token:
-              value: '123'
-        - name: maxResults
-          in: query
-          description: >-
-            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
-            accepted.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 10
-          examples:
-            max-results:
-              value: 10
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/OwnerQuery'
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: Group routes retrieved successfully
@@ -4736,7 +4516,7 @@ paths:
   /access-control-rules:
     post:
       tags:
-        - Access Control Rules
+        - Access control
       operationId: upsertAccessControlRule
       description: >-
         Upsert an access control rule.
@@ -4785,7 +4565,7 @@ paths:
       summary: Upsert Access Control Rule
     get:
       tags:
-        - Access Control Rules
+        - Access control
       operationId: getAccessControlRules
       description: >-
         Get access-control rules owned by the authenticated caller by default. Supplying an owner
@@ -4843,42 +4623,9 @@ paths:
           required: false
           schema:
             type: string
-        - name: nextToken
-          in: query
-          description: Opaque cursor token returned by a previous query response.
-          required: false
-          schema:
-            type: string
-          examples:
-            next-token:
-              value: '123'
-        - name: maxResults
-          in: query
-          description: >-
-            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
-            accepted.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-          examples:
-            max-results:
-              value: 1
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: Access control rules retrieved successfully
@@ -4927,7 +4674,7 @@ paths:
   /access-control-rules/evaluate:
     post:
       tags:
-        - Access Control Rules
+        - Access control
       operationId: evaluateAccessControlRule
       description: >-
         Evaluate an access control rule.
@@ -4966,7 +4713,7 @@ paths:
   /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}:
     delete:
       tags:
-        - Access Control Rules
+        - Access control
       operationId: deleteAccessControlRule
       description: >-
         Delete an access control rule.
@@ -5037,32 +4784,14 @@ paths:
           required: false
           schema:
             type: string
-        - name: nextToken
-          in: query
-          description: The next token to get the next page of results
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/NextTokenQuery'
         - name: maxResults
           in: query
           description: The maximum number of results to return
           required: false
           schema:
             type: integer
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: Secrets retrieved successfully
@@ -5116,7 +4845,7 @@ paths:
         For example, maybe you have client credentials or something that is a generic json blob. 
 
 
-        i.e. https://api.portpowered.com/storage/secrets/portos1.secret.<UUID>
+        i.e. https://api.portoperatingsystem.com/storage/secrets/portos1.secret.<UUID>
 
 
         ### Tokens
@@ -5285,42 +5014,9 @@ paths:
           examples:
             specific-principal:
               value: port1/principals/user123
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
-        - name: nextToken
-          in: query
-          description: Opaque cursor token returned by a previous query response.
-          required: false
-          schema:
-            type: string
-          examples:
-            next-page:
-              value: abc123
-        - name: maxResults
-          in: query
-          description: >-
-            Maximum number of results to return. Defaults to 10; values from 1 through 100 are
-            accepted.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-          examples:
-            page-size:
-              value: 50
+        - $ref: '#/components/parameters/ExpandQuery'
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
       x-portos-delegated: false
       x-portos-resource-permission: true
       security:
@@ -5409,9 +5105,15 @@ paths:
     post:
       operationId: generateToken
       tags:
-        - Auth
+        - Tokens
       summary: OAuth2 Token Endpoint
       description: |
+        This API is used to generate OAuth2 tokens.
+
+        The current OAuth token endpoint supports:
+        1. Refresh token grants.
+        2. Authorization code token grants.
+
         Public DCR/CIMD clients exchange authorization_code with client_id, redirect_uri,
         code_verifier and the same resource as the consent request. No client_secret is
         issued. Refresh these grants with grant_type refresh_token, client_id, rotating
@@ -5430,7 +5132,7 @@ paths:
               redirect_uri: http://127.0.0.1:8765/callback
               code: CALLBACK_CODE
               code_verifier: ORIGINAL_RANDOM_PKCE_VERIFIER
-              resource: https://portos-pilot-api-685761720421.us-west1.run.app
+              resource: https://api.portoperatingsystem.com
       responses:
         '200':
           description: Token generated successfully
@@ -5455,7 +5157,7 @@ paths:
     post:
       operationId: revokeOAuthGrant
       tags:
-        - Auth
+        - Tokens
       summary: Revoke a delegated REST or MCP grant
       security: []
       x-portos-delegated: false
@@ -5501,32 +5203,14 @@ paths:
         Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
         delegated device profile cannot invoke this operation.
       parameters:
-        - name: nextToken
-          in: query
-          description: Opaque token for the next page of results
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/NextTokenQuery'
         - name: maxResults
           in: query
           description: Maximum number of results to return
           required: false
           schema:
             type: integer
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: Tokens retrieved successfully
@@ -5705,7 +5389,7 @@ paths:
     post:
       operationId: raiseAnonymousPrincipal
       tags:
-        - Auth
+        - Principals
       summary: Merge anonymous principal into real identity
       description: >
         Merges an anonymous principal into a real identity by exchanging an anonymous refresh token
@@ -5782,7 +5466,7 @@ paths:
     post:
       operationId: handleOAuthCallback
       tags:
-        - Auth
+        - OAuth flows
       summary: OAuth provider callback
       description: >
         Handles callbacks from OAuth providers (Apple, Google, etc.) that do not support PKCE or
@@ -5836,7 +5520,7 @@ paths:
   /auth/device-authorization:
     post:
       tags:
-        - Auth
+        - OAuth flows
       summary: OAuth2 Device Authorization
       description: >-
         This API is used by your device to obtain authorization from the resource owner via a device
@@ -5873,7 +5557,7 @@ paths:
               example:
                 device_code: port1/principals/example
                 user_code: port1/principals/example
-                verification_uri: https://portpowered.com/oauth/device/verify
+                verification_uri: https://portoperatingsystem.com/oauth/device/verify
                 expires_in: 1800
                 interval: 5
         '400':
@@ -5908,32 +5592,14 @@ paths:
         Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
         delegated device profile cannot invoke this operation.
       parameters:
-        - name: nextToken
-          in: query
-          description: The next token to get the next page of results
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/NextTokenQuery'
         - name: maxResults
           in: query
           description: The maximum number of results to return
           required: false
           schema:
             type: integer
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
+        - $ref: '#/components/parameters/ExpandQuery'
       responses:
         '200':
           description: OAuth clients retrieved successfully
@@ -6449,59 +6115,11 @@ paths:
       security:
         - oauth2: []
         - bearerAuth: []
-  /oauth/generate-code:
-    post:
-      operationId: generateOAuthCode
-      tags:
-        - Internal
-      summary: OAuth2 Generate Device Code
-      description: >-
-        This endpoint generates an OAuth 2.0 authorization code that can be exchanged for an access
-        token. This endpoint is called by the frontend /oauth/authorize page after the user grants
-        consent.
-
-        The endpoint validates the client, redirect URI, and scopes, then creates an authorization
-        code for the authenticated user principal.
-
-
-
-        Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
-        delegated device profile cannot invoke this operation.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GenerateOAuthCodeRequest'
-            example:
-              client_id: port1/principals/user123/oauth-clients/my-client
-              redirect_uri: https://myapp.com/callback
-      responses:
-        '200':
-          description: Authorization code generated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GenerateOAuthCodeResponse'
-              example:
-                code: abc123def456ghi789
-                expiryInSeconds: 600
-        '400':
-          description: Invalid request (e.g., invalid client_id, redirect_uri, or scopes)
-        '401':
-          description: Unauthorized (missing or invalid authentication token)
-        '500':
-          description: Internal server error
-      x-portos-delegated: false
-      x-portos-resource-permission: false
-      security:
-        - oauth2: []
-        - bearerAuth: []
   /oauth/register:
     post:
       operationId: registerDynamicOAuthClient
       tags:
-        - Auth
+        - OAuth flows
       summary: Register a public OAuth client
       security: []
       x-portos-delegated: false
@@ -6583,7 +6201,7 @@ paths:
     get:
       operationId: beginOAuthAuthorization
       tags:
-        - Auth
+        - OAuth flows
       security: []
       x-portos-resource-permission: false
       summary: Open user consent for a resource-bound public client
@@ -6665,7 +6283,7 @@ paths:
     post:
       operationId: completeOAuthConsent
       tags:
-        - Auth
+        - OAuth flows
       security:
         - bearerAuth: []
       x-portos-resource-permission: false
@@ -6713,7 +6331,7 @@ paths:
                     format: uri
               example:
                 redirect_url: >-
-                  https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID
+                  https://auth.portoperatingsystem.com/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID
         '400':
           description: Invalid, expired or consumed request.
         '401':
@@ -6723,7 +6341,7 @@ paths:
     get:
       operationId: getPendingOAuthConsent
       tags:
-        - Auth
+        - OAuth flows
       summary: Read a pending request for the signed-in consent page
       description: |
         Returns server-stored consent details to the authenticated website. Descriptive
@@ -6772,7 +6390,7 @@ paths:
                 client_id: dcr_example
                 client_name: Example agent
                 redirect_uri: http://127.0.0.1:8765/callback
-                resource: https://portos-pilot-api-685761720421.us-west1.run.app
+                resource: https://api.portoperatingsystem.com
                 scopes: []
         '400':
           description: Invalid, expired or consumed request.
@@ -6782,7 +6400,7 @@ paths:
     get:
       operationId: deliverOAuthAuthorizationResponse
       tags:
-        - Auth
+        - OAuth flows
       security: []
       x-portos-resource-permission: false
       x-portos-delegated: false
@@ -6818,174 +6436,6 @@ paths:
               description: no-referrer
         '400':
           description: Missing, wrong-stage, expired or consumed continuation reference.
-  /oauth/validate-request:
-    post:
-      operationId: validateOAuthRequest
-      tags:
-        - Internal
-      summary: OAuth2 Validate Authorization Request
-      description: >
-        This endpoint validates OAuth 2.0 authorization request parameters without creating an
-        authorization code. It returns client information relevant for displaying on the
-        authorization page, such as client name, Terms of Service URI, Privacy Policy URI, logo URI,
-        and validated scopes.
-
-        This endpoint is useful for pre-validation before user consent, allowing the frontend to
-        display relevant client information to the user.
-      security:
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidateOAuthRequestRequest'
-            example:
-              client_id: port1/principals/user123/oauth-clients/my-client
-              redirect_uri: https://myapp.com/callback
-      responses:
-        '200':
-          description: Request validated successfully, returns client information
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidateOAuthRequestResponse'
-              example:
-                clientName: My OAuth Application
-                scopes: []
-        '400':
-          description: Invalid request (e.g., invalid client_id, redirect_uri, or scopes)
-        '500':
-          description: Internal server error
-      x-portos-delegated: false
-      x-portos-resource-permission: false
-  /oauth/verify-device:
-    get:
-      operationId: verifyDevice
-      tags:
-        - Internal
-      summary: OAuth2 Verify Device by User Code
-      description: >
-        This endpoint retrieves device and client information by user_code for display on the
-        authorization page. It is used during the OAuth 2.0 device code flow to show the user which
-        device and client is requesting authorization.
-
-        The endpoint validates the user_code and returns client information such as client name,
-        logo URI, Terms of Service URI, Privacy Policy URI, and the current status of the device
-        authentication.
-      security: []
-      parameters:
-        - name: user_code
-          in: query
-          required: true
-          description: User code displayed to the user for device authorization
-          schema:
-            type: string
-            example: ABCD-EFGH
-      responses:
-        '200':
-          description: Device and client information retrieved successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VerifyDeviceResponse'
-              example:
-                deviceauth_id: da_1234567890abcdef
-                client_name: My OAuth Application
-                client_id: port1/principals/user123/oauth-clients/my-client
-                status: pending
-        '400':
-          description: Invalid request (e.g., missing or invalid user_code)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuthErrorResponse'
-              example:
-                error: invalid_request
-                error_description: user_code is required
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuthErrorResponse'
-              example:
-                error: invalid_request
-                error_description: user_code is required
-      x-portos-delegated: false
-      x-portos-resource-permission: false
-  /oauth/authorize-device:
-    post:
-      operationId: authorizeDevice
-      tags:
-        - Internal
-      summary: OAuth2 Authorize Device by User Code
-      description: >-
-        This endpoint allows an authenticated user to grant consent for device authorization. It
-        creates an authorization code with the owner principal and marks the device authentication
-        as authorized.
-
-        The endpoint validates the user_code, checks that the requested scopes are valid, extracts
-        the authenticated user principal from the context, and authorizes the deviceauth. This is
-        the final step in the device code flow before the device can exchange the device_code for
-        tokens.
-
-
-
-        Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
-        delegated device profile cannot invoke this operation.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AuthorizeDeviceRequest'
-            example:
-              user_code: ABCD-EFGH
-              scopes:
-                - endpoint:read
-                - endpoint:write
-      responses:
-        '200':
-          description: Device authorization successful
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AuthorizeDeviceResponse'
-              example:
-                success: true
-        '400':
-          description: Invalid request (e.g., missing user_code, invalid user_code, or invalid scopes)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuthErrorResponse'
-              example:
-                error: invalid_request
-                error_description: user_code is required
-        '401':
-          description: Unauthorized (missing or invalid authentication token)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuthErrorResponse'
-              example:
-                error: invalid_request
-                error_description: user_code is required
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuthErrorResponse'
-              example:
-                error: invalid_request
-                error_description: user_code is required
-      x-portos-delegated: false
-      x-portos-resource-permission: false
-      security:
-        - oauth2: []
-        - bearerAuth: []
   /messages:
     post:
       operationId: sendMessage
@@ -7560,48 +7010,10 @@ paths:
           required: false
           schema:
             type: string
-        - name: owner
-          in: query
-          description: >-
-            Owner whose subscriptions to list. Defaults to the authenticated caller when omitted. A
-            different owner is permitted only for subscriptions the caller can read.
-          required: false
-          schema:
-            type: string
-        - name: expand
-          in: query
-          description: Expansion tokens that request related or computed fields for each result.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: false
-          examples:
-            include-related:
-              value:
-                - metadata
-        - name: nextToken
-          in: query
-          description: Opaque cursor token returned by a previous query response.
-          required: false
-          schema:
-            type: string
-          examples:
-            next-page:
-              value: abc123
-        - name: maxResults
-          in: query
-          description: Maximum number of results to return. Defaults to 10 and cannot exceed 100.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-          examples:
-            page-size:
-              value: 50
+        - $ref: '#/components/parameters/OwnerQuery'
+        - $ref: '#/components/parameters/ExpandQuery'
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - $ref: '#/components/parameters/MaxResultsQuery'
       x-portos-delegated: true
       x-portos-resource-permission: true
       security:
@@ -8228,8 +7640,8 @@ components:
       description: OAuth2 authentication using the OAuth2 flow.
       flows:
         authorizationCode:
-          authorizationUrl: https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize
-          tokenUrl: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
+          authorizationUrl: https://auth.portoperatingsystem.com/oauth/authorize
+          tokenUrl: https://auth.portoperatingsystem.com/auth/token
           scopes:
             endpoint:read: View authorized devices, connected services and their state.
             endpoint:write: Manage authorized devices, connected services and provider connections.
@@ -8249,7 +7661,7 @@ components:
             access-control-rule:read: Read resource rules; unavailable to anonymous DCR clients.
             access-control-rule:write: Manage resource rules; unavailable to anonymous DCR clients.
         clientCredentials:
-          tokenUrl: https://portos-pilot-api-685761720421.us-west1.run.app/auth/token
+          tokenUrl: https://auth.portoperatingsystem.com/auth/token
           scopes: {}
   parameters:
     IdempotencyKey:
@@ -8283,6 +7695,80 @@ components:
         type: string
         minLength: 1
       example: '"12"'
+    EnablementQuery:
+      name: enablement
+      in: query
+      required: false
+      description: |
+        Filter the results by enablement.
+
+        Enablement is a customer setting that stops Port OS from using a resource
+        without deleting it. Port OS uses it in place of deletion because it cannot
+        delete a device on the provider's side.
+
+        Defaults to ENABLED. Use DISABLED to list only disabled resources, or '*' to
+        include both enabled and disabled resources.
+
+        Looking up a resource by its exact id ignores this filter.
+      schema:
+        $ref: '#/components/schemas/EnablementFilter'
+    OwnerQuery:
+      name: owner
+      in: query
+      required: false
+      description: |
+        Filter the results by the owner of the resource.
+
+        Defaults to the authenticated caller's resources when omitted. Use '~caller'
+        to make that scope explicit.
+
+        Another owner can be selected only for resources the caller can read.
+      schema:
+        type: string
+      examples:
+        caller:
+          value: ~caller
+        principal:
+          value: port1/principals/example
+    ExpandQuery:
+      name: expand
+      in: query
+      required: false
+      description: |
+        Expansion tokens that request related or computed fields for each result.
+
+        When omitted, the response contains only the default, shallower set of
+        fields for each result.
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+    NextTokenQuery:
+      name: nextToken
+      in: query
+      required: false
+      description: |
+        Opaque token for the next page of results.
+
+        Pass the continuation token returned by the previous response, unchanged.
+        Omit it to start from the first page.
+      schema:
+        type: string
+    MaxResultsQuery:
+      name: maxResults
+      in: query
+      required: false
+      description: |
+        Maximum number of results to return in one page.
+
+        Defaults to 10. Values from 1 through 100 are accepted.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
   headers:
     ETag:
       description: >
@@ -10365,7 +9851,7 @@ components:
             A URL string of a web page providing information about the client. If present, the
             server should display this URL to the end-user in a clickable fashion. See
             https://datatracker.ietf.org/doc/html/rfc7591#section-2
-          example: https://google.com/oauth-clients/1234567890
+          example: https://app.example.com/oauth-clients/1234567890
         logoUri:
           type: string
           format: uri
@@ -11058,6 +10544,21 @@ components:
         clientSecret:
           type: string
           description: Plaintext client secret returned once.
+    EnablementFilter:
+      type: string
+      description: |
+        Which resources a collection returns by enablement. ENABLED returns resources
+        Port OS is using, DISABLED returns the ones the customer turned off, and '*'
+        returns both.
+      enum:
+        - ENABLED
+        - DISABLED
+        - '*'
+      default: ENABLED
+      x-enum-varnames:
+        - EnablementFilterENABLED
+        - EnablementFilterDISABLED
+        - EnablementFilterAll
     Enablement:
       type: string
       description: >
@@ -11068,6 +10569,7 @@ components:
       enum:
         - ENABLED
         - DISABLED
+      default: ENABLED
       x-enum-varnames:
         - EnablementENABLED
         - EnablementDISABLED
@@ -13723,11 +13225,11 @@ components:
         verification_uri:
           type: string
           description: The URI where the user should enter the user code
-          example: https://portpowered.com/oauth/device/verify
+          example: https://portoperatingsystem.com/oauth/device/verify
         verification_uri_complete:
           type: string
           description: The complete URI including the user code (optional, for convenience)
-          example: https://portpowered.com/oauth/device/verify?user_code=ABC123
+          example: https://portoperatingsystem.com/oauth/device/verify?user_code=ABC123
         expires_in:
           type: integer
           description: The lifetime in seconds of the device_code and user_code
@@ -13765,65 +13267,6 @@ components:
         not a resource permission or an automatic Cedar grant. Each scope follows the pattern
         "resource:action" where resource indicates the resource type and action indicates the
         permitted operation (read, write, send, trigger).
-    GenerateOAuthCodeRequest:
-      type: object
-      required:
-        - client_id
-        - redirect_uri
-      properties:
-        resource:
-          type: string
-          format: uri
-          description: Optional OAuth resource indicator preserved from the validated authorization request.
-        client_id:
-          type: string
-          description: OAuth client identifier
-          example: port1/principals/user123/oauth-clients/my-client
-        redirect_uri:
-          type: string
-          description: Redirect URI to return to after authorization
-          example: https://myapp.com/callback
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthScope'
-        code_challenge:
-          type: string
-          description: PKCE code challenge (required if client requires PKCE)
-          example: E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM
-        code_challenge_method:
-          type: string
-          x-enum-exempt: PKCE code challenge methods (RFC 7636)
-          enum:
-            - S256
-            - plain
-          description: PKCE code challenge method (S256 or plain)
-          example: S256
-        state:
-          type: string
-          description: Optional state parameter for CSRF protection
-          example: xyz123
-    GenerateOAuthCodeResponse:
-      type: object
-      required:
-        - code
-        - expiryInSeconds
-      description: >-
-        Response from the /oauth/generate-code endpoint.  This endpoint is used by the website to
-        generate an authorization code for the client to exchange for an access token.  When the
-        customer receives the code, they are expected to call the port OS /auth/token OAUTH API to
-        exchange the code for an access token. 
-      properties:
-        code:
-          type: string
-          description: >-
-            Authorization code that can be exchanged for an access token via the /auth/token
-            endpoint. 
-          example: abc123def456ghi789
-        expiryInSeconds:
-          type: integer
-          description: Expiry time in seconds (typically 600 seconds / 10 minutes)
-          example: 600
     DynamicClientMetadata:
       type: object
       required:
@@ -13900,161 +13343,6 @@ components:
         error_description:
           type: string
           description: Human-readable recovery guidance.
-    ValidateOAuthRequestRequest:
-      type: object
-      required:
-        - client_id
-        - redirect_uri
-      properties:
-        resource:
-          type: string
-          format: uri
-          description: >-
-            Optional OAuth resource indicator whose audience binding is validated with the
-            authorization request.
-        client_id:
-          type: string
-          description: OAuth client identifier
-          example: port1/principals/user123/oauth-clients/my-client
-        redirect_uri:
-          type: string
-          description: Redirect URI to validate
-          example: https://myapp.com/callback
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthScope'
-          description: Requested scopes to validate
-        code_challenge:
-          type: string
-          description: PKCE code challenge (required if client requires PKCE)
-          example: E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM
-        code_challenge_method:
-          type: string
-          x-enum-exempt: PKCE code challenge methods (RFC 7636)
-          enum:
-            - S256
-            - plain
-          description: PKCE code challenge method (S256 or plain)
-          example: S256
-    ValidateOAuthRequestResponse:
-      type: object
-      required:
-        - clientName
-        - scopes
-      description: >
-        Response from the /oauth/validate-request endpoint. Contains client information relevant for
-        displaying on the authorization page.
-      properties:
-        clientName:
-          type: string
-          description: Client name to display on the authorization page
-          example: My OAuth Application
-        tosUri:
-          type: string
-          format: uri
-          description: Terms of Service URI (optional)
-          example: https://myapp.com/terms
-        policyUri:
-          type: string
-          format: uri
-          description: Privacy Policy URI (optional)
-          example: https://myapp.com/privacy
-        logoUri:
-          type: string
-          format: uri
-          description: Logo URI for the client (optional)
-          example: https://myapp.com/logo.png
-        clientUri:
-          type: string
-          format: uri
-          description: Client URI (optional)
-          example: https://myapp.com
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthScope'
-          description: Validated scopes that will be granted if the user consents
-    VerifyDeviceResponse:
-      type: object
-      required:
-        - deviceauth_id
-        - client_name
-        - client_id
-        - status
-      description: >
-        Response from the /oauth/verify-device endpoint. Contains device and client information for
-        display on the authorization page.
-      properties:
-        deviceauth_id:
-          type: string
-          description: Unique identifier for the device authentication entry
-          example: da_1234567890abcdef
-        client_name:
-          type: string
-          description: Display name of the OAuth client requesting authorization
-          example: My OAuth Application
-        client_id:
-          type: string
-          description: OAuth client identifier
-          example: port1/principals/user123/oauth-clients/my-client
-        status:
-          type: string
-          description: Current status of the device authentication (e.g., "pending", "authorized", "expired")
-          example: pending
-        logo_uri:
-          type: string
-          format: uri
-          description: Logo URI for the client (optional)
-          example: https://myapp.com/logo.png
-        client_uri:
-          type: string
-          format: uri
-          description: Client URI (optional)
-          example: https://myapp.com
-        tos_uri:
-          type: string
-          format: uri
-          description: Terms of Service URI (optional)
-          example: https://myapp.com/terms
-        policy_uri:
-          type: string
-          format: uri
-          description: Privacy Policy URI (optional)
-          example: https://myapp.com/privacy
-    AuthorizeDeviceRequest:
-      type: object
-      required:
-        - user_code
-        - scopes
-      description: >
-        Request body for the /oauth/authorize-device endpoint. Used by authenticated users to grant
-        consent for device authorization.
-      properties:
-        user_code:
-          type: string
-          description: User code displayed to the user for device authorization
-          example: ABCD-EFGH
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthScope'
-          description: Scopes that the user is granting consent for
-          example:
-            - endpoint:read
-            - endpoint:write
-    AuthorizeDeviceResponse:
-      type: object
-      required:
-        - success
-      description: >
-        Response from the /oauth/authorize-device endpoint. Indicates whether the device
-        authorization was successful.
-      properties:
-        success:
-          type: boolean
-          description: Indicates if the device authorization was successful
-          example: true
     MessageAuthorizationContext:
       type: object
       required:

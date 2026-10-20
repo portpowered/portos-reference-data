@@ -36,53 +36,10 @@ get:
         - group:read
     - bearerAuth: []
   parameters:
-    - name: enablement
-      in: query
-      description: >-
-        Collection visibility. Defaults to ENABLED. Use '*' to include all authorized groups, or
-        DISABLED to list hidden groups. Exact id reads ignore this filter; disabled groups still
-        cannot be targeted by messages.
-      schema:
-        type: string
-        enum:
-          - ENABLED
-          - DISABLED
-          - '*'
-        default: ENABLED
-    - name: owner
-      in: query
-      description: >-
-        Owner whose endpoint groups to get. Defaults to the authenticated caller when omitted. Use
-        '~caller' as an explicit alias for the authenticated user.
-      required: false
-      schema:
-        type: string
-      examples:
-        check-token:
-          value: ~caller
-        check-id:
-          value: port1/user/alice/user/alice
-    - name: nextToken
-      in: query
-      description: The next token to get the next page of results
-      required: false
-      schema:
-        type: string
-      examples:
-        next-token:
-          value: '123'
-    - name: maxResults
-      in: query
-      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 10
-      examples:
-        max-results:
-          value: 10
+    - $ref: /docs/references/parameters/EnablementQuery.json
+    - $ref: /docs/references/parameters/OwnerQuery.json
+    - $ref: /docs/references/parameters/NextTokenQuery.json
+    - $ref: /docs/references/parameters/MaxResultsQuery.json
     - name: expand
       in: query
       description: >-
@@ -172,6 +129,10 @@ get:
 
 ## Linked components
 
+- [EnablementQuery.json](/docs/references/parameters/EnablementQuery.json)
+- [MaxResultsQuery.json](/docs/references/parameters/MaxResultsQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
+- [OwnerQuery.json](/docs/references/parameters/OwnerQuery.json)
 - [EnumerateEndpointGroupsResponse.json](/docs/references/schemas/EnumerateEndpointGroupsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

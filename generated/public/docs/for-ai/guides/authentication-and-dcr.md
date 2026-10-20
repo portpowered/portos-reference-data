@@ -181,7 +181,7 @@ Read [the token operation](/docs/for-ai/operations/generateToken.md), [revocatio
 
 Canonical component: [Exchange, refresh and revoke scoped OAuth tokens](/docs/for-ai/guides/oauth-token-lifecycle.md).
 
-## Scopes and authorization rules
+## Set up access rules for Port OS
 
 Authentication establishes the principal and client. OAuth scopes bound the user's delegated authority; resource rules decide which selected resources and actions that principal may access. A scope is not an ownership or sharing grant.
 
@@ -209,4 +209,4 @@ An invalid/expired/revoked token needs renewed authentication. A scope denial re
 
 See [troubleshooting](/docs/for-ai/guides/troubleshooting.md).
 
-Canonical component: [Scopes and authorization rules](/docs/for-ai/guides/authorization-rules.md).
+Canonical component: [Set up access rules for Port OS](/docs/for-ai/guides/authorization-rules.md).

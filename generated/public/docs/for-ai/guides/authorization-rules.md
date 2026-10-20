@@ -1,4 +1,4 @@
-# Scopes and authorization rules
+# Set up access rules for Port OS
 
 Authentication establishes the principal and client. OAuth scopes bound the user's delegated authority; resource rules decide which selected resources and actions that principal may access. A scope is not an ownership or sharing grant.
 

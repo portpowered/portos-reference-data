@@ -105,40 +105,9 @@ get:
       examples:
         specific-principal:
           value: port1/principals/user123
-    - name: expand
-      in: query
-      description: Expansion tokens that request related or computed fields for each result.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: false
-      examples:
-        include-related:
-          value:
-            - metadata
-    - name: nextToken
-      in: query
-      description: Opaque cursor token returned by a previous query response.
-      required: false
-      schema:
-        type: string
-      examples:
-        next-page:
-          value: abc123
-    - name: maxResults
-      in: query
-      description: Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-      examples:
-        page-size:
-          value: 50
+    - $ref: /docs/references/parameters/ExpandQuery.json
+    - $ref: /docs/references/parameters/NextTokenQuery.json
+    - $ref: /docs/references/parameters/MaxResultsQuery.json
   x-portos-delegated: false
   x-portos-resource-permission: true
   security:
@@ -149,6 +118,9 @@ get:
 
 ## Linked components
 
+- [ExpandQuery.json](/docs/references/parameters/ExpandQuery.json)
+- [MaxResultsQuery.json](/docs/references/parameters/MaxResultsQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
 - [EnumeratePrincipalsResponse.json](/docs/references/schemas/EnumeratePrincipalsResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

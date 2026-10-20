@@ -48,12 +48,7 @@ get:
         type: integer
         minimum: 1
         maximum: 100
-    - name: nextToken
-      in: query
-      required: false
-      description: Opaque cursor token returned by a previous response.
-      schema:
-        type: string
+    - $ref: /docs/references/parameters/NextTokenQuery.json
   responses:
     '200':
       description: OAuth client credentials retrieved successfully
@@ -92,6 +87,7 @@ get:
 
 ## Linked components
 
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
 - [AuthLinkClientCredentialSummaries.json](/docs/references/schemas/AuthLinkClientCredentialSummaries.json)
 - [Error.json](/docs/references/schemas/Error.json)
 

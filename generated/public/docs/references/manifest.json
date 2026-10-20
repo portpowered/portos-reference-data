@@ -1,23 +1,22 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.7",
-  "sourceCommit": "ebf3d7e71fc1265ae5b00ff6090c3650e7dab893",
+  "version": "0.5.8",
+  "sourceCommit": "919d959a823d1244999a83f72ef0ff0ab73f4256",
   "sourceInputState": "committed",
-  "assetSetSHA256": "b29168fe03c542ca8223ff4578ea864f1f6610c096ddaa39e25ddd412461f945",
+  "assetSetSHA256": "67909153db8d201197352bf9642f7ce2a0d5f2587f1b43e3cdeae43ada04c613",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19670,
-      "sha256": "004b2e0518a8501eff5546f5c7080bffb39c80403a15299b336daa6e0b50dd21",
+      "bytes": 19032,
+      "sha256": "0aaf060a8bd3afa5ccb2c394d04a10485bff23044d2dec9688ce381bbc65b53f",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/quickstart.md",
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
-        "/docs/for-ai/operations/authorizeDevice.md",
         "/docs/for-ai/operations/beginOAuthAuthorization.md",
         "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
         "/docs/for-ai/operations/completeOAuthConsent.md",
@@ -62,7 +61,6 @@
         "/docs/for-ai/operations/establishPlugin.md",
         "/docs/for-ai/operations/evaluateAccessControlRule.md",
         "/docs/for-ai/operations/generateOAuthClientSecret.md",
-        "/docs/for-ai/operations/generateOAuthCode.md",
         "/docs/for-ai/operations/generateToken.md",
         "/docs/for-ai/operations/generateTuyaQrCode.md",
         "/docs/for-ai/operations/getAccessControlRules.md",
@@ -113,9 +111,7 @@
         "/docs/for-ai/operations/upsertSecret.md",
         "/docs/for-ai/operations/upsertSimulator.md",
         "/docs/for-ai/operations/upsertSubscription.md",
-        "/docs/for-ai/operations/validateOAuthRequest.md",
         "/docs/for-ai/operations/validateTuyaLoginCode.md",
-        "/docs/for-ai/operations/verifyDevice.md",
         "/docs/references/openapi.yaml"
       ]
     },
@@ -1341,8 +1337,8 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 20229,
-      "sha256": "dcb220c249f76a727bf195221383bcf3f0b58bc4475a4d4e5cfd0fa29ce90f13",
+      "bytes": 20231,
+      "sha256": "013199c1ecfec7af38b732a707831b3de45bfa655fd3580bd512b9e3ebb5bacd",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1362,8 +1358,8 @@
     {
       "path": "/docs/for-ai/guides/authorization-rules.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3417,
-      "sha256": "d2d3a13aee61e562251bfe0d4f569c480b4d3729239fede609315a9085d63215",
+      "bytes": 3418,
+      "sha256": "1f8e2bb2dbc015807545353ae04aa919227eb76c347941067ba5814911b950f6",
       "links": [
         "/docs/for-ai/guides/troubleshooting.md",
         "/docs/for-ai/operations/index.md",
@@ -1384,8 +1380,8 @@
     {
       "path": "/docs/for-ai/guides/connect-agent.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2915,
-      "sha256": "a2df90b8c73167d3e9897396ef8a8b51c0b428d3c96fe15da92af6bbf9089eb2",
+      "bytes": 2943,
+      "sha256": "d7b181be20546d3b508b6ef1c1f8664b64839ff41f582d96adaf42cc7a636d34",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
@@ -1429,14 +1425,12 @@
     {
       "path": "/docs/for-ai/guides/events-and-capabilities.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3477,
-      "sha256": "384320889bd71bb65ae0905c4e3b301b40bc16ca61cbec6abd9e37313550e82a",
+      "bytes": 3685,
+      "sha256": "787df40a317034373eb053f2c02ca4e6ee61e4af5f41abfdbe945a407ff8329d",
       "links": [
-        "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/connect-agent.md",
         "/docs/for-ai/guides/using-the-api.md",
-        "/docs/for-ai/operations/enumerateEndpoints.md",
         "/docs/for-ai/operations/sendMessage.md"
       ]
     },
@@ -1454,8 +1448,8 @@
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3576,
-      "sha256": "2e1d1206a52a2da368b5757c2f2ff514b4da3264bd5cbf3287d028af7043747a",
+      "bytes": 3742,
+      "sha256": "c5863a1986085d4d8c85c37e6c55ebc3bd16c2cc4b63107d4199cccfba069192",
       "links": [
         "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
@@ -1480,7 +1474,9 @@
         "/docs/for-ai/guides/oauth-token-lifecycle.md",
         "/docs/for-ai/guides/port-os-concepts.md",
         "/docs/for-ai/guides/quickstart.md",
+        "/docs/for-ai/guides/react-to-device-events.md",
         "/docs/for-ai/guides/reading-the-docs.md",
+        "/docs/for-ai/guides/sign-in-and-connect-accounts.md",
         "/docs/for-ai/guides/skill-connected-home.md",
         "/docs/for-ai/guides/skill-setup.md",
         "/docs/for-ai/guides/spotify.md",
@@ -1504,14 +1500,15 @@
     {
       "path": "/docs/for-ai/guides/lighting.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2529,
-      "sha256": "8b1cca82dc87f9e558e860a676ee3b47a09ea91858d9e343afc66a52b5b1aafb",
+      "bytes": 6170,
+      "sha256": "d9a8756b729eec48a16dbb31fa321da212c7407f778657121f9e51375ba5c7ba",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/managing-groups.md",
         "/docs/for-ai/guides/quickstart.md",
-        "/docs/for-ai/operations/endpointQuery.md"
+        "/docs/for-ai/operations/endpointQuery.md",
+        "/docs/for-ai/operations/sendMessage.md"
       ]
     },
     {
@@ -1647,6 +1644,15 @@
       ]
     },
     {
+      "path": "/docs/for-ai/guides/react-to-device-events.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 4839,
+      "sha256": "8443ceddae9a5b156d767aa1eaad32f6cd5f302fa0caf27d8da712e76c5dc59f",
+      "links": [
+        "/docs/for-ai/guides/authorization-rules.md"
+      ]
+    },
+    {
       "path": "/docs/for-ai/guides/reading-the-docs.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 1051,
@@ -1658,6 +1664,13 @@
         "/docs/for-ai/index.md",
         "/docs/references/openapi.yaml"
       ]
+    },
+    {
+      "path": "/docs/for-ai/guides/sign-in-and-connect-accounts.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3048,
+      "sha256": "1ecde19952399b3b789f5e7068a1c03aa764f061f47fb4474838c5ea5578cc71",
+      "links": []
     },
     {
       "path": "/docs/for-ai/guides/skill-connected-home.md",
@@ -1770,8 +1783,8 @@
     {
       "path": "/docs/for-ai/guides/troubleshooting.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1516,
-      "sha256": "725a1ab07f89cb91259bdce9fa2fec385520453e4ca61b8d4d2146992cb4369b",
+      "bytes": 1528,
+      "sha256": "bed9d53f790395f455ee235a40cea69b03c869a203f604c1765ef2b46e89a53b",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/using-the-api.md"
@@ -1794,8 +1807,8 @@
     {
       "path": "/docs/for-ai/guides/vacuums.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2506,
-      "sha256": "b2a16e82a1633072ec85e0f71221cb983fa35787c79686c438b015965552d466",
+      "bytes": 2509,
+      "sha256": "5dc5302505665540802952c0255548ff78db03d809336fddc4a68dc7cb8fc98e",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/using-the-api.md"
@@ -1836,23 +1849,10 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/authorizeDevice.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 3840,
-      "sha256": "b143d55ace3d2427721414d93af1022bb8ea8b6bb82517ff993fc088129f4968",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/AuthorizeDeviceRequest.json",
-        "/docs/references/schemas/AuthorizeDeviceResponse.json",
-        "/docs/references/schemas/OAuthErrorResponse.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/operations/beginOAuthAuthorization.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3379,
-      "sha256": "d6ee881ff3be0465de8f1436d7e01e1281de61f08004e7df684ff272f9a22bfc",
+      "bytes": 3386,
+      "sha256": "996889f80987896975874fc16d0e756c7ec82e7c6e3e5549da25595aea5d822d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -1875,8 +1875,8 @@
     {
       "path": "/docs/for-ai/operations/completeOAuthConsent.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2605,
-      "sha256": "2cdf0d186c9acc781f797090c78d43defa3f6e9df1854c977557167c7b0c5042",
+      "bytes": 2594,
+      "sha256": "678c568c6f4b52b3ffa6d889949af3f491091994b654f63a5c553547d7e34bf0",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -1965,8 +1965,8 @@
     {
       "path": "/docs/for-ai/operations/deleteAccessControlRule.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2233,
-      "sha256": "9ec570cd386f5d2ffdc95ef460e18b3c4a9fb1376c0cb003d523e212f8485b0b",
+      "bytes": 2227,
+      "sha256": "24092235e0c0796bcf0ddb9fef7aca406681111f0f960b7f7f45adfa429fcbab",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2105,8 +2105,8 @@
     {
       "path": "/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2382,
-      "sha256": "750ae696bbfaaa3feba5a5d7169fe7a909fcf9e1235d340e86c449f9aa88cd93",
+      "bytes": 2389,
+      "sha256": "3d40fa81742e129775388c6892caa65bdfa5f3354825a21f5366b22e47478f7e",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2115,8 +2115,8 @@
     {
       "path": "/docs/for-ai/operations/deviceAuthorize.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3430,
-      "sha256": "eba29e99c81aa89c617f85897103924aa20c64bae6ed6024a06cbf06072af491",
+      "bytes": 3445,
+      "sha256": "aea9393cde56c66a346b816b6009abd926819843713649d243bfe2ccb7cdaf9c",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2155,11 +2155,12 @@
     {
       "path": "/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3040,
-      "sha256": "2567a2f9162f8e3f18da4906f85c7d678043474194ec2ac6b9bbd385b1275944",
+      "bytes": 3006,
+      "sha256": "770f5f7d1a29b915ab374553c4eed4a80f011bdd4c3a0bda0b96e626cd4004d6",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/AuthLinkClientCredentialSummaries.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2167,11 +2168,13 @@
     {
       "path": "/docs/for-ai/operations/enumerateAuthLinks.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3207,
-      "sha256": "c979d088ca57b303f03b3e42c85b3d0b8c387648b923c944c377ce599a255273",
+      "bytes": 2890,
+      "sha256": "f4e5a9248996c32aaa9d7073164bade7aecf10e03b794d2a4a8f43893606f098",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumerateAuthLinksResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2179,11 +2182,15 @@
     {
       "path": "/docs/for-ai/operations/enumerateEndpointGroups.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5060,
-      "sha256": "d8d06aa24128a46768dafa0cb06b09e2f6e9ee10dd395768e3720c6b17eb6ecc",
+      "bytes": 4210,
+      "sha256": "983acdb007dcf0b31b01887859d85a15958acd003267602a01e0aa76743ce12b",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/EnablementQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/EnumerateEndpointGroupsResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2191,11 +2198,13 @@
     {
       "path": "/docs/for-ai/operations/enumerateEndpoints.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 9600,
-      "sha256": "8f2f369783330e858f024adef98ffd778482450550a9bdb9f780381c682618da",
+      "bytes": 9386,
+      "sha256": "b71bfc9111435117a57a5b68b8f3ed67624c6e18f7be83f04ccb9e4f79d4849a",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/EnablementQuery.json",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/EndpointQueryResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2203,11 +2212,12 @@
     {
       "path": "/docs/for-ai/operations/enumerateEventDeadLetters.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4510,
-      "sha256": "dcfa4d693f734944f2ec03c247603490743a61839cf70aafe9aa1bb334303432",
+      "bytes": 4479,
+      "sha256": "7923dc8b514fa6c3d519933bd749216f165e841178feb06d46f972f46b122558",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/EventDeadLetterQueryResponse.json",
         "/docs/references/schemas/Query.json"
@@ -2216,11 +2226,15 @@
     {
       "path": "/docs/for-ai/operations/enumerateGroupRoutes.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3965,
-      "sha256": "4675510a92a8dd5b76e03de765accff93354ed22d294d476eb1391eaac3d6e5a",
+      "bytes": 3190,
+      "sha256": "e22179f6086aa8ed0212f7b8f9f224d545005e91e6ecc33355c6bff3380fbc73",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/EnumerateGroupRoutesResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2228,11 +2242,13 @@
     {
       "path": "/docs/for-ai/operations/enumerateOAuthClients.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3289,
-      "sha256": "39d987538475d5c1347c936af56d3a4bc7af878702cdfe2b881f82fb6c118684",
+      "bytes": 3043,
+      "sha256": "dae269d7c93dae99b60d435e9c5c2eef30c25943ef21d5d1fef25d196e49650c",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumerateOAuthClientsResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2240,11 +2256,12 @@
     {
       "path": "/docs/for-ai/operations/enumeratePlugins.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2733,
-      "sha256": "abae63776951d42f7e8d9e4f46b68cdbb50b4d2bb03a5344e86745e841384b29",
+      "bytes": 2634,
+      "sha256": "e806e891019c471a6604b6f0cfd7775228babb7dd77d0161ced75aca45730a35",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumeratePluginsResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2252,11 +2269,14 @@
     {
       "path": "/docs/for-ai/operations/enumeratePrincipals.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4732,
-      "sha256": "45551251e22198af8f8fe89af480d61328c525db6e238837fb25f73b4244bc19",
+      "bytes": 4247,
+      "sha256": "e96ac4f12396e1958558a216ff4534869749e5154102c2977ac6b0e6740b389a",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumeratePrincipalsResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2264,11 +2284,15 @@
     {
       "path": "/docs/for-ai/operations/enumerateRelationships.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 6503,
-      "sha256": "d19c4f47b7c2109565fb9d148302280ad83c44e88d584586682bdd08869a40a8",
+      "bytes": 5790,
+      "sha256": "5ddcbfce124c58daf638d197cf74b38f6ce07c1092857305259b14180f1cec94",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/EnumerateRelationshipsResponse.json",
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/RelationshipType.json"
@@ -2277,11 +2301,13 @@
     {
       "path": "/docs/for-ai/operations/enumerateSecrets.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2776,
-      "sha256": "9c22e20c12777d042d2429959c69f9367b1230c256a982fb9c05471f9fe79c1f",
+      "bytes": 2530,
+      "sha256": "51f77044c2a0c8fd87974180189928a3de713f9fdbcd7e0e59d0cada1460533d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumerateSecretsResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2289,11 +2315,14 @@
     {
       "path": "/docs/for-ai/operations/enumerateSimulators.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 6039,
-      "sha256": "80a4bef63989cb3f9ac656096d7ae567f4027c9f0beb7331e2cf0d6e51e24783",
+      "bytes": 5546,
+      "sha256": "18f04e0bb233a74d533d95d04026e455710ce941be45f8632d3c66f520e14216",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/SimulatorQueryResponse.json",
         "/docs/references/schemas/SimulatorQueryResponseV2.json"
@@ -2302,11 +2331,15 @@
     {
       "path": "/docs/for-ai/operations/enumerateSubscriptions.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4853,
-      "sha256": "389241754dd633df65088c8448d6afb1c75c03d43f649a8e774c5005e3a31d98",
+      "bytes": 4217,
+      "sha256": "8984aa0615157205f0bdcec2422a2ad15d78211a4577732b151b85dfc1253469",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/EnumerateSubscriptionsResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2314,11 +2347,13 @@
     {
       "path": "/docs/for-ai/operations/enumerateTokens.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3509,
-      "sha256": "855bfd61a3a3eaf506979add3a1378dfc66ffa2bf590a1f8be7e10d00e30c5a6",
+      "bytes": 3268,
+      "sha256": "14067ae0ec582f96fa02c22d9667be8ef84897786e48bc44f8188677b8ec3929",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumerateTokensResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2352,8 +2387,8 @@
     {
       "path": "/docs/for-ai/operations/evaluateAccessControlRule.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2114,
-      "sha256": "6479d2a37d0d0a130f3f3887ff0c1a2f9e19c309b75485fa692660ee31e668c3",
+      "bytes": 2108,
+      "sha256": "5a8c197b3900253e03d512bdca76be8728ca3c5ccb1307bec2750d850627835e",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2374,22 +2409,10 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/generateOAuthCode.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 2807,
-      "sha256": "32dd10a0f2864188a55eab3bbf7ca764c57b0bae8113cb1d790dad78eae26bed",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/GenerateOAuthCodeRequest.json",
-        "/docs/references/schemas/GenerateOAuthCodeResponse.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/operations/generateToken.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2756,
-      "sha256": "3065cc48f5a8a7f165d63eca49fca1ec67dc458d8bfb624d6998bef9b69b363d",
+      "bytes": 3055,
+      "sha256": "7a27a075d47d329341988707be72915b8711458f39977850093496874b08d9b3",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2411,11 +2434,14 @@
     {
       "path": "/docs/for-ai/operations/getAccessControlRules.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5404,
-      "sha256": "c6364746320fdc2e1e4edba5ce46042461ac6a437f418d43842fd440c319be79",
+      "bytes": 4912,
+      "sha256": "39396a889ee64596296c13d9528f77a80a4145809bcfd04eb8ba0e0fce4a8369",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/GetAccessControlRulesResponse.json"
       ]
@@ -2460,8 +2486,8 @@
     {
       "path": "/docs/for-ai/operations/getJWKS.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2289,
-      "sha256": "b8066aab388f1d55d70d65801d13068a584c810b4592887074f5391bc252760a",
+      "bytes": 2286,
+      "sha256": "4b643947c8659d2c7d43f34cbf0d4dc1e54cb85c3e48a0b29064512f92f93247",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2470,8 +2496,8 @@
     {
       "path": "/docs/for-ai/operations/getMCPOAuthProtectedResourceMetadata.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2591,
-      "sha256": "1b46e3fcca51cd09dfc2985c3a59a306c8f9c498cbfd811ae3fc8f98228a321a",
+      "bytes": 2613,
+      "sha256": "3d4a96bc4c417f437286c8dc8cf2d0d9d6b484e357813674dda10b4bda7475ac",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2490,8 +2516,8 @@
     {
       "path": "/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4007,
-      "sha256": "dd587bb0c43125e703655c62949aedd8d38385711e6d5c763a58a9692231928d",
+      "bytes": 3896,
+      "sha256": "3e244c2aba82f8023d1b2995a1a8fb5e6b8526aa64ae8a3d356c368efc67c306",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2512,8 +2538,8 @@
     {
       "path": "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2508,
-      "sha256": "64ef25d0331f72ece8494fd235ef3a048105703bd30d177b2a6e87412db71afa",
+      "bytes": 2530,
+      "sha256": "e64e2cde0733ef8c428c62825ef6bf841917c18093a797a85c6e6c8680cce288",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2522,8 +2548,8 @@
     {
       "path": "/docs/for-ai/operations/getPendingOAuthConsent.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2681,
-      "sha256": "929a8cccb04a5fb68768d43d920d9dba0701b871bad50848376fb0d7ceab5c1d",
+      "bytes": 2669,
+      "sha256": "498170b9eaa327dbd7a469171c8e90b32f2b9f550736e77e4fd9e3ce0a68c921",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2532,11 +2558,14 @@
     {
       "path": "/docs/for-ai/operations/getRoutes.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4056,
-      "sha256": "8376c6cf71f0c560409efe4e14261b99b175a6dc0f439134829e57a3482326ff",
+      "bytes": 3551,
+      "sha256": "d473ed01d80fb8ad2a866d47f273400543c092194f1e79923802d4d3e674992d",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/EnumerateRoutesResponse.json",
         "/docs/references/schemas/Error.json"
       ]
@@ -2567,8 +2596,8 @@
     {
       "path": "/docs/for-ai/operations/handleOAuthCallback.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2857,
-      "sha256": "47db62e7deef7a2f2ba25c15e154113e581f9d38ae65d494a489e1e30bb27a53",
+      "bytes": 2864,
+      "sha256": "4428930d958c5b2a23a1a4063a72b1f771fa73a5124409eb54f83b658c225fde",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2589,11 +2618,10 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8742,
-      "sha256": "c3593f961e56e9ec4f7112c52ab6aa8cba04da4aea9fd0fffbb19c279ebf7509",
+      "bytes": 8437,
+      "sha256": "2301f80baf54365c5b31982b9225a0345d7e2bac528c7b357d5610567105247e",
       "links": [
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
-        "/docs/for-ai/operations/authorizeDevice.md",
         "/docs/for-ai/operations/beginOAuthAuthorization.md",
         "/docs/for-ai/operations/beginPluginOAuthAuthorization.md",
         "/docs/for-ai/operations/completeOAuthConsent.md",
@@ -2638,7 +2666,6 @@
         "/docs/for-ai/operations/establishPlugin.md",
         "/docs/for-ai/operations/evaluateAccessControlRule.md",
         "/docs/for-ai/operations/generateOAuthClientSecret.md",
-        "/docs/for-ai/operations/generateOAuthCode.md",
         "/docs/for-ai/operations/generateToken.md",
         "/docs/for-ai/operations/generateTuyaQrCode.md",
         "/docs/for-ai/operations/getAccessControlRules.md",
@@ -2689,9 +2716,7 @@
         "/docs/for-ai/operations/upsertSecret.md",
         "/docs/for-ai/operations/upsertSimulator.md",
         "/docs/for-ai/operations/upsertSubscription.md",
-        "/docs/for-ai/operations/validateOAuthRequest.md",
-        "/docs/for-ai/operations/validateTuyaLoginCode.md",
-        "/docs/for-ai/operations/verifyDevice.md"
+        "/docs/for-ai/operations/validateTuyaLoginCode.md"
       ]
     },
     {
@@ -2800,8 +2825,8 @@
     {
       "path": "/docs/for-ai/operations/raiseAnonymousPrincipal.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3696,
-      "sha256": "bdb24bdde192838e6f2f1f3a0850d2e10861d69f76f3e793df6b7c19eceff7f5",
+      "bytes": 3702,
+      "sha256": "a1c2f4297a657656e14e26df25998480ff23c67d91c24b0028961fbeae8570b2",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2834,8 +2859,8 @@
     {
       "path": "/docs/for-ai/operations/registerDynamicOAuthClient.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4942,
-      "sha256": "0d89da804496d580b7777c636a00b3e662b9fabfa03b58a4cea13a28cd370317",
+      "bytes": 4949,
+      "sha256": "e62b5bb7d2ed0e548229352ba4dce421fefc024f0e2e9bcfa464122e208fcfa5",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -2883,8 +2908,8 @@
     {
       "path": "/docs/for-ai/operations/revokeOAuthGrant.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1737,
-      "sha256": "64c78d198dc260e8634d690e6968b066995d1fea50632a643e45216a0102bc19",
+      "bytes": 1739,
+      "sha256": "f34a4c72509271e1a99c5abc81fb4da296cb26ee0006b384ba36ea665be1024a",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md"
@@ -2972,8 +2997,8 @@
     {
       "path": "/docs/for-ai/operations/upsertAccessControlRule.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2487,
-      "sha256": "8803218a9957b6f00d9e99c30076f537553f82e60e58ca0fa4b6ee2f27fbd7bf",
+      "bytes": 2481,
+      "sha256": "c561d3c877cab83545c94fbb412e378d46dc0d9c2398dbd50227836b43c0fa56",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -3043,8 +3068,8 @@
     {
       "path": "/docs/for-ai/operations/upsertSecret.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3614,
-      "sha256": "6b94bdbf4462910d1144e59e2e647c628cac140f01556a5eea53ad361a1e8a8e",
+      "bytes": 3630,
+      "sha256": "554dbe01b6950d2cd84b8538c15c4ff28600e9c24c08286ffc514c3211325f44",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
@@ -3080,18 +3105,6 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/validateOAuthRequest.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 2651,
-      "sha256": "fabc571824163c43d5c9fcc462ff24959c4c394b8db83a83a6562be8707381dd",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/ValidateOAuthRequestRequest.json",
-        "/docs/references/schemas/ValidateOAuthRequestResponse.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/operations/validateTuyaLoginCode.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 4119,
@@ -3103,22 +3116,10 @@
       ]
     },
     {
-      "path": "/docs/for-ai/operations/verifyDevice.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 3007,
-      "sha256": "4eb49623252bf5d0ec444b69b8b4c52f846fb5dd4bbcf417e2bfe383b8c923d7",
-      "links": [
-        "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/OAuthErrorResponse.json",
-        "/docs/references/schemas/VerifyDeviceResponse.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2358,
-      "sha256": "04a1b996d9715e5c8d6bd9fb9039c144a4ee7137234547f8d15f38190ea2a3d1",
+      "bytes": 2242,
+      "sha256": "fe27942752902969ebcd75b19ec722bf079fea79f09b8b450e1700d6b460e5a8",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3140,7 +3141,6 @@
         "/docs/for-ai/schemas/s-1.md",
         "/docs/for-ai/schemas/t-1.md",
         "/docs/for-ai/schemas/u-1.md",
-        "/docs/for-ai/schemas/v-1.md",
         "/docs/for-ai/schemas/w-1.md",
         "/docs/references/schemas/index.json"
       ]
@@ -3148,8 +3148,8 @@
     {
       "path": "/docs/for-ai/schemas/a-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3427,
-      "sha256": "978899e6832c6cdc861d42092703dcdb6cecfab6eac467ce49820262769ab9f8",
+      "bytes": 3243,
+      "sha256": "474a3733e76c01eb7db51268e20a1c9729d8e7fb52c87b1a77e7ce844fd133ec",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/AccessControlConditionComparator.json",
@@ -3181,8 +3181,6 @@
         "/docs/references/schemas/AuthLinkStatus.json",
         "/docs/references/schemas/AuthLinksList.json",
         "/docs/references/schemas/AuthResourceType.json",
-        "/docs/references/schemas/AuthorizeDeviceRequest.json",
-        "/docs/references/schemas/AuthorizeDeviceResponse.json",
         "/docs/references/schemas/associatedAuthLinkId.json",
         "/docs/references/schemas/associatedEndpointId.json",
         "/docs/references/schemas/associatedPluginId.json",
@@ -3250,11 +3248,12 @@
     {
       "path": "/docs/for-ai/schemas/e-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3893,
-      "sha256": "dc0240b17d0230dccb28b5cc30edf4597fd1f32b174740d8b5c504117fbb2f55",
+      "bytes": 3895,
+      "sha256": "1b80303bda2954c5f51444d93328fb59fe74380211267ab9f2d5e60c1a64094e",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/Enablement.json",
+        "/docs/references/schemas/EnablementFilter.json",
         "/docs/references/schemas/Endpoint.json",
         "/docs/references/schemas/EndpointGroup.json",
         "/docs/references/schemas/EndpointGroupController.json",
@@ -3292,18 +3291,20 @@
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/ErrorCode.json",
         "/docs/references/schemas/ErrorDetails.json",
-        "/docs/references/schemas/ErrorFamily.json",
-        "/docs/references/schemas/ErrorFieldError.json"
+        "/docs/references/schemas/ErrorFamily.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/e-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1480,
-      "sha256": "d46e34fda9cd6a219ea7c178491afec0e1c03ce75eaa4d586629144a4093c892",
+      "bytes": 1715,
+      "sha256": "40175482987ee854164f26d8dc5277c7cb2285770ad7c05973360102d52cacf5",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/headers/ETag.json",
+        "/docs/references/parameters/EnablementQuery.json",
+        "/docs/references/parameters/ExpandQuery.json",
+        "/docs/references/schemas/ErrorFieldError.json",
         "/docs/references/schemas/EstablishAuthLinkRequest.json",
         "/docs/references/schemas/EstablishAuthLinkResponse.json",
         "/docs/references/schemas/EstablishPluginRequest.json",
@@ -3323,13 +3324,11 @@
     {
       "path": "/docs/for-ai/schemas/g-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 954,
-      "sha256": "e5af7c070176d684cab3cb1dd8b942c2ee39a7d3b848a87b88560164e5cbc18b",
+      "bytes": 762,
+      "sha256": "b20116b52c3ec4bec991ee7610190cb097b7ee251b338ab0ea0d9ce47a9d29a5",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/GenerateOAuthClientSecretResponse.json",
-        "/docs/references/schemas/GenerateOAuthCodeRequest.json",
-        "/docs/references/schemas/GenerateOAuthCodeResponse.json",
         "/docs/references/schemas/GenerateTokenRequest.json",
         "/docs/references/schemas/GenerateTokenResponse.json",
         "/docs/references/schemas/GetAccessControlRulesResponse.json",
@@ -3376,10 +3375,11 @@
     {
       "path": "/docs/for-ai/schemas/m-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1160,
-      "sha256": "99788bc8b198380a83cf385ff9f2d6b504da33209247042cc6ca20b966912459",
+      "bytes": 1243,
+      "sha256": "91b6c7dd93047cef296916d98424417100c5730526aa01f7a41306991e74f9d5",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/MaxResultsQuery.json",
         "/docs/references/schemas/Message.json",
         "/docs/references/schemas/MessageAuthorizationContext.json",
         "/docs/references/schemas/MessageContext.json",
@@ -3398,20 +3398,22 @@
     {
       "path": "/docs/for-ai/schemas/n-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 184,
-      "sha256": "53a5e14495f4fec79e6139a3a40ae7efb0b6e6b82fc4e0e936702f03b6774ca4",
+      "bytes": 265,
+      "sha256": "1fb92cdc4573d72de71fa9fc83c320715cab852ba8f7505271d3fa70eb70efd6",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/NextTokenQuery.json",
         "/docs/references/schemas/name.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/o-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1147,
-      "sha256": "d9c6596786c28b208f06963841ae92ff4c44f448177d6aae9f87be78b9f66367",
+      "bytes": 1220,
+      "sha256": "be63f641b2e53dade8be9521de4dd50f3024c07d1169e2902f67c732b409fe84",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/OwnerQuery.json",
         "/docs/references/schemas/OAuth2ConnectionData.json",
         "/docs/references/schemas/OAuthClient.json",
         "/docs/references/schemas/OAuthClientRegistrationRequest.json",
@@ -3575,18 +3577,6 @@
       ]
     },
     {
-      "path": "/docs/for-ai/schemas/v-1.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 420,
-      "sha256": "797592cd7240e108562d48576f127f7bb7ed79305c5c9bfe0e47f2614c3547ce",
-      "links": [
-        "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/ValidateOAuthRequestRequest.json",
-        "/docs/references/schemas/ValidateOAuthRequestResponse.json",
-        "/docs/references/schemas/VerifyDeviceResponse.json"
-      ]
-    },
-    {
       "path": "/docs/for-ai/schemas/w-1.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 285,
@@ -3600,15 +3590,15 @@
     {
       "path": "/docs/references/authorization.json",
       "contentType": "application/json",
-      "bytes": 35360,
-      "sha256": "1a0c0b2cfe3052d78463641d55504eb5a1dd869e0ef6fe5f6e96d82b4b73b340",
+      "bytes": 34095,
+      "sha256": "9e43ee6ea1e60ed8c0e00c88823a473f1b5ef94aa279e0a5eb165521183355c3",
       "links": []
     },
     {
       "path": "/docs/references/authorization.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 26264,
-      "sha256": "c7fac5ecfc2a27bc1470f306679d66a4a5e02f85f8086b0fbcbfa4e6f6db2362",
+      "bytes": 25371,
+      "sha256": "0152ddb82cf17938283ded65c61b587a57dffccd17e689fe17dd23284bccee93",
       "links": []
     },
     {
@@ -5298,16 +5288,16 @@
     {
       "path": "/docs/references/capability-interfaces/media-player.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 28015,
-      "sha256": "c65bc7bbd4f96f8dc5406a56571342a1f1edd5aafc28a3c819ecc77dbc1c7d84",
+      "bytes": 27983,
+      "sha256": "9febc2896aab191c0f1a341fde2d9c5b2b47288c5da1fbc78590dd42f34a2981",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-player/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 28015,
-      "sha256": "c65bc7bbd4f96f8dc5406a56571342a1f1edd5aafc28a3c819ecc77dbc1c7d84",
+      "bytes": 27983,
+      "sha256": "9febc2896aab191c0f1a341fde2d9c5b2b47288c5da1fbc78590dd42f34a2981",
       "links": []
     },
     {
@@ -5327,8 +5317,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/attributes/now-playing.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1836,
-      "sha256": "6846f63470dd11dbd5dc50ab43d54fc4497a07795658121796ac5a4d76b4b5de",
+      "bytes": 1820,
+      "sha256": "23f52fda41c59e9bc65c69ddda9b0832895672052e7fb0f97ba91cbedde21ece",
       "links": []
     },
     {
@@ -5397,8 +5387,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-player/1.0/messages/play-media.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1251,
-      "sha256": "8157b10081b0324053df8fea6a5841aed56503b073460a32e1386bb8d4c881d3",
+      "bytes": 1235,
+      "sha256": "9d5a10a63b3d62a501c87642d2ccc4bda8e7cfc9d15ab6d35314b5365aae396b",
       "links": []
     },
     {
@@ -5481,16 +5471,16 @@
     {
       "path": "/docs/references/capability-interfaces/media-playlist.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 12359,
-      "sha256": "5a2a351f756f2e614b287dbc1755c75a0c5089b71195471734480be8377f1b91",
+      "bytes": 12343,
+      "sha256": "08e6bcb27ae804d9a658f530ae1d2139f5e2d5fd02d36be671604c49d1129cb9",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-playlist/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-playlist/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 12359,
-      "sha256": "5a2a351f756f2e614b287dbc1755c75a0c5089b71195471734480be8377f1b91",
+      "bytes": 12343,
+      "sha256": "08e6bcb27ae804d9a658f530ae1d2139f5e2d5fd02d36be671604c49d1129cb9",
       "links": []
     },
     {
@@ -5531,8 +5521,8 @@
     {
       "path": "/docs/references/capability-interfaces/media-playlist/1.0/messages/playlist-contents.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4009,
-      "sha256": "b254979d39b1016e5b5eaa02a9e82ca37cc3cfa98d4af08a708941774cb26194",
+      "bytes": 3993,
+      "sha256": "87a7d5f286316c5c947f57b156b403cb3b9b99fff3e49373dd7d46ec27fbf34c",
       "links": []
     },
     {
@@ -5580,37 +5570,37 @@
     {
       "path": "/docs/references/capability-interfaces/media-search.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 14953,
-      "sha256": "178bbc3f4890c8238c137d52133f9723e893fef9d276628c8e31fcaad9356c9c",
+      "bytes": 14887,
+      "sha256": "76d31968bf6b7db1e27f079e6cad3a0e49c134cd254f3f54450baf6328e4b355",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/media-search/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 14953,
-      "sha256": "178bbc3f4890c8238c137d52133f9723e893fef9d276628c8e31fcaad9356c9c",
+      "bytes": 14887,
+      "sha256": "76d31968bf6b7db1e27f079e6cad3a0e49c134cd254f3f54450baf6328e4b355",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/audio-media-results.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 5211,
-      "sha256": "48a46a0dd54a78468f0794b2844e4860224c2391686f2777f6280762c896a3c5",
+      "bytes": 5195,
+      "sha256": "685582d9ba8abc91a878e6b63b84ffe97aeb1f3a7d771f6e4b35ad2590ba4032",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/get-media.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1556,
-      "sha256": "1fa04491feb172268d63e81364804dce5de728ccec94609bc082a41411a53265",
+      "bytes": 1540,
+      "sha256": "b144725fe39625b59eb1ee1de94f4069cdb559c92cde4e7e3fcc442b3081e904",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/media-search/1.0/messages/media-details.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 4109,
-      "sha256": "55f2c1eb05de32c7a1e12be8614622e9b8fee86ca40af203247e4da504a7f041",
+      "bytes": 4093,
+      "sha256": "455d6244164b1a1d9a24ebcdaa89e6064eaaf5c9da1f400eac047a9d39011841",
       "links": []
     },
     {
@@ -6058,16 +6048,16 @@
     {
       "path": "/docs/references/capability-interfaces/recordings.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 5401,
-      "sha256": "1d35f471f6e40afc89bbcc8744de8f38996024e2a30ac6c48773edecd59898bc",
+      "bytes": 5367,
+      "sha256": "8c25f0659f9009cb003b4b2b5dc3cdf7e68c180106f3ed40e35a85d548dd4a59",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/recordings/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/recordings/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 5401,
-      "sha256": "1d35f471f6e40afc89bbcc8744de8f38996024e2a30ac6c48773edecd59898bc",
+      "bytes": 5367,
+      "sha256": "8c25f0659f9009cb003b4b2b5dc3cdf7e68c180106f3ed40e35a85d548dd4a59",
       "links": []
     },
     {
@@ -6101,8 +6091,8 @@
     {
       "path": "/docs/references/capability-interfaces/recordings/1.0/messages/list-recordings-response.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 2218,
-      "sha256": "ff37c5ee4a2f61350edf507f8e3ec6b7a0e8a10669a26c80587d96869b01b65e",
+      "bytes": 2202,
+      "sha256": "b189c674a71b9b406722e0e1f7a4d5089e6692bb3c2c11c47fec03cdc94cf080",
       "links": []
     },
     {
@@ -7204,8 +7194,22 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 511850,
-      "sha256": "45e3fa624d36084244b2868f268700628374745622ed47ca8a9982e6bc6a5fa9",
+      "bytes": 488797,
+      "sha256": "d2f7d2ef095fed2541b0e86e77fad1aa1382a337ac59545098e2529f93162fb5",
+      "links": []
+    },
+    {
+      "path": "/docs/references/parameters/EnablementQuery.json",
+      "contentType": "application/json",
+      "bytes": 584,
+      "sha256": "812a95c0b0203513afdee245f8cbdf8b771730018a88662b8a0c79b8f5dd3343",
+      "links": []
+    },
+    {
+      "path": "/docs/references/parameters/ExpandQuery.json",
+      "contentType": "application/json",
+      "bytes": 379,
+      "sha256": "081d7a6a92c060ae9b95fddc2ed7129e705cd23985ef51dbc652e62d5f0fff06",
       "links": []
     },
     {
@@ -7220,6 +7224,27 @@
       "contentType": "application/json",
       "bytes": 541,
       "sha256": "74b18abc30bdaeebde93601389f7d9b56dcb06e060af9ee4c735d1938f696cf7",
+      "links": []
+    },
+    {
+      "path": "/docs/references/parameters/MaxResultsQuery.json",
+      "contentType": "application/json",
+      "bytes": 293,
+      "sha256": "0ddfa938ede078f7e55fb91854fbfbbb7f73f39d5c4377aacf704b8a00e4a08a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/parameters/NextTokenQuery.json",
+      "contentType": "application/json",
+      "bytes": 285,
+      "sha256": "bb60cfb1a11e148807170ee5ed49de62e53725a46596a06541a3ca1c2ea7d898",
+      "links": []
+    },
+    {
+      "path": "/docs/references/parameters/OwnerQuery.json",
+      "contentType": "application/json",
+      "bytes": 490,
+      "sha256": "2fcc45cec22af55211d88c5214796351ba70850e55f2d60e5f69502b6512bf4e",
       "links": []
     },
     {
@@ -7454,20 +7479,6 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/AuthorizeDeviceRequest.json",
-      "contentType": "application/json",
-      "bytes": 737,
-      "sha256": "67fd89dd46c9a55b4493e1623a4fccf04c59d5d40bd24cbfbabe3397576ef877",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/AuthorizeDeviceResponse.json",
-      "contentType": "application/json",
-      "bytes": 417,
-      "sha256": "e99b756bb63a08fa7d18f5c6768908ceed538ab12f4fbd6f878b49db538d1787",
-      "links": []
-    },
-    {
       "path": "/docs/references/schemas/AuthResourceType.json",
       "contentType": "application/json",
       "bytes": 839,
@@ -7666,8 +7677,8 @@
     {
       "path": "/docs/references/schemas/DeviceAuthorizationResponse.json",
       "contentType": "application/json",
-      "bytes": 1245,
-      "sha256": "9c365644d38dd179e94f21b4feb299e5f3d05562cfefafb09884e945d802c102",
+      "bytes": 1261,
+      "sha256": "4409fd41930f638263ae9614eb924d2ceb7a34a56ce7bf2f7b3a57ed3a007405",
       "links": []
     },
     {
@@ -7687,8 +7698,15 @@
     {
       "path": "/docs/references/schemas/Enablement.json",
       "contentType": "application/json",
-      "bytes": 519,
-      "sha256": "d5d201e151daad1e7d8cba96758f1f46d5de280099c502a994f10f0c4abc332f",
+      "bytes": 543,
+      "sha256": "f9128719a4f32983504be052e3bab049982d9eb46ec1476ec7d7aa7f0a28506d",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/EnablementFilter.json",
+      "contentType": "application/json",
+      "bytes": 469,
+      "sha256": "0d51d2f578145c63746250ae885a0414b8d56cd575ab6e577de25833a6d2af1f",
       "links": []
     },
     {
@@ -8070,20 +8088,6 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/GenerateOAuthCodeRequest.json",
-      "contentType": "application/json",
-      "bytes": 1417,
-      "sha256": "e1fe7b5066f4e6ae1249def03647c385fb07e5a229d1c03f2020a8bd5c6e7c18",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/GenerateOAuthCodeResponse.json",
-      "contentType": "application/json",
-      "bytes": 847,
-      "sha256": "6f675d1612e8de30827d1d4e4367f6354ea1401cbd61c31588a5e8b2c45f14cd",
-      "links": []
-    },
-    {
       "path": "/docs/references/schemas/GenerateTokenRequest.json",
       "contentType": "application/json",
       "bytes": 2425,
@@ -8142,8 +8146,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 61915,
-      "sha256": "fa9594d00eef2f9aa2647c3bb23c0c4dc880f34179efef816036bb7103c9d0bf",
+      "bytes": 61523,
+      "sha256": "25d77dbe82edd1eb71b8907d24552449c92ffcddaea4c3d9ef78ae334687e870",
       "links": []
     },
     {
@@ -8282,8 +8286,8 @@
     {
       "path": "/docs/references/schemas/OAuthClient.json",
       "contentType": "application/json",
-      "bytes": 10082,
-      "sha256": "a7a10a60525b2c974556df54c8d6f164fc64298e681867c0ce09dbfa5d2b9340",
+      "bytes": 10087,
+      "sha256": "5b78ac0a857774916ccd1e1d305bf1e39d14fb43d1b8b4f92dc60d5b8aefaeb6",
       "links": []
     },
     {
@@ -9012,27 +9016,6 @@
       "contentType": "application/json",
       "bytes": 251,
       "sha256": "bf168f034e0a8a001071d7a6c119bcdcbb6fa36a22748c65fed865480b4e33eb",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/ValidateOAuthRequestRequest.json",
-      "contentType": "application/json",
-      "bytes": 1324,
-      "sha256": "ca60f8a413803f412e960a4bd9eb12efeb5cd59f00de793a66d28049d7816cb1",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/ValidateOAuthRequestResponse.json",
-      "contentType": "application/json",
-      "bytes": 1356,
-      "sha256": "df4c4b387fc6d2fd494230630393ae42ade783367f263534b9ebb781dda8bd26",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/VerifyDeviceResponse.json",
-      "contentType": "application/json",
-      "bytes": 1720,
-      "sha256": "622e39bfd62d6f4aab4142181e29e09f298237771c697223636a13d2baa01c06",
       "links": []
     },
     {

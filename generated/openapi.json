@@ -24,12 +24,32 @@
   ],
   "tags": [
     {
-      "name": "Auth",
-      "description": "Port OS requires authorization to perform calls against port OS. \n\nPort OS uses OAuth to get tokens that you can use to call into \nPort OS APIs. \n\nPublic agents compose the shared discovery, DCR/CIMD registration, consent/callback, token lifecycle and authorization rules from [the agent authentication guide](https://app.portoperatingsystem.lol/docs/for-ai/guides/connect-agent.md). Registration alone grants no resource access. Operation scopes restrict delegated authority in addition to the existing principal/resource permission rules.\n"
+      "name": "OAuth flows",
+      "description": "Use OAuth flows to sign a person or an agent in to Port OS and get an\naccess token for the other APIs.\n\nPort OS requires authorization for calls against its APIs. It uses OAuth\nto issue the tokens that authorize those calls, and it supports\nextensions that let agents connect automatically: Dynamic Client\nRegistration, client information metadata documents, PKCE and others.\n\nThis section covers discovery metadata, client registration, authorize\nand consent, and the callback that returns the authorization code.\nRegistration alone grants no access to resources. Operation scopes\nrestrict delegated authority in addition to the permission rules for\nprincipals and resources.\n"
+    },
+    {
+      "name": "Tokens",
+      "description": "Use tokens when you already have credentials and need an access token,\nor when you want to manage the long-lived tokens you hand to a CLI,\ndevice automation or agent.\n\nTokens are JWTs vended by principals for token exchange. A principal may\ncreate tokens, and list and delete the tokens it owns. The raw JWT is\nreturned only once at creation. Exchange it at the OAuth token endpoint\nfor an access token, then refresh or revoke the grant there.\n"
+    },
+    {
+      "name": "Principals",
+      "description": "Use principals when you manage who can act in Port OS.\n\nPrincipals are people, endpoints, or organizations. They can perform\nactions on resources, and can be granted permissions to access\nresources.\n"
+    },
+    {
+      "name": "Secrets",
+      "description": "Use secrets to store a credential that Port OS needs to keep for you, such\nas a key a plugin uses to call a provider.\n\nA secret is a type of storage credential.\n"
+    },
+    {
+      "name": "Clients",
+      "description": "Use clients when you build an application that signs in to Port OS with\nOAuth and need to register it, rotate its secrets, or remove it.\n\nClients are applications that can interact with Port OS.\n"
+    },
+    {
+      "name": "Access control",
+      "description": "Use access control to decide who can do what with a resource.\n\nRules grant or deny permissions on a resource to principals. You can also\nevaluate a rule to check what a principal is allowed to do.\n"
     },
     {
       "name": "Endpoints",
-      "description": "An endpoint is a resource that can be acted upon. An example is a phone, TV or web server.\n"
+      "description": "An endpoint is a device or service you can act on, such as a phone, TV,\nlightbulb or vacuum.\n\nCustomers interact with endpoints whenever they want to control their\nlights or find where their phone is.\n\nEndpoints declare a set of capabilities. These capabilities denote what\nfunctions an endpoint has. For example, an endpoint that declares the\npower interface can be turned on and off. Similarly, the capability tells\ncustomers they can check whether the device is on or off.\n"
     },
     {
       "name": "Messages",
@@ -38,18 +58,6 @@
     {
       "name": "Plugins",
       "description": "A plugin is a receiver of messages. A plugin could be an HTTP connection, android device messenger, an MQTT connection, or anything else.\nMessages sent to endpoints are propagated through plugins.\n"
-    },
-    {
-      "name": "Principals",
-      "description": "Identities are people, endpoints, or organizations. They can perform actions on resources, and can be granted permissions to access to resources.\n"
-    },
-    {
-      "name": "Secrets",
-      "description": "A secret is a type of storage credential\n"
-    },
-    {
-      "name": "Tokens",
-      "description": "Tokens are JWTs vended by principals for token exchange. A principal may create tokens (e.g. for CLIs, device automations, or agents), list and delete tokens they own. The raw JWT is returned only once at creation; exchange it at the OAuth token endpoint for an access token.\n"
     },
     {
       "name": "Routes",
@@ -66,10 +74,6 @@
     {
       "name": "Auth Links",
       "description": "Auth Links are a way to link an endpoint to a plugin.\n"
-    },
-    {
-      "name": "Clients",
-      "description": "Clients are applications that can interact with Port OS.\n"
     },
     {
       "name": "Endpoint Groups",
@@ -89,19 +93,11 @@
     },
     {
       "name": "Infrastructure",
-      "description": "Health checks, metrics, and well-known discovery endpoints. These are public endpoints that do not require authentication.\n"
+      "description": "Health checks and metrics. These are public endpoints that do not require authentication.\n"
     },
     {
       "name": "Events",
       "description": "Operations for events."
-    },
-    {
-      "name": "Access Control Rules",
-      "description": "Operations for access control rules."
-    },
-    {
-      "name": "Internal",
-      "description": "Operations for internal."
     },
     {
       "name": "Webhooks",
@@ -260,7 +256,7 @@
       "get": {
         "operationId": "getOAuthAuthorizationServerMetadata",
         "tags": [
-          "Infrastructure"
+          "OAuth flows"
         ],
         "summary": "Discover OAuth and DCR endpoints",
         "security": [],
@@ -337,16 +333,16 @@
                   }
                 },
                 "example": {
-                  "issuer": "https://portos-pilot-api-685761720421.us-west1.run.app",
-                  "authorization_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize",
-                  "token_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
-                  "revocation_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/revoke",
+                  "issuer": "https://auth.portoperatingsystem.com",
+                  "authorization_endpoint": "https://auth.portoperatingsystem.com/oauth/authorize",
+                  "token_endpoint": "https://auth.portoperatingsystem.com/auth/token",
+                  "revocation_endpoint": "https://auth.portoperatingsystem.com/auth/revoke",
                   "scopes_supported": [
                     "endpoint:read",
                     "message:send"
                   ],
-                  "registration_endpoint": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/register",
-                  "jwks_uri": "https://portos-pilot-api-685761720421.us-west1.run.app/.well-known/jwks.json",
+                  "registration_endpoint": "https://auth.portoperatingsystem.com/oauth/register",
+                  "jwks_uri": "https://auth.portoperatingsystem.com/.well-known/jwks.json",
                   "code_challenge_methods_supported": [
                     "S256"
                   ],
@@ -366,7 +362,7 @@
       "get": {
         "operationId": "getJWKS",
         "tags": [
-          "Infrastructure"
+          "OAuth flows"
         ],
         "summary": "JSON Web Key Set",
         "description": "Returns the JSON Web Key Set (JWKS) containing the public keys used to verify JWT signatures. This endpoint is publicly accessible and does not require authentication. Responses are cached for one hour.\n",
@@ -431,7 +427,7 @@
       "get": {
         "operationId": "getOAuthProtectedResourceMetadata",
         "tags": [
-          "Infrastructure"
+          "OAuth flows"
         ],
         "summary": "OAuth protected resource metadata",
         "description": "Returns OAuth 2.0 Protected Resource Metadata as defined by RFC 9728. This endpoint is publicly accessible and does not require authentication. Responses are cached for one hour.\n",
@@ -447,7 +443,7 @@
                     "resource": {
                       "type": "string",
                       "description": "The protected resource identifier",
-                      "example": "https://portpowered.com/mcp"
+                      "example": "https://api.portoperatingsystem.com/mcp"
                     },
                     "authorization_servers": {
                       "type": "array",
@@ -456,7 +452,7 @@
                       },
                       "description": "Authorization servers that can issue tokens for this resource",
                       "example": [
-                        "https://portpowered.com"
+                        "https://auth.portoperatingsystem.com"
                       ]
                     },
                     "scopes_supported": {
@@ -498,7 +494,7 @@
       "get": {
         "operationId": "getMCPOAuthProtectedResourceMetadata",
         "tags": [
-          "Infrastructure"
+          "OAuth flows"
         ],
         "summary": "MCP OAuth protected resource metadata",
         "description": "Returns OAuth 2.0 Protected Resource Metadata for the MCP endpoint as defined by RFC 9728. This endpoint is publicly accessible and does not require authentication. Responses are cached for one hour.\n",
@@ -514,7 +510,7 @@
                     "resource": {
                       "type": "string",
                       "description": "The protected resource identifier",
-                      "example": "https://portpowered.com/mcp"
+                      "example": "https://api.portoperatingsystem.com/mcp"
                     },
                     "authorization_servers": {
                       "type": "array",
@@ -523,7 +519,7 @@
                       },
                       "description": "Authorization servers that can issue tokens for this resource",
                       "example": [
-                        "https://portpowered.com"
+                        "https://auth.portoperatingsystem.com"
                       ]
                     },
                     "scopes_supported": {
@@ -567,37 +563,13 @@
         "tags": [
           "Endpoints"
         ],
-        "description": "Lists enabled endpoints owned by the authenticated user by default. Type and serialNumber filters remain within that caller-owned scope. An explicit owner can select another owner's endpoints when they are readable by the caller. An exact id lookup takes precedence over owner, type, serialNumber, and enablement filters; it can return a readable shared endpoint, including disabled endpoint metadata, but still requires endpoint-read permission. To retrieve deep endpoint state for a specific endpoint, send `id=<endpoint-id>` together with `expand=interfaces.attributes`. That expansion populates each returned endpoint's `attributes` array with deep interface attribute state. Add `forceDeviceAttributeQuery=true` to force a live device-backed attribute refresh before the response is returned. The filters and pagination use the shared authorized endpoint query service.",
+        "description": "List the endpoints that a customer has access to. For example, you\nenumerate to list the customer's lights, vacuums, or similar devices.\n\nEndpoints contain information such as:\n  1. The endpoint's name, description, and other top-level data.\n  2. The capabilities the endpoint has, like power, camera, etc.\n  3. The state of the endpoint.\n\nUsage of the API is controlled by the query parameters. By default it\nlists enabled endpoints owned by the authenticated user. Type and\nserialNumber filters stay within that scope. An explicit owner can select\nanother owner's endpoints when the caller can read them.\n\nAn exact id lookup takes precedence over the owner, type, serialNumber, and\nenablement filters. It can return a readable shared endpoint, including a\ndisabled one, but still requires endpoint-read permission.\n\nTo retrieve the state of a specific endpoint, send `id=<endpoint-id>`\ntogether with `expand=interfaces.attributes`. Add\n`forceDeviceAttributeQuery=true` to refresh that state from the device\nbefore the response is returned.\n",
         "parameters": [
           {
-            "name": "enablement",
-            "in": "query",
-            "description": "Collection visibility within the selected owner scope. Defaults to ENABLED. Use '*' to include both enabled and disabled endpoints, or DISABLED to list disabled endpoints. An exact id metadata read ignores this filter and can return a disabled endpoint when readable; live messaging remains blocked for disabled endpoints.",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "ENABLED",
-                "DISABLED",
-                "*"
-              ]
-            }
+            "$ref": "#/components/parameters/EnablementQuery"
           },
           {
-            "name": "owner",
-            "in": "query",
-            "description": "Owner of the endpoints to get. Defaults to the authenticated user's endpoints. Use '~caller' to make that scope explicit; another owner can be selected only for endpoints readable by the caller.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "check-token": {
-                "value": "~caller"
-              },
-              "check-id": {
-                "value": "port1/principals/example"
-              }
-            }
+            "$ref": "#/components/parameters/OwnerQuery"
           },
           {
             "name": "id",
@@ -675,7 +647,7 @@
           {
             "name": "expand",
             "in": "query",
-            "description": "Comma-separated expansion tokens. Use `interfaces.attributes` to populate each endpoint's `attributes` array with deep interface attribute state. When omitted, the response keeps the default shallow endpoint shape and does not populate deep attribute payloads.",
+            "description": "Expand determines what data we retrieve for each endpoint.\n\nUse `interfaces.attributes` to populate each endpoint's `attributes`\narray so you can, for example, find their states.\n\nWhen omitted, the response returns only a limited set of data.\n",
             "required": false,
             "schema": {
               "type": "array",
@@ -701,7 +673,7 @@
           {
             "name": "forceDeviceAttributeQuery",
             "in": "query",
-            "description": "Forces a live device-backed attribute refresh for endpoint-state queries. This flag is only applied when `expand` includes `interfaces.attributes`. Send `true` to force the refresh; absent or `false` values use stored state. Invalid values, or `true` without the required expansion, return 400.",
+            "description": "Forces a live device-backed attribute refresh for endpoint-state\nqueries.\n\nThis makes Port OS call into the device to get its data, if the device\nprovider does not update the state automatically.\n\nThis flag is only applied when `expand` includes\n`interfaces.attributes`. Send `true` to force the refresh; absent or\n`false` values use stored state. Invalid values, or `true` without\nthe required expansion, return 400.\n",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -1542,13 +1514,7 @@
         "description": "Tenant/operator scope; unresolved provider diagnostics require provider operator authorization. Uses opaque cursors.\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
         "parameters": [
           {
-            "name": "nextToken",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Continuation token returned by the previous page."
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
             "name": "maxResults",
@@ -2401,18 +2367,7 @@
         ],
         "parameters": [
           {
-            "name": "owner",
-            "in": "query",
-            "description": "The owner of the simulators to retrieve. Defaults to the authenticated caller when not specified.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "caller": {
-                "value": "~caller"
-              }
-            }
+            "$ref": "#/components/parameters/OwnerQuery"
           },
           {
             "name": "maxResults",
@@ -2431,34 +2386,10 @@
             }
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "An opaque token to retrieve the next page of results. Returned in the paginationContext of a previous response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -2663,56 +2594,13 @@
             }
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque cursor token returned by a previous query response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-page": {
-                "value": "abc123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 10
-            },
-            "examples": {
-              "page-size": {
-                "value": 50
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           }
         ],
         "x-portos-delegated": true,
@@ -2957,18 +2845,7 @@
             }
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque cursor token returned by a previous query response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-page": {
-                "value": "abc123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
             "name": "maxResults",
@@ -3271,39 +3148,10 @@
             }
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque cursor token returned by a previous query response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-page": {
-                "value": "abc123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
             "name": "maxResults",
@@ -3604,13 +3452,7 @@
             }
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "required": false,
-            "description": "Opaque cursor token returned by a previous response.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           }
         ],
         "responses": {
@@ -4608,66 +4450,16 @@
         ],
         "parameters": [
           {
-            "name": "enablement",
-            "in": "query",
-            "description": "Collection visibility. Defaults to ENABLED. Use '*' to include all authorized groups, or DISABLED to list hidden groups. Exact id reads ignore this filter; disabled groups still cannot be targeted by messages.",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "ENABLED",
-                "DISABLED",
-                "*"
-              ],
-              "default": "ENABLED"
-            }
+            "$ref": "#/components/parameters/EnablementQuery"
           },
           {
-            "name": "owner",
-            "in": "query",
-            "description": "Owner whose endpoint groups to get. Defaults to the authenticated caller when omitted. Use '~caller' as an explicit alias for the authenticated user.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "check-token": {
-                "value": "~caller"
-              },
-              "check-id": {
-                "value": "port1/user/alice/user/alice"
-              }
-            }
+            "$ref": "#/components/parameters/OwnerQuery"
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "The next token to get the next page of results",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-token": {
-                "value": "123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 10
-            },
-            "examples": {
-              "max-results": {
-                "value": 10
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           },
           {
             "name": "expand",
@@ -5116,18 +4908,7 @@
         ],
         "parameters": [
           {
-            "name": "owner",
-            "in": "query",
-            "description": "Owner whose relationships to get. Defaults to the authenticated caller when omitted. Use '~caller' as an explicit alias for the authenticated user.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "check-token": {
-                "value": "~caller"
-              }
-            }
+            "$ref": "#/components/parameters/OwnerQuery"
           },
           {
             "name": "groupId",
@@ -5199,56 +4980,13 @@
             }
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "The next token to get the next page of results",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-token": {
-                "value": "123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 10
-            },
-            "examples": {
-              "max-results": {
-                "value": 10
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -6328,73 +6066,16 @@
         ],
         "parameters": [
           {
-            "name": "owner",
-            "in": "query",
-            "description": "Owner whose group routes to get. Defaults to the authenticated caller when omitted. Use '~caller' as an explicit alias for the authenticated user.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "check-token": {
-                "value": "~caller"
-              },
-              "check-id": {
-                "value": "port1/user/alice/user/alice"
-              }
-            }
+            "$ref": "#/components/parameters/OwnerQuery"
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "The next token to get the next page of results",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-token": {
-                "value": "123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 10
-            },
-            "examples": {
-              "max-results": {
-                "value": 10
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -6622,7 +6303,7 @@
     "/access-control-rules": {
       "post": {
         "tags": [
-          "Access Control Rules"
+          "Access control"
         ],
         "operationId": "upsertAccessControlRule",
         "description": "Upsert an access control rule.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
@@ -6689,7 +6370,7 @@
       },
       "get": {
         "tags": [
-          "Access Control Rules"
+          "Access control"
         ],
         "operationId": "getAccessControlRules",
         "description": "Get access-control rules owned by the authenticated caller by default. Supplying an owner selects that owner's rules, and an ID selects one rule; results remain subject to the caller's access-control-rule-read permissions. The default page size is 10 and the maximum page size is 100.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
@@ -6758,55 +6439,13 @@
             }
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque cursor token returned by a previous query response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-token": {
-                "value": "123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100
-            },
-            "examples": {
-              "max-results": {
-                "value": 1
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -6885,7 +6524,7 @@
     "/access-control-rules/evaluate": {
       "post": {
         "tags": [
-          "Access Control Rules"
+          "Access control"
         ],
         "operationId": "evaluateAccessControlRule",
         "description": "Evaluate an access control rule.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
@@ -6939,7 +6578,7 @@
     "/{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}": {
       "delete": {
         "tags": [
-          "Access Control Rules"
+          "Access control"
         ],
         "operationId": "deleteAccessControlRule",
         "description": "Delete an access control rule.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
@@ -7032,13 +6671,7 @@
             }
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "The next token to get the next page of results",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
             "name": "maxResults",
@@ -7050,25 +6683,7 @@
             }
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -7121,7 +6736,7 @@
           "Secrets"
         ],
         "operationId": "upsertSecret",
-        "description": "Create a secret, which is a special type of data that is secured. \nSecrets are special data that can be very dangerous to use, and so is put in a special database. \n\nSome well known types of secrets include: \nRandom secret data, access tokens, passwords, and various others. \n\n### Generic secrets\nIf you want to keep something secret, and have it super safe, you can create a secret. \nThis secret is stored in portos with a unique resource identifier for a storage document. \n\nFor example, maybe you have client credentials or something that is a generic json blob. \n\ni.e. https://api.portpowered.com/storage/secrets/portos1.secret.<UUID>\n\n### Tokens\nA specialized type of secret is a OAUTH token secret. This secret is often used to access plugins, so \nthere are specialized indexes to make token look up faster. \n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
+        "description": "Create a secret, which is a special type of data that is secured. \nSecrets are special data that can be very dangerous to use, and so is put in a special database. \n\nSome well known types of secrets include: \nRandom secret data, access tokens, passwords, and various others. \n\n### Generic secrets\nIf you want to keep something secret, and have it super safe, you can create a secret. \nThis secret is stored in portos with a unique resource identifier for a storage document. \n\nFor example, maybe you have client credentials or something that is a generic json blob. \n\ni.e. https://api.portoperatingsystem.com/storage/secrets/portos1.secret.<UUID>\n\n### Tokens\nA specialized type of secret is a OAUTH token secret. This secret is often used to access plugins, so \nthere are specialized indexes to make token look up faster. \n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
         "requestBody": {
           "required": true,
           "content": {
@@ -7337,55 +6952,13 @@
             }
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque cursor token returned by a previous query response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-page": {
-                "value": "abc123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10; values from 1 through 100 are accepted.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100
-            },
-            "examples": {
-              "page-size": {
-                "value": 50
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           }
         ],
         "x-portos-delegated": false,
@@ -7514,10 +7087,10 @@
       "post": {
         "operationId": "generateToken",
         "tags": [
-          "Auth"
+          "Tokens"
         ],
         "summary": "OAuth2 Token Endpoint",
-        "description": "Public DCR/CIMD clients exchange authorization_code with client_id, redirect_uri,\ncode_verifier and the same resource as the consent request. No client_secret is\nissued. Refresh these grants with grant_type refresh_token, client_id, rotating\nrefresh_token and the original resource. Store the replacement securely.\nThe legacy JWT vending flow uses urn:ietf:params:oauth:grant-type:refresh_token;\nit is separate from DCR refresh.\n",
+        "description": "This API is used to generate OAuth2 tokens.\n\nThe current OAuth token endpoint supports:\n1. Refresh token grants.\n2. Authorization code token grants.\n\nPublic DCR/CIMD clients exchange authorization_code with client_id, redirect_uri,\ncode_verifier and the same resource as the consent request. No client_secret is\nissued. Refresh these grants with grant_type refresh_token, client_id, rotating\nrefresh_token and the original resource. Store the replacement securely.\nThe legacy JWT vending flow uses urn:ietf:params:oauth:grant-type:refresh_token;\nit is separate from DCR refresh.\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -7531,7 +7104,7 @@
                 "redirect_uri": "http://127.0.0.1:8765/callback",
                 "code": "CALLBACK_CODE",
                 "code_verifier": "ORIGINAL_RANDOM_PKCE_VERIFIER",
-                "resource": "https://portos-pilot-api-685761720421.us-west1.run.app"
+                "resource": "https://api.portoperatingsystem.com"
               }
             }
           }
@@ -7570,7 +7143,7 @@
       "post": {
         "operationId": "revokeOAuthGrant",
         "tags": [
-          "Auth"
+          "Tokens"
         ],
         "summary": "Revoke a delegated REST or MCP grant",
         "security": [],
@@ -7625,13 +7198,7 @@
         "description": "Lists tokens owned by the authenticated principal. A principal may only list tokens they own.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
         "parameters": [
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque token for the next page of results",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
             "name": "maxResults",
@@ -7643,25 +7210,7 @@
             }
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -7906,7 +7455,7 @@
       "post": {
         "operationId": "raiseAnonymousPrincipal",
         "tags": [
-          "Auth"
+          "Principals"
         ],
         "summary": "Merge anonymous principal into real identity",
         "description": "Merges an anonymous principal into a real identity by exchanging an anonymous refresh token and a real identity token (e.g. Google or Apple ID token) for new access and refresh tokens bound to the real principal. All resources owned by the anonymous principal are transferred to the real identity.\n",
@@ -8012,7 +7561,7 @@
       "post": {
         "operationId": "handleOAuthCallback",
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "summary": "OAuth provider callback",
         "description": "Handles callbacks from OAuth providers (Apple, Google, etc.) that do not support PKCE or have not configured CORS. The provider submits either an authorization code or an ID token. When a code is present the server exchanges it with the provider for tokens; when an id_token is present the server processes it directly.\n",
@@ -8086,7 +7635,7 @@
     "/auth/device-authorization": {
       "post": {
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "summary": "OAuth2 Device Authorization",
         "description": "This API is used by your device to obtain authorization from the resource owner via a device code or QR code that your device can scan.\n\nSee the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).\n\n\nUses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow. The legacy /auth/device_authorization path remains a compatibility alias.",
@@ -8118,7 +7667,7 @@
                 "example": {
                   "device_code": "port1/principals/example",
                   "user_code": "port1/principals/example",
-                  "verification_uri": "https://portpowered.com/oauth/device/verify",
+                  "verification_uri": "https://portoperatingsystem.com/oauth/device/verify",
                   "expires_in": 1800,
                   "interval": 5
                 }
@@ -8167,13 +7716,7 @@
         "description": "Lists all OAuth clients for the authenticated user\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
         "parameters": [
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "The next token to get the next page of results",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
             "name": "maxResults",
@@ -8185,25 +7728,7 @@
             }
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           }
         ],
         "responses": {
@@ -8961,70 +8486,11 @@
         ]
       }
     },
-    "/oauth/generate-code": {
-      "post": {
-        "operationId": "generateOAuthCode",
-        "tags": [
-          "Internal"
-        ],
-        "summary": "OAuth2 Generate Device Code",
-        "description": "This endpoint generates an OAuth 2.0 authorization code that can be exchanged for an access token. This endpoint is called by the frontend /oauth/authorize page after the user grants consent.\nThe endpoint validates the client, redirect URI, and scopes, then creates an authorization code for the authenticated user principal.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GenerateOAuthCodeRequest"
-              },
-              "example": {
-                "client_id": "port1/principals/user123/oauth-clients/my-client",
-                "redirect_uri": "https://myapp.com/callback"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Authorization code generated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateOAuthCodeResponse"
-                },
-                "example": {
-                  "code": "abc123def456ghi789",
-                  "expiryInSeconds": 600
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request (e.g., invalid client_id, redirect_uri, or scopes)"
-          },
-          "401": {
-            "description": "Unauthorized (missing or invalid authentication token)"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        },
-        "x-portos-delegated": false,
-        "x-portos-resource-permission": false,
-        "security": [
-          {
-            "oauth2": []
-          },
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/oauth/register": {
       "post": {
         "operationId": "registerDynamicOAuthClient",
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "summary": "Register a public OAuth client",
         "security": [],
@@ -9129,7 +8595,7 @@
       "get": {
         "operationId": "beginOAuthAuthorization",
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "security": [],
         "x-portos-resource-permission": false,
@@ -9239,7 +8705,7 @@
       "post": {
         "operationId": "completeOAuthConsent",
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "security": [
           {
@@ -9296,7 +8762,7 @@
                   }
                 },
                 "example": {
-                  "redirect_url": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID"
+                  "redirect_url": "https://auth.portoperatingsystem.com/oauth/authorization-response?request_id=SERVER_ISSUED_RESPONSE_ID"
                 }
               }
             }
@@ -9315,7 +8781,7 @@
       "get": {
         "operationId": "getPendingOAuthConsent",
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "summary": "Read a pending request for the signed-in consent page",
         "description": "Returns server-stored consent details to the authenticated website. Descriptive\nclient metadata is unverified. Agents use the public authorization endpoint and\nwait for the user; a delegated device token cannot read this session-only endpoint.\n",
@@ -9378,7 +8844,7 @@
                   "client_id": "dcr_example",
                   "client_name": "Example agent",
                   "redirect_uri": "http://127.0.0.1:8765/callback",
-                  "resource": "https://portos-pilot-api-685761720421.us-west1.run.app",
+                  "resource": "https://api.portoperatingsystem.com",
                   "scopes": []
                 }
               }
@@ -9397,7 +8863,7 @@
       "get": {
         "operationId": "deliverOAuthAuthorizationResponse",
         "tags": [
-          "Auth"
+          "OAuth flows"
         ],
         "security": [],
         "x-portos-resource-permission": false,
@@ -9443,224 +8909,6 @@
             "description": "Missing, wrong-stage, expired or consumed continuation reference."
           }
         }
-      }
-    },
-    "/oauth/validate-request": {
-      "post": {
-        "operationId": "validateOAuthRequest",
-        "tags": [
-          "Internal"
-        ],
-        "summary": "OAuth2 Validate Authorization Request",
-        "description": "This endpoint validates OAuth 2.0 authorization request parameters without creating an authorization code. It returns client information relevant for displaying on the authorization page, such as client name, Terms of Service URI, Privacy Policy URI, logo URI, and validated scopes.\nThis endpoint is useful for pre-validation before user consent, allowing the frontend to display relevant client information to the user.\n",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValidateOAuthRequestRequest"
-              },
-              "example": {
-                "client_id": "port1/principals/user123/oauth-clients/my-client",
-                "redirect_uri": "https://myapp.com/callback"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Request validated successfully, returns client information",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidateOAuthRequestResponse"
-                },
-                "example": {
-                  "clientName": "My OAuth Application",
-                  "scopes": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request (e.g., invalid client_id, redirect_uri, or scopes)"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        },
-        "x-portos-delegated": false,
-        "x-portos-resource-permission": false
-      }
-    },
-    "/oauth/verify-device": {
-      "get": {
-        "operationId": "verifyDevice",
-        "tags": [
-          "Internal"
-        ],
-        "summary": "OAuth2 Verify Device by User Code",
-        "description": "This endpoint retrieves device and client information by user_code for display on the authorization page. It is used during the OAuth 2.0 device code flow to show the user which device and client is requesting authorization.\nThe endpoint validates the user_code and returns client information such as client name, logo URI, Terms of Service URI, Privacy Policy URI, and the current status of the device authentication.\n",
-        "security": [],
-        "parameters": [
-          {
-            "name": "user_code",
-            "in": "query",
-            "required": true,
-            "description": "User code displayed to the user for device authorization",
-            "schema": {
-              "type": "string",
-              "example": "ABCD-EFGH"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Device and client information retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VerifyDeviceResponse"
-                },
-                "example": {
-                  "deviceauth_id": "da_1234567890abcdef",
-                  "client_name": "My OAuth Application",
-                  "client_id": "port1/principals/user123/oauth-clients/my-client",
-                  "status": "pending"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request (e.g., missing or invalid user_code)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuthErrorResponse"
-                },
-                "example": {
-                  "error": "invalid_request",
-                  "error_description": "user_code is required"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuthErrorResponse"
-                },
-                "example": {
-                  "error": "invalid_request",
-                  "error_description": "user_code is required"
-                }
-              }
-            }
-          }
-        },
-        "x-portos-delegated": false,
-        "x-portos-resource-permission": false
-      }
-    },
-    "/oauth/authorize-device": {
-      "post": {
-        "operationId": "authorizeDevice",
-        "tags": [
-          "Internal"
-        ],
-        "summary": "OAuth2 Authorize Device by User Code",
-        "description": "This endpoint allows an authenticated user to grant consent for device authorization. It creates an authorization code with the owner principal and marks the device authentication as authorized.\nThe endpoint validates the user_code, checks that the requested scopes are valid, extracts the authenticated user principal from the context, and authorizes the deviceauth. This is the final step in the device code flow before the device can exchange the device_code for tokens.\n\n\nRequires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthorizeDeviceRequest"
-              },
-              "example": {
-                "user_code": "ABCD-EFGH",
-                "scopes": [
-                  "endpoint:read",
-                  "endpoint:write"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Device authorization successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AuthorizeDeviceResponse"
-                },
-                "example": {
-                  "success": true
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request (e.g., missing user_code, invalid user_code, or invalid scopes)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuthErrorResponse"
-                },
-                "example": {
-                  "error": "invalid_request",
-                  "error_description": "user_code is required"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (missing or invalid authentication token)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuthErrorResponse"
-                },
-                "example": {
-                  "error": "invalid_request",
-                  "error_description": "user_code is required"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuthErrorResponse"
-                },
-                "example": {
-                  "error": "invalid_request",
-                  "error_description": "user_code is required"
-                }
-              }
-            }
-          }
-        },
-        "x-portos-delegated": false,
-        "x-portos-resource-permission": false,
-        "security": [
-          {
-            "oauth2": []
-          },
-          {
-            "bearerAuth": []
-          }
-        ]
       }
     },
     "/messages": {
@@ -10371,64 +9619,16 @@
             }
           },
           {
-            "name": "owner",
-            "in": "query",
-            "description": "Owner whose subscriptions to list. Defaults to the authenticated caller when omitted. A different owner is permitted only for subscriptions the caller can read.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/OwnerQuery"
           },
           {
-            "name": "expand",
-            "in": "query",
-            "description": "Expansion tokens that request related or computed fields for each result.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "examples": {
-              "include-related": {
-                "value": [
-                  "metadata"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/ExpandQuery"
           },
           {
-            "name": "nextToken",
-            "in": "query",
-            "description": "Opaque cursor token returned by a previous query response.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "next-page": {
-                "value": "abc123"
-              }
-            }
+            "$ref": "#/components/parameters/NextTokenQuery"
           },
           {
-            "name": "maxResults",
-            "in": "query",
-            "description": "Maximum number of results to return. Defaults to 10 and cannot exceed 100.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100
-            },
-            "examples": {
-              "page-size": {
-                "value": 50
-              }
-            }
+            "$ref": "#/components/parameters/MaxResultsQuery"
           }
         ],
         "x-portos-delegated": true,
@@ -11305,8 +10505,8 @@
         "description": "OAuth2 authentication using the OAuth2 flow.",
         "flows": {
           "authorizationCode": {
-            "authorizationUrl": "https://portos-pilot-api-685761720421.us-west1.run.app/oauth/authorize",
-            "tokenUrl": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
+            "authorizationUrl": "https://auth.portoperatingsystem.com/oauth/authorize",
+            "tokenUrl": "https://auth.portoperatingsystem.com/auth/token",
             "scopes": {
               "endpoint:read": "View authorized devices, connected services and their state.",
               "endpoint:write": "Manage authorized devices, connected services and provider connections.",
@@ -11328,7 +10528,7 @@
             }
           },
           "clientCredentials": {
-            "tokenUrl": "https://portos-pilot-api-685761720421.us-west1.run.app/auth/token",
+            "tokenUrl": "https://auth.portoperatingsystem.com/auth/token",
             "scopes": {}
           }
         }
@@ -11357,6 +10557,67 @@
           "minLength": 1
         },
         "example": "\"12\""
+      },
+      "EnablementQuery": {
+        "name": "enablement",
+        "in": "query",
+        "required": false,
+        "description": "Filter the results by enablement.\n\nEnablement is a customer setting that stops Port OS from using a resource\nwithout deleting it. Port OS uses it in place of deletion because it cannot\ndelete a device on the provider's side.\n\nDefaults to ENABLED. Use DISABLED to list only disabled resources, or '*' to\ninclude both enabled and disabled resources.\n\nLooking up a resource by its exact id ignores this filter.\n",
+        "schema": {
+          "$ref": "#/components/schemas/EnablementFilter"
+        }
+      },
+      "OwnerQuery": {
+        "name": "owner",
+        "in": "query",
+        "required": false,
+        "description": "Filter the results by the owner of the resource.\n\nDefaults to the authenticated caller's resources when omitted. Use '~caller'\nto make that scope explicit.\n\nAnother owner can be selected only for resources the caller can read.\n",
+        "schema": {
+          "type": "string"
+        },
+        "examples": {
+          "caller": {
+            "value": "~caller"
+          },
+          "principal": {
+            "value": "port1/principals/example"
+          }
+        }
+      },
+      "ExpandQuery": {
+        "name": "expand",
+        "in": "query",
+        "required": false,
+        "description": "Expansion tokens that request related or computed fields for each result.\n\nWhen omitted, the response contains only the default, shallower set of\nfields for each result.\n",
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "NextTokenQuery": {
+        "name": "nextToken",
+        "in": "query",
+        "required": false,
+        "description": "Opaque token for the next page of results.\n\nPass the continuation token returned by the previous response, unchanged.\nOmit it to start from the first page.\n",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "MaxResultsQuery": {
+        "name": "maxResults",
+        "in": "query",
+        "required": false,
+        "description": "Maximum number of results to return in one page.\n\nDefaults to 10. Values from 1 through 100 are accepted.\n",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 10
+        }
       }
     },
     "headers": {
@@ -13810,7 +13071,7 @@
             "type": "string",
             "format": "uri",
             "description": "A URL string of a web page providing information about the client. If present, the server should display this URL to the end-user in a clickable fashion. See https://datatracker.ietf.org/doc/html/rfc7591#section-2\n",
-            "example": "https://google.com/oauth-clients/1234567890"
+            "example": "https://app.example.com/oauth-clients/1234567890"
           },
           "logoUri": {
             "type": "string",
@@ -14432,6 +13693,21 @@
           }
         }
       },
+      "EnablementFilter": {
+        "type": "string",
+        "description": "Which resources a collection returns by enablement. ENABLED returns resources\nPort OS is using, DISABLED returns the ones the customer turned off, and '*'\nreturns both.\n",
+        "enum": [
+          "ENABLED",
+          "DISABLED",
+          "*"
+        ],
+        "default": "ENABLED",
+        "x-enum-varnames": [
+          "EnablementFilterENABLED",
+          "EnablementFilterDISABLED",
+          "EnablementFilterAll"
+        ]
+      },
       "Enablement": {
         "type": "string",
         "description": "Whether Port OS uses an endpoint or group. A disabled one is hidden from collections by default and cannot be sent device messages or targeted by them; exact authorized reads still return it. Rediscovery never changes it, so disabling is how a user hides a discovered device or room for good.\n",
@@ -14439,6 +13715,7 @@
           "ENABLED",
           "DISABLED"
         ],
+        "default": "ENABLED",
         "x-enum-varnames": [
           "EnablementENABLED",
           "EnablementDISABLED"
@@ -17970,12 +17247,12 @@
           "verification_uri": {
             "type": "string",
             "description": "The URI where the user should enter the user code",
-            "example": "https://portpowered.com/oauth/device/verify"
+            "example": "https://portoperatingsystem.com/oauth/device/verify"
           },
           "verification_uri_complete": {
             "type": "string",
             "description": "The complete URI including the user code (optional, for convenience)",
-            "example": "https://portpowered.com/oauth/device/verify?user_code=ABC123"
+            "example": "https://portoperatingsystem.com/oauth/device/verify?user_code=ABC123"
           },
           "expires_in": {
             "type": "integer",
@@ -18012,76 +17289,6 @@
           "group:manage"
         ],
         "description": "OAuth 2.0 scope values that can be requested by clients. Delegated REST scopes bound operations before the owning service evaluates resource policy. A scope is an upper bound, not a resource permission or an automatic Cedar grant. Each scope follows the pattern \"resource:action\" where resource indicates the resource type and action indicates the permitted operation (read, write, send, trigger).\n"
-      },
-      "GenerateOAuthCodeRequest": {
-        "type": "object",
-        "required": [
-          "client_id",
-          "redirect_uri"
-        ],
-        "properties": {
-          "resource": {
-            "type": "string",
-            "format": "uri",
-            "description": "Optional OAuth resource indicator preserved from the validated authorization request."
-          },
-          "client_id": {
-            "type": "string",
-            "description": "OAuth client identifier",
-            "example": "port1/principals/user123/oauth-clients/my-client"
-          },
-          "redirect_uri": {
-            "type": "string",
-            "description": "Redirect URI to return to after authorization",
-            "example": "https://myapp.com/callback"
-          },
-          "scopes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthScope"
-            }
-          },
-          "code_challenge": {
-            "type": "string",
-            "description": "PKCE code challenge (required if client requires PKCE)",
-            "example": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
-          },
-          "code_challenge_method": {
-            "type": "string",
-            "x-enum-exempt": "PKCE code challenge methods (RFC 7636)",
-            "enum": [
-              "S256",
-              "plain"
-            ],
-            "description": "PKCE code challenge method (S256 or plain)",
-            "example": "S256"
-          },
-          "state": {
-            "type": "string",
-            "description": "Optional state parameter for CSRF protection",
-            "example": "xyz123"
-          }
-        }
-      },
-      "GenerateOAuthCodeResponse": {
-        "type": "object",
-        "required": [
-          "code",
-          "expiryInSeconds"
-        ],
-        "description": "Response from the /oauth/generate-code endpoint.  This endpoint is used by the website to generate an authorization code for the client to exchange for an access token.  When the customer receives the code, they are expected to call the port OS /auth/token OAUTH API to exchange the code for an access token. ",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "Authorization code that can be exchanged for an access token via the /auth/token endpoint. ",
-            "example": "abc123def456ghi789"
-          },
-          "expiryInSeconds": {
-            "type": "integer",
-            "description": "Expiry time in seconds (typically 600 seconds / 10 minutes)",
-            "example": 600
-          }
-        }
       },
       "DynamicClientMetadata": {
         "type": "object",
@@ -18175,194 +17382,6 @@
           "error_description": {
             "type": "string",
             "description": "Human-readable recovery guidance."
-          }
-        }
-      },
-      "ValidateOAuthRequestRequest": {
-        "type": "object",
-        "required": [
-          "client_id",
-          "redirect_uri"
-        ],
-        "properties": {
-          "resource": {
-            "type": "string",
-            "format": "uri",
-            "description": "Optional OAuth resource indicator whose audience binding is validated with the authorization request."
-          },
-          "client_id": {
-            "type": "string",
-            "description": "OAuth client identifier",
-            "example": "port1/principals/user123/oauth-clients/my-client"
-          },
-          "redirect_uri": {
-            "type": "string",
-            "description": "Redirect URI to validate",
-            "example": "https://myapp.com/callback"
-          },
-          "scopes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthScope"
-            },
-            "description": "Requested scopes to validate"
-          },
-          "code_challenge": {
-            "type": "string",
-            "description": "PKCE code challenge (required if client requires PKCE)",
-            "example": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
-          },
-          "code_challenge_method": {
-            "type": "string",
-            "x-enum-exempt": "PKCE code challenge methods (RFC 7636)",
-            "enum": [
-              "S256",
-              "plain"
-            ],
-            "description": "PKCE code challenge method (S256 or plain)",
-            "example": "S256"
-          }
-        }
-      },
-      "ValidateOAuthRequestResponse": {
-        "type": "object",
-        "required": [
-          "clientName",
-          "scopes"
-        ],
-        "description": "Response from the /oauth/validate-request endpoint. Contains client information relevant for displaying on the authorization page.\n",
-        "properties": {
-          "clientName": {
-            "type": "string",
-            "description": "Client name to display on the authorization page",
-            "example": "My OAuth Application"
-          },
-          "tosUri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Terms of Service URI (optional)",
-            "example": "https://myapp.com/terms"
-          },
-          "policyUri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Privacy Policy URI (optional)",
-            "example": "https://myapp.com/privacy"
-          },
-          "logoUri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Logo URI for the client (optional)",
-            "example": "https://myapp.com/logo.png"
-          },
-          "clientUri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Client URI (optional)",
-            "example": "https://myapp.com"
-          },
-          "scopes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthScope"
-            },
-            "description": "Validated scopes that will be granted if the user consents"
-          }
-        }
-      },
-      "VerifyDeviceResponse": {
-        "type": "object",
-        "required": [
-          "deviceauth_id",
-          "client_name",
-          "client_id",
-          "status"
-        ],
-        "description": "Response from the /oauth/verify-device endpoint. Contains device and client information for display on the authorization page.\n",
-        "properties": {
-          "deviceauth_id": {
-            "type": "string",
-            "description": "Unique identifier for the device authentication entry",
-            "example": "da_1234567890abcdef"
-          },
-          "client_name": {
-            "type": "string",
-            "description": "Display name of the OAuth client requesting authorization",
-            "example": "My OAuth Application"
-          },
-          "client_id": {
-            "type": "string",
-            "description": "OAuth client identifier",
-            "example": "port1/principals/user123/oauth-clients/my-client"
-          },
-          "status": {
-            "type": "string",
-            "description": "Current status of the device authentication (e.g., \"pending\", \"authorized\", \"expired\")",
-            "example": "pending"
-          },
-          "logo_uri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Logo URI for the client (optional)",
-            "example": "https://myapp.com/logo.png"
-          },
-          "client_uri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Client URI (optional)",
-            "example": "https://myapp.com"
-          },
-          "tos_uri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Terms of Service URI (optional)",
-            "example": "https://myapp.com/terms"
-          },
-          "policy_uri": {
-            "type": "string",
-            "format": "uri",
-            "description": "Privacy Policy URI (optional)",
-            "example": "https://myapp.com/privacy"
-          }
-        }
-      },
-      "AuthorizeDeviceRequest": {
-        "type": "object",
-        "required": [
-          "user_code",
-          "scopes"
-        ],
-        "description": "Request body for the /oauth/authorize-device endpoint. Used by authenticated users to grant consent for device authorization.\n",
-        "properties": {
-          "user_code": {
-            "type": "string",
-            "description": "User code displayed to the user for device authorization",
-            "example": "ABCD-EFGH"
-          },
-          "scopes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthScope"
-            },
-            "description": "Scopes that the user is granting consent for",
-            "example": [
-              "endpoint:read",
-              "endpoint:write"
-            ]
-          }
-        }
-      },
-      "AuthorizeDeviceResponse": {
-        "type": "object",
-        "required": [
-          "success"
-        ],
-        "description": "Response from the /oauth/authorize-device endpoint. Indicates whether the device authorization was successful.\n",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Indicates if the device authorization was successful",
-            "example": true
           }
         }
       },

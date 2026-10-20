@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { disallowedHosts } from './public-hosts.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../generated/public');
 const manifest = JSON.parse(readFileSync(path.join(root, 'docs/references/manifest.json'), 'utf8'));
 const listed = new Set(manifest.files.map(entry => entry.path));
@@ -49,5 +50,12 @@ function walk(directory) { return readdirSync(directory).flatMap(name => statSyn
 for (const filename of walk(root)) {
   const name = '/' + path.relative(root, filename).replaceAll('\\', '/');
   if (name !== '/docs/references/manifest.json' && !listed.has(name)) throw new Error(`Unmanifested public asset: ${name}`);
+}
+// Everything the package ships, not just the public tree, must name only hosts customers can use.
+const generatedRoot = path.resolve(root, '..');
+const foreign = walk(generatedRoot).flatMap(filename => disallowedHosts(readFileSync(filename, 'utf8'))
+  .map(host => `${path.relative(generatedRoot, filename).replaceAll('\\', '/')}: ${host}`));
+if (foreign.length) {
+  throw new Error(`Public output names hosts outside *.portoperatingsystem.com and the example allowlist (scripts/public-hosts.mjs):\n${foreign.join('\n')}`);
 }
 process.stdout.write(`Validated ${manifest.files.length} public files, hashes, Markdown links and component references.\n`);

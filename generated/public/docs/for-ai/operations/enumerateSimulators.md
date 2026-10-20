@@ -42,17 +42,7 @@ get:
   security:
     - bearerAuth: []
   parameters:
-    - name: owner
-      in: query
-      description: >-
-        The owner of the simulators to retrieve. Defaults to the authenticated caller when not
-        specified.
-      required: false
-      schema:
-        type: string
-      examples:
-        caller:
-          value: ~caller
+    - $ref: /docs/references/parameters/OwnerQuery.json
     - name: maxResults
       in: query
       description: The maximum number of results to return
@@ -64,28 +54,8 @@ get:
       examples:
         max-results:
           value: 10
-    - name: nextToken
-      in: query
-      description: >-
-        An opaque token to retrieve the next page of results. Returned in the paginationContext of a
-        previous response.
-      required: false
-      schema:
-        type: string
-    - name: expand
-      in: query
-      description: Expansion tokens that request related or computed fields for each result.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: false
-      examples:
-        include-related:
-          value:
-            - metadata
+    - $ref: /docs/references/parameters/NextTokenQuery.json
+    - $ref: /docs/references/parameters/ExpandQuery.json
   responses:
     '200':
       description: Simulators retrieved successfully
@@ -172,6 +142,9 @@ get:
 
 ## Linked components
 
+- [ExpandQuery.json](/docs/references/parameters/ExpandQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
+- [OwnerQuery.json](/docs/references/parameters/OwnerQuery.json)
 - [Error.json](/docs/references/schemas/Error.json)
 - [SimulatorQueryResponse.json](/docs/references/schemas/SimulatorQueryResponse.json)
 - [SimulatorQueryResponseV2.json](/docs/references/schemas/SimulatorQueryResponseV2.json)

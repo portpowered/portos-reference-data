@@ -77,29 +77,8 @@ get:
       required: false
       schema:
         type: string
-    - name: expand
-      in: query
-      description: Expansion tokens that request related or computed fields for each result.
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: false
-      examples:
-        include-related:
-          value:
-            - metadata
-    - name: nextToken
-      in: query
-      description: Opaque cursor token returned by a previous query response.
-      required: false
-      schema:
-        type: string
-      examples:
-        next-page:
-          value: abc123
+    - $ref: /docs/references/parameters/ExpandQuery.json
+    - $ref: /docs/references/parameters/NextTokenQuery.json
     - name: maxResults
       in: query
       description: Maximum number of results to return.
@@ -119,6 +98,8 @@ get:
 
 ## Linked components
 
+- [ExpandQuery.json](/docs/references/parameters/ExpandQuery.json)
+- [NextTokenQuery.json](/docs/references/parameters/NextTokenQuery.json)
 - [EnumerateAuthLinksResponse.json](/docs/references/schemas/EnumerateAuthLinksResponse.json)
 - [Error.json](/docs/references/schemas/Error.json)
 
