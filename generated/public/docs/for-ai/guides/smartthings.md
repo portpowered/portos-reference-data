@@ -13,13 +13,7 @@ You register an OAuth-In app with the SmartThings CLI, then give Port OS its cli
 
 ### 1. Install the SmartThings CLI
 
-On macOS, run:
-
-```bash
-brew install smartthingscommunity/smartthings/smartthings
-```
-
-On Windows, download and run `smartthings.msi` from the latest release listed on the [SmartThings CLI page](https://developer.smartthings.com/docs/sdks/cli). On Linux, download the zipped binary from the latest release, extract it and put it on your path. Check the install:
+Download the SmartThings CLI for your system from the [SmartThings CLI releases page](https://github.com/SmartThingsCommunity/smartthings-cli/releases). On Windows, run the `.msi` installer. On macOS or Linux, download the binary or archive, extract it if needed and put it on your path. Check the install:
 
 ```bash
 smartthings --version
@@ -27,7 +21,7 @@ smartthings --version
 
 ### 2. Copy the Redirect URI from Port OS
 
-In Port OS, open **Add a device** and choose SmartThings. Under **How do you want to connect SmartThings?**, choose **Use my own app**. Copy the value under **Redirect URI to register in your SmartThings app** with **Copy redirect URI**. Keep this tab open; you return to it in step 6.
+In Port OS, open **Add a device** and choose SmartThings. Under **How do you want to connect SmartThings?**, choose **Use my own app**. Copy the value under **Redirect URI to register in your SmartThings app** with **Copy redirect URI**. This is the URL of the Port OS setup page; on the hosted service it is `https://auth.portoperatingsystem.com/plugins`. Keep this tab open; you return to it in step 6.
 
 ### 3. Create the app
 
@@ -39,9 +33,9 @@ smartthings apps:create
 
 On the first command, the CLI opens a browser window. Sign in with your Samsung account and grant the CLI access. When asked for the app type, choose **OAuth-In App**.
 
-### 4. Enter the Redirect URI and scopes
+### 4. Set the OAuth redirect URI and scopes
 
-When the CLI asks for the redirect URI, paste the value from step 2. When it asks for scopes, select the four scopes listed under Required scopes.
+When the CLI asks for the redirect URI, paste the Port OS setup page URL from step 2. When it asks for scopes, select the four scopes listed under Required scopes.
 
 ### 5. Copy the client ID and client secret
 

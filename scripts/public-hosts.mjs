@@ -10,7 +10,8 @@ import path from 'node:path';
 //  - Obvious placeholders: example.com/.org/.net, *.example, *.test, *.invalid, localhost and
 //    loopback addresses.
 //  - Standards that descriptions and schemas link to.
-//  - Third-party providers whose public documentation or endpoints a capability names.
+//  - Third-party providers whose public documentation, endpoints or tool downloads (github.com for the
+//    SmartThings CLI releases) a capability or guide names.
 const productionSuffixes = ['portoperatingsystem.com'];
 const placeholderSuffixes = ['example.com', 'example.org', 'example.net', 'example', 'test', 'invalid', 'localhost'];
 const loopback = new Set(['127.0.0.1', '0.0.0.0', '::1', '[::1]']);
@@ -20,6 +21,7 @@ const providers = new Set([
   'console.cloud.google.com',
   'console.nest.google.com',
   'developer.smartthings.com',
+  'github.com',
   'api.sonos.com',
   'apigw.iotbing.com',
   'www.amazon.com',

@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.23",
-  "sourceCommit": "e6a61ef5a9b0e161b39eb980dcde3480210756db",
+  "version": "0.5.24",
+  "sourceCommit": "405a1c71a4cd94fe715f3c71f02f9d5bfe873145",
   "sourceInputState": "committed",
-  "assetSetSHA256": "35cac9247b4b63676cb57f665d95d43f58b292df468786be50a010cc4f04ae2c",
+  "assetSetSHA256": "1bbc4a34deb6b9a0b8517f3a75809923db223a13296241954df83aa0ff9b8f92",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1703,8 +1703,8 @@
     {
       "path": "/docs/for-ai/guides/smartthings.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4925,
-      "sha256": "56c6b5a9b9663e28326f0fba0440d166f99b2be999d678cac35a3977d9512965",
+      "bytes": 5010,
+      "sha256": "fb3a59d6a9f3d6cd7091fd8ca3ba20a1e8d1de8d7e0a755a59b466819dbc5150",
       "links": []
     },
     {
