@@ -1,10 +1,13 @@
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { disallowedHosts } from './public-hosts.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../generated/public');
 const manifest = JSON.parse(readFileSync(path.join(root, 'docs/references/manifest.json'), 'utf8'));
+// Guide screenshots are website assets (frontend/website/public/guides), referenced by site-root paths; they are not package files.
+// The public package copy has no website tree, so there the links are trusted as site routes.
+const websiteGuideImages = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../frontend/website/public');
 const listed = new Set(manifest.files.map(entry => entry.path));
 if (!/^[a-f0-9]{40}$/.test(manifest.sourceCommit ?? '')) throw new Error('Missing source provenance');
 if (createHash('sha256').update(JSON.stringify(manifest.files)).digest('hex') !== manifest.assetSetSHA256) throw new Error('Asset set hash mismatch');
@@ -20,7 +23,8 @@ for (const entry of manifest.files) {
       const target = match[1].split('#')[0];
       // llms.txt also points at website pages (the blog, the MCP reference and Resources), which are site routes and not package files.
       const siteRoute = entry.path === '/llms.txt' && (target.startsWith('/blog/') || ['/docs/reference/mcp/', '/docs/resources/'].includes(target));
-      if (!listed.has(target) && !siteRoute && target !== '/docs/references/manifest.json') throw new Error(`Broken public link: ${entry.path} → ${target}`);
+      const guideImage = target.startsWith('/guides/') && (!existsSync(websiteGuideImages) || existsSync(path.join(websiteGuideImages, target)));
+      if (!listed.has(target) && !siteRoute && !guideImage && target !== '/docs/references/manifest.json') throw new Error(`Broken public link: ${entry.path} → ${target}`);
     }
   }
   if (entry.path.endsWith('.json') && !entry.path.endsWith('/index.json')) {

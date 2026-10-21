@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.18",
-  "sourceCommit": "7ebd2f3de441a3636d6393d33c7a70f48926fbd4",
+  "version": "0.5.19",
+  "sourceCommit": "425b4d1ef96fb06037713e7fd25164a9cd7cdaeb",
   "sourceInputState": "committed",
-  "assetSetSHA256": "4a68c1ebadc44f19d493bc119581043e0982d4077bec7abced2019c5dd8d16de",
+  "assetSetSHA256": "d64cc8e5225bd920009df7cf944eea3ec246548fabdaeb7732b783eb334d9cfa",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1336,13 +1336,6 @@
       ]
     },
     {
-      "path": "/docs/for-ai/guides/alexa.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 3259,
-      "sha256": "0b8b4f18ed4731ee590002a670ff6a9a910559805e811590fb8bbd1d7bae8b62",
-      "links": []
-    },
-    {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 20231,
@@ -1456,19 +1449,30 @@
     {
       "path": "/docs/for-ai/guides/google-nest.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5426,
-      "sha256": "6a879e05728abf253454581a2eaa8bac5534bbe21aafb7553a9a3d594c81f50e",
-      "links": []
+      "bytes": 8782,
+      "sha256": "6ca0ab51ca6a433a24b128ea8e0cc5ed8b81d9446ceff449e6c3d950e1df53d0",
+      "links": [
+        "/guides/nest/01-auth-platform-get-started.webp",
+        "/guides/nest/02-app-information.webp",
+        "/guides/nest/02b-audience-external.webp",
+        "/guides/nest/03-audience-test-users.webp",
+        "/guides/nest/04-oauth-client-web-redirect.webp",
+        "/guides/nest/05-client-created-id.webp",
+        "/guides/nest/06-device-access-projects.webp",
+        "/guides/nest/07-project-name.webp",
+        "/guides/nest/08-project-oauth-client-id.webp",
+        "/guides/nest/09-project-events-off.webp",
+        "/guides/nest/10-project-created.webp"
+      ]
     },
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3918,
-      "sha256": "1a7eb6763de612c6fd005be4d5be6301ece1c39fabfbfdc8304eb22e66d1b5cd",
+      "bytes": 3807,
+      "sha256": "48eb0a8a35892695e63d4ccb28e5cfd9b85eb688507a5d21662dcf7587400c6a",
       "links": [
         "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
-        "/docs/for-ai/guides/alexa.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/cameras.md",
@@ -1509,7 +1513,6 @@
         "/docs/for-ai/guides/task-rooms.md",
         "/docs/for-ai/guides/task-temperature.md",
         "/docs/for-ai/guides/thermostats.md",
-        "/docs/for-ai/guides/tplink.md",
         "/docs/for-ai/guides/troubleshooting.md",
         "/docs/for-ai/guides/using-the-api.md",
         "/docs/for-ai/guides/vacuums.md"
@@ -1700,16 +1703,23 @@
     {
       "path": "/docs/for-ai/guides/smartthings.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4211,
-      "sha256": "bc86a5041b3000a28bf17e66c2fd1d7b286d527e8f95a52e4ff3c3cd1638f514",
+      "bytes": 4925,
+      "sha256": "56c6b5a9b9663e28326f0fba0440d166f99b2be999d678cac35a3977d9512965",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/spotify.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4756,
-      "sha256": "2c0496e32385b3b0bafb83e293953e4a20a48e81d46e62b3998a5464daf9ed05",
-      "links": []
+      "bytes": 6794,
+      "sha256": "4008c063c7e96433238fa6a5ed89fa722e31f42642740acdb04671d8886b0df5",
+      "links": [
+        "/guides/spotify/01-dashboard.webp",
+        "/guides/spotify/02-create-app-form.webp",
+        "/guides/spotify/03-redirect-and-web-api.webp",
+        "/guides/spotify/04-terms-and-save.webp",
+        "/guides/spotify/05-client-id.webp",
+        "/guides/spotify/06-user-management.webp"
+      ]
     },
     {
       "path": "/docs/for-ai/guides/task-battery.md",
@@ -1797,13 +1807,6 @@
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/quickstart.md"
       ]
-    },
-    {
-      "path": "/docs/for-ai/guides/tplink.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 2824,
-      "sha256": "f0d434d37e28889dfa65ea90e8489984797e278f625581f7bf120c9b0557bb7b",
-      "links": []
     },
     {
       "path": "/docs/for-ai/guides/troubleshooting.md",

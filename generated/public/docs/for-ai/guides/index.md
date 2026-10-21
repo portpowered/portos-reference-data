@@ -4,7 +4,6 @@ This is a directory, not a required reading checklist. For a new REST connection
 
 - [Sign in with a website access key](/docs/for-ai/guides/access-key-sign-in.md)
 - [Add devices through provider linking](/docs/for-ai/guides/adding-devices.md)
-- [Connect Amazon Alexa](/docs/for-ai/guides/alexa.md)
 - [Authentication and dynamic client registration](/docs/for-ai/guides/authentication-and-dcr.md)
 - [Set up access rules for Port OS](/docs/for-ai/guides/authorization-rules.md)
 - [Read camera captures and streams](/docs/for-ai/guides/cameras.md)
@@ -34,7 +33,6 @@ This is a directory, not a required reading checklist. For a new REST connection
 - [Connect SmartThings](/docs/for-ai/guides/smartthings.md)
 - [Connect Spotify](/docs/for-ai/guides/spotify.md)
 - [Control thermostat settings](/docs/for-ai/guides/thermostats.md)
-- [Connect TP-Link Kasa](/docs/for-ai/guides/tplink.md)
 - [Recover from connection and device failures](/docs/for-ai/guides/troubleshooting.md)
 - [Using the REST API](/docs/for-ai/guides/using-the-api.md)
 - [Control vacuums and cleaning rooms](/docs/for-ai/guides/vacuums.md)
