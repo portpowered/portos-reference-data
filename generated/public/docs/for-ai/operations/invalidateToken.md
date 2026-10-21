@@ -4,7 +4,7 @@ DELETE `/{namespace}/{principalType}/{principalId}/tokens/{tokenId}`
 
 Invalidate Token
 
-Revokes the access key's active record so subsequent website and API requests using that bearer are rejected. The token ID is the ID returned by create/list and carried in its JWT jti claim. Only the owner may revoke it. OAuth connections explicitly approved with a website key are independent grants and must be revoked separately. Legacy credentials already exchanged into other tokens retain their own expiration and revocation behavior.
+Revokes the access key's active record so subsequent website and API requests using that bearer are rejected. The token ID is the ID returned by create/list and carried in its JWT jti claim. Only the owner may revoke it. OAuth connections explicitly approved with a website key are independent grants and must be revoked separately.
 
 
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
@@ -35,8 +35,7 @@ delete:
     Revokes the access key's active record so subsequent website and API requests using that bearer
     are rejected. The token ID is the ID returned by create/list and carried in its JWT jti claim.
     Only the owner may revoke it. OAuth connections explicitly approved with a website key are
-    independent grants and must be revoked separately. Legacy credentials already exchanged into
-    other tokens retain their own expiration and revocation behavior.
+    independent grants and must be revoked separately.
 
 
 

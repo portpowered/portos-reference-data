@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A control route item with associated plugin route and attributes",
+  "properties": {
+    "associatedPluginRouteId": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/AttributeSchema.json"
+      }
+    },
+    "unavailableAttributes": {
+      "type": "array",
+      "description": "Exact attributes freshly found unavailable by a successful correlated native-group report-attributes read. Presence, including an empty list, is unsupported for endpoint, capability-query, proactive or uncorrelated reports. These identities carry no value or sample time; omission is not an unavailable acknowledgement. Upgrade consuming hosts before providers emit this field.",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "/docs/references/schemas/AttributeSelection.json"
+      }
+    }
+  },
+  "required": [
+    "associatedPluginRouteId",
+    "attributes"
+  ]
+}

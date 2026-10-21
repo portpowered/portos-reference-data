@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/channel",
+  "x-name": "skip-channels",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "required": [
+    "channelCount"
+  ],
+  "properties": {
+    "channelCount": {
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

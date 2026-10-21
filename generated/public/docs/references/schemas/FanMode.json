@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Fan mode",
+  "enum": [
+    "OFF",
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "ON",
+    "AUTO",
+    "SMART"
+  ],
+  "x-enum-varnames": [
+    "FanModeOff",
+    "FanModeLow",
+    "FanModeMedium",
+    "FanModeHigh",
+    "FanModeOn",
+    "FanModeAuto",
+    "FanModeSmart"
+  ]
+}

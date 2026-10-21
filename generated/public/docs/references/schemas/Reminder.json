@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "A reminder and its current provider revision for guarded edits.",
+  "properties": {
+    "reminderId": {
+      "type": "string"
+    },
+    "listId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+    },
+    "allDay": {
+      "type": "boolean",
+      "description": "Whether the supplied due date represents an all-day reminder."
+    },
+    "revision": {
+      "type": "string",
+      "description": "Omitted when the provider does not supply a revision; writes require it."
+    }
+  },
+  "required": [
+    "reminderId",
+    "listId",
+    "title",
+    "completed"
+  ]
+}

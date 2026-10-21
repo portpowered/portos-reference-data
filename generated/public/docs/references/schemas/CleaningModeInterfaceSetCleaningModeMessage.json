@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/cleaning-mode",
+  "x-name": "set-cleaning-mode",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Set whether the robot vacuums, mops or does both, optionally with a suction level and water flow. Omitted levels keep the current non-off value. Values outside the configured supported lists are rejected with 422 before dispatch.",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "$ref": "/docs/references/schemas/CleaningType.json"
+    },
+    "suctionLevel": {
+      "$ref": "/docs/references/schemas/SuctionLevel.json"
+    },
+    "waterFlow": {
+      "$ref": "/docs/references/schemas/WaterFlow.json"
+    }
+  },
+  "required": [
+    "mode"
+  ],
+  "additionalProperties": false
+}

@@ -9,7 +9,7 @@ This API is used by your device to obtain authorization from the resource owner 
 See the [OAuth device authorization docs for more](https://datatracker.ietf.org/doc/html/rfc8628).
 
 
-Uses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow. The legacy /auth/device_authorization path remains a compatibility alias.
+Uses the existing managed-client device flow. This endpoint is public, but validates its client and supported device grant; anonymous DCR clients support authorization_code and optional refresh_token, and cannot start the device flow.
 
 ## Authorization
 
@@ -44,8 +44,7 @@ post:
 
     Uses the existing managed-client device flow. This endpoint is public, but validates its client
     and supported device grant; anonymous DCR clients support authorization_code and optional
-    refresh_token, and cannot start the device flow. The legacy /auth/device_authorization path
-    remains a compatibility alias.
+    refresh_token, and cannot start the device flow.
   operationId: deviceAuthorize
   security:
     - {}

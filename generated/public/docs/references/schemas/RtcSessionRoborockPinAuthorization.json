@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A Roborock session authorization entry carrying the PIN required to initiate a camera stream.",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "pin"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "ROBOROCK_PIN"
+      ]
+    },
+    "pin": {
+      "type": "string",
+      "description": "The Roborock PIN in dotted numeric format.",
+      "pattern": "^[0-9]+(\\.[0-9]+)*$"
+    }
+  }
+}

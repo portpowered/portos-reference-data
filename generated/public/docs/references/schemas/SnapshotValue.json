@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A snapshot value with URI and expiration",
+  "properties": {
+    "uri": {
+      "type": "string"
+    },
+    "expirationTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

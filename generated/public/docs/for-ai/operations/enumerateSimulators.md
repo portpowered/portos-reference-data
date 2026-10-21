@@ -5,8 +5,6 @@ GET `/endpoint-simulators`
 List all simulators
 
 Lists endpoint simulators for the authenticated user. Supports pagination via `maxResults` and `nextToken` query parameters. When `owner` is not specified, defaults to the authenticated caller.
- Missing or ordinary JSON Accept selects the existing string-name projection. Explicit application/vnd.portos.simulator.v2+json selects name-value output; unsupported explicit representations fail 406. Content-Type selects request projection, independent of Accept. Legacy object names fail 400. No legacy default flip or removal is authorized.
-
 Requires a signed user/session or the existing authenticated client flow. The anonymous DCR delegated device profile cannot invoke this operation.
 
 ## Authorization
@@ -35,7 +33,6 @@ get:
     Lists endpoint simulators for the authenticated user. Supports pagination via `maxResults` and
     `nextToken` query parameters. When `owner` is not specified, defaults to the authenticated
     caller.
-     Missing or ordinary JSON Accept selects the existing string-name projection. Explicit application/vnd.portos.simulator.v2+json selects name-value output; unsupported explicit representations fail 406. Content-Type selects request projection, independent of Accept. Legacy object names fail 400. No legacy default flip or removal is authorized.
 
     Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
     delegated device profile cannot invoke this operation.
@@ -67,25 +64,6 @@ get:
             results: []
             paginationContext:
               nextToken: abc123
-        application/vnd.portos.simulator.v2+json:
-          schema:
-            $ref: /docs/references/schemas/SimulatorQueryResponseV2.json
-          example:
-            results:
-              - id: port1.simulator.camera-demo
-                name:
-                  type: PLAIN
-                  value: Front door camera
-                device_type: CAMERA
-                configuration:
-                  eventProfile: DOORBELL
-            errors: []
-      headers:
-        Vary:
-          description: Response representation is selected by Accept.
-          schema:
-            type: string
-            example: Accept
     '400':
       description: Invalid request parameters
       content:
@@ -116,16 +94,6 @@ get:
             message: Insufficient permissions
             code: FORBIDDEN
             family: FORBIDDEN
-    '406':
-      description: Unsupported explicitly requested representation.
-      content:
-        application/json:
-          schema:
-            $ref: /docs/references/schemas/Error.json
-          example:
-            message: Unsupported explicitly requested representation.
-            code: BAD_REQUEST
-            family: BAD_REQUEST
     '500':
       description: Internal server error
       content:
@@ -147,6 +115,5 @@ get:
 - [OwnerQuery.json](/docs/references/parameters/OwnerQuery.json)
 - [Error.json](/docs/references/schemas/Error.json)
 - [SimulatorQueryResponse.json](/docs/references/schemas/SimulatorQueryResponse.json)
-- [SimulatorQueryResponseV2.json](/docs/references/schemas/SimulatorQueryResponseV2.json)
 
 Follow only the linked components needed for this operation. [Schema directory](/docs/for-ai/schemas.md). [Auth guide](/docs/for-ai/guides/authentication-and-dcr.md).

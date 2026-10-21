@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "The exact identity of an attribute requested from a provider, without an observed value.",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "namespace",
+    "name",
+    "version"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FilesystemProviderInterfaceUploadFileResponseMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/filesystem-provider",
+  "x-name": "upload-file-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Upload file response.",
+  "type": "object",
+  "properties": {
+    "fileId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Provider identifier of the uploaded file."
+    }
+  },
+  "required": [
+    "fileId"
+  ],
+  "additionalProperties": false
+}

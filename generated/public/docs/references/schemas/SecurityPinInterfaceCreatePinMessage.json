@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "create-pin",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Create an endpoint-scoped PIN. TEMPORARY requires both validity timestamps; PERMANENT forbids them. Validate increasing, nonexpired instants and declared restrictions before dispatch.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "pin": {
+      "type": "string",
+      "writeOnly": true,
+      "description": "Credential preserved as a string. Redact from diagnostics and persisted history."
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "PERMANENT",
+        "TEMPORARY"
+      ]
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validUntil": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "name",
+    "pin",
+    "kind"
+  ],
+  "additionalProperties": false
+}

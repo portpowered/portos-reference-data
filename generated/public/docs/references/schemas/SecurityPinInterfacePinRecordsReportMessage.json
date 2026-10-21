@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "pin-records-report",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Bounded credential-free record page aligned with the pin-records attribute. Echo the query correlation token in the message header.",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "$ref": "/docs/references/schemas/SecurityPinRecord.json"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque continuation bound to endpoint, caller and query; omitted on the final page."
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

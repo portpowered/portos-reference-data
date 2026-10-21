@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/snapshot",
+  "x-name": "get-snapshot-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "required": [
+    "value",
+    "timeOfSample"
+  ],
+  "properties": {
+    "value": {
+      "$ref": "/docs/references/schemas/SnapshotValue.json"
+    },
+    "timeOfSample": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

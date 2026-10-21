@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
+  "x-name": "playlist-mutation-result",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Provider acknowledgement for one playlist mutation. Re-read contents to verify the requested outcome. A partial result must not be retried automatically.",
+  "type": "object",
+  "properties": {
+    "playlistId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshotId": {
+      "type": "string",
+      "description": "Provider revision acknowledging the change, when returned."
+    },
+    "applied": {
+      "type": "boolean",
+      "description": "Whether all requested steps were acknowledged. False can mean playlist creation succeeded but initial track insertion did not."
+    },
+    "detail": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "playlistId",
+    "applied"
+  ],
+  "additionalProperties": false
+}

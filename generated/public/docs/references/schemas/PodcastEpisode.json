@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Provider-qualified podcast episode with selection metadata.",
+  "properties": {
+    "id": {
+      "$ref": "/docs/references/schemas/MediaId.json"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "showId": {
+      "$ref": "/docs/references/schemas/MediaId.json"
+    },
+    "releaseDate": {
+      "type": "string",
+      "description": "Provider release date; precision can be year, month or day."
+    },
+    "releaseDatePrecision": {
+      "type": "string",
+      "description": "Provider date precision."
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/motion-sensor",
+  "x-name": "motion-detected",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "x-event": true,
+  "x-event-name": "camera.motion_detected",
+  "description": "A distinct motion occurrence, independent of cached detection state.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "DETECTED"
+      ],
+      "x-enum-varnames": [
+        "MotionSensorOccurrenceDetected"
+      ]
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

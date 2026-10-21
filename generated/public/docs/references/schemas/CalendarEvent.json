@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A calendar event",
+  "properties": {
+    "eventId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "allDay": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "eventId"
+  ]
+}

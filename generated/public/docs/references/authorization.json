@@ -1258,24 +1258,6 @@
       "resourcePermissionRequired": true
     },
     {
-      "path": "/messages/send",
-      "runtimePath": "/messages/send",
-      "method": "POST",
-      "operationId": "sendMessageLegacyAlias",
-      "security": [
-        {
-          "oauth2": [
-            "message:send"
-          ]
-        },
-        {
-          "bearerAuth": []
-        }
-      ],
-      "delegated": true,
-      "resourcePermissionRequired": true
-    },
-    {
       "path": "/messages-gateway",
       "runtimePath": "/messages-gateway",
       "method": "POST",

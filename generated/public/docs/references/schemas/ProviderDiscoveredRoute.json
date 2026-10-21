@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "x-go-type": "Route",
-  "description": "Provider input before host synchronization assigns persisted route identity and ownership. Canonical provider facts reuse Route property definitions. The Go projection deliberately retains the existing Route wire adapter for plugin compatibility; canonical validation uses this input schema, not persisted Route. Host identity fields may be omitted or empty in legacy Route serialization and never establish authenticated publisher or installation authority. Nonempty id and associatedEndpointId may select an existing authorized route during scoped rediscovery; newly created routes and endpoints receive host-assigned IDs.\n",
+  "description": "Provider input before host synchronization assigns persisted route identity and ownership. Canonical provider facts reuse Route property definitions. The Go projection reuses the Route wire adapter; validation uses this input schema, not persisted Route. Host identity fields may be omitted or empty and never establish authenticated publisher or installation authority. Nonempty id and associatedEndpointId may select an existing authorized route during scoped rediscovery; newly created routes and endpoints receive host-assigned IDs.\n",
   "required": [
     "associatedPluginRouteId",
     "interfaces",
@@ -49,7 +49,7 @@
     },
     "id": {
       "type": "string",
-      "description": "Advisory legacy value, including empty. Together with associatedEndpointId it may select an existing route within the authenticated scope. New persisted IDs are assigned by the host and validated by the separate persisted Route schema."
+      "description": "Advisory value, including empty. Together with associatedEndpointId it may select an existing route within the authenticated scope. New persisted IDs are assigned by the host and validated by the separate persisted Route schema."
     },
     "associatedPluginId": {
       "$ref": "/docs/references/schemas/associatedPluginId.json"

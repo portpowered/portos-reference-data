@@ -18,8 +18,8 @@ for (const entry of manifest.files) {
   if (entry.path.endsWith('.md') || entry.path === '/llms.txt') {
     for (const match of data.toString().matchAll(/\]\((\/[^)]+)\)/g)) {
       const target = match[1].split('#')[0];
-      // llms.txt also points at the website's blog, which is a site route and not a package file.
-      const siteRoute = entry.path === '/llms.txt' && target.startsWith('/blog/');
+      // llms.txt also points at website pages (the blog, the MCP reference and Resources), which are site routes and not package files.
+      const siteRoute = entry.path === '/llms.txt' && (target.startsWith('/blog/') || ['/docs/reference/mcp/', '/docs/resources/'].includes(target));
       if (!listed.has(target) && !siteRoute && target !== '/docs/references/manifest.json') throw new Error(`Broken public link: ${entry.path} → ${target}`);
     }
   }

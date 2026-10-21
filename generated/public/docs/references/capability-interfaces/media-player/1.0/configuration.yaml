@@ -156,9 +156,9 @@ properties:
     type: array
     uniqueItems: true
     description: >-
-      Exact source kinds accepted by play-uri on this route. With URI support, omission retains
-      legacy FILE-only behavior; an empty list admits none. LIVE_STREAM must be explicitly listed.
-      This does not resolve provider catalog identities.
+      Exact source kinds accepted by play-uri on this route. With URI support, omission admits FILE
+      only; an empty list admits none. LIVE_STREAM must be explicitly listed. This does not resolve
+      provider catalog identities.
     items:
       type: string
       description: >-

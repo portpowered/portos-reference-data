@@ -40,5 +40,5 @@
       }
     }
   ],
-  "description": "Persisted simulator identity, relationships and timestamps shared by both name projections. Existing timestamp spellings remain compatible."
+  "description": "Persisted simulator identity, relationships and timestamps."
 }

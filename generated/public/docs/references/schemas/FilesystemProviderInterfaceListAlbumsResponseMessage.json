@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/filesystem-provider",
+  "x-name": "list-albums-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Response containing a list of photo albums from a filesystem provider",
+  "type": "object",
+  "properties": {
+    "albums": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PhotoAlbum.json"
+      }
+    },
+    "nextCursor": {
+      "type": "string",
+      "description": "Opaque cursor for the next page; omitted when there are no further results."
+    }
+  },
+  "required": [
+    "albums"
+  ],
+  "additionalProperties": false
+}

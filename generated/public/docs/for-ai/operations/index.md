@@ -87,7 +87,6 @@ Use the operation’s scopes and its resource permission requirements. Public di
 - [GET /oauth/authorization-request](/docs/for-ai/operations/getPendingOAuthConsent.md)
 - [GET /oauth/authorization-response](/docs/for-ai/operations/deliverOAuthAuthorizationResponse.md)
 - [POST /messages](/docs/for-ai/operations/sendMessage.md)
-- [POST /messages/send](/docs/for-ai/operations/sendMessageLegacyAlias.md)
 - [POST /messages-gateway](/docs/for-ai/operations/pushToMessageGateway.md)
 - [GET /subscriptions](/docs/for-ai/operations/enumerateSubscriptions.md)
 - [POST /subscriptions](/docs/for-ai/operations/upsertSubscription.md)

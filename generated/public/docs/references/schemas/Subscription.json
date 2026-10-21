@@ -46,7 +46,7 @@
         "SubscriptionLifecycleExpired",
         "SubscriptionLifecycleStopped"
       ],
-      "description": "Event monitor lifecycle. Legacy subscriptions may omit this field."
+      "description": "Event monitor lifecycle."
     },
     "reasonCode": {
       "type": "string",

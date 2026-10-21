@@ -1,0 +1,445 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A capability message to send to an endpoint: exactly one of the inbound capability messages. The header namespace, name and version select the variant and the body schema.",
+  "x-go-type": "Message",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/AirQualitySensorInterfaceGetAirQualityMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AlarmInterfaceRingAlarmMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AlarmInterfaceSilenceAlarmMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AlarmInterfaceTestAlarmMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ApplicationLauncherInterfaceLaunchApplicationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ApplicationLauncherInterfaceStopApplicationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AuthorizationInterfaceRefreshTokensMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AuthorizationRequirementsInterfaceQueryAuthorizationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AuthorizationRequirementsInterfaceRemoveAuthorizationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AuthorizationRequirementsInterfaceSetAuthorizationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/BarrierControlInterfaceCloseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/BarrierControlInterfaceGoToPositionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/BarrierControlInterfaceOpenMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/BrightnessInterfaceAdjustBrightnessMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/BrightnessInterfaceSetBrightnessMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CalendarProviderInterfaceListEventsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CameraInterfaceGetEventImageMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CameraInterfacePtzControlMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CameraInterfaceSetMotionDetectionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CameraInterfaceStartStreamingMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CameraInterfaceStopStreamingMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ChannelInterfaceChangeChannelMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ChannelInterfaceSkipChannelsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CleaningModeInterfaceSetCleaningModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ColorInterfaceSetColorMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ColorTemperatureInterfaceSetColorTemperatureMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ContactsProviderInterfaceListContactsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ContentLauncherInterfaceLaunchContentMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ContentLauncherInterfaceLaunchUrlMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceReportAttributesMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EqualizerInterfaceAdjustBandsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EqualizerInterfaceSetBandsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EqualizerInterfaceSetModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FanControlInterfaceSetModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FanControlInterfaceSetSpeedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceListFolderMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceMoveFileMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceRenameFileMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceInitiateMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfacePauseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceResumeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceTerminateMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/InputInterfaceNavigateInputMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/InputInterfaceSelectInputMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/KeypadInputInterfaceSendKeyMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/LocationTrackerInterfaceStartLocatorMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/LockInterfaceLockMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/LockInterfaceUnlockMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceFastForwardMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceNextMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfacePauseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfacePlayAudioMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfacePlayMediaMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfacePlayMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfacePlayUriMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfacePreviousMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceRewindMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceSearchAndPlayMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceSeekMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceSkipBackwardMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceSkipForwardMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceStartOverMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceStopMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceListPlaylistsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfacePlayPlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceRenamePlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceShufflePlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfaceUnfollowPlaylistMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaSearchInterfaceGetMediaMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/NotificationInterfaceNotificationScheduleMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/NotificationInterfaceNotificationTriggerMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PercentageInterfaceAdjustPercentageMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PercentageInterfaceSetPercentageMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PetFeederInterfaceTriggerFeedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PowerInterfaceRebootMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PowerInterfaceTurnOffMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PowerInterfaceTurnOnMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PowerLevelInterfaceAdjustPowerLevelMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PowerLevelInterfaceSetPowerLevelMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RecordingsInterfaceListRecordingsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemoteControlInterfaceEndSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemoteControlInterfaceMoveMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemoteControlInterfaceStartSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemoteControlInterfaceStopSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemoteControlInterfaceUnaryMoveMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RoboticVacuumCleanerInterfacePauseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStartMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStopMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtcSessionInterfaceDisconnectSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtspSessionInterfaceStartSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtspSessionInterfaceStopSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SceneInterfaceActivateMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SceneInterfaceDeactivateMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPanelInterfaceArmMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPanelInterfaceDisarmMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfaceCreatePinMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfaceDeletePinMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfaceQueryOperationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfaceQueryPinsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfaceUpdatePinMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SnapshotInterfaceGetSnapshotMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpeakerInterfaceSetMuteMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpeakerInterfaceSetVolumeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpeechSynthesizerInterfaceSpeakMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/TextInterfaceTextMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ThermostatInterfaceAdjustTargetTemperatureMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ThermostatInterfaceSetTargetTemperatureMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ThermostatInterfaceSetThermostatModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/WaterHeaterInterfaceSetModeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/WaterHeaterInterfaceSetTemperatureMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/WindowCoveringInterfaceGoToLiftPercentageMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/WindowCoveringInterfaceGoToTiltPercentageMessageEnvelope.json"
+    }
+  ]
+}

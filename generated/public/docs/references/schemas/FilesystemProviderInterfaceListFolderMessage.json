@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/filesystem-provider",
+  "x-name": "list-folder",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Request to list files and folders from a filesystem provider",
+  "type": "object",
+  "properties": {
+    "folderId": {
+      "type": "string",
+      "description": "Optional folder ID to list contents of. Defaults to root if omitted."
+    },
+    "cursor": {
+      "type": "string",
+      "description": "Opaque cursor for the next page; omitted when there are no further results."
+    },
+    "maxResults": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "description": "Maximum number of items to return."
+    }
+  },
+  "additionalProperties": false
+}

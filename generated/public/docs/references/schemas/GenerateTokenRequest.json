@@ -8,11 +8,11 @@
   "properties": {
     "grant_type": {
       "type": "string",
-      "description": "The OAuth grant type. Use authorization_code for code exchange, or urn:ietf:params:oauth:grant-type:refresh_token to exchange a vended JWT (from POST /tokens) for an access token.\n"
+      "description": "The OAuth grant type. Use authorization_code for code exchange, or refresh_token to exchange a refresh token for an access token.\n"
     },
     "client_id": {
       "type": "string",
-      "description": "The client ID (e.g. port1/systems/zero/oauth-clients/custom-access-token for token vending)."
+      "description": "The client ID."
     },
     "client_secret": {
       "type": "string",
@@ -44,7 +44,7 @@
     },
     "refresh_token": {
       "type": "string",
-      "description": "The vended JWT from POST /tokens; required when grant_type is urn:ietf:params:oauth:grant-type:refresh_token."
+      "description": "The refresh token; required when grant_type is refresh_token."
     },
     "redirect_uri": {
       "type": "string",

@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/authorization",
+  "x-name": "authorization-update-report",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "secretId": {
+      "type": "string",
+      "description": "The id of the secret to update"
+    },
+    "authlinkId": {
+      "type": "string",
+      "description": "The id of the auth link to update"
+    },
+    "refreshToken": {
+      "type": "string",
+      "description": "The refresh token to refresh"
+    },
+    "accessToken": {
+      "type": "string",
+      "description": "The access token to refresh"
+    },
+    "customMetadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Custom metadata to attach to the authorization update report"
+    },
+    "expiryTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The expiry time in seconds from current time"
+    }
+  },
+  "required": [
+    "refreshToken",
+    "accessToken",
+    "expiryTime"
+  ]
+}

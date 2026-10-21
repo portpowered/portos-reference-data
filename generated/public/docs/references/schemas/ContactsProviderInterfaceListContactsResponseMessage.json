@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/contacts-provider",
+  "x-name": "list-contacts-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Response containing a list of contacts from a contacts provider",
+  "type": "object",
+  "properties": {
+    "contacts": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Contact.json"
+      }
+    }
+  },
+  "required": [
+    "contacts"
+  ],
+  "additionalProperties": false
+}

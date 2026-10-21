@@ -64,7 +64,6 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /integration-requests](/docs/for-ai/operations/requestFutureIntegration.md) | Public | — | consent, email, manufacturer, pluginId |
 | [POST /messages](/docs/for-ai/operations/sendMessage.md) | message:send | — | message, responseType, target |
 | [POST /messages-gateway](/docs/for-ai/operations/pushToMessageGateway.md) | OAuth (no scope) | — | auth-token, body, context, correlationToken, endpoint, header, ownerId, secrets, target, type |
-| [POST /messages/send](/docs/for-ai/operations/sendMessageLegacyAlias.md) | message:send | — | message, responseType, target |
 | [GET /metrics](/docs/for-ai/operations/getMetrics.md) | Public | — | — |
 | [GET /oauth-clients](/docs/for-ai/operations/enumerateOAuthClients.md) | OAuth (no scope) | query:nextToken, query:maxResults, query:expand | — |
 | [POST /oauth-clients](/docs/for-ai/operations/createOAuthClient.md) | OAuth (no scope) | — | allowedOrigins, clientName, clientUri, clientUriLocalized, contacts, grantTypes, jwks, jwksUri, logoUri, logoUriLocalized, policyUri, policyUriLocalized, redirectUris, responseTypes, scope, scopes, softwareId, softwareVersion, tokenEndpointAuthMethod, tokenEndpointAuthSigningAlg, tosUri, tosUriLocalized |

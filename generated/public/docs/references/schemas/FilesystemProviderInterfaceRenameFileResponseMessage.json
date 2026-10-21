@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FilesystemProviderInterfaceRenameFileResponseMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/filesystem-provider",
+  "x-name": "rename-file-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Verified file selection after the operation; use this fileId for subsequent reads or writes.",
+  "type": "object",
+  "properties": {
+    "fileId": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "fileId"
+  ],
+  "additionalProperties": false
+}

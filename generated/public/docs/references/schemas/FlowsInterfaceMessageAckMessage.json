@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/flows",
+  "x-name": "message-ack",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "properties": {
+    "flowId": {
+      "type": "string",
+      "description": "Unique identifier for the flow",
+      "minLength": 1
+    },
+    "messageId": {
+      "type": "string",
+      "description": "Unique identifier for the acknowledged message",
+      "minLength": 1
+    },
+    "ackId": {
+      "type": "string",
+      "description": "Unique identifier for this acknowledgment",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Acknowledgment status",
+      "enum": [
+        "RECEIVED",
+        "PROCESSED",
+        "FAILED"
+      ],
+      "x-enum-varnames": [
+        "FlowsInterfaceMessageAckMessageStatusReceived",
+        "FlowsInterfaceMessageAckMessageStatusProcessed",
+        "FlowsInterfaceMessageAckMessageStatusFailed"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Acknowledgment timestamp"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the acknowledgment",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "flowId",
+    "messageId",
+    "ackId",
+    "status",
+    "timestamp"
+  ],
+  "additionalProperties": false
+}

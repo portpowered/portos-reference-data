@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RecordingsInterfaceDeleteRecordingResponseMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/recordings",
+  "x-name": "delete-recording-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Delete recording response.",
+  "type": "object",
+  "additionalProperties": false
+}

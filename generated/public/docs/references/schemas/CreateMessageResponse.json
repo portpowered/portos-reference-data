@@ -10,12 +10,7 @@
       "description": "Identifies the unary response message when one is returned. An accepted asynchronous request can return an empty string with no message. This field does not provide a durable dispatch receipt, retry deduplication or proof of observed device state."
     },
     "message": {
-      "description": "The message that was responded with if there was a unary message response. If the response is SYNC, this may be non empty. Sometimes, the response may be empty, if the downstream didn't send any message back and just ACKED the message. ",
-      "allOf": [
-        {
-          "$ref": "/docs/references/schemas/Message.json"
-        }
-      ]
+      "$ref": "/docs/references/schemas/CapabilityResponseMessage.json"
     }
   }
 }

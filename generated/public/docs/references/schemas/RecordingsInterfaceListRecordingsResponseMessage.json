@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RecordingsInterfaceListRecordingsResponseMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/recordings",
+  "x-name": "list-recordings-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "List recordings response.",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Recording.json"
+      },
+      "description": "Recordings in this page."
+    },
+    "nextCursor": {
+      "type": "string",
+      "description": "Opaque cursor for the next page; omitted when there are no further results."
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

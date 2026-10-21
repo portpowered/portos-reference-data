@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Artist information",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the artist",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Artist name",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ],
+  "additionalProperties": false
+}

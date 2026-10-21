@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "The message that was responded with when there was a unary message response, exactly one of the outbound capability messages. A synchronous send can return one; an acknowledgment with no message back leaves this empty. The header namespace, name and version select the variant and the body schema.",
+  "x-go-type": "Message",
+  "oneOf": [
+    {
+      "$ref": "/docs/references/schemas/AuthorizationInterfaceAuthorizationEstablishedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/AuthorizationRequirementsInterfaceAuthorizationStatusMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CalendarProviderInterfaceListEventsResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/CameraInterfaceEventImageResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ContactsProviderInterfaceListContactsResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceAcknowledgedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceAttributeReportMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceDeferredResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceErrorDispatchMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/DoorbellInterfaceChimeMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EndpointRegistryInterfaceEndpointUpdatedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/EventDetectionSensorInterfacePersonDetectedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceListFolderResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceMoveFileResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceRenameFileResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceCompleteMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceMessageAckMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceMessageUnackMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/FlowsInterfaceNodeCompleteMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceAudioMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlayerInterfaceAudioStreamMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfacePlaylistContentsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfacePlaylistMutationResultMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaPlaylistInterfacePlaylistsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/MotionSensorInterfaceMotionDetectedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/NotificationInterfaceNotificationMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RecordingsInterfaceListRecordingsResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtcSessionInterfaceSessionDisconnectedMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtspSessionInterfaceStartSessionResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/RtspSessionInterfaceStopSessionResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfacePinOperationResultMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SecurityPinInterfacePinRecordsReportMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope.json"
+    },
+    {
+      "$ref": "/docs/references/schemas/TextStreamInterfaceTextStreamMessageEnvelope.json"
+    }
+  ]
+}

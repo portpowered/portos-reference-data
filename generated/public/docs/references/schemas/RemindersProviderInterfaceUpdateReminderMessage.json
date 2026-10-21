@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RemindersProviderInterfaceUpdateReminderMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/reminders-provider",
+  "x-name": "update-reminder",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Edit a reminder using its last observed revision; omitted fields are preserved.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "reminderId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Reminder identifier."
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Revision from the latest listing."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Replacement title."
+    },
+    "notes": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Exact due instant in RFC3339 with an explicit UTC offset. Omitted on undated reminders."
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "IANA time zone, for example America/Los_Angeles. Defaults to UTC for newly dated reminders."
+    },
+    "allDay": {
+      "type": "boolean",
+      "description": "Whether the supplied due date represents an all-day reminder."
+    },
+    "clearDueDate": {
+      "type": "boolean",
+      "description": "Set true to remove the due date. Cannot be combined with dueDate."
+    }
+  },
+  "required": [
+    "reminderId",
+    "revision"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "description": "The namespace of the attribute"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the attribute"
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of the attribute"
+    },
+    "value": {
+      "type": "object",
+      "description": "The value of the attribute",
+      "x-go-type": "any"
+    },
+    "sampledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Actual observation time in UTC; omit when unknown. Request time is not a sample time."
+    }
+  },
+  "required": [
+    "namespace",
+    "name",
+    "version",
+    "value"
+  ]
+}

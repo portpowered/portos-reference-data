@@ -63,6 +63,60 @@
     },
     {
       "kind": "schemas",
+      "name": "AirQualitySensorInterfaceGetAirQualityMessage",
+      "path": "/docs/references/schemas/AirQualitySensorInterfaceGetAirQualityMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AirQualitySensorInterfaceGetAirQualityMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AirQualitySensorInterfaceGetAirQualityMessageEnvelope",
+      "path": "/docs/references/schemas/AirQualitySensorInterfaceGetAirQualityMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AirQualitySensorInterfaceGetAirQualityMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceRingAlarmMessage",
+      "path": "/docs/references/schemas/AlarmInterfaceRingAlarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceRingAlarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceRingAlarmMessageEnvelope",
+      "path": "/docs/references/schemas/AlarmInterfaceRingAlarmMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceRingAlarmMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceSilenceAlarmMessage",
+      "path": "/docs/references/schemas/AlarmInterfaceSilenceAlarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceSilenceAlarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceSilenceAlarmMessageEnvelope",
+      "path": "/docs/references/schemas/AlarmInterfaceSilenceAlarmMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceSilenceAlarmMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceTestAlarmMessage",
+      "path": "/docs/references/schemas/AlarmInterfaceTestAlarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceTestAlarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AlarmInterfaceTestAlarmMessageEnvelope",
+      "path": "/docs/references/schemas/AlarmInterfaceTestAlarmMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AlarmInterfaceTestAlarmMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "Album",
+      "path": "/docs/references/schemas/Album.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Album"
+    },
+    {
+      "kind": "schemas",
       "name": "ApiKeySecret",
       "path": "/docs/references/schemas/ApiKeySecret.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ApiKeySecret"
@@ -96,6 +150,36 @@
       "name": "ApplicationInterfaceMessage",
       "path": "/docs/references/schemas/ApplicationInterfaceMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationInterfaceMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceLaunchApplicationMessage",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceLaunchApplicationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceLaunchApplicationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceLaunchApplicationMessageEnvelope",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceLaunchApplicationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceLaunchApplicationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceStopApplicationMessage",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceStopApplicationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceStopApplicationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ApplicationLauncherInterfaceStopApplicationMessageEnvelope",
+      "path": "/docs/references/schemas/ApplicationLauncherInterfaceStopApplicationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ApplicationLauncherInterfaceStopApplicationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "Artist",
+      "path": "/docs/references/schemas/Artist.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Artist"
     },
     {
       "kind": "schemas",
@@ -135,9 +219,27 @@
     },
     {
       "kind": "schemas",
+      "name": "AttributeSchema",
+      "path": "/docs/references/schemas/AttributeSchema.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AttributeSchema"
+    },
+    {
+      "kind": "schemas",
+      "name": "AttributeSelection",
+      "path": "/docs/references/schemas/AttributeSelection.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AttributeSelection"
+    },
+    {
+      "kind": "schemas",
       "name": "AttributeState",
       "path": "/docs/references/schemas/AttributeState.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AttributeState"
+    },
+    {
+      "kind": "schemas",
+      "name": "AudioUriSourceType",
+      "path": "/docs/references/schemas/AudioUriSourceType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AudioUriSourceType"
     },
     {
       "kind": "schemas",
@@ -201,6 +303,90 @@
     },
     {
       "kind": "schemas",
+      "name": "AuthorizationInterfaceAuthorizationEstablishedMessage",
+      "path": "/docs/references/schemas/AuthorizationInterfaceAuthorizationEstablishedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceAuthorizationEstablishedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceAuthorizationEstablishedMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationInterfaceAuthorizationEstablishedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceAuthorizationEstablishedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceAuthorizationUpdateReportMessage",
+      "path": "/docs/references/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceAuthorizationUpdateReportMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceAuthorizationUpdateReportMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceRefreshTokensMessage",
+      "path": "/docs/references/schemas/AuthorizationInterfaceRefreshTokensMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceRefreshTokensMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationInterfaceRefreshTokensMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationInterfaceRefreshTokensMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationInterfaceRefreshTokensMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceAuthorizationStatusMessage",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceAuthorizationStatusMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceAuthorizationStatusMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceAuthorizationStatusMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceAuthorizationStatusMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceAuthorizationStatusMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceQueryAuthorizationMessage",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceQueryAuthorizationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceQueryAuthorizationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceQueryAuthorizationMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceQueryAuthorizationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceQueryAuthorizationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceRemoveAuthorizationMessage",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceRemoveAuthorizationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceRemoveAuthorizationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceRemoveAuthorizationMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceRemoveAuthorizationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceRemoveAuthorizationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceSetAuthorizationMessage",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceSetAuthorizationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceSetAuthorizationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthorizationRequirementsInterfaceSetAuthorizationMessageEnvelope",
+      "path": "/docs/references/schemas/AuthorizationRequirementsInterfaceSetAuthorizationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationRequirementsInterfaceSetAuthorizationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "AuthorizationVariantEvents",
       "path": "/docs/references/schemas/AuthorizationVariantEvents.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthorizationVariantEvents"
@@ -210,6 +396,42 @@
       "name": "AuthResourceType",
       "path": "/docs/references/schemas/AuthResourceType.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthResourceType"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceCloseMessage",
+      "path": "/docs/references/schemas/BarrierControlInterfaceCloseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceCloseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceCloseMessageEnvelope",
+      "path": "/docs/references/schemas/BarrierControlInterfaceCloseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceCloseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceGoToPositionMessage",
+      "path": "/docs/references/schemas/BarrierControlInterfaceGoToPositionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceGoToPositionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceGoToPositionMessageEnvelope",
+      "path": "/docs/references/schemas/BarrierControlInterfaceGoToPositionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceGoToPositionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceOpenMessage",
+      "path": "/docs/references/schemas/BarrierControlInterfaceOpenMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceOpenMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BarrierControlInterfaceOpenMessageEnvelope",
+      "path": "/docs/references/schemas/BarrierControlInterfaceOpenMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BarrierControlInterfaceOpenMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -231,6 +453,12 @@
     },
     {
       "kind": "schemas",
+      "name": "BatchMessageItem",
+      "path": "/docs/references/schemas/BatchMessageItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BatchMessageItem"
+    },
+    {
+      "kind": "schemas",
       "name": "BatchOperationRequestId",
       "path": "/docs/references/schemas/BatchOperationRequestId.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/BatchOperationRequestId"
@@ -243,15 +471,441 @@
     },
     {
       "kind": "schemas",
+      "name": "BrandingInformation",
+      "path": "/docs/references/schemas/BrandingInformation.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrandingInformation"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceAdjustBrightnessMessage",
+      "path": "/docs/references/schemas/BrightnessInterfaceAdjustBrightnessMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceAdjustBrightnessMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceAdjustBrightnessMessageEnvelope",
+      "path": "/docs/references/schemas/BrightnessInterfaceAdjustBrightnessMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceAdjustBrightnessMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceSetBrightnessMessage",
+      "path": "/docs/references/schemas/BrightnessInterfaceSetBrightnessMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceSetBrightnessMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "BrightnessInterfaceSetBrightnessMessageEnvelope",
+      "path": "/docs/references/schemas/BrightnessInterfaceSetBrightnessMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BrightnessInterfaceSetBrightnessMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarEvent",
+      "path": "/docs/references/schemas/CalendarEvent.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarEvent"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderInterfaceListEventsMessage",
+      "path": "/docs/references/schemas/CalendarProviderInterfaceListEventsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderInterfaceListEventsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderInterfaceListEventsMessageEnvelope",
+      "path": "/docs/references/schemas/CalendarProviderInterfaceListEventsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderInterfaceListEventsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderInterfaceListEventsResponseMessage",
+      "path": "/docs/references/schemas/CalendarProviderInterfaceListEventsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderInterfaceListEventsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CalendarProviderInterfaceListEventsResponseMessageEnvelope",
+      "path": "/docs/references/schemas/CalendarProviderInterfaceListEventsResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CalendarProviderInterfaceListEventsResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "CameraInterfaceEventImageResponseMessage",
       "path": "/docs/references/schemas/CameraInterfaceEventImageResponseMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceEventImageResponseMessage"
     },
     {
       "kind": "schemas",
+      "name": "CameraInterfaceEventImageResponseMessageEnvelope",
+      "path": "/docs/references/schemas/CameraInterfaceEventImageResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceEventImageResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceGetEventImageMessage",
+      "path": "/docs/references/schemas/CameraInterfaceGetEventImageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceGetEventImageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceGetEventImageMessageEnvelope",
+      "path": "/docs/references/schemas/CameraInterfaceGetEventImageMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceGetEventImageMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfacePtzControlMessage",
+      "path": "/docs/references/schemas/CameraInterfacePtzControlMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfacePtzControlMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfacePtzControlMessageEnvelope",
+      "path": "/docs/references/schemas/CameraInterfacePtzControlMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfacePtzControlMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceSetMotionDetectionMessage",
+      "path": "/docs/references/schemas/CameraInterfaceSetMotionDetectionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceSetMotionDetectionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceSetMotionDetectionMessageEnvelope",
+      "path": "/docs/references/schemas/CameraInterfaceSetMotionDetectionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceSetMotionDetectionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceStartStreamingMessage",
+      "path": "/docs/references/schemas/CameraInterfaceStartStreamingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceStartStreamingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceStartStreamingMessageEnvelope",
+      "path": "/docs/references/schemas/CameraInterfaceStartStreamingMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceStartStreamingMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceStopStreamingMessage",
+      "path": "/docs/references/schemas/CameraInterfaceStopStreamingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceStopStreamingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CameraInterfaceStopStreamingMessageEnvelope",
+      "path": "/docs/references/schemas/CameraInterfaceStopStreamingMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CameraInterfaceStopStreamingMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CapabilityRequestMessage",
+      "path": "/docs/references/schemas/CapabilityRequestMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CapabilityRequestMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CapabilityResponseMessage",
+      "path": "/docs/references/schemas/CapabilityResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CapabilityResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInfo",
+      "path": "/docs/references/schemas/ChannelInfo.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInfo"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceChangeChannelMessage",
+      "path": "/docs/references/schemas/ChannelInterfaceChangeChannelMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceChangeChannelMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceChangeChannelMessageEnvelope",
+      "path": "/docs/references/schemas/ChannelInterfaceChangeChannelMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceChangeChannelMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceSkipChannelsMessage",
+      "path": "/docs/references/schemas/ChannelInterfaceSkipChannelsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceSkipChannelsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ChannelInterfaceSkipChannelsMessageEnvelope",
+      "path": "/docs/references/schemas/ChannelInterfaceSkipChannelsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ChannelInterfaceSkipChannelsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningMode",
+      "path": "/docs/references/schemas/CleaningMode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningMode"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceSetCleaningModeMessage",
+      "path": "/docs/references/schemas/CleaningModeInterfaceSetCleaningModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceSetCleaningModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningModeInterfaceSetCleaningModeMessageEnvelope",
+      "path": "/docs/references/schemas/CleaningModeInterfaceSetCleaningModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningModeInterfaceSetCleaningModeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "CleaningType",
+      "path": "/docs/references/schemas/CleaningType.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/CleaningType"
+    },
+    {
+      "kind": "schemas",
       "name": "ClientIdentity",
       "path": "/docs/references/schemas/ClientIdentity.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ClientIdentity"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorInterfaceSetColorMessage",
+      "path": "/docs/references/schemas/ColorInterfaceSetColorMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorInterfaceSetColorMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorInterfaceSetColorMessageEnvelope",
+      "path": "/docs/references/schemas/ColorInterfaceSetColorMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorInterfaceSetColorMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceDecreaseColorTemperatureMessage",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceDecreaseColorTemperatureMessageEnvelope",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceDecreaseColorTemperatureMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceIncreaseColorTemperatureMessage",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceIncreaseColorTemperatureMessageEnvelope",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceIncreaseColorTemperatureMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceSetColorTemperatureMessage",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceSetColorTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceSetColorTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ColorTemperatureInterfaceSetColorTemperatureMessageEnvelope",
+      "path": "/docs/references/schemas/ColorTemperatureInterfaceSetColorTemperatureMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ColorTemperatureInterfaceSetColorTemperatureMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "Contact",
+      "path": "/docs/references/schemas/Contact.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Contact"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderInterfaceListContactsMessage",
+      "path": "/docs/references/schemas/ContactsProviderInterfaceListContactsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderInterfaceListContactsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderInterfaceListContactsMessageEnvelope",
+      "path": "/docs/references/schemas/ContactsProviderInterfaceListContactsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderInterfaceListContactsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderInterfaceListContactsResponseMessage",
+      "path": "/docs/references/schemas/ContactsProviderInterfaceListContactsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderInterfaceListContactsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContactsProviderInterfaceListContactsResponseMessageEnvelope",
+      "path": "/docs/references/schemas/ContactsProviderInterfaceListContactsResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContactsProviderInterfaceListContactsResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceLaunchContentMessage",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceLaunchContentMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceLaunchContentMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceLaunchContentMessageEnvelope",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceLaunchContentMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceLaunchContentMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceLaunchUrlMessage",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceLaunchUrlMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceLaunchUrlMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentLauncherInterfaceLaunchUrlMessageEnvelope",
+      "path": "/docs/references/schemas/ContentLauncherInterfaceLaunchUrlMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentLauncherInterfaceLaunchUrlMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentSearch",
+      "path": "/docs/references/schemas/ContentSearch.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentSearch"
+    },
+    {
+      "kind": "schemas",
+      "name": "ContentSearchParameter",
+      "path": "/docs/references/schemas/ContentSearchParameter.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ContentSearchParameter"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderInterfaceCreateGroupMessage",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderInterfaceCreateGroupMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderInterfaceCreateGroupMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderInterfaceDeleteGroupMessage",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteGroupsProviderInterfaceDeleteGroupMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteGroupsProviderInterfaceDeleteGroupMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteItem",
+      "path": "/docs/references/schemas/ControlRouteItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRouteReportItem",
+      "path": "/docs/references/schemas/ControlRouteReportItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRouteReportItem"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceAcknowledgedMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceAcknowledgedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceAcknowledgedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceAcknowledgedMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceAcknowledgedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceAcknowledgedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceAttributeReportMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceAttributeReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceAttributeReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceAttributeReportMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceAttributeReportMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceAttributeReportMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceBatchMessageDispatchMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceBatchMessageDispatchMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceBatchMessageDispatchMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceDeferredResponseMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceDeferredResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceDeferredResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceDeferredResponseMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceDeferredResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceDeferredResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceErrorDispatchMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceErrorDispatchMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceErrorDispatchMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceErrorDispatchMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceErrorDispatchMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceErrorDispatchMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceReportAttributesMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceReportAttributesMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceReportAttributesMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceReportAttributesMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceReportAttributesMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceReportAttributesMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceSuccessfulDispatchMessage",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ControlRoutesProviderInterfaceSuccessfulDispatchMessageEnvelope",
+      "path": "/docs/references/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ControlRoutesProviderInterfaceSuccessfulDispatchMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -282,12 +936,6 @@
       "name": "CreateMessageRequest",
       "path": "/docs/references/schemas/CreateMessageRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageRequest"
-    },
-    {
-      "kind": "schemas",
-      "name": "CreateMessageRequestResponseType",
-      "path": "/docs/references/schemas/CreateMessageRequestResponseType.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/CreateMessageRequestResponseType"
     },
     {
       "kind": "schemas",
@@ -387,9 +1035,51 @@
     },
     {
       "kind": "schemas",
+      "name": "DispatchError",
+      "path": "/docs/references/schemas/DispatchError.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DispatchError"
+    },
+    {
+      "kind": "schemas",
+      "name": "DoorbellInterfaceChimeMessage",
+      "path": "/docs/references/schemas/DoorbellInterfaceChimeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DoorbellInterfaceChimeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "DoorbellInterfaceChimeMessageEnvelope",
+      "path": "/docs/references/schemas/DoorbellInterfaceChimeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/DoorbellInterfaceChimeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "DynamicClientMetadata",
       "path": "/docs/references/schemas/DynamicClientMetadata.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/DynamicClientMetadata"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceEmbeddingUriMessage",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceEmbeddingUriMessageEnvelope",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceEmbeddingUriMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceGenerateEmbeddingMessage",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EmbeddingGenerationInterfaceGenerateEmbeddingMessageEnvelope",
+      "path": "/docs/references/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EmbeddingGenerationInterfaceGenerateEmbeddingMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -537,6 +1227,18 @@
     },
     {
       "kind": "schemas",
+      "name": "EndpointRegistryInterfaceEndpointUpdatedMessage",
+      "path": "/docs/references/schemas/EndpointRegistryInterfaceEndpointUpdatedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointRegistryInterfaceEndpointUpdatedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EndpointRegistryInterfaceEndpointUpdatedMessageEnvelope",
+      "path": "/docs/references/schemas/EndpointRegistryInterfaceEndpointUpdatedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EndpointRegistryInterfaceEndpointUpdatedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "EndpointsList",
       "path": "/docs/references/schemas/EndpointsList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/EndpointsList"
@@ -606,6 +1308,54 @@
       "name": "EnumerateTokensResponse",
       "path": "/docs/references/schemas/EnumerateTokensResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/EnumerateTokensResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerBand",
+      "path": "/docs/references/schemas/EqualizerBand.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerBand"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerBandDelta",
+      "path": "/docs/references/schemas/EqualizerBandDelta.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerBandDelta"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceAdjustBandsMessage",
+      "path": "/docs/references/schemas/EqualizerInterfaceAdjustBandsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceAdjustBandsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceAdjustBandsMessageEnvelope",
+      "path": "/docs/references/schemas/EqualizerInterfaceAdjustBandsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceAdjustBandsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceSetBandsMessage",
+      "path": "/docs/references/schemas/EqualizerInterfaceSetBandsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceSetBandsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceSetBandsMessageEnvelope",
+      "path": "/docs/references/schemas/EqualizerInterfaceSetBandsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceSetBandsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/EqualizerInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EqualizerInterfaceSetModeMessageEnvelope",
+      "path": "/docs/references/schemas/EqualizerInterfaceSetModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EqualizerInterfaceSetModeMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -699,6 +1449,18 @@
     },
     {
       "kind": "schemas",
+      "name": "EventDetectionSensorInterfacePersonDetectedMessage",
+      "path": "/docs/references/schemas/EventDetectionSensorInterfacePersonDetectedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDetectionSensorInterfacePersonDetectedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "EventDetectionSensorInterfacePersonDetectedMessageEnvelope",
+      "path": "/docs/references/schemas/EventDetectionSensorInterfacePersonDetectedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/EventDetectionSensorInterfacePersonDetectedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "EventReceipt",
       "path": "/docs/references/schemas/EventReceipt.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/EventReceipt"
@@ -720,6 +1482,300 @@
       "name": "externalId",
       "path": "/docs/references/schemas/externalId.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/externalId"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/FanControlInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceSetModeMessageEnvelope",
+      "path": "/docs/references/schemas/FanControlInterfaceSetModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceSetModeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceSetSpeedMessage",
+      "path": "/docs/references/schemas/FanControlInterfaceSetSpeedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceSetSpeedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanControlInterfaceSetSpeedMessageEnvelope",
+      "path": "/docs/references/schemas/FanControlInterfaceSetSpeedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanControlInterfaceSetSpeedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FanMode",
+      "path": "/docs/references/schemas/FanMode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FanMode"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDeleteFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDeleteFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDeleteFileMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDeleteFileMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDeleteFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDeleteFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDeleteFileResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDeleteFileResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDeleteFileResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDownloadFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDownloadFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDownloadFileMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDownloadFileMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDownloadFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDownloadFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceDownloadFileResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceDownloadFileResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceDownloadFileResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListAlbumsMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListAlbumsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListAlbumsMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListAlbumsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListAlbumsResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListAlbumsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListAlbumsResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListAlbumsResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListAlbumsResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListFolderMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListFolderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListFolderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListFolderMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListFolderMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListFolderMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListFolderResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListFolderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListFolderResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceListFolderResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceListFolderResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceListFolderResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceMoveFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceMoveFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceMoveFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceMoveFileMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceMoveFileMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceMoveFileMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceMoveFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceMoveFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceMoveFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceMoveFileResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceMoveFileResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceMoveFileResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceRenameFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceRenameFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceRenameFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceRenameFileMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceRenameFileMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceRenameFileMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceRenameFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceRenameFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceRenameFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceRenameFileResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceRenameFileResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceRenameFileResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceUploadFileMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceUploadFileMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceUploadFileMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceUploadFileMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceUploadFileResponseMessage",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceUploadFileResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FilesystemProviderInterfaceUploadFileResponseMessageEnvelope",
+      "path": "/docs/references/schemas/FilesystemProviderInterfaceUploadFileResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FilesystemProviderInterfaceUploadFileResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceCompleteMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceCompleteMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceCompleteMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceCompleteMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceCompleteMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceCompleteMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceInitiateMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceInitiateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceInitiateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceInitiateMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceInitiateMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceInitiateMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceMessageAckMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceMessageAckMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceMessageAckMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceMessageAckMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceMessageAckMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceMessageAckMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceMessageUnackMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceMessageUnackMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceMessageUnackMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceMessageUnackMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceMessageUnackMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceMessageUnackMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceNodeCompleteMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceNodeCompleteMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceNodeCompleteMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceNodeCompleteMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceNodeCompleteMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceNodeCompleteMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfacePauseMessage",
+      "path": "/docs/references/schemas/FlowsInterfacePauseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfacePauseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfacePauseMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfacePauseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfacePauseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceResumeMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceResumeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceResumeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceResumeMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceResumeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceResumeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceTerminateMessage",
+      "path": "/docs/references/schemas/FlowsInterfaceTerminateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceTerminateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "FlowsInterfaceTerminateMessageEnvelope",
+      "path": "/docs/references/schemas/FlowsInterfaceTerminateMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/FlowsInterfaceTerminateMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -771,9 +1827,39 @@
     },
     {
       "kind": "schemas",
+      "name": "HsbColor",
+      "path": "/docs/references/schemas/HsbColor.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/HsbColor"
+    },
+    {
+      "kind": "schemas",
       "name": "HttpPlugin",
       "path": "/docs/references/schemas/HttpPlugin.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/HttpPlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceNavigateInputMessage",
+      "path": "/docs/references/schemas/InputInterfaceNavigateInputMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceNavigateInputMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceNavigateInputMessageEnvelope",
+      "path": "/docs/references/schemas/InputInterfaceNavigateInputMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceNavigateInputMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceSelectInputMessage",
+      "path": "/docs/references/schemas/InputInterfaceSelectInputMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceSelectInputMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "InputInterfaceSelectInputMessageEnvelope",
+      "path": "/docs/references/schemas/InputInterfaceSelectInputMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/InputInterfaceSelectInputMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -795,15 +1881,483 @@
     },
     {
       "kind": "schemas",
+      "name": "KeypadInputInterfaceSendKeyMessage",
+      "path": "/docs/references/schemas/KeypadInputInterfaceSendKeyMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/KeypadInputInterfaceSendKeyMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "KeypadInputInterfaceSendKeyMessageEnvelope",
+      "path": "/docs/references/schemas/KeypadInputInterfaceSendKeyMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/KeypadInputInterfaceSendKeyMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "ListOAuthClientSecretsResponse",
       "path": "/docs/references/schemas/ListOAuthClientSecretsResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/ListOAuthClientSecretsResponse"
     },
     {
       "kind": "schemas",
+      "name": "LocationTrackerInterfaceStartLocatorMessage",
+      "path": "/docs/references/schemas/LocationTrackerInterfaceStartLocatorMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationTrackerInterfaceStartLocatorMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "LocationTrackerInterfaceStartLocatorMessageEnvelope",
+      "path": "/docs/references/schemas/LocationTrackerInterfaceStartLocatorMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LocationTrackerInterfaceStartLocatorMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceLockMessage",
+      "path": "/docs/references/schemas/LockInterfaceLockMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceLockMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceLockMessageEnvelope",
+      "path": "/docs/references/schemas/LockInterfaceLockMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceLockMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceUnlockMessage",
+      "path": "/docs/references/schemas/LockInterfaceUnlockMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceUnlockMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "LockInterfaceUnlockMessageEnvelope",
+      "path": "/docs/references/schemas/LockInterfaceUnlockMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/LockInterfaceUnlockMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "manufacturer",
       "path": "/docs/references/schemas/manufacturer.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/manufacturer"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaId",
+      "path": "/docs/references/schemas/MediaId.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaId"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceAudioMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceAudioMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceAudioMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceAudioMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceAudioMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceAudioMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceAudioStreamMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceAudioStreamMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceAudioStreamMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceAudioStreamMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceAudioStreamMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceAudioStreamMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceFastForwardMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceFastForwardMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceFastForwardMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceFastForwardMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceFastForwardMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceFastForwardMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceNextMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceNextMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceNextMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceNextMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceNextMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceNextMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePauseMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePauseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePauseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePauseMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePauseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePauseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayAudioMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayAudioMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayAudioMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayAudioMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayAudioMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayAudioMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayMediaMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayMediaMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayMediaMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayMediaMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayMediaMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayMediaMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayUriMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayUriMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayUriMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePlayUriMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePlayUriMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePlayUriMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePreviousMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePreviousMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePreviousMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfacePreviousMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfacePreviousMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfacePreviousMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceRewindMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceRewindMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceRewindMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceRewindMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceRewindMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceRewindMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSearchAndPlayMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSearchAndPlayMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSearchAndPlayMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSearchAndPlayMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSearchAndPlayMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSearchAndPlayMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSeekMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSeekMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSeekMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSeekMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSeekMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSeekMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSkipBackwardMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSkipBackwardMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSkipBackwardMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSkipBackwardMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSkipBackwardMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSkipBackwardMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSkipForwardMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSkipForwardMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSkipForwardMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceSkipForwardMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceSkipForwardMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceSkipForwardMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceStartOverMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceStartOverMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceStartOverMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceStartOverMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceStartOverMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceStartOverMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceStopMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceStopMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceStopMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceStopMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceStopMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceStopMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceTransferPlaybackMessage",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceTransferPlaybackMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlayerInterfaceTransferPlaybackMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlayerInterfaceTransferPlaybackMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceAddToPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceAddToPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceAddToPlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceAddToPlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceCreatePlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceCreatePlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceCreatePlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceCreatePlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceGetPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceGetPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceGetPlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceGetPlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceListPlaylistsMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceListPlaylistsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceListPlaylistsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceListPlaylistsMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceListPlaylistsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceListPlaylistsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistContentsMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistContentsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistContentsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistContentsMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistContentsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistContentsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistMutationResultMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistMutationResultMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistMutationResultMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistMutationResultMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistMutationResultMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistMutationResultMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistsMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlaylistsMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlaylistsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlaylistsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlayPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlayPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlayPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfacePlayPlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfacePlayPlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfacePlayPlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceRemoveFromPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceRemoveFromPlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceRemoveFromPlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceRenamePlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceRenamePlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceRenamePlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceRenamePlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceRenamePlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceRenamePlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceShufflePlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceShufflePlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceShufflePlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceShufflePlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceShufflePlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceShufflePlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceUnfollowPlaylistMessage",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceUnfollowPlaylistMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceUnfollowPlaylistMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaPlaylistInterfaceUnfollowPlaylistMessageEnvelope",
+      "path": "/docs/references/schemas/MediaPlaylistInterfaceUnfollowPlaylistMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaPlaylistInterfaceUnfollowPlaylistMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaProvider",
+      "path": "/docs/references/schemas/MediaProvider.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaProvider"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceAudioMediaResultsMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceAudioMediaResultsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceAudioMediaResultsMessageEnvelope",
+      "path": "/docs/references/schemas/MediaSearchInterfaceAudioMediaResultsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceAudioMediaResultsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceGetMediaMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceGetMediaMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceGetMediaMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceGetMediaMessageEnvelope",
+      "path": "/docs/references/schemas/MediaSearchInterfaceGetMediaMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceGetMediaMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceMediaDetailsMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceMediaDetailsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceMediaDetailsMessageEnvelope",
+      "path": "/docs/references/schemas/MediaSearchInterfaceMediaDetailsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceMediaDetailsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceSearchMediaMessage",
+      "path": "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceSearchMediaMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaSearchInterfaceSearchMediaMessageEnvelope",
+      "path": "/docs/references/schemas/MediaSearchInterfaceSearchMediaMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaSearchInterfaceSearchMediaMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -879,9 +2433,93 @@
     },
     {
       "kind": "schemas",
+      "name": "MotionSensorInterfaceMotionDetectedMessage",
+      "path": "/docs/references/schemas/MotionSensorInterfaceMotionDetectedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MotionSensorInterfaceMotionDetectedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "MotionSensorInterfaceMotionDetectedMessageEnvelope",
+      "path": "/docs/references/schemas/MotionSensorInterfaceMotionDetectedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MotionSensorInterfaceMotionDetectedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "MovementInstruction",
+      "path": "/docs/references/schemas/MovementInstruction.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MovementInstruction"
+    },
+    {
+      "kind": "schemas",
       "name": "name",
       "path": "/docs/references/schemas/name.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/name"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationConditions",
+      "path": "/docs/references/schemas/NotificationConditions.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationConditions"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationMessage",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationMessageEnvelope",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationScheduleMessage",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationScheduleMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationScheduleMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationScheduleMessageEnvelope",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationScheduleMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationScheduleMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationTriggerMessage",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationTriggerMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationTriggerMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterfaceNotificationTriggerMessageEnvelope",
+      "path": "/docs/references/schemas/NotificationInterfaceNotificationTriggerMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterfaceNotificationTriggerMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationInterval",
+      "path": "/docs/references/schemas/NotificationInterval.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationInterval"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationPayload",
+      "path": "/docs/references/schemas/NotificationPayload.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationPayload"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationSchedule",
+      "path": "/docs/references/schemas/NotificationSchedule.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationSchedule"
+    },
+    {
+      "kind": "schemas",
+      "name": "NotificationTimeWindow",
+      "path": "/docs/references/schemas/NotificationTimeWindow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/NotificationTimeWindow"
     },
     {
       "kind": "schemas",
@@ -969,6 +2607,30 @@
     },
     {
       "kind": "schemas",
+      "name": "PercentageInterfaceAdjustPercentageMessage",
+      "path": "/docs/references/schemas/PercentageInterfaceAdjustPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceAdjustPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfaceAdjustPercentageMessageEnvelope",
+      "path": "/docs/references/schemas/PercentageInterfaceAdjustPercentageMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceAdjustPercentageMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfaceSetPercentageMessage",
+      "path": "/docs/references/schemas/PercentageInterfaceSetPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceSetPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PercentageInterfaceSetPercentageMessageEnvelope",
+      "path": "/docs/references/schemas/PercentageInterfaceSetPercentageMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PercentageInterfaceSetPercentageMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "Permission",
       "path": "/docs/references/schemas/Permission.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/Permission"
@@ -978,6 +2640,36 @@
       "name": "PersonalAccessTokenSecret",
       "path": "/docs/references/schemas/PersonalAccessTokenSecret.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PersonalAccessTokenSecret"
+    },
+    {
+      "kind": "schemas",
+      "name": "PetFeederInterfaceTriggerFeedMessage",
+      "path": "/docs/references/schemas/PetFeederInterfaceTriggerFeedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PetFeederInterfaceTriggerFeedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PetFeederInterfaceTriggerFeedMessageEnvelope",
+      "path": "/docs/references/schemas/PetFeederInterfaceTriggerFeedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PetFeederInterfaceTriggerFeedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PhotoAlbum",
+      "path": "/docs/references/schemas/PhotoAlbum.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PhotoAlbum"
+    },
+    {
+      "kind": "schemas",
+      "name": "PlayableAudio",
+      "path": "/docs/references/schemas/PlayableAudio.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PlayableAudio"
+    },
+    {
+      "kind": "schemas",
+      "name": "Playlist",
+      "path": "/docs/references/schemas/Playlist.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Playlist"
     },
     {
       "kind": "schemas",
@@ -1149,9 +2841,81 @@
     },
     {
       "kind": "schemas",
+      "name": "PodcastEpisode",
+      "path": "/docs/references/schemas/PodcastEpisode.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PodcastEpisode"
+    },
+    {
+      "kind": "schemas",
+      "name": "PodcastShow",
+      "path": "/docs/references/schemas/PodcastShow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PodcastShow"
+    },
+    {
+      "kind": "schemas",
       "name": "PortosIdentifier",
       "path": "/docs/references/schemas/PortosIdentifier.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/PortosIdentifier"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceRebootMessage",
+      "path": "/docs/references/schemas/PowerInterfaceRebootMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceRebootMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceRebootMessageEnvelope",
+      "path": "/docs/references/schemas/PowerInterfaceRebootMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceRebootMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceTurnOffMessage",
+      "path": "/docs/references/schemas/PowerInterfaceTurnOffMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceTurnOffMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceTurnOffMessageEnvelope",
+      "path": "/docs/references/schemas/PowerInterfaceTurnOffMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceTurnOffMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceTurnOnMessage",
+      "path": "/docs/references/schemas/PowerInterfaceTurnOnMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceTurnOnMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerInterfaceTurnOnMessageEnvelope",
+      "path": "/docs/references/schemas/PowerInterfaceTurnOnMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerInterfaceTurnOnMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceAdjustPowerLevelMessage",
+      "path": "/docs/references/schemas/PowerLevelInterfaceAdjustPowerLevelMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceAdjustPowerLevelMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceAdjustPowerLevelMessageEnvelope",
+      "path": "/docs/references/schemas/PowerLevelInterfaceAdjustPowerLevelMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceAdjustPowerLevelMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceSetPowerLevelMessage",
+      "path": "/docs/references/schemas/PowerLevelInterfaceSetPowerLevelMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceSetPowerLevelMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PowerLevelInterfaceSetPowerLevelMessageEnvelope",
+      "path": "/docs/references/schemas/PowerLevelInterfaceSetPowerLevelMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PowerLevelInterfaceSetPowerLevelMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -1173,6 +2937,30 @@
     },
     {
       "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceSetModeMessageEnvelope",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceSetModeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceSetSpeedMessage",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "PumpConfigurationAndControlInterfaceSetSpeedMessageEnvelope",
+      "path": "/docs/references/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/PumpConfigurationAndControlInterfaceSetSpeedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "Query",
       "path": "/docs/references/schemas/Query.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/Query"
@@ -1182,6 +2970,84 @@
       "name": "QueryComparator",
       "path": "/docs/references/schemas/QueryComparator.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/QueryComparator"
+    },
+    {
+      "kind": "schemas",
+      "name": "Recording",
+      "path": "/docs/references/schemas/Recording.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Recording"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDeleteRecordingMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDeleteRecordingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDeleteRecordingMessageEnvelope",
+      "path": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDeleteRecordingMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDeleteRecordingResponseMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDeleteRecordingResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDeleteRecordingResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RecordingsInterfaceDeleteRecordingResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDeleteRecordingResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDownloadRecordingMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDownloadRecordingMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDownloadRecordingMessageEnvelope",
+      "path": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDownloadRecordingMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDownloadRecordingResponseMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDownloadRecordingResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceDownloadRecordingResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RecordingsInterfaceDownloadRecordingResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceDownloadRecordingResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceListRecordingsMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceListRecordingsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceListRecordingsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceListRecordingsMessageEnvelope",
+      "path": "/docs/references/schemas/RecordingsInterfaceListRecordingsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceListRecordingsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceListRecordingsResponseMessage",
+      "path": "/docs/references/schemas/RecordingsInterfaceListRecordingsResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceListRecordingsResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RecordingsInterfaceListRecordingsResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RecordingsInterfaceListRecordingsResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RecordingsInterfaceListRecordingsResponseMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -1221,6 +3087,174 @@
     },
     {
       "kind": "schemas",
+      "name": "Reminder",
+      "path": "/docs/references/schemas/Reminder.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Reminder"
+    },
+    {
+      "kind": "schemas",
+      "name": "ReminderList",
+      "path": "/docs/references/schemas/ReminderList.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ReminderList"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceCreateReminderMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceCreateReminderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceCreateReminderMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceCreateReminderMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceCreateReminderResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceCreateReminderResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceCreateReminderResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceCreateReminderResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceCreateReminderResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceDeleteReminderMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceDeleteReminderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceDeleteReminderMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceDeleteReminderMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceDeleteReminderResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceDeleteReminderResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceDeleteReminderResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceDeleteReminderResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceDeleteReminderResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceListRemindersMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceListRemindersMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceListRemindersResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceListRemindersResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceListRemindersResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceListRemindersResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceUpdateReminderMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceUpdateReminderMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceUpdateReminderMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceUpdateReminderMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceUpdateReminderResponseMessage",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemindersProviderInterfaceUpdateReminderResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemindersProviderInterfaceUpdateReminderResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceEndSessionMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceEndSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceEndSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceEndSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RemoteControlInterfaceEndSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceEndSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceMoveMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceMoveMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceMoveMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceMoveMessageEnvelope",
+      "path": "/docs/references/schemas/RemoteControlInterfaceMoveMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceMoveMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceStartSessionMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceStartSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceStartSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceStartSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RemoteControlInterfaceStartSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceStartSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceStopSessionMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceStopSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceStopSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceStopSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RemoteControlInterfaceStopSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceStopSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceUnaryMoveMessage",
+      "path": "/docs/references/schemas/RemoteControlInterfaceUnaryMoveMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceUnaryMoveMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RemoteControlInterfaceUnaryMoveMessageEnvelope",
+      "path": "/docs/references/schemas/RemoteControlInterfaceUnaryMoveMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RemoteControlInterfaceUnaryMoveMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "RemoveEndpointGroupMembersRequest",
       "path": "/docs/references/schemas/RemoveEndpointGroupMembersRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/RemoveEndpointGroupMembersRequest"
@@ -1257,9 +3291,141 @@
     },
     {
       "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceCleanRoomMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceCleanRoomMessageEnvelope",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceCleanRoomMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfacePauseMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfacePauseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfacePauseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfacePauseMessageEnvelope",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfacePauseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfacePauseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceReturnToDockMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceReturnToDockMessageEnvelope",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceReturnToDockMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceSetCleaningModeMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceSetCleaningModeMessageEnvelope",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceSetCleaningModeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceStartMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStartMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceStartMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceStartMessageEnvelope",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStartMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceStartMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceStopMessage",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStopMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceStopMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RoboticVacuumCleanerInterfaceStopMessageEnvelope",
+      "path": "/docs/references/schemas/RoboticVacuumCleanerInterfaceStopMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RoboticVacuumCleanerInterfaceStopMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "Route",
       "path": "/docs/references/schemas/Route.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/Route"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceAddGroupRouteMembersMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceAddGroupRouteMembersMessageEnvelope",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceAddGroupRouteMembersMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceDiscoverRoutesMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceDiscoverRoutesMessageEnvelope",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceDiscoverRoutesMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceRemoveGroupRouteMembersMessageEnvelope",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceRemoveGroupRouteMembersMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceRouteDiscoveryReportMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceRouteDiscoveryReportMessageEnvelope",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceRouteDiscoveryReportMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceSetGroupRouteNameMessage",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RouteDiscoveryInterfaceSetGroupRouteNameMessageEnvelope",
+      "path": "/docs/references/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -1269,9 +3435,165 @@
     },
     {
       "kind": "schemas",
+      "name": "RouteName",
+      "path": "/docs/references/schemas/RouteName.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RouteName"
+    },
+    {
+      "kind": "schemas",
       "name": "RoutesList",
       "path": "/docs/references/schemas/RoutesList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/RoutesList"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcAnswer",
+      "path": "/docs/references/schemas/RtcAnswer.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcAnswer"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcAnswerValue",
+      "path": "/docs/references/schemas/RtcAnswerValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcAnswerValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcOffer",
+      "path": "/docs/references/schemas/RtcOffer.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcOffer"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionAuthorization",
+      "path": "/docs/references/schemas/RtcSessionAuthorization.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionAuthorization"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceAnswerGeneratedForSessionMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceAnswerGeneratedForSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceAnswerGeneratedForSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceDisconnectSessionMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceDisconnectSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceDisconnectSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceDisconnectSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RtcSessionInterfaceDisconnectSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceDisconnectSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceInitiateSessionWithOfferMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceInitiateSessionWithOfferMessageEnvelope",
+      "path": "/docs/references/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceInitiateSessionWithOfferMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceSessionDisconnectedMessage",
+      "path": "/docs/references/schemas/RtcSessionInterfaceSessionDisconnectedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceSessionDisconnectedMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionInterfaceSessionDisconnectedMessageEnvelope",
+      "path": "/docs/references/schemas/RtcSessionInterfaceSessionDisconnectedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionInterfaceSessionDisconnectedMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtcSessionRoborockPinAuthorization",
+      "path": "/docs/references/schemas/RtcSessionRoborockPinAuthorization.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtcSessionRoborockPinAuthorization"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStartSessionMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStartSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStartSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStartSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStartSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStartSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStartSessionResponseMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStartSessionResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStartSessionResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStartSessionResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStartSessionResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStartSessionResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStopSessionMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStopSessionMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStopSessionMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStopSessionMessageEnvelope",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStopSessionMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStopSessionMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStopSessionResponseMessage",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStopSessionResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStopSessionResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "RtspSessionInterfaceStopSessionResponseMessageEnvelope",
+      "path": "/docs/references/schemas/RtspSessionInterfaceStopSessionResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/RtspSessionInterfaceStopSessionResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceActivateMessage",
+      "path": "/docs/references/schemas/SceneInterfaceActivateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceActivateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceActivateMessageEnvelope",
+      "path": "/docs/references/schemas/SceneInterfaceActivateMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceActivateMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceDeactivateMessage",
+      "path": "/docs/references/schemas/SceneInterfaceDeactivateMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceDeactivateMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SceneInterfaceDeactivateMessageEnvelope",
+      "path": "/docs/references/schemas/SceneInterfaceDeactivateMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SceneInterfaceDeactivateMessageEnvelope"
     },
     {
       "kind": "schemas",
@@ -1284,6 +3606,120 @@
       "name": "SecretsList",
       "path": "/docs/references/schemas/SecretsList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/SecretsList"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceArmMessage",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceArmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceArmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceArmMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceArmMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceArmMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceDisarmMessage",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceDisarmMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceDisarmMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPanelInterfaceDisarmMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPanelInterfaceDisarmMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPanelInterfaceDisarmMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceCreatePinMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceCreatePinMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceCreatePinMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceCreatePinMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfaceCreatePinMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceCreatePinMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceDeletePinMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceDeletePinMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceDeletePinMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceDeletePinMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfaceDeletePinMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceDeletePinMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinOperationResultMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinOperationResultMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinOperationResultMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinOperationResultMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinOperationResultMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinOperationResultMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinRecordsReportMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinRecordsReportMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinRecordsReportMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfacePinRecordsReportMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfacePinRecordsReportMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfacePinRecordsReportMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceQueryOperationMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceQueryOperationMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceQueryOperationMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceQueryOperationMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfaceQueryOperationMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceQueryOperationMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceQueryPinsMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceQueryPinsMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceQueryPinsMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceQueryPinsMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfaceQueryPinsMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceQueryPinsMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceUpdatePinMessage",
+      "path": "/docs/references/schemas/SecurityPinInterfaceUpdatePinMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceUpdatePinMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinInterfaceUpdatePinMessageEnvelope",
+      "path": "/docs/references/schemas/SecurityPinInterfaceUpdatePinMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinInterfaceUpdatePinMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SecurityPinRecord",
+      "path": "/docs/references/schemas/SecurityPinRecord.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SecurityPinRecord"
     },
     {
       "kind": "schemas",
@@ -1317,12 +3753,6 @@
     },
     {
       "kind": "schemas",
-      "name": "SimulatorQueryResponseV2",
-      "path": "/docs/references/schemas/SimulatorQueryResponseV2.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorQueryResponseV2"
-    },
-    {
-      "kind": "schemas",
       "name": "SimulatorRecordFields",
       "path": "/docs/references/schemas/SimulatorRecordFields.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorRecordFields"
@@ -1335,15 +3765,129 @@
     },
     {
       "kind": "schemas",
-      "name": "SimulatorV2",
-      "path": "/docs/references/schemas/SimulatorV2.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/SimulatorV2"
+      "name": "SnapshotInterfaceGetSnapshotMessage",
+      "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceGetSnapshotMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotInterfaceGetSnapshotMessageEnvelope",
+      "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceGetSnapshotMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotInterfaceGetSnapshotResponseMessage",
+      "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceGetSnapshotResponseMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotInterfaceGetSnapshotResponseMessageEnvelope",
+      "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotInterfaceGetSnapshotResponseMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SnapshotValue",
+      "path": "/docs/references/schemas/SnapshotValue.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotValue"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceAdjustVolumeMessage",
+      "path": "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceAdjustVolumeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceAdjustVolumeMessageEnvelope",
+      "path": "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceAdjustVolumeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceSetMuteMessage",
+      "path": "/docs/references/schemas/SpeakerInterfaceSetMuteMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceSetMuteMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceSetMuteMessageEnvelope",
+      "path": "/docs/references/schemas/SpeakerInterfaceSetMuteMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceSetMuteMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceSetVolumeMessage",
+      "path": "/docs/references/schemas/SpeakerInterfaceSetVolumeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceSetVolumeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeakerInterfaceSetVolumeMessageEnvelope",
+      "path": "/docs/references/schemas/SpeakerInterfaceSetVolumeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceSetVolumeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceAudioUriMessage",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceAudioUriMessageEnvelope",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceGenerateSpeechMessage",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechAudioGenerationInterfaceGenerateSpeechMessageEnvelope",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechInput",
+      "path": "/docs/references/schemas/SpeechInput.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechInput"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechSynthesizerInterfaceSpeakMessage",
+      "path": "/docs/references/schemas/SpeechSynthesizerInterfaceSpeakMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechSynthesizerInterfaceSpeakMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "SpeechSynthesizerInterfaceSpeakMessageEnvelope",
+      "path": "/docs/references/schemas/SpeechSynthesizerInterfaceSpeakMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechSynthesizerInterfaceSpeakMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "StorageItem",
+      "path": "/docs/references/schemas/StorageItem.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/StorageItem"
     },
     {
       "kind": "schemas",
       "name": "Subscription",
       "path": "/docs/references/schemas/Subscription.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/Subscription"
+    },
+    {
+      "kind": "schemas",
+      "name": "SuctionLevel",
+      "path": "/docs/references/schemas/SuctionLevel.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SuctionLevel"
     },
     {
       "kind": "schemas",
@@ -1383,6 +3927,72 @@
     },
     {
       "kind": "schemas",
+      "name": "TemperatureSetpoint",
+      "path": "/docs/references/schemas/TemperatureSetpoint.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TemperatureSetpoint"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextInterfaceTextMessage",
+      "path": "/docs/references/schemas/TextInterfaceTextMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextInterfaceTextMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextInterfaceTextMessageEnvelope",
+      "path": "/docs/references/schemas/TextInterfaceTextMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextInterfaceTextMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextStreamInterfaceTextStreamMessage",
+      "path": "/docs/references/schemas/TextStreamInterfaceTextStreamMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextStreamInterfaceTextStreamMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "TextStreamInterfaceTextStreamMessageEnvelope",
+      "path": "/docs/references/schemas/TextStreamInterfaceTextStreamMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/TextStreamInterfaceTextStreamMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceAdjustTargetTemperatureMessage",
+      "path": "/docs/references/schemas/ThermostatInterfaceAdjustTargetTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceAdjustTargetTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceAdjustTargetTemperatureMessageEnvelope",
+      "path": "/docs/references/schemas/ThermostatInterfaceAdjustTargetTemperatureMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceAdjustTargetTemperatureMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceSetTargetTemperatureMessage",
+      "path": "/docs/references/schemas/ThermostatInterfaceSetTargetTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceSetTargetTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceSetTargetTemperatureMessageEnvelope",
+      "path": "/docs/references/schemas/ThermostatInterfaceSetTargetTemperatureMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceSetTargetTemperatureMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceSetThermostatModeMessage",
+      "path": "/docs/references/schemas/ThermostatInterfaceSetThermostatModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceSetThermostatModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "ThermostatInterfaceSetThermostatModeMessageEnvelope",
+      "path": "/docs/references/schemas/ThermostatInterfaceSetThermostatModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ThermostatInterfaceSetThermostatModeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "TokenList",
       "path": "/docs/references/schemas/TokenList.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/TokenList"
@@ -1398,6 +4008,12 @@
       "name": "TokenPurpose",
       "path": "/docs/references/schemas/TokenPurpose.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/TokenPurpose"
+    },
+    {
+      "kind": "schemas",
+      "name": "Track",
+      "path": "/docs/references/schemas/Track.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/Track"
     },
     {
       "kind": "schemas",
@@ -1497,12 +4113,6 @@
     },
     {
       "kind": "schemas",
-      "name": "UpsertSimulatorRequestV2",
-      "path": "/docs/references/schemas/UpsertSimulatorRequestV2.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSimulatorRequestV2"
-    },
-    {
-      "kind": "schemas",
       "name": "UpsertSubscriptionRequest",
       "path": "/docs/references/schemas/UpsertSubscriptionRequest.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/UpsertSubscriptionRequest"
@@ -1521,6 +4131,36 @@
     },
     {
       "kind": "schemas",
+      "name": "WaterFlow",
+      "path": "/docs/references/schemas/WaterFlow.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterFlow"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceSetModeMessage",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceSetModeMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceSetModeMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceSetModeMessageEnvelope",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceSetModeMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceSetModeMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceSetTemperatureMessage",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceSetTemperatureMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceSetTemperatureMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WaterHeaterInterfaceSetTemperatureMessageEnvelope",
+      "path": "/docs/references/schemas/WaterHeaterInterfaceSetTemperatureMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WaterHeaterInterfaceSetTemperatureMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
       "name": "WebservicePlugin",
       "path": "/docs/references/schemas/WebservicePlugin.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/WebservicePlugin"
@@ -1530,6 +4170,30 @@
       "name": "WebsocketPlugin",
       "path": "/docs/references/schemas/WebsocketPlugin.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/WebsocketPlugin"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceGoToLiftPercentageMessage",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceGoToLiftPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceGoToLiftPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceGoToLiftPercentageMessageEnvelope",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceGoToLiftPercentageMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceGoToLiftPercentageMessageEnvelope"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceGoToTiltPercentageMessage",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceGoToTiltPercentageMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceGoToTiltPercentageMessage"
+    },
+    {
+      "kind": "schemas",
+      "name": "WindowCoveringInterfaceGoToTiltPercentageMessageEnvelope",
+      "path": "/docs/references/schemas/WindowCoveringInterfaceGoToTiltPercentageMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/WindowCoveringInterfaceGoToTiltPercentageMessageEnvelope"
     },
     {
       "kind": "parameters",

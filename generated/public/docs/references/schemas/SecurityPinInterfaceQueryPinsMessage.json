@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "query-pins",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Query a bounded endpoint-scoped PIN record page. Requires message-send permission. Continuations bind caller, endpoint and page size; return pin-records-report with the request correlation token in its header.",
+  "type": "object",
+  "properties": {
+    "maxResults": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

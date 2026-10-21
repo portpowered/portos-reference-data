@@ -7,7 +7,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "The principal-scoped simulator identifier, or a retained legacy simulator identifier.",
+      "description": "The simulator identifier.",
       "pattern": "^(port1/principals/[^/]+/endpoint-simulators/[^/]+|port1\\.simulator\\..+)$"
     }
   }

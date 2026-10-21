@@ -181,7 +181,7 @@ configuration:
       type: array
       description: >-
         Discoverable media streams in SDP offer order. Directions describe the endpoint; the browser
-        reverses SENDONLY and RECVONLY. Omitted means a legacy video SENDONLY stream.
+        reverses SENDONLY and RECVONLY. Omitted means a video SENDONLY stream.
       items:
         type: object
         description: A discoverable RTC media stream supported by an endpoint.

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A channel reference",
+  "properties": {
+    "number": {
+      "type": "string"
+    },
+    "callSign": {
+      "type": "string"
+    },
+    "affiliateCallSign": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    }
+  }
+}

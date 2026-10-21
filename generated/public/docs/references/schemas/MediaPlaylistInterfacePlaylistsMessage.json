@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-playlist",
+  "x-name": "playlists",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "A page of the connected customer's playlists with exact resource IDs.",
+  "type": "object",
+  "properties": {
+    "playlists": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Playlist.json"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "playlists"
+  ],
+  "additionalProperties": false
+}

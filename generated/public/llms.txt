@@ -14,6 +14,8 @@
 - [OpenAPI](/docs/references/openapi.yaml)
 - [Capabilities](/docs/for-ai/capability-interfaces.md)
 - [Authorization](/docs/for-ai/guides/authorization-rules.md)
+- [MCP reference](/docs/reference/mcp/): every MCP tool, what it does and the scope it needs.
+- [Resources](/docs/resources/): public repositories, packages, skills and endpoints for building against Port OS.
 
 ## Blog
 

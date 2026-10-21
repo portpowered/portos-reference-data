@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/calendar-provider",
+  "x-name": "list-events",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Request to list events from a calendar provider",
+  "type": "object",
+  "additionalProperties": false
+}

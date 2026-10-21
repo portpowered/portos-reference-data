@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/rtc-session",
+  "x-name": "answer-generated-for-session",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "type": "object",
+  "required": [
+    "answer"
+  ],
+  "properties": {
+    "answer": {
+      "$ref": "/docs/references/schemas/RtcAnswer.json"
+    }
+  },
+  "additionalProperties": false
+}

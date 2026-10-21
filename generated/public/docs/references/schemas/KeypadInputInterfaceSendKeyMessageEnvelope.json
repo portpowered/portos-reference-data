@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "The `send-key` message (version 1.0) of the `port1/systems/zero/capability-interfaces/keypad-input` capability interface, as sent to an endpoint. The header identifies the message and selects the body schema.",
+  "type": "object",
+  "required": [
+    "header",
+    "body"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "description": "Identifies this capability message.",
+      "required": [
+        "namespace",
+        "name",
+        "version"
+      ],
+      "x-go-type": "MessageHeader",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "enum": [
+            "port1/systems/zero/capability-interfaces/keypad-input"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "send-key"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "enum": [
+            "1.0"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the message"
+        },
+        "correlationToken": {
+          "type": "string",
+          "description": "Token used for correlating related messages"
+        }
+      }
+    },
+    "body": {
+      "$ref": "/docs/references/schemas/KeypadInputInterfaceSendKeyMessage.json"
+    },
+    "correlationToken": {
+      "type": "string",
+      "description": "Token used for correlating related messages"
+    }
+  }
+}

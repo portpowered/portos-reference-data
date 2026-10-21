@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-player",
+  "x-name": "play-uri",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "uri": {
+      "type": "string",
+      "description": "Public HTTPS URI of the audio to play",
+      "format": "uri",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional title for display or logging purposes"
+    },
+    "sourceType": {
+      "description": "URI transport semantics. Omission retains FILE behavior. LIVE_STREAM requires explicit live source support on the selected route; it must not be interpreted as a finite clip.",
+      "allOf": [
+        {
+          "$ref": "/docs/references/schemas/AudioUriSourceType.json"
+        }
+      ]
+    },
+    "offsetInMilliseconds": {
+      "type": "integer",
+      "description": "Playback start position in milliseconds",
+      "minimum": 0,
+      "default": 0
+    }
+  },
+  "required": [
+    "uri"
+  ],
+  "additionalProperties": false
+}

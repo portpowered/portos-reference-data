@@ -146,17 +146,15 @@ messages:
           minLength: 1
           example: portos-media://portoperatingsystem.com/spotify/audio/track/Ab123
           pattern: >-
-            ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$
+            ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+)$
           description: >
             Exact provider resource identity. The canonical form is
             portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id,
             with no URI version. Spotify emits audio track, playlist, album, artist, show and
             episode identities. The prior authority remains readable. YouTube and YouTube Music
-            share provider youtube, with video/video and video/channel resource kinds. Legacy
-            youtube:video:ID and youtube:channel:ID identities normalize to the same canonical
-            resources. Copy an ID returned by search or library discovery; do not send a search
-            phrase as an ID. Legacy providers retain their own input contracts until explicitly
-            migrated. See https://portoperatingsystem.com/docs/media.
+            share provider youtube, with video/video and video/channel resource kinds. Copy an ID
+            returned by search or library discovery; do not send a search phrase as an ID. See
+            https://portoperatingsystem.com/docs/media.
       required:
         - mediaId
       additionalProperties: false
@@ -518,17 +516,15 @@ attributes:
           minLength: 1
           example: portos-media://portoperatingsystem.com/spotify/audio/track/Ab123
           pattern: >-
-            ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$
+            ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+)$
           description: >
             Exact provider resource identity. The canonical form is
             portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id,
             with no URI version. Spotify emits audio track, playlist, album, artist, show and
             episode identities. The prior authority remains readable. YouTube and YouTube Music
-            share provider youtube, with video/video and video/channel resource kinds. Legacy
-            youtube:video:ID and youtube:channel:ID identities normalize to the same canonical
-            resources. Copy an ID returned by search or library discovery; do not send a search
-            phrase as an ID. Legacy providers retain their own input contracts until explicitly
-            migrated. See https://portoperatingsystem.com/docs/media.
+            share provider youtube, with video/video and video/channel resource kinds. Copy an ID
+            returned by search or library discovery; do not send a search phrase as an ID. See
+            https://portoperatingsystem.com/docs/media.
         contextMediaId:
           $ref: '#/properties/mediaId'
         name:
@@ -732,9 +728,9 @@ configuration:
       type: array
       uniqueItems: true
       description: >-
-        Exact source kinds accepted by play-uri on this route. With URI support, omission retains
-        legacy FILE-only behavior; an empty list admits none. LIVE_STREAM must be explicitly listed.
-        This does not resolve provider catalog identities.
+        Exact source kinds accepted by play-uri on this route. With URI support, omission admits
+        FILE only; an empty list admits none. LIVE_STREAM must be explicitly listed. This does not
+        resolve provider catalog identities.
       items:
         type: string
         description: >-

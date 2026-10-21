@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/control-routes-provider",
+  "x-name": "batch-message-dispatch",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Request to dispatch a batch of messages to a control route sent from port OS to the control routes provider",
+  "type": "object",
+  "properties": {
+    "items": {
+      "$ref": "/docs/references/schemas/BatchMessageItem.json"
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

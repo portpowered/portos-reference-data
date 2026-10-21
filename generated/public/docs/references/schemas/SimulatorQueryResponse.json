@@ -22,5 +22,6 @@
         "$ref": "/docs/references/schemas/Error.json"
       }
     }
-  }
+  },
+  "description": "Paginated simulator results."
 }

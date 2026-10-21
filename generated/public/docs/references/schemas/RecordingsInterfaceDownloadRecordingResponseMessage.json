@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RecordingsInterfaceDownloadRecordingResponseMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/recordings",
+  "x-name": "download-recording-response",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Download recording response.",
+  "type": "object",
+  "properties": {
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Provider URL for downloading the recording."
+    }
+  },
+  "required": [
+    "uri"
+  ],
+  "additionalProperties": false
+}

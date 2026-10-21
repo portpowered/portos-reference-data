@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/brightness",
+  "x-name": "adjust-brightness",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Adjust brightness by a signed number of percentage points. The endpoint must advertise this message separately from set-brightness.",
+  "type": "object",
+  "properties": {
+    "brightnessDelta": {
+      "type": "integer",
+      "minimum": -100,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "brightnessDelta"
+  ],
+  "additionalProperties": false
+}

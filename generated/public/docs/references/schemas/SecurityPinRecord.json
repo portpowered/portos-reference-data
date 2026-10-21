@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Endpoint-scoped PIN metadata without credentials. TEMPORARY requires both validity timestamps; PERMANENT forbids them. Provisioning status is distinct from observation freshness.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "PERMANENT",
+        "TEMPORARY"
+      ]
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validUntil": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "provisioningStatus": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "APPLIED",
+        "FAILED"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "kind",
+    "provisioningStatus"
+  ],
+  "additionalProperties": false
+}

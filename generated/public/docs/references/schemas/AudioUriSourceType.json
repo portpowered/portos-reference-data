@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Transport source kind for play-uri. FILE is finite externally hosted audio; LIVE_STREAM is continuous live audio and requires explicit route support. Neither value resolves a catalog provider identity.",
+  "enum": [
+    "FILE",
+    "LIVE_STREAM"
+  ],
+  "x-enum-varnames": [
+    "AudioUriSourceTypeFile",
+    "AudioUriSourceTypeLiveStream"
+  ]
+}

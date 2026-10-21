@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Speech synthesis input",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "SSML",
+        "CANNED_TTS"
+      ]
+    },
+    "ssml": {
+      "type": "string"
+    },
+    "cannedTtsStringId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Provider-defined canned speech identifier; supported only by integrations advertising canned speech."
+    }
+  }
+}

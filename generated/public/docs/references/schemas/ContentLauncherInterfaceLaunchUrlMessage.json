@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/content-launcher",
+  "x-name": "launch-url",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "contentUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the content to launch"
+    },
+    "displayString": {
+      "type": "string",
+      "description": "Display string for the content"
+    },
+    "brandingInformation": {
+      "$ref": "/docs/references/schemas/BrandingInformation.json"
+    }
+  },
+  "required": [
+    "contentUrl"
+  ],
+  "additionalProperties": false
+}

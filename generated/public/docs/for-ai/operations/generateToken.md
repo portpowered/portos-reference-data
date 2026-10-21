@@ -14,8 +14,6 @@ Public DCR/CIMD clients exchange authorization_code with client_id, redirect_uri
 code_verifier and the same resource as the consent request. No client_secret is
 issued. Refresh these grants with grant_type refresh_token, client_id, rotating
 refresh_token and the original resource. Store the replacement securely.
-The legacy JWT vending flow uses urn:ietf:params:oauth:grant-type:refresh_token;
-it is separate from DCR refresh.
 
 
 ## Authorization
@@ -50,8 +48,6 @@ post:
     code_verifier and the same resource as the consent request. No client_secret is
     issued. Refresh these grants with grant_type refresh_token, client_id, rotating
     refresh_token and the original resource. Store the replacement securely.
-    The legacy JWT vending flow uses urn:ietf:params:oauth:grant-type:refresh_token;
-    it is separate from DCR refresh.
   requestBody:
     required: true
     content:

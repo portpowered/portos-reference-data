@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/input",
+  "x-name": "select-input",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "string",
+      "description": "Input name to select"
+    },
+    "index": {
+      "type": "integer",
+      "description": "Input index to select",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

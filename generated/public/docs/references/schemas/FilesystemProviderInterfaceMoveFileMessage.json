@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FilesystemProviderInterfaceMoveFileMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/filesystem-provider",
+  "x-name": "move-file",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Move one selected file into a folder without overwriting another item. The response returns the new selection for download or further operations.",
+  "type": "object",
+  "properties": {
+    "fileId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "File selection copied from the current folder listing."
+    },
+    "folderId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Destination folder identifier copied from this provider listing."
+    }
+  },
+  "required": [
+    "fileId",
+    "folderId"
+  ],
+  "additionalProperties": false
+}

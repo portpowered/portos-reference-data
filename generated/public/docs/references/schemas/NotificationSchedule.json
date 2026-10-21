@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Schedule configuration for notifications",
+  "properties": {
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When to start sending notifications"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When to stop sending notifications (optional)"
+    },
+    "cronExpression": {
+      "type": "string",
+      "description": "Cron expression for recurring notifications"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone for the schedule",
+      "default": "UTC"
+    },
+    "repeatCount": {
+      "type": "integer",
+      "description": "Number of times to repeat (null for infinite)",
+      "minimum": 1
+    },
+    "interval": {
+      "$ref": "/docs/references/schemas/NotificationInterval.json"
+    }
+  },
+  "required": [
+    "startTime"
+  ],
+  "additionalProperties": false
+}

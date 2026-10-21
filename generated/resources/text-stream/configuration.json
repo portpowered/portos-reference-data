@@ -28,11 +28,6 @@
       "description": "Default text encoding",
       "default": "utf-8"
     },
-    "legacyMode": {
-      "type": "boolean",
-      "description": "Whether to use legacy mode for compatibility",
-      "default": true
-    },
     "chunkTimeout": {
       "type": "integer",
       "description": "Timeout in milliseconds for chunk delivery",
@@ -44,7 +39,6 @@
     "maxStreamLength",
     "supportedEncodings",
     "defaultEncoding",
-    "legacyMode",
     "chunkTimeout"
   ],
   "additionalProperties": false,

@@ -106,17 +106,15 @@ messages:
                 minLength: 1
                 example: portos-media://portoperatingsystem.com/spotify/audio/track/Ab123
                 pattern: >-
-                  ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+|youtube:(video|channel):[A-Za-z0-9_-]+)$
+                  ^(portos-media://(portpowered[.]com|portoperatingsystem[.]com)/[a-z][a-z0-9_-]*/(audio|video|image)/[a-z][a-z0-9_-]*/([^/?#\s]|%[0-9A-Fa-f]{2})+|https?://[^\s]+|portos://[^\s]+)$
                 description: >
                   Exact provider resource identity. The canonical form is
                   portos-media://portoperatingsystem.com/provider/media-type/resource-kind/resource-id,
                   with no URI version. Spotify emits audio track, playlist, album, artist, show and
                   episode identities. The prior authority remains readable. YouTube and YouTube
                   Music share provider youtube, with video/video and video/channel resource kinds.
-                  Legacy youtube:video:ID and youtube:channel:ID identities normalize to the same
-                  canonical resources. Copy an ID returned by search or library discovery; do not
-                  send a search phrase as an ID. Legacy providers retain their own input contracts
-                  until explicitly migrated. See https://portoperatingsystem.com/docs/media.
+                  Copy an ID returned by search or library discovery; do not send a search phrase as
+                  an ID. See https://portoperatingsystem.com/docs/media.
               startedAt:
                 type: string
                 format: date-time

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "A control route report request with cookies and optional attribute selections. Omitted or empty attributes request all supported attributes.",
+  "properties": {
+    "associatedPluginRouteId": {
+      "type": "string"
+    },
+    "cookies": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "type": "array",
+      "x-go-type-skip-optional-pointer": true,
+      "items": {
+        "$ref": "/docs/references/schemas/AttributeSelection.json"
+      }
+    }
+  },
+  "required": [
+    "associatedPluginRouteId"
+  ],
+  "additionalProperties": false
+}

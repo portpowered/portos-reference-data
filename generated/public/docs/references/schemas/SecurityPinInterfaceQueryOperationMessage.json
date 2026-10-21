@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/security-pin",
+  "x-name": "query-operation",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "in",
+  "description": "Retrieve an endpoint-scoped PIN operation result by its original correlation token. Enforce caller and endpoint ownership. Return pin-operation-result, preserving the original operation correlation token in its payload and using this query's correlation token in the response header.",
+  "type": "object",
+  "properties": {
+    "correlationToken": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "correlationToken"
+  ],
+  "additionalProperties": false
+}

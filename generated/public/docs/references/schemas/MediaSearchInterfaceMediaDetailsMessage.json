@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-namespace": "port1/systems/zero/capability-interfaces/media-search",
+  "x-name": "media-details",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "Exact media resource details and a bounded page of its children.",
+  "type": "object",
+  "properties": {
+    "mediaId": {
+      "$ref": "/docs/references/schemas/MediaId.json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "resourceKind": {
+      "type": "string",
+      "description": "Provider resource kind from the media URI."
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/Track.json"
+      }
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "$ref": "/docs/references/schemas/PodcastEpisode.json"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "mediaId",
+    "resourceKind"
+  ],
+  "additionalProperties": false
+}
