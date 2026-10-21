@@ -63,6 +63,8 @@ POST application/json to the discovered registration_endpoint:
 
 Use a callback the client controls. Remote callbacks require HTTPS. Local clients may use exact HTTP callbacks on localhost or literal loopback IPs, such as http://127.0.0.1:8765/callback. All callbacks in a registration must be local or all must be remote; these sets cannot be mixed. No fragments or user information are permitted. Start the local callback listener before authorization. The website's client-management interface enforces this same callback-set policy.
 
+Set token_endpoint_auth_method to none for a public client. A registration without a method is stored as client_secret_post, a confidential client that must authenticate at the token endpoint ([token lifecycle](/docs/for-ai/guides/oauth-token-lifecycle.md)). client_secret_jwt is refused.
+
 Success is 201 with client_id, client_id_issued_at and accepted metadata. Public clients get no client_secret. Supported DCR scopes are endpoint:read, endpoint:write, message:read, message:send, group:read, group:manage, subscription:read and subscription:write. The default is endpoint:read. Request only the task's necessary scopes and check the returned scope. Broader static-client scopes are outside this anonymous profile.
 
 The registration fingerprint is SHA-256 of compact canonical JSON with sorted object keys and sorted redirect_uris, grant_types and response_types arrays, plus client_name and token_endpoint_auth_method. Defaults are applied before hashing. Array ordering does not create another client. A matching registration returns the original client ID, issue time, scopes and descriptive metadata. It never overwrites the existing client or expands scopes, even if scope or software_id differs in the new request. Fingerprinting is deduplication, not proof of callback ownership or vendor identity.
@@ -173,7 +175,17 @@ const tokens = await tokenResponse.json(); // Store securely; do not print token
 
 Save access_token, refresh_token and returned scope in the connector's secure credential store. Public clients have no client secret. Use Authorization: Bearer <access_token> with REST requests or the MCP HTTP connection, according to that token's resource. A refresh token is never an API credential. [Scopes bound access; resource policies still apply](/docs/for-ai/guides/authorization-rules.md).
 
-Refresh with grant_type=refresh_token, client_id and refresh_token at token_endpoint. The resource parameter is optional for code exchange and refresh: omission inherits the existing grant audience; if supplied, it must match the original resource. Scope may stay the same or narrow; it cannot expand. Credentials rotate: store the newly returned refresh token atomically and stop using the previous one. A revoked or reused refresh token must not be retried in a loop. Reauthorize when the grant no longer permits the intended operation.
+### Confidential clients
+
+A client is confidential unless its token_endpoint_auth_method is none. A confidential client must authenticate on code exchange and on refresh, even when it uses PKCE:
+
+- client_secret_post: add client_secret=<secret> to the form body.
+- client_secret_basic: send Authorization: Basic with the client ID and secret, and leave them out of the form body.
+- private_key_jwt: send client_assertion and client_assertion_type.
+
+Use exactly one method. Missing or wrong credentials return invalid_client: 400 for form credentials, or 401 with WWW-Authenticate: Basic for Basic. Basic and form credentials together return 400 invalid_request. A client without the requested grant returns 400 unauthorized_client. Public clients (none) send no secret and rely on PKCE.
+
+Refresh with grant_type=refresh_token, client_id and refresh_token at token_endpoint; a confidential client also authenticates as above. The resource parameter is optional for code exchange and refresh: omission inherits the existing grant audience; if supplied, it must match the original resource. Scope may stay the same or narrow; it cannot expand. Credentials rotate: store the newly returned refresh token atomically and stop using the previous one. A revoked or reused refresh token must not be retried in a loop. Reauthorize when the grant no longer permits the intended operation.
 
 Revoke by POSTing application/x-www-form-urlencoded token=<refresh_token>&client_id=<client_id> to revocation_endpoint. Revoked grants stop authorizing both access and refresh requests. Removing a local configuration file alone is not server-side revocation.
 

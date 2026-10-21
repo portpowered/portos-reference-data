@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.21",
-  "sourceCommit": "3d96a2cc55c0af56bf0bce41a693e3342743fece",
+  "version": "0.5.22",
+  "sourceCommit": "c74083d3d1e671fe9ddfc3d49c22b271fd352853",
   "sourceInputState": "committed",
-  "assetSetSHA256": "954f55e5e8c99b95c78add5cc6af84066f4f9874e08743a5f236b9c572253dba",
+  "assetSetSHA256": "51f74f1372fc4a00e8f42925f9378917c6655fe3210c8e6724e684d86f1072e6",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1338,8 +1338,8 @@
     {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 20231,
-      "sha256": "013199c1ecfec7af38b732a707831b3de45bfa655fd3580bd512b9e3ebb5bacd",
+      "bytes": 21360,
+      "sha256": "5f6a6cf5fd3bdd02c39f143dd15bf7fadf5bdef7a54a707c1b98a0234cc00b90",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1573,8 +1573,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-client-registration.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3448,
-      "sha256": "4880267cb352dace78e44e65e0437add162ec3c91570b3489cdc0bce651f3c9e",
+      "bytes": 3738,
+      "sha256": "a94dd7b1f063d8618a8711d8773e4bc25355241f1efa896d8362465b73eaf168",
       "links": [
         "/docs/for-ai/guides/oauth-consent-and-callback.md",
         "/docs/for-ai/guides/oauth-discovery.md",
@@ -1607,8 +1607,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-setup.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 11293,
-      "sha256": "fe3bfb05483c0ade8177b444e5e6a8b703812567b2bf47dfe3d62e33142f5cbd",
+      "bytes": 12132,
+      "sha256": "088e0a6f6c99643d8a109d5f67864ab909d2ea0a999f3ce834b2f629dea71b9c",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
@@ -1624,8 +1624,8 @@
     {
       "path": "/docs/for-ai/guides/oauth-token-lifecycle.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2826,
-      "sha256": "e94604b1854b1fb2cdbd24121ba6cdf88cb7ffc171cbf26cba797d7ca97a208b",
+      "bytes": 3664,
+      "sha256": "9c9d665774369552eae4990b67b39aa4151125633d772a1d1d2767279b2dd8b5",
       "links": [
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/first-setup.md",
