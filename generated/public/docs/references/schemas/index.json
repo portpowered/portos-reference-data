@@ -495,6 +495,12 @@
     },
     {
       "kind": "schemas",
+      "name": "BinaryResponseFormat",
+      "path": "/docs/references/schemas/BinaryResponseFormat.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/BinaryResponseFormat"
+    },
+    {
+      "kind": "schemas",
       "name": "BrandingInformation",
       "path": "/docs/references/schemas/BrandingInformation.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/BrandingInformation"
@@ -1968,6 +1974,12 @@
       "name": "manufacturer",
       "path": "/docs/references/schemas/manufacturer.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/manufacturer"
+    },
+    {
+      "kind": "schemas",
+      "name": "MediaContent",
+      "path": "/docs/references/schemas/MediaContent.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/MediaContent"
     },
     {
       "kind": "schemas",
@@ -3831,12 +3843,6 @@
     },
     {
       "kind": "schemas",
-      "name": "SnapshotValue",
-      "path": "/docs/references/schemas/SnapshotValue.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/SnapshotValue"
-    },
-    {
-      "kind": "schemas",
       "name": "SpeakerInterfaceAdjustVolumeMessage",
       "path": "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessage.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/SpeakerInterfaceAdjustVolumeMessage"
@@ -3873,15 +3879,15 @@
     },
     {
       "kind": "schemas",
-      "name": "SpeechAudioGenerationInterfaceAudioUriMessage",
-      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessage.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessage"
+      "name": "SpeechAudioGenerationInterfaceAudioGeneratedMessage",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessage.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessage"
     },
     {
       "kind": "schemas",
-      "name": "SpeechAudioGenerationInterfaceAudioUriMessageEnvelope",
-      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope.json",
-      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope"
+      "name": "SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope"
     },
     {
       "kind": "schemas",

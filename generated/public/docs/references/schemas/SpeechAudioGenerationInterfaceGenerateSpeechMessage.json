@@ -17,6 +17,9 @@
     "speakerEmbeddingUrl": {
       "type": "string",
       "description": "URL or base64 data URI of the speaker embedding for voice characteristics"
+    },
+    "responseFormat": {
+      "$ref": "/docs/references/schemas/BinaryResponseFormat.json"
     }
   },
   "additionalProperties": false

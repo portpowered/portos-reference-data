@@ -1,0 +1,67 @@
+description: >-
+  The speech audio synthesized by generate-speech, as a short-lived URL or
+  inline base64 according to the request's responseFormat
+type: object
+required:
+  - audio
+properties:
+  audio:
+    type: object
+    description: >-
+      One binary media result (audio or image). Exactly one of `data` (base64,
+      inline) or `url` (a short-lived Port OS URL with its `expiresAt`) is
+      present; the host rejects a result that carries both or neither. A plugin
+      may return the vendor's fetchable `url` without `expiresAt`; the host
+      always fetches it, republishes or inlines the bytes as the caller's
+      `responseFormat` asks, and fills `byteLength`, so callers never see a
+      vendor URL.
+    properties:
+      mimeType:
+        type: string
+        description: The media type of the bytes.
+        enum:
+          - audio/mpeg
+          - audio/wav
+          - audio/ogg
+          - audio/flac
+          - image/png
+          - image/jpeg
+          - image/webp
+        example: audio/mpeg
+      byteLength:
+        type: integer
+        minimum: 1
+        maximum: 26214400
+        description: Size of the decoded bytes. Always present on host responses.
+      durationMs:
+        type: integer
+        minimum: 0
+        description: Duration of audio in milliseconds, when known.
+      width:
+        type: integer
+        minimum: 1
+        description: Image width in pixels, when known.
+      height:
+        type: integer
+        minimum: 1
+        description: Image height in pixels, when known.
+      url:
+        type: string
+        description: >-
+          Short-lived URL of the media (valid until `expiresAt`, at most 10
+          minutes).
+      expiresAt:
+        type: string
+        format: date-time
+        description: When `url` stops working. Present with `url` on host responses.
+      data:
+        type: string
+        format: byte
+        maxLength: 13981016
+        description: Base64 encoded bytes, at most 10 MiB decoded.
+    required:
+      - mimeType
+    additionalProperties: false
+    title: MediaContent
+additionalProperties: false
+title: SpeechAudioGenerationInterfaceAudioGeneratedMessage

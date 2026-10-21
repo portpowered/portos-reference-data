@@ -5,6 +5,12 @@
   "x-version": "1.0",
   "x-type": "message",
   "x-directionality": "in",
+  "description": "Request a still image from the camera. responseFormat chooses how the image comes back: URL (default) is a short-lived Port OS link, BASE64 is the image bytes inline.",
   "type": "object",
+  "properties": {
+    "responseFormat": {
+      "$ref": "/docs/references/schemas/BinaryResponseFormat.json"
+    }
+  },
   "additionalProperties": false
 }

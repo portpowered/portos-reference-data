@@ -154,7 +154,7 @@
       "$ref": "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessageEnvelope.json"
     },
     {
-      "$ref": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope.json"
+      "$ref": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope.json"
     },
     {
       "$ref": "/docs/references/schemas/TextStreamInterfaceTextStreamMessageEnvelope.json"

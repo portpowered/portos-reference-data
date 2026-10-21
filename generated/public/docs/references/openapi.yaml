@@ -10893,7 +10893,13 @@ components:
       x-version: '1.0'
       x-type: message
       x-directionality: in
+      description: >-
+        Request a still image from the camera. responseFormat chooses how the image comes back: URL
+        (default) is a short-lived Port OS link, BASE64 is the image bytes inline.
       type: object
+      properties:
+        responseFormat:
+          $ref: '#/components/schemas/BinaryResponseFormat'
       additionalProperties: false
     SnapshotInterfaceGetSnapshotResponseMessage:
       x-namespace: port1/systems/zero/capability-interfaces/snapshot
@@ -10901,13 +10907,16 @@ components:
       x-version: '1.0'
       x-type: message
       x-directionality: out
+      description: >-
+        A camera still image, as a short-lived URL or inline base64 according to the request's
+        responseFormat, with the time it was captured
       type: object
       required:
-        - value
+        - image
         - timeOfSample
       properties:
-        value:
-          $ref: '#/components/schemas/SnapshotValue'
+        image:
+          $ref: '#/components/schemas/MediaContent'
         timeOfSample:
           type: string
           format: date-time
@@ -11010,25 +11019,22 @@ components:
         input:
           $ref: '#/components/schemas/SpeechInput'
       additionalProperties: false
-    SpeechAudioGenerationInterfaceAudioUriMessage:
+    SpeechAudioGenerationInterfaceAudioGeneratedMessage:
+      title: SpeechAudioGenerationInterfaceAudioGeneratedMessage
       x-namespace: port1/systems/zero/capability-interfaces/speech-audio-generation
-      x-name: audio-uri
+      x-name: audio-generated
       x-version: '1.0'
       x-type: message
       x-directionality: out
+      description: >-
+        The speech audio synthesized by generate-speech, as a short-lived URL or inline base64
+        according to the request's responseFormat
       type: object
       required:
-        - uri
+        - audio
       properties:
-        uri:
-          type: string
-          description: URL of the generated audio resource
-        mimeType:
-          type: string
-          description: MIME type of the audio resource (e.g., audio/mpeg)
-        durationMs:
-          type: integer
-          description: Duration of the generated audio in milliseconds
+        audio:
+          $ref: '#/components/schemas/MediaContent'
       additionalProperties: false
     SpeechAudioGenerationInterfaceGenerateSpeechMessage:
       x-namespace: port1/systems/zero/capability-interfaces/speech-audio-generation
@@ -11046,6 +11052,8 @@ components:
         speakerEmbeddingUrl:
           type: string
           description: URL or base64 data URI of the speaker embedding for voice characteristics
+        responseFormat:
+          $ref: '#/components/schemas/BinaryResponseFormat'
       additionalProperties: false
     ControlRoutesProviderInterfaceReportAttributesMessage:
       x-namespace: port1/systems/zero/capability-interfaces/control-routes-provider
@@ -16150,6 +16158,11 @@ components:
         apiKey:
           type: string
           description: API key for service authentication (e.g. OpenRouter)
+        personalAccessToken:
+          type: string
+          description: >-
+            Personal access token for a plugin whose authorization variant declares the
+            PERSONAL_ACCESS_TOKEN secret role (for example Seam). Exclusive with apiKey.
         endpointUrl:
           type: string
           format: uri
@@ -23572,6 +23585,19 @@ components:
         correlationToken:
           type: string
           description: Token used for correlating related messages
+    BinaryResponseFormat:
+      type: string
+      description: >-
+        How a request wants binary media (audio or image) returned. URL returns a short-lived signed
+        URL hosted by Port OS (at most 10 minutes), never the vendor's own link. BASE64 returns the
+        bytes inline as base64 and fails with a typed error above 10 MiB, in which case use URL.
+      enum:
+        - URL
+        - BASE64
+      default: URL
+      x-enum-varnames:
+        - BinaryResponseFormatUrl
+        - BinaryResponseFormatBase64
     SnapshotInterfaceGetSnapshotMessageEnvelope:
       description: >-
         The `get-snapshot` message (version 1.0) of the
@@ -26778,15 +26804,60 @@ components:
         correlationToken:
           type: string
           description: Token used for correlating related messages
-    SnapshotValue:
+    MediaContent:
       type: object
-      description: A snapshot value with URI and expiration
+      description: >-
+        One binary media result (audio or image). Exactly one of `data` (base64, inline) or `url` (a
+        short-lived Port OS URL with its `expiresAt`) is present; the host rejects a result that
+        carries both or neither. A plugin may return the vendor's fetchable `url` without
+        `expiresAt`; the host always fetches it, republishes or inlines the bytes as the caller's
+        `responseFormat` asks, and fills `byteLength`, so callers never see a vendor URL.
+      x-media-content: true
       properties:
-        uri:
+        mimeType:
           type: string
-        expirationTime:
+          description: The media type of the bytes.
+          enum:
+            - audio/mpeg
+            - audio/wav
+            - audio/ogg
+            - audio/flac
+            - image/png
+            - image/jpeg
+            - image/webp
+          example: audio/mpeg
+        byteLength:
+          type: integer
+          minimum: 1
+          maximum: 26214400
+          description: Size of the decoded bytes. Always present on host responses.
+        durationMs:
+          type: integer
+          minimum: 0
+          description: Duration of audio in milliseconds, when known.
+        width:
+          type: integer
+          minimum: 1
+          description: Image width in pixels, when known.
+        height:
+          type: integer
+          minimum: 1
+          description: Image height in pixels, when known.
+        url:
+          type: string
+          description: Short-lived URL of the media (valid until `expiresAt`, at most 10 minutes).
+        expiresAt:
           type: string
           format: date-time
+          description: When `url` stops working. Present with `url` on host responses.
+        data:
+          type: string
+          format: byte
+          maxLength: 13981016
+          description: Base64 encoded bytes, at most 10 MiB decoded.
+      required:
+        - mimeType
+      additionalProperties: false
     SnapshotInterfaceGetSnapshotResponseMessageEnvelope:
       description: >-
         The `get-snapshot-response` message (version 1.0) of the
@@ -26829,9 +26900,9 @@ components:
         correlationToken:
           type: string
           description: Token used for correlating related messages
-    SpeechAudioGenerationInterfaceAudioUriMessageEnvelope:
+    SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope:
       description: >-
-        The `audio-uri` message (version 1.0) of the
+        The `audio-generated` message (version 1.0) of the
         `port1/systems/zero/capability-interfaces/speech-audio-generation` capability interface, as
         returned by an endpoint. The header identifies the message and selects the body schema.
       type: object
@@ -26855,7 +26926,7 @@ components:
             name:
               type: string
               enum:
-                - audio-uri
+                - audio-generated
             version:
               type: string
               enum:
@@ -26867,7 +26938,7 @@ components:
               type: string
               description: Token used for correlating related messages
         body:
-          $ref: '#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessage'
+          $ref: '#/components/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessage'
         correlationToken:
           type: string
           description: Token used for correlating related messages
@@ -26972,7 +27043,7 @@ components:
         - $ref: '#/components/schemas/SecurityPinInterfacePinOperationResultMessageEnvelope'
         - $ref: '#/components/schemas/SecurityPinInterfacePinRecordsReportMessageEnvelope'
         - $ref: '#/components/schemas/SnapshotInterfaceGetSnapshotResponseMessageEnvelope'
-        - $ref: '#/components/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope'
+        - $ref: '#/components/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope'
         - $ref: '#/components/schemas/TextStreamInterfaceTextStreamMessageEnvelope'
     CreateMessageResponse:
       type: object

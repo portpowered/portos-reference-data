@@ -5,14 +5,15 @@
   "x-version": "1.0",
   "x-type": "message",
   "x-directionality": "out",
+  "description": "A camera still image, as a short-lived URL or inline base64 according to the request's responseFormat, with the time it was captured",
   "type": "object",
   "required": [
-    "value",
+    "image",
     "timeOfSample"
   ],
   "properties": {
-    "value": {
-      "$ref": "/docs/references/schemas/SnapshotValue.json"
+    "image": {
+      "$ref": "/docs/references/schemas/MediaContent.json"
     },
     "timeOfSample": {
       "type": "string",

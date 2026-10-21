@@ -35,7 +35,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:status, query:pluginId, query:expand, query:nextToken, query:maxResults | — |
 | [POST /auth-links](/docs/for-ai/operations/upsertAuthLink.md) | OAuth (no scope) | — | authLink |
 | [DELETE /auth-links](/docs/for-ai/operations/deleteAuthLink.md) | OAuth (no scope) | — | id |
-| [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, authorizationVariantId, endpointUrl, oauthTokens, pluginId, regionalizationId, usernamePassword |
+| [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, authorizationVariantId, endpointUrl, oauthTokens, personalAccessToken, pluginId, regionalizationId, usernamePassword |
 | [GET /auth-links/oauth-client-credentials](/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md) | OAuth (no scope) | query:pluginId (required), query:maxResults, query:nextToken | — |
 | [POST /auth-links/refresh](/docs/for-ai/operations/refreshAuthLinkToken.md) | See session/security contract | — | authLinkId |
 | [POST /auth/callback](/docs/for-ai/operations/handleOAuthCallback.md) | Public | — | code, id_token, state, user |

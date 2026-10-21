@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "The `audio-uri` message (version 1.0) of the `port1/systems/zero/capability-interfaces/speech-audio-generation` capability interface, as returned by an endpoint. The header identifies the message and selects the body schema.",
+  "description": "The `audio-generated` message (version 1.0) of the `port1/systems/zero/capability-interfaces/speech-audio-generation` capability interface, as returned by an endpoint. The header identifies the message and selects the body schema.",
   "type": "object",
   "required": [
     "header",
@@ -26,7 +26,7 @@
         "name": {
           "type": "string",
           "enum": [
-            "audio-uri"
+            "audio-generated"
           ]
         },
         "version": {
@@ -46,7 +46,7 @@
       }
     },
     "body": {
-      "$ref": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessage.json"
+      "$ref": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessage.json"
     },
     "correlationToken": {
       "type": "string",

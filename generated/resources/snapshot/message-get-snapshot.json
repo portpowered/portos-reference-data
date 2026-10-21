@@ -1,4 +1,16 @@
 {
+  "description": "Request a still image from the camera. responseFormat chooses how the image comes back: URL (default) is a short-lived Port OS link, BASE64 is the image bytes inline.",
   "type": "object",
+  "properties": {
+    "responseFormat": {
+      "type": "string",
+      "description": "How a request wants binary media (audio or image) returned. URL returns a short-lived signed URL hosted by Port OS (at most 10 minutes), never the vendor's own link. BASE64 returns the bytes inline as base64 and fails with a typed error above 10 MiB, in which case use URL.",
+      "enum": [
+        "URL",
+        "BASE64"
+      ],
+      "default": "URL"
+    }
+  },
   "additionalProperties": false
 }

@@ -17,6 +17,12 @@ properties:
   maxLength:
     type: integer
     minimum: 0
+  maxPins:
+    type: integer
+    minimum: 1
+    description: >-
+      Maximum simultaneous PINs the device holds; 1 means a single-PIN lock.
+      Omitted when unknown.
   pattern:
     type: string
 additionalProperties: false

@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.25",
-  "sourceCommit": "f56eb44321f2a41857c53d8896e25baace675b6c",
+  "version": "0.5.26",
+  "sourceCommit": "869f478529d0bde958a2c9a9835ee826646635cc",
   "sourceInputState": "committed",
-  "assetSetSHA256": "783b722b9d3abc89505d7c447cd2a1cb3644d440b2978c3ea0f621c91fc79516",
+  "assetSetSHA256": "53cd23b649c63817a6c16eeb77d845ff6ddcbe4cba3d72c84d5abe94a82d42a7",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19493,
-      "sha256": "1254769e112fe237e63d3010914289365d1a840102faa94b5782e6d144a4bc2e",
+      "bytes": 19514,
+      "sha256": "eebe3bdbf8e50c6c7fffe4704afb8e44242836ca22218e4016259e89173dd2da",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -119,8 +119,8 @@
     {
       "path": "/docs/for-ai/capability-interfaces.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 20906,
-      "sha256": "3f27f7623d2c6470c473a34953655074c2cc8c66fa607ce1f8bf6b57a168b6be",
+      "bytes": 20967,
+      "sha256": "249a19fc20df6ff8552de012f190a13809689955f4063a8f1cb51799d8dba307",
       "links": [
         "/docs/for-ai/capability-interfaces/air-quality-sensor/1.0.md",
         "/docs/for-ai/capability-interfaces/alarm/1.0.md",
@@ -1164,8 +1164,8 @@
     {
       "path": "/docs/for-ai/capability-interfaces/snapshot/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 736,
-      "sha256": "636e867937e24c61350efb569295e807863f378c5bb5dff2640341ba42b68ad6",
+      "bytes": 974,
+      "sha256": "c1ed8fb77809dc894a5855680d2f22f07a99ce034841a0dda793ac27e47c93fc",
       "links": [
         "/docs/references/capability-interfaces/snapshot/1.0.yaml",
         "/docs/references/capability-interfaces/snapshot/1.0/messages/get-snapshot-response.yaml",
@@ -1211,11 +1211,11 @@
     {
       "path": "/docs/for-ai/capability-interfaces/speech-audio-generation/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 797,
-      "sha256": "11eb177ee90c3bbca5d1188c1925e080d8275a5f99c9bf5b27adcf8a2062cb09",
+      "bytes": 968,
+      "sha256": "72ed8cf5240341a8dda63fd8fa3bde4c679743f0eb3e99b294a8919c99766ec3",
       "links": [
         "/docs/references/capability-interfaces/speech-audio-generation/1.0.yaml",
-        "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/audio-uri.yaml",
+        "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/audio-generated.yaml",
         "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/generate-speech.yaml"
       ]
     },
@@ -1374,8 +1374,8 @@
     {
       "path": "/docs/for-ai/guides/cameras.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 887,
-      "sha256": "588cafd0d91b7daef28de8369fc6b54e246a513166bd43de1fa3a1525225b210",
+      "bytes": 1104,
+      "sha256": "9a1e49c41a1b9612d1edc19e703f2575b9848b41aaef8ef8f27644556338332a",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authorization-rules.md",
@@ -1735,15 +1735,15 @@
     {
       "path": "/docs/for-ai/guides/task-cameras.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3436,
-      "sha256": "17744d38be2f9a3cf43e22edd6f5e08264fb06d64e13e30a4328651f8ce2d326",
+      "bytes": 3461,
+      "sha256": "8710a32da694c708289b2cf87c06a71630c5c553253f962708a316896d2b640a",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/task-discovery.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2815,
-      "sha256": "ff96914ebd9fa6bb16f2f6b5fed6fd7405a6638fe604728c9284cfe4488e4336",
+      "bytes": 2840,
+      "sha256": "3c71d9ced8f0bf42c78b06d507557c11d42d31861d72f451e4ac5eb604e41b3c",
       "links": []
     },
     {
@@ -3161,8 +3161,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3791,
-      "sha256": "c9ef6f7cea39831dd4cc5e5b4e28bb0313e933714ff660d6c8da428e8db4c551",
+      "bytes": 3813,
+      "sha256": "5e1d28171fa8640d93fd91c3c18e15dc7d06505498f17a0173e712ccbe94e950",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3290,8 +3290,8 @@
     {
       "path": "/docs/for-ai/schemas/b-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1998,
-      "sha256": "9f16143447452d399cbfa855cb6a20c9828fcdf43dc9ea4432cebe49519bdfcf",
+      "bytes": 2085,
+      "sha256": "086d1ba89cc22f2f0dbf293537fae5bf0f6d4a197195a3a199ba6e8193a22445",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/BarrierControlInterfaceCloseMessage.json",
@@ -3306,6 +3306,7 @@
         "/docs/references/schemas/BatchMessageItem.json",
         "/docs/references/schemas/BatchOperationRequestId.json",
         "/docs/references/schemas/BatchResponseStatus.json",
+        "/docs/references/schemas/BinaryResponseFormat.json",
         "/docs/references/schemas/BrandingInformation.json",
         "/docs/references/schemas/BrightnessInterfaceAdjustBrightnessMessage.json",
         "/docs/references/schemas/BrightnessInterfaceAdjustBrightnessMessageEnvelope.json",
@@ -3669,10 +3670,11 @@
     {
       "path": "/docs/for-ai/schemas/m-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5055,
-      "sha256": "eb1e1315997cb51524740820ab03df53f699e6ddcefbe6b70da28051fcd43b25",
+      "bytes": 4979,
+      "sha256": "a8137c606f7531e5905bc79f674816ac4d54d92ed006aa74d70bf9c879a37235",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/MediaContent.json",
         "/docs/references/schemas/MediaId.json",
         "/docs/references/schemas/MediaPlayerInterfaceAudioMessage.json",
         "/docs/references/schemas/MediaPlayerInterfaceAudioMessageEnvelope.json",
@@ -3711,17 +3713,17 @@
         "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessage.json",
         "/docs/references/schemas/MediaPlayerInterfaceTransferPlaybackMessageEnvelope.json",
         "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessage.json",
-        "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessageEnvelope.json",
         "/docs/references/schemas/manufacturer.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/m-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5137,
-      "sha256": "73df52594b0a9b6bc69083a48708cbdea1b9c7657bf3d6b87f8130cf08482b1f",
+      "bytes": 5203,
+      "sha256": "5fd8026d4c4e2f87d7482d51b9b09e9f3be589cc174e2d3f23bd2d8534d34cf5",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/MediaPlaylistInterfaceAddToPlaylistMessageEnvelope.json",
         "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessage.json",
         "/docs/references/schemas/MediaPlaylistInterfaceCreatePlaylistMessageEnvelope.json",
         "/docs/references/schemas/MediaPlaylistInterfaceGetPlaylistMessage.json",
@@ -3760,18 +3762,18 @@
         "/docs/references/schemas/MessageHeader.json",
         "/docs/references/schemas/MessageTarget.json",
         "/docs/references/schemas/MessageTargetGroupRoute.json",
-        "/docs/references/schemas/MessageTargetGroupRouteReference.json",
-        "/docs/references/schemas/MessageTargetType.json"
+        "/docs/references/schemas/MessageTargetGroupRouteReference.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/m-3.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 790,
-      "sha256": "b789dee2c29cdec6cf45e26a3996f2bb7f7813bdd9804ff9db25652a592e2907",
+      "bytes": 871,
+      "sha256": "f6854431961127588dd042fbf030c018f08c5481a9f5cdb3a95c85ac68b26fa3",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/parameters/MaxResultsQuery.json",
+        "/docs/references/schemas/MessageTargetType.json",
         "/docs/references/schemas/MessageType.json",
         "/docs/references/schemas/ModifyEndpointRequest.json",
         "/docs/references/schemas/MotionSensorInterfaceMotionDetectedMessage.json",
@@ -4046,8 +4048,8 @@
     {
       "path": "/docs/for-ai/schemas/s-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4707,
-      "sha256": "4128b3c0d7991051f14842d8f5920e173a3f836f6eb1cf4e08e0edabea3c30c9",
+      "bytes": 4757,
+      "sha256": "8c27418370c463fb747a9a918207b07e15a6113f6be0d7873f4818d59308dd40",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/SceneInterfaceActivateMessage.json",
@@ -4085,25 +4087,24 @@
         "/docs/references/schemas/SnapshotInterfaceGetSnapshotMessageEnvelope.json",
         "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessage.json",
         "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessageEnvelope.json",
-        "/docs/references/schemas/SnapshotValue.json",
         "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessage.json",
         "/docs/references/schemas/SpeakerInterfaceAdjustVolumeMessageEnvelope.json",
         "/docs/references/schemas/SpeakerInterfaceSetMuteMessage.json",
+        "/docs/references/schemas/SpeakerInterfaceSetMuteMessageEnvelope.json",
         "/docs/references/schemas/serialNumber.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/s-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2180,
-      "sha256": "89839d19de17e27320a3caa64351d1bb7abaca265c82b5c4bd4c917e788b5f69",
+      "bytes": 2081,
+      "sha256": "4385daeaf0e4454ffc82f17d3dce8103a5dcad1056908403813819e29a495210",
       "links": [
         "/docs/for-ai/schemas.md",
-        "/docs/references/schemas/SpeakerInterfaceSetMuteMessageEnvelope.json",
         "/docs/references/schemas/SpeakerInterfaceSetVolumeMessage.json",
         "/docs/references/schemas/SpeakerInterfaceSetVolumeMessageEnvelope.json",
-        "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessage.json",
-        "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope.json",
+        "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessage.json",
+        "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope.json",
         "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessage.json",
         "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessageEnvelope.json",
         "/docs/references/schemas/SpeechInput.json",
@@ -4209,8 +4210,8 @@
     {
       "path": "/docs/references/capability-interfaces.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 36639,
-      "sha256": "cf2cca172c9d56cd676c40001fc9e356dacd1025b4e7f1b9a58c1bdae1a12368",
+      "bytes": 36706,
+      "sha256": "9867b71ac271eb594f5e12c1794a6450df13324bcf8f3bb01d6834766632cc93",
       "links": []
     },
     {
@@ -7216,16 +7217,16 @@
     {
       "path": "/docs/references/capability-interfaces/security-pin.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 11647,
-      "sha256": "4ea134641da103a62fd921961c2ee9873de6cb5631ccc5c6b7baabd71dccdbee",
+      "bytes": 12046,
+      "sha256": "00607990864c8f1438a77813238fa1010ccc73b0fb595fb4a97544c4fa7d2c08",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/security-pin/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/security-pin/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 11647,
-      "sha256": "4ea134641da103a62fd921961c2ee9873de6cb5631ccc5c6b7baabd71dccdbee",
+      "bytes": 12046,
+      "sha256": "00607990864c8f1438a77813238fa1010ccc73b0fb595fb4a97544c4fa7d2c08",
       "links": []
     },
     {
@@ -7238,15 +7239,15 @@
     {
       "path": "/docs/references/capability-interfaces/security-pin/1.0/attributes/pin-support.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 464,
-      "sha256": "efa46027777b38ef40c7f777d88b85ca69670b462181fbfb445c9bea6d1f3b55",
+      "bytes": 633,
+      "sha256": "db8d5e825adeeb33e1b626512ff6460007e2d5e184fe06bcd1240fccf14460d8",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/security-pin/1.0/configuration.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 578,
-      "sha256": "83b119d9762332c762ad268641bd47cefb694ec33ea1dae7855bc27f4d8033dc",
+      "bytes": 760,
+      "sha256": "7d74ae3072fa8739a9899a502fb9bf9de802d9f2a105afa6f9deb4bf48958b52",
       "links": []
     },
     {
@@ -7323,30 +7324,30 @@
     {
       "path": "/docs/references/capability-interfaces/snapshot.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1159,
-      "sha256": "255aec657652ab0c25a2df5ddd6304cc2bce834bd957a6fb1f707bf4c3488d3f",
+      "bytes": 4241,
+      "sha256": "0d8df729656179c627e70eecbbe884015109f338e495a5351f653b8a997ce30c",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/snapshot/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/snapshot/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1159,
-      "sha256": "255aec657652ab0c25a2df5ddd6304cc2bce834bd957a6fb1f707bf4c3488d3f",
+      "bytes": 4241,
+      "sha256": "0d8df729656179c627e70eecbbe884015109f338e495a5351f653b8a997ce30c",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/snapshot/1.0/messages/get-snapshot-response.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 371,
-      "sha256": "f775f25966309f435028d073d13119f988b69be200ca45d8eb25491f1321f91b",
+      "bytes": 2178,
+      "sha256": "af688ab8f84634dc1023feadf8f5034848cff4532453117349c850143ea0f918",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/snapshot/1.0/messages/get-snapshot.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 41,
-      "sha256": "bcf62b4107af9980a41558f152876d8fc3c1704bdcdfb1a9e0095c88759c3e0b",
+      "bytes": 649,
+      "sha256": "5fe0697a141803947ce1b338403d96271de607fc500d13279c9f89cba2af65ed",
       "links": []
     },
     {
@@ -7467,30 +7468,30 @@
     {
       "path": "/docs/references/capability-interfaces/speech-audio-generation.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1432,
-      "sha256": "1f39f088680a472cf4d1450f5ef1c425b49e7a9d4aef42f61aaf899bbfa783ee",
+      "bytes": 4203,
+      "sha256": "9f8f80ec16dbadf95893b08f747afce4eec5ec2230add3314ab2184351ec0b79",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/speech-audio-generation/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 1432,
-      "sha256": "1f39f088680a472cf4d1450f5ef1c425b49e7a9d4aef42f61aaf899bbfa783ee",
+      "bytes": 4203,
+      "sha256": "9f8f80ec16dbadf95893b08f747afce4eec5ec2230add3314ab2184351ec0b79",
       "links": []
     },
     {
-      "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/audio-uri.yaml",
+      "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/audio-generated.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 342,
-      "sha256": "c6177e978b074c9aa8bebdb997dfee743d4c1c37525ff5943fda62032ea1acb9",
+      "bytes": 2161,
+      "sha256": "40e97e6b9c490c8147a8953b87f5e03addb9ce406cea08765917a05c8cc99186",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/speech-audio-generation/1.0/messages/generate-speech.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 294,
-      "sha256": "40918c5569f63a4a6361441cad4a3400172e9cb821cf1e078b6a4b5782958e02",
+      "bytes": 701,
+      "sha256": "d57537c7870e2bd4c60aa6736a0ddf1981cec65d29907804bcca039f92e8ef2d",
       "links": []
     },
     {
@@ -7827,8 +7828,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 943392,
-      "sha256": "bbefd9782d6fb4992c96f9e1c93e9d43ca7b4d51f2c05e6ae2e3962550580a2e",
+      "bytes": 946482,
+      "sha256": "9507c2fdce500577258fd3c1cb5175bf9bb68594d5cd66c287f7d9f5f615168d",
       "links": []
     },
     {
@@ -8455,6 +8456,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/BinaryResponseFormat.json",
+      "contentType": "application/json",
+      "bytes": 526,
+      "sha256": "97a13ee2b7f28ed1bc1a64cf9b3518914b21da935b4a4ee081b441c09578e5b6",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/BrandingInformation.json",
       "contentType": "application/json",
       "bytes": 506,
@@ -8618,8 +8626,8 @@
     {
       "path": "/docs/references/schemas/CapabilityResponseMessage.json",
       "contentType": "application/json",
-      "bytes": 6374,
-      "sha256": "8f99946b3e495798fa0fd99e30f742d4bbe754bfccf087fc97db59ecfefccc36",
+      "bytes": 6380,
+      "sha256": "8fc43ea4f1c4086ef63f233535e9f9e6b9a358199ba3771ed4a396aa9fc53fc5",
       "links": []
     },
     {
@@ -9528,8 +9536,8 @@
     {
       "path": "/docs/references/schemas/EstablishAuthLinkRequest.json",
       "contentType": "application/json",
-      "bytes": 2818,
-      "sha256": "6727db35552487a415d295feb5d60e1f7b3e7c73502722a347c189e3026d4c61",
+      "bytes": 3054,
+      "sha256": "dfee16c85ab1e17c6b3b6496429e274e92803569eb237705ae2460bb35e9f529",
       "links": []
     },
     {
@@ -10060,8 +10068,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 196536,
-      "sha256": "f72fdeb707c48fcadc090807d5c7089dfe4f082827677f499452cec10fabfbec",
+      "bytes": 196802,
+      "sha256": "72498028ef7cef436960719d91873385bed6a437e26b09361642af4cd122081a",
       "links": []
     },
     {
@@ -10181,6 +10189,13 @@
       "contentType": "application/json",
       "bytes": 246,
       "sha256": "9b7a8446b4d68d7ad52dfc8bdc594b347de142977d70b0ac768207ff450ba577",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/MediaContent.json",
+      "contentType": "application/json",
+      "bytes": 2013,
+      "sha256": "3bddee8db1708d61cd85233022a990dc980a44d4a6bd046bd3e7bd8163ff9fea",
       "links": []
     },
     {
@@ -12328,8 +12343,8 @@
     {
       "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotMessage.json",
       "contentType": "application/json",
-      "bytes": 283,
-      "sha256": "16079937608414d18b7b3900c17e4d3536170bcf0cfbe543b1ce352b0b99f6b8",
+      "bytes": 590,
+      "sha256": "4d06cf37a74b145bc352eb6dd5661d6e1967634e4514b51cf2b2e1b478070a75",
       "links": []
     },
     {
@@ -12342,8 +12357,8 @@
     {
       "path": "/docs/references/schemas/SnapshotInterfaceGetSnapshotResponseMessage.json",
       "contentType": "application/json",
-      "bytes": 531,
-      "sha256": "ad85da9542dcab3d0ce0cef43ffcbfe67c9aca578373b94a979d60c1dda3b494",
+      "bytes": 683,
+      "sha256": "955b47a7d3670b39cbfffea2af707f42f870bda9cd34674f191f0806d28304f8",
       "links": []
     },
     {
@@ -12351,13 +12366,6 @@
       "contentType": "application/json",
       "bytes": 1529,
       "sha256": "c77baf5577d66973b132de41039f66a012e679242e6c6b1f6779c8ce05dead70",
-      "links": []
-    },
-    {
-      "path": "/docs/references/schemas/SnapshotValue.json",
-      "contentType": "application/json",
-      "bytes": 288,
-      "sha256": "3850c5672b2934f0bca1e45d460c2cd9773110e26a39b5c2bbe5e065c3b5362c",
       "links": []
     },
     {
@@ -12403,24 +12411,24 @@
       "links": []
     },
     {
-      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessage.json",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessage.json",
       "contentType": "application/json",
-      "bytes": 698,
-      "sha256": "1db6f6569be3e7f183d5ac75da3ee64ca88056c57079432bdfe5922aa1d61775",
+      "bytes": 653,
+      "sha256": "f6594fbe9ca7f78a3324892f74a7dadb6ad4359954aa6b98123def796942e071",
       "links": []
     },
     {
-      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioUriMessageEnvelope.json",
+      "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceAudioGeneratedMessageEnvelope.json",
       "contentType": "application/json",
-      "bytes": 1537,
-      "sha256": "180d413dd0d8535c84e16cb739b597048043ec4e310db85d8ae5e882ad92b103",
+      "bytes": 1555,
+      "sha256": "f59356f2690d3c02538019a3451b39832e07129f9dad1e7248ad30b3fdeee298",
       "links": []
     },
     {
       "path": "/docs/references/schemas/SpeechAudioGenerationInterfaceGenerateSpeechMessage.json",
       "contentType": "application/json",
-      "bytes": 629,
-      "sha256": "5abc2f720b55576fbbd0e3b6c35d61f4021acb4aa90d7703d8c8915778958055",
+      "bytes": 727,
+      "sha256": "e7fcff861e65e53a3d93f5cbe1744d01b3be67d88bc6ed2dc84fcf11319415a2",
       "links": []
     },
     {

@@ -76,6 +76,10 @@
       "type": "string",
       "description": "API key for service authentication (e.g. OpenRouter)"
     },
+    "personalAccessToken": {
+      "type": "string",
+      "description": "Personal access token for a plugin whose authorization variant declares the PERSONAL_ACCESS_TOKEN secret role (for example Seam). Exclusive with apiKey."
+    },
     "endpointUrl": {
       "type": "string",
       "format": "uri",

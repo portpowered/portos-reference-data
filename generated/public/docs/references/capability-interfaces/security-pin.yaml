@@ -314,6 +314,12 @@ attributes:
         maxLength:
           type: integer
           minimum: 0
+        maxPins:
+          type: integer
+          minimum: 1
+          description: >-
+            Maximum simultaneous PINs the device holds; 1 means a single-PIN lock. Omitted when
+            unknown.
         pattern:
           type: string
       additionalProperties: false
@@ -337,6 +343,12 @@ configuration:
     maxLength:
       type: integer
       minimum: 0
+    maxPins:
+      type: integer
+      minimum: 1
+      description: >-
+        Maximum simultaneous PINs the device holds; 1 means a single-PIN lock. Absent means unknown
+        or unlimited.
     pattern:
       type: string
       description: Explicit device PIN regular expression; absent means no character restriction.

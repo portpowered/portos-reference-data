@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpeechAudioGenerationInterfaceAudioGeneratedMessage",
+  "x-namespace": "port1/systems/zero/capability-interfaces/speech-audio-generation",
+  "x-name": "audio-generated",
+  "x-version": "1.0",
+  "x-type": "message",
+  "x-directionality": "out",
+  "description": "The speech audio synthesized by generate-speech, as a short-lived URL or inline base64 according to the request's responseFormat",
+  "type": "object",
+  "required": [
+    "audio"
+  ],
+  "properties": {
+    "audio": {
+      "$ref": "/docs/references/schemas/MediaContent.json"
+    }
+  },
+  "additionalProperties": false
+}
