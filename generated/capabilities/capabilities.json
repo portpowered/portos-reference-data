@@ -6935,8 +6935,112 @@
       "namespace": "port1/systems/zero/capability-interfaces/oven",
       "version": "1.0",
       "description": "Ovens report their temperature. Use the reading to show the temperature supplied by a connected appliance.",
-      "messages": [],
+      "messages": [
+        {
+          "name": "set-target-temperature",
+          "description": null,
+          "directionality": "in",
+          "schema": {
+            "type": "object",
+            "required": [
+              "targetSetpoint"
+            ],
+            "properties": {
+              "targetSetpoint": {
+                "type": "object",
+                "description": "A temperature setpoint with value and scale",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "scale": {
+                    "type": "string",
+                    "enum": [
+                      "CELSIUS",
+                      "FAHRENHEIT"
+                    ]
+                  }
+                },
+                "required": [
+                  "value",
+                  "scale"
+                ],
+                "title": "TemperatureSetpoint"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      ],
       "attributes": [
+        {
+          "name": "mode",
+          "description": null,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "operational-state",
+          "description": null,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Operational state of a device. RETURNING_TO_DOCK means a robot is driving back to its dock; DOCKED means it is on the dock and not charging; DOCK_MAINTENANCE means it is on the dock while the dock services it (emptying the dust bin, washing or drying the mop), and it does not start cleaning until that finishes.",
+                "enum": [
+                  "STOPPED",
+                  "RUNNING",
+                  "PAUSED",
+                  "ERROR",
+                  "CHARGING",
+                  "DOCKED",
+                  "RETURNING_TO_DOCK",
+                  "DOCK_MAINTENANCE"
+                ]
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "target-temperature",
+          "description": null,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "scale": {
+                "type": "string",
+                "enum": [
+                  "CELSIUS",
+                  "FAHRENHEIT"
+                ]
+              }
+            },
+            "required": [
+              "value",
+              "scale"
+            ],
+            "additionalProperties": false
+          }
+        },
         {
           "name": "temperature",
           "description": null,
@@ -6947,7 +7051,7 @@
                 "type": "number",
                 "description": "Temperature in degrees Celsius",
                 "minimum": 0,
-                "maximum": 300
+                "maximum": 600
               }
             },
             "required": [

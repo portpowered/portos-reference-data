@@ -5,7 +5,7 @@
       "type": "number",
       "description": "Temperature in degrees Celsius",
       "minimum": 0,
-      "maximum": 300
+      "maximum": 600
     }
   },
   "required": [

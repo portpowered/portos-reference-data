@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number"
+    },
+    "scale": {
+      "type": "string",
+      "enum": [
+        "CELSIUS",
+        "FAHRENHEIT"
+      ]
+    }
+  },
+  "required": [
+    "value",
+    "scale"
+  ],
+  "additionalProperties": false
+}

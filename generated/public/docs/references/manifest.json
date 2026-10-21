@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.24",
-  "sourceCommit": "405a1c71a4cd94fe715f3c71f02f9d5bfe873145",
+  "version": "0.5.25",
+  "sourceCommit": "f56eb44321f2a41857c53d8896e25baace675b6c",
   "sourceInputState": "committed",
-  "assetSetSHA256": "1bbc4a34deb6b9a0b8517f3a75809923db223a13296241954df83aa0ff9b8f92",
+  "assetSetSHA256": "783b722b9d3abc89505d7c447cd2a1cb3644d440b2978c3ea0f621c91fc79516",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -869,11 +869,15 @@
     {
       "path": "/docs/for-ai/capability-interfaces/oven/1.0.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 483,
-      "sha256": "5ebb04577198bcd10ace4d1ef4579857bed33fbaae8f68ddce6f7c4795abd987",
+      "bytes": 924,
+      "sha256": "4aec6d227139ecf9379dc4313273cd1dcb5a34b23277b08c60148b1bf200d640",
       "links": [
         "/docs/references/capability-interfaces/oven/1.0.yaml",
-        "/docs/references/capability-interfaces/oven/1.0/attributes/temperature.yaml"
+        "/docs/references/capability-interfaces/oven/1.0/attributes/mode.yaml",
+        "/docs/references/capability-interfaces/oven/1.0/attributes/operational-state.yaml",
+        "/docs/references/capability-interfaces/oven/1.0/attributes/target-temperature.yaml",
+        "/docs/references/capability-interfaces/oven/1.0/attributes/temperature.yaml",
+        "/docs/references/capability-interfaces/oven/1.0/messages/set-target-temperature.yaml"
       ]
     },
     {
@@ -6323,23 +6327,51 @@
     {
       "path": "/docs/references/capability-interfaces/oven.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 691,
-      "sha256": "063edab799eb036655458b657b50311f894ad98b7678a48aeea7c3b999fee3b7",
+      "bytes": 2622,
+      "sha256": "a009951b1150558311b46e90498d9eeba7196f4ca92dfdf6b410cfef980374c0",
       "links": [],
       "aliasOf": "/docs/references/capability-interfaces/oven/1.0.yaml"
     },
     {
       "path": "/docs/references/capability-interfaces/oven/1.0.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 691,
-      "sha256": "063edab799eb036655458b657b50311f894ad98b7678a48aeea7c3b999fee3b7",
+      "bytes": 2622,
+      "sha256": "a009951b1150558311b46e90498d9eeba7196f4ca92dfdf6b410cfef980374c0",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven/1.0/attributes/mode.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 116,
+      "sha256": "bd62b2205b18efa8469579eefa85994f3397effa97f84db02512d56fc3a16c3d",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven/1.0/attributes/operational-state.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 616,
+      "sha256": "ff17f47f52124d981cc97f9bf83917315dbeb2a12bec2b9e2ece48335d09f7f4",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven/1.0/attributes/target-temperature.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 180,
+      "sha256": "e1030af37b893bb2cb95a4df184cc3870f5cbc7e326354376766c909c37ec962",
       "links": []
     },
     {
       "path": "/docs/references/capability-interfaces/oven/1.0/attributes/temperature.yaml",
       "contentType": "application/yaml; charset=utf-8",
       "bytes": 179,
-      "sha256": "8b341e68262b463ab5f30279f2f0eef89fd315206c1f903eb8834977b0956eeb",
+      "sha256": "97af4a054bb307bdab20661b80dcb4069debae66029c69df3124bd73707f2641",
+      "links": []
+    },
+    {
+      "path": "/docs/references/capability-interfaces/oven/1.0/messages/set-target-temperature.yaml",
+      "contentType": "application/yaml; charset=utf-8",
+      "bytes": 392,
+      "sha256": "7590be2daf82b8733212c6a984e1483e091c7be623cea5f953c7f87b83bd63f5",
       "links": []
     },
     {
@@ -7795,8 +7827,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 942595,
-      "sha256": "94a4223abc18a4edacc43c2ff809df9cd66d2b178a13f5f8574fbe7b19de5405",
+      "bytes": 943392,
+      "sha256": "bbefd9782d6fb4992c96f9e1c93e9d43ca7b4d51f2c05e6ae2e3962550580a2e",
       "links": []
     },
     {
@@ -9153,8 +9185,8 @@
     {
       "path": "/docs/references/schemas/Endpoint.json",
       "contentType": "application/json",
-      "bytes": 2772,
-      "sha256": "f41d6c7003553670e3e3e90fa11917a0e2b647a0f6088576f83d199aace8998e",
+      "bytes": 3518,
+      "sha256": "ba68df65963c9e5d83bf87cd22e187098796d01428bf3af821ec3279adb23afc",
       "links": []
     },
     {

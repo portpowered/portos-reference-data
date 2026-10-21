@@ -18889,6 +18889,19 @@
               }
             ]
           },
+          "parentEndpointId": {
+            "type": "string",
+            "description": "The endpoint this endpoint is part of, when a provider reports it as a component of another endpoint (for example a SmartThings oven cavity of its range). Derived from `IS_PART_OF` relationships between routes; when routes disagree the lowest parent endpoint ID is returned. Absent when the endpoint has no parent.",
+            "pattern": "^port1/[^/]+/[^/]+/endpoints/[^/]+$"
+          },
+          "childEndpointIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^port1/[^/]+/[^/]+/endpoints/[^/]+$"
+            },
+            "description": "The IDs of the endpoints that are part of this endpoint, sorted. Absent when the endpoint has no children."
+          },
           "resourceGroups": {
             "type": "array",
             "items": {
