@@ -20,6 +20,20 @@
     "setupPrompt": null
   },
   {
+    "id": "alexa",
+    "title": "Connect Amazon Alexa",
+    "contentAuthorship": "HUMAN_MIXED_WITH_AI",
+    "description": "Use this guide when the customer wants to link an Amazon Alexa account to control Alexa-connected devices, or sees an Alexa \"reconnect and choose the region\" error.",
+    "group": "skills/setup",
+    "skillId": "connect-alexa",
+    "capabilities": [
+      "power"
+    ],
+    "slug": "alexa",
+    "content": "# Connect Amazon Alexa\n\nLink your Amazon account to Port OS to control the devices your Alexa account can see and to read their state. You link with a short code: Port OS shows a code, you enter it on Amazon's own page, and Amazon tells Port OS the link is approved. Port OS never sees your Amazon password.\n\nYou must choose a region when you connect. Port OS never picks one for you, because each Amazon marketplace belongs to one regional Alexa service, and an account is only known to the region of its marketplace.\n\n## Choose your region [#region]\n\nChoose the region of the Amazon marketplace you sign in to for Alexa, the site you use to open the Alexa app or shop.\n\n| Region | Choose it when your Amazon site is |\n| --- | --- |\n| `na` | amazon.com, and also amazon.ca, amazon.com.mx and amazon.com.br |\n| `eu` | amazon.co.uk and the European marketplaces such as amazon.de, amazon.fr, amazon.it, amazon.es, amazon.nl, amazon.se, amazon.pl and amazon.ie, plus amazon.com.tr, amazon.ae, amazon.sa and amazon.eg |\n| `fe` | amazon.co.jp |\n\nOnly these marketplaces are supported. Other Amazon marketplaces, such as amazon.in, amazon.com.au and amazon.sg, are not supported, and no region will connect them.\n\nThe region also decides which Amazon page you enter the code on: the `/code` page of your own marketplace's Amazon site, for example amazon.com for `na`, amazon.co.uk for `eu` and amazon.co.jp for `fe`. The connect screen shows the page for the region you choose.\n\n## Connect\n\n1. Open the Alexa connect screen in Port OS.\n2. Choose your region from the list.\n3. Port OS shows a code and the Amazon page for your region. Open that page, sign in and enter the code.\n4. Return to Port OS. Port OS checks which marketplace your account belongs to, then lists your devices and shows Alexa as connected.\n\n## Existing connections\n\nConnections made before regions existed are moved to `na`, the only region Port OS could reach then, the next time the server starts. If your Amazon account is on another marketplace, delete the connection and connect again with the right region. A connection keeps its region: to change it, connect again.\n\n## Troubleshooting\n\n- **\"This Amazon account belongs to the eu region, not the na region it was linked with; reconnect and choose the eu region.\"** (the region names change to match your account). Amazon reported that your account lives on a different marketplace than the region you chose. Nothing was connected. Start again and choose the region the message names.\n- **\"This Amazon account is served from outside the na region; reconnect and choose the region that matches your Amazon account.\"** The account's marketplace is not one the chosen region serves. Start again and choose the region of the Amazon site you use for Alexa.\n- **\"Alexa requires a regionalization\".** The connect request named no region. Choose one from the list.\n- **\"Unknown Alexa regionalization\".** The region is not `na`, `eu` or `fe`. Choose from the list.\n- **The code is rejected or has expired.** Codes are short-lived. Start the connection again to get a new one, and enter it on the Amazon page for your region.\n- **`AUTH_LINK_NOT_READY`.** The connection has no valid region stored. Delete it and connect again, choosing a region.\n",
+    "setupPrompt": null
+  },
+  {
     "id": "authentication-and-dcr",
     "title": "Authentication and dynamic client registration",
     "contentAuthorship": "HUMAN_MIXED_WITH_AI",
@@ -333,6 +347,23 @@
       "temperature-sensor"
     ],
     "content": "# Control thermostat settings\n\nDiscover the intended thermostat and its declared capabilities from [the directory](/docs/for-ai/capability-interfaces.md). Retrieve the exact setpoint/mode schema before sending. Preserve declared units, supported mode names and temperature bounds; never assume Celsius/Fahrenheit.\n\nUse [authorized REST dispatch](/docs/for-ai/guides/quickstart.md). Read fresh mode/setpoint/temperature observations after the command. A committed target setting does not prove the room has reached that temperature. Report delayed or unavailable observations honestly and do not repeat relative adjustments after an unknown response.\n",
+    "setupPrompt": null
+  },
+  {
+    "id": "tplink",
+    "title": "Connect TP-Link Kasa",
+    "contentAuthorship": "HUMAN_MIXED_WITH_AI",
+    "description": "Use this guide when the customer wants to link a TP-Link Kasa account to control Kasa smart plugs and bulbs, or sees a TP-Link \"reconnect and choose the region\" error.",
+    "group": "skills/setup",
+    "skillId": "connect-tplink",
+    "capabilities": [
+      "power",
+      "brightness",
+      "color",
+      "color-temperature"
+    ],
+    "slug": "tplink",
+    "content": "# Connect TP-Link Kasa\n\nLink your TP-Link Kasa account to Port OS to turn Kasa plugs and bulbs on and off and to set brightness, colour and colour temperature. You sign in with your own TP-Link email and password, and with the verification code TP-Link sends if your account asks for one. Port OS stores the resulting session token, not your password.\n\nYou must choose a region when you connect. Port OS never picks one for you, because TP-Link keeps each account on one regional cloud and a session from one region is not accepted by another.\n\n## Choose your region [#region]\n\nChoose the region your TP-Link Kasa account is in. This guide covers Kasa only, not Tapo.\n\n| Region | Choose it when your account is in |\n| --- | --- |\n| `us` | The United States, and other countries TP-Link serves from its US cloud |\n| `eu` | Europe, served from TP-Link's EU cloud |\n| `apac` | Asia Pacific, served from TP-Link's Asia Pacific cloud |\n| `global` | Only if TP-Link support told you your account is on the global cloud |\n\nIf you are not sure, pick one and connect. If your account is in a different region, Port OS tells you it \"returned a device served from outside\" the region you chose and to \"reconnect and choose the region that matches your TP-Link account\". Connect again with another region until the error stops.\n\n## Connect\n\n1. Open the TP-Link connect screen in Port OS.\n2. Choose your region from the list.\n3. Enter your TP-Link email and password, and choose Connect.\n4. If TP-Link asks for a verification code, enter the code it sends you.\n5. Port OS lists your plugs and bulbs and shows TP-Link as connected.\n\n## Existing connections\n\nConnections made before regions existed are moved to `us`, the only region Port OS could reach then, the next time the server starts. If your account is in another region, delete the connection and connect again with the right region. A connection keeps its region: to change it, connect again.\n\n## Troubleshooting\n\n- **\"TP-Link returned a device served from outside the us region; reconnect and choose the region that matches your TP-Link account.\"** (the name of your chosen region appears in place of `us`). TP-Link answered from a different regional cloud than the one you chose, so your account is in another region. Delete the connection, connect again and choose the region of your account.\n- **\"regionalizationId is required\".** The connect request named no region. Choose one from the list.\n- **\"Unknown TP-Link regionalization\".** The region is not one of `us`, `eu`, `apac` or `global`. Choose from the list.\n- **The sign-in is refused or the code is rejected.** Check the email and password in the Kasa app, and enter the newest verification code.\n- **`AUTH_LINK_NOT_READY`.** The connection has no valid region stored. Delete it and connect again, choosing a region.\n",
     "setupPrompt": null
   },
   {

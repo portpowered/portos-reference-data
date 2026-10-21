@@ -19,6 +19,14 @@
         "~self"
       ],
       "description": "Start linking for the authenticated Port OS principal."
+    },
+    "authorizationVariantId": {
+      "type": "string",
+      "description": "Authorization variant being established. Optional when the plugin has one variant."
+    },
+    "regionalizationId": {
+      "type": "string",
+      "description": "Regionalization being established. Optional only when the chosen variant allows exactly one. The completing code exchange resolves its own selection."
     }
   }
 }

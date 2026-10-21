@@ -34,7 +34,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:status, query:pluginId, query:expand, query:nextToken, query:maxResults | — |
 | [POST /auth-links](/docs/for-ai/operations/upsertAuthLink.md) | OAuth (no scope) | — | authLink |
 | [DELETE /auth-links](/docs/for-ai/operations/deleteAuthLink.md) | OAuth (no scope) | — | id |
-| [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, endpointUrl, oauthTokens, pluginId, usernamePassword |
+| [POST /auth-links/establish](/docs/for-ai/operations/establishAuthLink.md) | See session/security contract | — | apiKey, applePushNotificationDeviceToken, authLinkId, authorizationVariantId, endpointUrl, oauthTokens, pluginId, regionalizationId, usernamePassword |
 | [GET /auth-links/oauth-client-credentials](/docs/for-ai/operations/enumerateAuthLinkClientCredentials.md) | OAuth (no scope) | query:pluginId (required), query:maxResults, query:nextToken | — |
 | [POST /auth-links/refresh](/docs/for-ai/operations/refreshAuthLinkToken.md) | See session/security contract | — | authLinkId |
 | [POST /auth/callback](/docs/for-ai/operations/handleOAuthCallback.md) | Public | — | code, id_token, state, user |
@@ -74,9 +74,9 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [POST /oauth/authorize](/docs/for-ai/operations/completeOAuthConsent.md) | See session/security contract | — | approved, request_id, scope |
 | [POST /oauth/register](/docs/for-ai/operations/registerDynamicOAuthClient.md) | Public | — | client_name, client_uri, grant_types, redirect_uris, response_types, scope, software_id, software_statement, software_version, token_endpoint_auth_method |
 | [GET /ping](/docs/for-ai/operations/ping.md) | Public | — | — |
-| [POST /plugin-auth-code-exchange](/docs/for-ai/operations/pluginAuthCodeExchange.md) | OAuth (no scope) | — | authLinkId, pluginAuthenticationData, pluginId, principalId |
-| [POST /plugin-auth-code-link](/docs/for-ai/operations/pluginAuthCodeLink.md) | OAuth (no scope) | — | pluginId, principalId |
-| [POST /plugin-auth-multifactor-exchange](/docs/for-ai/operations/pluginAuthMultifactorExchange.md) | OAuth (no scope) | — | pluginAuthenticationData, pluginId, principalId |
+| [POST /plugin-auth-code-exchange](/docs/for-ai/operations/pluginAuthCodeExchange.md) | OAuth (no scope) | — | authLinkId, authorizationVariantId, pluginAuthenticationData, pluginId, principalId, regionalizationId |
+| [POST /plugin-auth-code-link](/docs/for-ai/operations/pluginAuthCodeLink.md) | OAuth (no scope) | — | authorizationVariantId, pluginId, principalId, regionalizationId |
+| [POST /plugin-auth-multifactor-exchange](/docs/for-ai/operations/pluginAuthMultifactorExchange.md) | OAuth (no scope) | — | authorizationVariantId, pluginAuthenticationData, pluginId, principalId, regionalizationId |
 | [POST /plugin-oauth-authorization-completions](/docs/for-ai/operations/completePluginOAuthAuthorization.md) | OAuth (no scope) | header:Idempotency-Key (required) | authLinkId, code, pluginId, redirectUri, state |
 | [POST /plugin-oauth-authorizations](/docs/for-ai/operations/beginPluginOAuthAuthorization.md) | OAuth (no scope) | header:Idempotency-Key (required) | authLinkId, pluginId, redirectUri |
 | [GET /plugins](/docs/for-ai/operations/enumeratePlugins.md) | OAuth (no scope) | query:expand, query:id, query:nextToken, query:maxResults | — |

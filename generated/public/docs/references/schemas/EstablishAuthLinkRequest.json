@@ -13,6 +13,18 @@
       "type": "string",
       "description": "The plugin to associate with this auth link"
     },
+    "authorizationVariantId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+      "maxLength": 63,
+      "description": "The plugin authorization variant a new link uses. Required when the plugin declares more than one variant. A renewal (an existing authLinkId) must omit it or repeat the stored value; a different value is a 400, because changing variant requires connecting a new link."
+    },
+    "regionalizationId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$",
+      "maxLength": 63,
+      "description": "The plugin regionalization a new link targets. Required when the chosen variant declares more than one regionalization. A renewal (an existing authLinkId) must omit it or repeat the stored value; a different value is a 400, because changing region requires connecting a new link."
+    },
     "applePushNotificationDeviceToken": {
       "type": "string",
       "description": "Device token for Apple Push Notification Service"

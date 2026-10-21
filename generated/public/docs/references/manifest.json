@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.15",
-  "sourceCommit": "68a7587ea9d23b420b9e5ef73fb87bdd81f1e5f1",
+  "version": "0.5.16",
+  "sourceCommit": "5ec4e7b1c9829ca83d6e93ece3799e114c8f23dd",
   "sourceInputState": "committed",
-  "assetSetSHA256": "7943a1fe473bcbbb8e59c12613a5b9ed94ebeecb835596e67307c1aa8ff94600",
+  "assetSetSHA256": "4c5ce12b4840464fd7ce43c260a0c5e5d71cc298ea8d6ee95837408962c98a4e",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19095,
-      "sha256": "3682ea3e38fe62fb9b826f807791497e98043f39b7a8103b169fc3fc0bb675a1",
+      "bytes": 19267,
+      "sha256": "608c38a96a7b0e8a0125a627e3c4147407aad4068499eb52203780e76c88f9fd",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -1335,6 +1335,13 @@
       ]
     },
     {
+      "path": "/docs/for-ai/guides/alexa.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3259,
+      "sha256": "0b8b4f18ed4731ee590002a670ff6a9a910559805e811590fb8bbd1d7bae8b62",
+      "links": []
+    },
+    {
       "path": "/docs/for-ai/guides/authentication-and-dcr.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 20231,
@@ -1455,11 +1462,12 @@
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3807,
-      "sha256": "48eb0a8a35892695e63d4ccb28e5cfd9b85eb688507a5d21662dcf7587400c6a",
+      "bytes": 3918,
+      "sha256": "1a7eb6763de612c6fd005be4d5be6301ece1c39fabfbfdc8304eb22e66d1b5cd",
       "links": [
         "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
+        "/docs/for-ai/guides/alexa.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",
         "/docs/for-ai/guides/cameras.md",
@@ -1500,6 +1508,7 @@
         "/docs/for-ai/guides/task-rooms.md",
         "/docs/for-ai/guides/task-temperature.md",
         "/docs/for-ai/guides/thermostats.md",
+        "/docs/for-ai/guides/tplink.md",
         "/docs/for-ai/guides/troubleshooting.md",
         "/docs/for-ai/guides/using-the-api.md",
         "/docs/for-ai/guides/vacuums.md"
@@ -1787,6 +1796,13 @@
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/quickstart.md"
       ]
+    },
+    {
+      "path": "/docs/for-ai/guides/tplink.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 2824,
+      "sha256": "f0d434d37e28889dfa65ea90e8489984797e278f625581f7bf120c9b0557bb7b",
+      "links": []
     },
     {
       "path": "/docs/for-ai/guides/troubleshooting.md",
@@ -7203,8 +7219,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 491530,
-      "sha256": "b43fd0cb3071d12831b4dfdb9dbb2851f2b82f6fadf5162d5f3011ea5de48136",
+      "bytes": 494265,
+      "sha256": "cf06b56f6a941ee6bc6f8531138e0cc9749284490f0889191dcd2f7012902150",
       "links": []
     },
     {
@@ -8001,8 +8017,8 @@
     {
       "path": "/docs/references/schemas/EstablishAuthLinkRequest.json",
       "contentType": "application/json",
-      "bytes": 1965,
-      "sha256": "aa7e8122c8f885ab1abd24ff33c85ad72051cff8f2065b419abc36f1075a4471",
+      "bytes": 2818,
+      "sha256": "6727db35552487a415d295feb5d60e1f7b3e7c73502722a347c189e3026d4c61",
       "links": []
     },
     {
@@ -8414,15 +8430,15 @@
     {
       "path": "/docs/references/schemas/PluginAuthCodeExchangeRequest.json",
       "contentType": "application/json",
-      "bytes": 1068,
-      "sha256": "3e4a82d7351634537a69b88b0f218dacd4933d3bcc195b9a2cb6e44a70376465",
+      "bytes": 1620,
+      "sha256": "73ea50fb2b8c5173fa8d0435cbfb145452da9a0b9f98a3de696b374e9f90a06a",
       "links": []
     },
     {
       "path": "/docs/references/schemas/PluginAuthCodeLinkRequest.json",
       "contentType": "application/json",
-      "bytes": 568,
-      "sha256": "f450a54f2af33f858a5fcc49708684511f14ae776efee2c83445758b789a3036",
+      "bytes": 968,
+      "sha256": "b2e4138464044e2400ce01b322801a9e10a5dc4937bffa5548c3f068ebe94ac6",
       "links": []
     },
     {
@@ -8435,8 +8451,8 @@
     {
       "path": "/docs/references/schemas/PluginAuthMultifactorExchangeRequest.json",
       "contentType": "application/json",
-      "bytes": 804,
-      "sha256": "b7a6f5e5fb2dca5fb903c5f59551e553eaa7d74ad05a12959ac5f21a74a8f273",
+      "bytes": 1356,
+      "sha256": "9239070675d5a166f8ad8fdf569b26236cc545defb126e0691bcd36c3a77c358",
       "links": []
     },
     {
@@ -8498,8 +8514,8 @@
     {
       "path": "/docs/references/schemas/PluginInvocationContext.json",
       "contentType": "application/json",
-      "bytes": 947,
-      "sha256": "c9d6a5d8aa4a9720cd2d24b4dfc68ba6f453b740d78bb5c9df1e45bb8656aef2",
+      "bytes": 1135,
+      "sha256": "f41fbd7feddb92a53fdef59cd2a69992ee30cfb8965de9b77e6b6107f64c490a",
       "links": []
     },
     {

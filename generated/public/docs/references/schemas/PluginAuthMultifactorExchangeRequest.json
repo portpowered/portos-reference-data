@@ -15,6 +15,14 @@
       "type": "string",
       "description": "The ID of the principal to setup the auth link for, or alternatively ~self, when the target is the current user principal."
     },
+    "authorizationVariantId": {
+      "type": "string",
+      "description": "Authorization variant being established. Optional when the plugin has one variant; a renewal keeps the link's stored variant and rejects a different one."
+    },
+    "regionalizationId": {
+      "type": "string",
+      "description": "Regionalization being established. Optional only when the chosen variant allows exactly one; a renewal keeps the link's stored regionalization and rejects a different one. Changing region or variant requires connecting a new link."
+    },
     "pluginAuthenticationData": {
       "type": "object",
       "additionalProperties": true,
