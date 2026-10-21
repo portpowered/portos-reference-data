@@ -15,7 +15,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [GET /.well-known/oauth-protected-resource](/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md) | Public | — | — |
 | [GET /.well-known/oauth-protected-resource/mcp](/docs/for-ai/operations/getMCPOAuthProtectedResourceMetadata.md) | Public | — | — |
 | [DELETE /{namespace}/{principalType}/{principalId}](/docs/for-ai/operations/deletePrincipal.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required) | — |
-| [DELETE /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}](/docs/for-ai/operations/deleteAccessControlRule.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:ruleId (required), query:reason | — |
+| [DELETE /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}](/docs/for-ai/operations/deleteAccessControlRule.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:ruleId (required), query:reason, header:If-Match | — |
 | [POST /{namespace}/{principalType}/{principalId}/auth-links/{authLinkId}/update-draft](/docs/for-ai/operations/updateAuthLinkDraft.md) | OAuth (no scope) | path:namespace (required), path:principalType (required), path:principalId (required), path:authLinkId (required), header:If-Match (required) | oauthClient, providerConfiguration, regionalizationId |
 | [GET /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}](/docs/for-ai/operations/getEndpointGroup.md) | group:read | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), query:expand, query:forceDeviceAttributeQuery | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/endpoint-groups/{groupId}](/docs/for-ai/operations/deleteEndpointGroup.md) | group:manage | path:namespace (required), path:principalType (required), path:principalId (required), path:groupId (required), header:If-Match (required) | — |
@@ -28,7 +28,8 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [DELETE /{namespace}/{principalType}/{principalId}/subscriptions/{subscriptionId}](/docs/for-ai/operations/deleteSubscription.md) | subscription:write | path:namespace (required), path:principalType (required), path:principalId (required), path:subscriptionId (required) | — |
 | [DELETE /{namespace}/{principalType}/{principalId}/tokens/{tokenId}](/docs/for-ai/operations/invalidateToken.md) | OAuth (no scope) | path:tokenId (required), path:namespace (required), path:principalType (required), path:principalId (required) | — |
 | [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md) | OAuth (no scope) | query:owner, query:id, query:operation, query:resource, query:identity, query:nextToken, query:maxResults, query:expand | — |
-| [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md) | OAuth (no scope) | — | conditions, effect, id, identity, operation, reason, resource |
+| [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md) | OAuth (no scope) | header:If-Match | conditions, effect, id, identity, operation, reason, resource |
+| [GET /access-control-rules/audit](/docs/for-ai/operations/getAccessControlRuleAudit.md) | OAuth (no scope) | query:ruleId, query:actorPrincipal, query:resource, query:operation, query:since, query:until, query:nextToken, query:maxResults | — |
 | [POST /access-control-rules/evaluate](/docs/for-ai/operations/evaluateAccessControlRule.md) | OAuth (no scope) | — | entities, operation, operationContext, requesterContext, resourceContext |
 | [POST /auth-link-drafts](/docs/for-ai/operations/createAuthLinkDraft.md) | OAuth (no scope) | header:Idempotency-Key (required) | authorizationVariantId, oauthClient, pluginId, providerConfiguration, regionalizationId |
 | [GET /auth-links](/docs/for-ai/operations/enumerateAuthLinks.md) | OAuth (no scope) | query:status, query:pluginId, query:expand, query:nextToken, query:maxResults | — |
@@ -91,6 +92,7 @@ To request the complete rendered catalog, fetch `/api/?full=1` with an HTML-comp
 | [DELETE /port1/{principalType}/{principalId}/secrets/{secretId}](/docs/for-ai/operations/deleteSecret.md) | OAuth (no scope) | path:principalType (required), path:principalId (required), path:secretId (required) | — |
 | [GET /principals](/docs/for-ai/operations/enumeratePrincipals.md) | OAuth (no scope) | query:owner, query:id, query:expand, query:nextToken, query:maxResults | — |
 | [POST /principals](/docs/for-ai/operations/upsertPrincipal.md) | OAuth (no scope) | — | item |
+| [GET /ready](/docs/for-ai/operations/getReadiness.md) | Public | — | — |
 | [GET /relationships](/docs/for-ai/operations/enumerateRelationships.md) | group:read | query:owner, query:groupId, query:routeId, query:endpointId, query:vertexId, query:parentId, query:type, query:nextToken, query:maxResults, query:expand | — |
 | [GET /routes](/docs/for-ai/operations/getRoutes.md) | endpoint:read | query:owner, query:expand, query:nextToken, query:maxResults | — |
 | [POST /routes](/docs/for-ai/operations/upsertRoute.md) | endpoint:write | — | endpointId, id, interfaces, metadata, pluginId |

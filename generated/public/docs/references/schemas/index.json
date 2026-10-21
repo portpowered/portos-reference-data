@@ -45,6 +45,24 @@
     },
     {
       "kind": "schemas",
+      "name": "AccessControlRuleAuditAction",
+      "path": "/docs/references/schemas/AccessControlRuleAuditAction.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRuleAuditAction"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlRuleAuditEntry",
+      "path": "/docs/references/schemas/AccessControlRuleAuditEntry.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRuleAuditEntry"
+    },
+    {
+      "kind": "schemas",
+      "name": "AccessControlRuleAuditResult",
+      "path": "/docs/references/schemas/AccessControlRuleAuditResult.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRuleAuditResult"
+    },
+    {
+      "kind": "schemas",
       "name": "AccessControlRuleCondition",
       "path": "/docs/references/schemas/AccessControlRuleCondition.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AccessControlRuleCondition"
@@ -276,6 +294,12 @@
       "name": "AuthLinkReadiness",
       "path": "/docs/references/schemas/AuthLinkReadiness.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkReadiness"
+    },
+    {
+      "kind": "schemas",
+      "name": "AuthLinkRepairReason",
+      "path": "/docs/references/schemas/AuthLinkRepairReason.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/AuthLinkRepairReason"
     },
     {
       "kind": "schemas",
@@ -1797,6 +1821,12 @@
     },
     {
       "kind": "schemas",
+      "name": "GetAccessControlRuleAuditResponse",
+      "path": "/docs/references/schemas/GetAccessControlRuleAuditResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/GetAccessControlRuleAuditResponse"
+    },
+    {
+      "kind": "schemas",
       "name": "GetAccessControlRulesResponse",
       "path": "/docs/references/schemas/GetAccessControlRulesResponse.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/GetAccessControlRulesResponse"
@@ -2970,6 +3000,18 @@
       "name": "QueryComparator",
       "path": "/docs/references/schemas/QueryComparator.json",
       "source": "/docs/references/openapi.yaml#/components/schemas/QueryComparator"
+    },
+    {
+      "kind": "schemas",
+      "name": "ReadinessResponse",
+      "path": "/docs/references/schemas/ReadinessResponse.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ReadinessResponse"
+    },
+    {
+      "kind": "schemas",
+      "name": "ReadinessStatus",
+      "path": "/docs/references/schemas/ReadinessStatus.json",
+      "source": "/docs/references/openapi.yaml#/components/schemas/ReadinessStatus"
     },
     {
       "kind": "schemas",

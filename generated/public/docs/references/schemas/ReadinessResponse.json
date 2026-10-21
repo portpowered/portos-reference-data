@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Readiness of the server and the key that currently signs new tokens.",
+  "required": [
+    "status",
+    "signingKeyId"
+  ],
+  "properties": {
+    "status": {
+      "$ref": "/docs/references/schemas/ReadinessStatus.json"
+    },
+    "signingKeyId": {
+      "type": "string",
+      "description": "Key ID (`kid`) of the key that signs new tokens, as published in the JWKS.",
+      "example": "pilot-2"
+    }
+  }
+}

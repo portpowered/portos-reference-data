@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Readiness of the server. `READY` means the server can sign tokens.",
+  "enum": [
+    "READY"
+  ],
+  "x-enum-varnames": [
+    "ReadinessStatusReady"
+  ]
+}

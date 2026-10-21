@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "description": "Why the auth link migration could not repair a link stored by an earlier version. A link with a repair reason reports NEEDS_REPAIR until its owner renews it through establish-link (or deletes and reconnects it), which clears the reason. UNRESOLVABLE_PLUGIN: the link's plugin is unknown. AMBIGUOUS_VARIANT: no single authorization variant of the plugin matches the secrets the link holds. AMBIGUOUS_REGION: the variant offers several regionalizations and the link stored none of them. UNCLASSIFIED_SECRET: a secret has no role, a missing or unknown type, or the same role as another secret. CORRUPT_FIELDS: the stored link fields cannot be read.",
+  "enum": [
+    "UNRESOLVABLE_PLUGIN",
+    "AMBIGUOUS_VARIANT",
+    "AMBIGUOUS_REGION",
+    "UNCLASSIFIED_SECRET",
+    "CORRUPT_FIELDS"
+  ],
+  "x-enum-varnames": [
+    "AuthLinkRepairReasonUnresolvablePlugin",
+    "AuthLinkRepairReasonAmbiguousVariant",
+    "AuthLinkRepairReasonAmbiguousRegion",
+    "AuthLinkRepairReasonUnclassifiedSecret",
+    "AuthLinkRepairReasonCorruptFields"
+  ]
+}

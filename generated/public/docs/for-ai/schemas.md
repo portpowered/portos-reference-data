@@ -4,8 +4,8 @@ Start with [the REST operation directory](/docs/for-ai/operations/index.md) and 
 
 ## Find a component by name
 
-- [AccessControlConditionComparator – AudioUriSourceType](/docs/for-ai/schemas/a-1.md) (40 components)
-- [AuthLink – AuthResourceType](/docs/for-ai/schemas/a-2.md) (26 components)
+- [AccessControlConditionComparator – AttributeSchema](/docs/for-ai/schemas/a-1.md) (40 components)
+- [AttributeSelection – AuthResourceType](/docs/for-ai/schemas/a-2.md) (30 components)
 - [BarrierControlInterfaceCloseMessage – BrightnessInterfaceSetBrightnessMessageEnvelope](/docs/for-ai/schemas/b-1.md) (17 components)
 - [CalendarEvent – ContactsProviderInterfaceListContactsMessageEnvelope](/docs/for-ai/schemas/c-1.md) (40 components)
 - [ContactsProviderInterfaceListContactsResponseMessage – CustomPluginSecret](/docs/for-ai/schemas/c-2.md) (40 components)
@@ -14,7 +14,7 @@ Start with [the REST operation directory](/docs/for-ai/operations/index.md) and 
 - [EnumerateSubscriptionsResponse – ETag](/docs/for-ai/schemas/e-2.md) (34 components)
 - [FanControlInterfaceSetModeMessage – FlowsInterfaceMessageUnackMessage](/docs/for-ai/schemas/f-1.md) (40 components)
 - [FlowsInterfaceMessageUnackMessageEnvelope – FlowsInterfaceTerminateMessageEnvelope](/docs/for-ai/schemas/f-2.md) (9 components)
-- [GenerateOAuthClientSecretResponse – GroupRoutesList](/docs/for-ai/schemas/g-1.md) (7 components)
+- [GenerateOAuthClientSecretResponse – GroupRoutesList](/docs/for-ai/schemas/g-1.md) (8 components)
 - [HostedComputePlugin – HttpPlugin](/docs/for-ai/schemas/h-1.md) (3 components)
 - [InputInterfaceNavigateInputMessage – IfMatch](/docs/for-ai/schemas/i-1.md) (9 components)
 - [KeypadInputInterfaceSendKeyMessage – KeypadInputInterfaceSendKeyMessageEnvelope](/docs/for-ai/schemas/k-1.md) (2 components)
@@ -27,9 +27,9 @@ Start with [the REST operation directory](/docs/for-ai/operations/index.md) and 
 - [PaginationContext – PluginTokenResult](/docs/for-ai/schemas/p-1.md) (40 components)
 - [PluginType – PumpConfigurationAndControlInterfaceSetSpeedMessageEnvelope](/docs/for-ai/schemas/p-2.md) (21 components)
 - [Query – QueryComparator](/docs/for-ai/schemas/q-1.md) (2 components)
-- [Recording – RemoteControlInterfaceMoveMessage](/docs/for-ai/schemas/r-1.md) (40 components)
-- [RemoteControlInterfaceMoveMessageEnvelope – RtcAnswer](/docs/for-ai/schemas/r-2.md) (40 components)
-- [RtcAnswerValue – RtspSessionInterfaceStopSessionResponseMessageEnvelope](/docs/for-ai/schemas/r-3.md) (20 components)
+- [ReadinessResponse – RemoteControlInterfaceEndSessionMessage](/docs/for-ai/schemas/r-1.md) (40 components)
+- [RemoteControlInterfaceEndSessionMessageEnvelope – RouteName](/docs/for-ai/schemas/r-2.md) (40 components)
+- [RoutesList – RtspSessionInterfaceStopSessionResponseMessageEnvelope](/docs/for-ai/schemas/r-3.md) (22 components)
 - [SceneInterfaceActivateMessage – SpeakerInterfaceSetMuteMessage](/docs/for-ai/schemas/s-1.md) (40 components)
 - [SpeakerInterfaceSetMuteMessageEnvelope – SyntheticEventRequest](/docs/for-ai/schemas/s-2.md) (19 components)
 - [TemperatureSetpoint – TypeValue](/docs/for-ai/schemas/t-1.md) (16 components)

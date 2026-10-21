@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "results"
+  ],
+  "properties": {
+    "results": {
+      "type": "array",
+      "description": "Audit entries, newest first.",
+      "items": {
+        "$ref": "/docs/references/schemas/AccessControlRuleAuditEntry.json"
+      }
+    },
+    "paginationContext": {
+      "$ref": "/docs/references/schemas/PaginationContext.json"
+    }
+  }
+}

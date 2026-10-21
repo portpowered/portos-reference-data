@@ -4,6 +4,7 @@ Use the operation’s scopes and its resource permission requirements. Public di
 
 - [POST /integration-requests](/docs/for-ai/operations/requestFutureIntegration.md)
 - [GET /ping](/docs/for-ai/operations/ping.md)
+- [GET /ready](/docs/for-ai/operations/getReadiness.md)
 - [GET /metrics](/docs/for-ai/operations/getMetrics.md)
 - [GET /.well-known/oauth-authorization-server](/docs/for-ai/operations/getOAuthAuthorizationServerMetadata.md)
 - [GET /.well-known/jwks.json](/docs/for-ai/operations/getJWKS.md)
@@ -57,6 +58,7 @@ Use the operation’s scopes and its resource permission requirements. Public di
 - [DELETE /{namespace}/{principalType}/{principalId}/group-routes/{groupId}](/docs/for-ai/operations/deleteGroupRoute.md)
 - [GET /access-control-rules](/docs/for-ai/operations/getAccessControlRules.md)
 - [POST /access-control-rules](/docs/for-ai/operations/upsertAccessControlRule.md)
+- [GET /access-control-rules/audit](/docs/for-ai/operations/getAccessControlRuleAudit.md)
 - [POST /access-control-rules/evaluate](/docs/for-ai/operations/evaluateAccessControlRule.md)
 - [DELETE /{namespace}/{principalType}/{principalId}/access-control-rules/{ruleId}](/docs/for-ai/operations/deleteAccessControlRule.md)
 - [GET /secrets](/docs/for-ai/operations/enumerateSecrets.md)

@@ -1,16 +1,16 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.17",
-  "sourceCommit": "073665fb0cefff61c96463af2d3317cc60b8737f",
+  "version": "0.5.18",
+  "sourceCommit": "7ebd2f3de441a3636d6393d33c7a70f48926fbd4",
   "sourceInputState": "committed",
-  "assetSetSHA256": "223ad473ff92436111e38a11742ac3b7447e03bb6ce81f46000d59c049f4fa5a",
+  "assetSetSHA256": "4a68c1ebadc44f19d493bc119581043e0982d4077bec7abced2019c5dd8d16de",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 19137,
-      "sha256": "cd9c9295153426a398ba1b2f2261e7ea9e4696b79b6de9b8c60f84c0fee886d9",
+      "bytes": 19493,
+      "sha256": "1254769e112fe237e63d3010914289365d1a840102faa94b5782e6d144a4bc2e",
       "links": [
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
@@ -63,6 +63,7 @@
         "/docs/for-ai/operations/generateOAuthClientSecret.md",
         "/docs/for-ai/operations/generateToken.md",
         "/docs/for-ai/operations/generateTuyaQrCode.md",
+        "/docs/for-ai/operations/getAccessControlRuleAudit.md",
         "/docs/for-ai/operations/getAccessControlRules.md",
         "/docs/for-ai/operations/getEndpointGroup.md",
         "/docs/for-ai/operations/getEventDeadLetter.md",
@@ -74,6 +75,7 @@
         "/docs/for-ai/operations/getOAuthClient.md",
         "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
         "/docs/for-ai/operations/getPendingOAuthConsent.md",
+        "/docs/for-ai/operations/getReadiness.md",
         "/docs/for-ai/operations/getRoutes.md",
         "/docs/for-ai/operations/getSubscription.md",
         "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
@@ -1988,11 +1990,12 @@
     {
       "path": "/docs/for-ai/operations/deleteAccessControlRule.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2440,
-      "sha256": "798b4ae206b1ceb0ab984700a6d1e0c69ef9045f54f3e98581367b35bf21fdec",
+      "bytes": 3318,
+      "sha256": "e300096e589d2dbe10682248cd012512c13190a6bdcd3d33d58af0be72bade45",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
-        "/docs/for-ai/schemas.md"
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/Error.json"
       ]
     },
     {
@@ -2454,6 +2457,19 @@
       ]
     },
     {
+      "path": "/docs/for-ai/operations/getAccessControlRuleAudit.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 5174,
+      "sha256": "1925c3d67859e7ca56ca49b3631588940ea22e510ccd9a892fd019ae587b87ba",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/parameters/NextTokenQuery.json",
+        "/docs/references/schemas/Error.json",
+        "/docs/references/schemas/GetAccessControlRuleAuditResponse.json"
+      ]
+    },
+    {
       "path": "/docs/for-ai/operations/getAccessControlRules.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 4912,
@@ -2578,6 +2594,17 @@
       ]
     },
     {
+      "path": "/docs/for-ai/operations/getReadiness.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 1552,
+      "sha256": "c0bb90117f422691b144aa44cc3dd6a7ec3681e8fabe285ab3a32ff2736a6a5a",
+      "links": [
+        "/docs/for-ai/guides/authentication-and-dcr.md",
+        "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/ReadinessResponse.json"
+      ]
+    },
+    {
       "path": "/docs/for-ai/operations/getRoutes.md",
       "contentType": "text/plain; charset=utf-8",
       "bytes": 3551,
@@ -2640,8 +2667,8 @@
     {
       "path": "/docs/for-ai/operations/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8362,
-      "sha256": "5f943ccc3d19fe2e7de9d58eb037a33c20e10e826229d8ccdbe526977ae15398",
+      "bytes": 8508,
+      "sha256": "a766908108013e6e0b6a9812371860a0a483f9c82ddae9c75c9d793855d7f5ff",
       "links": [
         "/docs/for-ai/operations/addEndpointGroupMembers.md",
         "/docs/for-ai/operations/beginOAuthAuthorization.md",
@@ -2690,6 +2717,7 @@
         "/docs/for-ai/operations/generateOAuthClientSecret.md",
         "/docs/for-ai/operations/generateToken.md",
         "/docs/for-ai/operations/generateTuyaQrCode.md",
+        "/docs/for-ai/operations/getAccessControlRuleAudit.md",
         "/docs/for-ai/operations/getAccessControlRules.md",
         "/docs/for-ai/operations/getEndpointGroup.md",
         "/docs/for-ai/operations/getEventDeadLetter.md",
@@ -2701,6 +2729,7 @@
         "/docs/for-ai/operations/getOAuthClient.md",
         "/docs/for-ai/operations/getOAuthProtectedResourceMetadata.md",
         "/docs/for-ai/operations/getPendingOAuthConsent.md",
+        "/docs/for-ai/operations/getReadiness.md",
         "/docs/for-ai/operations/getRoutes.md",
         "/docs/for-ai/operations/getSubscription.md",
         "/docs/for-ai/operations/handleGoogleCloudSchedulerWebhook.md",
@@ -3005,11 +3034,12 @@
     {
       "path": "/docs/for-ai/operations/upsertAccessControlRule.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2481,
-      "sha256": "c561d3c877cab83545c94fbb412e378d46dc0d9c2398dbd50227836b43c0fa56",
+      "bytes": 3483,
+      "sha256": "ca29bd669c21a68360c8fd8481e12fbf11e8cf201789551178a10722923f882f",
       "links": [
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/schemas.md",
+        "/docs/references/headers/ETag.json",
         "/docs/references/schemas/Error.json",
         "/docs/references/schemas/UpsertAccessControlRuleRequest.json",
         "/docs/references/schemas/UpsertAccessControlRuleResponse.json"
@@ -3124,8 +3154,8 @@
     {
       "path": "/docs/for-ai/schemas.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3768,
-      "sha256": "9d3382f727bad05572f5e4d8774e63eb70f9ee399a025acdabf3cefa4fe428c1",
+      "bytes": 3791,
+      "sha256": "c9ef6f7cea39831dd4cc5e5b4e28bb0313e933714ff660d6c8da428e8db4c551",
       "links": [
         "/docs/for-ai/operations/index.md",
         "/docs/for-ai/schemas/a-1.md",
@@ -3165,8 +3195,8 @@
     {
       "path": "/docs/for-ai/schemas/a-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 4299,
-      "sha256": "2dc9467e5623c9d722749a4acb7047907c89868a5a781a48546b29bc228fa7d6",
+      "bytes": 4365,
+      "sha256": "f9029aed106f4ca817364da25c9924ba09a00f716f08ae9fc65544165c2420bd",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/AccessControlConditionComparator.json",
@@ -3176,6 +3206,9 @@
         "/docs/references/schemas/AccessControlRequesterContext.json",
         "/docs/references/schemas/AccessControlResourceContext.json",
         "/docs/references/schemas/AccessControlRule.json",
+        "/docs/references/schemas/AccessControlRuleAuditAction.json",
+        "/docs/references/schemas/AccessControlRuleAuditEntry.json",
+        "/docs/references/schemas/AccessControlRuleAuditResult.json",
         "/docs/references/schemas/AccessControlRuleCondition.json",
         "/docs/references/schemas/AccessControlRuleEffect.json",
         "/docs/references/schemas/AddEndpointGroupMembersRequest.json",
@@ -3202,9 +3235,6 @@
         "/docs/references/schemas/AttributeAutoUpdateFrequency.json",
         "/docs/references/schemas/AttributeRetrievability.json",
         "/docs/references/schemas/AttributeSchema.json",
-        "/docs/references/schemas/AttributeSelection.json",
-        "/docs/references/schemas/AttributeState.json",
-        "/docs/references/schemas/AudioUriSourceType.json",
         "/docs/references/schemas/associatedAuthLinkId.json",
         "/docs/references/schemas/associatedEndpointId.json",
         "/docs/references/schemas/associatedPluginId.json",
@@ -3214,15 +3244,19 @@
     {
       "path": "/docs/for-ai/schemas/a-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3461,
-      "sha256": "9c89f8f03559f73efef75a611af221a66991f23fd7c7bed4daa56d2049cbc186",
+      "bytes": 3789,
+      "sha256": "2e865935c6f4847638ef9a89155daff8797188f9763ba76f436a8ce8fbee5ffc",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/AttributeSelection.json",
+        "/docs/references/schemas/AttributeState.json",
+        "/docs/references/schemas/AudioUriSourceType.json",
         "/docs/references/schemas/AuthLink.json",
         "/docs/references/schemas/AuthLinkClientCredentialSummaries.json",
         "/docs/references/schemas/AuthLinkClientCredentialSummary.json",
         "/docs/references/schemas/AuthLinkProviderConfiguration.json",
         "/docs/references/schemas/AuthLinkReadiness.json",
+        "/docs/references/schemas/AuthLinkRepairReason.json",
         "/docs/references/schemas/AuthLinkSecret.json",
         "/docs/references/schemas/AuthLinkSecretRole.json",
         "/docs/references/schemas/AuthLinkStatus.json",
@@ -3554,13 +3588,14 @@
     {
       "path": "/docs/for-ai/schemas/g-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 762,
-      "sha256": "b20116b52c3ec4bec991ee7610190cb097b7ee251b338ab0ea0d9ce47a9d29a5",
+      "bytes": 875,
+      "sha256": "82d2cc13bac257d542062a06f3e9c4a617b6741de4922e0817a6bebe2dc59cc4",
       "links": [
         "/docs/for-ai/schemas.md",
         "/docs/references/schemas/GenerateOAuthClientSecretResponse.json",
         "/docs/references/schemas/GenerateTokenRequest.json",
         "/docs/references/schemas/GenerateTokenResponse.json",
+        "/docs/references/schemas/GetAccessControlRuleAuditResponse.json",
         "/docs/references/schemas/GetAccessControlRulesResponse.json",
         "/docs/references/schemas/GroupRoute.json",
         "/docs/references/schemas/GroupRouteAttributeState.json",
@@ -3875,10 +3910,12 @@
     {
       "path": "/docs/for-ai/schemas/r-1.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5441,
-      "sha256": "b5837073bb38ad8ca975ef35dc4b242d11d64c493d7159becc73b20bcfcc0038",
+      "bytes": 5345,
+      "sha256": "21524b014684abd79653e70ae9bb32350982d191c94482e21d484382fa694275",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/ReadinessResponse.json",
+        "/docs/references/schemas/ReadinessStatus.json",
         "/docs/references/schemas/Recording.json",
         "/docs/references/schemas/RecordingsInterfaceDeleteRecordingMessage.json",
         "/docs/references/schemas/RecordingsInterfaceDeleteRecordingMessageEnvelope.json",
@@ -3916,18 +3953,18 @@
         "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessage.json",
         "/docs/references/schemas/RemindersProviderInterfaceUpdateReminderResponseMessageEnvelope.json",
         "/docs/references/schemas/RemoteControlInterfaceEndSessionMessage.json",
-        "/docs/references/schemas/RemoteControlInterfaceEndSessionMessageEnvelope.json",
-        "/docs/references/schemas/RemoteControlInterfaceMoveMessage.json",
         "/docs/references/schemas/redirectUri.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/r-2.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5193,
-      "sha256": "adaa913eaaa31ba6053994fa197f0c77938fea40403cee3d1fc349be610afd11",
+      "bytes": 5315,
+      "sha256": "14c7917d19be900cc8ee28c72b6f3f7581b0b997df4d46fab9875420bc0d9e42",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/RemoteControlInterfaceEndSessionMessageEnvelope.json",
+        "/docs/references/schemas/RemoteControlInterfaceMoveMessage.json",
         "/docs/references/schemas/RemoteControlInterfaceMoveMessageEnvelope.json",
         "/docs/references/schemas/RemoteControlInterfaceStartSessionMessage.json",
         "/docs/references/schemas/RemoteControlInterfaceStartSessionMessageEnvelope.json",
@@ -3965,18 +4002,18 @@
         "/docs/references/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessage.json",
         "/docs/references/schemas/RouteDiscoveryInterfaceSetGroupRouteNameMessageEnvelope.json",
         "/docs/references/schemas/RouteInterface.json",
-        "/docs/references/schemas/RouteName.json",
-        "/docs/references/schemas/RoutesList.json",
-        "/docs/references/schemas/RtcAnswer.json"
+        "/docs/references/schemas/RouteName.json"
       ]
     },
     {
       "path": "/docs/for-ai/schemas/r-3.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 2791,
-      "sha256": "47635bd5ad9280afa9cbcba7040ca1005e89c3d047aac0f228ecc82788bf080f",
+      "bytes": 2923,
+      "sha256": "b22534e6917efd2e0fa64ae9e79439fbe01c58eded44c0383ac7c51e11f84a0a",
       "links": [
         "/docs/for-ai/schemas.md",
+        "/docs/references/schemas/RoutesList.json",
+        "/docs/references/schemas/RtcAnswer.json",
         "/docs/references/schemas/RtcAnswerValue.json",
         "/docs/references/schemas/RtcOffer.json",
         "/docs/references/schemas/RtcSessionAuthorization.json",
@@ -4151,15 +4188,15 @@
     {
       "path": "/docs/references/authorization.json",
       "contentType": "application/json",
-      "bytes": 33716,
-      "sha256": "53efe6e7b97b53c6025b6c8ad2096dcc32e7feb37ebdd46ff0694ba04697406f",
+      "bytes": 34305,
+      "sha256": "c90fd6c95068cb10e8a798dc4bf92f5be0f8edab9971e9e5745ae9a467950932",
       "links": []
     },
     {
       "path": "/docs/references/authorization.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 25122,
-      "sha256": "248e5307bbbebe7c4349309fe0bcc563eb6579e62a4eddbcb85be788136f8596",
+      "bytes": 25542,
+      "sha256": "3f9f6c30e922dc9979f083371f15b3dbd068e28415551cada7913df5582b0d2d",
       "links": []
     },
     {
@@ -7755,8 +7792,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 929960,
-      "sha256": "1334e0405f796043b367c6bc8f5f5e30b31b2216cab40d32fe0f903463baba95",
+      "bytes": 942335,
+      "sha256": "aff7280c0014205a0c745a939626944753cfd0d009f8051edd31b576cc9d2bc7",
       "links": []
     },
     {
@@ -7853,8 +7890,29 @@
     {
       "path": "/docs/references/schemas/AccessControlRule.json",
       "contentType": "application/json",
-      "bytes": 1510,
-      "sha256": "e7785f33faf5e80436d7bf6353ff78466b1617c69c3f52cfd17adff39ea4d211",
+      "bytes": 1672,
+      "sha256": "022ddf966ab5474cb98c30cda4b9061f356f9ffe3ef76ba605bf8b9f5867a396",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AccessControlRuleAuditAction.json",
+      "contentType": "application/json",
+      "bytes": 374,
+      "sha256": "d05b9610ca50308f47d8fbc198bcac92ace32cc7baf333d122cae6007a49a91a",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AccessControlRuleAuditEntry.json",
+      "contentType": "application/json",
+      "bytes": 2050,
+      "sha256": "19e0299053f5d688a9d3c9d9107560101bbc07ee25dd669a004435cbc49a75fc",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AccessControlRuleAuditResult.json",
+      "contentType": "application/json",
+      "bytes": 433,
+      "sha256": "561b4102168ff213cfee8eb8c94b8d50af56ba27af5259c879725fff9f3988a6",
       "links": []
     },
     {
@@ -8126,8 +8184,15 @@
     {
       "path": "/docs/references/schemas/AuthLinkReadiness.json",
       "contentType": "application/json",
-      "bytes": 869,
-      "sha256": "e6993c51c7e1a559149cae0469472f117a2b981afdfb48be7bc614cb482f45d7",
+      "bytes": 965,
+      "sha256": "f33d7e26fb150292535c54004310a82108d6718fef8870ad59f7c91488520b8f",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/AuthLinkRepairReason.json",
+      "contentType": "application/json",
+      "bytes": 1133,
+      "sha256": "a9c6120d4a24a0e7cc28501998279b575b7aac92b4f92f10b49822d777a88563",
       "links": []
     },
     {
@@ -9902,6 +9967,13 @@
       "links": []
     },
     {
+      "path": "/docs/references/schemas/GetAccessControlRuleAuditResponse.json",
+      "contentType": "application/json",
+      "bytes": 435,
+      "sha256": "9cacbcb77daf4a3c6eed137bed0828d5ec67668d59482f3b5e96ddae148b8875",
+      "links": []
+    },
+    {
       "path": "/docs/references/schemas/GetAccessControlRulesResponse.json",
       "contentType": "application/json",
       "bytes": 587,
@@ -9953,8 +10025,8 @@
     {
       "path": "/docs/references/schemas/index.json",
       "contentType": "application/json",
-      "bytes": 194821,
-      "sha256": "40e5ef4257233ec6ad38dcf868b14f38cc7691bbd96ac35d4a4da341a58beb4c",
+      "bytes": 196536,
+      "sha256": "f72fdeb707c48fcadc090807d5c7089dfe4f082827677f499452cec10fabfbec",
       "links": []
     },
     {
@@ -11278,6 +11350,20 @@
       "contentType": "application/json",
       "bytes": 279,
       "sha256": "405f14e7acb71d08b66eb01642abc008f345520f8ba43b813e5f3ad4769f7ac6",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/ReadinessResponse.json",
+      "contentType": "application/json",
+      "bytes": 508,
+      "sha256": "f499ed28e91f5ed408dcc99ae263960041d8ba0dbe0b9a02bccd172651de53b3",
+      "links": []
+    },
+    {
+      "path": "/docs/references/schemas/ReadinessStatus.json",
+      "contentType": "application/json",
+      "bytes": 250,
+      "sha256": "7e3fe8b96b90bff4a0ccd3e71584c2baf73447149ecbd64e25138bb207233385",
       "links": []
     },
     {

@@ -30,6 +30,9 @@
         "type": "string"
       },
       "description": "Names of required provider configuration fields that are not set."
+    },
+    "repairReason": {
+      "$ref": "/docs/references/schemas/AuthLinkRepairReason.json"
     }
   }
 }

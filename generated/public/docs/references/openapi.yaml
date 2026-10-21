@@ -217,6 +217,31 @@ paths:
           description: Server is healthy
       x-portos-delegated: false
       x-portos-resource-permission: false
+  /ready:
+    get:
+      operationId: getReadiness
+      tags:
+        - Infrastructure
+      summary: Readiness check
+      description: >-
+        Returns 200 with the key ID that signs new tokens once the server can sign, or 503 when it
+        cannot. Use it after a deploy to confirm which signing key is live. It requires no
+        authentication and reports nothing else.
+      security: []
+      responses:
+        '200':
+          description: Server is ready and names its signing key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadinessResponse'
+              example:
+                status: READY
+                signingKeyId: pilot-2
+        '503':
+          description: No signing key is available, so the server cannot issue tokens.
+      x-portos-delegated: false
+      x-portos-resource-permission: false
   /metrics:
     get:
       operationId: getMetrics
@@ -4470,6 +4495,19 @@ paths:
 
         Requires a signed user/session or the existing authenticated client flow. The anonymous DCR
         delegated device profile cannot invoke this operation.
+      parameters:
+        - name: If-Match
+          in: header
+          required: false
+          description: >-
+            Optional quoted etag of the rule as last read (its `etag` field). When present the
+            upsert applies only if it still matches the rule's current etag, otherwise 412
+            PRECONDITION_FAILED; `*` requires the rule to exist. Omitted, the upsert is
+            unconditional.
+          schema:
+            type: string
+            minLength: 1
+          example: '"3"'
       requestBody:
         required: true
         content:
@@ -4490,8 +4528,23 @@ paths:
                 $ref: '#/components/schemas/UpsertAccessControlRuleResponse'
               example:
                 id: port1/principals/user123/resources/abc-123
+          headers:
+            ETag:
+              $ref: '#/components/headers/ETag'
         '400':
           description: Invalid request payload
+        '412':
+          description: >-
+            The If-Match etag does not match the current access control rule; re-read the rule and
+            retry
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: access control rule changed since it was read; re-read it and retry
+                code: PRECONDITION_FAILED
+                family: PRECONDITION_FAILED
         '500':
           description: Internal server error
           content:
@@ -4616,6 +4669,129 @@ paths:
         - oauth2: []
         - bearerAuth: []
       summary: Get Access Control Rules
+  /access-control-rules/audit:
+    get:
+      tags:
+        - Access control
+      operationId: getAccessControlRuleAudit
+      description: >-
+        Read the audit of access-control rule changes, newest first. Every rule upsert and delete
+        records who made it, through which client, why, and under which request, plus the rule as it
+        was written. Entries hold identifiers and the rule's shape only, never token text. Entries
+        older than the configured retention (`auth.audit.retentionDays`, default 365) are pruned at
+        server start.
+
+
+
+        Only operator callers (operational tokens) and system zero may read the audit; any other
+        caller receives 403. The default page size is 50 and the maximum is 200.
+      parameters:
+        - name: ruleId
+          in: query
+          description: Only entries about this access-control rule.
+          required: false
+          schema:
+            type: string
+          example: port1/systems/zero/access-control-rules/operator-grants-customer-oauth
+        - name: actorPrincipal
+          in: query
+          description: Only entries made by this principal.
+          required: false
+          schema:
+            type: string
+        - name: resource
+          in: query
+          description: Exact resource of the audited rule.
+          required: false
+          schema:
+            type: string
+        - name: operation
+          in: query
+          description: Exact operation of the audited rule.
+          required: false
+          schema:
+            type: string
+        - name: since
+          in: query
+          description: Only entries recorded at or after this time (RFC 3339).
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: until
+          in: query
+          description: Only entries recorded before this time (RFC 3339).
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - $ref: '#/components/parameters/NextTokenQuery'
+        - name: maxResults
+          in: query
+          required: false
+          description: >-
+            Maximum number of entries to return in one page. Defaults to 50. Values from 1 through
+            200 are accepted.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            default: 50
+      responses:
+        '200':
+          description: Audit entries retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAccessControlRuleAuditResponse'
+              example:
+                results: []
+        '400':
+          description: Invalid filter, page size, time or pagination token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: maxResults must be between 1 and 200
+                code: BAD_REQUEST
+                family: BAD_REQUEST
+        '401':
+          description: Authentication is required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: unauthorized
+                code: UNAUTHORIZED
+                family: UNAUTHORIZED
+        '403':
+          description: The caller is not an operator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: only operators may read the access control rule audit
+                code: FORBIDDEN
+                family: FORBIDDEN
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Internal server error
+                code: INTERNAL
+                family: INTERNAL_SERVER_ERROR
+      x-portos-delegated: false
+      x-portos-resource-permission: false
+      security:
+        - oauth2: []
+        - bearerAuth: []
+      summary: Get Access Control Rule Audit
   /access-control-rules/evaluate:
     post:
       tags:
@@ -4699,11 +4875,35 @@ paths:
             type: string
             maxLength: 500
           description: Optional operator-supplied reason recorded in the audit log for this deletion.
+        - name: If-Match
+          in: header
+          required: false
+          description: >-
+            Optional quoted etag of the rule as last read (its `etag` field). When present the
+            deletion applies only if it still matches the rule's current etag, otherwise 412
+            PRECONDITION_FAILED; `*` requires the rule to exist. Omitted, the deletion is
+            unconditional.
+          schema:
+            type: string
+            minLength: 1
+          example: '"3"'
       responses:
         '200':
           description: Access control rule deleted successfully
         '400':
           description: Invalid request payload
+        '412':
+          description: >-
+            The If-Match etag does not match the current access control rule; re-read the rule and
+            retry
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: access control rule changed since it was read; re-read it and retry
+                code: PRECONDITION_FAILED
+                family: PRECONDITION_FAILED
         '500':
           description: Internal server error
       x-portos-delegated: false
@@ -12826,6 +13026,26 @@ components:
       minLength: 1
       maxLength: 64
       example: merge-kitchen
+    ReadinessStatus:
+      type: string
+      description: Readiness of the server. `READY` means the server can sign tokens.
+      enum:
+        - READY
+      x-enum-varnames:
+        - ReadinessStatusReady
+    ReadinessResponse:
+      type: object
+      description: Readiness of the server and the key that currently signs new tokens.
+      required:
+        - status
+        - signingKeyId
+      properties:
+        status:
+          $ref: '#/components/schemas/ReadinessStatus'
+        signingKeyId:
+          type: string
+          description: Key ID (`kid`) of the key that signs new tokens, as published in the JWKS.
+          example: pilot-2
     BatchResponseStatus:
       type: string
       description: >
@@ -15578,6 +15798,29 @@ components:
               type: string
               pattern: ^[A-Za-z0-9-]{1,128}$
               description: The Device Access project ID.
+    AuthLinkRepairReason:
+      type: string
+      description: >-
+        Why the auth link migration could not repair a link stored by an earlier version. A link
+        with a repair reason reports NEEDS_REPAIR until its owner renews it through establish-link
+        (or deletes and reconnects it), which clears the reason. UNRESOLVABLE_PLUGIN: the link's
+        plugin is unknown. AMBIGUOUS_VARIANT: no single authorization variant of the plugin matches
+        the secrets the link holds. AMBIGUOUS_REGION: the variant offers several regionalizations
+        and the link stored none of them. UNCLASSIFIED_SECRET: a secret has no role, a missing or
+        unknown type, or the same role as another secret. CORRUPT_FIELDS: the stored link fields
+        cannot be read.
+      enum:
+        - UNRESOLVABLE_PLUGIN
+        - AMBIGUOUS_VARIANT
+        - AMBIGUOUS_REGION
+        - UNCLASSIFIED_SECRET
+        - CORRUPT_FIELDS
+      x-enum-varnames:
+        - AuthLinkRepairReasonUnresolvablePlugin
+        - AuthLinkRepairReasonAmbiguousVariant
+        - AuthLinkRepairReasonAmbiguousRegion
+        - AuthLinkRepairReasonUnclassifiedSecret
+        - AuthLinkRepairReasonCorruptFields
     AuthLinkReadiness:
       type: object
       description: Whether an auth link has everything its authorization variant requires.
@@ -15603,6 +15846,8 @@ components:
           items:
             type: string
           description: Names of required provider configuration fields that are not set.
+        repairReason:
+          $ref: '#/components/schemas/AuthLinkRepairReason'
     AuthLink:
       type: object
       properties:
@@ -16298,6 +16543,10 @@ components:
           description: >-
             Conditions on the operation context that must all match for the rule to apply. Always
             returned, possibly empty.
+        etag:
+          type: string
+          readOnly: true
+          description: The quoted strong entity tag of the access control rule, for If-Match
     GetAccessControlRulesResponse:
       type: object
       required:
@@ -16375,6 +16624,97 @@ components:
           type: string
           description: The ID of the access control rule
           example: port1/account/john/access-control-rule/123
+    AccessControlRuleAuditAction:
+      type: string
+      description: >-
+        What an access-control rule audit entry records. UPSERT: the rule was created or updated.
+        DELETE: the rule was deleted.
+      enum:
+        - UPSERT
+        - DELETE
+      x-enum-varnames:
+        - AccessControlRuleAuditActionUpsert
+        - AccessControlRuleAuditActionDelete
+    AccessControlRuleAuditResult:
+      type: string
+      description: >-
+        The outcome an access-control rule audit entry records. COMMITTED: the change was written.
+        UNCHANGED: an upsert matched an existing equivalent rule and wrote nothing.
+      enum:
+        - COMMITTED
+        - UNCHANGED
+      x-enum-varnames:
+        - AccessControlRuleAuditResultCommitted
+        - AccessControlRuleAuditResultUnchanged
+    AccessControlRuleAuditEntry:
+      type: object
+      description: >-
+        One recorded access-control rule change. Holds identifiers and the rule's shape only, never
+        token text.
+      required:
+        - id
+        - at
+        - actorPrincipal
+        - action
+        - ruleId
+        - identity
+        - resource
+        - operation
+        - conditions
+        - result
+      properties:
+        id:
+          type: string
+          description: The unique ID of the audit entry.
+        at:
+          type: string
+          format: date-time
+          description: When the change was recorded.
+        actorPrincipal:
+          type: string
+          description: The principal that made the change.
+        actorClient:
+          type: string
+          description: The OAuth client the actor's token was issued to; absent when unknown.
+        action:
+          $ref: '#/components/schemas/AccessControlRuleAuditAction'
+        ruleId:
+          type: string
+          description: The access-control rule the change was about.
+        identity:
+          type: string
+          description: The identity of the rule as it was written.
+        resource:
+          type: string
+          description: The resource of the rule as it was written.
+        operation:
+          type: string
+          description: The operation of the rule as it was written.
+        conditions:
+          type: array
+          description: The rule's conditions as written, normalized.
+          items:
+            $ref: '#/components/schemas/AccessControlRuleCondition'
+        reason:
+          type: string
+          description: The operator-supplied explanation; absent when none was given.
+        correlationId:
+          type: string
+          description: The request ID of the request that made the change; absent for startup work.
+        result:
+          $ref: '#/components/schemas/AccessControlRuleAuditResult'
+    GetAccessControlRuleAuditResponse:
+      type: object
+      required:
+        - results
+      properties:
+        results:
+          type: array
+          description: Audit entries, newest first.
+          items:
+            $ref: '#/components/schemas/AccessControlRuleAuditEntry'
+        paginationContext:
+          $ref: '#/components/schemas/PaginationContext'
     AccessControlRequesterContext:
       type: object
       required:

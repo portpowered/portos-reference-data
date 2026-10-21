@@ -19,6 +19,15 @@
       "resourcePermissionRequired": false
     },
     {
+      "path": "/ready",
+      "runtimePath": "/ready",
+      "method": "GET",
+      "operationId": "getReadiness",
+      "security": [],
+      "delegated": false,
+      "resourcePermissionRequired": false
+    },
+    {
       "path": "/metrics",
       "runtimePath": "/metrics",
       "method": "GET",
@@ -834,6 +843,22 @@
       ],
       "delegated": false,
       "resourcePermissionRequired": true
+    },
+    {
+      "path": "/access-control-rules/audit",
+      "runtimePath": "/access-control-rules/audit",
+      "method": "GET",
+      "operationId": "getAccessControlRuleAudit",
+      "security": [
+        {
+          "oauth2": []
+        },
+        {
+          "bearerAuth": []
+        }
+      ],
+      "delegated": false,
+      "resourcePermissionRequired": false
     },
     {
       "path": "/access-control-rules/evaluate",

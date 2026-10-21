@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "One recorded access-control rule change. Holds identifiers and the rule's shape only, never token text.",
+  "required": [
+    "id",
+    "at",
+    "actorPrincipal",
+    "action",
+    "ruleId",
+    "identity",
+    "resource",
+    "operation",
+    "conditions",
+    "result"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique ID of the audit entry."
+    },
+    "at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the change was recorded."
+    },
+    "actorPrincipal": {
+      "type": "string",
+      "description": "The principal that made the change."
+    },
+    "actorClient": {
+      "type": "string",
+      "description": "The OAuth client the actor's token was issued to; absent when unknown."
+    },
+    "action": {
+      "$ref": "/docs/references/schemas/AccessControlRuleAuditAction.json"
+    },
+    "ruleId": {
+      "type": "string",
+      "description": "The access-control rule the change was about."
+    },
+    "identity": {
+      "type": "string",
+      "description": "The identity of the rule as it was written."
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource of the rule as it was written."
+    },
+    "operation": {
+      "type": "string",
+      "description": "The operation of the rule as it was written."
+    },
+    "conditions": {
+      "type": "array",
+      "description": "The rule's conditions as written, normalized.",
+      "items": {
+        "$ref": "/docs/references/schemas/AccessControlRuleCondition.json"
+      }
+    },
+    "reason": {
+      "type": "string",
+      "description": "The operator-supplied explanation; absent when none was given."
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "The request ID of the request that made the change; absent for startup work."
+    },
+    "result": {
+      "$ref": "/docs/references/schemas/AccessControlRuleAuditResult.json"
+    }
+  }
+}
