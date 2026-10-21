@@ -1,8 +1,3 @@
----
-name: connected-home
-description: Use for connected-device requests such as turning off lights or a room switch, lowering the thermostat temperature, checking the temperature right now, vacuuming a room, playing or pausing music on Echo/Alexa, lowering speaker volume, looking at a kitchen camera, finding or pinging a phone, or checking whether a phone/watch is dead or needs charging. For a bare temperature question with no indoor/outdoor context, clarify which before assuming weather. Explicit weather forecasts or city temperatures do not require this workflow.
----
-
 # Connected home requests
 
 Resolve the customer's intended home task and use the existing Port OS connection.

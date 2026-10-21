@@ -9,20 +9,21 @@ last modified: 2026, october, 9
 
 ## Updating resources
 
-Canonical inputs in the application repository are `docs/user-guides/` (guides in `skills/general`, `skills/devices`, `oauth`, `connect-ai` and `api` subdirectories; the reader walks them recursively and rejects a duplicate `guide-id` or `skill-id`), `api/ci/`, `api/openapi-main.yaml` and its modular references. `api/cif/` and `api/openapi.yaml` are bundled projections. Generation reuses the existing capability normalizer, preserving the application's generated catalog contract. Install the website dependencies before generating this package.
+Canonical inputs in the application repository are `docs/skills/` (skills in `<category>/<name>/SKILL.md`, categories `setup`, `general` and `devices`; each file is both a guide and an Agent Skill, with the guide fields in its `metadata` map), `docs/user-guides/` (guides that are not skills, in `oauth`, `connect-ai` and `api`), `api/ci/`, `api/openapi-main.yaml` and its modular references. `api/cif/` and `api/openapi.yaml` are bundled projections. The reader rejects a duplicate `guide-id` or skill `name` across both trees. Generation reuses the existing capability normalizer, preserving the application's generated catalog contract. Install the website dependencies before generating this package.
 
-Agent skills are authored in `docs/agent-skills/*/SKILL.md`. The existing task
-guides are authored in `backend/internal/services/documentation/guides/internal/core/content/`;
-the `setup.md` and `connected-home.md` files there are generated skill copies.
-`reference:generate` synchronizes the skills into both plugin packages and the
-MCP embed before publishing the original Markdown as `skill-*` and `task-*`
-public guides. All of these inputs participate in source provenance. Backend
+The plugin skills (`first-setup` and `connected-home`) are authored in
+`docs/skills/` like every other skill. The MCP task guides are authored in
+`backend/internal/services/documentation/guides/internal/core/content/`; the
+`first-setup.md` and `connected-home.md` files there are synced skill copies.
+`reference:generate` synchronizes the plugin skills into the plugin package and
+the MCP embed, publishes every skill and guide under its `guide-id`, and
+publishes the MCP task guides as `task-*` public guides. All of these inputs participate in source provenance. Backend
 embedding, pre-review and plugin packaging reject independently edited skill
 copies. See the [publishing worksheet](../../docs/design/cloud-plugin-publishing-worksheet.md)
 for the ownership map and publisher decisions.
 
 1. Change the canonical reference resources.
-2. Record the source commit with `bun packages/reference-data/scripts/source-provenance.mjs --record <full-commit>` from the repository root, then run `bun run reference:generate` from `website/`.
+2. Record the source commit with `bun packages/reference-data/scripts/source-provenance.mjs --record <full-commit>` from the repository root, then run `bun run reference:generate` from `frontend/website/`.
 3. Run `bun run reference:check` to verify generated data. The website production build also runs this check.
 
 The documentation package omits generated descriptions beginning with `Schema for`, while preserving useful field descriptions and all validation properties. `descriptions.json` supplies capability introductions independently of validation rules. Edit it for concise customer-facing copy, then regenerate.
@@ -35,7 +36,7 @@ The manifest records the canonical input snapshot's `sourceCommit` and `sourceIn
 
 ## Guide frontmatter and the docs export
 
-Every guide needs `title`, `guide-id` (equal to the file name), `description` (when to use it) and `content-authorship`. Guides under `skills/` also need a `skill-id`; device guides list the `capabilities` they cover, and each name must be a capability in `api/ci`. `guides.json` publishes `description`, `group`, `skillId` and `capabilities` next to the existing fields. Public guide URLs come from `slug` or `title`, never from the directory.
+Every guide needs `title`, `guide-id` (equal to the file name), `description` (when to use it) and `content-authorship`. A skill carries the same fields in its `metadata` map, with `name` (its directory) and `description` at the top level; device skills list the space-separated `capabilities` they cover, and each name must be a capability in `api/ci`. `guides.json` publishes `description`, `group`, `skillId` and `capabilities` next to the existing fields. Public guide URLs come from `slug` or `title`, never from the directory.
 
 `bun scripts/exportPublicDocs.mjs <directory>` writes a self-contained copy of the guides and agent skills for the public `portpowered/portos-docs` repository, as this package is copied to `portpowered/portos-reference-data`. See [Guides as skills](../../docs/design/guides-as-skills.md).
 

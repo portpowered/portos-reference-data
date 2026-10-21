@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.14",
-  "sourceCommit": "77afd03e31379002dca3dd175bc58ea2bb2f20e6",
+  "version": "0.5.15",
+  "sourceCommit": "68a7587ea9d23b420b9e5ef73fb87bdd81f1e5f1",
   "sourceInputState": "committed",
-  "assetSetSHA256": "5d1469cdfd5d5c4c2731d951f34091cbe761f8fa2676e939afa4c9019f1b0819",
+  "assetSetSHA256": "7943a1fe473bcbbb8e59c12613a5b9ed94ebeecb835596e67307c1aa8ff94600",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1437,8 +1437,8 @@
     {
       "path": "/docs/for-ai/guides/first-setup.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 871,
-      "sha256": "f544d5aa0bcd16244c52d07ec124cee4caa6541e308d4f861882a90862b80797",
+      "bytes": 1624,
+      "sha256": "017994f4d418b0008c1c5ca7cedc335e76ff3cfd4c9ed6bf32b63ef7eccd94db",
       "links": [
         "/docs/for-ai/guides/adding-devices.md",
         "/docs/for-ai/guides/quickstart.md",
@@ -1455,8 +1455,8 @@
     {
       "path": "/docs/for-ai/guides/index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3862,
-      "sha256": "49069a89c02d141cffce9e1997ad0d8e6f3a3531cb646b59a291e181737f2710",
+      "bytes": 3807,
+      "sha256": "48eb0a8a35892695e63d4ccb28e5cfd9b85eb688507a5d21662dcf7587400c6a",
       "links": [
         "/docs/for-ai/guides/access-key-sign-in.md",
         "/docs/for-ai/guides/adding-devices.md",
@@ -1486,7 +1486,6 @@
         "/docs/for-ai/guides/reading-the-docs.md",
         "/docs/for-ai/guides/sign-in-and-connect-accounts.md",
         "/docs/for-ai/guides/skill-connected-home.md",
-        "/docs/for-ai/guides/skill-setup.md",
         "/docs/for-ai/guides/smartthings.md",
         "/docs/for-ai/guides/spotify.md",
         "/docs/for-ai/guides/task-battery.md",
@@ -1684,15 +1683,8 @@
     {
       "path": "/docs/for-ai/guides/skill-connected-home.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3497,
-      "sha256": "489b8fc6754ad5dd05f1f731896bbc1b97e708e4c298c1ca1ad848969136acd8",
-      "links": []
-    },
-    {
-      "path": "/docs/for-ai/guides/skill-setup.md",
-      "contentType": "text/plain; charset=utf-8",
-      "bytes": 1706,
-      "sha256": "b1a15003dcb1a79a86ad44ad8f7adc2b3eb27723330329bbe225a3ef1edaaa8c",
+      "bytes": 2920,
+      "sha256": "58facbf4683a433f0af54cb6fe8f355c3888f87f2219726bd7ec08aa4065d034",
       "links": []
     },
     {
@@ -1747,8 +1739,8 @@
     {
       "path": "/docs/for-ai/guides/task-index.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 3531,
-      "sha256": "2692864f5e0a0eb6b0d5f61213795c5891de9728215bcd2f01c801407abb900a",
+      "bytes": 3551,
+      "sha256": "54476e2cda85f1b4b980a74329710b84fc875c391e98d5a6913d2cfa68aa353f",
       "links": []
     },
     {
