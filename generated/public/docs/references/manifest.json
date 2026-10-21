@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.22",
-  "sourceCommit": "c74083d3d1e671fe9ddfc3d49c22b271fd352853",
+  "version": "0.5.23",
+  "sourceCommit": "e6a61ef5a9b0e161b39eb980dcde3480210756db",
   "sourceInputState": "committed",
-  "assetSetSHA256": "51f74f1372fc4a00e8f42925f9378917c6655fe3210c8e6724e684d86f1072e6",
+  "assetSetSHA256": "35cac9247b4b63676cb57f665d95d43f58b292df468786be50a010cc4f04ae2c",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -7795,8 +7795,8 @@
     {
       "path": "/docs/references/openapi.yaml",
       "contentType": "application/yaml; charset=utf-8",
-      "bytes": 942335,
-      "sha256": "aff7280c0014205a0c745a939626944753cfd0d009f8051edd31b576cc9d2bc7",
+      "bytes": 942595,
+      "sha256": "94a4223abc18a4edacc43c2ff809df9cd66d2b178a13f5f8574fbe7b19de5405",
       "links": []
     },
     {
@@ -11050,8 +11050,8 @@
     {
       "path": "/docs/references/schemas/PluginAuthorizationVariant.json",
       "contentType": "application/json",
-      "bytes": 1454,
-      "sha256": "bf5225703b8f570d60981f843a0d7b3cc8f9c36c75027b072d54e781f1620a64",
+      "bytes": 1695,
+      "sha256": "4f516a241a20a1ae0da37633563f92bb7dc3f3851b614fabe7868c19109f9fba",
       "links": []
     },
     {

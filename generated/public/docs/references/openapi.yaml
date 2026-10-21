@@ -15424,6 +15424,11 @@ components:
           items:
             type: string
           description: IDs of the regionalizations this variant supports.
+        defaultRegionalization:
+          type: string
+          description: >-
+            ID of the regionalization to preselect for this variant. Always one of this variant's
+            regionalizations. Present whenever the variant offers more than one.
         secretRoles:
           type: array
           items:
