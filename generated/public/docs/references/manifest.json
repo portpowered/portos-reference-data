@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.20",
-  "sourceCommit": "51bc61fd79fd669b1ff6b054e6eac51b056a1f4d",
+  "version": "0.5.21",
+  "sourceCommit": "3d96a2cc55c0af56bf0bce41a693e3342743fece",
   "sourceInputState": "committed",
-  "assetSetSHA256": "2cac05ad606db1511486ba07831ec473d76b14a2c3b0ad16ed9befc065bb53d6",
+  "assetSetSHA256": "954f55e5e8c99b95c78add5cc6af84066f4f9874e08743a5f236b9c572253dba",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -12800,12 +12800,12 @@
     {
       "path": "/llms.txt",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 1516,
-      "sha256": "93bf061a90a4a36d7ea7d57b557a4aa837d179491727db1bc0d90be3c54c06a3",
+      "bytes": 1580,
+      "sha256": "f10a3225ef368180bc78d2dcf3417592d6f5ca6cd0e7e4557099bd88acc993df",
       "links": [
         "/blog/",
+        "/blog/agentic-api-development-best-practices/",
         "/blog/how-the-port-os-mcp-integration-works/",
-        "/blog/what-is-port-os/",
         "/docs/for-ai/capability-interfaces.md",
         "/docs/for-ai/guides/authentication-and-dcr.md",
         "/docs/for-ai/guides/authorization-rules.md",

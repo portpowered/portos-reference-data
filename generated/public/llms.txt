@@ -20,5 +20,5 @@
 ## Blog
 
 - [All posts](/blog/): articles on connecting AI assistants to devices; the guides above stay canonical.
+- [Agentic API development: top 10 best practices](/blog/agentic-api-development-best-practices/): If you want AI to use your API, it has to be easy for them. In this list we go through 10 best practices for making agents work well across authentication, discoverability, documentation, and more.
 - [How the Port OS MCP integration optimizes UX for Agents](/blog/how-the-port-os-mcp-integration-works/): Exposing agents directly to Port OS APIs can work, but leads to poor accuracy and confusion. We detail the skills, API changes, and custom integrations that we build for agents to work well with Port OS.
-- [What is Port OS? Connect your AI assistant to your devices](/blog/what-is-port-os/): Port OS gives AI assistants like ChatGPT and Claude one permissioned interface to your connected devices, instead of one integration per vendor.
