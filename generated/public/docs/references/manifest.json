@@ -1,10 +1,10 @@
 {
   "package": "@portpowered/reference-data",
   "goModule": "github.com/portpowered/portos-reference-data",
-  "version": "0.5.26",
-  "sourceCommit": "869f478529d0bde958a2c9a9835ee826646635cc",
+  "version": "0.5.27",
+  "sourceCommit": "51be2aa5e6f9bd1f00d3613d6920baf9b491e758",
   "sourceInputState": "committed",
-  "assetSetSHA256": "53cd23b649c63817a6c16eeb77d845ff6ddcbe4cba3d72c84d5abe94a82d42a7",
+  "assetSetSHA256": "5ca8af8f75c278e01854e3ef74512ba32959d29b3b169dbe1d4a10fa6dc4b398",
   "files": [
     {
       "path": "/docs/for-ai/api-catalog.md",
@@ -1453,8 +1453,8 @@
     {
       "path": "/docs/for-ai/guides/google-nest.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 8782,
-      "sha256": "6ca0ab51ca6a433a24b128ea8e0cc5ed8b81d9446ceff449e6c3d950e1df53d0",
+      "bytes": 9563,
+      "sha256": "a8460b9cde560c6912c54fa2b1422be166cb1be4b8b8ab898f8f01ac837d5702",
       "links": [
         "/guides/nest/01-auth-platform-get-started.webp",
         "/guides/nest/02-app-information.webp",
@@ -1707,15 +1707,15 @@
     {
       "path": "/docs/for-ai/guides/smartthings.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 5010,
-      "sha256": "fb3a59d6a9f3d6cd7091fd8ca3ba20a1e8d1de8d7e0a755a59b466819dbc5150",
+      "bytes": 5768,
+      "sha256": "cd4383ab7c5310965817b8be19f2e49a5679f3958224c7f907021d35fa72e679",
       "links": []
     },
     {
       "path": "/docs/for-ai/guides/spotify.md",
       "contentType": "text/plain; charset=utf-8",
-      "bytes": 6794,
-      "sha256": "4008c063c7e96433238fa6a5ed89fa722e31f42642740acdb04671d8886b0df5",
+      "bytes": 7536,
+      "sha256": "d227c1961c0070d7ec55db01031fb5316b2fa3db413f95c6e969a8614180a594",
       "links": [
         "/guides/spotify/01-dashboard.webp",
         "/guides/spotify/02-create-app-form.webp",
